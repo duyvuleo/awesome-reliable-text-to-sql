@@ -2,6 +2,7 @@
 
 ## 2026-10-22
 
+- Removed source-depth labels from displayed paper entries while retaining the metadata in the catalog.
 - Established a focused annotated collection covering ambiguity, answerability, clarification, contextual grounding, uncertainty, and evaluation in Text-to-SQL.
 - Added public-source paper summaries, separate system/tool and dataset/benchmark records, starting papers, reading routes, and an evaluation guide.
 - Recorded publication and artifact corrections, including repository placeholders and differences between paper descriptions and released data.

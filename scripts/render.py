@@ -28,7 +28,7 @@ def paper_entry(item, compact=False):
     if item.get("artifact_status"):
         lines.extend(["", f"**Artifacts:** {item['artifact_status']}"])
     lines.extend(["", "**Sources:** " + " · ".join(f"[Source {index}]({url})" for index, url in enumerate(item["evidence"], 1)),
-                  f"**Content checked:** {item['checked_on']} · **Source depth:** {item['source_depth']}."])
+                  f"**Content checked:** {item['checked_on']}."])
     return "\n".join(lines)
 
 

@@ -17,7 +17,7 @@ The UTF-8 JSON files are the source of truth. Generated Markdown is committed fo
 | `scope` | `core` for direct treatment of the focus; `adjacent` for explicitly relevant supporting work. |
 | `summary` | An original concise explanation of the contribution and its boundary. |
 | `evidence` | Public sources supporting the metadata and description. |
-| `source_depth` | `primary-record` for abstract/metadata inspection, or `targeted-full-text` when relevant paper sections were inspected. Neither means reproduced. |
+| `source_depth` | Curation metadata retained in JSON and omitted from displayed paper entries: `primary-record` for abstract/metadata inspection, or `targeted-full-text` when relevant paper sections were inspected. Neither means reproduced. |
 | `added_on` | First inclusion date; retain it when revising an existing entry. Recent additions sort by this date, then publication year and title. |
 | `checked_on` | Date of substantive source verification in `YYYY-MM-DD` format. |
 | `artifact_status` | Optional detail about release or inspection limits. |
