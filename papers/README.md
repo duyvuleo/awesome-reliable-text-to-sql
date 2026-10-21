@@ -6,6 +6,8 @@
 
 Annotations describe published evidence and its limits. Source checks do not establish independent reproduction.
 
+Expand **Release notes and sources** for artifact qualifications and provenance. **Release not verified** means no code or data link was confirmed, not that no release exists.
+
 ## Contents
 
 - [Ambiguity and multiple interpretations](#ambiguity)
@@ -17,882 +19,91 @@ Annotations describe published evidence and its limits. Source checks do not est
 <a id="ambiguity"></a>
 ## Ambiguity and multiple interpretations
 
-<a id="ambisql"></a>
-### AmbiSQL: Interactive Ambiguity Detection and Resolution for Text-to-SQL
-
-**2026; SIGMOD 2026 demonstration described in author manuscript; first preprint 2025** · **core** · [Paper](https://arxiv.org/abs/2508.15276) · [Code](https://github.com/JustinzjDing/AmbiSQL)
-
-Detects ambiguous phrases, presents multiple-choice clarification options, and rewrites the question before passing it to a SQL generator. The demonstration integrates XiYan-SQL and a small set of ambiguous examples, so its interface and detection mechanisms should be separated from claims of general end-to-end reliability.
-
-**Topics:** ambiguity, clarification, query-rewriting, system.
-
-**Artifacts:** Apache-2.0 code, frontend, and linked demo verified; live demo not exercised; standalone ambiguity dataset release not verified. Distinct from AmbigSQL in Learning to Clarify; current arXiv v2 has six authors and a demonstration-oriented abstract, unlike older indexed snippets.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2508.15276) · [Source 2](https://github.com/JustinzjDing/AmbiSQL)
-**Content checked:** 2026-10-22.
-
-<a id="arcs"></a>
-### ARCS: Towards Precise Text-to-SQL via Structured Disambiguation
-
-**2026; arXiv preprint** · **core** · [Paper](https://arxiv.org/abs/2610.09396)
-
-Introduces structured selection among ambiguity points and interpretations, with a corpus built over real-world databases. The benchmark separates disambiguation from SQL generation and uses a user simulator, so its reported results remain specific to the annotated alternatives and interaction protocol.
-
-**Topics:** ambiguity, clarification, benchmark, structured-interaction.
-
-**Artifacts:** Inspected arXiv v2, revised 2026-10-14; project page linked in paper: https://megagonlabs.github.io/tabulaflow/research/arcs
-
-**Sources:** [Source 1](https://arxiv.org/abs/2610.09396) · [Source 2](https://arxiv.org/html/2610.09396v2)
-**Content checked:** 2026-10-22.
-
-<a id="falcon-synthesis"></a>
-### FALCON: A Model and Dataset Agnostic Framework for Synthetic Data Generation for NL2SQL Pairs
-
-**2026; Accepted to AKBC Workshop at EMNLP, according to arXiv comments** · **core** · [Paper](https://arxiv.org/abs/2610.03625)
-
-Uses SQL reserved-word seeding, persona prompts, ambiguity handling, and alignment filtering to generate complex NL-SQL training pairs with compact models. Its human checks and downstream training experiments support the tested data pipeline, rather than establishing that automatically generated interpretations exhaust real user intent.
-
-**Topics:** synthetic-data, ambiguity, multi-interpretation.
-
-**Artifacts:** Paper verified; public code or dataset artifact not located in manuscript links or targeted search. Distinct from the eosphoros-ai/Falcon Chinese enterprise benchmark.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2610.03625) · [Source 2](https://arxiv.org/html/2610.03625v1)
-**Content checked:** 2026-10-22.
-
-<a id="raqs-sql"></a>
-### RAQS-SQL: Schema and Value Ambiguity Resolution in Text-to-SQL
-
-**2026; IEEE TKDE Early Access** · **core** · [Paper](https://ieeexplore.ieee.org/abstract/document/11720244) · [Data](https://huggingface.co/datasets/griffith-bigdata/ambival)
-
-Combines question-to-column alignment with semantic and hierarchical value matching, and introduces AmbiVal from Spider and BIRD. The approach focuses on schema and value ambiguity; those grounding tasks should be distinguished from evaluating a full clarification dialogue.
-
-**Topics:** ambiguity, schema-linking, value-grounding, benchmark.
-
-**Artifacts:** Publisher abstract and date verified through its indexed primary record; direct fetch failed. Author-group collection links the AmbiVal dataset.
-
-**Sources:** [Source 1](https://ieeexplore.ieee.org/abstract/document/11720244) · [Source 2](https://huggingface.co/collections/griffith-bigdata/raqs-sql) · [Source 3](https://huggingface.co/datasets/griffith-bigdata/ambival)
-**Content checked:** 2026-10-22.
-
-<a id="taco"></a>
-### TACO: A Benchmark for Open-Domain Text-to-SQL with Ambiguous and Cross-Database Queries
-
-**2026; VLDB 2026 acceptance reported by author repository; arXiv manuscript verified** · **core** · [Paper](https://arxiv.org/abs/2606.14201) · [Code](https://github.com/Akanezora0/TACO-Benchmark) · [Data](https://huggingface.co/datasets/Akanezora/TACO-Benchmark)
-
-Tests vague questions, unknown target databases, and queries spanning heterogeneous databases; TACO-SQL combines rewriting, table linking, and planning. The benchmark primarily scores executable SQL against selected references, so its open-domain ambiguity challenge differs from enumerating all interpretations or measuring clarification quality.
-
-**Topics:** ambiguity, open-domain, cross-database, benchmark.
-
-**Artifacts:** Public code and official linked dataset card verified; not downloaded or executed. Both repository and dataset card declare MIT. Paper describes 14,500 examples, while the current Hugging Face card reports 12,422 JSON examples and 46 SQLite databases; distinguish the described benchmark from the released snapshot.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2606.14201) · [Source 2](https://github.com/Akanezora0/TACO-Benchmark) · [Source 3](https://huggingface.co/datasets/Akanezora/TACO-Benchmark)
-**Content checked:** 2026-10-22.
-
-<a id="circleclar"></a>
-### What Is a Clarification? Estimating Model-Dependent Input Ambiguity
-
-**2026; arXiv preprint** · **core** · [Paper](https://arxiv.org/abs/2610.20052)
-
-Distinguishes interpretations admitted by an input from answers accessible to a particular model and estimates answer sets through answer–clarification–answer consistency. Experiments include executable Text-to-SQL, while the abstract's decision-policy results for answering, clarifying, and abstaining are reported for question answering.
-
-**Topics:** ambiguity, clarification, answer-sets.
-
-**Artifacts:** Public preprint verified at abstract and metadata level; no implementation or dataset release verified in this pass.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2610.20052)
-**Content checked:** 2026-10-22.
-
-<a id="clear-clambsql"></a>
-### CLEAR: A Parser-Independent Disambiguation Framework for NL2SQL
-
-**2025; ICDE 2025** · **core** · [Paper](https://ieeexplore.ieee.org/document/11113237/) · [Code](https://github.com/mengzhang18/CLEAR) · [Data](https://huggingface.co/datasets/mengxi123/CLAMBSQL)
-
-Builds candidate schema mappings, collects multiple-choice selections and rewrites both question and schema for a downstream parser. CLAMBSQL adds ambiguity and clarification annotations, so the evaluation depends on those annotated choices rather than unconstrained conversations.
-
-**Topics:** ambiguity, clarification, benchmark, interactive-system.
-
-**Artifacts:** Publisher abstract was available in search; direct publisher page required browser verification. Author repository and dataset page were inspected; dataset page has files but no dataset card.
-
-**Sources:** [Source 1](https://ieeexplore.ieee.org/document/11113237/) · [Source 2](https://github.com/mengzhang18/CLEAR) · [Source 3](https://huggingface.co/datasets/mengxi123/CLAMBSQL)
-**Content checked:** 2026-10-22.
-
-<a id="disambiguate-first"></a>
-### Disambiguate First, Parse Later: Generating Interpretations for Ambiguity Resolution in Semantic Parsing
-
-**2025; Findings of ACL 2025** · **core** · [Paper](https://aclanthology.org/2025.findings-acl.863/) · [Code](https://github.com/saparina/disambiguate-then-parse)
-
-Generates initial natural-language readings and trains an infilling model to recover interpretations that the initial LLM omits, then parses each reading into SQL. The modular approach targets coverage on annotated ambiguity datasets; candidate generation alone does not identify the actual user intent.
-
-**Topics:** ambiguity, interpretation-coverage.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://aclanthology.org/2025.findings-acl.863/) · [Source 2](https://github.com/saparina/disambiguate-then-parse)
-**Content checked:** 2026-10-22.
-
-<a id="ambrosia"></a>
-### AMBROSIA: A Benchmark for Parsing Ambiguous Questions into Database Queries
-
-**2024; NeurIPS 2024 Datasets and Benchmarks** · **core** · [Paper](https://arxiv.org/abs/2406.19073) · [Code](https://github.com/saparina/ambrosia) · [Data](https://ambrosia-benchmark.github.io/)
-
-Pairs scope ambiguity, attachment ambiguity and vagueness with natural-language interpretations and SQL over purpose-built databases. Ambiguity persists despite database context, so the task measures interpretation coverage rather than simply selecting a schema match.
-
-**Topics:** ambiguity, interpretation-coverage, benchmark.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2406.19073) · [Source 2](https://github.com/saparina/ambrosia)
-**Content checked:** 2026-10-22.
-
-<a id="ambiqt"></a>
-### Benchmarking and Improving Text-to-SQL Generation under Ambiguity
-
-**2023; EMNLP 2023** · **core** · [Paper](https://aclanthology.org/2023.emnlp-main.436/) · [Code](https://github.com/tomartushar/AmbiQT) · [Data](https://github.com/tomartushar/AmbiQT/tree/master/benchmark)
-
-Introduces AmbiQT, where one question supports two plausible SQL readings, and LogicalBeam, which diversifies query plans before schema-constrained infilling. The benchmark measures coverage of controlled lexical and structural alternatives rather than a complete interactive clarification policy.
-
-**Topics:** ambiguity, interpretation-coverage, benchmark, decoding.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://aclanthology.org/2023.emnlp-main.436/) · [Source 2](https://github.com/tomartushar/AmbiQT)
-**Content checked:** 2026-10-22.
-
-<a id="dte-noisysp"></a>
-### Know What I don’t Know: Handling Ambiguous and Unknown Questions for Text-to-SQL
-
-**2023; Findings of ACL 2023** · **core** · [Paper](https://aclanthology.org/2023.findings-acl.352/) · [Code](https://github.com/wbbeyourself/DTE) · [Data](https://github.com/wbbeyourself/DTE)
-
-Organizes problematic questions into six categories and generates counterfactual examples for a Detecting-Then-Explaining model. Detection, localization and explanation are evaluated on observed and generated cases, without establishing a complete clarification-to-SQL conversation policy.
-
-**Topics:** ambiguity, unanswerability, detection, explanation, benchmark.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://aclanthology.org/2023.findings-acl.352/)
-**Content checked:** 2026-10-22.
+| Year | Paper / venue | Concise summary | Code / data |
+| --- | --- | --- | --- |
+| 2026 | <a id="ambisql"></a>[AmbiSQL: Interactive Ambiguity Detection and Resolution for Text-to-SQL](https://arxiv.org/abs/2508.15276)<br>SIGMOD 2026 demonstration described in author manuscript; first preprint 2025<br><em>core</em> | Detects ambiguous phrases, presents multiple-choice clarification options, and rewrites the question before passing it to a SQL generator. The demonstration integrates XiYan-SQL and a small set of ambiguous examples, so its interface and detection mechanisms should be separated from claims of general end-to-end reliability. | [Code](https://github.com/JustinzjDing/AmbiSQL)<br><details><summary>Release notes and sources</summary>Apache-2.0 code, frontend, and linked demo verified; live demo not exercised; standalone ambiguity dataset release not verified. Distinct from AmbigSQL in Learning to Clarify; current arXiv v2 has six authors and a demonstration-oriented abstract, unlike older indexed snippets.<br><br><strong>Topics:</strong> ambiguity, clarification, query-rewriting, system<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2508.15276">Source 1</a> · <a href="https://github.com/JustinzjDing/AmbiSQL">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="arcs"></a>[ARCS: Towards Precise Text-to-SQL via Structured Disambiguation](https://arxiv.org/abs/2610.09396)<br>arXiv preprint<br><em>core</em> | Introduces structured selection among ambiguity points and interpretations, with a corpus built over real-world databases. The benchmark separates disambiguation from SQL generation and uses a user simulator, so its reported results remain specific to the annotated alternatives and interaction protocol. | Release not verified<br><details><summary>Release notes and sources</summary>Inspected arXiv v2, revised 2026-10-14; project page linked in paper: https://megagonlabs.github.io/tabulaflow/research/arcs<br><br><strong>Topics:</strong> ambiguity, clarification, benchmark, structured-interaction<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2610.09396">Source 1</a> · <a href="https://arxiv.org/html/2610.09396v2">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="falcon-synthesis"></a>[FALCON: A Model and Dataset Agnostic Framework for Synthetic Data Generation for NL2SQL Pairs](https://arxiv.org/abs/2610.03625)<br>Accepted to AKBC Workshop at EMNLP, according to arXiv comments<br><em>core</em> | Uses SQL reserved-word seeding, persona prompts, ambiguity handling, and alignment filtering to generate complex NL-SQL training pairs with compact models. Its human checks and downstream training experiments support the tested data pipeline, rather than establishing that automatically generated interpretations exhaust real user intent. | Release not verified<br><details><summary>Release notes and sources</summary>Paper verified; public code or dataset artifact not located in manuscript links or targeted search. Distinct from the eosphoros-ai/Falcon Chinese enterprise benchmark.<br><br><strong>Topics:</strong> synthetic-data, ambiguity, multi-interpretation<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2610.03625">Source 1</a> · <a href="https://arxiv.org/html/2610.03625v1">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="raqs-sql"></a>[RAQS-SQL: Schema and Value Ambiguity Resolution in Text-to-SQL](https://ieeexplore.ieee.org/abstract/document/11720244)<br>IEEE TKDE Early Access<br><em>core</em> | Combines question-to-column alignment with semantic and hierarchical value matching, and introduces AmbiVal from Spider and BIRD. The approach focuses on schema and value ambiguity; those grounding tasks should be distinguished from evaluating a full clarification dialogue. | [Data](https://huggingface.co/datasets/griffith-bigdata/ambival)<br><details><summary>Release notes and sources</summary>Publisher abstract and date verified through its indexed primary record; direct fetch failed. Author-group collection links the AmbiVal dataset.<br><br><strong>Topics:</strong> ambiguity, schema-linking, value-grounding, benchmark<br><br><strong>Sources:</strong> <a href="https://ieeexplore.ieee.org/abstract/document/11720244">Source 1</a> · <a href="https://huggingface.co/collections/griffith-bigdata/raqs-sql">Source 2</a> · <a href="https://huggingface.co/datasets/griffith-bigdata/ambival">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="taco"></a>[TACO: A Benchmark for Open-Domain Text-to-SQL with Ambiguous and Cross-Database Queries](https://arxiv.org/abs/2606.14201)<br>VLDB 2026 acceptance reported by author repository; arXiv manuscript verified<br><em>core</em> | Tests vague questions, unknown target databases, and queries spanning heterogeneous databases; TACO-SQL combines rewriting, table linking, and planning. The benchmark primarily scores executable SQL against selected references, so its open-domain ambiguity challenge differs from enumerating all interpretations or measuring clarification quality. | [Code](https://github.com/Akanezora0/TACO-Benchmark) · [Data](https://huggingface.co/datasets/Akanezora/TACO-Benchmark)<br><details><summary>Release notes and sources</summary>Public code and official linked dataset card verified; not downloaded or executed. Both repository and dataset card declare MIT. Paper describes 14,500 examples, while the current Hugging Face card reports 12,422 JSON examples and 46 SQLite databases; distinguish the described benchmark from the released snapshot.<br><br><strong>Topics:</strong> ambiguity, open-domain, cross-database, benchmark<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2606.14201">Source 1</a> · <a href="https://github.com/Akanezora0/TACO-Benchmark">Source 2</a> · <a href="https://huggingface.co/datasets/Akanezora/TACO-Benchmark">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="circleclar"></a>[What Is a Clarification? Estimating Model-Dependent Input Ambiguity](https://arxiv.org/abs/2610.20052)<br>arXiv preprint<br><em>core</em> | Distinguishes interpretations admitted by an input from answers accessible to a particular model and estimates answer sets through answer–clarification–answer consistency. Experiments include executable Text-to-SQL, while the abstract&#x27;s decision-policy results for answering, clarifying, and abstaining are reported for question answering. | Release not verified<br><details><summary>Release notes and sources</summary>Public preprint verified at abstract and metadata level; no implementation or dataset release verified in this pass.<br><br><strong>Topics:</strong> ambiguity, clarification, answer-sets<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2610.20052">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2025 | <a id="clear-clambsql"></a>[CLEAR: A Parser-Independent Disambiguation Framework for NL2SQL](https://ieeexplore.ieee.org/document/11113237/)<br>ICDE 2025<br><em>core</em> | Builds candidate schema mappings, collects multiple-choice selections and rewrites both question and schema for a downstream parser. CLAMBSQL adds ambiguity and clarification annotations, so the evaluation depends on those annotated choices rather than unconstrained conversations. | [Code](https://github.com/mengzhang18/CLEAR) · [Data](https://huggingface.co/datasets/mengxi123/CLAMBSQL)<br><details><summary>Release notes and sources</summary>Publisher abstract was available in search; direct publisher page required browser verification. Author repository and dataset page were inspected; dataset page has files but no dataset card.<br><br><strong>Topics:</strong> ambiguity, clarification, benchmark, interactive-system<br><br><strong>Sources:</strong> <a href="https://ieeexplore.ieee.org/document/11113237/">Source 1</a> · <a href="https://github.com/mengzhang18/CLEAR">Source 2</a> · <a href="https://huggingface.co/datasets/mengxi123/CLAMBSQL">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2025 | <a id="disambiguate-first"></a>[Disambiguate First, Parse Later: Generating Interpretations for Ambiguity Resolution in Semantic Parsing](https://aclanthology.org/2025.findings-acl.863/)<br>Findings of ACL 2025<br><em>core</em> | Generates initial natural-language readings and trains an infilling model to recover interpretations that the initial LLM omits, then parses each reading into SQL. The modular approach targets coverage on annotated ambiguity datasets; candidate generation alone does not identify the actual user intent. | [Code](https://github.com/saparina/disambiguate-then-parse)<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> ambiguity, interpretation-coverage<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2025.findings-acl.863/">Source 1</a> · <a href="https://github.com/saparina/disambiguate-then-parse">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2024 | <a id="ambrosia"></a>[AMBROSIA: A Benchmark for Parsing Ambiguous Questions into Database Queries](https://arxiv.org/abs/2406.19073)<br>NeurIPS 2024 Datasets and Benchmarks<br><em>core</em> | Pairs scope ambiguity, attachment ambiguity and vagueness with natural-language interpretations and SQL over purpose-built databases. Ambiguity persists despite database context, so the task measures interpretation coverage rather than simply selecting a schema match. | [Code](https://github.com/saparina/ambrosia) · [Data](https://ambrosia-benchmark.github.io/)<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> ambiguity, interpretation-coverage, benchmark<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2406.19073">Source 1</a> · <a href="https://github.com/saparina/ambrosia">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2023 | <a id="ambiqt"></a>[Benchmarking and Improving Text-to-SQL Generation under Ambiguity](https://aclanthology.org/2023.emnlp-main.436/)<br>EMNLP 2023<br><em>core</em> | Introduces AmbiQT, where one question supports two plausible SQL readings, and LogicalBeam, which diversifies query plans before schema-constrained infilling. The benchmark measures coverage of controlled lexical and structural alternatives rather than a complete interactive clarification policy. | [Code](https://github.com/tomartushar/AmbiQT) · [Data](https://github.com/tomartushar/AmbiQT/tree/master/benchmark)<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> ambiguity, interpretation-coverage, benchmark, decoding<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2023.emnlp-main.436/">Source 1</a> · <a href="https://github.com/tomartushar/AmbiQT">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2023 | <a id="dte-noisysp"></a>[Know What I don’t Know: Handling Ambiguous and Unknown Questions for Text-to-SQL](https://aclanthology.org/2023.findings-acl.352/)<br>Findings of ACL 2023<br><em>core</em> | Organizes problematic questions into six categories and generates counterfactual examples for a Detecting-Then-Explaining model. Detection, localization and explanation are evaluated on observed and generated cases, without establishing a complete clarification-to-SQL conversation policy. | [Code](https://github.com/wbbeyourself/DTE) · [Data](https://github.com/wbbeyourself/DTE)<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> ambiguity, unanswerability, detection, explanation, benchmark<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2023.findings-acl.352/">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
 
 <a id="answerability"></a>
 ## Answerability, uncertainty, and abstention
 
-<a id="latentrefusal"></a>
-### LatentRefusal: Latent-Signal Refusal for Unanswerable Text-to-SQL Queries
-
-**2026; Findings of ACL 2026** · **core** · [Paper](https://aclanthology.org/2026.findings-acl.1007/)
-
-Predicts answerability from intermediate LLM activations using a lightweight Tri-Residual Gated Encoder before SQL generation. The approach requires access to hidden states and supervised probing; its classification performance does not establish that all admitted SQL answers are correct.
-
-**Topics:** unanswerability, abstention, uncertainty.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://aclanthology.org/2026.findings-acl.1007/) · [Source 2](https://arxiv.org/html/2601.10398v2)
-**Content checked:** 2026-10-22.
-
-<a id="rts-plus"></a>
-### Reliable End-to-End Text-to-SQL Generation
-
-**2026; EDBT 2026** · **core** · [Paper](https://openproceedings.org/2026/conf/edbt/paper-177.pdf) · [Code](https://github.com/kckevinchen/RTS-SQL)
-
-RTS++ combines execution-based uncertainty with conformal calibration to decide when to abstain or seek human feedback during SQL generation. Its reliability claims depend on the calibration assumptions, correctness labels, and tested database setting; they do not prove the user's intent has been fully specified.
-
-**Topics:** abstention, uncertainty, human-in-the-loop.
-
-**Artifacts:** Official artifact link inspected or linked by the primary source; no execution reproduced.
-
-**Sources:** [Source 1](https://openproceedings.org/2026/conf/edbt/paper-177.pdf) · [Source 2](https://github.com/kckevinchen/RTS-SQL) · [Source 3](https://doi.org/10.48786/EDBT.2026.44)
-**Content checked:** 2026-10-22.
-
-<a id="scare"></a>
-### SCARE: A Benchmark for SQL Correction and Question Answerability Classification for Reliable EHR Question Answering
-
-**2026; ML4H 2025; PMLR 297 proceedings published 2026** · **core** · [Paper](https://proceedings.mlr.press/v297/lee26b.html) · [Code](https://github.com/glee4810/SCARE) · [Data](https://github.com/glee4810/SCARE#dataset)
-
-Tests a post-hoc component that classifies questions as answerable, ambiguous or unanswerable while verifying or correcting candidate SQL. Its question–candidate-SQL triples span three EHR databases and expose a classification-versus-correction trade-off, without validating clinical safety.
-
-**Topics:** unanswerability, ambiguity, verification, clinical, benchmark.
-
-**Artifacts:** Public source and question/candidate-SQL records are present in the official repository. Underlying database downloads and access terms are separate; code and experiments were not executed.
-
-**Sources:** [Source 1](https://proceedings.mlr.press/v297/lee26b.html) · [Source 2](https://proceedings.mlr.press/v297/) · [Source 3](https://github.com/glee4810/SCARE)
-**Content checked:** 2026-10-22.
-
-<a id="sentinel"></a>
-### Trajectory-Derived Confidence for Reliable, Resource-Aware Clinical Text-to-SQL Agents
-
-**2026; arXiv preprint; workshop acceptance reported by authors** · **core** · [Paper](https://arxiv.org/abs/2610.04156)
-
-Adds a classifier-based confidence layer that can reject a question before execution, stop a failing trajectory or withhold the final answer. EHRSQL results show a coverage–reliability–computation trade-off under configurable penalties, with strong penalties leading to substantial abstention.
-
-**Topics:** unanswerability, abstention, uncertainty, clinical, agent.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2610.04156)
-**Content checked:** 2026-10-22.
-
-<a id="confidence-error"></a>
-### Confidence Estimation for Error Detection in Text-to-SQL Systems
-
-**2025; AAAI 2025** · **core** · [Paper](https://ojs.aaai.org/index.php/AAAI/article/view/34699) · [Code](https://github.com/runnerup96/error-detection-in-text2sql)
-
-Studies entropy-based selective classification and calibration for deciding when to withhold SQL under distribution shifts and unanswerable requests. Its error-detection results distinguish irrelevant questions from incorrect generations, so improved rejection should not be interpreted as solving all semantic errors.
-
-**Topics:** abstention, uncertainty, error-detection.
-
-**Artifacts:** Official artifact link inspected or linked by the primary source; no execution reproduced.
-
-**Sources:** [Source 1](https://ojs.aaai.org/index.php/AAAI/article/view/34699) · [Source 2](https://github.com/runnerup96/error-detection-in-text2sql)
-**Content checked:** 2026-10-22.
-
-<a id="query-carefully"></a>
-### Query Carefully: Detecting the Unanswerables in Text-to-SQL Tasks
-
-**2025; HC@AIxIA + HYDRA 2025; acceptance stated on arXiv** · **core** · [Paper](https://arxiv.org/abs/2512.21345)
-
-Adds schema-aware no-answer rules and balanced examples to an LLM SQL pipeline, with an OncoMX-NAQ set spanning eight problematic-question categories. The study uses 80 no-answer questions in a biomedical domain, and ambiguity or missing-value cases remain more difficult than structurally obvious exclusions.
-
-**Topics:** unanswerability, abstention, clinical, benchmark.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2512.21345)
-**Content checked:** 2026-10-22.
-
-<a id="rts"></a>
-### Reliable Text-to-SQL with Adaptive Abstention
-
-**2025; PACMMOD / SIGMOD 2025** · **core** · [Paper](https://arxiv.org/abs/2501.10858) · [Code](https://github.com/kckevinchen/RTS-SQL)
-
-RTS uses conformal prediction at schema-linking decision points to decide when to abstain or request human input before generating SQL. Its guarantees concern the specified schema-linking procedure and calibration conditions, rather than unrestricted semantic correctness of every generated query.
-
-**Topics:** abstention, schema-linking, clarification.
-
-**Artifacts:** Official artifact link inspected or linked by the primary source; no execution reproduced.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2501.10858) · [Source 2](https://github.com/kckevinchen/RTS-SQL) · [Source 3](https://doi.org/10.1145/3709719)
-**Content checked:** 2026-10-22.
-
-<a id="squab"></a>
-### SQUAB: Evaluating LLM robustness to Ambiguous and Unanswerable Questions in Semantic Parsing
-
-**2025; EMNLP 2025** · **core** · [Paper](https://aclanthology.org/2025.emnlp-main.906/) · [Code](https://github.com/spapicchio/squab)
-
-Combines SQL-driven construction with LLM generation to create annotated ambiguous and unanswerable test questions for a supplied database. Its extensible generator supports local evaluation needs, but automatically generated cases still require checking against the intended category and database semantics.
-
-**Topics:** ambiguity, unanswerability, benchmark, data-generation.
-
-**Artifacts:** Published PDF gives the named author repository; Anthology abstract still contains an anonymous URL. Repository is a generator, not proof that every evaluated dataset is publicly released.
-
-**Sources:** [Source 1](https://aclanthology.org/2025.emnlp-main.906/) · [Source 2](https://aclanthology.org/anthology-files/pdf/emnlp/2025.emnlp-main.906.pdf) · [Source 3](https://github.com/spapicchio/squab)
-**Content checked:** 2026-10-22.
-
-<a id="ehrsql-2024"></a>
-### Overview of the EHRSQL 2024 Shared Task on Reliable Text-to-SQL Modeling on Electronic Health Records
-
-**2024; ClinicalNLP 2024** · **core** · [Paper](https://aclanthology.org/2024.clinicalnlp-1.62/) · [Code](https://github.com/glee4810/ehrsql-2024) · [Data](https://github.com/glee4810/ehrsql-2024)
-
-Defines a shared task for EHR question answering that combines SQL generation with decisions to withhold unreliable answers. The report compares participating methods under a common task protocol; its reliability evaluation is not evidence of clinical deployment readiness.
-
-**Topics:** unanswerability, abstention, benchmark, clinical.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://aclanthology.org/2024.clinicalnlp-1.62/) · [Source 2](https://aclanthology.org/2024.clinicalnlp-1.62.pdf)
-**Content checked:** 2026-10-22.
-
-<a id="trustsql"></a>
-### TrustSQL: Benchmarking Text-to-SQL Reliability with Penalty-Based Scoring
-
-**2024; arXiv preprint** · **core** · [Paper](https://arxiv.org/abs/2403.15879) · [Code](https://github.com/glee4810/TrustSQL) · [Data](https://github.com/glee4810/TrustSQL#dataset)
-
-Evaluates systems that answer feasible questions correctly and abstain on infeasible questions, using a reliability score with configurable penalties for errors. Results depend on the selected penalty and question distribution, and should not be compared directly with execution accuracy on answerable-only benchmarks.
-
-**Topics:** unanswerability, abstention, benchmark, reliability.
-
-**Artifacts:** Distinct from the 2026 TRUST-SQL unknown-schema reinforcement-learning system.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2403.15879) · [Source 2](https://github.com/glee4810/TrustSQL)
-**Content checked:** 2026-10-22.
-
-<a id="ehrsql"></a>
-### EHRSQL: A Practical Text-to-SQL Benchmark for Electronic Health Records
-
-**2022; NeurIPS 2022 Datasets and Benchmarks** · **core** · [Paper](https://arxiv.org/abs/2301.07695) · [Code](https://github.com/glee4810/EHRSQL) · [Data](https://github.com/glee4810/EHRSQL)
-
-Uses hospital-staff questions to construct EHR queries grounded in MIMIC-III and eICU, including temporal reasoning and held-out unanswerable questions. It measures benchmark SQL and answerability behavior; clinical safety and access to the underlying databases are separate concerns.
-
-**Topics:** unanswerability, benchmark, clinical.
-
-**Artifacts:** Conference year is 2022 although the arXiv record starts in January 2023. Source paper links the official EHRSQL repository.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2301.07695) · [Source 2](https://github.com/glee4810/EHRSQL)
-**Content checked:** 2026-10-22.
-
-<a id="triagesql"></a>
-### Did You Ask a Good Question? A Cross-Domain Question Intention Classification Benchmark for Text-to-SQL
-
-**2020; EMNLP 2020 IntEx-SemPar workshop** · **core** · [Paper](https://arxiv.org/abs/2010.12634) · [Code](https://github.com/yszh8/TriageSQL) · [Data](https://github.com/yszh8/TriageSQL)
-
-Introduces TriageSQL to distinguish answerable questions from four classes of inputs that a text-to-SQL system should not directly translate. The task is input-intention classification, so successful detection does not by itself validate SQL generation or an interactive recovery strategy.
-
-**Topics:** unanswerability, detection, benchmark.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2010.12634) · [Source 2](https://github.com/yszh8/TriageSQL) · [Source 3](https://intex-sempar.github.io/assets/book.pdf)
-**Content checked:** 2026-10-22.
+| Year | Paper / venue | Concise summary | Code / data |
+| --- | --- | --- | --- |
+| 2026 | <a id="latentrefusal"></a>[LatentRefusal: Latent-Signal Refusal for Unanswerable Text-to-SQL Queries](https://aclanthology.org/2026.findings-acl.1007/)<br>Findings of ACL 2026<br><em>core</em> | Predicts answerability from intermediate LLM activations using a lightweight Tri-Residual Gated Encoder before SQL generation. The approach requires access to hidden states and supervised probing; its classification performance does not establish that all admitted SQL answers are correct. | Release not verified<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> unanswerability, abstention, uncertainty<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2026.findings-acl.1007/">Source 1</a> · <a href="https://arxiv.org/html/2601.10398v2">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="rts-plus"></a>[Reliable End-to-End Text-to-SQL Generation](https://openproceedings.org/2026/conf/edbt/paper-177.pdf)<br>EDBT 2026<br><em>core</em> | RTS++ combines execution-based uncertainty with conformal calibration to decide when to abstain or seek human feedback during SQL generation. Its reliability claims depend on the calibration assumptions, correctness labels, and tested database setting; they do not prove the user&#x27;s intent has been fully specified. | [Code](https://github.com/kckevinchen/RTS-SQL)<br><details><summary>Release notes and sources</summary>Official artifact link inspected or linked by the primary source; no execution reproduced.<br><br><strong>Topics:</strong> abstention, uncertainty, human-in-the-loop<br><br><strong>Sources:</strong> <a href="https://openproceedings.org/2026/conf/edbt/paper-177.pdf">Source 1</a> · <a href="https://github.com/kckevinchen/RTS-SQL">Source 2</a> · <a href="https://doi.org/10.48786/EDBT.2026.44">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="scare"></a>[SCARE: A Benchmark for SQL Correction and Question Answerability Classification for Reliable EHR Question Answering](https://proceedings.mlr.press/v297/lee26b.html)<br>ML4H 2025; PMLR 297 proceedings published 2026<br><em>core</em> | Tests a post-hoc component that classifies questions as answerable, ambiguous or unanswerable while verifying or correcting candidate SQL. Its question–candidate-SQL triples span three EHR databases and expose a classification-versus-correction trade-off, without validating clinical safety. | [Code](https://github.com/glee4810/SCARE) · [Data](https://github.com/glee4810/SCARE#dataset)<br><details><summary>Release notes and sources</summary>Public source and question/candidate-SQL records are present in the official repository. Underlying database downloads and access terms are separate; code and experiments were not executed.<br><br><strong>Topics:</strong> unanswerability, ambiguity, verification, clinical, benchmark<br><br><strong>Sources:</strong> <a href="https://proceedings.mlr.press/v297/lee26b.html">Source 1</a> · <a href="https://proceedings.mlr.press/v297/">Source 2</a> · <a href="https://github.com/glee4810/SCARE">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="sentinel"></a>[Trajectory-Derived Confidence for Reliable, Resource-Aware Clinical Text-to-SQL Agents](https://arxiv.org/abs/2610.04156)<br>arXiv preprint; workshop acceptance reported by authors<br><em>core</em> | Adds a classifier-based confidence layer that can reject a question before execution, stop a failing trajectory or withhold the final answer. EHRSQL results show a coverage–reliability–computation trade-off under configurable penalties, with strong penalties leading to substantial abstention. | Release not verified<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> unanswerability, abstention, uncertainty, clinical, agent<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2610.04156">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2025 | <a id="confidence-error"></a>[Confidence Estimation for Error Detection in Text-to-SQL Systems](https://ojs.aaai.org/index.php/AAAI/article/view/34699)<br>AAAI 2025<br><em>core</em> | Studies entropy-based selective classification and calibration for deciding when to withhold SQL under distribution shifts and unanswerable requests. Its error-detection results distinguish irrelevant questions from incorrect generations, so improved rejection should not be interpreted as solving all semantic errors. | [Code](https://github.com/runnerup96/error-detection-in-text2sql)<br><details><summary>Release notes and sources</summary>Official artifact link inspected or linked by the primary source; no execution reproduced.<br><br><strong>Topics:</strong> abstention, uncertainty, error-detection<br><br><strong>Sources:</strong> <a href="https://ojs.aaai.org/index.php/AAAI/article/view/34699">Source 1</a> · <a href="https://github.com/runnerup96/error-detection-in-text2sql">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2025 | <a id="query-carefully"></a>[Query Carefully: Detecting the Unanswerables in Text-to-SQL Tasks](https://arxiv.org/abs/2512.21345)<br>HC@AIxIA + HYDRA 2025; acceptance stated on arXiv<br><em>core</em> | Adds schema-aware no-answer rules and balanced examples to an LLM SQL pipeline, with an OncoMX-NAQ set spanning eight problematic-question categories. The study uses 80 no-answer questions in a biomedical domain, and ambiguity or missing-value cases remain more difficult than structurally obvious exclusions. | Release not verified<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> unanswerability, abstention, clinical, benchmark<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2512.21345">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2025 | <a id="rts"></a>[Reliable Text-to-SQL with Adaptive Abstention](https://arxiv.org/abs/2501.10858)<br>PACMMOD / SIGMOD 2025<br><em>core</em> | RTS uses conformal prediction at schema-linking decision points to decide when to abstain or request human input before generating SQL. Its guarantees concern the specified schema-linking procedure and calibration conditions, rather than unrestricted semantic correctness of every generated query. | [Code](https://github.com/kckevinchen/RTS-SQL)<br><details><summary>Release notes and sources</summary>Official artifact link inspected or linked by the primary source; no execution reproduced.<br><br><strong>Topics:</strong> abstention, schema-linking, clarification<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2501.10858">Source 1</a> · <a href="https://github.com/kckevinchen/RTS-SQL">Source 2</a> · <a href="https://doi.org/10.1145/3709719">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2025 | <a id="squab"></a>[SQUAB: Evaluating LLM robustness to Ambiguous and Unanswerable Questions in Semantic Parsing](https://aclanthology.org/2025.emnlp-main.906/)<br>EMNLP 2025<br><em>core</em> | Combines SQL-driven construction with LLM generation to create annotated ambiguous and unanswerable test questions for a supplied database. Its extensible generator supports local evaluation needs, but automatically generated cases still require checking against the intended category and database semantics. | [Code](https://github.com/spapicchio/squab)<br><details><summary>Release notes and sources</summary>Published PDF gives the named author repository; Anthology abstract still contains an anonymous URL. Repository is a generator, not proof that every evaluated dataset is publicly released.<br><br><strong>Topics:</strong> ambiguity, unanswerability, benchmark, data-generation<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2025.emnlp-main.906/">Source 1</a> · <a href="https://aclanthology.org/anthology-files/pdf/emnlp/2025.emnlp-main.906.pdf">Source 2</a> · <a href="https://github.com/spapicchio/squab">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2024 | <a id="ehrsql-2024"></a>[Overview of the EHRSQL 2024 Shared Task on Reliable Text-to-SQL Modeling on Electronic Health Records](https://aclanthology.org/2024.clinicalnlp-1.62/)<br>ClinicalNLP 2024<br><em>core</em> | Defines a shared task for EHR question answering that combines SQL generation with decisions to withhold unreliable answers. The report compares participating methods under a common task protocol; its reliability evaluation is not evidence of clinical deployment readiness. | [Code](https://github.com/glee4810/ehrsql-2024) · [Data](https://github.com/glee4810/ehrsql-2024)<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> unanswerability, abstention, benchmark, clinical<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2024.clinicalnlp-1.62/">Source 1</a> · <a href="https://aclanthology.org/2024.clinicalnlp-1.62.pdf">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2024 | <a id="trustsql"></a>[TrustSQL: Benchmarking Text-to-SQL Reliability with Penalty-Based Scoring](https://arxiv.org/abs/2403.15879)<br>arXiv preprint<br><em>core</em> | Evaluates systems that answer feasible questions correctly and abstain on infeasible questions, using a reliability score with configurable penalties for errors. Results depend on the selected penalty and question distribution, and should not be compared directly with execution accuracy on answerable-only benchmarks. | [Code](https://github.com/glee4810/TrustSQL) · [Data](https://github.com/glee4810/TrustSQL#dataset)<br><details><summary>Release notes and sources</summary>Distinct from the 2026 TRUST-SQL unknown-schema reinforcement-learning system.<br><br><strong>Topics:</strong> unanswerability, abstention, benchmark, reliability<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2403.15879">Source 1</a> · <a href="https://github.com/glee4810/TrustSQL">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2022 | <a id="ehrsql"></a>[EHRSQL: A Practical Text-to-SQL Benchmark for Electronic Health Records](https://arxiv.org/abs/2301.07695)<br>NeurIPS 2022 Datasets and Benchmarks<br><em>core</em> | Uses hospital-staff questions to construct EHR queries grounded in MIMIC-III and eICU, including temporal reasoning and held-out unanswerable questions. It measures benchmark SQL and answerability behavior; clinical safety and access to the underlying databases are separate concerns. | [Code](https://github.com/glee4810/EHRSQL) · [Data](https://github.com/glee4810/EHRSQL)<br><details><summary>Release notes and sources</summary>Conference year is 2022 although the arXiv record starts in January 2023. Source paper links the official EHRSQL repository.<br><br><strong>Topics:</strong> unanswerability, benchmark, clinical<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2301.07695">Source 1</a> · <a href="https://github.com/glee4810/EHRSQL">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2020 | <a id="triagesql"></a>[Did You Ask a Good Question? A Cross-Domain Question Intention Classification Benchmark for Text-to-SQL](https://arxiv.org/abs/2010.12634)<br>EMNLP 2020 IntEx-SemPar workshop<br><em>core</em> | Introduces TriageSQL to distinguish answerable questions from four classes of inputs that a text-to-SQL system should not directly translate. The task is input-intention classification, so successful detection does not by itself validate SQL generation or an interactive recovery strategy. | [Code](https://github.com/yszh8/TriageSQL) · [Data](https://github.com/yszh8/TriageSQL)<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> unanswerability, detection, benchmark<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2010.12634">Source 1</a> · <a href="https://github.com/yszh8/TriageSQL">Source 2</a> · <a href="https://intex-sempar.github.io/assets/book.pdf">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
 
 <a id="interaction"></a>
 ## Clarification and interactive systems
 
-<a id="abiss"></a>
-### ABISS: Evaluating Text-to-SQL Systems Through Agent Interaction
-
-**2026; arXiv preprint** · **core** · [Paper](https://arxiv.org/abs/2607.23340)
-
-Builds taxonomy-conditioned questions and evaluates SQL agents through multi-turn conversations with style-aware simulated users. Its model-council validation approximates unanswerability rather than proving it, and the controlled simulator does not establish performance with real users.
-
-**Topics:** ambiguity, unanswerability, clarification, benchmark, simulation.
-
-**Artifacts:** Official project repository is a placeholder marked COMING SOON; runnable code and downloadable benchmark data were not verified released.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2607.23340) · [Source 2](https://arxiv.org/html/2607.23340v1) · [Source 3](https://github.com/giosullutrone/ABISS-Evaluating-Text-to-SQL-Systems-Through-Agent-Interaction)
-**Content checked:** 2026-10-22.
-
-<a id="planpool"></a>
-### Beyond Correctness: Resolving Underspecification in Agentic Text-to-SQL
-
-**2026; arXiv preprint** · **core** · [Paper](https://arxiv.org/abs/2610.02739)
-
-PlanPool stores clarification questions in an explicit mutable pool, requiring each planned question to be asked or deliberately dropped before SQL submission. Experiments on BIRD-Interact- and Spider-derived tasks distinguish ambiguity coverage from execution correctness, but do not guarantee that the initial pool captures every missing constraint.
-
-**Topics:** clarification, agent-planning, underspecification.
-
-**Artifacts:** Paper and method description verified; public code or derived benchmark artifacts not located. Useful design reference for persistent clarification state and tracking silent assumptions.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2610.02739) · [Source 2](https://arxiv.org/html/2610.02739v1)
-**Content checked:** 2026-10-22.
-
-<a id="bird-interact"></a>
-### BIRD-INTERACT: Re-imagining Text-to-SQL Evaluation for Large Language Models via Lens of Dynamic Interactions
-
-**2026; ICLR 2026 oral; first preprint 2025** · **core** · [Paper](https://arxiv.org/abs/2510.05318) · [Code](https://github.com/bird-bench/BIRD-Interact) · [Data](https://huggingface.co/datasets/birdsql/bird-interact-full)
-
-Combines database documentation, hierarchical business knowledge, executable tests, and a function-driven user simulator to evaluate conversational and autonomous agent interaction across ambiguous CRUD tasks. Its Full and Lite tasks measure success within a specified simulator and action budget; they do not establish that an assistant has resolved every real user's intent.
-
-**Topics:** interactive-agents, clarification, dynamic-evaluation, benchmark.
-
-**Artifacts:** Code and dataset listings verified; not executed. Code MIT; dataset CC BY-SA 4.0. Full has 600 PostgreSQL tasks; Lite 300; Mini-Interact is a separate SQLite variant. BIRD-Interact-ADK offers modular agent, user-simulator, and database-environment services. Ground-truth solution, knowledge, and test fields are separated from public examples; use official evaluator access procedures.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2510.05318) · [Source 2](https://bird-interact.github.io/) · [Source 3](https://github.com/bird-bench/BIRD-Interact) · [Source 4](https://huggingface.co/datasets/birdsql/bird-interact-full)
-**Content checked:** 2026-10-22.
-
-<a id="clarity"></a>
-### CLARITY: A Framework and Benchmark for Conversational Language Ambiguity and Unanswerability in Interactive NL2SQL Systems
-
-**2026; ACL 2026 Industry Track** · **core** · [Paper](https://aclanthology.org/2026.acl-industry.86/) · [Code](https://github.com/duyvuleo/clarity) · [Data](https://github.com/duyvuleo/clarity/tree/main/data)
-
-Generates questions with interacting ambiguity or unanswerability sources, schema-grounded diagnostic metadata, and helpful, partial or unhelpful conversational continuations. Spider and BIRD experiments test detection, localization and resolution under these constructed settings; they do not establish live-user or production performance.
-
-**Topics:** ambiguity, unanswerability, clarification, benchmark, multi-turn.
-
-**Artifacts:** Public generation code and Spider/BIRD-derived annotations, seeds, schemas and column catalogs are released. Executable databases are separate upstream dependencies; code is MIT and derived data is CC BY-SA 4.0. Release availability is distinct from reproduction of paper results.
-
-**Sources:** [Source 1](https://aclanthology.org/2026.acl-industry.86/) · [Source 2](https://aclanthology.org/2026.acl-industry.86.pdf) · [Source 3](https://github.com/duyvuleo/clarity)
-**Content checked:** 2026-10-22.
-
-<a id="tide-bench"></a>
-### Evaluating LLMs on Conversational Text-to-SQL under Chain Ambiguity and Intent Drift
-
-**2026; Accepted to EMNLP 2026 Main, according to arXiv comments and author repository** · **core** · [Paper](https://arxiv.org/abs/2608.29543)
-
-Introduces TIDE-Bench with dependent clarification chains and user revisions that retract earlier commitments, plus metrics for recognizing and resolving those changes. The 1,542 samples derive from 514 BIRD anchor queries, and the linked repository was only a placeholder when checked despite the manuscript's release statement.
-
-**Topics:** clarification, intent-drift, benchmark, dynamic-evaluation.
-
-**Artifacts:** Repository placeholder: only README, LICENSE, and .gitattributes visible; implementation and dataset not verified released. Name collision: this is the conversational SQL TIDE-Bench, not the unrelated tool-integrated-reasoning benchmark arXiv:2605.09544.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2608.29543) · [Source 2](https://arxiv.org/html/2608.29543v1) · [Source 3](https://github.com/Rcrossmeister/TIDE-Bench)
-**Content checked:** 2026-10-22.
-
-<a id="odutqa-mdc"></a>
-### ODUTQA-MDC: A Task for Open-Domain Underspecified Tabular QA with Multi-turn Dialogue-based Clarification
-
-**2026; ACL 2026** · **adjacent** · [Paper](https://aclanthology.org/2026.acl-long.499/) · [Code](https://github.com/jensenw1/ODUTQA-MDC) · [Data](https://github.com/jensenw1/ODUTQA-MDC/tree/main/datasets)
-
-Combines an underspecified tabular-QA dataset with simulated dialogue clarification and the MAIC-TQA multi-agent framework for retrieval, interpretation, and answer refinement. Its SQL-generation component makes it relevant to database agents, but the benchmark's primary task is open-domain tabular QA rather than conventional schema-conditioned text-to-SQL.
-
-**Topics:** underspecification, clarification, tabular-qa, multi-agent.
-
-**Artifacts:** Source directories, datasets, and launch instructions verified; not executed; repository license not verified. Paper reports 209 tables and 25,105 QA pairs; implementation includes scope validation, table retrieval, and SQL generation/validation agents.
-
-**Sources:** [Source 1](https://aclanthology.org/2026.acl-long.499/) · [Source 2](https://arxiv.org/abs/2604.10159) · [Source 3](https://github.com/jensenw1/ODUTQA-MDC)
-**Content checked:** 2026-10-22.
-
-<a id="pleasqlarify"></a>
-### PleaSQLarify: Visual Pragmatic Repair for Natural Language Database Querying
-
-**2026; CHI 2026 Main Track; acceptance stated on arXiv** · **core** · [Paper](https://arxiv.org/abs/2603.01795)
-
-Organizes clarification around interpretable decision variables and exposes alternative actions and belief updates in a visual interface. A study with twelve participants supports the interaction design, while broader end-to-end reliability remains a separate evaluation question.
-
-**Topics:** ambiguity, clarification, interactive-system, visual-interface.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2603.01795)
-**Content checked:** 2026-10-22.
-
-<a id="qda-sql"></a>
-### QDA-SQL: Questions Enhanced Dialogue Augmentation for Multi-Turn Text-to-SQL
-
-**2026; CICAI 2026, according to updated arXiv and author repository; first preprint 2024** · **core** · [Paper](https://arxiv.org/abs/2406.10593) · [Code](https://github.com/mcxiaoxiao/QDA-SQL) · [Data](https://github.com/mcxiaoxiao/QDA-SQL)
-
-Generates multi-turn dialogues with varied question types and applies validation and correction before using them for text-to-SQL training. It targets ambiguous and unanswerable requests, but synthetic-data filtering and reported downstream gains do not by themselves validate every generated conversation.
-
-**Topics:** synthetic-data, unanswerability, clarification.
-
-**Artifacts:** Generation scripts, evaluation paths, and dataset directory verified; not executed. Supports schema-based generation and supplies a StateFlow-style inference example; MMSQL uses some QDA-SQL-generated data.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2406.10593) · [Source 2](https://github.com/mcxiaoxiao/QDA-SQL)
-**Content checked:** 2026-10-22.
-
-<a id="intentrl"></a>
-### Reasoning about Intent for Ambiguous Requests
-
-**2026; COLM 2026; first preprint 2025** · **core** · [Paper](https://arxiv.org/abs/2511.10453) · [Code](https://github.com/saparina/intentRL)
-
-IntentRL trains models to emit interpretation-answer pairs, rewarding coverage for ambiguous inputs and precision for unambiguous ones using answer supervision. It evaluates conversational QA and text-to-SQL, including AMBROSIA and AmbiQT, but its principal output enumerates alternatives in one response rather than resolving intent through live dialogue.
-
-**Topics:** multi-interpretation, reinforcement-learning, ambiguity.
-
-**Artifacts:** Training/evaluation code and linked model release verified; upstream datasets retain their own access conditions; not executed. Text-to-SQL model: https://huggingface.co/irisaparina/IntentRL-Ambig-Text2SQL-4B . AMBROSIA remains available through its controlled-access author download; do not mirror it.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2511.10453) · [Source 2](https://arxiv.org/html/2511.10453v4) · [Source 3](https://github.com/saparina/intentRL) · [Source 4](https://huggingface.co/irisaparina/IntentRL-Ambig-Text2SQL-4B)
-**Content checked:** 2026-10-22.
-
-<a id="soma-sql"></a>
-### SOMA-SQL: Resolving Multi-Source Ambiguity in NL-to-SQL via Synthetic Log and Execution Probing
-
-**2026; arXiv preprint** · **core** · [Paper](https://arxiv.org/abs/2606.11424)
-
-Creates synthetic query logs and executes targeted probes to gather evidence for SQL selection and repair under ambiguous schemas or questions. Autonomous database inspection can reduce grounding uncertainty, but does not directly reveal preferences or facts known only to the user.
-
-**Topics:** ambiguity, execution-probing, interactive-system.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2606.11424)
-**Content checked:** 2026-10-22.
-
-<a id="mmsql"></a>
-### Evaluating and Enhancing LLMs for Multi-turn Text-to-SQL with Multiple Question Types
-
-**2025; IJCNN 2025; first preprint 2024** · **core** · [Paper](https://arxiv.org/abs/2412.17867) · [Code](https://github.com/mcxiaoxiao/MMSQL) · [Data](https://huggingface.co/datasets/GuoZiming/MMSQL)
-
-MMSQL evaluates question-type classification and SQL generation in multi-turn conversations and introduces specialized agents for choosing an appropriate response strategy. Its generated conversational test suite and response-quality judging complement execution metrics, while model-based judgments and data construction should be considered when comparing results.
-
-**Topics:** answerability, clarification, multi-agent, benchmark.
-
-**Artifacts:** Code, train/test JSON paths, and CC BY 4.0 dataset card verified; not executed. Includes selector, detector, decomposer, and refiner agents, plus RQS and TDEX evaluation scripts; SQLite databases inherit upstream CoSQL access.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2412.17867) · [Source 2](https://mcxiaoxiao.github.io/MMSQL/) · [Source 3](https://github.com/mcxiaoxiao/MMSQL) · [Source 4](https://huggingface.co/datasets/GuoZiming/MMSQL/blob/main/README.md)
-**Content checked:** 2026-10-22.
-
-<a id="sql-eig"></a>
-### Interactive Text-to-SQL via Expected Information Gain for Disambiguation
-
-**2025; arXiv preprint** · **core** · [Paper](https://arxiv.org/abs/2507.06467)
-
-Maintains a probability distribution over candidate SQL queries and selects clarification questions by expected information gain. Its decision rule reduces uncertainty within the represented candidates, which need not cover every plausible user interpretation.
-
-**Topics:** clarification, uncertainty, interactive-system.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2507.06467)
-**Content checked:** 2026-10-22.
-
-<a id="act-ambigsql"></a>
-### Learning to Clarify: Multi-turn Conversations with Action-Based Contrastive Self-Training
-
-**2025; ICLR 2025; first preprint 2024** · **core** · [Paper](https://arxiv.org/abs/2406.00222) · [Code](https://github.com/google-research/google-research/tree/master/learning_to_clarify)
-
-ACT optimizes clarify-versus-answer behavior using contrastive actions and simulated multi-turn outcomes, and introduces AmbigSQL for underspecified SQL requests. Its experiments span SQL and other conversational tasks, so improvements should be attributed to the evaluated task and simulator rather than assumed to transfer universally.
-
-**Topics:** clarification, preference-optimization, benchmark.
-
-**Artifacts:** Reference training code verified; the documented example uses PACIFIC, and a standalone AmbigSQL download was not verified. AmbigSQL is the benchmark introduced in this paper; it is distinct from the AmbiSQL interactive demonstration system.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2406.00222) · [Source 2](https://proceedings.iclr.cc/paper_files/paper/2025/file/4ffd05ca3cf3985f4572af015b4cfc1e-Paper-Conference.pdf) · [Source 3](https://github.com/google-research/google-research/tree/master/learning_to_clarify) · [Source 4](https://research.google/blog/learning-to-clarify-multi-turn-conversations-with-action-based-contrastive-self-training/)
-**Content checked:** 2026-10-22.
-
-<a id="practiq"></a>
-### PRACTIQ: A Practical Conversational Text-to-SQL dataset with Ambiguous and Unanswerable Queries
-
-**2025; NAACL 2025** · **core** · [Paper](https://aclanthology.org/2025.naacl-long.13/) · [Code](https://github.com/amazon-science/conversational-ambiguous-unanswerable-text2sql)
-
-Constructs four-turn conversations across ambiguous and unanswerable question categories, including clarification and a clarified SQL answer. Its baselines classify question type and predict SQL with supplied clarification, which differs from evaluating an agent that must conduct its own dialogue.
-
-**Topics:** ambiguity, unanswerability, clarification, benchmark, multi-turn.
-
-**Artifacts:** Official repository was archived on 2026-07-10 and documents a data-generation pipeline; a ready-to-use dataset download was not confirmed.
-
-**Sources:** [Source 1](https://aclanthology.org/2025.naacl-long.13/) · [Source 2](https://github.com/amazon-science/conversational-ambiguous-unanswerable-text2sql)
-**Content checked:** 2026-10-22.
-
-<a id="sphinteract"></a>
-### Sphinteract: Resolving Ambiguities in NL2SQL Through User Interaction
-
-**2024; PVLDB 18(4)** · **core** · [Paper](https://www.vldb.org/pvldb/vol18/p1145-zhao.pdf) · [Code](https://github.com/ZhaoFuheng/Sphinteract) · [Data](https://github.com/ZhaoFuheng/Sphinteract)
-
-Uses a Summarize–Review–Ask procedure to identify ambiguity, pose targeted questions and incorporate feedback into SQL generation. KaggleDBQA and BIRD experiments support the value of interaction, with outcomes dependent on the clarification and feedback-processing setup.
-
-**Topics:** ambiguity, clarification, interactive-system.
-
-**Artifacts:** Primary PDF reference format gives 2024; some citing papers use 2025. Repository includes experiment scripts and links to logs/user-study material.
-
-**Sources:** [Source 1](https://www.vldb.org/pvldb/vol18/p1145-zhao.pdf) · [Source 2](https://github.com/ZhaoFuheng/Sphinteract)
-**Content checked:** 2026-10-22.
-
-<a id="apel"></a>
-### Non-Programmers Can Label Programs Indirectly via Active Examples: A Case Study with Text-to-SQL
-
-**2023; EMNLP 2023** · **adjacent** · [Paper](https://aclanthology.org/2023.emnlp-main.312/)
-
-Actively finds simple database inputs on which candidate SQL programs disagree and asks non-programmers to select the intended output. This provides an indirect way to choose or annotate programs, but depends on the candidate set containing a suitable interpretation.
-
-**Topics:** clarification, annotation, interpretation-coverage.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://aclanthology.org/2023.emnlp-main.312/)
-**Content checked:** 2026-10-22.
-
-<a id="piia"></a>
-### “What Do You Mean by That?” A Parser-Independent Interactive Approach for Enhancing Text-to-SQL
-
-**2020; EMNLP 2020** · **core** · [Paper](https://aclanthology.org/2020.emnlp-main.561/)
-
-Places multiple-choice clarification in front of existing parsers so users can repair uncertainty in the original question. Simulation and human evaluations cover several parsers on WikiSQL and Spider, but the method is not a comprehensive unanswerability detector.
-
-**Topics:** ambiguity, clarification, interactive-system.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://aclanthology.org/2020.emnlp-main.561/)
-**Content checked:** 2026-10-22.
-
-<a id="cosql"></a>
-### CoSQL: A Conversational Text-to-SQL Challenge Towards Cross-Domain Natural Language Interfaces to Databases
-
-**2019; EMNLP-IJCNLP 2019** · **core** · [Paper](https://yale-lily.github.io/cosql) · [Code](https://github.com/taoyds/cosql) · [Data](https://yale-lily.github.io/cosql)
-
-Collects Wizard-of-Oz conversations in which SQL experts answer database questions, clarify ambiguities, and identify unanswerable or unrelated requests. It provides foundational dialogue-act and response-generation tasks, but standard SQL state tracking consumes recorded conversation context rather than testing an autonomous live clarification policy.
-
-**Topics:** clarification, unanswerability, conversation, benchmark.
-
-**Artifacts:** Official project page verifies downloadable train/development data, baseline code link, and CC BY-SA 4.0 data license; test data withheld. About 3,000 dialogues over 200 databases; choose the relevant dialogue-act, response-generation, or SQL-grounding task rather than treating all turns as answerable SQL examples.
-
-**Sources:** [Source 1](https://aclanthology.org/D19-1204/) · [Source 2](https://yale-lily.github.io/cosql) · [Source 3](https://github.com/taoyds/cosql)
-**Content checked:** 2026-10-22.
-
-<a id="misp"></a>
-### Model-based Interactive Semantic Parsing: A Unified Framework and A Text-to-SQL Case Study
-
-**2019; EMNLP-IJCNLP 2019** · **core** · [Paper](https://aclanthology.org/D19-1547/)
-
-Treats interactive parsing as an agent that maintains a predicted parse, detects when intervention is useful and updates that state from clarification. WikiSQL and Spider case studies demonstrate selective interaction with specific base parsers, rather than a general guarantee about unanswerable inputs.
-
-**Topics:** clarification, interactive-system, uncertainty.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://aclanthology.org/D19-1547/)
-**Content checked:** 2026-10-22.
-
-<a id="dialsql"></a>
-### DialSQL: Dialogue Based Structured Query Generation
-
-**2018; ACL 2018** · **core** · [Paper](https://aclanthology.org/P18-1124/)
-
-Detects potential errors in generated SQL and asks multiple-choice validation questions, using feedback to revise the query. Its WikiSQL study uses a dialogue simulator and a black-box base generator, making it a predecessor to interactive correction rather than a broad ambiguity benchmark.
-
-**Topics:** clarification, interactive-system, error-correction.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://aclanthology.org/P18-1124/)
-**Content checked:** 2026-10-22.
-
-<a id="nalir"></a>
-### Constructing an Interactive Natural Language Interface for Relational Databases
-
-**2014; PVLDB 8(1)** · **core** · [Paper](https://www.vldb.org/pvldb/vol8/p73-li.pdf)
-
-Translates a natural-language request into a query tree, explains candidate interpretations and lets users correct the tree before SQL translation. Its pre-LLM architecture and user studies establish an influential interactive design, with supported language and SQL constructs determined by the implementation.
-
-**Topics:** ambiguity, clarification, interactive-system.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://www.vldb.org/pvldb/vol8/p73-li.pdf)
-**Content checked:** 2026-10-22.
+| Year | Paper / venue | Concise summary | Code / data |
+| --- | --- | --- | --- |
+| 2026 | <a id="abiss"></a>[ABISS: Evaluating Text-to-SQL Systems Through Agent Interaction](https://arxiv.org/abs/2607.23340)<br>arXiv preprint<br><em>core</em> | Builds taxonomy-conditioned questions and evaluates SQL agents through multi-turn conversations with style-aware simulated users. Its model-council validation approximates unanswerability rather than proving it, and the controlled simulator does not establish performance with real users. | Release not verified<br><details><summary>Release notes and sources</summary>Official project repository is a placeholder marked COMING SOON; runnable code and downloadable benchmark data were not verified released.<br><br><strong>Topics:</strong> ambiguity, unanswerability, clarification, benchmark, simulation<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2607.23340">Source 1</a> · <a href="https://arxiv.org/html/2607.23340v1">Source 2</a> · <a href="https://github.com/giosullutrone/ABISS-Evaluating-Text-to-SQL-Systems-Through-Agent-Interaction">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="planpool"></a>[Beyond Correctness: Resolving Underspecification in Agentic Text-to-SQL](https://arxiv.org/abs/2610.02739)<br>arXiv preprint<br><em>core</em> | PlanPool stores clarification questions in an explicit mutable pool, requiring each planned question to be asked or deliberately dropped before SQL submission. Experiments on BIRD-Interact- and Spider-derived tasks distinguish ambiguity coverage from execution correctness, but do not guarantee that the initial pool captures every missing constraint. | Release not verified<br><details><summary>Release notes and sources</summary>Paper and method description verified; public code or derived benchmark artifacts not located. Useful design reference for persistent clarification state and tracking silent assumptions.<br><br><strong>Topics:</strong> clarification, agent-planning, underspecification<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2610.02739">Source 1</a> · <a href="https://arxiv.org/html/2610.02739v1">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="bird-interact"></a>[BIRD-INTERACT: Re-imagining Text-to-SQL Evaluation for Large Language Models via Lens of Dynamic Interactions](https://arxiv.org/abs/2510.05318)<br>ICLR 2026 oral; first preprint 2025<br><em>core</em> | Combines database documentation, hierarchical business knowledge, executable tests, and a function-driven user simulator to evaluate conversational and autonomous agent interaction across ambiguous CRUD tasks. Its Full and Lite tasks measure success within a specified simulator and action budget; they do not establish that an assistant has resolved every real user&#x27;s intent. | [Code](https://github.com/bird-bench/BIRD-Interact) · [Data](https://huggingface.co/datasets/birdsql/bird-interact-full)<br><details><summary>Release notes and sources</summary>Code and dataset listings verified; not executed. Code MIT; dataset CC BY-SA 4.0. Full has 600 PostgreSQL tasks; Lite 300; Mini-Interact is a separate SQLite variant. BIRD-Interact-ADK offers modular agent, user-simulator, and database-environment services. Ground-truth solution, knowledge, and test fields are separated from public examples; use official evaluator access procedures.<br><br><strong>Topics:</strong> interactive-agents, clarification, dynamic-evaluation, benchmark<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2510.05318">Source 1</a> · <a href="https://bird-interact.github.io/">Source 2</a> · <a href="https://github.com/bird-bench/BIRD-Interact">Source 3</a> · <a href="https://huggingface.co/datasets/birdsql/bird-interact-full">Source 4</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="clarity"></a>[CLARITY: A Framework and Benchmark for Conversational Language Ambiguity and Unanswerability in Interactive NL2SQL Systems](https://aclanthology.org/2026.acl-industry.86/)<br>ACL 2026 Industry Track<br><em>core</em> | Generates questions with interacting ambiguity or unanswerability sources, schema-grounded diagnostic metadata, and helpful, partial or unhelpful conversational continuations. Spider and BIRD experiments test detection, localization and resolution under these constructed settings; they do not establish live-user or production performance. | [Code](https://github.com/duyvuleo/clarity) · [Data](https://github.com/duyvuleo/clarity/tree/main/data)<br><details><summary>Release notes and sources</summary>Public generation code and Spider/BIRD-derived annotations, seeds, schemas and column catalogs are released. Executable databases are separate upstream dependencies; code is MIT and derived data is CC BY-SA 4.0. Release availability is distinct from reproduction of paper results.<br><br><strong>Topics:</strong> ambiguity, unanswerability, clarification, benchmark, multi-turn<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2026.acl-industry.86/">Source 1</a> · <a href="https://aclanthology.org/2026.acl-industry.86.pdf">Source 2</a> · <a href="https://github.com/duyvuleo/clarity">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="tide-bench"></a>[Evaluating LLMs on Conversational Text-to-SQL under Chain Ambiguity and Intent Drift](https://arxiv.org/abs/2608.29543)<br>Accepted to EMNLP 2026 Main, according to arXiv comments and author repository<br><em>core</em> | Introduces TIDE-Bench with dependent clarification chains and user revisions that retract earlier commitments, plus metrics for recognizing and resolving those changes. The 1,542 samples derive from 514 BIRD anchor queries, and the linked repository was only a placeholder when checked despite the manuscript&#x27;s release statement. | Release not verified<br><details><summary>Release notes and sources</summary>Repository placeholder: only README, LICENSE, and .gitattributes visible; implementation and dataset not verified released. Name collision: this is the conversational SQL TIDE-Bench, not the unrelated tool-integrated-reasoning benchmark arXiv:2605.09544.<br><br><strong>Topics:</strong> clarification, intent-drift, benchmark, dynamic-evaluation<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2608.29543">Source 1</a> · <a href="https://arxiv.org/html/2608.29543v1">Source 2</a> · <a href="https://github.com/Rcrossmeister/TIDE-Bench">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="odutqa-mdc"></a>[ODUTQA-MDC: A Task for Open-Domain Underspecified Tabular QA with Multi-turn Dialogue-based Clarification](https://aclanthology.org/2026.acl-long.499/)<br>ACL 2026<br><em>adjacent</em> | Combines an underspecified tabular-QA dataset with simulated dialogue clarification and the MAIC-TQA multi-agent framework for retrieval, interpretation, and answer refinement. Its SQL-generation component makes it relevant to database agents, but the benchmark&#x27;s primary task is open-domain tabular QA rather than conventional schema-conditioned text-to-SQL. | [Code](https://github.com/jensenw1/ODUTQA-MDC) · [Data](https://github.com/jensenw1/ODUTQA-MDC/tree/main/datasets)<br><details><summary>Release notes and sources</summary>Source directories, datasets, and launch instructions verified; not executed; repository license not verified. Paper reports 209 tables and 25,105 QA pairs; implementation includes scope validation, table retrieval, and SQL generation/validation agents.<br><br><strong>Topics:</strong> underspecification, clarification, tabular-qa, multi-agent<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2026.acl-long.499/">Source 1</a> · <a href="https://arxiv.org/abs/2604.10159">Source 2</a> · <a href="https://github.com/jensenw1/ODUTQA-MDC">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="pleasqlarify"></a>[PleaSQLarify: Visual Pragmatic Repair for Natural Language Database Querying](https://arxiv.org/abs/2603.01795)<br>CHI 2026 Main Track; acceptance stated on arXiv<br><em>core</em> | Organizes clarification around interpretable decision variables and exposes alternative actions and belief updates in a visual interface. A study with twelve participants supports the interaction design, while broader end-to-end reliability remains a separate evaluation question. | Release not verified<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> ambiguity, clarification, interactive-system, visual-interface<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2603.01795">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="qda-sql"></a>[QDA-SQL: Questions Enhanced Dialogue Augmentation for Multi-Turn Text-to-SQL](https://arxiv.org/abs/2406.10593)<br>CICAI 2026, according to updated arXiv and author repository; first preprint 2024<br><em>core</em> | Generates multi-turn dialogues with varied question types and applies validation and correction before using them for text-to-SQL training. It targets ambiguous and unanswerable requests, but synthetic-data filtering and reported downstream gains do not by themselves validate every generated conversation. | [Code](https://github.com/mcxiaoxiao/QDA-SQL) · [Data](https://github.com/mcxiaoxiao/QDA-SQL)<br><details><summary>Release notes and sources</summary>Generation scripts, evaluation paths, and dataset directory verified; not executed. Supports schema-based generation and supplies a StateFlow-style inference example; MMSQL uses some QDA-SQL-generated data.<br><br><strong>Topics:</strong> synthetic-data, unanswerability, clarification<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2406.10593">Source 1</a> · <a href="https://github.com/mcxiaoxiao/QDA-SQL">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="intentrl"></a>[Reasoning about Intent for Ambiguous Requests](https://arxiv.org/abs/2511.10453)<br>COLM 2026; first preprint 2025<br><em>core</em> | IntentRL trains models to emit interpretation-answer pairs, rewarding coverage for ambiguous inputs and precision for unambiguous ones using answer supervision. It evaluates conversational QA and text-to-SQL, including AMBROSIA and AmbiQT, but its principal output enumerates alternatives in one response rather than resolving intent through live dialogue. | [Code](https://github.com/saparina/intentRL)<br><details><summary>Release notes and sources</summary>Training/evaluation code and linked model release verified; upstream datasets retain their own access conditions; not executed. Text-to-SQL model: https://huggingface.co/irisaparina/IntentRL-Ambig-Text2SQL-4B . AMBROSIA remains available through its controlled-access author download; do not mirror it.<br><br><strong>Topics:</strong> multi-interpretation, reinforcement-learning, ambiguity<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2511.10453">Source 1</a> · <a href="https://arxiv.org/html/2511.10453v4">Source 2</a> · <a href="https://github.com/saparina/intentRL">Source 3</a> · <a href="https://huggingface.co/irisaparina/IntentRL-Ambig-Text2SQL-4B">Source 4</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="soma-sql"></a>[SOMA-SQL: Resolving Multi-Source Ambiguity in NL-to-SQL via Synthetic Log and Execution Probing](https://arxiv.org/abs/2606.11424)<br>arXiv preprint<br><em>core</em> | Creates synthetic query logs and executes targeted probes to gather evidence for SQL selection and repair under ambiguous schemas or questions. Autonomous database inspection can reduce grounding uncertainty, but does not directly reveal preferences or facts known only to the user. | Release not verified<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> ambiguity, execution-probing, interactive-system<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2606.11424">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2025 | <a id="mmsql"></a>[Evaluating and Enhancing LLMs for Multi-turn Text-to-SQL with Multiple Question Types](https://arxiv.org/abs/2412.17867)<br>IJCNN 2025; first preprint 2024<br><em>core</em> | MMSQL evaluates question-type classification and SQL generation in multi-turn conversations and introduces specialized agents for choosing an appropriate response strategy. Its generated conversational test suite and response-quality judging complement execution metrics, while model-based judgments and data construction should be considered when comparing results. | [Code](https://github.com/mcxiaoxiao/MMSQL) · [Data](https://huggingface.co/datasets/GuoZiming/MMSQL)<br><details><summary>Release notes and sources</summary>Code, train/test JSON paths, and CC BY 4.0 dataset card verified; not executed. Includes selector, detector, decomposer, and refiner agents, plus RQS and TDEX evaluation scripts; SQLite databases inherit upstream CoSQL access.<br><br><strong>Topics:</strong> answerability, clarification, multi-agent, benchmark<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2412.17867">Source 1</a> · <a href="https://mcxiaoxiao.github.io/MMSQL/">Source 2</a> · <a href="https://github.com/mcxiaoxiao/MMSQL">Source 3</a> · <a href="https://huggingface.co/datasets/GuoZiming/MMSQL/blob/main/README.md">Source 4</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2025 | <a id="sql-eig"></a>[Interactive Text-to-SQL via Expected Information Gain for Disambiguation](https://arxiv.org/abs/2507.06467)<br>arXiv preprint<br><em>core</em> | Maintains a probability distribution over candidate SQL queries and selects clarification questions by expected information gain. Its decision rule reduces uncertainty within the represented candidates, which need not cover every plausible user interpretation. | Release not verified<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> clarification, uncertainty, interactive-system<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2507.06467">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2025 | <a id="act-ambigsql"></a>[Learning to Clarify: Multi-turn Conversations with Action-Based Contrastive Self-Training](https://arxiv.org/abs/2406.00222)<br>ICLR 2025; first preprint 2024<br><em>core</em> | ACT optimizes clarify-versus-answer behavior using contrastive actions and simulated multi-turn outcomes, and introduces AmbigSQL for underspecified SQL requests. Its experiments span SQL and other conversational tasks, so improvements should be attributed to the evaluated task and simulator rather than assumed to transfer universally. | [Code](https://github.com/google-research/google-research/tree/master/learning_to_clarify)<br><details><summary>Release notes and sources</summary>Reference training code verified; the documented example uses PACIFIC, and a standalone AmbigSQL download was not verified. AmbigSQL is the benchmark introduced in this paper; it is distinct from the AmbiSQL interactive demonstration system.<br><br><strong>Topics:</strong> clarification, preference-optimization, benchmark<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2406.00222">Source 1</a> · <a href="https://proceedings.iclr.cc/paper_files/paper/2025/file/4ffd05ca3cf3985f4572af015b4cfc1e-Paper-Conference.pdf">Source 2</a> · <a href="https://github.com/google-research/google-research/tree/master/learning_to_clarify">Source 3</a> · <a href="https://research.google/blog/learning-to-clarify-multi-turn-conversations-with-action-based-contrastive-self-training/">Source 4</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2025 | <a id="practiq"></a>[PRACTIQ: A Practical Conversational Text-to-SQL dataset with Ambiguous and Unanswerable Queries](https://aclanthology.org/2025.naacl-long.13/)<br>NAACL 2025<br><em>core</em> | Constructs four-turn conversations across ambiguous and unanswerable question categories, including clarification and a clarified SQL answer. Its baselines classify question type and predict SQL with supplied clarification, which differs from evaluating an agent that must conduct its own dialogue. | [Code](https://github.com/amazon-science/conversational-ambiguous-unanswerable-text2sql)<br><details><summary>Release notes and sources</summary>Official repository was archived on 2026-07-10 and documents a data-generation pipeline; a ready-to-use dataset download was not confirmed.<br><br><strong>Topics:</strong> ambiguity, unanswerability, clarification, benchmark, multi-turn<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2025.naacl-long.13/">Source 1</a> · <a href="https://github.com/amazon-science/conversational-ambiguous-unanswerable-text2sql">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2024 | <a id="sphinteract"></a>[Sphinteract: Resolving Ambiguities in NL2SQL Through User Interaction](https://www.vldb.org/pvldb/vol18/p1145-zhao.pdf)<br>PVLDB 18(4)<br><em>core</em> | Uses a Summarize–Review–Ask procedure to identify ambiguity, pose targeted questions and incorporate feedback into SQL generation. KaggleDBQA and BIRD experiments support the value of interaction, with outcomes dependent on the clarification and feedback-processing setup. | [Code](https://github.com/ZhaoFuheng/Sphinteract) · [Data](https://github.com/ZhaoFuheng/Sphinteract)<br><details><summary>Release notes and sources</summary>Primary PDF reference format gives 2024; some citing papers use 2025. Repository includes experiment scripts and links to logs/user-study material.<br><br><strong>Topics:</strong> ambiguity, clarification, interactive-system<br><br><strong>Sources:</strong> <a href="https://www.vldb.org/pvldb/vol18/p1145-zhao.pdf">Source 1</a> · <a href="https://github.com/ZhaoFuheng/Sphinteract">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2023 | <a id="apel"></a>[Non-Programmers Can Label Programs Indirectly via Active Examples: A Case Study with Text-to-SQL](https://aclanthology.org/2023.emnlp-main.312/)<br>EMNLP 2023<br><em>adjacent</em> | Actively finds simple database inputs on which candidate SQL programs disagree and asks non-programmers to select the intended output. This provides an indirect way to choose or annotate programs, but depends on the candidate set containing a suitable interpretation. | Release not verified<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> clarification, annotation, interpretation-coverage<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2023.emnlp-main.312/">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2020 | <a id="piia"></a>[“What Do You Mean by That?” A Parser-Independent Interactive Approach for Enhancing Text-to-SQL](https://aclanthology.org/2020.emnlp-main.561/)<br>EMNLP 2020<br><em>core</em> | Places multiple-choice clarification in front of existing parsers so users can repair uncertainty in the original question. Simulation and human evaluations cover several parsers on WikiSQL and Spider, but the method is not a comprehensive unanswerability detector. | Release not verified<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> ambiguity, clarification, interactive-system<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2020.emnlp-main.561/">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2019 | <a id="cosql"></a>[CoSQL: A Conversational Text-to-SQL Challenge Towards Cross-Domain Natural Language Interfaces to Databases](https://yale-lily.github.io/cosql)<br>EMNLP-IJCNLP 2019<br><em>core</em> | Collects Wizard-of-Oz conversations in which SQL experts answer database questions, clarify ambiguities, and identify unanswerable or unrelated requests. It provides foundational dialogue-act and response-generation tasks, but standard SQL state tracking consumes recorded conversation context rather than testing an autonomous live clarification policy. | [Code](https://github.com/taoyds/cosql) · [Data](https://yale-lily.github.io/cosql)<br><details><summary>Release notes and sources</summary>Official project page verifies downloadable train/development data, baseline code link, and CC BY-SA 4.0 data license; test data withheld. About 3,000 dialogues over 200 databases; choose the relevant dialogue-act, response-generation, or SQL-grounding task rather than treating all turns as answerable SQL examples.<br><br><strong>Topics:</strong> clarification, unanswerability, conversation, benchmark<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/D19-1204/">Source 1</a> · <a href="https://yale-lily.github.io/cosql">Source 2</a> · <a href="https://github.com/taoyds/cosql">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2019 | <a id="misp"></a>[Model-based Interactive Semantic Parsing: A Unified Framework and A Text-to-SQL Case Study](https://aclanthology.org/D19-1547/)<br>EMNLP-IJCNLP 2019<br><em>core</em> | Treats interactive parsing as an agent that maintains a predicted parse, detects when intervention is useful and updates that state from clarification. WikiSQL and Spider case studies demonstrate selective interaction with specific base parsers, rather than a general guarantee about unanswerable inputs. | Release not verified<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> clarification, interactive-system, uncertainty<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/D19-1547/">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2018 | <a id="dialsql"></a>[DialSQL: Dialogue Based Structured Query Generation](https://aclanthology.org/P18-1124/)<br>ACL 2018<br><em>core</em> | Detects potential errors in generated SQL and asks multiple-choice validation questions, using feedback to revise the query. Its WikiSQL study uses a dialogue simulator and a black-box base generator, making it a predecessor to interactive correction rather than a broad ambiguity benchmark. | Release not verified<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> clarification, interactive-system, error-correction<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/P18-1124/">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2014 | <a id="nalir"></a>[Constructing an Interactive Natural Language Interface for Relational Databases](https://www.vldb.org/pvldb/vol8/p73-li.pdf)<br>PVLDB 8(1)<br><em>core</em> | Translates a natural-language request into a query tree, explains candidate interpretations and lets users correct the tree before SQL translation. Its pre-LLM architecture and user studies establish an influential interactive design, with supported language and SQL constructs determined by the implementation. | Release not verified<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> ambiguity, clarification, interactive-system<br><br><strong>Sources:</strong> <a href="https://www.vldb.org/pvldb/vol8/p73-li.pdf">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
 
 <a id="context"></a>
 ## Context, knowledge, and realistic workloads
 
-<a id="dsabench"></a>
-### DSABench: Benchmarking Source Discovery, Coordination, and Execution for Multi-Database Agents
-
-**2026; arXiv preprint** · **core** · [Paper](https://arxiv.org/abs/2610.14700)
-
-Evaluates source discovery, cross-database coordination and execution, including tasks with alternative source interpretations. Its controlled Ask-Once protocol reveals a branch-specific answer only when a question targets the intended semantic slot, so clarification gains are bounded to the simulator and its question-alignment judge.
-
-**Topics:** ambiguity, clarification, database-retrieval, benchmark, agent.
-
-**Artifacts:** No code or dataset release URL verified; unrelated PyPI dsabench package is not this benchmark.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2610.14700) · [Source 2](https://arxiv.org/html/2610.14700v1)
-**Content checked:** 2026-10-22.
-
-<a id="entsql"></a>
-### EntSQL: A Benchmark for Grounding Text-to-SQL in Long-Context Enterprise Knowledge
-
-**2026; arXiv preprint** · **adjacent** · [Paper](https://arxiv.org/abs/2606.03363)
-
-Pairs Chinese and English enterprise questions with business documents to test whether models can ground SQL in internal metric definitions, reporting conventions, and organizational rules. It isolates missing business context as an important failure source, but does not directly evaluate a clarify-or-abstain interaction policy.
-
-**Topics:** missing-knowledge, business-semantics, benchmark.
-
-**Artifacts:** Paper verified; public code and dataset release not located in paper links or targeted search. The manuscript reports 1,066 aligned examples across five business domains; treat this as a described benchmark until a public artifact is verified.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2606.03363) · [Source 2](https://arxiv.org/html/2606.03363v3)
-**Content checked:** 2026-10-22.
-
-<a id="dysql-bench"></a>
-### Rethinking Text-to-SQL: Dynamic Multi-turn SQL Interaction for Real-world Database Exploration
-
-**2026; Findings of ACL 2026; first preprint 2025** · **adjacent** · [Paper](https://aclanthology.org/2026.findings-acl.1654/) · [Code](https://github.com/Aurora-slz/DySQL-Bench) · [Data](https://github.com/Aurora-slz/DySQL-Bench)
-
-DySQL-Bench evaluates evolving requests through an interacting simulated user, SQL agent, and executable database, including operations that alter state. Its 1,072 tasks across 13 domains stress continued intent tracking and repeated-run reliability, while success remains conditional on the benchmark's generated tasks and simulator.
-
-**Topics:** intent-evolution, interactive-agents, database-state, benchmark.
-
-**Artifacts:** Official source, task-generation/evaluation paths, and database-fetch instructions verified; not executed. Paper's older repository name Real-World-SQL-Bench resolves to DySQL-Bench; avoid claiming perfect dataset correctness from the authors' sampled validation statement.
-
-**Sources:** [Source 1](https://aclanthology.org/2026.findings-acl.1654/) · [Source 2](https://arxiv.org/abs/2510.26495) · [Source 3](https://github.com/Aurora-slz/DySQL-Bench)
-**Content checked:** 2026-10-22.
-
-<a id="linkalign-ambidb"></a>
-### LinkAlign: Scalable Schema Linking for Real-World Large-Scale Multi-Database Text-to-SQL
-
-**2025; EMNLP 2025** · **adjacent** · [Paper](https://aclanthology.org/2025.emnlp-main.51/) · [Code](https://github.com/Satissss/LinkAlign)
-
-Separates database retrieval from table-and-column grounding and introduces AmbiDB to stress ambiguity in large pools of schemas. Its ambiguity concerns schema selection among candidate databases, so it complements benchmarks centered on clarifying user intent.
-
-**Topics:** ambiguity, database-retrieval, schema-linking, benchmark.
-
-**Artifacts:** AmbiDB is described in the paper. The candidate Hugging Face dataset URL returned HTTP 401 during inspection, so a usable direct dataset release is not asserted.
-
-**Sources:** [Source 1](https://aclanthology.org/2025.emnlp-main.51/) · [Source 2](https://aclanthology.org/2025.emnlp-main.51.pdf) · [Source 3](https://github.com/Satissss/LinkAlign)
-**Content checked:** 2026-10-22.
-
-<a id="spider2"></a>
-### Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows
-
-**2025; ICLR 2025 oral; first preprint 2024** · **adjacent** · [Paper](https://arxiv.org/abs/2411.07763) · [Code](https://github.com/xlang-ai/Spider2) · [Data](https://github.com/xlang-ai/Spider2)
-
-Evaluates SQL workflows involving large enterprise schemas, documentation, multiple queries, and local or cloud database environments. It supplies important context for realistic database-agent evaluation, but is not an explicit ambiguity-and-unanswerability benchmark and should not be compared as if it were one.
-
-**Topics:** enterprise-workflows, external-context, benchmark.
-
-**Artifacts:** Official code, task variants, and data-access documentation verified; cloud access and execution not tested. Pin the specific Lite, Snow, or DBT release and evaluation setting; oracle-table access is explicitly a different condition.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2411.07763) · [Source 2](https://spider2-sql.github.io/) · [Source 3](https://github.com/xlang-ai/Spider2)
-**Content checked:** 2026-10-22.
-
-<a id="multisql"></a>
-### MultiSQL: A Schema-Integrated Context-Dependent Text2SQL Dataset with Diverse SQL Operations
-
-**2024; Findings of ACL 2024** · **adjacent** · [Paper](https://aclanthology.org/2024.findings-acl.823/) · [Data](https://github.com/grandchicken/MultiSQL)
-
-Extends conversational SQL datasets with schema-dependent context, longer dialogues, and operations such as CREATE, UPDATE, and INSERT. It is useful for stateful dialogue evaluation, but does not directly measure a model's autonomous choice to clarify ambiguity or refuse an unanswerable request.
-
-**Topics:** conversation, database-state, benchmark.
-
-**Artifacts:** Dataset repository and database download link verified; README says evaluation code will be released, so code availability is unverified. Nearly 800 dialogue groups and more than 9,000 turns over 166 databases; distinguish fixed conversational context from dynamic user simulation.
-
-**Sources:** [Source 1](https://aclanthology.org/2024.findings-acl.823/) · [Source 2](https://github.com/grandchicken/MultiSQL)
-**Content checked:** 2026-10-22.
-
-<a id="data-ambiguity-documentation"></a>
-### Data Ambiguity Strikes Back: How Documentation Improves GPT’s Text-to-SQL
-
-**2023; arXiv preprint** · **core** · [Paper](https://arxiv.org/abs/2310.18742)
-
-Studies ambiguity from value consistency, data coverage and granularity, and supplies documentation to help GPT-4 interpret those properties. This shifts attention from question wording to dataset semantics, with evidence bounded to the paper’s evaluated tasks and documentation.
-
-**Topics:** ambiguity, documentation, data-semantics.
-
-**Artifacts:** Artifact execution and independent reproduction were not assessed.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2310.18742)
-**Content checked:** 2026-10-22.
-
-<a id="sparc"></a>
-### SParC: Cross-Domain Semantic Parsing in Context
-
-**2019; ACL 2019** · **adjacent** · [Paper](https://yale-lily.github.io/sparc) · [Code](https://github.com/taoyds/sparc) · [Data](https://yale-lily.github.io/sparc)
-
-Provides coherent sequences of database questions that require carrying context across turns and generalizing to unseen databases. It is a useful conversational baseline and source dataset, while contextual dependence alone is not evidence of explicit ambiguity detection, clarification, or abstention.
-
-**Topics:** conversation, context-dependence, benchmark.
-
-**Artifacts:** Official page verifies downloadable train/development data, baseline link, and CC BY-SA 4.0 data license; test data withheld. 4,298 question sequences with over 12,000 questions on 200 databases.
-
-**Sources:** [Source 1](https://yale-lily.github.io/sparc) · [Source 2](https://github.com/taoyds/sparc)
-**Content checked:** 2026-10-22.
+| Year | Paper / venue | Concise summary | Code / data |
+| --- | --- | --- | --- |
+| 2026 | <a id="dsabench"></a>[DSABench: Benchmarking Source Discovery, Coordination, and Execution for Multi-Database Agents](https://arxiv.org/abs/2610.14700)<br>arXiv preprint<br><em>core</em> | Evaluates source discovery, cross-database coordination and execution, including tasks with alternative source interpretations. Its controlled Ask-Once protocol reveals a branch-specific answer only when a question targets the intended semantic slot, so clarification gains are bounded to the simulator and its question-alignment judge. | Release not verified<br><details><summary>Release notes and sources</summary>No code or dataset release URL verified; unrelated PyPI dsabench package is not this benchmark.<br><br><strong>Topics:</strong> ambiguity, clarification, database-retrieval, benchmark, agent<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2610.14700">Source 1</a> · <a href="https://arxiv.org/html/2610.14700v1">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="entsql"></a>[EntSQL: A Benchmark for Grounding Text-to-SQL in Long-Context Enterprise Knowledge](https://arxiv.org/abs/2606.03363)<br>arXiv preprint<br><em>adjacent</em> | Pairs Chinese and English enterprise questions with business documents to test whether models can ground SQL in internal metric definitions, reporting conventions, and organizational rules. It isolates missing business context as an important failure source, but does not directly evaluate a clarify-or-abstain interaction policy. | Release not verified<br><details><summary>Release notes and sources</summary>Paper verified; public code and dataset release not located in paper links or targeted search. The manuscript reports 1,066 aligned examples across five business domains; treat this as a described benchmark until a public artifact is verified.<br><br><strong>Topics:</strong> missing-knowledge, business-semantics, benchmark<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2606.03363">Source 1</a> · <a href="https://arxiv.org/html/2606.03363v3">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="dysql-bench"></a>[Rethinking Text-to-SQL: Dynamic Multi-turn SQL Interaction for Real-world Database Exploration](https://aclanthology.org/2026.findings-acl.1654/)<br>Findings of ACL 2026; first preprint 2025<br><em>adjacent</em> | DySQL-Bench evaluates evolving requests through an interacting simulated user, SQL agent, and executable database, including operations that alter state. Its 1,072 tasks across 13 domains stress continued intent tracking and repeated-run reliability, while success remains conditional on the benchmark&#x27;s generated tasks and simulator. | [Code](https://github.com/Aurora-slz/DySQL-Bench) · [Data](https://github.com/Aurora-slz/DySQL-Bench)<br><details><summary>Release notes and sources</summary>Official source, task-generation/evaluation paths, and database-fetch instructions verified; not executed. Paper&#x27;s older repository name Real-World-SQL-Bench resolves to DySQL-Bench; avoid claiming perfect dataset correctness from the authors&#x27; sampled validation statement.<br><br><strong>Topics:</strong> intent-evolution, interactive-agents, database-state, benchmark<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2026.findings-acl.1654/">Source 1</a> · <a href="https://arxiv.org/abs/2510.26495">Source 2</a> · <a href="https://github.com/Aurora-slz/DySQL-Bench">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2025 | <a id="linkalign-ambidb"></a>[LinkAlign: Scalable Schema Linking for Real-World Large-Scale Multi-Database Text-to-SQL](https://aclanthology.org/2025.emnlp-main.51/)<br>EMNLP 2025<br><em>adjacent</em> | Separates database retrieval from table-and-column grounding and introduces AmbiDB to stress ambiguity in large pools of schemas. Its ambiguity concerns schema selection among candidate databases, so it complements benchmarks centered on clarifying user intent. | [Code](https://github.com/Satissss/LinkAlign)<br><details><summary>Release notes and sources</summary>AmbiDB is described in the paper. The candidate Hugging Face dataset URL returned HTTP 401 during inspection, so a usable direct dataset release is not asserted.<br><br><strong>Topics:</strong> ambiguity, database-retrieval, schema-linking, benchmark<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2025.emnlp-main.51/">Source 1</a> · <a href="https://aclanthology.org/2025.emnlp-main.51.pdf">Source 2</a> · <a href="https://github.com/Satissss/LinkAlign">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2025 | <a id="spider2"></a>[Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows](https://arxiv.org/abs/2411.07763)<br>ICLR 2025 oral; first preprint 2024<br><em>adjacent</em> | Evaluates SQL workflows involving large enterprise schemas, documentation, multiple queries, and local or cloud database environments. It supplies important context for realistic database-agent evaluation, but is not an explicit ambiguity-and-unanswerability benchmark and should not be compared as if it were one. | [Code](https://github.com/xlang-ai/Spider2) · [Data](https://github.com/xlang-ai/Spider2)<br><details><summary>Release notes and sources</summary>Official code, task variants, and data-access documentation verified; cloud access and execution not tested. Pin the specific Lite, Snow, or DBT release and evaluation setting; oracle-table access is explicitly a different condition.<br><br><strong>Topics:</strong> enterprise-workflows, external-context, benchmark<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2411.07763">Source 1</a> · <a href="https://spider2-sql.github.io/">Source 2</a> · <a href="https://github.com/xlang-ai/Spider2">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2024 | <a id="multisql"></a>[MultiSQL: A Schema-Integrated Context-Dependent Text2SQL Dataset with Diverse SQL Operations](https://aclanthology.org/2024.findings-acl.823/)<br>Findings of ACL 2024<br><em>adjacent</em> | Extends conversational SQL datasets with schema-dependent context, longer dialogues, and operations such as CREATE, UPDATE, and INSERT. It is useful for stateful dialogue evaluation, but does not directly measure a model&#x27;s autonomous choice to clarify ambiguity or refuse an unanswerable request. | [Data](https://github.com/grandchicken/MultiSQL)<br><details><summary>Release notes and sources</summary>Dataset repository and database download link verified; README says evaluation code will be released, so code availability is unverified. Nearly 800 dialogue groups and more than 9,000 turns over 166 databases; distinguish fixed conversational context from dynamic user simulation.<br><br><strong>Topics:</strong> conversation, database-state, benchmark<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2024.findings-acl.823/">Source 1</a> · <a href="https://github.com/grandchicken/MultiSQL">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2023 | <a id="data-ambiguity-documentation"></a>[Data Ambiguity Strikes Back: How Documentation Improves GPT’s Text-to-SQL](https://arxiv.org/abs/2310.18742)<br>arXiv preprint<br><em>core</em> | Studies ambiguity from value consistency, data coverage and granularity, and supplies documentation to help GPT-4 interpret those properties. This shifts attention from question wording to dataset semantics, with evidence bounded to the paper’s evaluated tasks and documentation. | Release not verified<br><details><summary>Release notes and sources</summary>Artifact execution and independent reproduction were not assessed.<br><br><strong>Topics:</strong> ambiguity, documentation, data-semantics<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2310.18742">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2019 | <a id="sparc"></a>[SParC: Cross-Domain Semantic Parsing in Context](https://yale-lily.github.io/sparc)<br>ACL 2019<br><em>adjacent</em> | Provides coherent sequences of database questions that require carrying context across turns and generalizing to unseen databases. It is a useful conversational baseline and source dataset, while contextual dependence alone is not evidence of explicit ambiguity detection, clarification, or abstention. | [Code](https://github.com/taoyds/sparc) · [Data](https://yale-lily.github.io/sparc)<br><details><summary>Release notes and sources</summary>Official page verifies downloadable train/development data, baseline link, and CC BY-SA 4.0 data license; test data withheld. 4,298 question sequences with over 12,000 questions on 200 databases.<br><br><strong>Topics:</strong> conversation, context-dependence, benchmark<br><br><strong>Sources:</strong> <a href="https://yale-lily.github.io/sparc">Source 1</a> · <a href="https://github.com/taoyds/sparc">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
 
 <a id="verification"></a>
 ## Verification and evaluation validity
 
-<a id="oracle-abstention"></a>
-### Certified Against Which Oracle? Execution Labels Set the Reported Risk of Conformal Abstention for Text-to-SQL
-
-**2026; arXiv preprint** · **core** · [Paper](https://arxiv.org/abs/2609.25938)
-
-Audits conformal abstention by changing the database-based oracle used to cluster SQL candidates and label correctness, then comparing with expert judgments. The study shows why reported risk must be interpreted relative to the oracle and benchmark quality, rather than treated as an unconditional semantic guarantee.
-
-**Topics:** abstention, calibration, evaluation.
-
-**Artifacts:** No code or dataset release verified in this pass.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2609.25938)
-**Content checked:** 2026-10-22.
-
-<a id="confidence-llms"></a>
-### Confidence Estimation for Text-to-SQL in Large Language Models
-
-**2026; AAAI 2026** · **adjacent** · [Paper](https://ojs.aaai.org/index.php/AAAI/article/view/40523)
-
-Studies black-box consistency signals and white-box SQL-aware confidence estimates, including execution-based grounding. The work estimates reliability without gold answers at inference time; a confidence score alone does not determine whether the user's request is ambiguous or unsupported.
-
-**Topics:** uncertainty, confidence, calibration.
-
-**Artifacts:** No code or dataset release verified in this pass.
-
-**Sources:** [Source 1](https://ojs.aaai.org/index.php/AAAI/article/view/40523)
-**Content checked:** 2026-10-22.
-
-<a id="clues"></a>
-### Disentangling Ambiguity from Instability in Large Language Models: A Clinical Text-to-SQL Case Study
-
-**2026; ClinicalNLP workshop at LREC 2026** · **core** · [Paper](https://arxiv.org/abs/2602.12015) · [Code](https://github.com/Bayer-Group/clues-clinical-nlp)
-
-CLUES builds a graph over interpretations and answers to separate variation caused by question ambiguity from variation within the same interpretation. This decomposition supports different clarification and review routes, while its clinical case-study results and domain-dependent thresholds should not be treated as validated clinical deployment guarantees.
-
-**Topics:** ambiguity, uncertainty, clinical, routing.
-
-**Artifacts:** MIT implementation and examples verified; no standalone clinical dataset download verified; not executed. Repository includes offline similarity-matrix and live interpretation-generation examples; full-pipeline thresholds require domain-specific calibration.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2602.12015) · [Source 2](https://arxiv.org/html/2602.12015v2) · [Source 3](https://github.com/Bayer-Group/clues-clinical-nlp)
-**Content checked:** 2026-10-22.
-
-<a id="spotit-plus"></a>
-### SpotIt+: Verification-based Text-to-SQL Evaluation with Database Constraints
-
-**2026; arXiv preprint** · **adjacent** · [Paper](https://arxiv.org/abs/2603.04334) · [Code](https://github.com/ai-ar-research/SpotIt-plus)
-
-Adds database-constraint mining to bounded SQL equivalence checking so distinguishing examples better reflect plausible data. Constraint extraction is best effort, and verification still concerns a generated/reference query pair under the chosen bounds and assumptions.
-
-**Topics:** evaluation, sql-equivalence, constraints.
-
-**Artifacts:** Official artifact link inspected or linked by the primary source; no execution reproduced.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2603.04334) · [Source 2](https://github.com/ai-ar-research/SpotIt-plus)
-**Content checked:** 2026-10-22.
-
-<a id="spotit"></a>
-### SpotIt: Evaluating Text-to-SQL Evaluation with Formal Verification
-
-**2026; ICLR 2026** · **adjacent** · [Paper](https://arxiv.org/abs/2510.26840) · [Code](https://github.com/ai-ar-research/SpotIt-plus)
-
-Uses bounded formal verification to search for database instances that distinguish generated SQL from a reference query. Counterexamples expose differences missed by ordinary execution tests; an equivalence result is limited to supported SQL semantics and the specified bound.
-
-**Topics:** evaluation, sql-equivalence, formal-verification.
-
-**Artifacts:** Official artifact link inspected or linked by the primary source; no execution reproduced.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2510.26840) · [Source 2](https://github.com/ai-ar-research/SpotIt-plus)
-**Content checked:** 2026-10-22.
-
-<a id="tracesql"></a>
-### TraceSQL: Traceable Answerability Estimation for Reference-Free Text-to-SQL Verification
-
-**2026; arXiv preprint** · **core** · [Paper](https://arxiv.org/abs/2608.17795)
-
-Learns a verifier from 67 diagnostic features describing ambiguity, question requirements, schema-SQL consistency, SQL structure, and intent alignment. Its answerability estimate concerns whether a candidate SQL answers a question and is evaluated on generated BIRD queries; it is not a general proof that the underlying request is answerable.
-
-**Topics:** verification, answerability, uncertainty.
-
-**Artifacts:** Paper verified; public implementation not located. Do not link the unrelated TraceSQL lineage product. Keep candidate correctness, input answerability, and calibrated deployment risk separate when comparing this verifier with refusal methods.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2608.17795) · [Source 2](https://arxiv.org/html/2608.17795v2)
-**Content checked:** 2026-10-22.
-
-<a id="selective-prediction"></a>
-### What Predicts Correctness in Text-to-SQL? A Selective-Prediction Study
-
-**2026; arXiv preprint** · **adjacent** · [Paper](https://arxiv.org/abs/2607.06799)
-
-Compares self-consistency, model scores, and reasoning-based verification signals for ranking SQL correctness and selecting which questions to answer. Results cover the studied BIRD and Spider configurations and highlight that verifier performance within known schemas need not transfer to unseen schemas.
-
-**Topics:** uncertainty, verification, selective-prediction.
-
-**Artifacts:** No code or dataset release verified in this pass.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2607.06799)
-**Content checked:** 2026-10-22.
-
-<a id="evaluation-challenges"></a>
-### Fundamental Challenges in Evaluating Text2SQL Solutions and Detecting Their Limitations
-
-**2025; arXiv preprint** · **core** · [Paper](https://arxiv.org/abs/2501.18197)
-
-Examines how ambiguous language, evaluation-data quality, and approximate SQL matching can distort Text-to-SQL assessment. Its taxonomy and examples help diagnose aggregate scores, rather than establish a universal correction to every benchmark.
-
-**Topics:** ambiguity, benchmark-quality, evaluation.
-
-**Artifacts:** No code or dataset release verified in this pass.
-
-**Sources:** [Source 1](https://arxiv.org/abs/2501.18197)
-**Content checked:** 2026-10-22.
-
-<a id="parseval"></a>
-### ParSEval: Plan-aware Test Database Generation for SQL Equivalence Evaluation
-
-**2025; PVLDB 18(11), 2025** · **adjacent** · [Paper](https://www.vldb.org/pvldb/vol18/p4750-miao.pdf) · [Code](https://github.com/sfu-db/ParSEval)
-
-Generates test databases using coverage of logical query-plan behaviors to uncover non-equivalent SQL pairs. It provides stronger evidence than one fixed execution result, while successful finite tests do not prove unrestricted equivalence.
-
-**Topics:** evaluation, sql-equivalence, test-generation.
-
-**Artifacts:** Official artifact link inspected or linked by the primary source; no execution reproduced.
-
-**Sources:** [Source 1](https://www.vldb.org/pvldb/vol18/p4750-miao.pdf) · [Source 2](https://github.com/sfu-db/ParSEval)
-**Content checked:** 2026-10-22.
-
-<a id="test-suites"></a>
-### Semantic Evaluation for Text-to-SQL with Distilled Test Suites
-
-**2020; EMNLP 2020** · **adjacent** · [Paper](https://aclanthology.org/2020.emnlp-main.29/) · [Code](https://github.com/taoyds/test-suite-sql-eval)
-
-Constructs compact database test suites to compare predicted and reference queries over more than one database instance. This reduces dependence on coincidental agreement on a single instance, but remains an approximation to semantic equivalence and assumes a suitable reference query.
-
-**Topics:** evaluation, sql-equivalence.
-
-**Artifacts:** Official artifact link inspected or linked by the primary source; no execution reproduced.
-
-**Sources:** [Source 1](https://aclanthology.org/2020.emnlp-main.29/) · [Source 2](https://github.com/taoyds/test-suite-sql-eval)
-**Content checked:** 2026-10-22.
+| Year | Paper / venue | Concise summary | Code / data |
+| --- | --- | --- | --- |
+| 2026 | <a id="oracle-abstention"></a>[Certified Against Which Oracle? Execution Labels Set the Reported Risk of Conformal Abstention for Text-to-SQL](https://arxiv.org/abs/2609.25938)<br>arXiv preprint<br><em>core</em> | Audits conformal abstention by changing the database-based oracle used to cluster SQL candidates and label correctness, then comparing with expert judgments. The study shows why reported risk must be interpreted relative to the oracle and benchmark quality, rather than treated as an unconditional semantic guarantee. | Release not verified<br><details><summary>Release notes and sources</summary>No code or dataset release verified in this pass.<br><br><strong>Topics:</strong> abstention, calibration, evaluation<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2609.25938">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="confidence-llms"></a>[Confidence Estimation for Text-to-SQL in Large Language Models](https://ojs.aaai.org/index.php/AAAI/article/view/40523)<br>AAAI 2026<br><em>adjacent</em> | Studies black-box consistency signals and white-box SQL-aware confidence estimates, including execution-based grounding. The work estimates reliability without gold answers at inference time; a confidence score alone does not determine whether the user&#x27;s request is ambiguous or unsupported. | Release not verified<br><details><summary>Release notes and sources</summary>No code or dataset release verified in this pass.<br><br><strong>Topics:</strong> uncertainty, confidence, calibration<br><br><strong>Sources:</strong> <a href="https://ojs.aaai.org/index.php/AAAI/article/view/40523">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="clues"></a>[Disentangling Ambiguity from Instability in Large Language Models: A Clinical Text-to-SQL Case Study](https://arxiv.org/abs/2602.12015)<br>ClinicalNLP workshop at LREC 2026<br><em>core</em> | CLUES builds a graph over interpretations and answers to separate variation caused by question ambiguity from variation within the same interpretation. This decomposition supports different clarification and review routes, while its clinical case-study results and domain-dependent thresholds should not be treated as validated clinical deployment guarantees. | [Code](https://github.com/Bayer-Group/clues-clinical-nlp)<br><details><summary>Release notes and sources</summary>MIT implementation and examples verified; no standalone clinical dataset download verified; not executed. Repository includes offline similarity-matrix and live interpretation-generation examples; full-pipeline thresholds require domain-specific calibration.<br><br><strong>Topics:</strong> ambiguity, uncertainty, clinical, routing<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2602.12015">Source 1</a> · <a href="https://arxiv.org/html/2602.12015v2">Source 2</a> · <a href="https://github.com/Bayer-Group/clues-clinical-nlp">Source 3</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="spotit-plus"></a>[SpotIt+: Verification-based Text-to-SQL Evaluation with Database Constraints](https://arxiv.org/abs/2603.04334)<br>arXiv preprint<br><em>adjacent</em> | Adds database-constraint mining to bounded SQL equivalence checking so distinguishing examples better reflect plausible data. Constraint extraction is best effort, and verification still concerns a generated/reference query pair under the chosen bounds and assumptions. | [Code](https://github.com/ai-ar-research/SpotIt-plus)<br><details><summary>Release notes and sources</summary>Official artifact link inspected or linked by the primary source; no execution reproduced.<br><br><strong>Topics:</strong> evaluation, sql-equivalence, constraints<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2603.04334">Source 1</a> · <a href="https://github.com/ai-ar-research/SpotIt-plus">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="spotit"></a>[SpotIt: Evaluating Text-to-SQL Evaluation with Formal Verification](https://arxiv.org/abs/2510.26840)<br>ICLR 2026<br><em>adjacent</em> | Uses bounded formal verification to search for database instances that distinguish generated SQL from a reference query. Counterexamples expose differences missed by ordinary execution tests; an equivalence result is limited to supported SQL semantics and the specified bound. | [Code](https://github.com/ai-ar-research/SpotIt-plus)<br><details><summary>Release notes and sources</summary>Official artifact link inspected or linked by the primary source; no execution reproduced.<br><br><strong>Topics:</strong> evaluation, sql-equivalence, formal-verification<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2510.26840">Source 1</a> · <a href="https://github.com/ai-ar-research/SpotIt-plus">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="tracesql"></a>[TraceSQL: Traceable Answerability Estimation for Reference-Free Text-to-SQL Verification](https://arxiv.org/abs/2608.17795)<br>arXiv preprint<br><em>core</em> | Learns a verifier from 67 diagnostic features describing ambiguity, question requirements, schema-SQL consistency, SQL structure, and intent alignment. Its answerability estimate concerns whether a candidate SQL answers a question and is evaluated on generated BIRD queries; it is not a general proof that the underlying request is answerable. | Release not verified<br><details><summary>Release notes and sources</summary>Paper verified; public implementation not located. Do not link the unrelated TraceSQL lineage product. Keep candidate correctness, input answerability, and calibrated deployment risk separate when comparing this verifier with refusal methods.<br><br><strong>Topics:</strong> verification, answerability, uncertainty<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2608.17795">Source 1</a> · <a href="https://arxiv.org/html/2608.17795v2">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2026 | <a id="selective-prediction"></a>[What Predicts Correctness in Text-to-SQL? A Selective-Prediction Study](https://arxiv.org/abs/2607.06799)<br>arXiv preprint<br><em>adjacent</em> | Compares self-consistency, model scores, and reasoning-based verification signals for ranking SQL correctness and selecting which questions to answer. Results cover the studied BIRD and Spider configurations and highlight that verifier performance within known schemas need not transfer to unseen schemas. | Release not verified<br><details><summary>Release notes and sources</summary>No code or dataset release verified in this pass.<br><br><strong>Topics:</strong> uncertainty, verification, selective-prediction<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2607.06799">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2025 | <a id="evaluation-challenges"></a>[Fundamental Challenges in Evaluating Text2SQL Solutions and Detecting Their Limitations](https://arxiv.org/abs/2501.18197)<br>arXiv preprint<br><em>core</em> | Examines how ambiguous language, evaluation-data quality, and approximate SQL matching can distort Text-to-SQL assessment. Its taxonomy and examples help diagnose aggregate scores, rather than establish a universal correction to every benchmark. | Release not verified<br><details><summary>Release notes and sources</summary>No code or dataset release verified in this pass.<br><br><strong>Topics:</strong> ambiguity, benchmark-quality, evaluation<br><br><strong>Sources:</strong> <a href="https://arxiv.org/abs/2501.18197">Source 1</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2025 | <a id="parseval"></a>[ParSEval: Plan-aware Test Database Generation for SQL Equivalence Evaluation](https://www.vldb.org/pvldb/vol18/p4750-miao.pdf)<br>PVLDB 18(11), 2025<br><em>adjacent</em> | Generates test databases using coverage of logical query-plan behaviors to uncover non-equivalent SQL pairs. It provides stronger evidence than one fixed execution result, while successful finite tests do not prove unrestricted equivalence. | [Code](https://github.com/sfu-db/ParSEval)<br><details><summary>Release notes and sources</summary>Official artifact link inspected or linked by the primary source; no execution reproduced.<br><br><strong>Topics:</strong> evaluation, sql-equivalence, test-generation<br><br><strong>Sources:</strong> <a href="https://www.vldb.org/pvldb/vol18/p4750-miao.pdf">Source 1</a> · <a href="https://github.com/sfu-db/ParSEval">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+| 2020 | <a id="test-suites"></a>[Semantic Evaluation for Text-to-SQL with Distilled Test Suites](https://aclanthology.org/2020.emnlp-main.29/)<br>EMNLP 2020<br><em>adjacent</em> | Constructs compact database test suites to compare predicted and reference queries over more than one database instance. This reduces dependence on coincidental agreement on a single instance, but remains an approximation to semantic equivalence and assumes a suitable reference query. | [Code](https://github.com/taoyds/test-suite-sql-eval)<br><details><summary>Release notes and sources</summary>Official artifact link inspected or linked by the primary source; no execution reproduced.<br><br><strong>Topics:</strong> evaluation, sql-equivalence<br><br><strong>Sources:</strong> <a href="https://aclanthology.org/2020.emnlp-main.29/">Source 1</a> · <a href="https://github.com/taoyds/test-suite-sql-eval">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |

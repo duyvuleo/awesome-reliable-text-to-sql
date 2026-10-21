@@ -2,6 +2,7 @@
 
 ## 2026-10-22
 
+- Adopted topic-grouped paper tables and system/tool and dataset tables, preserving summaries, stable links, and expandable source and release notes.
 - Removed source-depth labels from displayed paper entries while retaining the metadata in the catalog.
 - Established a focused annotated collection covering ambiguity, answerability, clarification, contextual grounding, uncertainty, and evaluation in Text-to-SQL.
 - Added public-source paper summaries, separate system/tool and dataset/benchmark records, starting papers, reading routes, and an evaluation guide.
