@@ -1,0 +1,876 @@
+[
+  {
+    "id": "clarity-pipeline",
+    "name": "CLARITY generation pipeline",
+    "kind": "system",
+    "paper_ids": [
+      "clarity"
+    ],
+    "url": "https://github.com/duyvuleo/clarity",
+    "description": "Generates conversational examples targeting ambiguity and unanswerability from database questions and schema context.",
+    "protocol": "Generation pipeline and validation commands; released annotations and fresh generation are separate artifacts.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "Code: MIT. Spider/BIRD-derived data: CC BY-SA 4.0.",
+    "evidence": [
+      "https://github.com/duyvuleo/clarity",
+      "https://aclanthology.org/2026.acl-industry.86/"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "ambisql-system",
+    "name": "AmbiSQL",
+    "kind": "system",
+    "paper_ids": [
+      "ambisql"
+    ],
+    "url": "https://github.com/JustinzjDing/AmbiSQL",
+    "description": "Detects ambiguous phrases, presents multiple-choice clarification, and rewrites questions for a downstream SQL generator.",
+    "protocol": "Interactive frontend and backend; demonstration combines the clarification layer with XiYan-SQL.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced. Linked live demo not exercised.",
+    "license_note": "Apache-2.0.",
+    "evidence": [
+      "https://github.com/JustinzjDing/AmbiSQL",
+      "https://arxiv.org/abs/2508.15276"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "clear-system",
+    "name": "CLEAR",
+    "kind": "system",
+    "paper_ids": [
+      "clear-clambsql"
+    ],
+    "url": "https://github.com/mengzhang18/CLEAR",
+    "description": "Provides a parser-independent disambiguation pipeline and evaluation setup for questions with multiple SQL interpretations.",
+    "protocol": "Schema-aware disambiguation with CLAMBSQL, AmbiQT, and AMBROSIA inputs; not a general answerability guarantee.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "evidence": [
+      "https://github.com/mengzhang18/CLEAR"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "sphinteract-system",
+    "name": "Sphinteract",
+    "kind": "system",
+    "paper_ids": [
+      "sphinteract"
+    ],
+    "url": "https://github.com/ZhaoFuheng/Sphinteract",
+    "description": "Research implementation for resolving NL2SQL ambiguity through user interaction.",
+    "protocol": "Experiment notebooks cover KaggleDBQA and BIRD; linked user-study records support interaction analysis.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced. Linked study archives not downloaded.",
+    "license_note": "Repository declares MIT; upstream datasets and study artifacts may have separate terms.",
+    "evidence": [
+      "https://github.com/ZhaoFuheng/Sphinteract",
+      "https://www.vldb.org/pvldb/vol18/p1145-zhao.pdf"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "disambigparse-system",
+    "name": "Disambiguate First, Parse Later",
+    "kind": "system",
+    "paper_ids": [
+      "disambiguate-first"
+    ],
+    "url": "https://github.com/saparina/disambiguate-then-parse",
+    "description": "Generates and fills in candidate natural-language interpretations before parsing each into SQL.",
+    "protocol": "Multiple-interpretation generation and SQL coverage on AMBROSIA and AmbiQT, rather than a live clarification dialogue.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "Code: MIT; upstream benchmark access terms remain separate.",
+    "evidence": [
+      "https://github.com/saparina/disambiguate-then-parse",
+      "https://aclanthology.org/2025.findings-acl.863/"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "intentrl-system",
+    "name": "IntentRL",
+    "kind": "system",
+    "paper_ids": [
+      "intentrl"
+    ],
+    "url": "https://github.com/saparina/intentRL",
+    "description": "Training and inference code for structured interpretation-answer pairs, with recall and precision rewards for different input types.",
+    "protocol": "Single-response enumeration evaluated on ambiguous QA and SQL; released text-to-SQL model linked from the repository.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced. Model weights were not downloaded.",
+    "license_note": "Code license not verified; linked text-to-SQL model card declares MIT; upstream datasets retain their terms.",
+    "evidence": [
+      "https://github.com/saparina/intentRL",
+      "https://arxiv.org/abs/2511.10453",
+      "https://huggingface.co/irisaparina/IntentRL-Ambig-Text2SQL-4B"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "mmsql-system",
+    "name": "MMSQL multi-agent framework",
+    "kind": "system",
+    "paper_ids": [
+      "mmsql"
+    ],
+    "url": "https://github.com/mcxiaoxiao/MMSQL",
+    "description": "Specialized selector, detector, decomposer, and refiner agents handle different conversational question types.",
+    "protocol": "Multi-turn response generation, question-type decisions, RQS judging, and TDEX/SQL metrics.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "Code license not verified; author dataset card declares CC BY 4.0.",
+    "evidence": [
+      "https://github.com/mcxiaoxiao/MMSQL",
+      "https://arxiv.org/abs/2412.17867"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "bird-interact-harness",
+    "name": "BIRD-Interact agent and simulator harness",
+    "kind": "system",
+    "paper_ids": [
+      "bird-interact"
+    ],
+    "url": "https://github.com/bird-bench/BIRD-Interact",
+    "description": "Provides conversational and autonomous-agent runners, a user simulator, database environments, and an ADK implementation.",
+    "protocol": "c-Interact and a-Interact with controlled action budgets and executable tests; simulator behavior is part of the protocol.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced. Official ground-truth access procedure applies.",
+    "license_note": "Code: MIT; benchmark data: CC BY-SA 4.0.",
+    "evidence": [
+      "https://github.com/bird-bench/BIRD-Interact",
+      "https://bird-interact.github.io/",
+      "https://arxiv.org/abs/2510.05318"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "taco-sql-system",
+    "name": "TACO-SQL baseline",
+    "kind": "system",
+    "paper_ids": [
+      "taco"
+    ],
+    "url": "https://github.com/Akanezora0/TACO-Benchmark",
+    "description": "Reference pipeline combines question rewriting, table linking, and query planning for open-domain SQL tasks.",
+    "protocol": "Retrieves target tables and handles cross-database queries; primary evaluation is execution accuracy.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "Repository and author dataset card declare MIT.",
+    "evidence": [
+      "https://github.com/Akanezora0/TACO-Benchmark",
+      "https://arxiv.org/abs/2606.14201"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "dte-system",
+    "name": "DTE: Detect-Then-Explain",
+    "kind": "system",
+    "paper_ids": [
+      "dte-noisysp"
+    ],
+    "url": "https://github.com/wbbeyourself/DTE",
+    "description": "Detects and localizes ambiguous or unanswerable question spans and produces explanations.",
+    "protocol": "Weakly supervised detection and explanation with counterfactual examples; distinct from complete conversational intent repair.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "evidence": [
+      "https://github.com/wbbeyourself/DTE",
+      "https://aclanthology.org/2023.findings-acl.352/"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "intentsql-system",
+    "name": "IntentSQL",
+    "kind": "system",
+    "paper_ids": [],
+    "url": "https://github.com/Amine-LG/IntentSQL",
+    "description": "Experimental SQLite interface combines bounded model decisions, typed query plans, deterministic SQL compilation, and visible alternative readings.",
+    "protocol": "Read-only queries and result-distinct alternatives; repository evaluation is self-reported and no peer-reviewed paper was verified.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "MIT.",
+    "evidence": [
+      "https://github.com/Amine-LG/IntentSQL"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "maic-tqa-system",
+    "name": "MAIC-TQA",
+    "kind": "system",
+    "paper_ids": [
+      "odutqa-mdc"
+    ],
+    "url": "https://github.com/jensenw1/ODUTQA-MDC",
+    "description": "Multi-agent framework for underspecified tabular QA, including scope validation, table retrieval, and SQL generation and validation.",
+    "protocol": "Dynamic dialogue-based clarification; primary task is open-domain tabular QA rather than conventional schema-conditioned SQL generation.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "evidence": [
+      "https://github.com/jensenw1/ODUTQA-MDC",
+      "https://aclanthology.org/2026.acl-long.499/"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "clues-tool",
+    "name": "CLUES uncertainty decomposition",
+    "kind": "tool",
+    "paper_ids": [
+      "clues"
+    ],
+    "url": "https://github.com/Bayer-Group/clues-clinical-nlp",
+    "description": "Decomposes output variation into interpretation ambiguity and instability within an interpretation.",
+    "protocol": "Offline similarity-matrix examples and live interpretation generation; routing thresholds require domain calibration.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "MIT.",
+    "evidence": [
+      "https://github.com/Bayer-Group/clues-clinical-nlp",
+      "https://arxiv.org/abs/2602.12015"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "qda-sql-generator",
+    "name": "QDA-SQL dialogue generator",
+    "kind": "tool",
+    "paper_ids": [
+      "qda-sql"
+    ],
+    "url": "https://github.com/mcxiaoxiao/QDA-SQL",
+    "description": "Generates multi-turn QA examples with diverse question types and applies validation and correction.",
+    "protocol": "Schema-based synthetic-data augmentation with a StateFlow-style example; generated examples still need appropriate validity checks.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "MIT; underlying databases retain their own licenses.",
+    "evidence": [
+      "https://github.com/mcxiaoxiao/QDA-SQL",
+      "https://arxiv.org/abs/2406.10593"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "practiq-generator",
+    "name": "PRACTIQ generation pipeline",
+    "kind": "tool",
+    "paper_ids": [
+      "practiq"
+    ],
+    "url": "https://github.com/amazon-science/conversational-ambiguous-unanswerable-text2sql",
+    "description": "Generation scripts create ambiguous and unanswerable conversational text-to-SQL examples.",
+    "protocol": "Generation-only release; do not equate scripts with a verified download of the completed benchmark.",
+    "availability": "Public source inspected; repository archived on 2026-07-10. Not executed.",
+    "license_note": "Repository LICENSE specifies CC BY-NC 4.0; upstream data terms remain separate.",
+    "evidence": [
+      "https://github.com/amazon-science/conversational-ambiguous-unanswerable-text2sql",
+      "https://aclanthology.org/2025.naacl-long.13/",
+      "https://github.com/amazon-science/conversational-ambiguous-unanswerable-text2sql/blob/main/LICENSE"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "squab-generator",
+    "name": "SQUAB benchmark generator",
+    "kind": "tool",
+    "paper_ids": [
+      "squab"
+    ],
+    "url": "https://github.com/spapicchio/squab",
+    "description": "Combines scripted operations and LLM calls to generate ambiguous and unanswerable database questions.",
+    "protocol": "Database-specific test generation; generator availability does not establish the validity of all generated cases.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "Apache-2.0.",
+    "evidence": [
+      "https://github.com/spapicchio/squab",
+      "https://aclanthology.org/2025.emnlp-main.906/"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "act-training",
+    "name": "ACT clarification-policy training",
+    "kind": "tool",
+    "paper_ids": [
+      "act-ambigsql"
+    ],
+    "url": "https://github.com/google-research/google-research/tree/master/learning_to_clarify",
+    "description": "Reference implementation of action-based contrastive self-training for clarify-versus-answer decisions.",
+    "protocol": "Simulated multi-turn outcomes guide preference training; the documented example uses PACIFIC, and standalone AmbigSQL data were not verified.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "evidence": [
+      "https://github.com/google-research/google-research/tree/master/learning_to_clarify",
+      "https://arxiv.org/abs/2406.00222"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "rts-sql-tool",
+    "name": "RTS-SQL",
+    "kind": "tool",
+    "paper_ids": [
+      "rts",
+      "rts-plus"
+    ],
+    "url": "https://github.com/kckevinchen/RTS-SQL",
+    "description": "Uses candidate execution-result agreement and execution entropy to support SQL selection and abstention.",
+    "protocol": "Risk-control conclusions depend on calibration assumptions and the correctness labels used; execution agreement alone is not intent validity.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "evidence": [
+      "https://github.com/kckevinchen/RTS-SQL",
+      "https://arxiv.org/abs/2501.10858",
+      "https://openproceedings.org/2026/conf/edbt/paper-177.pdf"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "test-suite-evaluator",
+    "name": "Distilled test-suite SQL evaluator",
+    "kind": "tool",
+    "paper_ids": [
+      "test-suites"
+    ],
+    "url": "https://github.com/taoyds/test-suite-sql-eval",
+    "description": "Evaluates candidate and reference SQL across test databases to reduce accidental execution matches.",
+    "protocol": "Supports Spider, SParC, CoSQL, and other datasets; agreement with reference SQL cannot resolve an incorrect or incomplete reference intent.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced. Test-suite downloads were not executed.",
+    "license_note": "Apache-2.0 code; check upstream database terms separately.",
+    "evidence": [
+      "https://github.com/taoyds/test-suite-sql-eval",
+      "https://aclanthology.org/2020.emnlp-main.29/"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "spotit-tool",
+    "name": "SpotIt+",
+    "kind": "tool",
+    "paper_ids": [
+      "spotit",
+      "spotit-plus"
+    ],
+    "url": "https://github.com/ai-ar-research/SpotIt-plus",
+    "description": "Searches for database counterexamples to candidate/reference SQL equivalence using bounded verification and database constraints.",
+    "protocol": "Bounded equivalence or counterexample generation; conclusions depend on supported SQL, search bounds, and constraint validity.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "License file exists; exact terms and submodule licenses not verified.",
+    "evidence": [
+      "https://github.com/ai-ar-research/SpotIt-plus",
+      "https://arxiv.org/abs/2510.26840",
+      "https://arxiv.org/abs/2603.04334"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "parseval-tool",
+    "name": "ParSEval",
+    "kind": "tool",
+    "paper_ids": [
+      "parseval"
+    ],
+    "url": "https://github.com/sfu-db/ParSEval",
+    "description": "Generates test database instances guided by SQL logical-plan branches and symbolic constraints.",
+    "protocol": "Useful for distinguishing SQL queries through counterexamples; cannot establish the user's intended interpretation.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "Apache-2.0.",
+    "evidence": [
+      "https://github.com/sfu-db/ParSEval",
+      "https://www.vldb.org/pvldb/vol18/p4750-miao.pdf"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "confidence-error-tool",
+    "name": "Text-to-SQL confidence and error-detection toolkit",
+    "kind": "tool",
+    "paper_ids": [
+      "confidence-error"
+    ],
+    "url": "https://github.com/runnerup96/error-detection-in-text2sql",
+    "description": "Provides model outputs, analysis, and code for confidence-based error detection.",
+    "protocol": "Evaluates confidence for generated SQL; transfer to a new parser, schema distribution, or answerability regime requires validation.",
+    "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
+    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "evidence": [
+      "https://github.com/runnerup96/error-detection-in-text2sql",
+      "https://ojs.aaai.org/index.php/AAAI/article/view/34699"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "scare-evaluator",
+    "name": "SCARE correction and classification evaluator",
+    "kind": "tool",
+    "paper_ids": [
+      "scare"
+    ],
+    "url": "https://github.com/glee4810/SCARE",
+    "description": "Baseline pipelines and evaluation scripts for answerability classification and candidate-SQL verification or correction.",
+    "protocol": "Joint question classification and SQL correction in EHR QA; benchmark results do not demonstrate clinical deployment safety.",
+    "availability": "Public code and prompts inspected; databases require separate download; not executed.",
+    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "evidence": [
+      "https://github.com/glee4810/SCARE",
+      "https://proceedings.mlr.press/v297/lee26b.html"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "clarity-data",
+    "name": "CLARITY Spider/BIRD annotations",
+    "kind": "dataset",
+    "paper_ids": [
+      "clarity"
+    ],
+    "url": "https://github.com/duyvuleo/clarity/tree/main/data",
+    "description": "Conversational ambiguity and unanswerability annotations packaged with source seeds, schemas, and column catalogs.",
+    "protocol": "Static generated conversations; distinguish packaged files from reconstructed paper evaluation splits.",
+    "availability": "Public annotation/data directory and release instructions verified; SQLite databases are not bundled.",
+    "license_note": "Spider/BIRD-derived data: CC BY-SA 4.0; code MIT.",
+    "evidence": [
+      "https://github.com/duyvuleo/clarity/tree/main/data",
+      "https://github.com/duyvuleo/clarity",
+      "https://aclanthology.org/2026.acl-industry.86/"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "abiss-data",
+    "name": "ABISS benchmark design",
+    "kind": "dataset",
+    "paper_ids": [
+      "abiss"
+    ],
+    "url": "https://arxiv.org/abs/2607.23340",
+    "description": "Describes generation of ambiguous/unanswerable questions and a multi-turn environment with style-aware simulated users.",
+    "protocol": "Dynamic user simulation and classification/SQL-resolution evaluation over ABISS-BIRD and ABISS-Spider.",
+    "availability": "Paper-described benchmark; linked author repository says COMING SOON and has no data or implementation visible.",
+    "license_note": "Dataset license unverified; placeholder repository's MIT file does not establish dataset terms.",
+    "evidence": [
+      "https://arxiv.org/abs/2607.23340",
+      "https://github.com/giosullutrone/ABISS-Evaluating-Text-to-SQL-Systems-Through-Agent-Interaction"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "ambiqt-data",
+    "name": "AmbiQT",
+    "kind": "dataset",
+    "paper_ids": [
+      "ambiqt"
+    ],
+    "url": "https://github.com/tomartushar/AmbiQT/tree/master/benchmark",
+    "description": "Questions paired with two plausible SQL queries arising from lexical or structural ambiguity.",
+    "protocol": "Tests coverage of alternative SQL interpretations, rather than live clarification quality.",
+    "availability": "Benchmark JSON, category generators/evaluators, and database-content archive visible; not executed.",
+    "license_note": "Repository declares MIT; source Spider data terms remain relevant.",
+    "evidence": [
+      "https://github.com/tomartushar/AmbiQT/tree/master/benchmark",
+      "https://github.com/tomartushar/AmbiQT",
+      "https://aclanthology.org/2023.emnlp-main.436/"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "ambrosia-data",
+    "name": "AMBROSIA",
+    "kind": "dataset",
+    "paper_ids": [
+      "ambrosia"
+    ],
+    "url": "https://ambrosia-benchmark.github.io/",
+    "description": "Ambiguous requests with interpretations and SQL for scope, attachment, and vagueness cases.",
+    "protocol": "Multiple valid interpretations remain possible even with database context; evaluate coverage rather than a single chosen answer.",
+    "availability": "Author-controlled download; project asks that data not be mirrored to GitHub or Hugging Face.",
+    "license_note": "Dataset license not verified; respect the author's download and redistribution conditions.",
+    "evidence": [
+      "https://ambrosia-benchmark.github.io/",
+      "https://arxiv.org/abs/2406.19073"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "practiq-data",
+    "name": "PRACTIQ benchmark design",
+    "kind": "dataset",
+    "paper_ids": [
+      "practiq"
+    ],
+    "url": "https://aclanthology.org/2025.naacl-long.13/",
+    "description": "Four-turn conversational examples for ambiguous, unanswerable, and answerable questions, including alternative helpful responses.",
+    "protocol": "Fixed conversations with question classification and clarification-conditioned SQL evaluation.",
+    "availability": "Paper-described benchmark; archived official release contains generation code, but completed benchmark download was not verified.",
+    "license_note": "Completed dataset terms unverified; generator repository LICENSE is CC BY-NC 4.0.",
+    "evidence": [
+      "https://aclanthology.org/2025.naacl-long.13/",
+      "https://github.com/amazon-science/conversational-ambiguous-unanswerable-text2sql"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "trustsql-data",
+    "name": "TrustSQL",
+    "kind": "dataset",
+    "paper_ids": [
+      "trustsql"
+    ],
+    "url": "https://github.com/glee4810/TrustSQL#dataset",
+    "description": "Feasible and infeasible questions for measuring correct SQL generation and abstention.",
+    "protocol": "Penalty-based reliability scoring; penalty choice and infeasibility definitions affect comparisons.",
+    "availability": "Official dataset download link and evaluation scripts verified; archive not downloaded.",
+    "license_note": "Repository declares CC BY 4.0; constituent databases can carry separate terms.",
+    "evidence": [
+      "https://github.com/glee4810/TrustSQL#dataset",
+      "https://arxiv.org/abs/2403.15879"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "ehrsql-data",
+    "name": "EHRSQL",
+    "kind": "dataset",
+    "paper_ids": [
+      "ehrsql"
+    ],
+    "url": "https://github.com/glee4810/EHRSQL",
+    "description": "Clinical database questions spanning SQL generation, temporal expressions, and abstention.",
+    "protocol": "MIMIC-III/eICU evaluation with processed database values; intended for query evaluation, not clinical analysis.",
+    "availability": "Annotation files and processed-database download links visible; building from original data requires PhysioNet credentialed access.",
+    "license_note": "Annotation repository declares CC BY 4.0; original EHR databases have separate access and use terms.",
+    "evidence": [
+      "https://github.com/glee4810/EHRSQL",
+      "https://arxiv.org/abs/2301.07695"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "ehrsql-2024-data",
+    "name": "EHRSQL 2024 shared-task data",
+    "kind": "dataset",
+    "paper_ids": [
+      "ehrsql-2024"
+    ],
+    "url": "https://github.com/glee4810/ehrsql-2024",
+    "description": "Answerable and unanswerable MIMIC-IV demo questions with reliability-oriented shared-task scoring.",
+    "protocol": "Models may answer or abstain; distinguish incorrect SQL from inability to answer the question.",
+    "availability": "Public annotations, ingestion/scoring scripts, and MIMIC-IV demo preprocessing instructions visible; not executed.",
+    "license_note": "Repository: CC BY 4.0. Referenced MIMIC-IV demo: Open Database License 1.0.",
+    "evidence": [
+      "https://github.com/glee4810/ehrsql-2024",
+      "https://aclanthology.org/2024.clinicalnlp-1.62/"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "triagesql-data",
+    "name": "TriageSQL",
+    "kind": "dataset",
+    "paper_ids": [
+      "triagesql"
+    ],
+    "url": "https://github.com/yszh8/TriageSQL",
+    "description": "Question-intention labels distinguish answerable questions, ambiguity, missing data, non-SQL requests, and small talk.",
+    "protocol": "Question classification over question/schema inputs; does not directly measure clarification dialogue or SQL execution.",
+    "availability": "Public test examples and official full-dataset download link visible; archive not downloaded.",
+    "license_note": "CC BY-SA 4.0.",
+    "evidence": [
+      "https://github.com/yszh8/TriageSQL",
+      "https://arxiv.org/abs/2010.12634"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "clambsql-data",
+    "name": "CLAMBSQL",
+    "kind": "dataset",
+    "paper_ids": [
+      "clear-clambsql"
+    ],
+    "url": "https://huggingface.co/datasets/mengxi123/CLAMBSQL",
+    "description": "Benchmark for systematic disambiguation, with ambiguous questions, schema context, possible SQL queries, and ambiguity types.",
+    "protocol": "Used by CLEAR for interpretation and disambiguation evaluation.",
+    "availability": "Official author-linked artifact exists; no dataset card and no automatic preview were available; archive contents not inspected.",
+    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "evidence": [
+      "https://huggingface.co/datasets/mengxi123/CLAMBSQL",
+      "https://github.com/mengzhang18/CLEAR"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "ambival-data",
+    "name": "AmbiVal",
+    "kind": "dataset",
+    "paper_ids": [
+      "raqs-sql"
+    ],
+    "url": "https://huggingface.co/datasets/griffith-bigdata/ambival",
+    "description": "Author-linked resource for schema and value ambiguity in the RAQS-SQL work.",
+    "protocol": "Ambiguous-query and schema/value-context evaluation; use the paper and associated files to establish the intended splits.",
+    "availability": "Public files/preview visible; README is empty and the viewer reports a schema mismatch; no download or execution attempted.",
+    "license_note": "Hugging Face metadata declares MIT; upstream datasets may impose additional terms.",
+    "evidence": [
+      "https://huggingface.co/datasets/griffith-bigdata/ambival",
+      "https://huggingface.co/collections/griffith-bigdata/raqs-sql",
+      "https://ieeexplore.ieee.org/abstract/document/11720244"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "bird-interact-data",
+    "name": "BIRD-Interact Full, Lite, and Mini",
+    "kind": "dataset",
+    "paper_ids": [
+      "bird-interact"
+    ],
+    "url": "https://huggingface.co/datasets/birdsql/bird-interact-full",
+    "description": "Interactive SQL tasks with ambiguity annotations, follow-ups, database environments, and user simulation.",
+    "protocol": "Full/Lite PostgreSQL and Mini SQLite are distinct variants; c-Interact and a-Interact differ in who controls interaction.",
+    "availability": "Public task cards/files verified; evaluator ground truth and some materials follow the authors' access procedure.",
+    "license_note": "CC BY-SA 4.0 data; MIT code.",
+    "evidence": [
+      "https://huggingface.co/datasets/birdsql/bird-interact-full",
+      "https://bird-interact.github.io/",
+      "https://github.com/bird-bench/BIRD-Interact"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "taco-data",
+    "name": "TACO",
+    "kind": "dataset",
+    "paper_ids": [
+      "taco"
+    ],
+    "url": "https://huggingface.co/datasets/Akanezora/TACO-Benchmark",
+    "description": "Open-domain questions with ambiguous language, unspecified target databases, and cross-database SQL.",
+    "protocol": "Execution accuracy over retrieved tables and query plans; not a live clarification benchmark.",
+    "availability": "Author-linked dataset files visible; card reports 12,422 JSON examples, differing from the paper's 14,500; not downloaded.",
+    "license_note": "Dataset card and code repository declare MIT.",
+    "evidence": [
+      "https://huggingface.co/datasets/Akanezora/TACO-Benchmark",
+      "https://arxiv.org/abs/2606.14201",
+      "https://github.com/Akanezora0/TACO-Benchmark"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "mmsql-data",
+    "name": "MMSQL",
+    "kind": "dataset",
+    "paper_ids": [
+      "mmsql"
+    ],
+    "url": "https://huggingface.co/datasets/GuoZiming/MMSQL",
+    "description": "Multi-turn conversations with different question types for assessing classification and SQL generation together.",
+    "protocol": "Recorded/generated dialogue; RQS uses model judging alongside TDEX and SQL metrics.",
+    "availability": "Public train/test data and dataset card visible; upstream CoSQL SQLite databases are obtained separately.",
+    "license_note": "Author dataset card declares CC BY 4.0; upstream CoSQL terms remain relevant.",
+    "evidence": [
+      "https://huggingface.co/datasets/GuoZiming/MMSQL",
+      "https://github.com/mcxiaoxiao/MMSQL",
+      "https://arxiv.org/abs/2412.17867"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "cosql-data",
+    "name": "CoSQL",
+    "kind": "dataset",
+    "paper_ids": [
+      "cosql"
+    ],
+    "url": "https://yale-lily.github.io/cosql",
+    "description": "Wizard-of-Oz conversations with SQL answers, clarifications, and unanswerable or unrelated questions.",
+    "protocol": "Dialogue-act prediction, response generation, and SQL-grounded state tracking; recorded clarification context is supplied in standard SQL evaluation.",
+    "availability": "Public train/development downloads and baseline code verified; official test data withheld.",
+    "license_note": "CC BY-SA 4.0.",
+    "evidence": [
+      "https://yale-lily.github.io/cosql",
+      "https://github.com/taoyds/cosql"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "sparc-data",
+    "name": "SParC",
+    "kind": "dataset",
+    "paper_ids": [
+      "sparc"
+    ],
+    "url": "https://yale-lily.github.io/sparc",
+    "description": "Coherent question sequences for cross-domain semantic parsing with conversational context.",
+    "protocol": "Context-dependent SQL parsing; contextual references alone do not imply explicit ambiguity detection or refusal.",
+    "availability": "Public train/development downloads and baseline code verified; official test data withheld.",
+    "license_note": "CC BY-SA 4.0.",
+    "evidence": [
+      "https://yale-lily.github.io/sparc",
+      "https://github.com/taoyds/sparc"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "multisql-data",
+    "name": "MultiSQL",
+    "kind": "dataset",
+    "paper_ids": [
+      "multisql"
+    ],
+    "url": "https://github.com/grandchicken/MultiSQL",
+    "description": "Longer SQL dialogues with schema-dependent context and operations including CREATE, UPDATE, and INSERT.",
+    "protocol": "Stateful, recorded conversational evaluation; does not directly test an autonomous clarify-or-abstain policy.",
+    "availability": "Dataset repository and database download link visible; README says evaluation code is forthcoming.",
+    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "evidence": [
+      "https://github.com/grandchicken/MultiSQL",
+      "https://aclanthology.org/2024.findings-acl.823/"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "dysql-data",
+    "name": "DySQL-Bench",
+    "kind": "dataset",
+    "paper_ids": [
+      "dysql-bench"
+    ],
+    "url": "https://github.com/Aurora-slz/DySQL-Bench",
+    "description": "Dynamic multi-turn tasks with evolving user requests and database state changes.",
+    "protocol": "Simulated user, tested agent, and executable database interact across CRUD tasks; reliability depends on the defined simulator.",
+    "availability": "Public generation/evaluation code and database-fetch instructions visible; not executed.",
+    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "evidence": [
+      "https://github.com/Aurora-slz/DySQL-Bench",
+      "https://aclanthology.org/2026.findings-acl.1654/"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "odutqa-data",
+    "name": "ODUTQA-MDC",
+    "kind": "dataset",
+    "paper_ids": [
+      "odutqa-mdc"
+    ],
+    "url": "https://github.com/jensenw1/ODUTQA-MDC/tree/main/datasets",
+    "description": "Underspecified tabular-QA questions and tables with detailed labels and dialogue-based clarification.",
+    "protocol": "Dynamic user simulation plus retrieval and SQL-backed answer generation; adjacent to conventional text-to-SQL.",
+    "availability": "Data directory and source listed publicly; not downloaded or executed.",
+    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "evidence": [
+      "https://github.com/jensenw1/ODUTQA-MDC/tree/main/datasets",
+      "https://github.com/jensenw1/ODUTQA-MDC",
+      "https://aclanthology.org/2026.acl-long.499/"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "spider2-data",
+    "name": "Spider 2.0",
+    "kind": "dataset",
+    "paper_ids": [
+      "spider2"
+    ],
+    "url": "https://github.com/xlang-ai/Spider2",
+    "description": "Enterprise SQL workflow tasks involving large schemas, documentation, and local or cloud databases.",
+    "protocol": "Pin Lite, Snow, or DBT setting and release; oracle-table access is a separate condition; not an explicit answerability benchmark.",
+    "availability": "Public tasks and environment instructions verified; cloud access and execution not tested.",
+    "license_note": "Dataset and environment-specific terms not verified; consult the selected release.",
+    "evidence": [
+      "https://github.com/xlang-ai/Spider2",
+      "https://spider2-sql.github.io/",
+      "https://arxiv.org/abs/2411.07763"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "livesqlbench-data",
+    "name": "LiveSQLBench released Base/Large datasets",
+    "kind": "dataset",
+    "paper_ids": [],
+    "url": "https://livesqlbench.ai/",
+    "description": "Released SQL tasks combine database environments, hierarchical business knowledge, and executable tests.",
+    "protocol": "Adjacent business-context grounding and CRUD evaluation; Base-Full-v1 and Large-v1 are distinct from interactive BIRD-Interact.",
+    "availability": "Released Base/Large dataset cards verified; no future variants included. Project paper remains labeled coming soon.",
+    "license_note": "License conflict: dataset metadata says CC BY 4.0 while card bodies say CC BY-SA 4.0; verify before redistribution.",
+    "evidence": [
+      "https://livesqlbench.ai/",
+      "https://github.com/bird-bench/livesqlbench",
+      "https://huggingface.co/datasets/birdsql/livesqlbench-base-full-v1",
+      "https://huggingface.co/datasets/birdsql/livesqlbench-large-v1"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "tide-bench-data",
+    "name": "TIDE-Bench benchmark design",
+    "kind": "dataset",
+    "paper_ids": [
+      "tide-bench"
+    ],
+    "url": "https://arxiv.org/abs/2608.29543",
+    "description": "Conversation tasks with dependent clarification chains and user revisions that retract earlier commitments.",
+    "protocol": "Chain identification and intent-drift recognition/resolution metrics complement execution accuracy.",
+    "availability": "Paper-described benchmark; linked repository contains only README, LICENSE, and .gitattributes, so downloadable data are unverified.",
+    "license_note": "Dataset license unverified; placeholder repository MIT does not establish released dataset terms.",
+    "evidence": [
+      "https://arxiv.org/abs/2608.29543",
+      "https://github.com/Rcrossmeister/TIDE-Bench"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "entsql-data",
+    "name": "EntSQL benchmark design",
+    "kind": "dataset",
+    "paper_ids": [
+      "entsql"
+    ],
+    "url": "https://arxiv.org/abs/2606.03363",
+    "description": "Bilingual enterprise questions requiring long-form business documentation beyond the database schema.",
+    "protocol": "Business-knowledge grounding; adjacent to clarification and unanswerability rather than a direct interaction policy evaluation.",
+    "availability": "Paper-described benchmark; no public dataset download was verified.",
+    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "evidence": [
+      "https://arxiv.org/abs/2606.03363"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "arcs-data",
+    "name": "ARCS benchmark design",
+    "kind": "dataset",
+    "paper_ids": [
+      "arcs"
+    ],
+    "url": "https://arxiv.org/abs/2610.09396",
+    "description": "Ambiguous database questions with annotated ambiguity points, interpretations, and SQL queries.",
+    "protocol": "Structured disambiguation through constrained interactions rather than unrestricted clarification dialogue.",
+    "availability": "Paper-described benchmark; dataset release not verified in this pass.",
+    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "evidence": [
+      "https://arxiv.org/abs/2610.09396"
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "id": "scare-data",
+    "name": "SCARE",
+    "kind": "dataset",
+    "paper_ids": [
+      "scare"
+    ],
+    "url": "https://github.com/glee4810/SCARE#dataset",
+    "description": "Question, candidate-SQL, and expected-output triples for joint answerability classification and SQL correction.",
+    "protocol": "EHR question classes include answerable, ambiguous, and unanswerable; correction success is distinct from clinical-semantic validity.",
+    "availability": "Public correction-data and data_final directories inspected; database archive requires separate download and was not inspected.",
+    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "evidence": [
+      "https://github.com/glee4810/SCARE#dataset",
+      "https://github.com/glee4810/SCARE",
+      "https://proceedings.mlr.press/v297/lee26b.html"
+    ],
+    "checked_on": "2026-10-22"
+  }
+]

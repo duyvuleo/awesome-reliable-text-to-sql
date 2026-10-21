@@ -1,0 +1,28 @@
+name: Suggest a resource
+description: Add a relevant paper, system, tool, or dataset.
+title: 'Add: '
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Resource title
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Public primary source URL
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Contribution and relevance
+      description: Explain the connection to ambiguity, answerability, clarification, or abstention in Text-to-SQL.
+    validations:
+      required: true
+  - type: textarea
+    id: artifacts
+    attributes:
+      label: Code, data, and limitations
+      description: Include verified links and distinguish available artifacts from announcements.

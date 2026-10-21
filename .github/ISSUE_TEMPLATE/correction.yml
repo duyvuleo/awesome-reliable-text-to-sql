@@ -1,0 +1,16 @@
+name: Correct an entry
+description: Fix a claim, publication status, artifact status, or broken link.
+title: 'Correction: '
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Entry ID or URL
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction and public supporting source
+    validations:
+      required: true
