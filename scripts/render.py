@@ -159,8 +159,13 @@ def outputs(root=ROOT):
                  "## Contents", "", "\n".join(f"- [{markdown_text(item['name'])}](#{item['id']})" for item in chosen), "",
                  table(headers, [resource_entry(item, by_id) for item in chosen])]
         if folder == "datasets":
-            lines[5:5] = ["Choose a dataset with the [benchmark selection matrix](../docs/benchmark-matrix.md).", ""]
-        result[Path(folder) / "README.md"] = "\n".join(lines).rstrip() + "\n"
+            template = (root / folder / "README.template.md").read_text(encoding="utf-8")
+            template = template.replace("{{DATASET_CONTENTS}}", "\n".join(
+                f"- [{markdown_text(item['name'])}](#{item['id']})" for item in chosen))
+            template = template.replace("{{DATASET_TABLE}}", table(headers, [resource_entry(item, by_id) for item in chosen]))
+            result[Path(folder) / "README.md"] = NOTICE + template.rstrip() + "\n"
+        else:
+            result[Path(folder) / "README.md"] = "\n".join(lines).rstrip() + "\n"
     result[Path("docs/benchmark-matrix.md")] = benchmark_matrix(root, resources)
     template = (root / "docs" / "README.template.md").read_text(encoding="utf-8")
     missing = [identifier for identifier in FEATURED_IDS if identifier not in by_id]

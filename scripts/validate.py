@@ -324,7 +324,7 @@ def validate_repository(root=ROOT):
         text = path.read_text(encoding="utf-8")
         errors.extend(public_content_errors(text, label))
         if path.suffix == ".md":
-            if path.name == "README.template.md":
+            if path == root / "docs" / "README.template.md":
                 link_base = root / "README.md"
             elif path.name.endswith(".template.md"):
                 link_base = path.with_name(path.name.replace(".template.md", ".md"))
