@@ -18,7 +18,6 @@ CATEGORIES = {
     "context": "Context, knowledge, and realistic workloads",
     "verification": "Verification and evaluation validity",
 }
-FEATURED_IDS = ("abiss", "clarity", "ambiqt", "practiq", "trustsql", "cosql")
 BENCHMARK_COVERAGE = {"yes", "not_targeted", "not_reported"}
 CLARIFICATION_MODES = {"generated", "supplied", "mixed", "not_targeted", "not_reported"}
 INTERACTION_MODES = {"static", "recorded", "simulated", "not_reported"}

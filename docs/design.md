@@ -4,7 +4,7 @@ The collection is designed for three common tasks: finding a useful paper, decid
 
 ## Choices
 
-- **A short entry point with deeper indexes.** The root README gives starting papers and reading routes. Full annotations live in topic-grouped paper, system, and dataset pages. This keeps a growing collection navigable without dropping useful summaries.
+- **A short entry point with deeper indexes.** The root README gives short entry paths and reading routes. Full annotations live in topic-grouped paper, system, and dataset pages. This keeps a growing collection navigable without dropping useful summaries.
 - **Original annotations.** Each paper gets a concise explanation of its contribution and boundary. A title or promotional slogan alone does not tell readers why it belongs.
 - **Tables for comparison.** Papers use one table per topic with year, paper/venue, summary, and code/data columns. System and dataset tables pair purpose or protocol with availability and access conditions. Expandable notes retain provenance without widening the main comparison.
 - **One canonical record.** JSON catalogs generate the visible lists. The same paper can have several tags while retaining one stable identity and source record.
@@ -18,7 +18,7 @@ The collection is designed for three common tasks: finding a useful paper, decid
 ## Repository layout
 
 ```text
-README.md                  Starting papers, routes, and recent additions
+README.md                  Entry paths, routes, and recent additions
 papers/README.md           Annotated literature by topic
 systems/README.md          Systems and evaluation tools
 datasets/README.md         Data and benchmark protocols

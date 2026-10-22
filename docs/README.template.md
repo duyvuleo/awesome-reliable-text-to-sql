@@ -37,7 +37,9 @@ Updated **{{UPDATED}}**. Each paper includes a concise summary, publication stat
 
 ## Start here
 
-{{START_HERE}}
+- **Understand the problem:** [Run three small SQLite examples](examples/README.md) covering ambiguity, unsupported requests, and valid empty results.
+- **Explore the research:** Browse annotated papers [by topic](papers/README.md) or [by year](papers/by-year.md).
+- **Plan an evaluation:** Use the [benchmark selection matrix](docs/benchmark-matrix.md), then check [datasets and access conditions](datasets/README.md).
 
 ## Choose a reading route
 

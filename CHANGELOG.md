@@ -2,6 +2,7 @@
 
 ## 2026-10-22
 
+- Simplified the README's Start here section to three short entry paths: worked examples, research browsing, and benchmark selection.
 - Added a newest-first paper view by year and year-grouped dataset listings with jump links; retained stable entry anchors and the healthcare section after all datasets.
 - Highlighted SCARE, EHRSQL and EHRSQL 2024 in the datasets index and benchmark matrix, distinguishing explicit ambiguity/unanswerability coverage from answerability-focused evaluation.
 - Added three original, offline SQLite walkthroughs for ambiguity and clarification, unsupported information, and a valid empty result; checked their expected answers, ties and date boundaries.
