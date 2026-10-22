@@ -2,6 +2,8 @@
 
 ## 2026-10-22
 
+- Added three original, offline SQLite walkthroughs for ambiguity and clarification, unsupported information, and a valid empty result; checked their expected answers, ties and date boundaries.
+- Added original light/dark banners and a matching social-preview image, plus validation and license badges.
 - Added a source-backed benchmark selection matrix covering every cataloged dataset/benchmark, with coverage, clarification, interaction, domain, evaluation and access fields.
 - Verified the official ARCS implementation and public dataset release; replaced the earlier unverified-release description and retained a release/paper snapshot qualification.
 - Adopted topic-grouped paper tables and system/tool and dataset tables, preserving summaries, stable links, and expandable source and release notes.

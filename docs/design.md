@@ -12,6 +12,8 @@ The collection is designed for three common tasks: finding a useful paper, decid
 - **A comparison guide rather than one leaderboard.** Interaction protocols and correctness criteria vary, so the guide helps readers choose an evaluation before comparing results.
 - **A benchmark selection matrix.** Two linked tables apply those distinctions to the cataloged datasets, with explicit unknowns, source locators and access conditions. Comparison records are maintained separately from artifact descriptions and validated together.
 - **Dated curation with corrections.** The search method, material updates, and unresolved public leads are inspectable. New publications, released artifacts, and corrected metadata all count as useful maintenance.
+- **Concrete walkthroughs.** Original synthetic SQLite examples make key distinctions executable without a model endpoint. Scripted dialogue is labeled clearly and kept separate from benchmark results.
+- **Consistent visual identity.** Light/dark README banners and a matching social card use the same question-to-action motif. The artwork contains no changing counts; badges link to actual validation and license information.
 
 ## Repository layout
 
@@ -21,6 +23,8 @@ papers/README.md           Annotated literature by topic
 systems/README.md          Systems and evaluation tools
 datasets/README.md         Data and benchmark protocols
 data/                     Canonical paper/resource records and metadata
+examples/                 Original synthetic SQLite walkthroughs
+assets/                   Original banners and social-preview artwork
 docs/evaluation.md        Questions for interpreting benchmark results
 docs/benchmark-matrix.md  Task coverage, evaluation protocols, and data access
 docs/search-method.md     Inclusion rules, sources, and coverage limits

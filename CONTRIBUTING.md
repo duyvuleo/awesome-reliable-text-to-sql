@@ -15,6 +15,7 @@ python3 scripts/render.py
 python3 scripts/validate.py
 python3 scripts/render.py --check
 python3 -m unittest discover -s scripts -p 'test_*.py'
+python3 examples/run.py --check
 ```
 
 Edit canonical JSON and the README template rather than generated indexes. See [the data format](data/README.md). Keep citations next to claims, use stable identifiers, and merge publication/preprint versions of the same work unless they are materially distinct studies.
@@ -22,3 +23,5 @@ Edit canonical JSON and the README template rather than generated indexes. See [
 Only publicly available, independently checkable information is eligible. Do not submit confidential material, nonpublic drafts, credentials, private correspondence, or restricted datasets. A public list entry does not grant permission to redistribute its linked materials.
 
 AI-assisted suggestions are welcome when the contributor verifies sources and reviews the resulting text. The maintainer may request evidence, narrow claims, or remove an entry that does not meet the scope. Corrections and newly available artifacts are as useful as new papers.
+
+Worked examples must use original synthetic data, state any scripted decisions, and verify the documented query outcomes. Keep their claims distinct from model evaluation or reproduced paper results.

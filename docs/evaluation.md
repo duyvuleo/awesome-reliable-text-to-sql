@@ -4,6 +4,8 @@
 
 Use the [benchmark selection matrix](benchmark-matrix.md) to compare the task coverage, clarification protocol, domain and data access of the cataloged benchmarks.
 
+For executable illustrations of ambiguity, missing information and valid empty results, start with the [synthetic SQLite walkthroughs](../examples/README.md).
+
 The following questions help decide whether an evaluation matches an intended use. This guide synthesizes the public sources linked below; it does not reproduce their experiments.
 
 | Check | Why it matters | Representative reading |

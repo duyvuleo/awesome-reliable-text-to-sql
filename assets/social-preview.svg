@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+<title id="title">Awesome Reliable Text-to-SQL</title>
+<desc id="desc">An annotated research collection about ambiguity, clarification, and unanswerability. A question branches to clarify, answer, or abstain.</desc>
+<rect width="1280" height="640" rx="24" fill="#101c2f"/>
+<rect x="72" y="54" width="34" height="5" rx="2.5" fill="#37b4a0"/>
+<text x="72" y="90" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" text-anchor="start" fill="#b8c8db" letter-spacing="2.2">AWESOME RESEARCH COLLECTION</text>
+<text x="68" y="244" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="700" text-anchor="start" fill="#f1f5fc">Reliable</text>
+<text x="68" y="336" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="700" text-anchor="start" fill="#f1f5fc">Text-to-SQL</text>
+<text x="72" y="414" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" text-anchor="start" fill="#b8c8db">Ambiguity · Clarification · Unanswerability</text>
+<text x="72" y="568" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" text-anchor="start" fill="#b8c8db">duyvuleo / awesome-reliable-text-to-sql</text>
+<rect x="834" y="174" width="310" height="58" rx="14" fill="#192a42" stroke="#3c506c"/>
+<text x="989" y="210" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="600" text-anchor="middle" fill="#f1f5fc">User question</text>
+<path d="M 989 232 V 266 M 851 292 V 266 H 1127 V 292 M 989 266 V 292" stroke="#3c506c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="795" y="292" width="112" height="76" rx="14" fill="#192a42" stroke="#3c506c"/>
+<circle cx="851" cy="314" r="4" fill="#74d7c4"/>
+<text x="851" y="346" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="600" text-anchor="middle" fill="#74d7c4">Clarify</text>
+<rect x="933" y="292" width="112" height="76" rx="14" fill="#192a42" stroke="#3c506c"/>
+<circle cx="989" cy="314" r="4" fill="#9bbcf6"/>
+<text x="989" y="346" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="600" text-anchor="middle" fill="#9bbcf6">Answer</text>
+<rect x="1071" y="292" width="112" height="76" rx="14" fill="#192a42" stroke="#3c506c"/>
+<circle cx="1127" cy="314" r="4" fill="#edc179"/>
+<text x="1127" y="346" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="600" text-anchor="middle" fill="#edc179">Abstain</text>
+<text x="989" y="415" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#b8c8db">Papers · Systems · Datasets</text>
+</svg>

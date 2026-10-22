@@ -18,7 +18,7 @@ URL_RE = re.compile(r"https?://[^\s<>\"'\])}]+")
 LOCAL_PATH_RE = re.compile(r"(?:/(?:Users|home|private|tmp|var/folders)/[^\s]+|" + "file" + r":/+[^\s]+|[A-Za-z]:\\(?:Users|Windows)\\)")
 LINK_RE = re.compile(r"!?\[[^\]]*\]\((<[^>]+>|[^\s)]+)(?:\s+\"[^\"]*\")?\)")
 SKIP_DIRS = {".git", "__pycache__", ".venv", "node_modules", ".pytest_cache"}
-TEXT_SUFFIXES = {".md", ".json", ".py", ".yml", ".yaml", ".txt", ".cff", ".toml", ".sh"}
+TEXT_SUFFIXES = {".md", ".json", ".py", ".yml", ".yaml", ".txt", ".cff", ".toml", ".sh", ".sql", ".svg"}
 
 
 def iso_date(value):
