@@ -78,6 +78,27 @@ def table(headers, rows):
                       "| " + " | ".join("---" for _ in headers) + " |", *rows])
 
 
+def year_groups(items, year_for):
+    groups = {}
+    for item in items:
+        groups.setdefault(year_for(item), []).append(item)
+    return [(year, groups[year]) for year in sorted(groups, key=lambda year: (year is None, -(year or 0)))]
+
+
+def papers_by_year(records):
+    groups = year_groups(sorted_papers(records), lambda item: item["year"])
+    lines = [NOTICE, "# Papers by year", "",
+             "[Overview](../README.md) · [Browse by topic](README.md)", "",
+             "Newest publication years first. Years follow the catalog: the verified venue year when available, otherwise the recorded preprint year.", "",
+             "## Jump to a year", "",
+             " · ".join(f"[{year} ({len(items)})](#year-{year})" for year, items in groups), ""]
+    for year, items in groups:
+        lines.extend([f'<a id="year-{year}"></a>', f"## {year}", "",
+                      table(["Year", "Paper / venue", "Concise summary", "Code / data"],
+                            [paper_entry(item) for item in items]), ""])
+    return "\n".join(lines).rstrip() + "\n"
+
+
 BENCHMARK_LABELS = {
     "yes": "Yes", "not_targeted": "Not targeted", "not_reported": "Not reported",
     "generated": "Generated", "supplied": "Supplied", "mixed": "Mixed",
@@ -136,7 +157,7 @@ def benchmark_matrix(root, resources):
 def outputs(root=ROOT):
     records, resources, meta = load_catalog(root)
     by_id = {item["id"]: item for item in records}
-    papers = [NOTICE, "# Papers", "", "[Back to the overview](../README.md)", "",
+    papers = [NOTICE, "# Papers", "", "[Back to the overview](../README.md) · [Browse by year](by-year.md)", "",
               "Annotations describe published evidence and its limits. Source checks do not establish independent reproduction.", "",
               "Expand **Release notes and sources** for artifact qualifications and provenance. "
               "**Release not verified** means no code or data link was confirmed, not that no release exists.", ""]
@@ -149,6 +170,7 @@ def outputs(root=ROOT):
                            table(["Year", "Paper / venue", "Concise summary", "Code / data"],
                                  [paper_entry(item) for item in selected]), ""])
     result = {Path("papers/README.md"): "\n".join(papers).rstrip() + "\n"}
+    result[Path("papers/by-year.md")] = papers_by_year(records)
     for folder, heading, kinds in (("systems", "Systems and tools", {"system", "tool"}),
                                   ("datasets", "Datasets and benchmarks", {"dataset"})):
         chosen = sorted((item for item in resources if item["kind"] in kinds), key=lambda item: item["name"].casefold())
@@ -159,10 +181,17 @@ def outputs(root=ROOT):
                  "## Contents", "", "\n".join(f"- [{markdown_text(item['name'])}](#{item['id']})" for item in chosen), "",
                  table(headers, [resource_entry(item, by_id) for item in chosen])]
         if folder == "datasets":
+            groups = year_groups(chosen, lambda item: max((by_id[identifier]["year"] for identifier in item["paper_ids"]), default=None))
+            contents, sections = [], []
+            for year, items in groups:
+                anchor = f"year-{year}" if year is not None else "no-linked-paper"
+                label = str(year) if year is not None else "No linked paper"
+                contents.append(f"- [{label} ({len(items)})](#{anchor})")
+                sections.extend([f'<a id="{anchor}"></a>', f"### {label}", "",
+                                 table(headers, [resource_entry(item, by_id) for item in items]), ""])
             template = (root / folder / "README.template.md").read_text(encoding="utf-8")
-            template = template.replace("{{DATASET_CONTENTS}}", "\n".join(
-                f"- [{markdown_text(item['name'])}](#{item['id']})" for item in chosen))
-            template = template.replace("{{DATASET_TABLE}}", table(headers, [resource_entry(item, by_id) for item in chosen]))
+            template = template.replace("{{DATASET_CONTENTS}}", "\n".join(contents))
+            template = template.replace("{{DATASET_TABLE}}", "\n".join(sections).rstrip())
             result[Path(folder) / "README.md"] = NOTICE + template.rstrip() + "\n"
         else:
             result[Path(folder) / "README.md"] = "\n".join(lines).rstrip() + "\n"

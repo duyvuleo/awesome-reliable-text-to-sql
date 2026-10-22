@@ -2,7 +2,7 @@
 
 # Papers
 
-[Back to the overview](../README.md)
+[Back to the overview](../README.md) · [Browse by year](by-year.md)
 
 Annotations describe published evidence and its limits. Source checks do not establish independent reproduction.
 

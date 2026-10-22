@@ -15,6 +15,8 @@ Availability and licenses are source-specific. A linked paper, project, or datas
 
 ## All datasets and benchmarks
 
+Groups use the publication year of the most recent linked paper, newest first. These are not dataset release dates. Resources without a linked paper appear in their own group. Names remain alphabetized within each year.
+
 {{DATASET_TABLE}}
 
 ## Healthcare benchmarks

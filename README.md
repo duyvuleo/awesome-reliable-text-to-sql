@@ -26,6 +26,7 @@ Updated **2026-10-22**. Each paper includes a concise summary, publication statu
 - [Choose a reading route](#choose-a-reading-route)
 - [Worked examples](examples/README.md)
 - [Papers](papers/README.md)
+- [Papers by year](papers/by-year.md)
 - [Systems and tools](systems/README.md)
 - [Datasets and benchmarks](datasets/README.md)
 - [Benchmark selection matrix](docs/benchmark-matrix.md)
@@ -57,6 +58,7 @@ Updated **2026-10-22**. Each paper includes a concise summary, publication statu
 | How do we test confidence and distinguish queries that happen to agree? | [Verification and uncertainty](papers/README.md#verification) |
 | What can I actually run or download? | [Systems](systems/README.md) and [datasets](datasets/README.md), with availability notes |
 | Which benchmark fits my experiment? | [Benchmark selection matrix](docs/benchmark-matrix.md) |
+| What was published in a particular year? | [Papers by year](papers/by-year.md) and [datasets grouped by paper year](datasets/README.md#all-datasets-and-benchmarks) |
 | How do ambiguity, unsupported information, and an empty answer differ? | [Three runnable SQLite walkthroughs](examples/README.md) |
 
 ## Scope
