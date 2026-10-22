@@ -15,6 +15,7 @@ Updated **{{UPDATED}}**. Each paper includes a concise summary, publication stat
 - [Papers](papers/README.md)
 - [Systems and tools](systems/README.md)
 - [Datasets and benchmarks](datasets/README.md)
+- [Benchmark selection matrix](docs/benchmark-matrix.md)
 - [Evaluation guide](docs/evaluation.md)
 - [Recent additions](#recent-additions)
 - [Search method and coverage](docs/search-method.md)
@@ -35,6 +36,7 @@ Updated **{{UPDATED}}**. Each paper includes a concise summary, publication stat
 | What changes when context spans documents, databases, or turns? | [Context and grounding](papers/README.md#context) |
 | How do we test confidence and distinguish queries that happen to agree? | [Verification and uncertainty](papers/README.md#verification) |
 | What can I actually run or download? | [Systems](systems/README.md) and [datasets](datasets/README.md), with availability notes |
+| Which benchmark fits my experiment? | [Benchmark selection matrix](docs/benchmark-matrix.md) |
 
 ## Scope
 

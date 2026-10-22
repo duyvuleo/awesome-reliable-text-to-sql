@@ -2,6 +2,8 @@
 
 ## 2026-10-22
 
+- Added a source-backed benchmark selection matrix covering every cataloged dataset/benchmark, with coverage, clarification, interaction, domain, evaluation and access fields.
+- Verified the official ARCS implementation and public dataset release; replaced the earlier unverified-release description and retained a release/paper snapshot qualification.
 - Adopted topic-grouped paper tables and system/tool and dataset tables, preserving summaries, stable links, and expandable source and release notes.
 - Removed source-depth labels from displayed paper entries while retaining the metadata in the catalog.
 - Established a focused annotated collection covering ambiguity, answerability, clarification, contextual grounding, uncertainty, and evaluation in Text-to-SQL.

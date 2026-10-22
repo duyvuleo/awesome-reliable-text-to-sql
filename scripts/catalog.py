@@ -19,6 +19,11 @@ CATEGORIES = {
     "verification": "Verification and evaluation validity",
 }
 FEATURED_IDS = ("abiss", "clarity", "ambiqt", "practiq", "trustsql", "cosql")
+BENCHMARK_COVERAGE = {"yes", "not_targeted", "not_reported"}
+CLARIFICATION_MODES = {"generated", "supplied", "mixed", "not_targeted", "not_reported"}
+INTERACTION_MODES = {"static", "recorded", "simulated", "not_reported"}
+DATA_ACCESS = {"public_artifacts", "author_download", "release_unverified", "not_reported"}
+BENCHMARK_FIELDS = {"ambiguity", "unanswerability", "clarification", "interaction", "domain", "evaluation", "data_access"}
 
 
 def load_catalog(root: Path = ROOT):
@@ -27,6 +32,11 @@ def load_catalog(root: Path = ROOT):
         with (root / "data" / f"{name}.json").open(encoding="utf-8") as handle:
             values.append(json.load(handle))
     return tuple(values)
+
+
+def load_benchmarks(root: Path = ROOT):
+    with (root / "data" / "benchmarks.json").open(encoding="utf-8") as handle:
+        return json.load(handle)
 
 
 def public_url_error(value):

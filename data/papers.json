@@ -161,8 +161,8 @@
     "year": 2026,
     "publication_status": "arXiv preprint",
     "primary_url": "https://arxiv.org/abs/2610.09396",
-    "code_url": null,
-    "dataset_url": null,
+    "code_url": "https://github.com/megagonlabs/tabulaflow",
+    "dataset_url": "https://huggingface.co/datasets/megagonlabs/arcs",
     "topics": [
       "ambiguity",
       "clarification",
@@ -173,12 +173,15 @@
     "summary": "Introduces structured selection among ambiguity points and interpretations, with a corpus built over real-world databases. The benchmark separates disambiguation from SQL generation and uses a user simulator, so its reported results remain specific to the annotated alternatives and interaction protocol.",
     "evidence": [
       "https://arxiv.org/abs/2610.09396",
-      "https://arxiv.org/html/2610.09396v2"
+      "https://arxiv.org/html/2610.09396v2",
+      "https://megagonlabs.github.io/tabulaflow/research/arcs/",
+      "https://github.com/megagonlabs/tabulaflow/blob/main/tabulaflow/research/ARCS.md",
+      "https://huggingface.co/datasets/megagonlabs/arcs"
     ],
     "checked_on": "2026-10-22",
     "category": "ambiguity",
     "source_depth": "targeted-full-text",
-    "artifact_status": "Inspected arXiv v2, revised 2026-10-14; project page linked in paper: https://megagonlabs.github.io/tabulaflow/research/arcs",
+    "artifact_status": "Official TabulaFlow implementation and a public Hugging Face release with task files and SQLite databases are available. Dataset card declares CC BY 4.0; release and paper instance counts differ, so pin the selected snapshot. Artifacts were not executed.",
     "added_on": "2026-10-22"
   },
   {

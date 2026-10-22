@@ -1,0 +1,1210 @@
+[
+  {
+    "resource_id": "abiss-data",
+    "label": "ABISS",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Structural, mapping, vagueness and knowledge-related categories."
+    },
+    "unanswerability": {
+      "status": "yes",
+      "detail": "Schema, external-knowledge and improper-question cases."
+    },
+    "clarification": {
+      "mode": "generated",
+      "detail": "Agent asks clarification questions during evaluation."
+    },
+    "interaction": {
+      "mode": "simulated",
+      "detail": "Style-aware LLM users in multi-turn sessions."
+    },
+    "domain": "Cross-domain; BIRD and Spider",
+    "evaluation": "Issue recognition/classification, relaxed execution matching and feedback quality.",
+    "data_access": "release_unverified",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/html/2607.23340v1",
+        "locator": "Sections 3, 5.1-5.3 and 7.1; model-council labels do not prove unanswerability",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://arxiv.org/abs/2607.23340",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      },
+      {
+        "url": "https://github.com/giosullutrone/ABISS-Evaluating-Text-to-SQL-Systems-Through-Agent-Interaction",
+        "locator": "Official repository release contents and README; distinguish generation code or placeholders from a benchmark data download.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "ambiqt-data",
+    "label": "AmbiQT",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Lexical and structural alternatives."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "Each question has two plausible SQL readings."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Enumerate interpretations; no dialogue task."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Question to multiple SQL candidates; no runtime user."
+    },
+    "domain": "Cross-domain; Spider-derived",
+    "evaluation": "Top-k coverage of both SQL readings; SQL matching.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://aclanthology.org/2023.emnlp-main.436/",
+        "locator": "Abstract; benchmark construction and evaluation",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/tomartushar/AmbiQT/tree/master/benchmark",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      },
+      {
+        "url": "https://github.com/tomartushar/AmbiQT",
+        "locator": "Benchmark directory and data archive instructions.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "ambival-data",
+    "label": "AmbiVal",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Value ambiguity from Spider and BIRD."
+    },
+    "unanswerability": {
+      "status": "not_reported",
+      "detail": "No separate unanswerable task verified."
+    },
+    "clarification": {
+      "mode": "not_reported",
+      "detail": "Grounding is evaluated; a dialogue protocol was not verified."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Ambiguous questions and database/value context."
+    },
+    "domain": "Cross-domain; Spider and BIRD",
+    "evaluation": "Value-ambiguity resolution and SQL execution accuracy.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://ieeexplore.ieee.org/abstract/document/11720244",
+        "locator": "RAQS-SQL primary abstract and AmbiVal dataset description",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://huggingface.co/datasets/griffith-bigdata/ambival",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "ambrosia-data",
+    "label": "AMBROSIA",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Scope, attachment, and vagueness."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "Targets valid alternative SQL interpretations."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Recover interpretations without querying a user."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Controlled questions, interpretations and databases."
+    },
+    "domain": "Cross-domain; purpose-built databases",
+    "evaluation": "Ambiguity recognition and coverage of SQL interpretations.",
+    "data_access": "author_download",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2406.19073",
+        "locator": "Abstract and benchmark task definitions",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://ambrosia-benchmark.github.io/",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "arcs-data",
+    "label": "ARCS",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Multiple ambiguity points; finite choices and vague values."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "Evaluated intended SQL is constrained to non-empty output."
+    },
+    "clarification": {
+      "mode": "generated",
+      "detail": "Structured choices/value selection; conversational baseline."
+    },
+    "interaction": {
+      "mode": "simulated",
+      "detail": "LLM user simulator; a separate interface user study is reported."
+    },
+    "domain": "Cross-domain; six SQLite databases",
+    "evaluation": "End-to-end execution, ambiguity-point/interpretation recovery, user effort and cost.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/html/2610.09396v2",
+        "locator": "Sections 2, 4.4-4.5; Appendix E; use release-specific task counts",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://huggingface.co/datasets/megagonlabs/arcs",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      },
+      {
+        "url": "https://github.com/megagonlabs/tabulaflow/blob/main/tabulaflow/research/ARCS.md",
+        "locator": "Official implementation guide; benchmark installation, task loading and evaluation modules.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "bird-interact-data",
+    "label": "BIRD-Interact",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Ambiguous subtasks and evolving follow-up requirements."
+    },
+    "unanswerability": {
+      "status": "not_reported",
+      "detail": "No separate infeasible-request split verified."
+    },
+    "clarification": {
+      "mode": "generated",
+      "detail": "c-Interact protocol versus autonomous a-Interact questions."
+    },
+    "interaction": {
+      "mode": "simulated",
+      "detail": "Function-driven user simulator plus database tools."
+    },
+    "domain": "Cross-domain business/operational tasks; CRUD",
+    "evaluation": "Executable task success; report variant, protocol and interaction budget.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2510.05318",
+        "locator": "Abstract; interaction environment, c-Interact/a-Interact and Full/Lite variants",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://huggingface.co/datasets/birdsql/bird-interact-full",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "clambsql-data",
+    "label": "CLAMBSQL",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Schema mappings and alternative SQL queries."
+    },
+    "unanswerability": {
+      "status": "not_reported",
+      "detail": "No separate unanswerable class verified."
+    },
+    "clarification": {
+      "mode": "supplied",
+      "detail": "Annotated feedback and gold selection mappings."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Dataset supplies clarification_context and gold_query."
+    },
+    "domain": "Cross-domain relational databases",
+    "evaluation": "Disambiguation and intended-SQL prediction after feedback.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://github.com/mengzhang18/CLEAR",
+        "locator": "README: Json Format for CLAMBSQL, clarification_context, clear_ambiguity and gold_query",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://huggingface.co/datasets/mengxi123/CLAMBSQL",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "clarity-data",
+    "label": "CLARITY",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Interacting schema/column ambiguity sources."
+    },
+    "unanswerability": {
+      "status": "yes",
+      "detail": "Constructed unanswerability and incomplete clarification cases."
+    },
+    "clarification": {
+      "mode": "supplied",
+      "detail": "Helpful, partial and unhelpful grounded continuations."
+    },
+    "interaction": {
+      "mode": "recorded",
+      "detail": "Generated single/multi-turn conversations; not a live-user test."
+    },
+    "domain": "Cross-domain; Spider and BIRD",
+    "evaluation": "Detection, localization and resolution in the paper-evaluated settings.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://aclanthology.org/2026.acl-industry.86/",
+        "locator": "Public abstract and paper evaluation; public release README/DATA_CARD distinguish generation options from evaluated slices",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/duyvuleo/clarity/tree/main/data",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "cosql-data",
+    "label": "CoSQL",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Human clarifications of ambiguous requests."
+    },
+    "unanswerability": {
+      "status": "yes",
+      "detail": "Unanswerable and unrelated requests in dialogue acts."
+    },
+    "clarification": {
+      "mode": "mixed",
+      "detail": "Supplied histories for SQL tracking; response generation is a separate task."
+    },
+    "interaction": {
+      "mode": "recorded",
+      "detail": "Human Wizard-of-Oz dialogue collected with SQL experts."
+    },
+    "domain": "Cross-domain; Spider databases",
+    "evaluation": "SQL state tracking, dialogue acts and response generation; official SQL test-suite evaluation.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://yale-lily.github.io/cosql",
+        "locator": "What is CoSQL?, Tasks and Evaluation; November 2020 test-suite metric notice",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://yale-lily.github.io/cosql",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "dysql-data",
+    "label": "DySQL-Bench",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_reported",
+      "detail": "Evolving requests are targeted; separate ambiguity labels not verified."
+    },
+    "unanswerability": {
+      "status": "not_reported",
+      "detail": "No separate infeasible-request task verified."
+    },
+    "clarification": {
+      "mode": "not_reported",
+      "detail": "Dynamic requests are verified; an explicit clarification policy is not."
+    },
+    "interaction": {
+      "mode": "simulated",
+      "detail": "LLM user, tested agent and executable mutable database."
+    },
+    "domain": "Cross-domain database exploration; CRUD",
+    "evaluation": "Dynamic task completion and repeated-run reliability; pin simulator and state.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://aclanthology.org/2026.findings-acl.1654/",
+        "locator": "Abstract; dynamic interaction framework and triadic evaluation environment",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/Aurora-slz/DySQL-Bench",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "ehrsql-data",
+    "label": "EHRSQL",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "not_reported",
+      "detail": "No separate ambiguity-resolution task verified."
+    },
+    "unanswerability": {
+      "status": "yes",
+      "detail": "Held-out unanswerable hospital questions."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "SQL generation and answerability, without runtime dialogue."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Hospital staff informed question collection; no online user."
+    },
+    "domain": "Clinical; MIMIC-III and eICU",
+    "evaluation": "SQL/result correctness and answerability behavior.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2301.07695",
+        "locator": "Abstract and official task/data description",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/glee4810/EHRSQL",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "ehrsql-2024-data",
+    "label": "EHRSQL 2024",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "not_reported",
+      "detail": "No separate ambiguity-resolution task verified."
+    },
+    "unanswerability": {
+      "status": "yes",
+      "detail": "Answerable and unanswerable shared-task questions."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Deliver an answer or abstain; no clarification dialogue."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Fixed shared-task questions and executable EHR environment."
+    },
+    "domain": "Clinical; MIMIC-IV demo",
+    "evaluation": "Reliable SQL answering with penalties for incorrect answers.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://aclanthology.org/2024.clinicalnlp-1.62/",
+        "locator": "Shared-task paper and official README task/scoring instructions",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/glee4810/ehrsql-2024",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      },
+      {
+        "url": "https://github.com/glee4810/ehrsql-2024",
+        "locator": "Task description, dataset and evaluation scripts.",
+        "supports": [
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "entsql-data",
+    "label": "EntSQL",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_reported",
+      "detail": "Business-definition grounding; separate ambiguity labels not verified."
+    },
+    "unanswerability": {
+      "status": "not_reported",
+      "detail": "No separate answer-or-abstain task verified."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Business documents are supplied as context."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Questions plus long-form documents; no runtime user verified."
+    },
+    "domain": "Enterprise; five business domains, Chinese/English",
+    "evaluation": "Document-grounded SQL generation under long context.",
+    "data_access": "release_unverified",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/html/2606.03363v3",
+        "locator": "Task and experimental setup; Limitations names multi-turn clarification as future work.",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://arxiv.org/abs/2606.03363",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "livesqlbench-data",
+    "label": "LiveSQLBench Base/Large",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_reported",
+      "detail": "Business knowledge and rule drift; explicit ambiguity labels not verified."
+    },
+    "unanswerability": {
+      "status": "not_reported",
+      "detail": "No separate infeasible-request split verified."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Released Base/Large tasks; BIRD-Interact is a separate setting."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Executable database/knowledge tasks; not the BIRD user simulator."
+    },
+    "domain": "Cross-domain business databases; CRUD",
+    "evaluation": "Executable task tests; pin Base/Large version and business-rule context.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://livesqlbench.ai/",
+        "locator": "Released Base/Large datasets, benchmark description and separate BIRD-Interact link",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://livesqlbench.ai/",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "mmsql-data",
+    "label": "MMSQL",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Column/value and conversational-context ambiguity."
+    },
+    "unanswerability": {
+      "status": "yes",
+      "detail": "Unanswerable and improper question types."
+    },
+    "clarification": {
+      "mode": "supplied",
+      "detail": "Fixed histories; generated clarification responses are assessed."
+    },
+    "interaction": {
+      "mode": "recorded",
+      "detail": "CoSQL-derived and generated multi-turn test conversations."
+    },
+    "domain": "Cross-domain; CoSQL-derived databases",
+    "evaluation": "Question-type F1, EM/EX, interaction EX, TDEX and response quality.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/html/2412.17867v4",
+        "locator": "Sections III-A to III-C; fixed dataset construction and response-generation evaluation",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://huggingface.co/datasets/GuoZiming/MMSQL",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "multisql-data",
+    "label": "MultiSQL",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_reported",
+      "detail": "Schema/context dependencies; separate ambiguity labels not verified."
+    },
+    "unanswerability": {
+      "status": "not_reported",
+      "detail": "No separate infeasible-request task verified."
+    },
+    "clarification": {
+      "mode": "not_reported",
+      "detail": "Recorded dialogue is verified; live clarification policy is not."
+    },
+    "interaction": {
+      "mode": "recorded",
+      "detail": "Extended conversations with schema changes and SQL writes."
+    },
+    "domain": "Cross-domain; extends CoSQL/SParC",
+    "evaluation": "Context-dependent SQL across diverse operations and schema dependencies.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://aclanthology.org/2024.findings-acl.823/",
+        "locator": "Abstract: diverse SQL operations, schema-integrated context and extended dialogues",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/grandchicken/MultiSQL",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "odutqa-data",
+    "label": "ODUTQA-MDC",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Underspecified or uncertain tabular questions."
+    },
+    "unanswerability": {
+      "status": "not_reported",
+      "detail": "No separate infeasible-request task verified."
+    },
+    "clarification": {
+      "mode": "generated",
+      "detail": "Dialogue clarification through simulated feedback."
+    },
+    "interaction": {
+      "mode": "simulated",
+      "detail": "Dynamic clarification interface with a simulated user."
+    },
+    "domain": "Open-domain tabular QA; SQL-backed answering",
+    "evaluation": "Ambiguity detection, clarification and refined tabular answers.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://aclanthology.org/2026.acl-long.499/",
+        "locator": "Abstract; task, benchmark labels and dynamic clarification interface",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/jensenw1/ODUTQA-MDC/tree/main/datasets",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "practiq-data",
+    "label": "PRACTIQ",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Four ambiguous-question categories."
+    },
+    "unanswerability": {
+      "status": "yes",
+      "detail": "Four unanswerable-question categories."
+    },
+    "clarification": {
+      "mode": "supplied",
+      "detail": "Baseline SQL prediction receives clarification turns."
+    },
+    "interaction": {
+      "mode": "recorded",
+      "detail": "Generated fixed four-turn conversations."
+    },
+    "domain": "Cross-domain relational databases",
+    "evaluation": "Question category classification and clarification-conditioned SQL prediction.",
+    "data_access": "release_unverified",
+    "evidence": [
+      {
+        "url": "https://aclanthology.org/2025.naacl-long.13/",
+        "locator": "Abstract; Section 4 clarification SQL prediction",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://aclanthology.org/2025.naacl-long.13/",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      },
+      {
+        "url": "https://github.com/amazon-science/conversational-ambiguous-unanswerable-text2sql",
+        "locator": "Official repository release contents and README; distinguish generation code or placeholders from a benchmark data download.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "scare-data",
+    "label": "SCARE",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Ambiguous is an explicit answerability class."
+    },
+    "unanswerability": {
+      "status": "yes",
+      "detail": "Unanswerable is an explicit answerability class."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Classify and verify/correct a supplied SQL candidate."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Question/candidate-SQL triples; no runtime user."
+    },
+    "domain": "Clinical; MIMIC-III, MIMIC-IV and eICU",
+    "evaluation": "Joint answerability classification and SQL verification/correction.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://proceedings.mlr.press/v297/lee26b.html",
+        "locator": "Abstract: task definition, triples and underlying databases",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/glee4810/SCARE#dataset",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "sparc-data",
+    "label": "SParC",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_targeted",
+      "detail": "Context-dependent parsing rather than explicit ambiguity detection."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "SQL-annotated question sequences are the main task."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Prior turns supply context; no clarify-or-abstain task."
+    },
+    "interaction": {
+      "mode": "recorded",
+      "detail": "Human-authored coherent question/SQL sequences."
+    },
+    "domain": "Cross-domain; Spider databases",
+    "evaluation": "Question/interaction SQL correctness; official test-suite evaluation.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://yale-lily.github.io/sparc",
+        "locator": "What is SParC?, Why SParC?, and official metric notice",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://yale-lily.github.io/sparc",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "spider2-data",
+    "label": "Spider 2.0",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_reported",
+      "detail": "Complex workflows; explicit ambiguity labels not verified."
+    },
+    "unanswerability": {
+      "status": "not_reported",
+      "detail": "No separate infeasible-request split verified."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Environment/tool use rather than user clarification."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Agent explores a workflow environment; user feedback not verified."
+    },
+    "domain": "Enterprise; local/cloud databases and SQL dialects",
+    "evaluation": "Workflow success; pin Lite/Snow/DBT and environment access.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2411.07763",
+        "locator": "Abstract and official repository variant descriptions",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/xlang-ai/Spider2",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "taco-data",
+    "label": "TACO",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Noisy phrasing, unspecified databases and cross-database grounding."
+    },
+    "unanswerability": {
+      "status": "not_reported",
+      "detail": "No separate infeasible-request split verified."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Baseline rewrites the question without a runtime user."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Open-domain question, table retrieval and SQL planning."
+    },
+    "domain": "Cross-domain; Smart City and constructed cross-database tasks",
+    "evaluation": "SQL execution over selected databases; pin released versus paper data.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/html/2606.14201v1",
+        "locator": "Sections 3-4: task construction and question rewriting",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://huggingface.co/datasets/Akanezora/TACO-Benchmark",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "tide-bench-data",
+    "label": "TIDE-Bench",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Dependent clarification chains and intent retractions."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "Simulator refusal of unsuitable questions is not an infeasible-request task."
+    },
+    "clarification": {
+      "mode": "mixed",
+      "detail": "Full protocol elicits both layers; primed protocol supplies the first."
+    },
+    "interaction": {
+      "mode": "simulated",
+      "detail": "Function-driven LLM simulator with controlled drift injection."
+    },
+    "domain": "Cross-domain; BIRD-derived",
+    "evaluation": "Execution, clarification behavior, chain identification and drift recognition/resolution.",
+    "data_access": "release_unverified",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/html/2608.29543v1",
+        "locator": "Sections 2, 4.1-4.3 and Appendix E; distinguish full versus L1-primed protocol",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://arxiv.org/abs/2608.29543",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      },
+      {
+        "url": "https://github.com/Rcrossmeister/TIDE-Bench",
+        "locator": "Official repository release contents and README; distinguish generation code or placeholders from a benchmark data download.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "triagesql-data",
+    "label": "TriageSQL",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Ambiguous input is one intention class."
+    },
+    "unanswerability": {
+      "status": "yes",
+      "detail": "Missing data, non-SQL requests and improper input."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Input classification rather than dialogue or SQL generation."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Question/schema classification; no runtime user."
+    },
+    "domain": "Cross-domain; aggregated question/schema sources",
+    "evaluation": "Five-way intention classification and per-class detection.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2010.12634",
+        "locator": "Primary abstract and official README class definitions",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/yszh8/TriageSQL",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      },
+      {
+        "url": "https://github.com/yszh8/TriageSQL",
+        "locator": "Dataset types and RoBERTa classification task.",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "trustsql-data",
+    "label": "TrustSQL",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "not_targeted",
+      "detail": "Intent clarification is explicitly outside the study scope."
+    },
+    "unanswerability": {
+      "status": "yes",
+      "detail": "Feasible versus infeasible requests; answer or abstain."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "No runtime clarification task in the recorded evaluation."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Single-question generation and abstention."
+    },
+    "domain": "Cross-domain plus flight, education and clinical databases",
+    "evaluation": "Penalty-based Reliability Score over SQL answers and abstentions.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/html/2403.15879v6",
+        "locator": "Section 2 explicitly excludes multi-turn intent disambiguation; Sections 2.1 and evaluation cover dataset domains and abstention.",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/glee4810/TrustSQL#dataset",
+        "locator": "Official artifact page and access instructions; files were not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-22"
+  }
+]

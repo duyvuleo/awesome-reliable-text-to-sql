@@ -12,7 +12,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-from catalog import load_catalog, public_url_error
+from catalog import load_benchmarks, load_catalog, public_url_error
 
 
 class PublicRedirectHandler(urllib.request.HTTPRedirectHandler):
@@ -63,6 +63,8 @@ def main():
     for item in resources:
         urls.update(item["evidence"])
         urls.add(item["url"])
+    for item in load_benchmarks():
+        urls.update(source["url"] for source in item["evidence"])
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as executor:
         results = list(executor.map(lambda url: inspect_url(url, args.timeout), sorted(urls)))
     report = {"checked_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),

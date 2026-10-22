@@ -10,6 +10,7 @@ The collection is designed for three common tasks: finding a useful paper, decid
 - **One canonical record.** JSON catalogs generate the visible lists. The same paper can have several tags while retaining one stable identity and source record.
 - **Separate papers from artifacts.** Resource entries state what is visible, what remains unavailable, and which licenses or access conditions apply. Paper-only benchmark descriptions can be useful when clearly labeled.
 - **A comparison guide rather than one leaderboard.** Interaction protocols and correctness criteria vary, so the guide helps readers choose an evaluation before comparing results.
+- **A benchmark selection matrix.** Two linked tables apply those distinctions to the cataloged datasets, with explicit unknowns, source locators and access conditions. Comparison records are maintained separately from artifact descriptions and validated together.
 - **Dated curation with corrections.** The search method, material updates, and unresolved public leads are inspectable. New publications, released artifacts, and corrected metadata all count as useful maintenance.
 
 ## Repository layout
@@ -21,6 +22,7 @@ systems/README.md          Systems and evaluation tools
 datasets/README.md         Data and benchmark protocols
 data/                     Canonical paper/resource records and metadata
 docs/evaluation.md        Questions for interpreting benchmark results
+docs/benchmark-matrix.md  Task coverage, evaluation protocols, and data access
 docs/search-method.md     Inclusion rules, sources, and coverage limits
 docs/search-log/          Dated public-source research notes
 scripts/                  Renderer, validator, link checker, and tests

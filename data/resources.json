@@ -839,18 +839,21 @@
   },
   {
     "id": "arcs-data",
-    "name": "ARCS benchmark design",
+    "name": "ARCS",
     "kind": "dataset",
     "paper_ids": [
       "arcs"
     ],
-    "url": "https://arxiv.org/abs/2610.09396",
+    "url": "https://huggingface.co/datasets/megagonlabs/arcs",
     "description": "Ambiguous database questions with annotated ambiguity points, interpretations, and SQL queries.",
-    "protocol": "Structured disambiguation through constrained interactions rather than unrestricted clarification dialogue.",
-    "availability": "Paper-described benchmark; dataset release not verified in this pass.",
-    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "protocol": "Structured disambiguation and conversational baselines with a user simulator; report the release snapshot and its intended-resolution instances.",
+    "availability": "Public task files, gold interpretations/SQL, and SQLite database files listed in the author-linked release; not downloaded or executed. Release and paper instance counts differ.",
+    "license_note": "Dataset card declares CC BY 4.0; check any source-database terms before reuse.",
     "evidence": [
-      "https://arxiv.org/abs/2610.09396"
+      "https://arxiv.org/abs/2610.09396",
+      "https://megagonlabs.github.io/tabulaflow/research/arcs/",
+      "https://huggingface.co/datasets/megagonlabs/arcs",
+      "https://github.com/megagonlabs/tabulaflow/blob/main/tabulaflow/research/ARCS.md"
     ],
     "checked_on": "2026-10-22"
   },

@@ -9,7 +9,9 @@ import sys
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
-from catalog import CATEGORIES, ROOT, canonical_url, load_catalog, public_url_error
+from catalog import (BENCHMARK_COVERAGE, BENCHMARK_FIELDS, CLARIFICATION_MODES,
+                     DATA_ACCESS, INTERACTION_MODES, CATEGORIES, ROOT, canonical_url,
+                     load_benchmarks, load_catalog, public_url_error)
 
 
 URL_RE = re.compile(r"https?://[^\s<>\"'\])}]+")
@@ -164,6 +166,85 @@ def validate_data(papers, resources, meta):
     return errors
 
 
+def validate_benchmarks(benchmarks, resources, meta):
+    """Check complete dataset coverage, explicit unknowns, and field-level provenance."""
+    if not isinstance(benchmarks, list):
+        return ["benchmarks: must be a list"]
+    datasets = {item["id"] for item in resources if isinstance(item, dict)
+                and item.get("kind") == "dataset" and isinstance(item.get("id"), str)}
+    seen = set()
+    labels = set()
+    errors = []
+    updated = iso_date(meta.get("updated"))
+    for index, item in enumerate(benchmarks):
+        label = f"benchmarks[{index}]"
+        if not isinstance(item, dict):
+            errors.append(f"{label}: must be an object")
+            continue
+        identifier = item.get("resource_id")
+        if not isinstance(identifier, str) or identifier not in datasets:
+            errors.append(f"{label}.resource_id: must reference a dataset resource")
+        elif identifier in seen:
+            errors.append(f"{label}.resource_id: duplicate benchmark resource")
+        else:
+            seen.add(identifier)
+        for field in ("label", "domain", "evaluation"):
+            if not isinstance(item.get(field), str) or not item[field].strip():
+                errors.append(f"{label}.{field}: required nonempty string")
+        if isinstance(item.get("label"), str):
+            normalized = item["label"].casefold().strip()
+            if normalized in labels:
+                errors.append(f"{label}.label: duplicate benchmark label")
+            labels.add(normalized)
+        if not isinstance(item.get("relevance"), str) or item["relevance"] not in {"direct", "adjacent"}:
+            errors.append(f"{label}.relevance: expected direct or adjacent")
+        for field, status_key, choices in (("ambiguity", "status", BENCHMARK_COVERAGE),
+                                            ("unanswerability", "status", BENCHMARK_COVERAGE),
+                                            ("clarification", "mode", CLARIFICATION_MODES),
+                                            ("interaction", "mode", INTERACTION_MODES)):
+            value = item.get(field)
+            if not isinstance(value, dict):
+                errors.append(f"{label}.{field}: required status and detail object")
+                continue
+            if not isinstance(value.get(status_key), str) or value[status_key] not in choices:
+                errors.append(f"{label}.{field}.{status_key}: unsupported value; record unknowns explicitly")
+            if not isinstance(value.get("detail"), str) or not value["detail"].strip():
+                errors.append(f"{label}.{field}.detail: required nonempty string")
+        if not isinstance(item.get("data_access"), str) or item["data_access"] not in DATA_ACCESS:
+            errors.append(f"{label}.data_access: unsupported access state")
+        checked = iso_date(item.get("checked_on"))
+        if not checked:
+            errors.append(f"{label}.checked_on: required ISO date")
+        elif updated and checked > updated:
+            errors.append(f"{label}.checked_on: later than meta.updated")
+        evidence = item.get("evidence")
+        supported = set()
+        if not isinstance(evidence, list) or not evidence:
+            errors.append(f"{label}.evidence: required nonempty evidence list")
+            evidence = []
+        for source_index, source in enumerate(evidence):
+            location = f"{label}.evidence[{source_index}]"
+            if not isinstance(source, dict):
+                errors.append(f"{location}: must be an object")
+                continue
+            problem = public_url_error(source.get("url"))
+            if problem:
+                errors.append(f"{location}.url: {problem}")
+            if not isinstance(source.get("locator"), str) or not source["locator"].strip():
+                errors.append(f"{location}.locator: required inspected section or artifact locator")
+            fields = source.get("supports")
+            if not isinstance(fields, list) or not fields or any(not isinstance(field, str) or field not in BENCHMARK_FIELDS for field in fields):
+                errors.append(f"{location}.supports: required list of comparison fields")
+            else:
+                supported.update(fields)
+        missing = BENCHMARK_FIELDS - supported
+        if missing:
+            errors.append(f"{label}.evidence: missing field provenance for " + ", ".join(sorted(missing)))
+    if datasets - seen:
+        errors.append("benchmarks: missing dataset resources: " + ", ".join(sorted(datasets - seen)))
+    return errors
+
+
 def text_files(root):
     for path in sorted(root.rglob("*")):
         relative = path.relative_to(root)
@@ -232,7 +313,10 @@ def markdown_link_errors(root, path, text):
 
 def validate_repository(root=ROOT):
     try:
-        errors = validate_data(*load_catalog(root))
+        papers, resources, meta = load_catalog(root)
+        errors = validate_data(papers, resources, meta)
+        if isinstance(resources, list) and isinstance(meta, dict):
+            errors.extend(validate_benchmarks(load_benchmarks(root), resources, meta))
     except (OSError, ValueError, TypeError) as error:
         return [f"Cannot read catalog: {error}"]
     for path in text_files(root):
@@ -240,7 +324,12 @@ def validate_repository(root=ROOT):
         text = path.read_text(encoding="utf-8")
         errors.extend(public_content_errors(text, label))
         if path.suffix == ".md":
-            link_base = root / "README.md" if path.name == "README.template.md" else path
+            if path.name == "README.template.md":
+                link_base = root / "README.md"
+            elif path.name.endswith(".template.md"):
+                link_base = path.with_name(path.name.replace(".template.md", ".md"))
+            else:
+                link_base = path
             errors.extend(markdown_link_errors(root, link_base, text))
     return errors
 
@@ -251,7 +340,7 @@ def main():
         print("Validation failed:\n" + "\n".join(f"- {error}" for error in errors), file=sys.stderr)
         return 1
     papers, resources, _ = load_catalog()
-    print(f"Validated {len(papers)} papers and {len(resources)} resources, public-content hygiene, and local Markdown links.")
+    print(f"Validated {len(papers)} papers, {len(resources)} resources and {len(load_benchmarks())} benchmark comparisons, public-content hygiene, and local Markdown links.")
     return 0
 
 

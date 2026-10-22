@@ -7,7 +7,8 @@ Thank you for helping maintain a focused and useful collection.
 3. Explain how the work addresses ambiguity, underspecification, answerability, clarification, abstention, or a directly relevant evaluation problem in Text-to-SQL.
 4. Write a concise original summary of the task and mechanism, followed by its evaluation scope or practical boundary. Do not copy abstracts or promotional claims. Label preprints and adjacent work explicitly.
 5. Check the actual artifact before asserting that code or data is released. A repository link alone does not establish a working implementation or downloadable dataset. Record restrictions, placeholders, and archived repositories.
-6. Update the dated search log and changelog for material additions or corrections, then run the checks below.
+6. For dataset/benchmark additions, also update `data/benchmarks.json` with source-supported comparison fields and explicit unknowns. See [the benchmark matrix](docs/benchmark-matrix.md).
+7. Update the dated search log and changelog for material additions or corrections, then run the checks below.
 
 ```bash
 python3 scripts/render.py
