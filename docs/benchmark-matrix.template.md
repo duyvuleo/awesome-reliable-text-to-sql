@@ -48,7 +48,7 @@ The evaluation column identifies the task or metric family, not a comparable sco
 
 ## Verification boundaries
 
-Comparison fields were checked against public papers and official artifact pages on **{{UPDATED}}**. Each row retains source locators and a check date in [benchmarks.json](../data/benchmarks.json). Labels summarize the particular setting described by those sources; they do not merge all versions of a project into a single capability claim. Missing information stays explicit.
+Comparison fields are checked against public papers and official artifact pages. The latest recorded comparison check is **{{UPDATED}}**; each row retains its own source locators and check date in [benchmarks.json](../data/benchmarks.json). Labels summarize the particular setting described by those sources; they do not merge all versions of a project into a single capability claim. Missing information stays explicit.
 
 The matrix includes the dataset/benchmark entries already cataloged here. It is not an exhaustive list of every evaluation setting in the literature. Scientific claims, download status, licenses and implementation reproducibility are separate checks. No linked experiments were executed for this matrix.
 

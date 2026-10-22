@@ -867,6 +867,98 @@
     "checked_on": "2026-10-22"
   },
   {
+    "resource_id": "premisesql-data",
+    "label": "PremiseSQL",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Ambiguity and unclear intent are explicit expression-error categories."
+    },
+    "unanswerability": {
+      "status": "yes",
+      "detail": "Missing premises, contradictions and requests beyond available SQL/data capabilities."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Response critique/abstention is measured; no live user dialogue."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Paired flawed and original questions under three prompting conditions."
+    },
+    "domain": "Cross-domain; Spider 1.0 and BIRD/BIRD-filtered",
+    "evaluation": "Flaw detection, type identification, SQL behavior, generation coverage and validity judgments on originals.",
+    "data_access": "release_unverified",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/html/2610.22158v1",
+        "locator": "Sections 3.1-3.5 and Appendix A: taxonomy, paired construction and static prompting/evaluation.",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/vegeet/PremiseSQL/blob/main/DATA_FORMAT.md",
+        "locator": "Data preparation and final paragraph: source databases and final paper dataset are not redistributed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-23"
+  },
+  {
+    "resource_id": "rose-vec-data",
+    "label": "ROSE-VEC",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_reported",
+      "detail": "Ambiguity motivates the evaluator; a separately labeled ambiguity split was not verified."
+    },
+    "unanswerability": {
+      "status": "not_reported",
+      "detail": "No separate infeasible-request split verified."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Judge candidate SQL without a runtime clarification conversation."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Fixed question, reference/candidate SQL and expert-consensus labels."
+    },
+    "domain": "Cross-domain; Spider and BIRD",
+    "evaluation": "Evaluator agreement with retained expert-consensus correctness labels; Kappa, accuracy, MCC and F1.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://aclanthology.org/2026.acl-long.257.pdf",
+        "locator": "Sections 2 and 5.1.1-5.1.2: semantic acceptance criteria, expert-agreement selection and validation metrics.",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/CedricPei/ROSE/tree/master/data/annotations",
+        "locator": "Official annotation directory: named Spider and BIRD ROSE-VEC JSON files.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-23"
+  },
+  {
     "resource_id": "scare-data",
     "label": "SCARE",
     "relevance": "direct",

@@ -875,5 +875,79 @@
       "https://proceedings.mlr.press/v297/lee26b.html"
     ],
     "checked_on": "2026-10-22"
+  },
+  {
+    "id": "premisesql-tool",
+    "name": "PremiseSQL construction and evaluation toolkit",
+    "kind": "tool",
+    "paper_ids": [
+      "premisesql"
+    ],
+    "url": "https://github.com/vegeet/PremiseSQL",
+    "description": "Constructs premise-error question pairs and evaluates SQL generation, flaw detection, type identification and abstention.",
+    "protocol": "Base, implicit and explicit prompts with paired valid controls; generated questions still require human review.",
+    "availability": "Public construction, model-runner, evaluation and attribution code inspected; no live execution or reproduction performed. Final benchmark records and source databases are not bundled.",
+    "license_note": "Repository code and documentation: MIT. Separately obtained BIRD/Spider data retain their own terms.",
+    "evidence": [
+      "https://github.com/vegeet/PremiseSQL",
+      "https://github.com/vegeet/PremiseSQL/blob/main/DATA_FORMAT.md",
+      "https://arxiv.org/abs/2610.22158"
+    ],
+    "checked_on": "2026-10-23"
+  },
+  {
+    "id": "premisesql-data",
+    "name": "PremiseSQL benchmark design",
+    "kind": "dataset",
+    "paper_ids": [
+      "premisesql"
+    ],
+    "url": "https://arxiv.org/abs/2610.22158",
+    "description": "Paired flawed and original questions covering expression errors, contradictions, missing premises and capability limits.",
+    "protocol": "Static premise critique and abstention over Spider/BIRD-derived question/schema inputs; contrast rejection of flawed requests with behavior on valid originals.",
+    "availability": "Paper-described benchmark. Official code is public, but DATA_FORMAT.md explicitly says that the final paper dataset and original databases are not redistributed.",
+    "license_note": "Benchmark data license not verified. The toolkit MIT license covers code/documentation and does not replace upstream data terms.",
+    "evidence": [
+      "https://arxiv.org/html/2610.22158v1",
+      "https://github.com/vegeet/PremiseSQL/blob/main/DATA_FORMAT.md"
+    ],
+    "checked_on": "2026-10-23"
+  },
+  {
+    "id": "rose-tool",
+    "name": "ROSE SQL evaluator",
+    "kind": "tool",
+    "paper_ids": [
+      "rose"
+    ],
+    "url": "https://github.com/CedricPei/ROSE",
+    "description": "Combines SQL execution evidence with an LLM Prover-Refuter cascade to assess candidate-query semantics.",
+    "protocol": "Compare evaluator decisions with expert labels; the Refuter can use reference SQL as evidence, so this is not wholly reference-free verification.",
+    "availability": "Evaluator, baseline and prompt source directories inspected. Model calls, databases and reported results were not executed or reproduced.",
+    "license_note": "No root license identified in the inspected repository; verify reuse terms before redistribution.",
+    "evidence": [
+      "https://github.com/CedricPei/ROSE",
+      "https://aclanthology.org/2026.acl-long.257/"
+    ],
+    "checked_on": "2026-10-23"
+  },
+  {
+    "id": "rose-vec-data",
+    "name": "ROSE-VEC",
+    "kind": "dataset",
+    "paper_ids": [
+      "rose"
+    ],
+    "url": "https://github.com/CedricPei/ROSE/tree/master/data/annotations",
+    "description": "Expert-consensus correctness labels for candidate SQL generated on Spider and BIRD questions.",
+    "protocol": "Validate SQL-evaluation metrics against retained expert-agreement cases; this selection is not a population-wide guarantee of semantic correctness.",
+    "availability": "rose-vec-bird.json and rose-vec-spider.json are present in the official annotation directory. Database preparation is separate; files and experiments were not executed.",
+    "license_note": "No dataset license verified in the inspected repository; Spider/BIRD database terms remain separate.",
+    "evidence": [
+      "https://github.com/CedricPei/ROSE/tree/master/data/annotations",
+      "https://github.com/CedricPei/ROSE",
+      "https://aclanthology.org/2026.acl-long.257.pdf"
+    ],
+    "checked_on": "2026-10-23"
   }
 ]

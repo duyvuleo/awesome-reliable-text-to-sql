@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-23
+
+- Added PremiseSQL, ROSE and Never the Number with original summaries and primary-source evidence; the latter two are newly indexed older works.
+- Added PremiseSQL and ROSE evaluation tools plus two benchmark entries and matrix rows. PremiseSQL remains a paper-described dataset; ROSE-VEC annotation files are public, with reuse terms unverified.
+- Rechecked ABISS and TIDE-Bench repository placeholders; no release-status change was established.
+
 ## 2026-10-22
 
 - Simplified the README's Start here section to three short entry paths: worked examples, research browsing, and benchmark selection.

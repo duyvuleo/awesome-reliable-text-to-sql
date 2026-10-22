@@ -1029,6 +1029,35 @@
     "added_on": "2026-10-22"
   },
   {
+    "id": "premisesql",
+    "title": "PremiseSQL: Evaluating Premise Critique and Abstention in Text-to-SQL Systems",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2610.22158",
+    "code_url": "https://github.com/vegeet/PremiseSQL",
+    "dataset_url": null,
+    "topics": [
+      "ambiguity",
+      "unanswerability",
+      "abstention",
+      "premise-critique",
+      "benchmark"
+    ],
+    "scope": "core",
+    "category": "answerability",
+    "summary": "Pairs flawed requests with valid originals to evaluate premise detection, error-type identification and SQL abstention under three prompting settings. Stronger critique instructions can also reject valid questions, and the static response evaluation does not establish live clarification ability.",
+    "evidence": [
+      "https://arxiv.org/abs/2610.22158",
+      "https://arxiv.org/html/2610.22158v1",
+      "https://github.com/vegeet/PremiseSQL",
+      "https://github.com/vegeet/PremiseSQL/blob/main/DATA_FORMAT.md"
+    ],
+    "source_depth": "targeted-full-text",
+    "artifact_status": "Public MIT construction and evaluation code verified. The repository explicitly excludes source databases and the final paper dataset; a downloadable benchmark release was not verified. No code was executed.",
+    "checked_on": "2026-10-23",
+    "added_on": "2026-10-23"
+  },
+  {
     "id": "qda-sql",
     "title": "QDA-SQL: Questions Enhanced Dialogue Augmentation for Multi-Turn Text-to-SQL",
     "year": 2026,
@@ -1104,6 +1133,34 @@
     "source_depth": "primary-record",
     "artifact_status": "Publisher abstract and date verified through its indexed primary record; direct fetch failed. Author-group collection links the AmbiVal dataset.",
     "added_on": "2026-10-22"
+  },
+  {
+    "id": "rose",
+    "title": "ROSE: An Intent-Centered Evaluation Metric for NL2SQL",
+    "year": 2026,
+    "publication_status": "ACL 2026",
+    "primary_url": "https://aclanthology.org/2026.acl-long.257/",
+    "code_url": "https://github.com/CedricPei/ROSE",
+    "dataset_url": "https://github.com/CedricPei/ROSE/tree/master/data/annotations",
+    "topics": [
+      "ambiguity",
+      "verification",
+      "evaluation",
+      "benchmark-quality"
+    ],
+    "scope": "adjacent",
+    "category": "verification",
+    "summary": "Uses a Prover-Refuter cascade to judge candidate SQL against the question, with the reference query used as challenge evidence, and validates judgments on ROSE-VEC expert-consensus cases. Agreement on those selected cases does not prove semantic correctness for all interpretations or remove dependence on the chosen judges and acceptance criteria.",
+    "evidence": [
+      "https://aclanthology.org/2026.acl-long.257/",
+      "https://aclanthology.org/2026.acl-long.257.pdf",
+      "https://github.com/CedricPei/ROSE",
+      "https://github.com/CedricPei/ROSE/tree/master/data/annotations"
+    ],
+    "source_depth": "targeted-full-text",
+    "artifact_status": "Public evaluator source and ROSE-VEC Spider/BIRD annotation files verified. No root license was identified in the inspected repository; underlying database access and reuse terms require separate checks. No experiments were reproduced.",
+    "checked_on": "2026-10-23",
+    "added_on": "2026-10-23"
   },
   {
     "id": "rts",
@@ -1435,6 +1492,31 @@
     "source_depth": "targeted-full-text",
     "artifact_status": "Published PDF gives the named author repository; Anthology abstract still contains an anonymous URL. Repository is a generator, not proof that every evaluated dataset is publicly released.",
     "added_on": "2026-10-22"
+  },
+  {
+    "id": "structural-abstention",
+    "title": "Never the Number: Structural Abstention for AI Systems Whose Answers Are Consumed as Fact",
+    "year": 2026,
+    "publication_status": "arXiv technical report",
+    "primary_url": "https://arxiv.org/abs/2608.13926",
+    "code_url": null,
+    "dataset_url": null,
+    "topics": [
+      "abstention",
+      "unanswerability",
+      "architecture",
+      "confirmation"
+    ],
+    "scope": "core",
+    "category": "answerability",
+    "summary": "Proposes separating generative interpretation from a deterministic query kernel, using user confirmation and a bounded set of supported question forms to decline requests outside that set. The technical report describes an architectural pattern and case study; its primary record explicitly states that code, schemas, datasets and performance metrics are not included.",
+    "evidence": [
+      "https://arxiv.org/abs/2608.13926"
+    ],
+    "source_depth": "primary-record",
+    "artifact_status": "Architecture/design report only; no code, schemas, datasets or quantitative performance artifacts supplied by the primary record.",
+    "checked_on": "2026-10-23",
+    "added_on": "2026-10-23"
   },
   {
     "id": "taco",
