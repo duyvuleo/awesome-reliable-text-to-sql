@@ -9,8 +9,8 @@ Availability and licenses are source-specific. A linked paper, project, or datas
 
 ## Contents
 
-- [Healthcare benchmarks](#healthcare-benchmarks)
 - [All datasets and benchmarks](#all-datasets-and-benchmarks)
+- [Healthcare benchmarks](#healthcare-benchmarks)
 
 - [ABISS benchmark design](#abiss-data)
 - [AmbiQT](#ambiqt-data)
@@ -37,18 +37,6 @@ Availability and licenses are source-specific. A linked paper, project, or datas
 - [TIDE-Bench benchmark design](#tide-bench-data)
 - [TriageSQL](#triagesql-data)
 - [TrustSQL](#trustsql-data)
-
-## Healthcare benchmarks
-
-**SCARE explicitly covers both ambiguous and unanswerable healthcare questions.** EHRSQL and its 2024 shared task provide complementary settings for answerability and reliable SQL answering.
-
-| Benchmark | Ambiguity | Unanswerability | Clinical setting and task |
-| --- | --- | --- | --- |
-| **[SCARE](https://proceedings.mlr.press/v297/lee26b.html)** · [Data](README.md#scare-data) | **Explicit class** | **Explicit class** | MIMIC-III, MIMIC-IV and eICU; classify questions as answerable, ambiguous or unanswerable, and verify/correct candidate SQL. |
-| [EHRSQL](https://arxiv.org/abs/2301.07695) · [Data](README.md#ehrsql-data) | Separate ambiguity-resolution task not verified | **Included** | MIMIC-III and eICU; hospital questions, temporal reasoning, SQL generation and held-out unanswerable questions. |
-| [EHRSQL 2024](https://aclanthology.org/2024.clinicalnlp-1.62/) · [Data](README.md#ehrsql-2024-data) | Separate ambiguity-resolution task not verified | **Included** | MIMIC-IV demo; reliable SQL answering with an abstention option and penalties for incorrect answers. |
-
-Use the [healthcare route in the benchmark matrix](../docs/benchmark-matrix.md#healthcare-benchmarks) to compare protocols and access conditions. These are static benchmark tasks; their coverage does not establish live clinical clarification or deployment readiness.
 
 ## All datasets and benchmarks
 
@@ -79,3 +67,15 @@ Use the [healthcare route in the benchmark matrix](../docs/benchmark-matrix.md#h
 | <a id="tide-bench-data"></a>[TIDE-Bench benchmark design](https://arxiv.org/abs/2608.29543) | Conversation tasks with dependent clarification chains and user revisions that retract earlier commitments.<br><br>Chain identification and intent-drift recognition/resolution metrics complement execution accuracy. | Paper-described benchmark; linked repository contains only README, LICENSE, and .gitattributes, so downloadable data are unverified.<br><br><strong>License:</strong> Dataset license unverified; placeholder repository MIT does not establish released dataset terms. | [Resource](https://arxiv.org/abs/2608.29543)<br>[Paper](../papers/README.md#tide-bench)<br><details><summary>Sources and check date</summary><strong>Sources:</strong> <a href="https://arxiv.org/abs/2608.29543">Source 1</a> · <a href="https://github.com/Rcrossmeister/TIDE-Bench">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
 | <a id="triagesql-data"></a>[TriageSQL](https://github.com/yszh8/TriageSQL) | Question-intention labels distinguish answerable questions, ambiguity, missing data, non-SQL requests, and small talk.<br><br>Question classification over question/schema inputs; does not directly measure clarification dialogue or SQL execution. | Public test examples and official full-dataset download link visible; archive not downloaded.<br><br><strong>License:</strong> CC BY-SA 4.0. | [Resource](https://github.com/yszh8/TriageSQL)<br>[Paper](../papers/README.md#triagesql)<br><details><summary>Sources and check date</summary><strong>Sources:</strong> <a href="https://github.com/yszh8/TriageSQL">Source 1</a> · <a href="https://arxiv.org/abs/2010.12634">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
 | <a id="trustsql-data"></a>[TrustSQL](https://github.com/glee4810/TrustSQL#dataset) | Feasible and infeasible questions for measuring correct SQL generation and abstention.<br><br>Penalty-based reliability scoring; penalty choice and infeasibility definitions affect comparisons. | Official dataset download link and evaluation scripts verified; archive not downloaded.<br><br><strong>License:</strong> Repository declares CC BY 4.0; constituent databases can carry separate terms. | [Resource](https://github.com/glee4810/TrustSQL#dataset)<br>[Paper](../papers/README.md#trustsql)<br><details><summary>Sources and check date</summary><strong>Sources:</strong> <a href="https://github.com/glee4810/TrustSQL#dataset">Source 1</a> · <a href="https://arxiv.org/abs/2403.15879">Source 2</a><br><br><strong>Content checked:</strong> 2026-10-22</details> |
+
+## Healthcare benchmarks
+
+**SCARE explicitly covers both ambiguous and unanswerable healthcare questions.** EHRSQL and its 2024 shared task provide complementary settings for answerability and reliable SQL answering.
+
+| Benchmark | Ambiguity | Unanswerability | Clinical setting and task |
+| --- | --- | --- | --- |
+| **[SCARE](https://proceedings.mlr.press/v297/lee26b.html)** · [Data](README.md#scare-data) | **Explicit class** | **Explicit class** | MIMIC-III, MIMIC-IV and eICU; classify questions as answerable, ambiguous or unanswerable, and verify/correct candidate SQL. |
+| [EHRSQL](https://arxiv.org/abs/2301.07695) · [Data](README.md#ehrsql-data) | Separate ambiguity-resolution task not verified | **Included** | MIMIC-III and eICU; hospital questions, temporal reasoning, SQL generation and held-out unanswerable questions. |
+| [EHRSQL 2024](https://aclanthology.org/2024.clinicalnlp-1.62/) · [Data](README.md#ehrsql-2024-data) | Separate ambiguity-resolution task not verified | **Included** | MIMIC-IV demo; reliable SQL answering with an abstention option and penalties for incorrect answers. |
+
+Use the [healthcare route in the benchmark matrix](../docs/benchmark-matrix.md#healthcare-benchmarks) to compare protocols and access conditions. These are static benchmark tasks; their coverage does not establish live clinical clarification or deployment readiness.

@@ -8,10 +8,14 @@ Availability and licenses are source-specific. A linked paper, project, or datas
 
 ## Contents
 
-- [Healthcare benchmarks](#healthcare-benchmarks)
 - [All datasets and benchmarks](#all-datasets-and-benchmarks)
+- [Healthcare benchmarks](#healthcare-benchmarks)
 
 {{DATASET_CONTENTS}}
+
+## All datasets and benchmarks
+
+{{DATASET_TABLE}}
 
 ## Healthcare benchmarks
 
@@ -24,7 +28,3 @@ Availability and licenses are source-specific. A linked paper, project, or datas
 | [EHRSQL 2024](https://aclanthology.org/2024.clinicalnlp-1.62/) · [Data](README.md#ehrsql-2024-data) | Separate ambiguity-resolution task not verified | **Included** | MIMIC-IV demo; reliable SQL answering with an abstention option and penalties for incorrect answers. |
 
 Use the [healthcare route in the benchmark matrix](../docs/benchmark-matrix.md#healthcare-benchmarks) to compare protocols and access conditions. These are static benchmark tasks; their coverage does not establish live clinical clarification or deployment readiness.
-
-## All datasets and benchmarks
-
-{{DATASET_TABLE}}
