@@ -22,6 +22,7 @@ Updated **{{UPDATED}}**. Each paper includes a concise summary, publication stat
 ## Contents
 
 - [Start here](#start-here)
+- [Healthcare benchmarks](#healthcare-benchmarks)
 - [Choose a reading route](#choose-a-reading-route)
 - [Worked examples](examples/README.md)
 - [Papers](papers/README.md)
@@ -38,6 +39,18 @@ Updated **{{UPDATED}}**. Each paper includes a concise summary, publication stat
 
 {{START_HERE}}
 
+## Healthcare benchmarks
+
+**SCARE explicitly covers both ambiguous and unanswerable healthcare questions.** EHRSQL and its 2024 shared task provide complementary settings for answerability and reliable SQL answering.
+
+| Benchmark | Ambiguity | Unanswerability | Clinical setting and task |
+| --- | --- | --- | --- |
+| **[SCARE](https://proceedings.mlr.press/v297/lee26b.html)** · [Data](datasets/README.md#scare-data) | **Explicit class** | **Explicit class** | MIMIC-III, MIMIC-IV and eICU; classify questions as answerable, ambiguous or unanswerable, and verify/correct candidate SQL. |
+| [EHRSQL](https://arxiv.org/abs/2301.07695) · [Data](datasets/README.md#ehrsql-data) | Separate ambiguity-resolution task not verified | **Included** | MIMIC-III and eICU; hospital questions, temporal reasoning, SQL generation and held-out unanswerable questions. |
+| [EHRSQL 2024](https://aclanthology.org/2024.clinicalnlp-1.62/) · [Data](datasets/README.md#ehrsql-2024-data) | Separate ambiguity-resolution task not verified | **Included** | MIMIC-IV demo; reliable SQL answering with an abstention option and penalties for incorrect answers. |
+
+Use the [healthcare route in the benchmark matrix](docs/benchmark-matrix.md#healthcare-benchmarks) to compare protocols and access conditions. These are static benchmark tasks; their coverage does not establish live clinical clarification or deployment readiness.
+
 ## Choose a reading route
 
 | Your question | Where to start |
@@ -49,6 +62,7 @@ Updated **{{UPDATED}}**. Each paper includes a concise summary, publication stat
 | How do we test confidence and distinguish queries that happen to agree? | [Verification and uncertainty](papers/README.md#verification) |
 | What can I actually run or download? | [Systems](systems/README.md) and [datasets](datasets/README.md), with availability notes |
 | Which benchmark fits my experiment? | [Benchmark selection matrix](docs/benchmark-matrix.md) |
+| Which healthcare benchmarks cover ambiguity or unanswerability? | [Healthcare benchmarks](#healthcare-benchmarks) |
 | How do ambiguity, unsupported information, and an empty answer differ? | [Three runnable SQLite walkthroughs](examples/README.md) |
 
 ## Scope

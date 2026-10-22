@@ -12,12 +12,21 @@ Compare **25 dataset and benchmark entries** by the question you want to test. T
 | Recovery of several valid SQL interpretations | [AmbiQT](#ambiqt-data), [AMBROSIA](#ambrosia-data) | Interpretation coverage differs from selecting the actual user's intent. |
 | Detection of problematic or unanswerable requests | [TriageSQL](#triagesql-data), [MMSQL](#mmsql-data), [SCARE](#scare-data) | Classification labels, response tasks and candidate-SQL inputs differ. |
 | SQL answering with an abstention option | [TrustSQL](#trustsql-data), [EHRSQL](#ehrsql-data), [EHRSQL 2024](#ehrsql-2024-data) | Record the error penalty, answer coverage and database access conditions. |
+| Healthcare ambiguity and unanswerability | [SCARE](#scare-data), [EHRSQL](#ehrsql-data), [EHRSQL 2024](#ehrsql-2024-data) | SCARE explicitly labels both; the EHRSQL benchmarks target answerability and reliable SQL answering. |
 | SQL after receiving clarification | [PRACTIQ](#practiq-data), [CLARITY](#clarity-data), [CLAMBSQL](#clambsql-data) | Supplied clarification evaluates a different step from choosing what to ask. |
 | An agent that conducts clarification | [ABISS](#abiss-data), [ARCS](#arcs-data), [BIRD-Interact](#bird-interact-data), [TIDE-Bench](#tide-bench-data) | Pin the user simulator, interaction budget, protocol and available release. |
 | Continued interaction as requests or database state change | [DySQL-Bench](#dysql-data), [BIRD-Interact](#bird-interact-data), [TIDE-Bench](#tide-bench-data) | Request revisions, SQL writes and clarification dependencies are different test conditions. |
 | Business context or larger SQL workflows | [EntSQL](#entsql-data), [Spider 2.0](#spider2-data), [LiveSQLBench](#livesqlbench-data) | These adjacent tasks do not establish ambiguity detection or unanswerability coverage. |
 
 These are starting options, not rankings. Match the task and access conditions to your experiment before comparing reported results.
+
+## Healthcare benchmarks
+
+**For explicit coverage of both ambiguity and unanswerability, start with [SCARE](#scare-data).** It jointly classifies question answerability and verifies/corrects a supplied SQL candidate over MIMIC-III, MIMIC-IV and eICU. This is a post-hoc task rather than a live clarification dialogue. [Primary source](https://proceedings.mlr.press/v297/lee26b.html).
+
+[EHRSQL](#ehrsql-data) includes held-out unanswerable questions over MIMIC-III/eICU, while [EHRSQL 2024](#ehrsql-2024-data) evaluates reliable answering and abstention using MIMIC-IV demo. A separate ambiguity-resolution task is not established in the checked sources for these two entries. Use their rows below for the precise coverage and access notes. [EHRSQL paper](https://arxiv.org/abs/2301.07695) · [EHRSQL 2024 task](https://github.com/glee4810/ehrsql-2024).
+
+Public question/SQL annotations do not grant access to every underlying EHR database. Check the linked resource's version, license and access conditions before running an experiment. Benchmark correctness is distinct from clinical validity or deployment readiness.
 
 ## How to read the matrix
 

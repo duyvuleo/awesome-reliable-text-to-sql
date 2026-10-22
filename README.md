@@ -23,6 +23,7 @@ Updated **2026-10-22**. Each paper includes a concise summary, publication statu
 ## Contents
 
 - [Start here](#start-here)
+- [Healthcare benchmarks](#healthcare-benchmarks)
 - [Choose a reading route](#choose-a-reading-route)
 - [Worked examples](examples/README.md)
 - [Papers](papers/README.md)
@@ -46,6 +47,18 @@ Updated **2026-10-22**. Each paper includes a concise summary, publication statu
 | 2024 | [TrustSQL: Benchmarking Text-to-SQL Reliability with Penalty-Based Scoring](papers/README.md#trustsql)<br>arXiv preprint<br><em>core</em> | Evaluates systems that answer feasible questions correctly and abstain on infeasible questions, using a reliability score with configurable penalties for errors. Results depend on the selected penalty and question distribution, and should not be compared directly with execution accuracy on answerable-only benchmarks. | [Code](https://github.com/glee4810/TrustSQL) · [Data](https://github.com/glee4810/TrustSQL#dataset)<br>[Details](papers/README.md#trustsql) |
 | 2019 | [CoSQL: A Conversational Text-to-SQL Challenge Towards Cross-Domain Natural Language Interfaces to Databases](papers/README.md#cosql)<br>EMNLP-IJCNLP 2019<br><em>core</em> | Collects Wizard-of-Oz conversations in which SQL experts answer database questions, clarify ambiguities, and identify unanswerable or unrelated requests. It provides foundational dialogue-act and response-generation tasks, but standard SQL state tracking consumes recorded conversation context rather than testing an autonomous live clarification policy. | [Code](https://github.com/taoyds/cosql) · [Data](https://yale-lily.github.io/cosql)<br>[Details](papers/README.md#cosql) |
 
+## Healthcare benchmarks
+
+**SCARE explicitly covers both ambiguous and unanswerable healthcare questions.** EHRSQL and its 2024 shared task provide complementary settings for answerability and reliable SQL answering.
+
+| Benchmark | Ambiguity | Unanswerability | Clinical setting and task |
+| --- | --- | --- | --- |
+| **[SCARE](https://proceedings.mlr.press/v297/lee26b.html)** · [Data](datasets/README.md#scare-data) | **Explicit class** | **Explicit class** | MIMIC-III, MIMIC-IV and eICU; classify questions as answerable, ambiguous or unanswerable, and verify/correct candidate SQL. |
+| [EHRSQL](https://arxiv.org/abs/2301.07695) · [Data](datasets/README.md#ehrsql-data) | Separate ambiguity-resolution task not verified | **Included** | MIMIC-III and eICU; hospital questions, temporal reasoning, SQL generation and held-out unanswerable questions. |
+| [EHRSQL 2024](https://aclanthology.org/2024.clinicalnlp-1.62/) · [Data](datasets/README.md#ehrsql-2024-data) | Separate ambiguity-resolution task not verified | **Included** | MIMIC-IV demo; reliable SQL answering with an abstention option and penalties for incorrect answers. |
+
+Use the [healthcare route in the benchmark matrix](docs/benchmark-matrix.md#healthcare-benchmarks) to compare protocols and access conditions. These are static benchmark tasks; their coverage does not establish live clinical clarification or deployment readiness.
+
 ## Choose a reading route
 
 | Your question | Where to start |
@@ -57,6 +70,7 @@ Updated **2026-10-22**. Each paper includes a concise summary, publication statu
 | How do we test confidence and distinguish queries that happen to agree? | [Verification and uncertainty](papers/README.md#verification) |
 | What can I actually run or download? | [Systems](systems/README.md) and [datasets](datasets/README.md), with availability notes |
 | Which benchmark fits my experiment? | [Benchmark selection matrix](docs/benchmark-matrix.md) |
+| Which healthcare benchmarks cover ambiguity or unanswerability? | [Healthcare benchmarks](#healthcare-benchmarks) |
 | How do ambiguity, unsupported information, and an empty answer differ? | [Three runnable SQLite walkthroughs](examples/README.md) |
 
 ## Scope

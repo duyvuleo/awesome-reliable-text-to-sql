@@ -2,6 +2,7 @@
 
 ## 2026-10-22
 
+- Highlighted SCARE, EHRSQL and EHRSQL 2024 in the README and benchmark matrix, distinguishing explicit ambiguity/unanswerability coverage from answerability-focused evaluation.
 - Added three original, offline SQLite walkthroughs for ambiguity and clarification, unsupported information, and a valid empty result; checked their expected answers, ties and date boundaries.
 - Added original light/dark banners and a matching social-preview image, plus validation and license badges.
 - Added a source-backed benchmark selection matrix covering every cataloged dataset/benchmark, with coverage, clarification, interaction, domain, evaluation and access fields.
