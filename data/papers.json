@@ -1672,5 +1672,55 @@
     "source_depth": "primary-record",
     "artifact_status": "Distinct from the 2026 TRUST-SQL unknown-schema reinforcement-learning system.",
     "added_on": "2026-10-22"
+  },
+  {
+    "id": "annotation-errors",
+    "title": "Pervasive Annotation Errors Break Text-to-SQL Benchmarks and Leaderboards",
+    "year": 2026,
+    "publication_status": "VLDB 2026",
+    "primary_url": "https://arxiv.org/abs/2601.08778",
+    "code_url": "https://github.com/uiuc-kang-lab/text_to_sql_benchmarks",
+    "dataset_url": null,
+    "topics": [
+      "benchmark",
+      "verification",
+      "ambiguity"
+    ],
+    "scope": "adjacent",
+    "summary": "Audits annotations in BIRD and Spider 2.0-Snow and re-evaluates agents on a corrected BIRD subset, showing that reference errors can change reported rankings. This supports checking evaluation labels before interpreting reliability scores; the findings concern the inspected benchmark versions and subsets, not every current leaderboard.",
+    "evidence": [
+      "https://arxiv.org/abs/2601.08778",
+      "https://vldb.org/2026/program.html",
+      "https://github.com/uiuc-kang-lab/text_to_sql_benchmarks"
+    ],
+    "category": "verification",
+    "source_depth": "primary-record",
+    "artifact_status": "Official repository exposes code and data-access instructions; dependencies, downloads and reported results were not independently reproduced.",
+    "checked_on": "2026-10-24",
+    "added_on": "2026-10-24"
+  },
+  {
+    "id": "semantic-path-compilation",
+    "title": "Bounded Semantic Planning and Deterministic Compilation for Reliable Enterprise Text-to-SQL",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2608.16663",
+    "code_url": null,
+    "dataset_url": null,
+    "topics": [
+      "verification",
+      "abstention",
+      "context"
+    ],
+    "scope": "adjacent",
+    "summary": "Separates multi-turn semantic planning over governed options from deterministic SQL compilation and checks, targeting wrong relationship roles and aggregation grain. Its insurance-benchmark comparison uses a small adjudicated set and gives the planner semantic artifacts unavailable to the DDL baseline, so it does not isolate compilation as the cause of the gain.",
+    "evidence": [
+      "https://arxiv.org/abs/2608.16663"
+    ],
+    "category": "verification",
+    "source_depth": "primary-record",
+    "artifact_status": "The primary record describes research artifacts and links a related DOI; artifact contents and execution were not verified in this pass.",
+    "checked_on": "2026-10-24",
+    "added_on": "2026-10-24"
   }
 ]

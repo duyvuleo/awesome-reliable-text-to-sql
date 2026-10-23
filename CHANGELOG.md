@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-24
+
+- Added two previously published works on annotation-error auditing and semantic path compilation, with scoped summaries and public primary evidence.
+- Kept artifact availability separate from paper inclusion; no new runnable-system or dataset-release claims were made.
+
 ## 2026-10-23
 
 - Added PremiseSQL, ROSE and Never the Number with original summaries and primary-source evidence; the latter two are newly indexed older works.
