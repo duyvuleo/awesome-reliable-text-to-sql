@@ -8,14 +8,15 @@
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![Validation](https://github.com/duyvuleo/awesome-reliable-text-to-sql/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/duyvuleo/awesome-reliable-text-to-sql/actions/workflows/checks.yml)
 [![License: CC0](https://img.shields.io/badge/license-CC0%201.0-315da7)](LICENSE)
+[![Annotated papers: {{PAPER_COUNT}}](https://img.shields.io/badge/annotated_papers-{{PAPER_COUNT}}-315da7)](papers/README.md)
+[![Systems and tools: {{SYSTEM_COUNT}}](https://img.shields.io/badge/systems_%26_tools-{{SYSTEM_COUNT}}-168577)](systems/README.md)
+[![Datasets and benchmarks: {{DATASET_COUNT}}](https://img.shields.io/badge/datasets_%26_benchmarks-{{DATASET_COUNT}}-a66b16)](datasets/README.md)
 
 > Curated papers, systems, and datasets for Text-to-SQL that can recognize ambiguity, ask useful questions, and decline unsupported requests.
 
 Natural-language questions do not always determine one SQL query, and a database cannot answer every request. This collection focuses on how NL2SQL agents detect these situations, resolve them through interaction or additional evidence, and evaluate when to answer or abstain.
 
 [Browse papers](papers/README.md) · [Compare benchmarks](docs/benchmark-matrix.md) · [Try the examples](examples/README.md) · [Contribute](CONTRIBUTING.md)
-
-**{{PAPER_COUNT}} annotated papers · {{SYSTEM_COUNT}} systems and tools · {{DATASET_COUNT}} dataset/benchmark entries**
 
 Updated **{{UPDATED}}**. Each paper includes a concise summary, publication status, public sources, and a verification date. Core work and adjacent methods are marked separately. Resource counts include clearly labeled benchmark designs whose artifacts are not yet verified released.
 
