@@ -1722,5 +1722,31 @@
     "artifact_status": "The primary record describes research artifacts and links a related DOI; artifact contents and execution were not verified in this pass.",
     "checked_on": "2026-10-24",
     "added_on": "2026-10-24"
+  },
+  {
+    "id": "air",
+    "title": "Probing Ambiguity: Adversarial Intent Resolution for Robust Text-to-SQL",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2610.24248",
+    "code_url": null,
+    "dataset_url": null,
+    "topics": [
+      "ambiguity",
+      "clarification",
+      "multi-agent",
+      "verification"
+    ],
+    "scope": "core",
+    "summary": "AIR uses competing agents to propose interpretations, prunes SQL candidates by differences in executed results, and synthesizes contrastive clarification questions. Schema-only describes the generation context: verification still accesses the full database, and agreement on the current data does not prove semantic equivalence. Its AMBROSIA/AmbiQT evaluation measures interpretation coverage rather than live-user clarification outcomes.",
+    "evidence": [
+      "https://arxiv.org/abs/2610.24248",
+      "https://arxiv.org/html/2610.24248v1"
+    ],
+    "checked_on": "2026-10-25",
+    "category": "ambiguity",
+    "source_depth": "targeted-full-text",
+    "artifact_status": "No official implementation or new dataset release verified in this pass; evaluated on existing AMBROSIA and AmbiQT benchmarks.",
+    "added_on": "2026-10-25"
   }
 ]

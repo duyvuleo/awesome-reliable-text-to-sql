@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-24",
-  "updated": "2026-10-24",
+  "checked": "2026-10-25",
+  "updated": "2026-10-25",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 67,
+    "paper": 68,
     "system": 12,
     "tool": 13,
     "benchmark": 27
@@ -547,6 +547,32 @@
         "benchmark",
         "paper",
         "tool"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "air",
+      "name": "Probing Ambiguity: Adversarial Intent Resolution for Robust Text-to-SQL",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "AIR uses competing agents to propose interpretations, prunes SQL candidates by differences in executed results, and synthesizes contrastive clarification questions. Schema-only describes the generation context: verification still accesses the full database, and agreement on the current data does not prove semantic equivalence. Its AMBROSIA/AmbiQT evaluation measures interpretation coverage rather than live-user clarification outcomes.",
+      "entry_ids": [
+        "air"
+      ],
+      "themes": [
+        "ambiguity",
+        "clarification",
+        "multi-agent",
+        "verification"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "kinds": [
+        "paper"
       ],
       "years": [
         2026
@@ -5676,6 +5702,62 @@
       "work_id": "semantic-path-compilation"
     },
     {
+      "id": "air",
+      "name": "Probing Ambiguity: Adversarial Intent Resolution for Robust Text-to-SQL",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "AIR uses competing agents to propose interpretations, prunes SQL candidates by differences in executed results, and synthesizes contrastive clarification questions. Schema-only describes the generation context: verification still accesses the full database, and agreement on the current data does not prove semantic equivalence. Its AMBROSIA/AmbiQT evaluation measures interpretation coverage rather than live-user clarification outcomes.",
+      "tags": [
+        "ambiguity",
+        "clarification",
+        "multi-agent",
+        "verification"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "No official implementation or new dataset release verified in this pass; evaluated on existing AMBROSIA and AmbiQT benchmarks.",
+      "sources": [
+        "https://arxiv.org/abs/2610.24248",
+        "https://arxiv.org/html/2610.24248v1"
+      ],
+      "checked": "2026-10-25",
+      "added_on": "2026-10-25",
+      "url": "https://arxiv.org/abs/2610.24248",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#air",
+      "original": {
+        "id": "air",
+        "title": "Probing Ambiguity: Adversarial Intent Resolution for Robust Text-to-SQL",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2610.24248",
+        "code_url": null,
+        "dataset_url": null,
+        "topics": [
+          "ambiguity",
+          "clarification",
+          "multi-agent",
+          "verification"
+        ],
+        "scope": "core",
+        "summary": "AIR uses competing agents to propose interpretations, prunes SQL candidates by differences in executed results, and synthesizes contrastive clarification questions. Schema-only describes the generation context: verification still accesses the full database, and agreement on the current data does not prove semantic equivalence. Its AMBROSIA/AmbiQT evaluation measures interpretation coverage rather than live-user clarification outcomes.",
+        "evidence": [
+          "https://arxiv.org/abs/2610.24248",
+          "https://arxiv.org/html/2610.24248v1"
+        ],
+        "checked_on": "2026-10-25",
+        "category": "ambiguity",
+        "source_depth": "targeted-full-text",
+        "artifact_status": "No official implementation or new dataset release verified in this pass; evaluated on existing AMBROSIA and AmbiQT benchmarks.",
+        "added_on": "2026-10-25"
+      },
+      "work_id": "air"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -8238,12 +8320,12 @@
     {
       "id": "ambiguity",
       "label": "Ambiguity",
-      "count": 30
+      "count": 31
     },
     {
       "id": "clarification",
       "label": "Clarification",
-      "count": 26
+      "count": 27
     },
     {
       "id": "unanswerability",
@@ -8271,13 +8353,13 @@
       "count": 8
     },
     {
-      "id": "clinical",
-      "label": "Clinical",
-      "count": 6
-    },
-    {
       "id": "verification",
       "label": "Verification",
+      "count": 7
+    },
+    {
+      "id": "clinical",
+      "label": "Clinical",
       "count": 6
     },
     {
@@ -8298,6 +8380,11 @@
     {
       "id": "conversation",
       "label": "Conversation",
+      "count": 3
+    },
+    {
+      "id": "multi-agent",
+      "label": "Multi agent",
       "count": 3
     },
     {
@@ -8358,11 +8445,6 @@
     {
       "id": "interactive-agents",
       "label": "Interactive agents",
-      "count": 2
-    },
-    {
-      "id": "multi-agent",
-      "label": "Multi agent",
       "count": 2
     },
     {

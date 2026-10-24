@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-25
+
+- Added AIR (Probing Ambiguity), distinguishing schema-only generation context from full-database execution verification and interpretation coverage from live-user clarification evaluation.
+- Rechecked ABISS and ARCS artifact pages; no release-status change was established.
+
 ## 2026-10-24
 
 - Added multi-theme explorer filters with any/all matching and shareable repeated theme parameters; removed catalog graph mode and retained explicit cross-references in work details.
