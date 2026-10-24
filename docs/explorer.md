@@ -6,7 +6,7 @@ Browse the same annotated catalog through a theme cloud, a graph, and a reading 
 
 - **Grouped works:** a paper and resources linking to that paper alone share a node. Resources referencing multiple papers remain separate nodes with explicit links. Every original record is retained.
 - **Themes:** cloud size counts distinct works in this collection, not scientific quality or field-wide importance. Dataset and tool themes inherit their linked papers' tags; these are navigation aids, not independent capability labels.
-- **Graph:** dashed edges connect themes to works. Only theme connections are drawn. Explicit paper–resource references remain in work details. Theme edges do not express citations, derivation or empirical support. Positions do not encode similarity.
+- **Graph:** dashed edges connect themes to works. Only theme connections are drawn. Explicit paper–resource references remain in work details. Theme edges do not express citations, derivation or empirical support. Positions do not encode similarity. Every work node displays a compact name, including larger selections; hover or inspect it for the full title. Zoom in to separate crowded labels.
 - **Years:** papers use their catalog publication year. Resources use the latest linked paper year, not a verified release date. Resources without linked papers are undated.
 - **Code / tool link:** a recorded paper code link or system/tool resource URL. This does not establish a runnable release. Read the availability notes, including placeholder qualifications.
 - **Benchmarks:** inspection includes ambiguity, unanswerability, clarification, interaction, access, evaluation and source locators from the [comparison matrix](benchmark-matrix.md). Unknown and not-targeted fields remain distinct.
