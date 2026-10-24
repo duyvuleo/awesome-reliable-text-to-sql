@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Explore reliable Text-to-SQL papers, systems, tools, and benchmarks through research themes and documented connections.">
+<meta name="color-scheme" content="light dark">
+<title>Explore · Awesome Reliable Text-to-SQL</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script defer src="vendor/cytoscape.min.js" integrity="sha384-lyd1lDWZ623YSUJ/wMQH50y+T81dWKJk7ZoFdYWXQS83b0+QpW0pgdfXEnQnXL/X"></script>
+<script type="module" src="app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#results">Skip to results</a>
+<header class="topbar"><a class="brand" href="https://github.com/duyvuleo/awesome-reliable-text-to-sql"><span class="brand-icon" aria-hidden="true">✳</span> Reliable Text-to-SQL <span class="brand-label">/ collection explorer</span></a><nav><a href="https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/docs/benchmark-matrix.md">Benchmark matrix ↗</a><a class="repo-link" href="https://github.com/duyvuleo/awesome-reliable-text-to-sql">GitHub ↗</a></nav></header>
+<main>
+<section class="intro"><div><p class="eyebrow">PAPERS · SYSTEMS · TOOLS · BENCHMARKS</p><h1>Follow the ideas.<br><em>Inspect the evidence.</em></h1><p class="lede">Explore the methods, resources, and open questions behind ambiguity, clarification, and unanswerability in Text-to-SQL.</p></div><div class="collection-stats" id="collection-stats"><span>Loading collection…</span></div></section>
+<div id="error" class="error" hidden role="alert"></div>
+<noscript><p class="error">This explorer requires JavaScript. The <a href="https://github.com/duyvuleo/awesome-reliable-text-to-sql">annotated Markdown catalogs</a> remain available without it.</p></noscript>
+<section class="filters" aria-label="Filter the collection">
+<label class="search-label"><span>Search the collection</span><input id="search" type="search" placeholder="CLARITY, abstention, ambiguity…" autocomplete="off"></label>
+<label><span>Resource</span><select id="kind"><option value="">All resources</option><option value="paper">Papers</option><option value="system">Systems</option><option value="tool">Tools</option><option value="benchmark">Benchmarks</option></select></label>
+<label><span>Year</span><select id="year"><option value="">All years</option></select></label>
+<label><span>Research area</span><select id="category"><option value="">All areas</option></select></label>
+<label class="check-label"><input id="code" type="checkbox"> Code / tool link</label>
+<button id="reset" class="quiet">Reset</button>
+</section>
+<div class="selection-line"><p id="match-count" role="status" aria-live="polite">Loading…</p><div id="active-filters"></div></div>
+<section class="themes card" aria-labelledby="themes-heading">
+<div class="section-heading"><div><p class="eyebrow">01 / RESEARCH THEMES</p><h2 id="themes-heading">Find a direction</h2></div><p>Size reflects distinct works in this collection.<br>Select a phrase to explore it.</p></div>
+<div id="cloud" class="cloud" aria-label="Clickable research themes"></div>
+<details class="topic-details"><summary>All themes and counts</summary><div id="topic-counts" class="topic-counts"></div></details>
+</section>
+<div class="explore-grid">
+<section class="graph-card card" aria-labelledby="graph-heading">
+<div class="section-heading"><div><p class="eyebrow">02 / CONNECTIONS</p><h2 id="graph-heading">Explore the neighborhood</h2></div><label class="graph-mode"><span class="sr-only">Connection type</span><select id="mode"><option value="themes">Theme connections</option><option value="catalog">Catalog relationships</option></select></label></div>
+<p id="graph-note" class="graph-note"></p>
+<div class="graph-shell"><div id="graph" role="img" aria-label="Interactive resource graph. The same works are available in the accessible results table below."></div><p id="graph-empty" class="graph-empty" hidden>No works match these filters.</p><div id="graph-tooltip" class="graph-tooltip" hidden></div><div class="graph-controls"><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="fit" aria-label="Fit graph">Fit</button></div></div>
+<div class="legend"><span><i class="dot paper"></i>Paper</span><span><i class="dot system"></i>System</span><span><i class="dot tool"></i>Tool</span><span><i class="dot benchmark"></i>Benchmark</span><span><i class="dot theme"></i>Theme</span></div>
+<p class="graph-foot">One node per grouped work. Years follow linked papers, not artifact releases. Inspect a work for availability and all records.</p>
+</section>
+<aside id="inspector" hidden class="inspector card" aria-label="Selected work details"><div id="detail"></div></aside>
+</div>
+<section class="results card" id="results" aria-labelledby="results-heading">
+<div class="section-heading"><div><p class="eyebrow">03 / READING LIST</p><h2 id="results-heading">Read the evidence</h2></div><div class="table-controls"><label><span class="sr-only">Sort results</span><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name">Name</option></select></label><button id="export" class="quiet">Export JSON ↓</button></div></div>
+<div class="table-scroll"><table><thead><tr><th>Paper year</th><th>Resource / status</th><th>Summary &amp; evidence</th><th>Details</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p id="empty" class="empty" hidden>No matching works. Clear a filter or try a broader search.</p>
+</section>
+<footer><div><strong>A map of the collection, not a ranking.</strong><p>Theme connections come from catalog tags. Catalog links are curated associations, not automatically inferred citations. Source inspection is distinct from independent reproduction.</p></div><div><a href="https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/docs/explorer.md">Methods &amp; coverage ↗</a><a href="https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/CONTRIBUTING.md">Suggest a correction ↗</a><span id="source-date"></span></div></footer>
+</main>
+</body></html>

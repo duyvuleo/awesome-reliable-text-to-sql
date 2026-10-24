@@ -2,6 +2,8 @@
 
 ## 2026-10-24
 
+- Added a static collection explorer with theme cloud, explicit relationship graph, reading table, shareable filters, source-preserving export and benchmark inspection; adapted the companion AI Co-Scientist explorer.
+
 - Added two previously published works on annotation-error auditing and semantic path compilation, with scoped summaries and public primary evidence.
 - Kept artifact availability separate from paper inclusion; no new runnable-system or dataset-release claims were made.
 

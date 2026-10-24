@@ -212,6 +212,8 @@ def outputs(root=ROOT):
     if re.search(r"\{\{[A-Z_]+\}\}", template):
         raise ValueError("Unresolved README template placeholder")
     result[Path("README.md")] = NOTICE + template.rstrip() + "\n"
+    from explorer_data import render_data
+    result[Path("site/data.json")] = render_data(root)
     return result
 
 

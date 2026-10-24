@@ -1,0 +1,10 @@
+{
+  "excluded_tags": ["benchmark"],
+  "aliases": {},
+  "labels": {
+    "sql-equivalence": "SQL equivalence",
+    "human-in-the-loop": "Human in the loop",
+    "multi-turn": "Multi-turn dialogue",
+    "unanswerability": "Unanswerability"
+  }
+}

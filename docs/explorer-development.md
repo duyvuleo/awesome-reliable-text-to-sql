@@ -1,0 +1,46 @@
+# Building the Text-to-SQL explorer
+
+[Live explorer](https://duyvuleo.github.io/awesome-reliable-text-to-sql/) · [Reader guide](explorer.md)
+
+The interface adapts the CC0 [AI Co-Scientist explorer](https://github.com/duyvuleo/awesome-ai-co-scientist/blob/main/docs/explorer-development.md). It uses the same static theme-cloud, graph and reading-table design. Cytoscape.js is vendored with its separate MIT license; see [vendor notes](../site/vendor/README.md). There is no bundler, backend, model API, analytics service, remote font or runtime CDN dependency.
+
+## Source and generated files
+
+| Source | Role |
+| --- | --- |
+| [Canonical JSON](../data/README.md) | Papers, resources, benchmark comparisons and verification dates. |
+| [Theme vocabulary](../data/explorer-taxonomy.json) | Explicit labels, aliases and excluded administrative tags. Original tags remain unchanged. |
+| [Data adapter](../scripts/explorer_data.py) | Preserves original records and constructs work groups and explicit graph links. |
+| [Renderer](../scripts/render.py) | Generates Markdown and `site/data.json`; `--check` detects stale outputs. |
+| [Selection model](../site/model.mjs) | Pure filtering, graph, URL-state and export functions. |
+| [Interface](../site/app.mjs) | DOM rendering, benchmark inspection, graph interaction and downloads. |
+| [Styles](../site/styles.css) | Responsive layout and automatic light/dark appearance. |
+| [Pages workflow](../.github/workflows/pages.yml) | Validates and uploads only `site/`, then deploys to GitHub Pages. |
+
+## Identity and evidence
+
+Each paper starts a work group. A resource with exactly one `paper_ids` reference joins that paper's group. Resources with zero or multiple references remain independent; multiple references become graph edges. Titles, shared repositories, topical overlap and evidence citations are never merge keys. This keeps RTS/RTS++ and SpotIt/SpotIt+ distinct while linking their shared tools.
+
+The payload preserves each source object under `original`, adds display fields and canonical catalog links, and includes the benchmark comparison records unchanged. No release date or resource addition date is invented. Resources inherit paper themes and research areas only for discovery. The theme vocabulary excludes the administrative `benchmark` tag from the cloud.
+
+A single member must satisfy resource/year/code-link filters together. Search spans all group members. Unsupported URL states are normalized, and selections outside the filtered result are cleared. The oldest-first order keeps undated works last. Source depth is retained only in original JSON metadata and is not displayed.
+
+## Build and verify
+
+From the repository root:
+
+```bash
+python3 scripts/render.py
+python3 scripts/validate.py
+python3 scripts/render.py --check
+python3 -m unittest discover -s scripts -p 'test_*.py'
+node --test tests/explorer.test.mjs
+node --check site/app.mjs
+python3 -m http.server 8769 --bind 127.0.0.1 --directory site
+```
+
+Open the local server at `127.0.0.1:8769`; use HTTP so the JSON fetch works. Edit canonical records, the adapter or the interface, not generated `site/data.json`. Daily catalog regeneration also updates the explorer.
+
+Python tests check record conservation, explicit grouping, undated handling, source preservation and deterministic generation. JavaScript tests check combined filters, URL round trips, empty states, graph endpoints, neighborhood semantics and exports. Browser checks should cover theme selection, combined filters, empty results, details and dismissal, benchmark evidence, JSON export, and narrow-screen overflow. Automated checks do not establish accessibility conformance or scientific correctness.
+
+GitHub Pages publishes through Actions. Deployment grants only the deployment job `pages: write` and `id-token: write`; build jobs read the repository and Pages configuration. Pull-request validation never deploys. Only the static `site/` directory enters the deployment artifact.

@@ -1,0 +1,18 @@
+# Explore the collection
+
+[Open the interactive explorer](https://duyvuleo.github.io/awesome-reliable-text-to-sql/) · [Back to the collection](../README.md)
+
+Browse the same annotated catalog through a theme cloud, a graph, and a reading table. Search names, summaries, IDs and original tags; combine resource, paper-year, research-area and code/tool-link filters. Click a theme to narrow the list, or inspect a work to read its sources, release notes and benchmark coverage.
+
+- **Grouped works:** a paper and resources linking to that paper alone share a node. Resources referencing multiple papers remain separate nodes with explicit links. Every original record is retained.
+- **Themes:** cloud size counts distinct works in this collection, not scientific quality or field-wide importance. Dataset and tool themes inherit their linked papers' tags; these are navigation aids, not independent capability labels.
+- **Graph:** dashed edges connect themes to works. Solid edges follow explicit paper–resource references. Neither expresses citations, derivation or empirical support. Positions do not encode similarity.
+- **Years:** papers use their catalog publication year. Resources use the latest linked paper year, not a verified release date. Resources without linked papers are undated.
+- **Code / tool link:** a recorded paper code link or system/tool resource URL. This does not establish a runnable release. Read the availability notes, including placeholder qualifications.
+- **Benchmarks:** inspection includes ambiguity, unanswerability, clarification, interaction, access, evaluation and source locators from the [comparison matrix](benchmark-matrix.md). Unknown and not-targeted fields remain distinct.
+
+Filters and the selected work are encoded in the URL for sharing. Escape closes the details panel. Focus neighborhood restricts results to explicit links, plus shared themes in theme mode; existing filters still apply. The reading table includes isolated graph nodes and provides a keyboard-accessible alternative to the graph.
+
+Export JSON downloads the filtered works' complete member records, original catalog metadata and sources. It does not download papers, datasets or benchmark databases. The export describes catalog observations, not reproduced experiments. The latest source-check date is the maximum recorded date; it does not mean every source was rechecked then.
+
+The explorer requires JavaScript. The [paper](../papers/README.md), [system/tool](../systems/README.md) and [dataset](../datasets/README.md) Markdown tables remain available without it.
