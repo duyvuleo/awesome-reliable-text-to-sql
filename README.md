@@ -45,7 +45,7 @@ Updated **2026-10-24**. Each paper includes a concise summary, publication statu
 
 Explore the catalog through a **clickable theme cloud, relationship graph, and searchable reading table**. Filter by resource type, paper year, research area, or code/tool link; inspect original sources and benchmark coverage; share a filtered URL or export a reading selection as JSON.
 
-The explorer updates from the same catalog as these Markdown tables. Graph connections represent shared topics or explicit paper–resource links, not inferred citations.
+The explorer updates from the same catalog as these Markdown tables. Select multiple themes with any/all matching. Graph connections represent shared topics, not inferred citations; explicit paper–resource links remain in work details.
 
 [Reader guide](docs/explorer.md) · [How it is built](docs/explorer-development.md)
 

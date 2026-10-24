@@ -8,7 +8,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
 <script defer src="vendor/cytoscape.min.js" integrity="sha384-lyd1lDWZ623YSUJ/wMQH50y+T81dWKJk7ZoFdYWXQS83b0+QpW0pgdfXEnQnXL/X"></script>
-<script type="module" src="app.mjs"></script>
+<script type="module" src="app.mjs?v=multi-theme-1"></script>
 </head>
 <body>
 <a class="skip" href="#results">Skip to results</a>
@@ -27,13 +27,14 @@
 </section>
 <div class="selection-line"><p id="match-count" role="status" aria-live="polite">Loading…</p><div id="active-filters"></div></div>
 <section class="themes card" aria-labelledby="themes-heading">
-<div class="section-heading"><div><p class="eyebrow">01 / RESEARCH THEMES</p><h2 id="themes-heading">Find a direction</h2></div><p>Size reflects distinct works in this collection.<br>Select a phrase to explore it.</p></div>
+<div class="section-heading"><div><p class="eyebrow">01 / RESEARCH THEMES</p><h2 id="themes-heading">Find a direction</h2></div><p>Size reflects distinct works in this collection.<br>Select multiple themes to compare them.</p></div>
+<div class="theme-controls"><label for="match">Selected themes</label><select id="match"><option value="any">Match any</option><option value="all">Match all</option></select><button id="clear-themes" class="quiet" hidden>Clear themes</button></div>
 <div id="cloud" class="cloud" aria-label="Clickable research themes"></div>
 <details class="topic-details"><summary>All themes and counts</summary><div id="topic-counts" class="topic-counts"></div></details>
 </section>
 <div class="explore-grid">
 <section class="graph-card card" aria-labelledby="graph-heading">
-<div class="section-heading"><div><p class="eyebrow">02 / CONNECTIONS</p><h2 id="graph-heading">Explore the neighborhood</h2></div><label class="graph-mode"><span class="sr-only">Connection type</span><select id="mode"><option value="themes">Theme connections</option><option value="catalog">Catalog relationships</option></select></label></div>
+<div class="section-heading"><div><p class="eyebrow">02 / CONNECTIONS</p><h2 id="graph-heading">Explore the neighborhood</h2></div></div>
 <p id="graph-note" class="graph-note"></p>
 <div class="graph-shell"><div id="graph" role="img" aria-label="Interactive resource graph. The same works are available in the accessible results table below."></div><p id="graph-empty" class="graph-empty" hidden>No works match these filters.</p><div id="graph-tooltip" class="graph-tooltip" hidden></div><div class="graph-controls"><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="fit" aria-label="Fit graph">Fit</button></div></div>
 <div class="legend"><span><i class="dot paper"></i>Paper</span><span><i class="dot system"></i>System</span><span><i class="dot tool"></i>Tool</span><span><i class="dot benchmark"></i>Benchmark</span><span><i class="dot theme"></i>Theme</span></div>
@@ -46,6 +47,6 @@
 <div class="table-scroll"><table><thead><tr><th>Paper year</th><th>Resource / status</th><th>Summary &amp; evidence</th><th>Details</th></tr></thead><tbody id="rows"></tbody></table></div>
 <p id="empty" class="empty" hidden>No matching works. Clear a filter or try a broader search.</p>
 </section>
-<footer><div><strong>A map of the collection, not a ranking.</strong><p>Theme connections come from catalog tags. Catalog links are curated associations, not automatically inferred citations. Source inspection is distinct from independent reproduction.</p></div><div><a href="https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/docs/explorer.md">Methods &amp; coverage ↗</a><a href="https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/CONTRIBUTING.md">Suggest a correction ↗</a><span id="source-date"></span></div></footer>
+<footer><div><strong>A map of the collection, not a ranking.</strong><p>Theme connections come from catalog tags, not inferred citations. Explicit paper–resource cross-references remain available in work details. Source inspection is distinct from independent reproduction.</p></div><div><a href="https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/docs/explorer.md">Methods &amp; coverage ↗</a><a href="https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/CONTRIBUTING.md">Suggest a correction ↗</a><span id="source-date"></span></div></footer>
 </main>
 </body></html>

@@ -1,4 +1,4 @@
-import {fromURL,toURL,normalizeState,selectWorks,themeCounts,graphElements,exportRecords,categoryThemes} from './model.mjs';
+import {fromURL,toURL,normalizeState,selectWorks,themeCounts,graphElements,exportRecords,categoryThemes} from './model.mjs?v=multi-theme-1';
 const $ = id => document.getElementById(id);
 const repo = 'https://github.com/duyvuleo/awesome-reliable-text-to-sql';
 const names = {paper:'Paper',system:'System',tool:'Tool',benchmark:'Benchmark'};
@@ -9,9 +9,9 @@ function el(tag,text,cls) {const n=document.createElement(tag); if(text!==undefi
 function link(text,url,cls) {const n=el('a',text,cls);try {const u=new URL(url);if(u.protocol!=='https:')return el('span',text);n.href=u.href;}catch{return el('span',text);}n.target='_blank';n.rel='noopener noreferrer';return n;}
 function button(text,fn,cls){const n=el('button',text,cls);n.type='button';n.addEventListener('click',fn);return n;}
 function pretty(value){return value.replaceAll('_',' ').replaceAll('-',' ');}
-function syncControls(){for(const k of ['kind','year','category','mode','sort'])$(k).value=state[k];$('search').value=state.q;$('code').checked=state.code;}
+function syncControls(){for(const k of ['kind','year','category','match','sort'])$(k).value=state[k];$('search').value=state.q;$('code').checked=state.code;}
 function setState(patch,{graph=true}={}){state=normalizeState({...state,...patch},data);render({graph});}
-function chooseTheme(id){setState({theme:state.theme===id?'':id,focus:'',selected:''});}
+function chooseTheme(id){setState({theme:state.theme.includes(id)?state.theme.filter(t=>t!==id):[...state.theme,id],focus:'',selected:''});}
 function chooseWork(id){setState({selected:id},{graph:false});if(window.innerWidth<781||$('inspector').getBoundingClientRect().bottom<0||$('inspector').getBoundingClientRect().top>window.innerHeight)$('inspector').scrollIntoView({behavior:'auto',block:'start'});}
 function updateURL(){const query=toURL(state);history.replaceState(null,'',location.pathname+(query?'?'+query:''));}
 function render({graph=true}={}){
@@ -22,7 +22,8 @@ function render({graph=true}={}){
   const recordCount=visible.reduce((n,w)=>n+w.entry_ids.length,0);
   $('match-count').textContent=`${visible.length} of ${data.works.length} works · ${recordCount} catalog records`;
   $('active-filters').replaceChildren();
-  if(state.theme)$('active-filters').append(button(`${themes.get(state.theme).label} ×`,()=>setState({theme:''})));
+  for(const id of state.theme)$('active-filters').append(button(`${themes.get(id).label} ×`,()=>chooseTheme(id)));
+  $('clear-themes').hidden=!state.theme.length;
   if(state.focus)$('active-filters').append(button('Neighborhood ×',()=>setState({focus:''})));
   renderCloud();renderRows();
   const layoutChanged=renderDetails();
@@ -30,12 +31,13 @@ function render({graph=true}={}){
   $('export').disabled=!visible.length;
   if(focusedTheme)document.querySelector('#cloud button[data-theme="'+CSS.escape(focusedTheme)+'"]')?.focus({preventScroll:true});
 }
-function themeButton(t,size){const b=button(t.label,()=>chooseTheme(t.id));b.dataset.theme=t.id;b.setAttribute('aria-label',`${t.label}: ${t.count} ${t.count===1?'work':'works'}`);b.setAttribute('aria-pressed',String(t.id===state.theme));b.style.fontSize=size+'px';b.style.setProperty('--word-size',size+'px');b.append(el('sup',t.count));return b;}
+function themeButton(t,size){const b=button(t.label,()=>chooseTheme(t.id));b.dataset.theme=t.id;b.setAttribute('aria-label',`${t.label}: ${t.count} ${t.count===1?'work':'works'}`);b.setAttribute('aria-pressed',String(state.theme.includes(t.id)));b.style.fontSize=size+'px';b.style.setProperty('--word-size',size+'px');b.append(el('sup',t.count));return b;}
 function renderCloud(){
   const base=selectWorks(data,state,{ignoreTheme:true});
   const counts=themeCounts(data,base);
   let top=counts.slice(0,window.innerWidth<781?16:26);
-  if(state.theme&&!top.some(t=>t.id===state.theme)){const t=counts.find(t=>t.id===state.theme);if(t)top.push(t);}
+  for(const id of state.theme)if(!counts.some(t=>t.id===id))counts.push({...themes.get(id),count:0});
+  for(const id of state.theme)if(!top.some(t=>t.id===id))top.push(counts.find(t=>t.id===id));
   // Deterministic alternating order keeps the cloud balanced without rotation.
   top=top.filter((_,i)=>i%2===0).concat(top.filter((_,i)=>i%2===1).reverse());
   $('cloud').replaceChildren();
@@ -43,7 +45,7 @@ function renderCloud(){
   for(const t of top)$('cloud').append(themeButton(t,14+22*Math.sqrt(t.count/max)));
   if(!top.length)$('cloud').append(el('p','No themes match the current filters.','empty'));
   $('topic-counts').replaceChildren();
-  for(const t of counts){const b=button('',()=>chooseTheme(t.id));b.append(el('span',t.label),el('strong',t.count));b.setAttribute('aria-pressed',String(t.id===state.theme));$('topic-counts').append(b);}
+  for(const t of counts){const b=button('',()=>chooseTheme(t.id));b.append(el('span',t.label),el('strong',t.count));b.setAttribute('aria-pressed',String(state.theme.includes(t.id)));$('topic-counts').append(b);}
 }
 function renderRows(){
   const fragment=document.createDocumentFragment();
@@ -65,7 +67,7 @@ function renderDetails(){
   if(!w)return layoutChanged;
   const top=el('div',undefined,'detail-top');top.append(el('p','SELECTED WORK','eyebrow'),button('×',()=>setState({selected:''},{graph:false})));top.lastChild.setAttribute('aria-label','Close work details');panel.append(top,el('h2',w.name));
   const chips=el('div',undefined,'chips');w.kinds.forEach(k=>chips.append(el('span',names[k],'chip')));chips.append(el('span',w.date,'chip'));panel.append(chips,el('p',w.summary,'detail-summary'));
-  const actions=el('div',undefined,'detail-actions');actions.append(link('Primary source ↗',records.get(w.id).url,'primary'),button(state.focus===w.id?'Show all works':'Focus neighborhood',()=>setState({focus:state.focus===w.id?'':w.id,theme:''})));panel.append(actions);
+  const actions=el('div',undefined,'detail-actions');actions.append(link('Primary source ↗',records.get(w.id).url,'primary'),button(state.focus===w.id?'Show all works':'Focus neighborhood',()=>setState({focus:state.focus===w.id?'':w.id,theme:[]})));panel.append(actions);
   panel.append(el('h3','Research themes'));const tagWrap=el('div',undefined,'detail-tags');for(const t of w.themes)tagWrap.append(button(themes.get(t)?.label||pretty(t),()=>chooseTheme(t)));panel.append(tagWrap,el('h3',`${w.entry_ids.length} catalog record${w.entry_ids.length===1?'':'s'}`));
   for(const id of w.entry_ids){const r=records.get(id),detail=el('details',undefined,'record');detail.append(el('summary',`${names[r.kind]} · ${pretty(r.evidence)}`));if(id===w.id)detail.open=true;
     if(id!==w.id)detail.append(el('p',r.summary));if(r.status)detail.append(el('p',r.status)); if(r.original.license_note)detail.append(el('p','License: '+r.original.license_note)); if(r.original.protocol)detail.append(el('p',r.original.protocol));
@@ -81,13 +83,13 @@ function renderDetails(){
     panel.append(detail);
   }
   const associated=data.relations.filter(e=>e.source===w.id||e.target===w.id);
-  if(associated.length){panel.append(el('h3','Curated catalog relationships'));for(const edge of associated){const other=works.get(edge.source===w.id?edge.target:edge.source);panel.append(button(other.name,()=>setState({focus:'',q:'',theme:'',kind:'',year:'',category:'',code:false,selected:other.id}),'quiet'));}panel.append(el('p','These links follow the catalog’s explicit paper–resource metadata. They do not assert citation, derivation, or empirical support.'));}
+  if(associated.length){panel.append(el('h3','Curated catalog relationships'));for(const edge of associated){const other=works.get(edge.source===w.id?edge.target:edge.source);panel.append(button(other.name,()=>setState({focus:'',q:'',theme:[],kind:'',year:'',category:'',code:false,selected:other.id}),'quiet'));}panel.append(el('p','These links follow the catalog’s explicit paper–resource metadata. They do not assert citation, derivation, or empirical support.'));}
   return layoutChanged;
 }
 function renderGraph(){
   const model=graphElements(data,visible,state);
   $('graph-empty').hidden=visible.length>0;$('graph-tooltip').hidden=true;
-  $('graph-note').textContent=state.mode==='themes'?'Dashed links = shared themes. Solid links = curated catalog relationships. Select a node to inspect it.':'Only explicit catalog relationships. Unconnected works remain visible; absence of a link does not mean absence of a relationship.';
+  $('graph-note').textContent='Dashed links connect works to shared themes. Select multiple themes to compare their coverage, then select a work to inspect it.';
   if(!window.cytoscape){$('graph-note').textContent='Graph renderer unavailable. All results and evidence remain accessible in the table.';return;}
   if(cy)cy.destroy();
   const width=$('graph').clientWidth, height=$('graph').clientHeight;
@@ -111,7 +113,6 @@ function renderGraph(){
       {selector:'node[type="theme"]',style:{'shape':'round-rectangle','width':node=>Math.max(55,node.data('label').length*6.4),'height':23,'padding':9,'label':'data(label)','font-size':11,'font-weight':600,'text-valign':'center','text-margin-y':0,'background-color':color('--accent-soft'),'color':color('--accent'),'border-width':1,'border-color':color('--line')}},
       {selector:'edge',style:{'width':1,'line-color':color('--edge'),'curve-style':'bezier','opacity':.65}},
       {selector:'edge[type="theme"]',style:{'line-style':'dashed'}},
-      {selector:'edge[type="catalog"]',style:{'line-color':color('--system'),'width':2}},
       {selector:'.faded',style:{'opacity':.45}},
       {selector:'.chosen',style:{'border-width':4,'border-color':color('--accent'),'label':'data(label)','font-weight':700}},
       {selector:'.connected',style:{'opacity':1,'line-color':color('--accent'),'width':2}}],
@@ -136,7 +137,8 @@ async function init(){
     const years=[...new Set(data.records.map(r=>r.year).filter(Boolean))].sort((a,b)=>b-a);for(const y of years){const o=el('option',y);o.value=y;$('year').append(o);}
     for(const id of categoryThemes){const o=el('option',data.categories[id]);o.value=id;$('category').append(o);}
     let timer;$('search').addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(()=>setState({q:$('search').value,focus:''}),150);});
-    for(const key of ['kind','year','category','mode','sort'])$(key).addEventListener('change',()=>setState({[key]:$(key).value}));
+    for(const key of ['kind','year','category','match','sort'])$(key).addEventListener('change',()=>setState({[key]:$(key).value}));
+    $('clear-themes').addEventListener('click',()=>setState({theme:[],focus:''}));
     $('code').addEventListener('change',()=>setState({code:$('code').checked}));
     $('reset').addEventListener('click',()=>{clearTimeout(timer);state=normalizeState({},data);render();});
     $('zoom-in').addEventListener('click',()=>cy?.zoom({level:Math.min(4,cy.zoom()*1.3),renderedPosition:{x:cy.width()/2,y:cy.height()/2}}));

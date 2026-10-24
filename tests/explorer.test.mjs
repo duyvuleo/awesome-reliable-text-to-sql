@@ -19,17 +19,14 @@ test('empty search produces empty results and graph without dangling edges',()=>
  const s={...blank(),q:'zzzz-no-such-resource'};const works=selectWorks(data,s);assert.equal(works.length,0);
  assert.deepEqual(graphElements(data,works,s),{nodes:[],edges:[]});
 });
-test('all graph edges resolve and catalog view creates no thematic claims',()=>{
- for(const mode of ['themes','catalog']){
-  const s={...blank(),mode};const g=graphElements(data,selectWorks(data,s),s);const ids=new Set(g.nodes.map(n=>n.data.id));
-  assert.ok(g.edges.every(e=>ids.has(e.data.source)&&ids.has(e.data.target)));
-  if(mode==='catalog')assert.ok(g.edges.every(e=>e.data.type==='catalog'));
- }
+test('graph contains only theme edges with valid endpoints',()=>{
+ const s=blank();const g=graphElements(data,selectWorks(data,s),s);const ids=new Set(g.nodes.map(n=>n.data.id));
+ assert.ok(g.edges.length);assert.ok(g.edges.every(e=>e.data.type==='theme'&&ids.has(e.data.source)&&ids.has(e.data.target)));
 });
 test('shared URLs round-trip filters and resolve member record IDs',()=>{
  const s=normalizeState({q:'ambiguity & evidence',kind:'system',year:'2026',code:true,theme:'ambiguity',selected:'clarity-pipeline',mode:'catalog'},data);
  assert.equal(s.selected,'clarity');assert.deepEqual(fromURL('?'+toURL(s),data),s);
- assert.equal(fromURL('?theme=unknown&selected=missing&sort=bad',data).theme,'');
+ assert.deepEqual(fromURL('?theme=unknown&selected=missing&sort=bad',data).theme,[]);
 });
 test('selection export retains every member and all sources without mutation',()=>{
  const before=JSON.stringify(data);const works=data.works.filter(w=>w.id==='clarity');const out=exportRecords(data,works);
@@ -37,13 +34,12 @@ test('selection export retains every member and all sources without mutation',()
  assert.ok(out.entries.every(e=>e.sources.length&&e.catalog_url.startsWith('https://github.com/')));
  assert.equal(JSON.stringify(data),before);
 });
-test('catalog focus excludes mere topical neighbors',()=>{
- const s={...blank(),mode:'catalog',focus:'clarity'};const works=selectWorks(data,s);
- const direct=new Set(data.relations.filter(e=>[e.source,e.target].includes(s.focus)).flatMap(e=>[e.source,e.target]));
- assert.ok(works.every(w=>w.id===s.focus||direct.has(w.id)));
+test('focus includes only the work and shared-theme neighbors',()=>{
+ const s={...blank(),focus:'rts'};const works=selectWorks(data,s);const focus=data.works.find(w=>w.id==='rts');
+ assert.ok(works.every(w=>w.id===s.focus||w.themes.some(t=>focus.themes.includes(t))));
 });
 test('selecting a theme gives one labeled hub for the matching works',()=>{
- const s={...blank(),theme:'verification'};const works=selectWorks(data,s);const g=graphElements(data,works,s);
+ const s=normalizeState({theme:'verification'},data);const works=selectWorks(data,s);const g=graphElements(data,works,s);
  assert.equal(g.nodes.filter(n=>n.data.type==='theme').length,1);
  assert.equal(g.edges.filter(e=>e.data.type==='theme').length,works.length);
 });
@@ -57,4 +53,25 @@ test('research area and code filters preserve genuine matching members',()=>{
  assert.ok(result.length);assert.ok(result.every(w=>w.categories.includes('verification')));
  const records=new Map(data.records.map(r=>[r.id,r]));
  assert.ok(result.every(w=>w.entry_ids.some(id=>records.get(id).kind==='tool'&&records.get(id).code_links.length)));
+});
+
+test('multiple themes implement union and intersection',()=>{
+ const theme=['ambiguity','unanswerability'];
+ for(const match of ['any','all']){
+  const s=normalizeState({theme,match},data);const found=selectWorks(data,s);
+  const expected=data.works.filter(w=>match==='all'?theme.every(t=>w.themes.includes(t)):theme.some(t=>w.themes.includes(t)));
+  assert.deepEqual(found.map(w=>w.id),expected.map(w=>w.id));assert.ok(found.length);
+  const hubs=graphElements(data,found,s).nodes.filter(n=>n.data.type==='theme').map(n=>n.data.theme);
+  assert.deepEqual(new Set(hubs),new Set(theme));
+ }
+});
+test('repeated theme URLs deduplicate, reject unknowns, retain match and discard legacy mode',()=>{
+ const s=fromURL('?theme=ambiguity&theme=unanswerability&theme=ambiguity&theme=unknown&match=all&mode=catalog',data);
+ assert.deepEqual(s.theme,['ambiguity','unanswerability']);assert.equal(s.match,'all');
+ assert.deepEqual(fromURL('?'+toURL(s),data),s);assert.ok(!toURL(s).includes('mode='));
+ assert.deepEqual(fromURL('?theme=ambiguity',data).theme,['ambiguity']);
+});
+test('ignoring themes keeps cloud counts available across multi-selection',()=>{
+ const s=normalizeState({theme:['ambiguity','unanswerability'],match:'all',year:'2026'},data);
+ assert.deepEqual(selectWorks(data,s,{ignoreTheme:true}),selectWorks(data,{...s,theme:[]}));
 });

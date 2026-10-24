@@ -2,6 +2,8 @@
 
 ## 2026-10-24
 
+- Added multi-theme explorer filters with any/all matching and shareable repeated theme parameters; removed catalog graph mode and retained explicit cross-references in work details.
+
 - Added a static collection explorer with theme cloud, explicit relationship graph, reading table, shareable filters, source-preserving export and benchmark inspection; adapted the companion AI Co-Scientist explorer.
 
 - Added two previously published works on annotation-error auditing and semantic path compilation, with scoped summaries and public primary evidence.

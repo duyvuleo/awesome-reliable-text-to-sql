@@ -4,23 +4,26 @@ export const categoryThemes = ['ambiguity', 'answerability', 'interaction', 'con
 export function normalizeState(input, data) {
   const workIDs = new Set(data.works.map(w => w.id));
   const resolve = id => workIDs.has(id) ? id : (data.records.find(r => r.id === id)?.work_id || '');
+  const requested=Array.isArray(input.theme)?input.theme:[input.theme];
+  const theme=[...new Set(requested.filter(id=>data.themes.some(t=>t.id===id)))];
   return {q: String(input.q || '').slice(0, 240), kind: kinds.includes(input.kind) ? input.kind : '',
     year: data.records.some(r => String(r.year) === input.year) ? input.year : '',
     category: categoryThemes.includes(input.category) ? input.category : '',
     code: input.code === true || input.code === '1',
-    theme: data.themes.some(t => t.id === input.theme) ? input.theme : '',
-    mode: input.mode === 'catalog' ? 'catalog' : 'themes',
+    theme, match: input.match==='all'?'all':'any',
     selected: resolve(input.selected || ''), focus: resolve(input.focus || ''),
     sort: ['oldest', 'name'].includes(input.sort) ? input.sort : 'newest'};
 }
 export function fromURL(search, data) {
-  return normalizeState(Object.fromEntries(new URLSearchParams(search)), data);
+  const params=new URLSearchParams(search);
+  return normalizeState({...Object.fromEntries(params),theme:params.getAll('theme')}, data);
 }
 export function toURL(state) {
   const p = new URLSearchParams();
-  for (const key of ['q','kind','year','category','theme','focus','selected']) if (state[key]) p.set(key,state[key]);
+  for (const key of ['q','kind','year','category','focus','selected']) if (state[key]) p.set(key,state[key]);
   if (state.code) p.set('code','1');
-  if (state.mode === 'catalog') p.set('mode','catalog');
+  for(const id of state.theme)p.append('theme',id);
+  if(state.match==='all')p.set('match','all');
   if (state.sort !== 'newest') p.set('sort',state.sort);
   return p.toString();
 }
@@ -34,13 +37,11 @@ export function selectWorks(data, state, {ignoreTheme = false} = {}) {
     if (!eligible.length || (state.category && !w.categories.includes(state.category))) return false;
     const text = members.map(r => [r.name,r.id,r.summary,...r.tags].join(' ')).join(' ').toLowerCase();
     if (!state.q.toLowerCase().trim().split(/\s+/).every(term => text.includes(term))) return false;
-    return ignoreTheme || !state.theme || w.themes.includes(state.theme);
+    return ignoreTheme || !state.theme.length || (state.match==='all' ? state.theme.every(t=>w.themes.includes(t)) : state.theme.some(t=>w.themes.includes(t)));
   });
   if (state.focus) {
     const focus = data.works.find(w => w.id === state.focus);
-    const direct = new Set(data.relations.flatMap(e => e.source === state.focus ? [e.target] : e.target === state.focus ? [e.source] : []));
-    works = works.filter(w => w.id === state.focus || direct.has(w.id) ||
-      (state.mode === 'themes' && focus && w.themes.some(t => focus.themes.includes(t))));
+    works = works.filter(w => w.id === state.focus || (focus && w.themes.some(t => focus.themes.includes(t))));
   }
   if (state.sort === 'name') return [...works].sort((a,b) => a.name.localeCompare(b.name));
   // Build order is already newest first with year-only dates last within year.
@@ -53,15 +54,13 @@ export function themeCounts(data, works) {
     .sort((a,b) => b.count-a.count || a.label.localeCompare(b.label));
 }
 export function graphElements(data, works, state) {
-  const visible = new Set(works.map(w => w.id));
   const nodes = works.map((w,i) => ({data:{id:'w:'+w.id,work:w.id,name:w.name,
     label:w.name.split(':')[0].length<=32 ? w.name.split(':')[0] : w.name.slice(0,29)+'…',kind:w.kind,type:'work',count:1},
     position:{x:300+250*Math.cos(i*2.39996),y:250+200*Math.sin(i*2.39996)}}));
-  const edges = data.relations.filter(e => visible.has(e.source) && visible.has(e.target))
-    .map((e,i) => ({data:{id:'c:'+i,source:'w:'+e.source,target:'w:'+e.target,type:'catalog',label:'Curated catalog link'}}));
-  if (state.mode === 'themes') {
+  const edges = [];
+  {
     const counts = themeCounts(data,works);
-    const themes = state.theme ? counts.filter(t=>t.id===state.theme) : counts.slice(0,10);
+    const themes = state.theme.length ? counts.filter(t=>state.theme.includes(t.id)) : counts.slice(0,10);
     for (const [i,t] of themes.entries()) {
       nodes.push({data:{id:'t:'+t.id,theme:t.id,name:t.label,label:t.label,count:t.count,type:'theme'},
         position:{x:300+90*Math.cos(i*2.39996),y:250+90*Math.sin(i*2.39996)}});

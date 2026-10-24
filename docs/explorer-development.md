@@ -10,7 +10,7 @@ The interface adapts the CC0 [AI Co-Scientist explorer](https://github.com/duyvu
 | --- | --- |
 | [Canonical JSON](../data/README.md) | Papers, resources, benchmark comparisons and verification dates. |
 | [Theme vocabulary](../data/explorer-taxonomy.json) | Explicit labels, aliases and excluded administrative tags. Original tags remain unchanged. |
-| [Data adapter](../scripts/explorer_data.py) | Preserves original records and constructs work groups and explicit graph links. |
+| [Data adapter](../scripts/explorer_data.py) | Preserves original records and constructs work groups and explicit resource cross-references. |
 | [Renderer](../scripts/render.py) | Generates Markdown and `site/data.json`; `--check` detects stale outputs. |
 | [Selection model](../site/model.mjs) | Pure filtering, graph, URL-state and export functions. |
 | [Interface](../site/app.mjs) | DOM rendering, benchmark inspection, graph interaction and downloads. |
@@ -19,11 +19,11 @@ The interface adapts the CC0 [AI Co-Scientist explorer](https://github.com/duyvu
 
 ## Identity and evidence
 
-Each paper starts a work group. A resource with exactly one `paper_ids` reference joins that paper's group. Resources with zero or multiple references remain independent; multiple references become graph edges. Titles, shared repositories, topical overlap and evidence citations are never merge keys. This keeps RTS/RTS++ and SpotIt/SpotIt+ distinct while linking their shared tools.
+Each paper starts a work group. A resource with exactly one `paper_ids` reference joins that paper's group. Resources with zero or multiple references remain independent; multiple references remain navigation links in the inspector. Titles, shared repositories, topical overlap and evidence citations are never merge keys. This keeps RTS/RTS++ and SpotIt/SpotIt+ distinct while linking their shared tools.
 
 The payload preserves each source object under `original`, adds display fields and canonical catalog links, and includes the benchmark comparison records unchanged. No release date or resource addition date is invented. Resources inherit paper themes and research areas only for discovery. The theme vocabulary excludes the administrative `benchmark` tag from the cloud.
 
-A single member must satisfy resource/year/code-link filters together. Search spans all group members. Unsupported URL states are normalized, and selections outside the filtered result are cleared. The oldest-first order keeps undated works last. Source depth is retained only in original JSON metadata and is not displayed.
+A single member must satisfy resource/year/code-link filters together. Search spans all group members. Theme filters support any/all matching, and repeated theme URL parameters preserve multiple selections. Only theme edges are rendered; old `mode=catalog` links normalize to the theme graph. Unsupported URL states are normalized, and selections outside the filtered result are cleared. The oldest-first order keeps undated works last. Source depth is retained only in original JSON metadata and is not displayed.
 
 ## Build and verify
 
