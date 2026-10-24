@@ -6,6 +6,7 @@
 
 # Awesome Reliable Text-to-SQL
 
+[![Explore the collection](https://img.shields.io/badge/Interactive_explorer-Open-168577)](https://duyvuleo.github.io/awesome-reliable-text-to-sql/)
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![Validation](https://github.com/duyvuleo/awesome-reliable-text-to-sql/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/duyvuleo/awesome-reliable-text-to-sql/actions/workflows/checks.yml)
 [![License: CC0](https://img.shields.io/badge/license-CC0%201.0-315da7)](LICENSE)
@@ -23,6 +24,7 @@ Updated **2026-10-24**. Each paper includes a concise summary, publication statu
 
 ## Contents
 
+- [Interactive explorer](#interactive-explorer)
 - [Start here](#start-here)
 - [Choose a reading route](#choose-a-reading-route)
 - [Worked examples](examples/README.md)
@@ -37,10 +39,20 @@ Updated **2026-10-24**. Each paper includes a concise summary, publication statu
 - [Contributing](CONTRIBUTING.md)
 - [Related collections](#related-collections)
 
+## Interactive explorer
+
+### [Open the collection explorer →](https://duyvuleo.github.io/awesome-reliable-text-to-sql/)
+
+Explore the catalog through a **clickable theme cloud, relationship graph, and searchable reading table**. Filter by resource type, paper year, research area, or code/tool link; inspect original sources and benchmark coverage; share a filtered URL or export a reading selection as JSON.
+
+The explorer updates from the same catalog as these Markdown tables. Graph connections represent shared topics or explicit paper–resource links, not inferred citations.
+
+[Reader guide](docs/explorer.md) · [How it is built](docs/explorer-development.md)
+
 ## Start here
 
 - **Understand the problem:** [Run three small SQLite examples](examples/README.md) covering ambiguity, unsupported requests, and valid empty results.
-- **Explore the research:** Browse annotated papers [by topic](papers/README.md) or [by year](papers/by-year.md).
+- **Explore the research:** Use the [interactive explorer](https://duyvuleo.github.io/awesome-reliable-text-to-sql/) or browse annotated papers [by topic](papers/README.md) or [by year](papers/by-year.md).
 - **Plan an evaluation:** Use the [benchmark selection matrix](docs/benchmark-matrix.md), then check [datasets and access conditions](datasets/README.md).
 
 ## Choose a reading route
