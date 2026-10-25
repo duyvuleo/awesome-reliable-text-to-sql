@@ -10,6 +10,7 @@ export function normalizeState(input, data) {
     year: data.records.some(r => String(r.year) === input.year) ? input.year : '',
     category: categoryThemes.includes(input.category) ? input.category : '',
     code: input.code === true || input.code === '1',
+    labels: input.labels !== false && input.labels !== '0',
     theme, match: input.match==='all'?'all':'any',
     selected: resolve(input.selected || ''), focus: resolve(input.focus || ''),
     sort: ['oldest', 'name'].includes(input.sort) ? input.sort : 'newest'};
@@ -22,6 +23,7 @@ export function toURL(state) {
   const p = new URLSearchParams();
   for (const key of ['q','kind','year','category','focus','selected']) if (state[key]) p.set(key,state[key]);
   if (state.code) p.set('code','1');
+  if (state.labels === false) p.set('labels','0');
   for(const id of state.theme)p.append('theme',id);
   if(state.match==='all')p.set('match','all');
   if (state.sort !== 'newest') p.set('sort',state.sort);

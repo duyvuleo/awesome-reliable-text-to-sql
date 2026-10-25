@@ -75,3 +75,13 @@ test('ignoring themes keeps cloud counts available across multi-selection',()=>{
  const s=normalizeState({theme:['ambiguity','unanswerability'],match:'all',year:'2026'},data);
  assert.deepEqual(selectWorks(data,s,{ignoreTheme:true}),selectWorks(data,{...s,theme:[]}));
 });
+
+test('labels default on and off preference survives URL and filter changes',()=>{
+ assert.equal(blank().labels,true);
+ assert.equal(fromURL('?labels=unexpected',data).labels,true);
+ const off=normalizeState({labels:false,theme:['ambiguity','verification']},data);
+ assert.equal(fromURL('?'+toURL(off),data).labels,false);
+ assert.equal(normalizeState({...off,kind:'paper'},data).labels,false);
+ assert.deepEqual(selectWorks(data,off),selectWorks(data,{...off,labels:true}));
+ assert.ok(!toURL(blank()).includes('labels='));
+});

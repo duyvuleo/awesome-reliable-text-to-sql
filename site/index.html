@@ -8,7 +8,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
 <script defer src="vendor/cytoscape.min.js" integrity="sha384-lyd1lDWZ623YSUJ/wMQH50y+T81dWKJk7ZoFdYWXQS83b0+QpW0pgdfXEnQnXL/X"></script>
-<script type="module" src="app.mjs?v=node-labels-1"></script>
+<script type="module" src="app.mjs?v=label-toggle-1"></script>
 </head>
 <body>
 <a class="skip" href="#results">Skip to results</a>
@@ -34,11 +34,11 @@
 </section>
 <div class="explore-grid">
 <section class="graph-card card" aria-labelledby="graph-heading">
-<div class="section-heading"><div><p class="eyebrow">02 / CONNECTIONS</p><h2 id="graph-heading">Explore the neighborhood</h2></div></div>
+<div class="section-heading"><div><p class="eyebrow">02 / CONNECTIONS</p><h2 id="graph-heading">Explore the neighborhood</h2></div><label class="label-toggle"><input id="show-labels" type="checkbox" checked> Show labels</label></div>
 <p id="graph-note" class="graph-note"></p>
 <div class="graph-shell"><div id="graph" role="img" aria-label="Interactive resource graph. The same works are available in the accessible results table below."></div><p id="graph-empty" class="graph-empty" hidden>No works match these filters.</p><div id="graph-tooltip" class="graph-tooltip" hidden></div><div class="graph-controls"><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="fit" aria-label="Fit graph">Fit</button></div></div>
 <div class="legend"><span><i class="dot paper"></i>Paper</span><span><i class="dot system"></i>System</span><span><i class="dot tool"></i>Tool</span><span><i class="dot benchmark"></i>Benchmark</span><span><i class="dot theme"></i>Theme</span></div>
-<p class="graph-foot">Every node shows a compact work name; hover or inspect for the full title. Years follow linked papers, not artifact releases. Inspect a work for availability and all records.</p>
+<p class="graph-foot">Names are shown by default. Turn off Show labels for dense views; hover or inspect for the full title. Years follow linked papers, not artifact releases. Inspect a work for availability and all records.</p>
 </section>
 <aside id="inspector" hidden class="inspector card" aria-label="Selected work details"><div id="detail"></div></aside>
 </div>

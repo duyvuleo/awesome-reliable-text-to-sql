@@ -1,4 +1,4 @@
-import {fromURL,toURL,normalizeState,selectWorks,themeCounts,graphElements,exportRecords,categoryThemes} from './model.mjs?v=multi-theme-1';
+import {fromURL,toURL,normalizeState,selectWorks,themeCounts,graphElements,exportRecords,categoryThemes} from './model.mjs?v=label-toggle-1';
 const $ = id => document.getElementById(id);
 const repo = 'https://github.com/duyvuleo/awesome-reliable-text-to-sql';
 const names = {paper:'Paper',system:'System',tool:'Tool',benchmark:'Benchmark'};
@@ -9,7 +9,7 @@ function el(tag,text,cls) {const n=document.createElement(tag); if(text!==undefi
 function link(text,url,cls) {const n=el('a',text,cls);try {const u=new URL(url);if(u.protocol!=='https:')return el('span',text);n.href=u.href;}catch{return el('span',text);}n.target='_blank';n.rel='noopener noreferrer';return n;}
 function button(text,fn,cls){const n=el('button',text,cls);n.type='button';n.addEventListener('click',fn);return n;}
 function pretty(value){return value.replaceAll('_',' ').replaceAll('-',' ');}
-function syncControls(){for(const k of ['kind','year','category','match','sort'])$(k).value=state[k];$('search').value=state.q;$('code').checked=state.code;}
+function syncControls(){for(const k of ['kind','year','category','match','sort'])$(k).value=state[k];$('search').value=state.q;$('code').checked=state.code;$('show-labels').checked=state.labels;}
 function setState(patch,{graph=true}={}){state=normalizeState({...state,...patch},data);render({graph});}
 function chooseTheme(id){setState({theme:state.theme.includes(id)?state.theme.filter(t=>t!==id):[...state.theme,id],focus:'',selected:''});}
 function chooseWork(id){setState({selected:id},{graph:false});if(window.innerWidth<781||$('inspector').getBoundingClientRect().bottom<0||$('inspector').getBoundingClientRect().top>window.innerHeight)$('inspector').scrollIntoView({behavior:'auto',block:'start'});}
@@ -108,13 +108,13 @@ function renderGraph(){
   const css=getComputedStyle(document.documentElement);const color=name=>css.getPropertyValue(name).trim();
   cy=window.cytoscape({container:$('graph'),elements:[...model.nodes,...model.edges],minZoom:.15,maxZoom:4,
     style:[{selector:'node',style:{'font-family':'system-ui','font-size':10,'color':color('--ink'),'text-wrap':'wrap','text-max-width':110,'text-valign':'bottom','text-margin-y':5,'overlay-opacity':0}},
-      {selector:'node[type="work"]',style:{'width':visible.length>40?13:22,'height':visible.length>40?13:22,'label':'data(label)','font-size':11,'text-background-color':color('--surface'),'text-background-opacity':.85,'text-background-padding':2,'background-color':color('--paper'),'border-width':2,'border-color':color('--surface')}},
+      {selector:'node[type="work"]',style:{'width':visible.length>40?13:22,'height':visible.length>40?13:22,'label':'data(label)','text-opacity':state.labels?1:0,'font-size':11,'text-background-color':color('--surface'),'text-background-opacity':.85,'text-background-padding':2,'background-color':color('--paper'),'border-width':2,'border-color':color('--surface')}},
       ...['system','tool','benchmark'].map(k=>({selector:`node[kind="${k}"]`,style:{'background-color':color('--'+k)}})),
       {selector:'node[type="theme"]',style:{'shape':'round-rectangle','width':node=>Math.max(55,node.data('label').length*6.4),'height':23,'padding':9,'label':'data(label)','font-size':11,'font-weight':600,'text-valign':'center','text-margin-y':0,'background-color':color('--accent-soft'),'color':color('--accent'),'border-width':1,'border-color':color('--line')}},
       {selector:'edge',style:{'width':1,'line-color':color('--edge'),'curve-style':'bezier','opacity':.65}},
       {selector:'edge[type="theme"]',style:{'line-style':'dashed'}},
       {selector:'.faded',style:{'opacity':.45}},
-      {selector:'.chosen',style:{'border-width':4,'border-color':color('--accent'),'label':'data(label)','font-weight':700}},
+      {selector:'.chosen',style:{'border-width':4,'border-color':color('--accent'),'font-weight':700}},
       {selector:'.connected',style:{'opacity':1,'line-color':color('--accent'),'width':2}}],
     layout:{name:'preset',fit:true,padding:55}});
   cy.on('tap','node',event=>{const n=event.target;if(n.data('type')==='theme')chooseTheme(n.data('theme'));else chooseWork(n.data('work'));});
@@ -141,6 +141,7 @@ async function init(){
     $('clear-themes').addEventListener('click',()=>setState({theme:[],focus:''}));
     $('code').addEventListener('change',()=>setState({code:$('code').checked}));
     $('reset').addEventListener('click',()=>{clearTimeout(timer);state=normalizeState({},data);render();});
+    $('show-labels').addEventListener('change',()=>{state=normalizeState({...state,labels:$('show-labels').checked},data);updateURL();cy?.nodes('[type="work"]').style('text-opacity',state.labels?1:0);});
     $('zoom-in').addEventListener('click',()=>cy?.zoom({level:Math.min(4,cy.zoom()*1.3),renderedPosition:{x:cy.width()/2,y:cy.height()/2}}));
     $('zoom-out').addEventListener('click',()=>cy?.zoom({level:Math.max(.15,cy.zoom()/1.3),renderedPosition:{x:cy.width()/2,y:cy.height()/2}}));
     $('fit').addEventListener('click',()=>cy?.fit(undefined,35));
