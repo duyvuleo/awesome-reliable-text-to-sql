@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-26
+
+- Added EquiTrace on replayable SQL-equivalence proofs and the PVLDB study of verification algorithms and selective abstention, resolving the latter’s previously logged literature lead.
+- Preserved proof assumptions, UNKNOWN outcomes and verification error trade-offs; no new code or dataset release was asserted.
+
 ## 2026-10-25
 
 - Added AIR (Probing Ambiguity), distinguishing schema-only generation context from full-database execution verification and interpretation coverage from live-user clarification evaluation.

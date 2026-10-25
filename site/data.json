@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-25",
-  "updated": "2026-10-25",
+  "checked": "2026-10-26",
+  "updated": "2026-10-26",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 68,
+    "paper": 70,
     "system": 12,
     "tool": 13,
     "benchmark": 27
@@ -180,6 +180,31 @@
       ]
     },
     {
+      "id": "equitrace",
+      "name": "Building SQL Equivalence Proofs from Query Rewrite Rules",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "EquiTrace constructs replayable SQL-equivalence derivations by aligning query plans and composing admitted rewrite rules under schema constraints. Proof validity depends on those rules and applicability conditions; unsuccessful bounded search returns UNKNOWN, not inequivalence. This supports semantic evaluation of candidate/reference SQL pairs without establishing that the reference captures the user’s intent.",
+      "entry_ids": [
+        "equitrace"
+      ],
+      "themes": [
+        "evaluation",
+        "sql-equivalence",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "oracle-abstention",
       "name": "Certified Against Which Oracle? Execution Labels Set the Reported Risk of Conformal Abstention for Text-to-SQL",
       "date": "2026",
@@ -248,6 +273,32 @@
         "calibration",
         "confidence",
         "uncertainty"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "verification-algorithms",
+      "name": "Developing and Benchmarking Verification Algorithms to Improve Text-to-SQL Generation",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Compares Round-Trip Critique and Synthetic Execution Consistency for checking candidate SQL against natural-language requests without gold labels at inference time. The study connects verification to benchmark auditing and selective abstention, while false acceptance/rejection trade-offs, generator-dependent error examples and imperfect ordering labels limit conclusions about general semantic correctness.",
+      "entry_ids": [
+        "verification-algorithms"
+      ],
+      "themes": [
+        "abstention",
+        "benchmark-quality",
+        "evaluation",
+        "verification"
       ],
       "categories": [
         "verification"
@@ -5758,6 +5809,116 @@
       "work_id": "air"
     },
     {
+      "id": "equitrace",
+      "name": "Building SQL Equivalence Proofs from Query Rewrite Rules",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "EquiTrace constructs replayable SQL-equivalence derivations by aligning query plans and composing admitted rewrite rules under schema constraints. Proof validity depends on those rules and applicability conditions; unsuccessful bounded search returns UNKNOWN, not inequivalence. This supports semantic evaluation of candidate/reference SQL pairs without establishing that the reference captures the user’s intent.",
+      "tags": [
+        "verification",
+        "sql-equivalence",
+        "evaluation"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "Public manuscript inspected; no official implementation or downloadable evaluation corpus verified in this pass.",
+      "sources": [
+        "https://arxiv.org/abs/2610.30100",
+        "https://arxiv.org/html/2610.30100v1"
+      ],
+      "checked": "2026-10-26",
+      "added_on": "2026-10-26",
+      "url": "https://arxiv.org/abs/2610.30100",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#equitrace",
+      "original": {
+        "id": "equitrace",
+        "title": "Building SQL Equivalence Proofs from Query Rewrite Rules",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2610.30100",
+        "code_url": null,
+        "dataset_url": null,
+        "topics": [
+          "verification",
+          "sql-equivalence",
+          "evaluation"
+        ],
+        "scope": "adjacent",
+        "summary": "EquiTrace constructs replayable SQL-equivalence derivations by aligning query plans and composing admitted rewrite rules under schema constraints. Proof validity depends on those rules and applicability conditions; unsuccessful bounded search returns UNKNOWN, not inequivalence. This supports semantic evaluation of candidate/reference SQL pairs without establishing that the reference captures the user’s intent.",
+        "evidence": [
+          "https://arxiv.org/abs/2610.30100",
+          "https://arxiv.org/html/2610.30100v1"
+        ],
+        "category": "verification",
+        "artifact_status": "Public manuscript inspected; no official implementation or downloadable evaluation corpus verified in this pass.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-10-26",
+        "added_on": "2026-10-26"
+      },
+      "work_id": "equitrace"
+    },
+    {
+      "id": "verification-algorithms",
+      "name": "Developing and Benchmarking Verification Algorithms to Improve Text-to-SQL Generation",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Compares Round-Trip Critique and Synthetic Execution Consistency for checking candidate SQL against natural-language requests without gold labels at inference time. The study connects verification to benchmark auditing and selective abstention, while false acceptance/rejection trade-offs, generator-dependent error examples and imperfect ordering labels limit conclusions about general semantic correctness.",
+      "tags": [
+        "verification",
+        "abstention",
+        "benchmark-quality",
+        "evaluation"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "PVLDB 19(11), 2026",
+      "status": "The proceedings paper supplies an artifact-availability link; downloadable contents and independent reproduction were not verified in this pass.",
+      "sources": [
+        "https://www.vldb.org/pvldb/vol19/p3732-alrashed.pdf",
+        "https://vldb.org/2026/program.html"
+      ],
+      "checked": "2026-10-26",
+      "added_on": "2026-10-26",
+      "url": "https://www.vldb.org/pvldb/vol19/p3732-alrashed.pdf",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#verification-algorithms",
+      "original": {
+        "id": "verification-algorithms",
+        "title": "Developing and Benchmarking Verification Algorithms to Improve Text-to-SQL Generation",
+        "year": 2026,
+        "publication_status": "PVLDB 19(11), 2026",
+        "primary_url": "https://www.vldb.org/pvldb/vol19/p3732-alrashed.pdf",
+        "code_url": null,
+        "dataset_url": null,
+        "topics": [
+          "verification",
+          "abstention",
+          "benchmark-quality",
+          "evaluation"
+        ],
+        "scope": "core",
+        "summary": "Compares Round-Trip Critique and Synthetic Execution Consistency for checking candidate SQL against natural-language requests without gold labels at inference time. The study connects verification to benchmark auditing and selective abstention, while false acceptance/rejection trade-offs, generator-dependent error examples and imperfect ordering labels limit conclusions about general semantic correctness.",
+        "evidence": [
+          "https://www.vldb.org/pvldb/vol19/p3732-alrashed.pdf",
+          "https://vldb.org/2026/program.html"
+        ],
+        "category": "verification",
+        "artifact_status": "The proceedings paper supplies an artifact-availability link; downloadable contents and independent reproduction were not verified in this pass.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-10-26",
+        "added_on": "2026-10-26"
+      },
+      "work_id": "verification-algorithms"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -8335,7 +8496,7 @@
     {
       "id": "abstention",
       "label": "Abstention",
-      "count": 13
+      "count": 14
     },
     {
       "id": "uncertainty",
@@ -8343,19 +8504,19 @@
       "count": 11
     },
     {
+      "id": "evaluation",
+      "label": "Evaluation",
+      "count": 10
+    },
+    {
       "id": "interactive-system",
       "label": "Interactive system",
       "count": 9
     },
     {
-      "id": "evaluation",
-      "label": "Evaluation",
-      "count": 8
-    },
-    {
       "id": "verification",
       "label": "Verification",
-      "count": 7
+      "count": 9
     },
     {
       "id": "clinical",
@@ -8365,7 +8526,7 @@
     {
       "id": "sql-equivalence",
       "label": "SQL equivalence",
-      "count": 5
+      "count": 6
     },
     {
       "id": "interpretation-coverage",
@@ -8376,6 +8537,11 @@
       "id": "schema-linking",
       "label": "Schema linking",
       "count": 4
+    },
+    {
+      "id": "benchmark-quality",
+      "label": "Benchmark quality",
+      "count": 3
     },
     {
       "id": "conversation",
@@ -8395,11 +8561,6 @@
     {
       "id": "answerability",
       "label": "Answerability",
-      "count": 2
-    },
-    {
-      "id": "benchmark-quality",
-      "label": "Benchmark quality",
       "count": 2
     },
     {

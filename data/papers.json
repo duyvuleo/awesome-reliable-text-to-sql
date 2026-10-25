@@ -1748,5 +1748,56 @@
     "source_depth": "targeted-full-text",
     "artifact_status": "No official implementation or new dataset release verified in this pass; evaluated on existing AMBROSIA and AmbiQT benchmarks.",
     "added_on": "2026-10-25"
+  },
+  {
+    "id": "equitrace",
+    "title": "Building SQL Equivalence Proofs from Query Rewrite Rules",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2610.30100",
+    "code_url": null,
+    "dataset_url": null,
+    "topics": [
+      "verification",
+      "sql-equivalence",
+      "evaluation"
+    ],
+    "scope": "adjacent",
+    "summary": "EquiTrace constructs replayable SQL-equivalence derivations by aligning query plans and composing admitted rewrite rules under schema constraints. Proof validity depends on those rules and applicability conditions; unsuccessful bounded search returns UNKNOWN, not inequivalence. This supports semantic evaluation of candidate/reference SQL pairs without establishing that the reference captures the user’s intent.",
+    "evidence": [
+      "https://arxiv.org/abs/2610.30100",
+      "https://arxiv.org/html/2610.30100v1"
+    ],
+    "category": "verification",
+    "artifact_status": "Public manuscript inspected; no official implementation or downloadable evaluation corpus verified in this pass.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-10-26",
+    "added_on": "2026-10-26"
+  },
+  {
+    "id": "verification-algorithms",
+    "title": "Developing and Benchmarking Verification Algorithms to Improve Text-to-SQL Generation",
+    "year": 2026,
+    "publication_status": "PVLDB 19(11), 2026",
+    "primary_url": "https://www.vldb.org/pvldb/vol19/p3732-alrashed.pdf",
+    "code_url": null,
+    "dataset_url": null,
+    "topics": [
+      "verification",
+      "abstention",
+      "benchmark-quality",
+      "evaluation"
+    ],
+    "scope": "core",
+    "summary": "Compares Round-Trip Critique and Synthetic Execution Consistency for checking candidate SQL against natural-language requests without gold labels at inference time. The study connects verification to benchmark auditing and selective abstention, while false acceptance/rejection trade-offs, generator-dependent error examples and imperfect ordering labels limit conclusions about general semantic correctness.",
+    "evidence": [
+      "https://www.vldb.org/pvldb/vol19/p3732-alrashed.pdf",
+      "https://vldb.org/2026/program.html"
+    ],
+    "category": "verification",
+    "artifact_status": "The proceedings paper supplies an artifact-availability link; downloadable contents and independent reproduction were not verified in this pass.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-10-26",
+    "added_on": "2026-10-26"
   }
 ]
