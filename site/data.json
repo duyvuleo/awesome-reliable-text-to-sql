@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-26",
-  "updated": "2026-10-26",
+  "checked": "2026-10-27",
+  "updated": "2026-10-27",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 70,
+    "paper": 71,
     "system": 12,
     "tool": 13,
-    "benchmark": 27
+    "benchmark": 28
   },
   "categories": {
     "ambiguity": "Ambiguity and multiple interpretations",
@@ -68,6 +68,33 @@
       "kinds": [
         "paper",
         "system"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "text-to-omop",
+      "name": "An OMOP-Based Open-Source Text-to-SQL Benchmark Dataset",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Evaluates SQL generation or explicit abstention over synthetic OMOP data using concept-normalized questions and EHRSQL-derived templates and unanswerables. Execution and penalty-based reliability scores test the specified SQL-or-refuse contract; raw-text entity linking, ambiguous concept resolution and clinical deployment safety remain outside the demonstrated evaluation.",
+      "entry_ids": [
+        "text-to-omop",
+        "text-to-omop-data"
+      ],
+      "themes": [
+        "abstention",
+        "clinical",
+        "unanswerability"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "kinds": [
+        "benchmark",
+        "paper"
       ],
       "years": [
         2026
@@ -5919,6 +5946,66 @@
       "work_id": "verification-algorithms"
     },
     {
+      "id": "text-to-omop",
+      "name": "An OMOP-Based Open-Source Text-to-SQL Benchmark Dataset",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Evaluates SQL generation or explicit abstention over synthetic OMOP data using concept-normalized questions and EHRSQL-derived templates and unanswerables. Execution and penalty-based reliability scores test the specified SQL-or-refuse contract; raw-text entity linking, ambiguous concept resolution and clinical deployment safety remain outside the demonstrated evaluation.",
+      "tags": [
+        "clinical",
+        "unanswerability",
+        "abstention",
+        "benchmark"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "ClinicalNLP at LREC 2026",
+      "status": "Official repository lists answerable/unanswerable inventories, train/validation/test files and evaluation scripts; not executed. README notes that split generation consumes the raw unanswerable list, while tagged versions are separate artifacts.",
+      "sources": [
+        "https://aclanthology.org/2026.clinicalnlp-1.40/",
+        "https://aclanthology.org/2026.clinicalnlp-1.40.pdf",
+        "https://github.com/red1dwarf/TEXT-TO-OMOP"
+      ],
+      "checked": "2026-10-27",
+      "added_on": "2026-10-27",
+      "url": "https://aclanthology.org/2026.clinicalnlp-1.40/",
+      "code_links": [
+        "https://github.com/red1dwarf/TEXT-TO-OMOP"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#text-to-omop",
+      "original": {
+        "id": "text-to-omop",
+        "title": "An OMOP-Based Open-Source Text-to-SQL Benchmark Dataset",
+        "year": 2026,
+        "publication_status": "ClinicalNLP at LREC 2026",
+        "primary_url": "https://aclanthology.org/2026.clinicalnlp-1.40/",
+        "code_url": "https://github.com/red1dwarf/TEXT-TO-OMOP",
+        "dataset_url": "https://github.com/red1dwarf/TEXT-TO-OMOP/tree/main/DATA",
+        "topics": [
+          "clinical",
+          "unanswerability",
+          "abstention",
+          "benchmark"
+        ],
+        "scope": "core",
+        "summary": "Evaluates SQL generation or explicit abstention over synthetic OMOP data using concept-normalized questions and EHRSQL-derived templates and unanswerables. Execution and penalty-based reliability scores test the specified SQL-or-refuse contract; raw-text entity linking, ambiguous concept resolution and clinical deployment safety remain outside the demonstrated evaluation.",
+        "evidence": [
+          "https://aclanthology.org/2026.clinicalnlp-1.40/",
+          "https://aclanthology.org/2026.clinicalnlp-1.40.pdf",
+          "https://github.com/red1dwarf/TEXT-TO-OMOP"
+        ],
+        "checked_on": "2026-10-27",
+        "category": "answerability",
+        "source_depth": "targeted-full-text",
+        "artifact_status": "Official repository lists answerable/unanswerable inventories, train/validation/test files and evaluation scripts; not executed. README notes that split generation consumes the raw unanswerable list, while tagged versions are separate artifacts.",
+        "added_on": "2026-10-27"
+      },
+      "work_id": "text-to-omop"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -8475,6 +8562,62 @@
         "checked_on": "2026-10-23"
       },
       "work_id": "rose"
+    },
+    {
+      "id": "text-to-omop-data",
+      "name": "Text-to-OMOP benchmark",
+      "kind": "benchmark",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Concept-normalized OMOP questions with SQL targets or an explicit abstention target, adapted from EHRSQL resources.",
+      "tags": [
+        "abstention",
+        "benchmark",
+        "clinical",
+        "unanswerability"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "resource",
+      "status": "Official DATA directory lists source inventories and train/validation/test JSONL files; repository documents a synthetic database dump. Files were not executed or independently reproduced.",
+      "sources": [
+        "https://aclanthology.org/2026.clinicalnlp-1.40/",
+        "https://aclanthology.org/2026.clinicalnlp-1.40.pdf",
+        "https://github.com/red1dwarf/TEXT-TO-OMOP",
+        "https://github.com/red1dwarf/TEXT-TO-OMOP/tree/main/DATA",
+        "https://github.com/red1dwarf/TEXT-TO-OMOP/blob/main/LICENSE-DATA.md",
+        "https://github.com/red1dwarf/TEXT-TO-OMOP/blob/main/LICENSE"
+      ],
+      "checked": "2026-10-27",
+      "added_on": null,
+      "url": "https://github.com/red1dwarf/TEXT-TO-OMOP/tree/main/DATA",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/datasets/README.md#text-to-omop-data",
+      "original": {
+        "id": "text-to-omop-data",
+        "name": "Text-to-OMOP benchmark",
+        "kind": "dataset",
+        "paper_ids": [
+          "text-to-omop"
+        ],
+        "url": "https://github.com/red1dwarf/TEXT-TO-OMOP/tree/main/DATA",
+        "description": "Concept-normalized OMOP questions with SQL targets or an explicit abstention target, adapted from EHRSQL resources.",
+        "protocol": "Static SQL generation and answerability evaluation against synthetic OMOP CDM v5.4 PostgreSQL data.",
+        "availability": "Official DATA directory lists source inventories and train/validation/test JSONL files; repository documents a synthetic database dump. Files were not executed or independently reproduced.",
+        "license_note": "Repository code license: Apache-2.0. The data notice identifies EHRSQL/EHRSQL-2024-derived files and CC BY 4.0 source attribution obligations; inspect those terms before reuse.",
+        "evidence": [
+          "https://aclanthology.org/2026.clinicalnlp-1.40/",
+          "https://aclanthology.org/2026.clinicalnlp-1.40.pdf",
+          "https://github.com/red1dwarf/TEXT-TO-OMOP",
+          "https://github.com/red1dwarf/TEXT-TO-OMOP/tree/main/DATA",
+          "https://github.com/red1dwarf/TEXT-TO-OMOP/blob/main/LICENSE-DATA.md",
+          "https://github.com/red1dwarf/TEXT-TO-OMOP/blob/main/LICENSE"
+        ],
+        "checked_on": "2026-10-27"
+      },
+      "work_id": "text-to-omop"
     }
   ],
   "themes": [
@@ -8491,12 +8634,12 @@
     {
       "id": "unanswerability",
       "label": "Unanswerability",
-      "count": 17
+      "count": 18
     },
     {
       "id": "abstention",
       "label": "Abstention",
-      "count": 14
+      "count": 15
     },
     {
       "id": "uncertainty",
@@ -8521,7 +8664,7 @@
     {
       "id": "clinical",
       "label": "Clinical",
-      "count": 6
+      "count": 7
     },
     {
       "id": "sql-equivalence",
@@ -10165,6 +10308,52 @@
         }
       ],
       "checked_on": "2026-10-22"
+    },
+    {
+      "resource_id": "text-to-omop-data",
+      "label": "Text-to-OMOP",
+      "relevance": "direct",
+      "ambiguity": {
+        "status": "not_targeted",
+        "detail": "Concept IDs are supplied; raw-text entity linking and concept ambiguity are outside the evaluated pipeline."
+      },
+      "unanswerability": {
+        "status": "yes",
+        "detail": "EHRSQL-derived unanswerables use an explicit abstention target."
+      },
+      "clarification": {
+        "mode": "not_targeted",
+        "detail": "Output contract is one SQL statement or abstention, without a clarification dialogue."
+      },
+      "interaction": {
+        "mode": "static",
+        "detail": "Offline question-to-SQL/refusal evaluation with database execution."
+      },
+      "domain": "Healthcare; synthetic OMOP CDM v5.4 PostgreSQL",
+      "evaluation": "Execution accuracy, penalty-based reliability, answerability F1, unanswerable recall and false abstention.",
+      "data_access": "public_artifacts",
+      "evidence": [
+        {
+          "url": "https://aclanthology.org/2026.clinicalnlp-1.40.pdf",
+          "locator": "Sections 2-3 and 6: concept-normalized inputs, unanswerables, output contract, evaluation metrics and limitations.",
+          "supports": [
+            "ambiguity",
+            "unanswerability",
+            "clarification",
+            "interaction",
+            "domain",
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://github.com/red1dwarf/TEXT-TO-OMOP/tree/main/DATA",
+          "locator": "Official DATA listing includes answerable/unanswerable inventories and train/val/test files; not executed.",
+          "supports": [
+            "data_access"
+          ]
+        }
+      ],
+      "checked_on": "2026-10-27"
     }
   ]
 }

@@ -1298,5 +1298,51 @@
       }
     ],
     "checked_on": "2026-10-22"
+  },
+  {
+    "resource_id": "text-to-omop-data",
+    "label": "Text-to-OMOP",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "not_targeted",
+      "detail": "Concept IDs are supplied; raw-text entity linking and concept ambiguity are outside the evaluated pipeline."
+    },
+    "unanswerability": {
+      "status": "yes",
+      "detail": "EHRSQL-derived unanswerables use an explicit abstention target."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Output contract is one SQL statement or abstention, without a clarification dialogue."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Offline question-to-SQL/refusal evaluation with database execution."
+    },
+    "domain": "Healthcare; synthetic OMOP CDM v5.4 PostgreSQL",
+    "evaluation": "Execution accuracy, penalty-based reliability, answerability F1, unanswerable recall and false abstention.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://aclanthology.org/2026.clinicalnlp-1.40.pdf",
+        "locator": "Sections 2-3 and 6: concept-normalized inputs, unanswerables, output contract, evaluation metrics and limitations.",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/red1dwarf/TEXT-TO-OMOP/tree/main/DATA",
+        "locator": "Official DATA listing includes answerable/unanswerable inventories and train/val/test files; not executed.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-10-27"
   }
 ]

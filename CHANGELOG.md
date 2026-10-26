@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-27
+
+- Added the ClinicalNLP 2026 Text-to-OMOP paper, released dataset entry and benchmark comparison, including the healthcare highlight after all datasets.
+- Distinguished concept-normalized SQL/abstention evaluation from raw-text entity linking and clinical deployment safety; recorded the released split-input qualification.
+
 ## 2026-10-26
 
 - Added EquiTrace on replayable SQL-equivalence proofs and the PVLDB study of verification algorithms and selective abstention, resolving the latter’s previously logged literature lead.

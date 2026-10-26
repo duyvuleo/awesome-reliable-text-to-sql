@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-10-27: healthcare answerability and OMOP](2026-10-27.md)
+
 - [2026-10-26: equivalence proofs and selective verification](2026-10-26.md)
 
 - [2026-10-25: adversarial intent discovery and verification](2026-10-25.md)

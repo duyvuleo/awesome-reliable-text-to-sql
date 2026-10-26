@@ -1799,5 +1799,32 @@
     "source_depth": "targeted-full-text",
     "checked_on": "2026-10-26",
     "added_on": "2026-10-26"
+  },
+  {
+    "id": "text-to-omop",
+    "title": "An OMOP-Based Open-Source Text-to-SQL Benchmark Dataset",
+    "year": 2026,
+    "publication_status": "ClinicalNLP at LREC 2026",
+    "primary_url": "https://aclanthology.org/2026.clinicalnlp-1.40/",
+    "code_url": "https://github.com/red1dwarf/TEXT-TO-OMOP",
+    "dataset_url": "https://github.com/red1dwarf/TEXT-TO-OMOP/tree/main/DATA",
+    "topics": [
+      "clinical",
+      "unanswerability",
+      "abstention",
+      "benchmark"
+    ],
+    "scope": "core",
+    "summary": "Evaluates SQL generation or explicit abstention over synthetic OMOP data using concept-normalized questions and EHRSQL-derived templates and unanswerables. Execution and penalty-based reliability scores test the specified SQL-or-refuse contract; raw-text entity linking, ambiguous concept resolution and clinical deployment safety remain outside the demonstrated evaluation.",
+    "evidence": [
+      "https://aclanthology.org/2026.clinicalnlp-1.40/",
+      "https://aclanthology.org/2026.clinicalnlp-1.40.pdf",
+      "https://github.com/red1dwarf/TEXT-TO-OMOP"
+    ],
+    "checked_on": "2026-10-27",
+    "category": "answerability",
+    "source_depth": "targeted-full-text",
+    "artifact_status": "Official repository lists answerable/unanswerable inventories, train/validation/test files and evaluation scripts; not executed. README notes that split generation consumes the raw unanswerable list, while tagged versions are separate artifacts.",
+    "added_on": "2026-10-27"
   }
 ]

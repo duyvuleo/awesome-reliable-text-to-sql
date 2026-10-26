@@ -949,5 +949,27 @@
       "https://aclanthology.org/2026.acl-long.257.pdf"
     ],
     "checked_on": "2026-10-23"
+  },
+  {
+    "id": "text-to-omop-data",
+    "name": "Text-to-OMOP benchmark",
+    "kind": "dataset",
+    "paper_ids": [
+      "text-to-omop"
+    ],
+    "url": "https://github.com/red1dwarf/TEXT-TO-OMOP/tree/main/DATA",
+    "description": "Concept-normalized OMOP questions with SQL targets or an explicit abstention target, adapted from EHRSQL resources.",
+    "protocol": "Static SQL generation and answerability evaluation against synthetic OMOP CDM v5.4 PostgreSQL data.",
+    "availability": "Official DATA directory lists source inventories and train/validation/test JSONL files; repository documents a synthetic database dump. Files were not executed or independently reproduced.",
+    "license_note": "Repository code license: Apache-2.0. The data notice identifies EHRSQL/EHRSQL-2024-derived files and CC BY 4.0 source attribution obligations; inspect those terms before reuse.",
+    "evidence": [
+      "https://aclanthology.org/2026.clinicalnlp-1.40/",
+      "https://aclanthology.org/2026.clinicalnlp-1.40.pdf",
+      "https://github.com/red1dwarf/TEXT-TO-OMOP",
+      "https://github.com/red1dwarf/TEXT-TO-OMOP/tree/main/DATA",
+      "https://github.com/red1dwarf/TEXT-TO-OMOP/blob/main/LICENSE-DATA.md",
+      "https://github.com/red1dwarf/TEXT-TO-OMOP/blob/main/LICENSE"
+    ],
+    "checked_on": "2026-10-27"
   }
 ]

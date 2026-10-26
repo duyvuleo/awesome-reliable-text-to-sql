@@ -25,6 +25,8 @@ These are starting options, not rankings. Match the task and access conditions t
 
 [EHRSQL](#ehrsql-data) includes held-out unanswerable questions over MIMIC-III/eICU, while [EHRSQL 2024](#ehrsql-2024-data) evaluates reliable answering and abstention using MIMIC-IV demo. A separate ambiguity-resolution task is not established in the checked sources for these two entries. Use their rows below for the precise coverage and access notes. [EHRSQL paper](https://arxiv.org/abs/2301.07695) · [EHRSQL 2024 task](https://github.com/glee4810/ehrsql-2024).
 
+[Text-to-OMOP](#text-to-omop-data) adds a synthetic OMOP setting with concept IDs supplied and an explicit abstention target. It evaluates SQL generation and answerability, not raw-text entity linking or live clarification. [Primary source](https://aclanthology.org/2026.clinicalnlp-1.40/).
+
 Public question/SQL annotations do not grant access to every underlying EHR database. Check the linked resource's version, license and access conditions before running an experiment. Benchmark correctness is distinct from clinical validity or deployment readiness.
 
 ## How to read the matrix
