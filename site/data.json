@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-27",
-  "updated": "2026-10-27",
+  "checked": "2026-10-28",
+  "updated": "2026-10-28",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 71,
+    "paper": 72,
     "system": 12,
     "tool": 13,
     "benchmark": 28
@@ -871,6 +871,32 @@
         "benchmark",
         "paper",
         "tool"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "schema-free-query-logs",
+      "name": "Schema-Free Text-to-SQL: Learning Enterprise Database Structure from Query Logs",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Builds a graph of schema relationships and business entities from query logs, then retrieves context for SQL generation in poorly documented databases. Its BEAVER experiment instead builds edges from schema metadata, so it does not independently test log-based discovery. Executability and judge preferences do not establish complete intent resolution or abstention ability.",
+      "entry_ids": [
+        "schema-free-query-logs"
+      ],
+      "themes": [
+        "ambiguity",
+        "context",
+        "evaluation",
+        "schema-linking"
+      ],
+      "categories": [
+        "context"
+      ],
+      "kinds": [
+        "paper"
       ],
       "years": [
         2026
@@ -5796,23 +5822,24 @@
       "categories": [
         "ambiguity"
       ],
-      "evidence": "arXiv preprint",
+      "evidence": "EMNLP 2026",
       "status": "No official implementation or new dataset release verified in this pass; evaluated on existing AMBROSIA and AmbiQT benchmarks.",
       "sources": [
+        "https://aclanthology.org/2026.emnlp-main.2446/",
         "https://arxiv.org/abs/2610.24248",
         "https://arxiv.org/html/2610.24248v1"
       ],
-      "checked": "2026-10-25",
+      "checked": "2026-10-28",
       "added_on": "2026-10-25",
-      "url": "https://arxiv.org/abs/2610.24248",
+      "url": "https://aclanthology.org/2026.emnlp-main.2446/",
       "code_links": [],
       "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#air",
       "original": {
         "id": "air",
         "title": "Probing Ambiguity: Adversarial Intent Resolution for Robust Text-to-SQL",
         "year": 2026,
-        "publication_status": "arXiv preprint",
-        "primary_url": "https://arxiv.org/abs/2610.24248",
+        "publication_status": "EMNLP 2026",
+        "primary_url": "https://aclanthology.org/2026.emnlp-main.2446/",
         "code_url": null,
         "dataset_url": null,
         "topics": [
@@ -5824,10 +5851,11 @@
         "scope": "core",
         "summary": "AIR uses competing agents to propose interpretations, prunes SQL candidates by differences in executed results, and synthesizes contrastive clarification questions. Schema-only describes the generation context: verification still accesses the full database, and agreement on the current data does not prove semantic equivalence. Its AMBROSIA/AmbiQT evaluation measures interpretation coverage rather than live-user clarification outcomes.",
         "evidence": [
+          "https://aclanthology.org/2026.emnlp-main.2446/",
           "https://arxiv.org/abs/2610.24248",
           "https://arxiv.org/html/2610.24248v1"
         ],
-        "checked_on": "2026-10-25",
+        "checked_on": "2026-10-28",
         "category": "ambiguity",
         "source_depth": "targeted-full-text",
         "artifact_status": "No official implementation or new dataset release verified in this pass; evaluated on existing AMBROSIA and AmbiQT benchmarks.",
@@ -6004,6 +6032,62 @@
         "added_on": "2026-10-27"
       },
       "work_id": "text-to-omop"
+    },
+    {
+      "id": "schema-free-query-logs",
+      "name": "Schema-Free Text-to-SQL: Learning Enterprise Database Structure from Query Logs",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Builds a graph of schema relationships and business entities from query logs, then retrieves context for SQL generation in poorly documented databases. Its BEAVER experiment instead builds edges from schema metadata, so it does not independently test log-based discovery. Executability and judge preferences do not establish complete intent resolution or abstention ability.",
+      "tags": [
+        "schema-linking",
+        "context",
+        "ambiguity",
+        "evaluation"
+      ],
+      "categories": [
+        "context"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "Public manuscript inspected; no official code or new dataset release verified. The public paper reports an enterprise study and a distinct schema-derived BEAVER adaptation; neither was reproduced.",
+      "sources": [
+        "https://arxiv.org/abs/2610.33946",
+        "https://arxiv.org/html/2610.33946v1"
+      ],
+      "checked": "2026-10-28",
+      "added_on": "2026-10-28",
+      "url": "https://arxiv.org/abs/2610.33946",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#schema-free-query-logs",
+      "original": {
+        "id": "schema-free-query-logs",
+        "title": "Schema-Free Text-to-SQL: Learning Enterprise Database Structure from Query Logs",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2610.33946",
+        "code_url": null,
+        "dataset_url": null,
+        "topics": [
+          "schema-linking",
+          "context",
+          "ambiguity",
+          "evaluation"
+        ],
+        "scope": "adjacent",
+        "summary": "Builds a graph of schema relationships and business entities from query logs, then retrieves context for SQL generation in poorly documented databases. Its BEAVER experiment instead builds edges from schema metadata, so it does not independently test log-based discovery. Executability and judge preferences do not establish complete intent resolution or abstention ability.",
+        "evidence": [
+          "https://arxiv.org/abs/2610.33946",
+          "https://arxiv.org/html/2610.33946v1"
+        ],
+        "checked_on": "2026-10-28",
+        "category": "context",
+        "source_depth": "targeted-full-text",
+        "artifact_status": "Public manuscript inspected; no official code or new dataset release verified. The public paper reports an enterprise study and a distinct schema-derived BEAVER adaptation; neither was reproduced.",
+        "added_on": "2026-10-28"
+      },
+      "work_id": "schema-free-query-logs"
     },
     {
       "id": "clarity-pipeline",
@@ -8624,7 +8708,7 @@
     {
       "id": "ambiguity",
       "label": "Ambiguity",
-      "count": 31
+      "count": 32
     },
     {
       "id": "clarification",
@@ -8642,14 +8726,14 @@
       "count": 15
     },
     {
-      "id": "uncertainty",
-      "label": "Uncertainty",
+      "id": "evaluation",
+      "label": "Evaluation",
       "count": 11
     },
     {
-      "id": "evaluation",
-      "label": "Evaluation",
-      "count": 10
+      "id": "uncertainty",
+      "label": "Uncertainty",
+      "count": 11
     },
     {
       "id": "interactive-system",
@@ -8672,13 +8756,13 @@
       "count": 6
     },
     {
-      "id": "interpretation-coverage",
-      "label": "Interpretation coverage",
-      "count": 4
-    },
-    {
       "id": "schema-linking",
       "label": "Schema linking",
+      "count": 5
+    },
+    {
+      "id": "interpretation-coverage",
+      "label": "Interpretation coverage",
       "count": 4
     },
     {
@@ -8714,6 +8798,11 @@
     {
       "id": "constraints",
       "label": "Constraints",
+      "count": 2
+    },
+    {
+      "id": "context",
+      "label": "Context",
       "count": 2
     },
     {
@@ -8804,11 +8893,6 @@
     {
       "id": "confirmation",
       "label": "Confirmation",
-      "count": 1
-    },
-    {
-      "id": "context",
-      "label": "Context",
       "count": 1
     },
     {

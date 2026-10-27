@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-28
+
+- Added Schema-Free Text-to-SQL with an explicit distinction between query-log discovery and its schema-derived BEAVER adaptation.
+- Updated AIR to its verified EMNLP 2026 proceedings record, preserving the existing entry and original addition date.
+
 ## 2026-10-27
 
 - Added the ClinicalNLP 2026 Text-to-OMOP paper, released dataset entry and benchmark comparison, including the healthcare highlight after all datasets.
