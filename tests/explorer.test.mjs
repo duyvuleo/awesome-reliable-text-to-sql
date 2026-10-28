@@ -1,3 +1,4 @@
+import {labelPosition} from '../site/graph.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -99,4 +100,12 @@ test('topic ring surrounds works for focused selections',()=>{
  const s=normalizeState({theme:['ambiguity','verification']},data);const nodes=ringLayout(graphElements(data,selectWorks(data,s),s),1000,620);
  const radius=n=>Math.hypot((n.position.x-500)/1000,(n.position.y-310)/620);
  assert.ok(Math.min(...nodes.filter(n=>n.data.type==='theme').map(radius))>Math.max(...nodes.filter(n=>n.data.type==='work').map(radius)));
+});
+
+test('label placement avoids occupied areas and stays inside the canvas',()=>{
+ const point={x:550,y:360},size={width:100,height:40},blocker={x:430,y:330,width:240,height:80};
+ const p=labelPosition(point,size,[blocker],1100,720);
+ assert.deepEqual(p,labelPosition(point,size,[blocker],1100,720));
+ assert.ok(p.x>=12&&p.y>=12&&p.x+p.width<=1088&&p.y+p.height<=708);
+ assert.ok(!(p.x<blocker.x+blocker.width&&p.x+p.width>blocker.x&&p.y<blocker.y+blocker.height&&p.y+p.height>blocker.y));
 });

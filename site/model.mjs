@@ -62,7 +62,7 @@ export function graphElements(data, works, state) {
   const edges = [];
   {
     const counts = themeCounts(data,works);
-    const themes = state.theme.length ? counts.filter(t=>state.theme.includes(t.id)) : counts.slice(0,10);
+    const themes = state.theme.length ? counts.filter(t=>state.theme.includes(t.id)) : counts.slice(0,15);
     for (const [i,t] of themes.entries()) {
       nodes.push({data:{id:'t:'+t.id,theme:t.id,name:t.label,label:t.label,count:t.count,type:'theme'},
         position:{x:300+90*Math.cos(i*2.39996),y:250+90*Math.sin(i*2.39996)}});
@@ -78,16 +78,16 @@ export function exportRecords(data, works) {
 }
 
 // Topic hubs surround a stable, topic-ordered ring of works. Geometry is navigation only.
-export function ringLayout(model, width, height) {
-  const narrow=width<600, cx=width/2, cy=height/2;
+export function ringLayout(model, width, height, narrow=width<600) {
+  const cx=width/2, cy=height/2;
   const hubs=model.nodes.filter(n=>n.data.type==='theme');
   const rank=new Map(hubs.map((n,i)=>[n.data.id,i]));
   const membership=new Map();
   for(const e of model.edges){const r=rank.get(e.data.source);if(r!==undefined)membership.set(e.data.target,Math.min(membership.get(e.data.target)??Infinity,r));}
   const works=model.nodes.filter(n=>n.data.type==='work').sort((a,b)=>(membership.get(a.data.id)??Infinity)-(membership.get(b.data.id)??Infinity)||a.data.name.localeCompare(b.data.name));
   const positions=new Map();
-  hubs.forEach((n,i)=>{const a=-Math.PI/2+i*2*Math.PI/hubs.length;positions.set(n.data.id,{x:cx+Math.cos(a)*width*(narrow?.29:.35),y:cy+Math.sin(a)*height*.34});});
-  works.forEach((n,i)=>{const a=-Math.PI/2+(i+.5)*2*Math.PI/works.length,stagger=works.length>45?(i%2?10:-10):0;
-    positions.set(n.data.id,{x:cx+Math.cos(a)*(width*(narrow?.18:.23)+stagger),y:cy+Math.sin(a)*(height*.22+stagger)});});
+  hubs.forEach((n,i)=>{const a=-Math.PI/2+i*2*Math.PI/hubs.length;positions.set(n.data.id,{x:cx+Math.sin(a)*width*(narrow?205/720:380/1100),y:cy+Math.cos(a)*height*(narrow?365/980:235/720)});});
+  works.forEach((n,i)=>{const a=-Math.PI/2+(i+.5)*2*Math.PI/works.length,stagger=works.length>45?(i%2?20:-20):0;
+    positions.set(n.data.id,{x:cx+Math.sin(a)*(width*(narrow?130/720:245/1100)+stagger),y:cy+Math.cos(a)*(height*(narrow?245/980:155/720)+stagger)});});
   return model.nodes.map(n=>({...n,position:positions.get(n.data.id)}));
 }

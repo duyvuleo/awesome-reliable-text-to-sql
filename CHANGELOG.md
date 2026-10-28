@@ -2,6 +2,8 @@
 
 ## 2026-10-28
 
+- Replaced the approximate canvas map with the reference-style SVG view: warm palette, fixed proportions, top zoom toolbar, keyboard-focusable nodes, name placement and full-width evidence navigation.
+
 - Adapted the explorer graph to outer topic hubs and an inner work ring, with counts, lighter membership lines, hover emphasis and a summary panel. Retained multi-theme filters and default-on label controls.
 
 - Added Schema-Free Text-to-SQL with an explicit distinction between query-log discovery and its schema-derived BEAVER adaptation.

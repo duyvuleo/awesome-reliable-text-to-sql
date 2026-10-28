@@ -1,9 +1,10 @@
-import {fromURL,toURL,normalizeState,selectWorks,themeCounts,graphElements,exportRecords,categoryThemes,ringLayout} from './model.mjs?v=topic-rings-1';
+import {TopicGraph} from './graph.mjs?v=reference-map-2';
+import {fromURL,toURL,normalizeState,selectWorks,themeCounts,graphElements,exportRecords,categoryThemes} from './model.mjs?v=reference-map-2';
 const $ = id => document.getElementById(id);
 const repo = 'https://github.com/duyvuleo/awesome-reliable-text-to-sql';
 const names = {paper:'Paper',system:'System',tool:'Tool',benchmark:'Benchmark'};
 
-let data,state,cy,visible=[];
+let data,state,graphView,visible=[];
 const records = new Map(), works = new Map(), themes = new Map();
 function el(tag,text,cls) {const n=document.createElement(tag); if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;}
 function link(text,url,cls) {const n=el('a',text,cls);try {const u=new URL(url);if(u.protocol!=='https:')return el('span',text);n.href=u.href;}catch{return el('span',text);}n.target='_blank';n.rel='noopener noreferrer';return n;}
@@ -26,8 +27,9 @@ function render({graph=true}={}){
   $('clear-themes').hidden=!state.theme.length;
   if(state.focus)$('active-filters').append(button('Neighborhood ×',()=>setState({focus:''})));
   renderCloud();renderRows();
-  const layoutChanged=renderDetails();
-  if(graph||layoutChanged)renderGraph();else highlightGraph();
+  renderDetails();
+  if(graph)renderGraph();else graphView?.select(state.selected);
+  $('graph-work').value=state.selected;$('open-graph-work').disabled=!state.selected;
   $('export').disabled=!visible.length;
   if(focusedTheme)document.querySelector('#cloud button[data-theme="'+CSS.escape(focusedTheme)+'"]')?.focus({preventScroll:true});
 }
@@ -88,50 +90,24 @@ function renderDetails(){
 }
 function renderGraph(){
   const model=graphElements(data,visible,state);
-  $('graph-empty').hidden=visible.length>0;$('graph-tooltip').hidden=true;
-  $('graph-note').textContent='Outer hubs are themes; inner nodes are works. Lines show catalog topic membership, not citations. Hover to trace connections or select a node to explore.';
-  if(!window.cytoscape){$('graph-note').textContent='Graph renderer unavailable. All results and evidence remain accessible in the table.';return;}
-  if(cy)cy.destroy();
-  const width=$('graph').clientWidth, height=$('graph').clientHeight;
-  const workNodes=model.nodes.filter(n=>n.data.type==='work');
-  const themeNodes=model.nodes.filter(n=>n.data.type==='theme');
-  model.nodes=ringLayout(model,width,height);
-  $('graph-count').textContent=`${workNodes.length} works · ${themeNodes.length} displayed themes · ${model.edges.length} membership links`;
-  for(const n of model.nodes)if(n.data.type==='theme'){
-    n.data.displayLabel=n.data.name+'\n'+n.data.count;
-    const dx=n.position.x-width/2;
-    n.data.align=Math.abs(dx)<width*.1?'center':dx<0?'left':'right';
-    n.data.offset=Math.abs(dx)<width*.1?0:dx<0?-12:12;
-  }
-  const css=getComputedStyle(document.documentElement);const color=name=>css.getPropertyValue(name).trim();
-  cy=window.cytoscape({container:$('graph'),elements:[...model.nodes,...model.edges],minZoom:.15,maxZoom:4,
-    style:[{selector:'node',style:{'font-family':'system-ui','font-size':10,'color':color('--ink'),'text-wrap':'wrap','text-max-width':110,'text-valign':'bottom','text-margin-y':5,'overlay-opacity':0}},
-      {selector:'node[type="work"]',style:{'width':visible.length>40?10:15,'height':visible.length>40?10:15,'label':'data(label)','text-opacity':state.labels?1:0,'font-size':10,'text-background-color':color('--surface'),'text-background-opacity':.85,'text-background-padding':2,'background-color':color('--graph-paper'),'border-width':1.5,'border-color':color('--surface')}},
-      ...['system','tool','benchmark'].map(k=>({selector:`node[kind="${k}"]`,style:{'background-color':color('--'+k)}})),
-      {selector:'node[type="theme"]',style:{'shape':'ellipse','width':node=>20+Math.sqrt(node.data('count'))*2,'height':node=>20+Math.sqrt(node.data('count'))*2,'label':'data(displayLabel)','font-size':12,'font-weight':600,'text-valign':'center','text-halign':'data(align)','text-margin-x':'data(offset)','text-margin-y':node=>node.data('align')==='center'?-30:0,'background-color':color('--accent'),'color':color('--ink'),'text-background-color':color('--surface'),'text-background-opacity':.9,'text-background-padding':3,'border-width':2,'border-color':color('--surface')}},
-      {selector:'edge',style:{'width':1,'line-color':color('--edge'),'curve-style':'straight','opacity':.18}},
-      {selector:'node[kind="system"]',style:{'shape':'rectangle'}},
-      {selector:'.faded',style:{'opacity':.12}},
-      {selector:'.chosen',style:{'border-width':4,'border-color':color('--accent'),'font-weight':700}},
-      {selector:'.connected',style:{'opacity':1,'line-color':color('--accent'),'width':1.8}}],
-    layout:{name:'preset',fit:true,padding:55}});
-  cy.on('tap','node',event=>{const n=event.target;if(n.data('type')==='theme')chooseTheme(n.data('theme'));else chooseWork(n.data('work'));});
-  cy.on('mouseover','node',event=>{highlightGraph(event.target.id());renderGraphPreview(event.target.data());});
-  cy.on('mouseout','node',()=>{highlightGraph();renderGraphPreview();});
-  cy.on('tap','edge',event=>{$('graph-tooltip').textContent=event.target.data('label');$('graph-tooltip').hidden=false;});
-  renderGraphPreview();highlightGraph();
+  const hubs=model.nodes.filter(n=>n.data.type==='theme');
+  $('graph-empty').hidden=visible.length>0;
+  $('graph-count').textContent=`${visible.length} works · ${hubs.length} displayed themes · ${model.edges.length} membership links`;
+  if(!graphView)graphView=new TopicGraph($('graph'),{onWork:chooseWork,onTheme:chooseTheme,onPreview:renderGraphPreview,onZoom:zoom=>{
+    $('graph-zoom-label').textContent=Math.round(zoom*100)+'%';$('zoom-in').disabled=zoom>=3;$('zoom-out').disabled=zoom<=.6;
+  }});
+  graphView.activeThemes=state.theme;
+  graphView.render(model,{labels:state.labels,selected:state.selected});
+  $('graph-work').replaceChildren(el('option','Choose a work'));
+  $('graph-work').firstChild.value='';
+  for(const w of [...visible].sort((a,b)=>a.name.localeCompare(b.name))){const o=el('option',w.name);o.value=w.id;$('graph-work').append(o);}
+  $('graph-work').value=state.selected;$('open-graph-work').disabled=!state.selected;
 }
 function renderGraphPreview(item){
   const panel=$('graph-preview');panel.replaceChildren();
-  if(!item){panel.append(el('strong','Explore a connection'),el('p','Hover a theme or work to trace its links. Select a work to open its full source and benchmark details.'));return;}
-  panel.append(el('strong',item.name));
-  panel.append(el('p',item.type==='theme'?`${item.count} matching works carry this theme. Select it to toggle the theme filter.`:works.get(item.work).summary));
-}
-function highlightGraph(hoverId){
-  if(!cy)return;cy.elements().removeClass('faded chosen connected');
-  const id=hoverId||(state.selected?'w:'+state.selected:'');if(!id)return;
-  const node=cy.getElementById(id);if(!node.length)return;
-  cy.elements().addClass('faded');node.closedNeighborhood().removeClass('faded');node.addClass('chosen');node.connectedEdges().addClass('connected');
+  panel.append(el('p',item?.type==='theme'?'CATALOG THEME':item?'RESEARCH WORK':'EXPLORE A CONNECTION','preview-kicker'));
+  if(!item){panel.append(el('h3','Discover a paper or system.'),el('p','Hover or focus a node to trace its links. Select a topic to filter the map; select a work to open its evidence notes below.'));return;}
+  panel.append(el('h3',item.name),el('p',item.type==='theme'?`${item.count} matching works carry this theme. Select to toggle the theme filter.`:works.get(item.work).summary));
 }
 
 async function init(){
@@ -148,15 +124,16 @@ async function init(){
     $('clear-themes').addEventListener('click',()=>setState({theme:[],focus:''}));
     $('code').addEventListener('change',()=>setState({code:$('code').checked}));
     $('reset').addEventListener('click',()=>{clearTimeout(timer);state=normalizeState({},data);render();});
-    $('show-labels').addEventListener('change',()=>{state=normalizeState({...state,labels:$('show-labels').checked},data);updateURL();cy?.nodes('[type="work"]').style('text-opacity',state.labels?1:0);});
-    $('zoom-in').addEventListener('click',()=>cy?.zoom({level:Math.min(4,cy.zoom()*1.3),renderedPosition:{x:cy.width()/2,y:cy.height()/2}}));
-    $('zoom-out').addEventListener('click',()=>cy?.zoom({level:Math.max(.15,cy.zoom()/1.3),renderedPosition:{x:cy.width()/2,y:cy.height()/2}}));
-    $('fit').addEventListener('click',()=>cy?.fit(undefined,35));
+    $('show-labels').addEventListener('change',()=>{state=normalizeState({...state,labels:$('show-labels').checked},data);updateURL();graphView?.setLabels(state.labels);});
+    $('zoom-in').addEventListener('click',()=>graphView?.zoom(1.25));
+    $('zoom-out').addEventListener('click',()=>graphView?.zoom(.8));
+    $('fit').addEventListener('click',()=>graphView?.reset());
+    $('graph-work').addEventListener('change',()=>{$('open-graph-work').disabled=!$('graph-work').value;const w=works.get($('graph-work').value);renderGraphPreview(w?{type:'work',work:w.id,name:w.name}:undefined);});
+    $('open-graph-work').addEventListener('click',()=>{if($('graph-work').value)chooseWork($('graph-work').value);});
     $('export').addEventListener('click',()=>{const payload=exportRecords(data,visible);const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)+'\n'],{type:'application/json'}));const a=el('a');a.href=url;a.download='reliable-text-to-sql-selection.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
     let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{renderCloud();renderGraph();},150);});
     window.addEventListener('popstate',()=>{state=fromURL(location.search,data);render();});
     document.addEventListener('keydown',e=>{if(e.key==='Escape'&&state.selected)setState({selected:''},{graph:false});});
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>renderGraph());
     $('source-date').textContent='Latest source check: '+data.checked;
     render();
   }catch(error){$('error').hidden=false;$('error').replaceChildren(el('strong','The explorer could not load. '),el('span',error.message+' '),link('Read the catalogs instead.',repo));$('match-count').textContent='Catalog unavailable';}
