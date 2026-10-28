@@ -2,7 +2,7 @@ import {labelPosition} from '../site/graph.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {normalizeState,fromURL,toURL,selectWorks,themeCounts,graphElements,exportRecords,ringLayout} from '../site/model.mjs';
+import {normalizeState,fromURL,toURL,selectWorks,themeCounts,graphElements,exportRecords,ringLayout,graphPresentation} from '../site/model.mjs';
 const data=JSON.parse(readFileSync(new URL('../site/data.json',import.meta.url),'utf8'));
 const blank=()=>normalizeState({},data);
 test('default selection preserves all works',()=>assert.equal(selectWorks(data,blank()).length,data.works.length));
@@ -77,14 +77,37 @@ test('ignoring themes keeps cloud counts available across multi-selection',()=>{
  assert.deepEqual(selectWorks(data,s,{ignoreTheme:true}),selectWorks(data,{...s,theme:[]}));
 });
 
-test('labels default on and off preference survives URL and filter changes',()=>{
- assert.equal(blank().labels,true);
- assert.equal(fromURL('?labels=unexpected',data).labels,true);
- const off=normalizeState({labels:false,theme:['ambiguity','verification']},data);
- assert.equal(fromURL('?'+toURL(off),data).labels,false);
- assert.equal(normalizeState({...off,kind:'paper'},data).labels,false);
- assert.deepEqual(selectWorks(data,off),selectWorks(data,{...off,labels:true}));
+test('label modes default to automatic and preserve legacy URL preferences',()=>{
+ assert.equal(blank().labels,'auto');
+ assert.equal(fromURL('?labels=unexpected',data).labels,'auto');
+ for(const mode of ['auto','all','focus']){
+  const s=normalizeState({labels:mode,theme:['ambiguity','verification']},data);
+  assert.equal(fromURL('?'+toURL(s),data).labels,mode);
+  assert.equal(normalizeState({...s,kind:'paper'},data).labels,mode);
+  assert.deepEqual(selectWorks(data,s),selectWorks(data,{...s,labels:'auto'}));
+ }
+ assert.equal(fromURL('?labels=0',data).labels,'focus');
+ assert.equal(fromURL('?labels=1',data).labels,'all');
+ assert.equal(normalizeState({labels:false},data).labels,'focus');
+ assert.equal(normalizeState({labels:true},data).labels,'all');
  assert.ok(!toURL(blank()).includes('labels='));
+});
+
+test('large overviews reveal connections on focus without losing catalog works',()=>{
+ const s=blank(),works=selectWorks(data,s),model=graphElements(data,works,s),before=JSON.stringify(model);
+ const p=graphPresentation(model,'auto');
+ assert.equal(p.works,works.length);assert.ok(p.works>12&&p.themes>1);
+ assert.equal(p.showNames,false);assert.equal(p.quietEdges,true);
+ assert.equal(graphPresentation(model,'all').showNames,true);
+ assert.equal(JSON.stringify(model),before);
+});
+
+test('single-theme and small views retain readable membership connections',()=>{
+ const s=normalizeState({theme:['ambiguity']},data),works=selectWorks(data,s),g=graphElements(data,works,s);
+ assert.ok(works.length>12);assert.equal(graphPresentation(g).quietEdges,false);
+ const small=graphElements(data,works.slice(0,4),s);
+ assert.equal(graphPresentation(small).showNames,true);assert.equal(graphPresentation(small).quietEdges,false);
+ assert.equal(graphPresentation(small,'focus').showNames,false);
 });
 
 test('ring layout preserves nodes and edges with deterministic finite positions',()=>{
@@ -118,4 +141,10 @@ test('reading view defaults to table, shares through URLs, and does not change f
  assert.deepEqual(fromURL('?'+toURL(cards),data),cards);
  assert.deepEqual(selectWorks(data,cards),selectWorks(data,table));
  assert.equal(normalizeState({...cards,year:'2026'},data).view,'cards');
+});
+
+test('label placement declines collisions instead of forcing overlaps',()=>{
+ assert.equal(labelPosition({x:550,y:360},{width:100,height:40},[{x:0,y:0,width:1100,height:720}],1100,720),null);
+ const point={x:550,y:360};const p=labelPosition(point,{width:100,height:40},[],1100,720);
+ assert.ok(p);assert.ok(Math.hypot(p.x+p.width/2-point.x,p.y+p.height/2-point.y)<=180);
 });

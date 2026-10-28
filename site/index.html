@@ -6,8 +6,8 @@
 <meta name="color-scheme" content="light dark">
 <title>Explore · Awesome Reliable Text-to-SQL</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="styles.css?v=reading-views-5">
-<script type="module" src="app.mjs?v=reading-views-1"></script>
+<link rel="stylesheet" href="styles.css?v=calm-graph-1">
+<script type="module" src="app.mjs?v=calm-graph-1"></script>
 </head>
 <body>
 <a class="skip" href="#results">Skip to results</a>
@@ -35,8 +35,8 @@
 <section class="graph-card card" aria-labelledby="graph-heading">
 <div class="section-heading"><div><p class="eyebrow">FOLLOW THE CONNECTIONS</p><h2 id="graph-heading">Ideas, papers, and systems.</h2></div><div class="legend" aria-label="Graph legend"><span><i class="dot theme"></i>Theme</span><span><i class="dot paper"></i>Paper</span><span><i class="dot system"></i>System</span><span><i class="dot tool"></i>Tool</span><span><i class="dot benchmark"></i>Benchmark</span><span><i class="membership-key"></i>Membership</span></div></div>
 <p id="graph-note" class="graph-note">Each line connects a work to a catalog theme; hub numbers count matching works. These are topic memberships, not citations. Positions aid navigation, not similarity measurement. All active filters apply.</p>
-<div class="map-toolbar"><p id="graph-count"></p><div class="graph-controls"><label class="label-toggle"><input id="show-labels" type="checkbox" checked> Show labels</label><button id="zoom-out" aria-label="Zoom out">−</button><span id="graph-zoom-label">100%</span><button id="zoom-in" aria-label="Zoom in">+</button><button id="fit">Reset view</button></div></div>
-<p class="graph-name-policy">Names are visible by default. Hide labels for a dense overview; hover or keyboard-focus a node for its full name and evidence.</p>
+<div class="map-toolbar"><p id="graph-count"></p><div class="graph-controls"><label class="label-toggle" for="show-labels">Names <select id="show-labels"><option value="auto">Automatic</option><option value="focus">On focus</option><option value="all">More names</option></select></label><button id="zoom-out" aria-label="Zoom out">−</button><span id="graph-zoom-label">100%</span><button id="zoom-in" aria-label="Zoom in">+</button><button id="fit">Reset view</button></div></div>
+<p class="graph-name-policy" id="graph-name-policy" role="status" aria-live="polite">Choose a theme to narrow the map, or focus a node to inspect its name and connections.</p>
 <div class="graph-shell"><div id="graph"></div><p id="graph-empty" class="graph-empty" hidden>No works match these filters.</p></div>
 <div id="graph-preview" class="graph-preview"></div>
 <p class="graph-foot">Drag the background to pan. Use + / − to zoom, or focus the graph and use arrow keys. Press Home to reset. Select a work for full details below.</p>

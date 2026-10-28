@@ -2,6 +2,8 @@
 
 ## 2026-10-28
 
+- Simplified dense graph overviews with automatic labels, focus-based connections, and nearby collision-free name placement. Preserved all matching works, multi-theme filters, shared URLs, and exports.
+
 - Added Table/Cards reading-list views with shared filters, source links and URL state; aligned the graph frame with the surrounding sections.
 
 - Replaced the approximate canvas map with the reference-style SVG view: warm palette, fixed proportions, top zoom toolbar, keyboard-focusable nodes, name placement and full-width evidence navigation.

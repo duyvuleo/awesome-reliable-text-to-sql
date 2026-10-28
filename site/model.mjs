@@ -10,7 +10,8 @@ export function normalizeState(input, data) {
     year: data.records.some(r => String(r.year) === input.year) ? input.year : '',
     category: categoryThemes.includes(input.category) ? input.category : '',
     code: input.code === true || input.code === '1',
-    labels: input.labels !== false && input.labels !== '0',
+    labels: input.labels === false || input.labels === '0' || input.labels === 'focus' ? 'focus' :
+      input.labels === true || input.labels === '1' || input.labels === 'all' ? 'all' : 'auto',
     view: input.view === 'cards' ? 'cards' : 'table',
     theme, match: input.match==='all'?'all':'any',
     selected: resolve(input.selected || ''), focus: resolve(input.focus || ''),
@@ -24,7 +25,8 @@ export function toURL(state) {
   const p = new URLSearchParams();
   for (const key of ['q','kind','year','category','focus','selected']) if (state[key]) p.set(key,state[key]);
   if (state.code) p.set('code','1');
-  if (state.labels === false) p.set('labels','0');
+  if (state.labels === 'focus') p.set('labels','0');
+  if (state.labels === 'all') p.set('labels','1');
   if (state.view === 'cards') p.set('view','cards');
   for(const id of state.theme)p.append('theme',id);
   if(state.match==='all')p.set('match','all');
@@ -77,6 +79,14 @@ export function exportRecords(data, works) {
   const ids = new Set(works.flatMap(w=>w.entry_ids));
   return {scope:'Catalog source observations, not execution results.',checked:data.checked,
     work_count:works.length,entries:data.records.filter(r=>ids.has(r.id))};
+}
+
+// Presentation changes never remove works or alter their catalog relationships.
+export function graphPresentation(model, labels='auto') {
+  const works=model.nodes.filter(n=>n.data.type==='work').length;
+  const themes=model.nodes.filter(n=>n.data.type==='theme').length;
+  return {works, themes, showNames:labels==='all'||(labels==='auto'&&works<=12),
+    quietEdges:works>12&&themes>1};
 }
 
 // Topic hubs surround a stable, topic-ordered ring of works. Geometry is navigation only.

@@ -1,5 +1,5 @@
-import {TopicGraph} from './graph.mjs?v=reference-map-2';
-import {fromURL,toURL,normalizeState,selectWorks,themeCounts,graphElements,exportRecords,categoryThemes} from './model.mjs?v=reading-views-1';
+import {TopicGraph} from './graph.mjs?v=calm-graph-1';
+import {fromURL,toURL,normalizeState,selectWorks,themeCounts,graphElements,exportRecords,categoryThemes,graphPresentation} from './model.mjs?v=calm-graph-1';
 const $ = id => document.getElementById(id);
 const repo = 'https://github.com/duyvuleo/awesome-reliable-text-to-sql';
 const names = {paper:'Paper',system:'System',tool:'Tool',benchmark:'Benchmark'};
@@ -10,7 +10,7 @@ function el(tag,text,cls) {const n=document.createElement(tag); if(text!==undefi
 function link(text,url,cls) {const n=el('a',text,cls);try {const u=new URL(url);if(u.protocol!=='https:')return el('span',text);n.href=u.href;}catch{return el('span',text);}n.target='_blank';n.rel='noopener noreferrer';return n;}
 function button(text,fn,cls){const n=el('button',text,cls);n.type='button';n.addEventListener('click',fn);return n;}
 function pretty(value){return value.replaceAll('_',' ').replaceAll('-',' ');}
-function syncControls(){for(const k of ['kind','year','category','match','sort'])$(k).value=state[k];$('search').value=state.q;$('code').checked=state.code;$('show-labels').checked=state.labels;}
+function syncControls(){for(const k of ['kind','year','category','match','sort'])$(k).value=state[k];$('search').value=state.q;$('code').checked=state.code;$('show-labels').value=state.labels;}
 function setState(patch,{graph=true}={}){state=normalizeState({...state,...patch},data);render({graph});}
 function chooseTheme(id){setState({theme:state.theme.includes(id)?state.theme.filter(t=>t!==id):[...state.theme,id],focus:'',selected:''});}
 function chooseWork(id){setState({selected:id},{graph:false});if(window.innerWidth<781||$('inspector').getBoundingClientRect().bottom<0||$('inspector').getBoundingClientRect().top>window.innerHeight)$('inspector').scrollIntoView({behavior:'auto',block:'start'});}
@@ -119,10 +119,19 @@ function renderGraph(){
   }});
   graphView.activeThemes=state.theme;
   graphView.render(model,{labels:state.labels,selected:state.selected});
+  renderGraphPolicy(model);
   $('graph-work').replaceChildren(el('option','Choose a work'));
   $('graph-work').firstChild.value='';
   for(const w of [...visible].sort((a,b)=>a.name.localeCompare(b.name))){const o=el('option',w.name);o.value=w.id;$('graph-work').append(o);}
   $('graph-work').value=state.selected;$('open-graph-work').disabled=!state.selected;
+}
+function renderGraphPolicy(model=graphElements(data,visible,state)){
+  const p=graphPresentation(model,state.labels);
+  if(!p.works){$('graph-name-policy').textContent='No works match this view. Broaden the filters to restore the map.';return;}
+  const names=state.labels==='focus'?'Names appear on hover or keyboard focus.':
+    state.labels==='all'?'More names are shown where they fit, without overlapping.':
+    p.showNames?'Small view: names appear where they fit.':'Overview: focus a node to reveal its name; select a theme to narrow the map.';
+  $('graph-name-policy').textContent=names+(p.quietEdges?' Connections appear on focus so the overview stays clear.':' Membership connections are visible in this focused view.')+' Full titles and evidence remain in the preview and reading list.';
 }
 function renderGraphPreview(item){
   const panel=$('graph-preview');panel.replaceChildren();
@@ -146,7 +155,7 @@ async function init(){
     $('code').addEventListener('change',()=>setState({code:$('code').checked}));
     for(const view of ['table','cards'])$('view-'+view).addEventListener('click',()=>setState({view},{graph:false}));
     $('reset').addEventListener('click',()=>{clearTimeout(timer);state=normalizeState({},data);render();});
-    $('show-labels').addEventListener('change',()=>{state=normalizeState({...state,labels:$('show-labels').checked},data);updateURL();graphView?.setLabels(state.labels);});
+    $('show-labels').addEventListener('change',()=>{state=normalizeState({...state,labels:$('show-labels').value},data);updateURL();graphView?.setLabels(state.labels);renderGraphPolicy();});
     $('zoom-in').addEventListener('click',()=>graphView?.zoom(1.25));
     $('zoom-out').addEventListener('click',()=>graphView?.zoom(.8));
     $('fit').addEventListener('click',()=>graphView?.reset());

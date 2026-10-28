@@ -1,5 +1,5 @@
 // SVG topic map adapted from the public Agents That Learn explorer's visual grammar.
-import {ringLayout} from './model.mjs?v=reference-map-2';
+import {ringLayout,graphPresentation} from './model.mjs?v=calm-graph-1';
 const NS='http://www.w3.org/2000/svg';
 function svg(tag,attrs={},text){const e=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;return e;}
 const intersects=(a,b)=>a.x<b.x+b.width&&a.x+a.width>b.x&&a.y<b.y+b.height&&a.y+a.height>b.y;
@@ -7,11 +7,12 @@ export function labelPosition(point,size,occupied,width,height){
   const gap=14,side=point.x<width/2?1:-1,candidates=[];
   for(const dy of [0,-size.height-8,size.height+8,-2*size.height-16,2*size.height+16])for(const d of [side,-side])
     candidates.push({x:d>0?point.x+gap:point.x-gap-size.width,y:point.y-size.height/2+dy,...size});
-  // The center and margins provide extra room when names are enabled in a dense map.
-  for(let y=30;y<height-size.height-20;y+=size.height+10)for(let x=20;x<width-size.width-20;x+=size.width+12)candidates.push({x,y,...size});
-  const valid=candidates.filter(c=>c.x>=12&&c.y>=12&&c.x+c.width<=width-12&&c.y+c.height<=height-12);
-  const score=c=>occupied.reduce((n,b)=>n+(intersects(c,b)?1:0),0)*100000+Math.hypot(c.x+c.width/2-point.x,c.y+c.height/2-point.y);
-  return valid.sort((a,b)=>score(a)-score(b))[0]||{x:12,y:12,...size};
+  // Keep labels close to their node. If none fits, use the focus preview/list instead
+  // of forcing overlapping names into the center or distant margins.
+  const distance=c=>Math.hypot(c.x+c.width/2-point.x,c.y+c.height/2-point.y);
+  const valid=candidates.filter(c=>c.x>=12&&c.y>=12&&c.x+c.width<=width-12&&c.y+c.height<=height-12&&
+    distance(c)<=180&&!occupied.some(b=>intersects(c,b)));
+  return valid.sort((a,b)=>distance(a)-distance(b))[0]||null;
 }
 export class TopicGraph{
   constructor(root,{onWork,onTheme,onPreview,onZoom}){
@@ -39,10 +40,15 @@ export class TopicGraph{
     const focusID=this.svg.contains(document.activeElement)?document.activeElement.dataset.nodeId:null;
     const narrow=this.root.clientWidth<600;this.width=narrow?720:1100;this.height=narrow?980:720;this.narrow=narrow;
     this.labels=labels;this.selected=selected?'w:'+selected:'';this.hover='';this.model=model;
+    this.presentation=graphPresentation(model,labels);
     this.nodes=ringLayout(model,this.width,this.height,narrow);this.nodeMap=new Map(this.nodes.map(n=>[n.data.id,n]));
     this.svg.setAttribute('viewBox',`0 0 ${this.width} ${this.height}`);this.stage.replaceChildren();
     const edgeLayer=svg('g',{'aria-hidden':'true'}),workLayer=svg('g'),topicLayer=svg('g'),labelLayer=svg('g',{'aria-hidden':'true'});
     this.stage.append(edgeLayer,workLayer,topicLayer,labelLayer);this.edges=[];this.elements=new Map();this.labelRecords=[];this.topicBoxes=[];
+    this.guide=svg('g',{'aria-hidden':'true',class:'map-guide'});
+    this.guide.append(svg('text',{x:this.width/2,y:this.height/2-9,class:'map-guide-title'},'Start with a theme'),
+      svg('text',{x:this.width/2,y:this.height/2+22,class:'map-guide-hint'},'Hover to trace its connections'));
+    this.stage.append(this.guide);
     for(const edge of model.edges){const a=this.nodeMap.get(edge.data.source)?.position,b=this.nodeMap.get(edge.data.target)?.position;if(!a||!b)continue;
       const e=svg('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,class:'map-edge'});edgeLayer.append(e);this.edges.push({e,...edge.data});}
     const interact=(g,n)=>{
@@ -84,15 +90,16 @@ export class TopicGraph{
     this.highlight();this.reset();this.callbacks.onPreview(this.nodeMap.get(this.selected)?.data);
     if(focusID)this.elements.get(focusID)?.focus({preventScroll:true});
   }
-  setLabels(labels){this.labels=labels;this.arrangeLabels();}
+  setLabels(labels){this.labels=labels;this.presentation=graphPresentation(this.model,labels);this.highlight();}
   select(id){this.selected=id?'w:'+id:'';this.highlight();this.callbacks.onPreview(this.nodeMap.get(this.selected)?.data);}
   arrangeLabels(){
     const active=this.hover||this.selected;
-    const items=this.labelRecords.filter(r=>this.labels||r.n.data.id===active).sort((a,b)=>(b.n.data.id===active)-(a.n.data.id===active));
+    const items=this.labelRecords.filter(r=>this.presentation.showNames||r.n.data.id===active).sort((a,b)=>(b.n.data.id===active)-(a.n.data.id===active));
     for(const r of this.labelRecords)r.group.setAttribute('visibility','hidden');
     const occupied=[...this.topicBoxes,...this.nodes.map(n=>({x:n.position.x-9,y:n.position.y-9,width:18,height:18}))];
     for(const r of items){const b=r.text.getBBox(),size={width:b.width+12,height:b.height+8};
       const p=labelPosition(r.n.position,size,occupied,this.width,this.height);
+      if(!p)continue;
       const tx=p.x+6-b.x,ty=p.y+4-b.y;r.text.setAttribute('transform',`translate(${tx} ${ty})`);
       const distance=Math.hypot(p.x+p.width/2-r.n.position.x,p.y+p.height/2-r.n.position.y);
       r.leader.setAttribute('x1',r.n.position.x);r.leader.setAttribute('y1',r.n.position.y);r.leader.setAttribute('x2',Math.max(p.x,Math.min(p.x+p.width,r.n.position.x)));r.leader.setAttribute('y2',Math.max(p.y,Math.min(p.y+p.height,r.n.position.y)));r.leader.setAttribute('visibility',distance>50?'visible':'hidden');
@@ -101,8 +108,9 @@ export class TopicGraph{
   }
   highlight(){
     const active=this.hover||this.selected,neighbors=new Set(active?[active]:[]);
-    for(const edge of this.edges){const match=edge.source===active||edge.target===active;if(match){neighbors.add(edge.source);neighbors.add(edge.target);}edge.e.classList.toggle('is-emphasized',!!active&&match);edge.e.classList.toggle('is-muted',!!active&&!match);}
+    for(const edge of this.edges){const match=edge.source===active||edge.target===active;if(match){neighbors.add(edge.source);neighbors.add(edge.target);}edge.e.classList.toggle('is-emphasized',!!active&&match);edge.e.classList.toggle('is-muted',!!active&&!match);edge.e.classList.toggle('is-hidden',this.presentation.quietEdges&&!match);}
     for(const [id,g] of this.elements){g.classList.toggle('is-muted',!!active&&!neighbors.has(id));g.classList.toggle('is-chosen',id===this.selected);}
+    this.guide.setAttribute('visibility',this.presentation.quietEdges&&!this.presentation.showNames&&!active?'visible':'hidden');
     this.arrangeLabels();
   }
   transform(){const {zoom,x,y}=this.view;this.stage.setAttribute('transform',`translate(${this.width/2*(1-zoom)+x} ${this.height/2*(1-zoom)+y}) scale(${zoom})`);this.callbacks.onZoom(zoom);}
