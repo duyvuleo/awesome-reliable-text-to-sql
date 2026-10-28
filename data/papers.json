@@ -1573,8 +1573,8 @@
     "id": "tide-bench",
     "title": "Evaluating LLMs on Conversational Text-to-SQL under Chain Ambiguity and Intent Drift",
     "year": 2026,
-    "publication_status": "Accepted to EMNLP 2026 Main, according to arXiv comments and author repository",
-    "primary_url": "https://arxiv.org/abs/2608.29543",
+    "publication_status": "EMNLP 2026",
+    "primary_url": "https://aclanthology.org/2026.emnlp-main.2454/",
     "code_url": null,
     "dataset_url": null,
     "topics": [
@@ -1586,11 +1586,12 @@
     "scope": "core",
     "summary": "Introduces TIDE-Bench with dependent clarification chains and user revisions that retract earlier commitments, plus metrics for recognizing and resolving those changes. The 1,542 samples derive from 514 BIRD anchor queries, and the linked repository was only a placeholder when checked despite the manuscript's release statement.",
     "evidence": [
+      "https://aclanthology.org/2026.emnlp-main.2454/",
       "https://arxiv.org/abs/2608.29543",
       "https://arxiv.org/html/2608.29543v1",
       "https://github.com/Rcrossmeister/TIDE-Bench"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-10-29",
     "artifact_status": "Repository placeholder: only README, LICENSE, and .gitattributes visible; implementation and dataset not verified released. Name collision: this is the conversational SQL TIDE-Bench, not the unrelated tool-integrated-reasoning benchmark arXiv:2605.09544.",
     "category": "interaction",
     "source_depth": "primary-record",
@@ -1853,5 +1854,30 @@
     "source_depth": "targeted-full-text",
     "artifact_status": "Public manuscript inspected; no official code or new dataset release verified. The public paper reports an enterprise study and a distinct schema-derived BEAVER adaptation; neither was reproduced.",
     "added_on": "2026-10-28"
+  },
+  {
+    "id": "intent-scoping-paraphrasing",
+    "title": "Grounding LLMs for Database Exploration: Intent Scoping and Paraphrasing for Robust NL2SQL",
+    "year": 2025,
+    "publication_status": "AIDB 2025 (VLDB workshop)",
+    "primary_url": "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/AIDB/AIDB25_5.pdf",
+    "code_url": null,
+    "dataset_url": null,
+    "topics": [
+      "answerability",
+      "unanswerability",
+      "paraphrasing",
+      "schema-linking"
+    ],
+    "scope": "core",
+    "summary": "Classifies database requests as fully answerable, partially answerable or out of scope, and uses entity-preserving paraphrases to improve NL2SQL robustness. The scoping and paraphrasing components depend on upstream entity recognition; the paper leaves integration with complex joins and nested queries to future work, so the results do not establish complete conversational recovery.",
+    "evidence": [
+      "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/AIDB/AIDB25_5.pdf"
+    ],
+    "checked_on": "2026-10-29",
+    "category": "answerability",
+    "source_depth": "targeted-full-text",
+    "artifact_status": "Public proceedings paper inspected; no official code or dataset release verified in this pass.",
+    "added_on": "2026-10-29"
   }
 ]

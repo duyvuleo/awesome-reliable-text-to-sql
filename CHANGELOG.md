@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-29
+
+- Added the AIDB 2025 intent-scoping and paraphrasing paper, with partial answerability and component-level limitations made explicit.
+- Updated TIDE-Bench to its verified EMNLP 2026 proceedings record while retaining the unverified artifact-release qualification and original addition date.
+
 ## 2026-10-28
 
 - Simplified dense graph overviews with automatic labels, focus-based connections, and nearby collision-free name placement. Preserved all matching works, multi-theme filters, shared URLs, and exports.

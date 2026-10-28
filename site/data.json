@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-28",
-  "updated": "2026-10-28",
+  "checked": "2026-10-29",
+  "updated": "2026-10-29",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 72,
+    "paper": 73,
     "system": 12,
     "tool": 13,
     "benchmark": 28
@@ -1262,6 +1262,32 @@
       ],
       "categories": [
         "verification"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2025
+      ]
+    },
+    {
+      "id": "intent-scoping-paraphrasing",
+      "name": "Grounding LLMs for Database Exploration: Intent Scoping and Paraphrasing for Robust NL2SQL",
+      "date": "2025",
+      "year": 2025,
+      "kind": "paper",
+      "summary": "Classifies database requests as fully answerable, partially answerable or out of scope, and uses entity-preserving paraphrases to improve NL2SQL robustness. The scoping and paraphrasing components depend on upstream entity recognition; the paper leaves integration with complex joins and nested queries to future work, so the results do not establish complete conversational recovery.",
+      "entry_ids": [
+        "intent-scoping-paraphrasing"
+      ],
+      "themes": [
+        "answerability",
+        "paraphrasing",
+        "schema-linking",
+        "unanswerability"
+      ],
+      "categories": [
+        "answerability"
       ],
       "kinds": [
         "paper"
@@ -5484,24 +5510,25 @@
       "categories": [
         "interaction"
       ],
-      "evidence": "Accepted to EMNLP 2026 Main, according to arXiv comments and author repository",
+      "evidence": "EMNLP 2026",
       "status": "Repository placeholder: only README, LICENSE, and .gitattributes visible; implementation and dataset not verified released. Name collision: this is the conversational SQL TIDE-Bench, not the unrelated tool-integrated-reasoning benchmark arXiv:2605.09544.",
       "sources": [
+        "https://aclanthology.org/2026.emnlp-main.2454/",
         "https://arxiv.org/abs/2608.29543",
         "https://arxiv.org/html/2608.29543v1",
         "https://github.com/Rcrossmeister/TIDE-Bench"
       ],
-      "checked": "2026-10-22",
+      "checked": "2026-10-29",
       "added_on": "2026-10-22",
-      "url": "https://arxiv.org/abs/2608.29543",
+      "url": "https://aclanthology.org/2026.emnlp-main.2454/",
       "code_links": [],
       "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#tide-bench",
       "original": {
         "id": "tide-bench",
         "title": "Evaluating LLMs on Conversational Text-to-SQL under Chain Ambiguity and Intent Drift",
         "year": 2026,
-        "publication_status": "Accepted to EMNLP 2026 Main, according to arXiv comments and author repository",
-        "primary_url": "https://arxiv.org/abs/2608.29543",
+        "publication_status": "EMNLP 2026",
+        "primary_url": "https://aclanthology.org/2026.emnlp-main.2454/",
         "code_url": null,
         "dataset_url": null,
         "topics": [
@@ -5513,11 +5540,12 @@
         "scope": "core",
         "summary": "Introduces TIDE-Bench with dependent clarification chains and user revisions that retract earlier commitments, plus metrics for recognizing and resolving those changes. The 1,542 samples derive from 514 BIRD anchor queries, and the linked repository was only a placeholder when checked despite the manuscript's release statement.",
         "evidence": [
+          "https://aclanthology.org/2026.emnlp-main.2454/",
           "https://arxiv.org/abs/2608.29543",
           "https://arxiv.org/html/2608.29543v1",
           "https://github.com/Rcrossmeister/TIDE-Bench"
         ],
-        "checked_on": "2026-10-22",
+        "checked_on": "2026-10-29",
         "artifact_status": "Repository placeholder: only README, LICENSE, and .gitattributes visible; implementation and dataset not verified released. Name collision: this is the conversational SQL TIDE-Bench, not the unrelated tool-integrated-reasoning benchmark arXiv:2605.09544.",
         "category": "interaction",
         "source_depth": "primary-record",
@@ -6088,6 +6116,60 @@
         "added_on": "2026-10-28"
       },
       "work_id": "schema-free-query-logs"
+    },
+    {
+      "id": "intent-scoping-paraphrasing",
+      "name": "Grounding LLMs for Database Exploration: Intent Scoping and Paraphrasing for Robust NL2SQL",
+      "kind": "paper",
+      "year": 2025,
+      "date": "2025",
+      "date_label": "Publication year",
+      "summary": "Classifies database requests as fully answerable, partially answerable or out of scope, and uses entity-preserving paraphrases to improve NL2SQL robustness. The scoping and paraphrasing components depend on upstream entity recognition; the paper leaves integration with complex joins and nested queries to future work, so the results do not establish complete conversational recovery.",
+      "tags": [
+        "answerability",
+        "unanswerability",
+        "paraphrasing",
+        "schema-linking"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "AIDB 2025 (VLDB workshop)",
+      "status": "Public proceedings paper inspected; no official code or dataset release verified in this pass.",
+      "sources": [
+        "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/AIDB/AIDB25_5.pdf"
+      ],
+      "checked": "2026-10-29",
+      "added_on": "2026-10-29",
+      "url": "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/AIDB/AIDB25_5.pdf",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#intent-scoping-paraphrasing",
+      "original": {
+        "id": "intent-scoping-paraphrasing",
+        "title": "Grounding LLMs for Database Exploration: Intent Scoping and Paraphrasing for Robust NL2SQL",
+        "year": 2025,
+        "publication_status": "AIDB 2025 (VLDB workshop)",
+        "primary_url": "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/AIDB/AIDB25_5.pdf",
+        "code_url": null,
+        "dataset_url": null,
+        "topics": [
+          "answerability",
+          "unanswerability",
+          "paraphrasing",
+          "schema-linking"
+        ],
+        "scope": "core",
+        "summary": "Classifies database requests as fully answerable, partially answerable or out of scope, and uses entity-preserving paraphrases to improve NL2SQL robustness. The scoping and paraphrasing components depend on upstream entity recognition; the paper leaves integration with complex joins and nested queries to future work, so the results do not establish complete conversational recovery.",
+        "evidence": [
+          "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/AIDB/AIDB25_5.pdf"
+        ],
+        "checked_on": "2026-10-29",
+        "category": "answerability",
+        "source_depth": "targeted-full-text",
+        "artifact_status": "Public proceedings paper inspected; no official code or dataset release verified in this pass.",
+        "added_on": "2026-10-29"
+      },
+      "work_id": "intent-scoping-paraphrasing"
     },
     {
       "id": "clarity-pipeline",
@@ -8718,7 +8800,7 @@
     {
       "id": "unanswerability",
       "label": "Unanswerability",
-      "count": 18
+      "count": 19
     },
     {
       "id": "abstention",
@@ -8751,19 +8833,24 @@
       "count": 7
     },
     {
+      "id": "schema-linking",
+      "label": "Schema linking",
+      "count": 6
+    },
+    {
       "id": "sql-equivalence",
       "label": "SQL equivalence",
       "count": 6
     },
     {
-      "id": "schema-linking",
-      "label": "Schema linking",
-      "count": 5
-    },
-    {
       "id": "interpretation-coverage",
       "label": "Interpretation coverage",
       "count": 4
+    },
+    {
+      "id": "answerability",
+      "label": "Answerability",
+      "count": 3
     },
     {
       "id": "benchmark-quality",
@@ -8783,11 +8870,6 @@
     {
       "id": "agent",
       "label": "Agent",
-      "count": 2
-    },
-    {
-      "id": "answerability",
-      "label": "Answerability",
       "count": 2
     },
     {
@@ -8973,6 +9055,11 @@
     {
       "id": "open-domain",
       "label": "Open domain",
+      "count": 1
+    },
+    {
+      "id": "paraphrasing",
+      "label": "Paraphrasing",
       "count": 1
     },
     {
