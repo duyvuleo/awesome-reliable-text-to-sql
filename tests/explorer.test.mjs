@@ -109,3 +109,13 @@ test('label placement avoids occupied areas and stays inside the canvas',()=>{
  assert.ok(p.x>=12&&p.y>=12&&p.x+p.width<=1088&&p.y+p.height<=708);
  assert.ok(!(p.x<blocker.x+blocker.width&&p.x+p.width>blocker.x&&p.y<blocker.y+blocker.height&&p.y+p.height>blocker.y));
 });
+
+test('reading view defaults to table, shares through URLs, and does not change filtered works',()=>{
+ const table=normalizeState({theme:['ambiguity'],kind:'paper'},data);
+ assert.equal(table.view,'table');assert.ok(!toURL(table).includes('view='));
+ assert.equal(fromURL('?view=unknown',data).view,'table');
+ const cards=normalizeState({...table,view:'cards'},data);
+ assert.deepEqual(fromURL('?'+toURL(cards),data),cards);
+ assert.deepEqual(selectWorks(data,cards),selectWorks(data,table));
+ assert.equal(normalizeState({...cards,year:'2026'},data).view,'cards');
+});

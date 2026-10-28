@@ -1,5 +1,5 @@
 import {TopicGraph} from './graph.mjs?v=reference-map-2';
-import {fromURL,toURL,normalizeState,selectWorks,themeCounts,graphElements,exportRecords,categoryThemes} from './model.mjs?v=reference-map-2';
+import {fromURL,toURL,normalizeState,selectWorks,themeCounts,graphElements,exportRecords,categoryThemes} from './model.mjs?v=reading-views-1';
 const $ = id => document.getElementById(id);
 const repo = 'https://github.com/duyvuleo/awesome-reliable-text-to-sql';
 const names = {paper:'Paper',system:'System',tool:'Tool',benchmark:'Benchmark'};
@@ -49,16 +49,37 @@ function renderCloud(){
   $('topic-counts').replaceChildren();
   for(const t of counts){const b=button('',()=>chooseTheme(t.id));b.append(el('span',t.label),el('strong',t.count));b.setAttribute('aria-pressed',String(state.theme.includes(t.id)));$('topic-counts').append(b);}
 }
-function renderRows(){
-  const fragment=document.createDocumentFragment();
-  for(const w of visible){const tr=el('tr');if(w.id===state.selected)tr.className='is-selected';
-    const date=el('td',w.date),name=el('td'),summary=el('td'),action=el('td');
-    name.append(button(w.name,()=>chooseWork(w.id),'work-name'));
-    const chips=el('div',undefined,'chips');for(const kind of w.kinds)chips.append(el('span',names[kind],'chip'));chips.append(el('span',records.get(w.id).evidence,'chip'));if(records.get(w.id).original.scope)chips.append(el('span',records.get(w.id).original.scope,'chip'));name.append(chips);
-    summary.append(el('div',w.summary,'summary-clamp'));const b=button('Inspect ↗',()=>chooseWork(w.id),'inspect');b.setAttribute('aria-label','Inspect '+w.name);action.append(b);tr.append(date,name,summary,action);fragment.append(tr);
-  }
-  $('rows').replaceChildren(fragment);$('empty').hidden=!!visible.length;
+function recordChips(w){
+  const chips=el('div',undefined,'chips'),r=records.get(w.id);
+  for(const kind of w.kinds)chips.append(el('span',names[kind],'chip'));
+  chips.append(el('span',r.evidence,'chip'));
+  if(r.original.scope)chips.append(el('span',r.original.scope,'chip'));
+  return chips;
 }
+function renderRows(){
+  const cards=state.view==='cards';
+  $('table-view').hidden=cards;$('cards-view').hidden=!cards;
+  for(const view of ['table','cards'])$('view-'+view).setAttribute('aria-pressed',String(state.view===view));
+  $('reading-count').textContent=`${visible.length} matching work${visible.length===1?'':'s'}`;
+  $('rows').replaceChildren();$('cards-view').replaceChildren();
+  const fragment=document.createDocumentFragment();
+  for(const w of visible){
+    if(cards){
+      const card=el('article',undefined,'reading-card'+(w.id===state.selected?' is-selected':''));card.dataset.workId=w.id;
+      const heading=el('h3');heading.append(button(w.name,()=>chooseWork(w.id),'work-name'));
+      card.append(el('p',`${w.date} · ${w.entry_ids.length} catalog record${w.entry_ids.length===1?'':'s'}`,'card-meta'),heading,recordChips(w),el('p',w.summary,'card-summary'));
+      const actions=el('div',undefined,'card-actions'),inspect=button('Inspect evidence →',()=>chooseWork(w.id),'inspect');
+      inspect.setAttribute('aria-label','Inspect '+w.name);actions.append(link('Primary source ↗',records.get(w.id).url),inspect);card.append(actions);fragment.append(card);
+    }else{
+      const tr=el('tr');if(w.id===state.selected)tr.className='is-selected';
+      const date=el('td',w.date),name=el('td'),summary=el('td'),action=el('td');
+      name.append(button(w.name,()=>chooseWork(w.id),'work-name'),recordChips(w));
+      summary.append(el('div',w.summary,'summary-clamp'));const b=button('Inspect ↗',()=>chooseWork(w.id),'inspect');b.setAttribute('aria-label','Inspect '+w.name);action.append(b);tr.append(date,name,summary,action);fragment.append(tr);
+    }
+  }
+  $(cards?'cards-view':'rows').replaceChildren(fragment);$('empty').hidden=!!visible.length;
+}
+
 function appendSources(parent,urls){const ul=el('ul');urls.forEach((u,i)=>{const li=el('li');li.append(link(`Source ${i+1} · ${new URL(u).hostname}`,u));ul.append(li);});parent.append(ul);}
 function renderDetails(){
   const panel=$('detail'),inspector=$('inspector'),w=works.get(state.selected);
@@ -123,6 +144,7 @@ async function init(){
     for(const key of ['kind','year','category','match','sort'])$(key).addEventListener('change',()=>setState({[key]:$(key).value}));
     $('clear-themes').addEventListener('click',()=>setState({theme:[],focus:''}));
     $('code').addEventListener('change',()=>setState({code:$('code').checked}));
+    for(const view of ['table','cards'])$('view-'+view).addEventListener('click',()=>setState({view},{graph:false}));
     $('reset').addEventListener('click',()=>{clearTimeout(timer);state=normalizeState({},data);render();});
     $('show-labels').addEventListener('change',()=>{state=normalizeState({...state,labels:$('show-labels').checked},data);updateURL();graphView?.setLabels(state.labels);});
     $('zoom-in').addEventListener('click',()=>graphView?.zoom(1.25));

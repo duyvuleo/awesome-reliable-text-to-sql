@@ -2,6 +2,8 @@
 
 ## 2026-10-28
 
+- Added Table/Cards reading-list views with shared filters, source links and URL state; aligned the graph frame with the surrounding sections.
+
 - Replaced the approximate canvas map with the reference-style SVG view: warm palette, fixed proportions, top zoom toolbar, keyboard-focusable nodes, name placement and full-width evidence navigation.
 
 - Adapted the explorer graph to outer topic hubs and an inner work ring, with counts, lighter membership lines, hover emphasis and a summary panel. Retained multi-theme filters and default-on label controls.

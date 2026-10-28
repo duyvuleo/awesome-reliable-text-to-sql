@@ -6,8 +6,8 @@
 <meta name="color-scheme" content="light dark">
 <title>Explore · Awesome Reliable Text-to-SQL</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="styles.css?v=adaptive-map-3">
-<script type="module" src="app.mjs?v=reference-map-2"></script>
+<link rel="stylesheet" href="styles.css?v=reading-views-5">
+<script type="module" src="app.mjs?v=reading-views-1"></script>
 </head>
 <body>
 <a class="skip" href="#results">Skip to results</a>
@@ -46,7 +46,9 @@
 </div>
 <section class="results card" id="results" aria-labelledby="results-heading">
 <div class="section-heading"><div><p class="eyebrow">03 / READING LIST</p><h2 id="results-heading">Read the evidence</h2></div><div class="table-controls"><label><span class="sr-only">Sort results</span><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name">Name</option></select></label><button id="export" class="quiet">Export JSON ↓</button></div></div>
-<div class="table-scroll"><table><thead><tr><th>Paper year</th><th>Resource / status</th><th>Summary &amp; evidence</th><th>Details</th></tr></thead><tbody id="rows"></tbody></table></div>
+<div class="results-view-toolbar"><div class="view-switch" role="group" aria-label="Reading list view"><button id="view-table" type="button" aria-pressed="true" aria-controls="table-view">Table</button><button id="view-cards" type="button" aria-pressed="false" aria-controls="cards-view">Cards</button></div><p id="reading-count" role="status" aria-live="polite"></p></div>
+<div id="table-view" class="table-scroll"><table><thead><tr><th>Paper year</th><th>Resource / status</th><th>Summary &amp; evidence</th><th>Details</th></tr></thead><tbody id="rows"></tbody></table></div>
+<div id="cards-view" class="reading-grid" hidden></div>
 <p id="empty" class="empty" hidden>No matching works. Clear a filter or try a broader search.</p>
 </section>
 <footer><div><strong>A map of the collection, not a ranking.</strong><p>Theme connections come from catalog tags, not inferred citations. Explicit paper–resource cross-references remain available in work details. Source inspection is distinct from independent reproduction.</p></div><div><a href="https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/docs/explorer.md">Methods &amp; coverage ↗</a><a href="https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/CONTRIBUTING.md">Suggest a correction ↗</a><span id="source-date"></span></div></footer>

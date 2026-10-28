@@ -2,7 +2,7 @@
 
 [Open the interactive explorer](https://duyvuleo.github.io/awesome-reliable-text-to-sql/) · [Back to the collection](../README.md)
 
-Browse the same annotated catalog through a theme cloud, a graph, and a reading table. Search names, summaries, IDs and original tags; combine resource, paper-year, research-area and code/tool-link filters. Toggle multiple themes and choose **Match any** (union, the default) or **Match all** (intersection) to narrow the list, or inspect a work to read its sources, release notes and benchmark coverage.
+Browse the same annotated catalog through a theme cloud, a graph, and a reading list. Switch the reading list between **Table** and **Cards**; both show the same filtered works, sources and evidence details. Table is the default, and shared URLs retain Cards view with `view=cards`. Search names, summaries, IDs and original tags; combine resource, paper-year, research-area and code/tool-link filters. Toggle multiple themes and choose **Match any** (union, the default) or **Match all** (intersection) to narrow the list, or inspect a work to read its sources, release notes and benchmark coverage.
 
 - **Grouped works:** a paper and resources linking to that paper alone share a node. Resources referencing multiple papers remain separate nodes with explicit links. Every original record is retained.
 - **Themes:** cloud size counts distinct works in this collection, not scientific quality or field-wide importance. Dataset and tool themes inherit their linked papers' tags; these are navigation aids, not independent capability labels.
