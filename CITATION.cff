@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this collection, please cite it using the metadata below."
+type: dataset
+title: "Awesome Reliable Text-to-SQL"
+authors:
+  - family-names: "Hoang"
+    given-names: "Cong Duy Vu"
+repository-code: "https://github.com/duyvuleo/awesome-reliable-text-to-sql"
+url: "https://duyvuleo.github.io/awesome-reliable-text-to-sql/"
+license: CC0-1.0

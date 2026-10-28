@@ -38,6 +38,7 @@ Updated **2026-10-29**. Each paper includes a concise summary, publication statu
 - [Search method and coverage](docs/search-method.md)
 - [Contributing](CONTRIBUTING.md)
 - [Related collections](#related-collections)
+- [Citation](#citation)
 
 ## Interactive explorer
 
@@ -102,6 +103,10 @@ The canonical records are [papers.json](data/papers.json) and [resources.json](d
 - [NL2SQL Handbook](https://github.com/HKUSTDial/NL2SQL_Handbook) — A broader research and engineering reference.
 - [Awesome AI Co-Scientist](https://github.com/duyvuleo/awesome-ai-co-scientist) — A companion annotated collection for agentic scientific discovery.
 - [Awesome](https://github.com/sindresorhus/awesome) — Community guidance for curated lists. The badge identifies the list format; it does not assert inclusion in the central index.
+
+## Citation
+
+If you use this collection, please cite **Cong Duy Vu Hoang, *Awesome Reliable Text-to-SQL***. See [CITATION.cff](CITATION.cff) for machine-readable citation metadata.
 
 ## License
 
