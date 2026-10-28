@@ -2,6 +2,8 @@
 
 ## 2026-10-28
 
+- Adapted the explorer graph to outer topic hubs and an inner work ring, with counts, lighter membership lines, hover emphasis and a summary panel. Retained multi-theme filters and default-on label controls.
+
 - Added Schema-Free Text-to-SQL with an explicit distinction between query-log discovery and its schema-derived BEAVER adaptation.
 - Updated AIR to its verified EMNLP 2026 proceedings record, preserving the existing entry and original addition date.
 

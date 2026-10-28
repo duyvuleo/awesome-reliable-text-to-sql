@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {normalizeState,fromURL,toURL,selectWorks,themeCounts,graphElements,exportRecords} from '../site/model.mjs';
+import {normalizeState,fromURL,toURL,selectWorks,themeCounts,graphElements,exportRecords,ringLayout} from '../site/model.mjs';
 const data=JSON.parse(readFileSync(new URL('../site/data.json',import.meta.url),'utf8'));
 const blank=()=>normalizeState({},data);
 test('default selection preserves all works',()=>assert.equal(selectWorks(data,blank()).length,data.works.length));
@@ -84,4 +84,19 @@ test('labels default on and off preference survives URL and filter changes',()=>
  assert.equal(normalizeState({...off,kind:'paper'},data).labels,false);
  assert.deepEqual(selectWorks(data,off),selectWorks(data,{...off,labels:true}));
  assert.ok(!toURL(blank()).includes('labels='));
+});
+
+test('ring layout preserves nodes and edges with deterministic finite positions',()=>{
+ for(const q of ['', 'clarity', 'zzzz-nothing'])for(const [width,height] of [[1100,620],[350,580]]){
+  const s=normalizeState({q},data),model=graphElements(data,selectWorks(data,s),s),before=JSON.stringify(model);
+  const nodes=ringLayout(model,width,height);
+  assert.deepEqual(nodes,ringLayout(model,width,height));assert.equal(JSON.stringify(model),before);
+  assert.deepEqual(nodes.map(n=>n.data),model.nodes.map(n=>n.data));
+  assert.ok(nodes.every(n=>Number.isFinite(n.position.x)&&Number.isFinite(n.position.y)&&n.position.x>=0&&n.position.x<=width&&n.position.y>=0&&n.position.y<=height));
+ }
+});
+test('topic ring surrounds works for focused selections',()=>{
+ const s=normalizeState({theme:['ambiguity','verification']},data);const nodes=ringLayout(graphElements(data,selectWorks(data,s),s),1000,620);
+ const radius=n=>Math.hypot((n.position.x-500)/1000,(n.position.y-310)/620);
+ assert.ok(Math.min(...nodes.filter(n=>n.data.type==='theme').map(radius))>Math.max(...nodes.filter(n=>n.data.type==='work').map(radius)));
 });

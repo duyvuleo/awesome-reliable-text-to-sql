@@ -1,4 +1,4 @@
-import {fromURL,toURL,normalizeState,selectWorks,themeCounts,graphElements,exportRecords,categoryThemes} from './model.mjs?v=label-toggle-1';
+import {fromURL,toURL,normalizeState,selectWorks,themeCounts,graphElements,exportRecords,categoryThemes,ringLayout} from './model.mjs?v=topic-rings-1';
 const $ = id => document.getElementById(id);
 const repo = 'https://github.com/duyvuleo/awesome-reliable-text-to-sql';
 const names = {paper:'Paper',system:'System',tool:'Tool',benchmark:'Benchmark'};
@@ -89,44 +89,51 @@ function renderDetails(){
 function renderGraph(){
   const model=graphElements(data,visible,state);
   $('graph-empty').hidden=visible.length>0;$('graph-tooltip').hidden=true;
-  $('graph-note').textContent='Dashed links connect works to shared themes. Select multiple themes to compare their coverage, then select a work to inspect it.';
+  $('graph-note').textContent='Outer hubs are themes; inner nodes are works. Lines show catalog topic membership, not citations. Hover to trace connections or select a node to explore.';
   if(!window.cytoscape){$('graph-note').textContent='Graph renderer unavailable. All results and evidence remain accessible in the table.';return;}
   if(cy)cy.destroy();
   const width=$('graph').clientWidth, height=$('graph').clientHeight;
   const workNodes=model.nodes.filter(n=>n.data.type==='work');
   const themeNodes=model.nodes.filter(n=>n.data.type==='theme');
-  // A fixed overview avoids force-layout hairballs and preserves readable hubs.
-  const orbit=(nodes,rx,ry)=>nodes.forEach((n,i)=>{const angle=2*Math.PI*i/nodes.length-Math.PI/2;n.position={x:width/2+rx*Math.cos(angle),y:height/2+ry*Math.sin(angle)};});
-  if(workNodes.length<=3&&themeNodes.length>1){
-    workNodes.forEach((n,i)=>n.position={x:width/2+(i-(workNodes.length-1)/2)*80,y:height/2});
-    orbit(themeNodes,width*.30,height*.34);
-  }else{
-    orbit(workNodes,width*.32,height*.36);
-    const rows=Math.ceil(themeNodes.length/2);
-    themeNodes.forEach((n,i)=>n.position={x:themeNodes.length===1?width/2:width*(i%2?.68:.32),y:rows===1?height/2:height*(.24+.52*Math.floor(i/2)/(rows-1))});
+  model.nodes=ringLayout(model,width,height);
+  $('graph-count').textContent=`${workNodes.length} works · ${themeNodes.length} displayed themes · ${model.edges.length} membership links`;
+  for(const n of model.nodes)if(n.data.type==='theme'){
+    n.data.displayLabel=n.data.name+'\n'+n.data.count;
+    const dx=n.position.x-width/2;
+    n.data.align=Math.abs(dx)<width*.1?'center':dx<0?'left':'right';
+    n.data.offset=Math.abs(dx)<width*.1?0:dx<0?-12:12;
   }
   const css=getComputedStyle(document.documentElement);const color=name=>css.getPropertyValue(name).trim();
   cy=window.cytoscape({container:$('graph'),elements:[...model.nodes,...model.edges],minZoom:.15,maxZoom:4,
     style:[{selector:'node',style:{'font-family':'system-ui','font-size':10,'color':color('--ink'),'text-wrap':'wrap','text-max-width':110,'text-valign':'bottom','text-margin-y':5,'overlay-opacity':0}},
-      {selector:'node[type="work"]',style:{'width':visible.length>40?13:22,'height':visible.length>40?13:22,'label':'data(label)','text-opacity':state.labels?1:0,'font-size':11,'text-background-color':color('--surface'),'text-background-opacity':.85,'text-background-padding':2,'background-color':color('--paper'),'border-width':2,'border-color':color('--surface')}},
+      {selector:'node[type="work"]',style:{'width':visible.length>40?10:15,'height':visible.length>40?10:15,'label':'data(label)','text-opacity':state.labels?1:0,'font-size':10,'text-background-color':color('--surface'),'text-background-opacity':.85,'text-background-padding':2,'background-color':color('--graph-paper'),'border-width':1.5,'border-color':color('--surface')}},
       ...['system','tool','benchmark'].map(k=>({selector:`node[kind="${k}"]`,style:{'background-color':color('--'+k)}})),
-      {selector:'node[type="theme"]',style:{'shape':'round-rectangle','width':node=>Math.max(55,node.data('label').length*6.4),'height':23,'padding':9,'label':'data(label)','font-size':11,'font-weight':600,'text-valign':'center','text-margin-y':0,'background-color':color('--accent-soft'),'color':color('--accent'),'border-width':1,'border-color':color('--line')}},
-      {selector:'edge',style:{'width':1,'line-color':color('--edge'),'curve-style':'bezier','opacity':.65}},
-      {selector:'edge[type="theme"]',style:{'line-style':'dashed'}},
-      {selector:'.faded',style:{'opacity':.45}},
+      {selector:'node[type="theme"]',style:{'shape':'ellipse','width':node=>20+Math.sqrt(node.data('count'))*2,'height':node=>20+Math.sqrt(node.data('count'))*2,'label':'data(displayLabel)','font-size':12,'font-weight':600,'text-valign':'center','text-halign':'data(align)','text-margin-x':'data(offset)','text-margin-y':node=>node.data('align')==='center'?-30:0,'background-color':color('--accent'),'color':color('--ink'),'text-background-color':color('--surface'),'text-background-opacity':.9,'text-background-padding':3,'border-width':2,'border-color':color('--surface')}},
+      {selector:'edge',style:{'width':1,'line-color':color('--edge'),'curve-style':'straight','opacity':.18}},
+      {selector:'node[kind="system"]',style:{'shape':'rectangle'}},
+      {selector:'.faded',style:{'opacity':.12}},
       {selector:'.chosen',style:{'border-width':4,'border-color':color('--accent'),'font-weight':700}},
-      {selector:'.connected',style:{'opacity':1,'line-color':color('--accent'),'width':2}}],
+      {selector:'.connected',style:{'opacity':1,'line-color':color('--accent'),'width':1.8}}],
     layout:{name:'preset',fit:true,padding:55}});
   cy.on('tap','node',event=>{const n=event.target;if(n.data('type')==='theme')chooseTheme(n.data('theme'));else chooseWork(n.data('work'));});
-  cy.on('mouseover','node',event=>{$('graph-tooltip').textContent=event.target.data('name');$('graph-tooltip').hidden=false;});
-  cy.on('mouseout','node',()=>{$('graph-tooltip').hidden=true;});
+  cy.on('mouseover','node',event=>{highlightGraph(event.target.id());renderGraphPreview(event.target.data());});
+  cy.on('mouseout','node',()=>{highlightGraph();renderGraphPreview();});
   cy.on('tap','edge',event=>{$('graph-tooltip').textContent=event.target.data('label');$('graph-tooltip').hidden=false;});
-  // Keep theme labels legible in the full-collection overview.
-  const scale=Math.min(1,cy.zoom());
-  cy.nodes('[type="theme"]').style({'font-size':11/scale,'width':node=>Math.max(55,node.data('label').length*6.4)/scale,'height':23/scale});
-  highlightGraph();
+  renderGraphPreview();highlightGraph();
 }
-function highlightGraph(){if(!cy)return;cy.elements().removeClass('faded chosen connected');if(state.selected){const node=cy.getElementById('w:'+state.selected);if(node.length){cy.elements().addClass('faded');node.closedNeighborhood().removeClass('faded');node.addClass('chosen');node.connectedEdges().addClass('connected');}}}
+function renderGraphPreview(item){
+  const panel=$('graph-preview');panel.replaceChildren();
+  if(!item){panel.append(el('strong','Explore a connection'),el('p','Hover a theme or work to trace its links. Select a work to open its full source and benchmark details.'));return;}
+  panel.append(el('strong',item.name));
+  panel.append(el('p',item.type==='theme'?`${item.count} matching works carry this theme. Select it to toggle the theme filter.`:works.get(item.work).summary));
+}
+function highlightGraph(hoverId){
+  if(!cy)return;cy.elements().removeClass('faded chosen connected');
+  const id=hoverId||(state.selected?'w:'+state.selected:'');if(!id)return;
+  const node=cy.getElementById(id);if(!node.length)return;
+  cy.elements().addClass('faded');node.closedNeighborhood().removeClass('faded');node.addClass('chosen');node.connectedEdges().addClass('connected');
+}
+
 async function init(){
   try{
     const response=await fetch('./data.json');if(!response.ok)throw new Error('Catalog could not be loaded.');data=await response.json();

@@ -2,7 +2,7 @@
 
 [Live explorer](https://duyvuleo.github.io/awesome-reliable-text-to-sql/) · [Reader guide](explorer.md)
 
-The interface adapts the CC0 [AI Co-Scientist explorer](https://github.com/duyvuleo/awesome-ai-co-scientist/blob/main/docs/explorer-development.md). It uses the same static theme-cloud, graph and reading-table design. Cytoscape.js is vendored with its separate MIT license; see [vendor notes](../site/vendor/README.md). There is no bundler, backend, model API, analytics service, remote font or runtime CDN dependency.
+The interface adapts the CC0 [AI Co-Scientist explorer](https://github.com/duyvuleo/awesome-ai-co-scientist/blob/main/docs/explorer-development.md). It uses the same static theme-cloud and reading-table architecture. The graph adapts the outer-topic/inner-work ring design and hover emphasis from [Agents That Learn](https://duyvuleo.github.io/awesome-agents-that-learn/), while retaining multi-theme selection and default-on labels. Cytoscape.js is vendored with its separate MIT license; see [vendor notes](../site/vendor/README.md). There is no bundler, backend, model API, analytics service, remote font or runtime CDN dependency.
 
 ## Source and generated files
 
@@ -12,7 +12,7 @@ The interface adapts the CC0 [AI Co-Scientist explorer](https://github.com/duyvu
 | [Theme vocabulary](../data/explorer-taxonomy.json) | Explicit labels, aliases and excluded administrative tags. Original tags remain unchanged. |
 | [Data adapter](../scripts/explorer_data.py) | Preserves original records and constructs work groups and explicit resource cross-references. |
 | [Renderer](../scripts/render.py) | Generates Markdown and `site/data.json`; `--check` detects stale outputs. |
-| [Selection model](../site/model.mjs) | Pure filtering, graph, URL-state and export functions. |
+| [Selection model](../site/model.mjs) | Pure filtering, graph, deterministic ring layout, URL-state and export functions. |
 | [Interface](../site/app.mjs) | DOM rendering, benchmark inspection, graph interaction and downloads. |
 | [Styles](../site/styles.css) | Responsive layout and automatic light/dark appearance. |
 | [Pages workflow](../.github/workflows/pages.yml) | Validates and uploads only `site/`, then deploys to GitHub Pages. |

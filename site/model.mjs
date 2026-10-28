@@ -76,3 +76,18 @@ export function exportRecords(data, works) {
   return {scope:'Catalog source observations, not execution results.',checked:data.checked,
     work_count:works.length,entries:data.records.filter(r=>ids.has(r.id))};
 }
+
+// Topic hubs surround a stable, topic-ordered ring of works. Geometry is navigation only.
+export function ringLayout(model, width, height) {
+  const narrow=width<600, cx=width/2, cy=height/2;
+  const hubs=model.nodes.filter(n=>n.data.type==='theme');
+  const rank=new Map(hubs.map((n,i)=>[n.data.id,i]));
+  const membership=new Map();
+  for(const e of model.edges){const r=rank.get(e.data.source);if(r!==undefined)membership.set(e.data.target,Math.min(membership.get(e.data.target)??Infinity,r));}
+  const works=model.nodes.filter(n=>n.data.type==='work').sort((a,b)=>(membership.get(a.data.id)??Infinity)-(membership.get(b.data.id)??Infinity)||a.data.name.localeCompare(b.data.name));
+  const positions=new Map();
+  hubs.forEach((n,i)=>{const a=-Math.PI/2+i*2*Math.PI/hubs.length;positions.set(n.data.id,{x:cx+Math.cos(a)*width*(narrow?.29:.35),y:cy+Math.sin(a)*height*.34});});
+  works.forEach((n,i)=>{const a=-Math.PI/2+(i+.5)*2*Math.PI/works.length,stagger=works.length>45?(i%2?10:-10):0;
+    positions.set(n.data.id,{x:cx+Math.cos(a)*(width*(narrow?.18:.23)+stagger),y:cy+Math.sin(a)*(height*.22+stagger)});});
+  return model.nodes.map(n=>({...n,position:positions.get(n.data.id)}));
+}
