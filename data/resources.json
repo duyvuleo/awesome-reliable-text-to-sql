@@ -971,5 +971,41 @@
       "https://github.com/red1dwarf/TEXT-TO-OMOP/blob/main/LICENSE"
     ],
     "checked_on": "2026-10-27"
+  },
+  {
+    "id": "atomsql-system",
+    "name": "AtomSQL",
+    "kind": "system",
+    "paper_ids": [
+      "atomsql"
+    ],
+    "url": "https://github.com/aritra741/AtomSQL",
+    "description": "Interactive interface exposes SQL-atom alternatives and records user preferences for subsequent queries.",
+    "protocol": "Compare model-generated interpretations and select preferred atoms; choices are restricted to generated candidates, with reformulation needed when none fits.",
+    "availability": "Application, model adapters and browser interface source files are visible with setup instructions. Requires configured model backends; not executed or independently reproduced.",
+    "license_note": "No repository license identified in the inspected file tree; verify reuse terms separately from the paper license.",
+    "evidence": [
+      "https://github.com/aritra741/AtomSQL",
+      "https://www.vldb.org/pvldb/vol19/p4514-mazumder.pdf"
+    ],
+    "checked_on": "2026-10-30"
+  },
+  {
+    "id": "cross-lingual-verifier-audit",
+    "name": "Same SQL, Different Decision audit",
+    "kind": "tool",
+    "paper_ids": [
+      "same-sql-different-decision"
+    ],
+    "url": "https://github.com/tokenledger/same-sql-different-decision",
+    "description": "Analysis scripts and saved candidate/verifier outputs for comparing execution decisions across question languages.",
+    "protocol": "Paired language changes with fixed SQL and execution labels; inspect decision transitions alongside coverage and selective risk. English-only SQL generation limits end-to-end multilingual conclusions.",
+    "availability": "Analysis scripts, result tables and saved score-file paths are visible. File contents and reported results were not independently reproduced; some analyses require the upstream databases.",
+    "license_note": "LICENSE states MIT for code and generated result tables. MultiSpider, Spider and model weights retain their own terms; this does not establish blanket terms for all derived data.",
+    "evidence": [
+      "https://github.com/tokenledger/same-sql-different-decision",
+      "https://aclanthology.org/2026.oracle-main.6.pdf"
+    ],
+    "checked_on": "2026-10-30"
   }
 ]

@@ -1522,8 +1522,8 @@
     "id": "taco",
     "title": "TACO: A Benchmark for Open-Domain Text-to-SQL with Ambiguous and Cross-Database Queries",
     "year": 2026,
-    "publication_status": "VLDB 2026 acceptance reported by author repository; arXiv manuscript verified",
-    "primary_url": "https://arxiv.org/abs/2606.14201",
+    "publication_status": "PVLDB 19(6), 2026",
+    "primary_url": "https://www.vldb.org/pvldb/vol19/p1386-fan.pdf",
     "code_url": "https://github.com/Akanezora0/TACO-Benchmark",
     "dataset_url": "https://huggingface.co/datasets/Akanezora/TACO-Benchmark",
     "topics": [
@@ -1537,9 +1537,10 @@
     "evidence": [
       "https://arxiv.org/abs/2606.14201",
       "https://github.com/Akanezora0/TACO-Benchmark",
-      "https://huggingface.co/datasets/Akanezora/TACO-Benchmark"
+      "https://huggingface.co/datasets/Akanezora/TACO-Benchmark",
+      "https://www.vldb.org/pvldb/vol19/p1386-fan.pdf"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-10-30",
     "artifact_status": "Public code and official linked dataset card verified; not downloaded or executed. Both repository and dataset card declare MIT. Paper describes 14,500 examples, while the current Hugging Face card reports 12,422 JSON examples and 46 SQLite databases; distinguish the described benchmark from the released snapshot.",
     "category": "ambiguity",
     "source_depth": "primary-record",
@@ -1879,5 +1880,60 @@
     "source_depth": "targeted-full-text",
     "artifact_status": "Public proceedings paper inspected; no official code or dataset release verified in this pass.",
     "added_on": "2026-10-29"
+  },
+  {
+    "id": "atomsql",
+    "title": "AtomSQL: Interactive Disambiguation of NL-to-SQL via User-Guided Atom-Level Alignment",
+    "year": 2026,
+    "publication_status": "PVLDB 19(12), 2026 demonstration",
+    "primary_url": "https://www.vldb.org/pvldb/vol19/p4514-mazumder.pdf",
+    "code_url": "https://github.com/aritra741/AtomSQL",
+    "dataset_url": null,
+    "category": "interaction",
+    "scope": "core",
+    "topics": [
+      "ambiguity",
+      "clarification",
+      "human-in-the-loop",
+      "uncertainty"
+    ],
+    "summary": "Exposes disagreements between SQL candidates as clause-level atoms aligned with phrases in the question, then uses user selections to adjust future preferences. The demonstration makes alternative interpretations inspectable, but resolution is limited to candidates supplied by the active models: users must reformulate when none expresses their intent.",
+    "evidence": [
+      "https://www.vldb.org/pvldb/vol19/p4514-mazumder.pdf",
+      "https://github.com/aritra741/AtomSQL",
+      "https://vldb.org/2026/demonstrations.html"
+    ],
+    "artifact_status": "Public application, model-adapter and interface source files are visible. The demo was not executed, and no repository license was identified in the inspected file tree.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-10-30",
+    "added_on": "2026-10-30"
+  },
+  {
+    "id": "same-sql-different-decision",
+    "title": "Same SQL, Different Decision: Aggregate Risk Hides Cross-Lingual Instability in Text-to-SQL Verification",
+    "year": 2026,
+    "publication_status": "ORACLE workshop at EMNLP 2026",
+    "primary_url": "https://aclanthology.org/2026.oracle-main.6/",
+    "code_url": "https://github.com/tokenledger/same-sql-different-decision",
+    "dataset_url": "https://github.com/tokenledger/same-sql-different-decision/tree/main/data/big",
+    "category": "verification",
+    "scope": "core",
+    "topics": [
+      "verification",
+      "abstention",
+      "calibration",
+      "multilingual",
+      "evaluation"
+    ],
+    "summary": "Holds candidate SQL, schema and execution labels fixed while varying question language to audit execute-or-defer decisions. Similar aggregate risk can hide different queries being executed; the study tests score adjustment and translation to English. Results concern English-generated SQL and two main verifiers, with execution-match labels and imperfect translation limiting semantic and end-to-end claims.",
+    "evidence": [
+      "https://aclanthology.org/2026.oracle-main.6/",
+      "https://aclanthology.org/2026.oracle-main.6.pdf",
+      "https://github.com/tokenledger/same-sql-different-decision"
+    ],
+    "artifact_status": "Official repository lists analysis code, candidate SQL, execution labels and verifier-score files. Artifacts were inspected by description and file inventory, not downloaded or independently reproduced; source datasets and model weights have separate terms.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-10-30",
+    "added_on": "2026-10-30"
   }
 ]

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-30
+
+- Added AtomSQL and Same SQL, Different Decision with concise summaries of candidate-limited interaction and multilingual execute/defer instability.
+- Added the AtomSQL system and multilingual audit tool, distinguishing visible source and saved outputs from reproduced results and verified reuse terms.
+- Updated TACO to its verified PVLDB proceedings record, preserving its original addition date and released-snapshot qualification.
+
 ## 2026-10-29
 
 - Added the AIDB 2025 intent-scoping and paraphrasing paper, with partial answerability and component-level limitations made explicit.

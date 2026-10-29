@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-29",
-  "updated": "2026-10-29",
+  "checked": "2026-10-30",
+  "updated": "2026-10-30",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 73,
-    "system": 12,
-    "tool": 13,
+    "paper": 75,
+    "system": 13,
+    "tool": 14,
     "benchmark": 28
   },
   "categories": {
@@ -122,6 +122,34 @@
       "kinds": [
         "benchmark",
         "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "atomsql",
+      "name": "AtomSQL: Interactive Disambiguation of NL-to-SQL via User-Guided Atom-Level Alignment",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Exposes disagreements between SQL candidates as clause-level atoms aligned with phrases in the question, then uses user selections to adjust future preferences. The demonstration makes alternative interpretations inspectable, but resolution is limited to candidates supplied by the active models: users must reformulate when none expresses their intent.",
+      "entry_ids": [
+        "atomsql",
+        "atomsql-system"
+      ],
+      "themes": [
+        "ambiguity",
+        "clarification",
+        "human-in-the-loop",
+        "uncertainty"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "kinds": [
+        "paper",
+        "system"
       ],
       "years": [
         2026
@@ -840,6 +868,35 @@
         "answerability"
       ],
       "kinds": [
+        "tool"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "same-sql-different-decision",
+      "name": "Same SQL, Different Decision: Aggregate Risk Hides Cross-Lingual Instability in Text-to-SQL Verification",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Holds candidate SQL, schema and execution labels fixed while varying question language to audit execute-or-defer decisions. Similar aggregate risk can hide different queries being executed; the study tests score adjustment and translation to English. Results concern English-generated SQL and two main verifiers, with execution-match labels and imperfect translation limiting semantic and end-to-end claims.",
+      "entry_ids": [
+        "same-sql-different-decision",
+        "cross-lingual-verifier-audit"
+      ],
+      "themes": [
+        "abstention",
+        "calibration",
+        "evaluation",
+        "multilingual",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper",
         "tool"
       ],
       "years": [
@@ -5396,16 +5453,17 @@
       "categories": [
         "ambiguity"
       ],
-      "evidence": "VLDB 2026 acceptance reported by author repository; arXiv manuscript verified",
+      "evidence": "PVLDB 19(6), 2026",
       "status": "Public code and official linked dataset card verified; not downloaded or executed. Both repository and dataset card declare MIT. Paper describes 14,500 examples, while the current Hugging Face card reports 12,422 JSON examples and 46 SQLite databases; distinguish the described benchmark from the released snapshot.",
       "sources": [
         "https://arxiv.org/abs/2606.14201",
         "https://github.com/Akanezora0/TACO-Benchmark",
-        "https://huggingface.co/datasets/Akanezora/TACO-Benchmark"
+        "https://huggingface.co/datasets/Akanezora/TACO-Benchmark",
+        "https://www.vldb.org/pvldb/vol19/p1386-fan.pdf"
       ],
-      "checked": "2026-10-22",
+      "checked": "2026-10-30",
       "added_on": "2026-10-22",
-      "url": "https://arxiv.org/abs/2606.14201",
+      "url": "https://www.vldb.org/pvldb/vol19/p1386-fan.pdf",
       "code_links": [
         "https://github.com/Akanezora0/TACO-Benchmark"
       ],
@@ -5414,8 +5472,8 @@
         "id": "taco",
         "title": "TACO: A Benchmark for Open-Domain Text-to-SQL with Ambiguous and Cross-Database Queries",
         "year": 2026,
-        "publication_status": "VLDB 2026 acceptance reported by author repository; arXiv manuscript verified",
-        "primary_url": "https://arxiv.org/abs/2606.14201",
+        "publication_status": "PVLDB 19(6), 2026",
+        "primary_url": "https://www.vldb.org/pvldb/vol19/p1386-fan.pdf",
         "code_url": "https://github.com/Akanezora0/TACO-Benchmark",
         "dataset_url": "https://huggingface.co/datasets/Akanezora/TACO-Benchmark",
         "topics": [
@@ -5429,9 +5487,10 @@
         "evidence": [
           "https://arxiv.org/abs/2606.14201",
           "https://github.com/Akanezora0/TACO-Benchmark",
-          "https://huggingface.co/datasets/Akanezora/TACO-Benchmark"
+          "https://huggingface.co/datasets/Akanezora/TACO-Benchmark",
+          "https://www.vldb.org/pvldb/vol19/p1386-fan.pdf"
         ],
-        "checked_on": "2026-10-22",
+        "checked_on": "2026-10-30",
         "artifact_status": "Public code and official linked dataset card verified; not downloaded or executed. Both repository and dataset card declare MIT. Paper describes 14,500 examples, while the current Hugging Face card reports 12,422 JSON examples and 46 SQLite databases; distinguish the described benchmark from the released snapshot.",
         "category": "ambiguity",
         "source_depth": "primary-record",
@@ -6170,6 +6229,128 @@
         "added_on": "2026-10-29"
       },
       "work_id": "intent-scoping-paraphrasing"
+    },
+    {
+      "id": "atomsql",
+      "name": "AtomSQL: Interactive Disambiguation of NL-to-SQL via User-Guided Atom-Level Alignment",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Exposes disagreements between SQL candidates as clause-level atoms aligned with phrases in the question, then uses user selections to adjust future preferences. The demonstration makes alternative interpretations inspectable, but resolution is limited to candidates supplied by the active models: users must reformulate when none expresses their intent.",
+      "tags": [
+        "ambiguity",
+        "clarification",
+        "human-in-the-loop",
+        "uncertainty"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "PVLDB 19(12), 2026 demonstration",
+      "status": "Public application, model-adapter and interface source files are visible. The demo was not executed, and no repository license was identified in the inspected file tree.",
+      "sources": [
+        "https://www.vldb.org/pvldb/vol19/p4514-mazumder.pdf",
+        "https://github.com/aritra741/AtomSQL",
+        "https://vldb.org/2026/demonstrations.html"
+      ],
+      "checked": "2026-10-30",
+      "added_on": "2026-10-30",
+      "url": "https://www.vldb.org/pvldb/vol19/p4514-mazumder.pdf",
+      "code_links": [
+        "https://github.com/aritra741/AtomSQL"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#atomsql",
+      "original": {
+        "id": "atomsql",
+        "title": "AtomSQL: Interactive Disambiguation of NL-to-SQL via User-Guided Atom-Level Alignment",
+        "year": 2026,
+        "publication_status": "PVLDB 19(12), 2026 demonstration",
+        "primary_url": "https://www.vldb.org/pvldb/vol19/p4514-mazumder.pdf",
+        "code_url": "https://github.com/aritra741/AtomSQL",
+        "dataset_url": null,
+        "category": "interaction",
+        "scope": "core",
+        "topics": [
+          "ambiguity",
+          "clarification",
+          "human-in-the-loop",
+          "uncertainty"
+        ],
+        "summary": "Exposes disagreements between SQL candidates as clause-level atoms aligned with phrases in the question, then uses user selections to adjust future preferences. The demonstration makes alternative interpretations inspectable, but resolution is limited to candidates supplied by the active models: users must reformulate when none expresses their intent.",
+        "evidence": [
+          "https://www.vldb.org/pvldb/vol19/p4514-mazumder.pdf",
+          "https://github.com/aritra741/AtomSQL",
+          "https://vldb.org/2026/demonstrations.html"
+        ],
+        "artifact_status": "Public application, model-adapter and interface source files are visible. The demo was not executed, and no repository license was identified in the inspected file tree.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-10-30",
+        "added_on": "2026-10-30"
+      },
+      "work_id": "atomsql"
+    },
+    {
+      "id": "same-sql-different-decision",
+      "name": "Same SQL, Different Decision: Aggregate Risk Hides Cross-Lingual Instability in Text-to-SQL Verification",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Holds candidate SQL, schema and execution labels fixed while varying question language to audit execute-or-defer decisions. Similar aggregate risk can hide different queries being executed; the study tests score adjustment and translation to English. Results concern English-generated SQL and two main verifiers, with execution-match labels and imperfect translation limiting semantic and end-to-end claims.",
+      "tags": [
+        "verification",
+        "abstention",
+        "calibration",
+        "multilingual",
+        "evaluation"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "ORACLE workshop at EMNLP 2026",
+      "status": "Official repository lists analysis code, candidate SQL, execution labels and verifier-score files. Artifacts were inspected by description and file inventory, not downloaded or independently reproduced; source datasets and model weights have separate terms.",
+      "sources": [
+        "https://aclanthology.org/2026.oracle-main.6/",
+        "https://aclanthology.org/2026.oracle-main.6.pdf",
+        "https://github.com/tokenledger/same-sql-different-decision"
+      ],
+      "checked": "2026-10-30",
+      "added_on": "2026-10-30",
+      "url": "https://aclanthology.org/2026.oracle-main.6/",
+      "code_links": [
+        "https://github.com/tokenledger/same-sql-different-decision"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#same-sql-different-decision",
+      "original": {
+        "id": "same-sql-different-decision",
+        "title": "Same SQL, Different Decision: Aggregate Risk Hides Cross-Lingual Instability in Text-to-SQL Verification",
+        "year": 2026,
+        "publication_status": "ORACLE workshop at EMNLP 2026",
+        "primary_url": "https://aclanthology.org/2026.oracle-main.6/",
+        "code_url": "https://github.com/tokenledger/same-sql-different-decision",
+        "dataset_url": "https://github.com/tokenledger/same-sql-different-decision/tree/main/data/big",
+        "category": "verification",
+        "scope": "core",
+        "topics": [
+          "verification",
+          "abstention",
+          "calibration",
+          "multilingual",
+          "evaluation"
+        ],
+        "summary": "Holds candidate SQL, schema and execution labels fixed while varying question language to audit execute-or-defer decisions. Similar aggregate risk can hide different queries being executed; the study tests score adjustment and translation to English. Results concern English-generated SQL and two main verifiers, with execution-match labels and imperfect translation limiting semantic and end-to-end claims.",
+        "evidence": [
+          "https://aclanthology.org/2026.oracle-main.6/",
+          "https://aclanthology.org/2026.oracle-main.6.pdf",
+          "https://github.com/tokenledger/same-sql-different-decision"
+        ],
+        "artifact_status": "Official repository lists analysis code, candidate SQL, execution labels and verifier-score files. Artifacts were inspected by description and file inventory, not downloaded or independently reproduced; source datasets and model weights have separate terms.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-10-30",
+        "added_on": "2026-10-30"
+      },
+      "work_id": "same-sql-different-decision"
     },
     {
       "id": "clarity-pipeline",
@@ -8784,18 +8965,119 @@
         "checked_on": "2026-10-27"
       },
       "work_id": "text-to-omop"
+    },
+    {
+      "id": "atomsql-system",
+      "name": "AtomSQL",
+      "kind": "system",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Interactive interface exposes SQL-atom alternatives and records user preferences for subsequent queries.",
+      "tags": [
+        "ambiguity",
+        "clarification",
+        "human-in-the-loop",
+        "uncertainty"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "resource",
+      "status": "Application, model adapters and browser interface source files are visible with setup instructions. Requires configured model backends; not executed or independently reproduced.",
+      "sources": [
+        "https://github.com/aritra741/AtomSQL",
+        "https://www.vldb.org/pvldb/vol19/p4514-mazumder.pdf"
+      ],
+      "checked": "2026-10-30",
+      "added_on": null,
+      "url": "https://github.com/aritra741/AtomSQL",
+      "code_links": [
+        "https://github.com/aritra741/AtomSQL"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#atomsql-system",
+      "original": {
+        "id": "atomsql-system",
+        "name": "AtomSQL",
+        "kind": "system",
+        "paper_ids": [
+          "atomsql"
+        ],
+        "url": "https://github.com/aritra741/AtomSQL",
+        "description": "Interactive interface exposes SQL-atom alternatives and records user preferences for subsequent queries.",
+        "protocol": "Compare model-generated interpretations and select preferred atoms; choices are restricted to generated candidates, with reformulation needed when none fits.",
+        "availability": "Application, model adapters and browser interface source files are visible with setup instructions. Requires configured model backends; not executed or independently reproduced.",
+        "license_note": "No repository license identified in the inspected file tree; verify reuse terms separately from the paper license.",
+        "evidence": [
+          "https://github.com/aritra741/AtomSQL",
+          "https://www.vldb.org/pvldb/vol19/p4514-mazumder.pdf"
+        ],
+        "checked_on": "2026-10-30"
+      },
+      "work_id": "atomsql"
+    },
+    {
+      "id": "cross-lingual-verifier-audit",
+      "name": "Same SQL, Different Decision audit",
+      "kind": "tool",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Analysis scripts and saved candidate/verifier outputs for comparing execution decisions across question languages.",
+      "tags": [
+        "abstention",
+        "calibration",
+        "evaluation",
+        "multilingual",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "Analysis scripts, result tables and saved score-file paths are visible. File contents and reported results were not independently reproduced; some analyses require the upstream databases.",
+      "sources": [
+        "https://github.com/tokenledger/same-sql-different-decision",
+        "https://aclanthology.org/2026.oracle-main.6.pdf"
+      ],
+      "checked": "2026-10-30",
+      "added_on": null,
+      "url": "https://github.com/tokenledger/same-sql-different-decision",
+      "code_links": [
+        "https://github.com/tokenledger/same-sql-different-decision"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#cross-lingual-verifier-audit",
+      "original": {
+        "id": "cross-lingual-verifier-audit",
+        "name": "Same SQL, Different Decision audit",
+        "kind": "tool",
+        "paper_ids": [
+          "same-sql-different-decision"
+        ],
+        "url": "https://github.com/tokenledger/same-sql-different-decision",
+        "description": "Analysis scripts and saved candidate/verifier outputs for comparing execution decisions across question languages.",
+        "protocol": "Paired language changes with fixed SQL and execution labels; inspect decision transitions alongside coverage and selective risk. English-only SQL generation limits end-to-end multilingual conclusions.",
+        "availability": "Analysis scripts, result tables and saved score-file paths are visible. File contents and reported results were not independently reproduced; some analyses require the upstream databases.",
+        "license_note": "LICENSE states MIT for code and generated result tables. MultiSpider, Spider and model weights retain their own terms; this does not establish blanket terms for all derived data.",
+        "evidence": [
+          "https://github.com/tokenledger/same-sql-different-decision",
+          "https://aclanthology.org/2026.oracle-main.6.pdf"
+        ],
+        "checked_on": "2026-10-30"
+      },
+      "work_id": "same-sql-different-decision"
     }
   ],
   "themes": [
     {
       "id": "ambiguity",
       "label": "Ambiguity",
-      "count": 32
+      "count": 33
     },
     {
       "id": "clarification",
       "label": "Clarification",
-      "count": 27
+      "count": 28
     },
     {
       "id": "unanswerability",
@@ -8805,26 +9087,26 @@
     {
       "id": "abstention",
       "label": "Abstention",
-      "count": 15
+      "count": 16
     },
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 11
+      "count": 12
     },
     {
       "id": "uncertainty",
       "label": "Uncertainty",
-      "count": 11
-    },
-    {
-      "id": "interactive-system",
-      "label": "Interactive system",
-      "count": 9
+      "count": 12
     },
     {
       "id": "verification",
       "label": "Verification",
+      "count": 10
+    },
+    {
+      "id": "interactive-system",
+      "label": "Interactive system",
       "count": 9
     },
     {
@@ -8858,8 +9140,18 @@
       "count": 3
     },
     {
+      "id": "calibration",
+      "label": "Calibration",
+      "count": 3
+    },
+    {
       "id": "conversation",
       "label": "Conversation",
+      "count": 3
+    },
+    {
+      "id": "human-in-the-loop",
+      "label": "Human in the loop",
       "count": 3
     },
     {
@@ -8870,11 +9162,6 @@
     {
       "id": "agent",
       "label": "Agent",
-      "count": 2
-    },
-    {
-      "id": "calibration",
-      "label": "Calibration",
       "count": 2
     },
     {
@@ -8910,11 +9197,6 @@
     {
       "id": "formal-verification",
       "label": "Formal verification",
-      "count": 2
-    },
-    {
-      "id": "human-in-the-loop",
-      "label": "Human in the loop",
       "count": 2
     },
     {
@@ -9050,6 +9332,11 @@
     {
       "id": "missing-knowledge",
       "label": "Missing knowledge",
+      "count": 1
+    },
+    {
+      "id": "multilingual",
+      "label": "Multilingual",
       "count": 1
     },
     {
