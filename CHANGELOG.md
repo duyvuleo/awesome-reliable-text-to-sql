@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-31
+
+- Added two 2025 clinical answerability studies: schema-description-based SQD and retrieval-based RaQAD, resolving the earlier CIKM literature lead.
+- Distinguished SQD's full-text limitations from RaQAD's abstract-level evidence; recorded inaccessible artifact/publisher endpoints without inferring that implementations do not exist.
+- Kept dataset and system counts unchanged: these are method papers, with no newly verified artifact release.
+
 ## 2026-10-30
 
 - Added AtomSQL and Same SQL, Different Decision with concise summaries of candidate-limited interaction and multilingual execute/defer instability.

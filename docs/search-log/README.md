@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-10-31: clinical answerability methods and artifact checks](2026-10-31.md)
+
 - [2026-10-30: multilingual verification and interactive disambiguation](2026-10-30.md)
 
 - [2026-10-29: partial answerability and TIDE publication](2026-10-29.md)

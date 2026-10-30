@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "checked": "2026-10-30",
-  "updated": "2026-10-30",
+  "checked": "2026-10-31",
+  "updated": "2026-10-31",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 75,
+    "paper": 77,
     "system": 13,
     "tool": 14,
     "benchmark": 28
@@ -1405,6 +1405,32 @@
       ]
     },
     {
+      "id": "sqd-schema-descriptions",
+      "name": "Leveraging LLM-Generated Schema Descriptions for Unanswerable Question Detection in Clinical Data",
+      "date": "2025",
+      "year": 2025,
+      "kind": "paper",
+      "summary": "SQD trains an encoder to predict question-schema relevance using LLM-generated schema descriptions, then thresholds those scores to detect unanswerable requests before SQL generation. Evaluation uses EHRSQL 2024. The paper identifies failures requiring database-content checks and leaves generalization to new schemas untested; schema relevance does not establish downstream SQL correctness.",
+      "entry_ids": [
+        "sqd-schema-descriptions"
+      ],
+      "themes": [
+        "answerability",
+        "clinical",
+        "schema-linking",
+        "unanswerability"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2025
+      ]
+    },
+    {
       "id": "linkalign-ambidb",
       "name": "LinkAlign: Scalable Schema Linking for Real-World Large-Scale Multi-Database Text-to-SQL",
       "date": "2025",
@@ -1499,6 +1525,32 @@
       "themes": [
         "abstention",
         "clinical",
+        "unanswerability"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2025
+      ]
+    },
+    {
+      "id": "raqad",
+      "name": "RAG-based Unanswerable Question Detection in Clinical Text-to-SQL",
+      "date": "2025",
+      "year": 2025,
+      "kind": "paper",
+      "summary": "RaQAD retrieves semantically similar examples for few-shot LLM prompts that classify whether clinical database questions are answerable, without additional model training. The institutional abstract reports clinical experiments and adaptation to schema changes. This supports inclusion as an answerability-screening method; detailed evaluation conditions, downstream SQL correctness and clarification behavior were not verified from full text.",
+      "entry_ids": [
+        "raqad"
+      ],
+      "themes": [
+        "answerability",
+        "clinical",
+        "retrieval",
         "unanswerability"
       ],
       "categories": [
@@ -6353,6 +6405,120 @@
       "work_id": "same-sql-different-decision"
     },
     {
+      "id": "sqd-schema-descriptions",
+      "name": "Leveraging LLM-Generated Schema Descriptions for Unanswerable Question Detection in Clinical Data",
+      "kind": "paper",
+      "year": 2025,
+      "date": "2025",
+      "date_label": "Publication year",
+      "summary": "SQD trains an encoder to predict question-schema relevance using LLM-generated schema descriptions, then thresholds those scores to detect unanswerable requests before SQL generation. Evaluation uses EHRSQL 2024. The paper identifies failures requiring database-content checks and leaves generalization to new schemas untested; schema relevance does not establish downstream SQL correctness.",
+      "tags": [
+        "unanswerability",
+        "answerability",
+        "clinical",
+        "schema-linking"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "COLING 2025",
+      "status": "The paper links venzino-han/ehr_schema_prediction, but both its GitHub page and API returned 404 on this check; public implementation availability is unverified. This does not establish that no implementation exists. No new dataset release or independent reproduction verified.",
+      "sources": [
+        "https://aclanthology.org/2025.coling-main.706/",
+        "https://aclanthology.org/2025.coling-main.706.pdf"
+      ],
+      "checked": "2026-10-31",
+      "added_on": "2026-10-31",
+      "url": "https://aclanthology.org/2025.coling-main.706/",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#sqd-schema-descriptions",
+      "original": {
+        "id": "sqd-schema-descriptions",
+        "title": "Leveraging LLM-Generated Schema Descriptions for Unanswerable Question Detection in Clinical Data",
+        "year": 2025,
+        "publication_status": "COLING 2025",
+        "primary_url": "https://aclanthology.org/2025.coling-main.706/",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "answerability",
+        "scope": "core",
+        "topics": [
+          "unanswerability",
+          "answerability",
+          "clinical",
+          "schema-linking"
+        ],
+        "summary": "SQD trains an encoder to predict question-schema relevance using LLM-generated schema descriptions, then thresholds those scores to detect unanswerable requests before SQL generation. Evaluation uses EHRSQL 2024. The paper identifies failures requiring database-content checks and leaves generalization to new schemas untested; schema relevance does not establish downstream SQL correctness.",
+        "evidence": [
+          "https://aclanthology.org/2025.coling-main.706/",
+          "https://aclanthology.org/2025.coling-main.706.pdf"
+        ],
+        "artifact_status": "The paper links venzino-han/ehr_schema_prediction, but both its GitHub page and API returned 404 on this check; public implementation availability is unverified. This does not establish that no implementation exists. No new dataset release or independent reproduction verified.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-10-31",
+        "added_on": "2026-10-31"
+      },
+      "work_id": "sqd-schema-descriptions"
+    },
+    {
+      "id": "raqad",
+      "name": "RAG-based Unanswerable Question Detection in Clinical Text-to-SQL",
+      "kind": "paper",
+      "year": 2025,
+      "date": "2025",
+      "date_label": "Publication year",
+      "summary": "RaQAD retrieves semantically similar examples for few-shot LLM prompts that classify whether clinical database questions are answerable, without additional model training. The institutional abstract reports clinical experiments and adaptation to schema changes. This supports inclusion as an answerability-screening method; detailed evaluation conditions, downstream SQL correctness and clarification behavior were not verified from full text.",
+      "tags": [
+        "unanswerability",
+        "answerability",
+        "clinical",
+        "retrieval"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "CIKM 2025",
+      "status": "Title, authors, CIKM publication and abstract verified through the institutional record and author page. Publisher HTML and PDF returned 403 during this pass. No official code or dataset release verified.",
+      "sources": [
+        "https://pure.kaist.ac.kr/en/publications/rag-based-unanswerable-question-detection-in-clinical-text-to-sql/",
+        "https://doi.org/10.1145/3746252.3760821",
+        "https://github.com/SeungjaeLim"
+      ],
+      "checked": "2026-10-31",
+      "added_on": "2026-10-31",
+      "url": "https://pure.kaist.ac.kr/en/publications/rag-based-unanswerable-question-detection-in-clinical-text-to-sql/",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#raqad",
+      "original": {
+        "id": "raqad",
+        "title": "RAG-based Unanswerable Question Detection in Clinical Text-to-SQL",
+        "year": 2025,
+        "publication_status": "CIKM 2025",
+        "primary_url": "https://pure.kaist.ac.kr/en/publications/rag-based-unanswerable-question-detection-in-clinical-text-to-sql/",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "answerability",
+        "scope": "core",
+        "topics": [
+          "unanswerability",
+          "answerability",
+          "clinical",
+          "retrieval"
+        ],
+        "summary": "RaQAD retrieves semantically similar examples for few-shot LLM prompts that classify whether clinical database questions are answerable, without additional model training. The institutional abstract reports clinical experiments and adaptation to schema changes. This supports inclusion as an answerability-screening method; detailed evaluation conditions, downstream SQL correctness and clarification behavior were not verified from full text.",
+        "evidence": [
+          "https://pure.kaist.ac.kr/en/publications/rag-based-unanswerable-question-detection-in-clinical-text-to-sql/",
+          "https://doi.org/10.1145/3746252.3760821",
+          "https://github.com/SeungjaeLim"
+        ],
+        "artifact_status": "Title, authors, CIKM publication and abstract verified through the institutional record and author page. Publisher HTML and PDF returned 403 during this pass. No official code or dataset release verified.",
+        "source_depth": "primary-record",
+        "checked_on": "2026-10-31",
+        "added_on": "2026-10-31"
+      },
+      "work_id": "raqad"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -9082,7 +9248,7 @@
     {
       "id": "unanswerability",
       "label": "Unanswerability",
-      "count": 19
+      "count": 21
     },
     {
       "id": "abstention",
@@ -9105,19 +9271,19 @@
       "count": 10
     },
     {
+      "id": "clinical",
+      "label": "Clinical",
+      "count": 9
+    },
+    {
       "id": "interactive-system",
       "label": "Interactive system",
       "count": 9
     },
     {
-      "id": "clinical",
-      "label": "Clinical",
-      "count": 7
-    },
-    {
       "id": "schema-linking",
       "label": "Schema linking",
-      "count": 6
+      "count": 7
     },
     {
       "id": "sql-equivalence",
@@ -9125,14 +9291,14 @@
       "count": 6
     },
     {
+      "id": "answerability",
+      "label": "Answerability",
+      "count": 5
+    },
+    {
       "id": "interpretation-coverage",
       "label": "Interpretation coverage",
       "count": 4
-    },
-    {
-      "id": "answerability",
-      "label": "Answerability",
-      "count": 3
     },
     {
       "id": "benchmark-quality",
@@ -9372,6 +9538,11 @@
     {
       "id": "reliability",
       "label": "Reliability",
+      "count": 1
+    },
+    {
+      "id": "retrieval",
+      "label": "Retrieval",
       "count": 1
     },
     {
