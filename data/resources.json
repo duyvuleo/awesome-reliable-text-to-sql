@@ -1007,5 +1007,23 @@
       "https://aclanthology.org/2026.oracle-main.6.pdf"
     ],
     "checked_on": "2026-10-30"
+  },
+  {
+    "id": "lasso-tool",
+    "name": "LASSO SQL validator",
+    "kind": "tool",
+    "paper_ids": [
+      "lasso"
+    ],
+    "url": "https://gitlab.com/xdata/lasso",
+    "description": "Generates targeted test databases for standalone SQL testing and candidate/reference counterexample discovery.",
+    "protocol": "Mutation-focused test generation and cross-checking under explicit normalization and result-comparison rules. A found counterexample refutes the tested pair; absence of one does not prove equivalence or alignment with user intent.",
+    "availability": "Public README, source-module inventory, tests and experiment directory verified. Dependencies, generated datasets and reported results were not executed or independently reproduced.",
+    "license_note": "No root license identified in the inspected project tree; repository and bundled dependency/data reuse terms remain unverified.",
+    "evidence": [
+      "https://gitlab.com/xdata/lasso",
+      "https://arxiv.org/html/2610.38294v1"
+    ],
+    "checked_on": "2026-11-01"
   }
 ]

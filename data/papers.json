@@ -1988,5 +1988,58 @@
     "source_depth": "primary-record",
     "checked_on": "2026-10-31",
     "added_on": "2026-10-31"
+  },
+  {
+    "id": "kode",
+    "title": "KODE: Mining Implicit Domain Knowledge from Historical Experience for Text-to-SQL",
+    "year": 2026,
+    "publication_status": "Findings of EMNLP 2026",
+    "primary_url": "https://aclanthology.org/2026.findings-emnlp.2032/",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "context",
+    "scope": "adjacent",
+    "topics": [
+      "context",
+      "underspecification",
+      "verification",
+      "agent"
+    ],
+    "summary": "Mines graph-aligned question/SQL histories into templates for omitted joins, formulas and domain filters, then retrieves and checks them during generation. It supports grounding underspecified requests but depends on validated or accumulating in-domain traces. Evaluations distinguish in-domain reuse from abstract cross-schema transfer; the authors identify verification bias and inherited log errors as limitations.",
+    "evidence": [
+      "https://aclanthology.org/2026.findings-emnlp.2032/",
+      "https://aclanthology.org/2026.findings-emnlp.2032.pdf"
+    ],
+    "artifact_status": "Public proceedings paper inspected; no official implementation or new dataset release verified. Execution-accuracy experiments do not establish live-user clarification or unanswerability detection.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-01",
+    "added_on": "2026-11-01"
+  },
+  {
+    "id": "lasso",
+    "title": "LASSO: An LLM-Agent Synthesized System for SQL Validation",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2610.38294",
+    "code_url": "https://gitlab.com/xdata/lasso",
+    "dataset_url": null,
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "evaluation",
+      "sql-equivalence",
+      "test-generation",
+      "verification"
+    ],
+    "summary": "Builds a heuristic test-data generator using agent-assisted coding, with targeted mutation strategies and cross-checking to expose SQL-result differences. Evaluation measures refutations on sanitized query pairs, not NL-to-SQL accuracy or proof of equivalence. Results depend on normalization, supported dialects and comparison rules; the unseen BEAVER check covers ten queries from one schema.",
+    "evidence": [
+      "https://arxiv.org/abs/2610.38294",
+      "https://arxiv.org/html/2610.38294v1",
+      "https://gitlab.com/xdata/lasso"
+    ],
+    "artifact_status": "Public GitLab source and test directories plus README verified via the project API. Experiment contents were not audited or run. No root repository license identified; the manuscript contains placeholder PVLDB citation fields, so venue publication is not inferred.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-01",
+    "added_on": "2026-11-01"
   }
 ]

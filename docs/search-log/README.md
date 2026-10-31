@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-11-01: historical grounding and SQL counterexamples](2026-11-01.md)
+
 - [2026-10-31: clinical answerability methods and artifact checks](2026-10-31.md)
 
 - [2026-10-30: multilingual verification and interactive disambiguation](2026-10-30.md)

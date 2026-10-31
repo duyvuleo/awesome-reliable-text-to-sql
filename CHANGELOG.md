@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-01
+
+- Added KODE after inspecting its history-dependent grounding protocol and limitations, resolving the earlier public literature lead.
+- Added the LASSO preprint and SQL-validation tool, distinguishing counterexample discovery from equivalence proof and generated-SQL accuracy.
+- Verified visible LASSO source through the official GitLab API; retained unverified license and reproduction boundaries and did not infer a venue from manuscript placeholders.
+
 ## 2026-10-31
 
 - Added two 2025 clinical answerability studies: schema-description-based SQD and retrieval-based RaQAD, resolving the earlier CIKM literature lead.
