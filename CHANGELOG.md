@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-02
+
+- Added the KDD 2025 NL2SQL-BUGs paper, official annotation-data entry and benchmark comparison, resolving the prior semantic-error-evaluation lead.
+- Distinguished candidate-SQL correctness from request answerability and clarification; preserved the reference-dependent labeling and artifact-access limitations.
+- Verified annotation-file availability without claiming an executable evaluator, dataset license or independent reproduction.
+
 ## 2026-11-01
 
 - Added KODE after inspecting its history-dependent grounding protocol and limitations, resolving the earlier public literature lead.

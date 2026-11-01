@@ -2041,5 +2041,33 @@
     "source_depth": "targeted-full-text",
     "checked_on": "2026-11-01",
     "added_on": "2026-11-01"
+  },
+  {
+    "id": "nl2sql-bugs",
+    "title": "NL2SQL-BUGs: A Benchmark for Detecting Semantic Errors in NL2SQL Translation",
+    "year": 2025,
+    "publication_status": "KDD 2025",
+    "primary_url": "https://arxiv.org/abs/2503.11984",
+    "code_url": null,
+    "dataset_url": "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark/tree/main/data",
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "evaluation",
+      "verification",
+      "benchmark-quality",
+      "error-detection"
+    ],
+    "summary": "Benchmarks correctness judgments and error-type detection for candidate SQL using a two-level semantic-error taxonomy. Construction combines BIRD reference cleaning, model-generated candidates, execution-result labels and expert error annotations. This supports verifier evaluation, while reference-dependent labels and the curated candidate mix limit generalization; input ambiguity resolution and unanswerable-request detection are separate tasks.",
+    "evidence": [
+      "https://arxiv.org/abs/2503.11984",
+      "https://arxiv.org/html/2503.11984v2",
+      "https://nl2sql-bugs.github.io/",
+      "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark"
+    ],
+    "artifact_status": "Official repository lists annotation JSON files, prompts and schema context. Database download is separate. No executable evaluation implementation or repository/data license was verified; files and results were not independently reproduced.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-02",
+    "added_on": "2026-11-02"
   }
 ]

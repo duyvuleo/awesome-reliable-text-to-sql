@@ -1344,5 +1344,51 @@
       }
     ],
     "checked_on": "2026-10-27"
+  },
+  {
+    "resource_id": "nl2sql-bugs-data",
+    "label": "NL2SQL-BUGs",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_targeted",
+      "detail": "Ambiguous source questions are reviewed during cleaning; no alternative-interpretation evaluation is specified."
+    },
+    "unanswerability": {
+      "status": "not_reported",
+      "detail": "No separate infeasible-request split specified; labels concern candidate SQL correctness."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "No runtime clarification dialogue in the error-detection protocol."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Fixed question, schema, candidate SQL, correctness label and error-type annotations."
+    },
+    "domain": "Cross-domain; BIRD-derived questions and databases",
+    "evaluation": "Overall accuracy, positive/negative precision and recall, and type-specific error-detection accuracy.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/html/2503.11984v2",
+        "locator": "Sections 2.1, 4.1-4.2 and 5.1-5.3: task definition, reference cleaning, fixed candidate records and detection metrics.",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark/tree/main/data",
+        "locator": "Official data directory lists the two annotation JSON files; data/README.md links the separate BIRD database download.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-11-02"
   }
 ]

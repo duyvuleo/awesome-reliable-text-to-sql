@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-01",
-  "updated": "2026-11-01",
+  "checked": "2026-11-02",
+  "updated": "2026-11-02",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 79,
+    "paper": 80,
     "system": 13,
     "tool": 15,
-    "benchmark": 28
+    "benchmark": 29
   },
   "categories": {
     "ambiguity": "Ambiguity and multiple interpretations",
@@ -1503,6 +1503,34 @@
         "context"
       ],
       "kinds": [
+        "paper"
+      ],
+      "years": [
+        2025
+      ]
+    },
+    {
+      "id": "nl2sql-bugs",
+      "name": "NL2SQL-BUGs: A Benchmark for Detecting Semantic Errors in NL2SQL Translation",
+      "date": "2025",
+      "year": 2025,
+      "kind": "paper",
+      "summary": "Benchmarks correctness judgments and error-type detection for candidate SQL using a two-level semantic-error taxonomy. Construction combines BIRD reference cleaning, model-generated candidates, execution-result labels and expert error annotations. This supports verifier evaluation, while reference-dependent labels and the curated candidate mix limit generalization; input ambiguity resolution and unanswerable-request detection are separate tasks.",
+      "entry_ids": [
+        "nl2sql-bugs",
+        "nl2sql-bugs-data"
+      ],
+      "themes": [
+        "benchmark-quality",
+        "error-detection",
+        "evaluation",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "benchmark",
         "paper"
       ],
       "years": [
@@ -6689,6 +6717,66 @@
       "work_id": "lasso"
     },
     {
+      "id": "nl2sql-bugs",
+      "name": "NL2SQL-BUGs: A Benchmark for Detecting Semantic Errors in NL2SQL Translation",
+      "kind": "paper",
+      "year": 2025,
+      "date": "2025",
+      "date_label": "Publication year",
+      "summary": "Benchmarks correctness judgments and error-type detection for candidate SQL using a two-level semantic-error taxonomy. Construction combines BIRD reference cleaning, model-generated candidates, execution-result labels and expert error annotations. This supports verifier evaluation, while reference-dependent labels and the curated candidate mix limit generalization; input ambiguity resolution and unanswerable-request detection are separate tasks.",
+      "tags": [
+        "evaluation",
+        "verification",
+        "benchmark-quality",
+        "error-detection"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "KDD 2025",
+      "status": "Official repository lists annotation JSON files, prompts and schema context. Database download is separate. No executable evaluation implementation or repository/data license was verified; files and results were not independently reproduced.",
+      "sources": [
+        "https://arxiv.org/abs/2503.11984",
+        "https://arxiv.org/html/2503.11984v2",
+        "https://nl2sql-bugs.github.io/",
+        "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark"
+      ],
+      "checked": "2026-11-02",
+      "added_on": "2026-11-02",
+      "url": "https://arxiv.org/abs/2503.11984",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#nl2sql-bugs",
+      "original": {
+        "id": "nl2sql-bugs",
+        "title": "NL2SQL-BUGs: A Benchmark for Detecting Semantic Errors in NL2SQL Translation",
+        "year": 2025,
+        "publication_status": "KDD 2025",
+        "primary_url": "https://arxiv.org/abs/2503.11984",
+        "code_url": null,
+        "dataset_url": "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark/tree/main/data",
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "evaluation",
+          "verification",
+          "benchmark-quality",
+          "error-detection"
+        ],
+        "summary": "Benchmarks correctness judgments and error-type detection for candidate SQL using a two-level semantic-error taxonomy. Construction combines BIRD reference cleaning, model-generated candidates, execution-result labels and expert error annotations. This supports verifier evaluation, while reference-dependent labels and the curated candidate mix limit generalization; input ambiguity resolution and unanswerable-request detection are separate tasks.",
+        "evidence": [
+          "https://arxiv.org/abs/2503.11984",
+          "https://arxiv.org/html/2503.11984v2",
+          "https://nl2sql-bugs.github.io/",
+          "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark"
+        ],
+        "artifact_status": "Official repository lists annotation JSON files, prompts and schema context. Database download is separate. No executable evaluation implementation or repository/data license was verified; files and results were not independently reproduced.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-02",
+        "added_on": "2026-11-02"
+      },
+      "work_id": "nl2sql-bugs"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -9452,6 +9540,56 @@
         "checked_on": "2026-11-01"
       },
       "work_id": "lasso"
+    },
+    {
+      "id": "nl2sql-bugs-data",
+      "name": "NL2SQL-BUGs",
+      "kind": "benchmark",
+      "year": 2025,
+      "date": "2025",
+      "date_label": "Latest linked paper year",
+      "summary": "Correctness labels and hierarchical semantic-error annotations for candidate SQL on BIRD-derived questions.",
+      "tags": [
+        "benchmark-quality",
+        "error-detection",
+        "evaluation",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "NL2SQL-Bugs.json and NL2SQL-Bugs-with-evidence.json are listed in the official data directory. BIRD databases require a separate download. File contents and experiments were not downloaded or reproduced.",
+      "sources": [
+        "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark/tree/main/data",
+        "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark",
+        "https://arxiv.org/html/2503.11984v2"
+      ],
+      "checked": "2026-11-02",
+      "added_on": null,
+      "url": "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark/tree/main/data",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/datasets/README.md#nl2sql-bugs-data",
+      "original": {
+        "id": "nl2sql-bugs-data",
+        "name": "NL2SQL-BUGs",
+        "kind": "dataset",
+        "paper_ids": [
+          "nl2sql-bugs"
+        ],
+        "url": "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark/tree/main/data",
+        "description": "Correctness labels and hierarchical semantic-error annotations for candidate SQL on BIRD-derived questions.",
+        "protocol": "Static candidate-SQL correctness and error-type detection; reference cleaning and execution-based labeling do not establish unrestricted semantic equivalence.",
+        "availability": "NL2SQL-Bugs.json and NL2SQL-Bugs-with-evidence.json are listed in the official data directory. BIRD databases require a separate download. File contents and experiments were not downloaded or reproduced.",
+        "license_note": "No root repository license or explicit annotation-data license verified; upstream BIRD database terms remain separate.",
+        "evidence": [
+          "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark/tree/main/data",
+          "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark",
+          "https://arxiv.org/html/2503.11984v2"
+        ],
+        "checked_on": "2026-11-02"
+      },
+      "work_id": "nl2sql-bugs"
     }
   ],
   "themes": [
@@ -9478,16 +9616,16 @@
     {
       "id": "evaluation",
       "label": "Evaluation",
+      "count": 14
+    },
+    {
+      "id": "verification",
+      "label": "Verification",
       "count": 13
     },
     {
       "id": "uncertainty",
       "label": "Uncertainty",
-      "count": 12
-    },
-    {
-      "id": "verification",
-      "label": "Verification",
       "count": 12
     },
     {
@@ -9516,6 +9654,11 @@
       "count": 5
     },
     {
+      "id": "benchmark-quality",
+      "label": "Benchmark quality",
+      "count": 4
+    },
+    {
       "id": "interpretation-coverage",
       "label": "Interpretation coverage",
       "count": 4
@@ -9523,11 +9666,6 @@
     {
       "id": "agent",
       "label": "Agent",
-      "count": 3
-    },
-    {
-      "id": "benchmark-quality",
-      "label": "Benchmark quality",
       "count": 3
     },
     {
@@ -9583,6 +9721,11 @@
     {
       "id": "dynamic-evaluation",
       "label": "Dynamic evaluation",
+      "count": 2
+    },
+    {
+      "id": "error-detection",
+      "label": "Error detection",
       "count": 2
     },
     {
@@ -9688,11 +9831,6 @@
     {
       "id": "error-correction",
       "label": "Error correction",
-      "count": 1
-    },
-    {
-      "id": "error-detection",
-      "label": "Error detection",
       "count": 1
     },
     {
@@ -11203,6 +11341,52 @@
         }
       ],
       "checked_on": "2026-10-27"
+    },
+    {
+      "resource_id": "nl2sql-bugs-data",
+      "label": "NL2SQL-BUGs",
+      "relevance": "adjacent",
+      "ambiguity": {
+        "status": "not_targeted",
+        "detail": "Ambiguous source questions are reviewed during cleaning; no alternative-interpretation evaluation is specified."
+      },
+      "unanswerability": {
+        "status": "not_reported",
+        "detail": "No separate infeasible-request split specified; labels concern candidate SQL correctness."
+      },
+      "clarification": {
+        "mode": "not_targeted",
+        "detail": "No runtime clarification dialogue in the error-detection protocol."
+      },
+      "interaction": {
+        "mode": "static",
+        "detail": "Fixed question, schema, candidate SQL, correctness label and error-type annotations."
+      },
+      "domain": "Cross-domain; BIRD-derived questions and databases",
+      "evaluation": "Overall accuracy, positive/negative precision and recall, and type-specific error-detection accuracy.",
+      "data_access": "public_artifacts",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/html/2503.11984v2",
+          "locator": "Sections 2.1, 4.1-4.2 and 5.1-5.3: task definition, reference cleaning, fixed candidate records and detection metrics.",
+          "supports": [
+            "ambiguity",
+            "unanswerability",
+            "clarification",
+            "interaction",
+            "domain",
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark/tree/main/data",
+          "locator": "Official data directory lists the two annotation JSON files; data/README.md links the separate BIRD database download.",
+          "supports": [
+            "data_access"
+          ]
+        }
+      ],
+      "checked_on": "2026-11-02"
     }
   ]
 }

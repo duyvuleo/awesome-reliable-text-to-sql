@@ -1025,5 +1025,24 @@
       "https://arxiv.org/html/2610.38294v1"
     ],
     "checked_on": "2026-11-01"
+  },
+  {
+    "id": "nl2sql-bugs-data",
+    "name": "NL2SQL-BUGs",
+    "kind": "dataset",
+    "paper_ids": [
+      "nl2sql-bugs"
+    ],
+    "url": "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark/tree/main/data",
+    "description": "Correctness labels and hierarchical semantic-error annotations for candidate SQL on BIRD-derived questions.",
+    "protocol": "Static candidate-SQL correctness and error-type detection; reference cleaning and execution-based labeling do not establish unrestricted semantic equivalence.",
+    "availability": "NL2SQL-Bugs.json and NL2SQL-Bugs-with-evidence.json are listed in the official data directory. BIRD databases require a separate download. File contents and experiments were not downloaded or reproduced.",
+    "license_note": "No root repository license or explicit annotation-data license verified; upstream BIRD database terms remain separate.",
+    "evidence": [
+      "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark/tree/main/data",
+      "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark",
+      "https://arxiv.org/html/2503.11984v2"
+    ],
+    "checked_on": "2026-11-02"
   }
 ]
