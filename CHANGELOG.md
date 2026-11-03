@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-04
+
+- Added two recent preprints on clinician-facing conversational clarification and enterprise requirement discovery, preserving the distinction between real participants and simulated customers.
+- Added SQLens with its verified NeurIPS 2025 publication and offline-debugging limitations, resolving the earlier literature lead.
+- Kept resource counts unchanged because no additional study implementation or dataset release was verified.
+
 ## 2026-11-02
 
 - Added the KDD 2025 NL2SQL-BUGs paper, official annotation-data entry and benchmark comparison, resolving the prior semantic-error-evaluation lead.

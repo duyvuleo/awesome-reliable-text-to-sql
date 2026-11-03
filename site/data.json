@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-02",
-  "updated": "2026-11-02",
+  "checked": "2026-11-04",
+  "updated": "2026-11-04",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 80,
+    "paper": 83,
     "system": 13,
     "tool": 15,
     "benchmark": 29
@@ -260,6 +260,32 @@
       ]
     },
     {
+      "id": "fde-requirement-discovery",
+      "name": "Can LLM Agents Be Forward-Deployed Engineers? Requirement Discovery and Delivery for Enterprise Text-to-SQL",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Examines agents that elicit hidden customer requirements before planning and executing Text-to-SQL post-training. It separates discovery completeness from delivery acceptance under deployment constraints. Evidence comes from one enterprise engagement with a simulated customer, so it concerns requirement clarification and workflow delivery rather than general query-level ambiguity resolution or a universal agent success rate.",
+      "entry_ids": [
+        "fde-requirement-discovery"
+      ],
+      "themes": [
+        "agent",
+        "clarification",
+        "evaluation",
+        "underspecification"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "oracle-abstention",
       "name": "Certified Against Which Oracle? Execution Labels Set the Reported Risk of Conformal Abstention for Text-to-SQL",
       "date": "2026",
@@ -331,6 +357,33 @@
       ],
       "categories": [
         "verification"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "clinical-conversational-user-study",
+      "name": "Conversational Interaction for LLM-Based Clinical Text-to-SQL: A User Study with Healthcare Professionals",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Compares single-turn and conversational interfaces with 14 physicians, with dialogue analysis additionally pooling pilot participants. Users favor conversation, and freely composed questions trigger more clarification than predefined questions. The small cohort and MIMIC-IV Demo setting limit generalization; usability and perceived trust do not establish clinical accuracy or deployment safety.",
+      "entry_ids": [
+        "clinical-conversational-user-study"
+      ],
+      "themes": [
+        "ambiguity",
+        "clarification",
+        "clinical",
+        "evaluation",
+        "human-in-the-loop"
+      ],
+      "categories": [
+        "interaction"
       ],
       "kinds": [
         "paper"
@@ -1690,6 +1743,32 @@
       ],
       "kinds": [
         "benchmark",
+        "paper"
+      ],
+      "years": [
+        2025
+      ]
+    },
+    {
+      "id": "sqlens",
+      "name": "SQLens: An End-to-End Framework for Error Detection and Correction in Text-to-SQL",
+      "date": "2025",
+      "year": 2025,
+      "kind": "paper",
+      "summary": "Aggregates database and LLM error signals with weak supervision to localize clause-level semantic errors and guide sequential repairs. BIRD and Spider experiments support offline debugging, with incomplete detection and failed LLM repairs remaining. The authors position its computational overhead outside latency-sensitive pipelines; detection and repair are not guarantees of request answerability or semantic correctness.",
+      "entry_ids": [
+        "sqlens"
+      ],
+      "themes": [
+        "error-detection",
+        "evaluation",
+        "uncertainty",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
         "paper"
       ],
       "years": [
@@ -6777,6 +6856,178 @@
       "work_id": "nl2sql-bugs"
     },
     {
+      "id": "clinical-conversational-user-study",
+      "name": "Conversational Interaction for LLM-Based Clinical Text-to-SQL: A User Study with Healthcare Professionals",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Compares single-turn and conversational interfaces with 14 physicians, with dialogue analysis additionally pooling pilot participants. Users favor conversation, and freely composed questions trigger more clarification than predefined questions. The small cohort and MIMIC-IV Demo setting limit generalization; usability and perceived trust do not establish clinical accuracy or deployment safety.",
+      "tags": [
+        "ambiguity",
+        "clarification",
+        "clinical",
+        "human-in-the-loop",
+        "evaluation"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "Public study methods and dialogue analysis inspected. No official interface implementation or released interaction-log dataset verified; no study or model result independently reproduced.",
+      "sources": [
+        "https://arxiv.org/abs/2611.00605",
+        "https://arxiv.org/html/2611.00605v1"
+      ],
+      "checked": "2026-11-04",
+      "added_on": "2026-11-04",
+      "url": "https://arxiv.org/abs/2611.00605",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#clinical-conversational-user-study",
+      "original": {
+        "id": "clinical-conversational-user-study",
+        "title": "Conversational Interaction for LLM-Based Clinical Text-to-SQL: A User Study with Healthcare Professionals",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.00605",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "interaction",
+        "scope": "core",
+        "topics": [
+          "ambiguity",
+          "clarification",
+          "clinical",
+          "human-in-the-loop",
+          "evaluation"
+        ],
+        "summary": "Compares single-turn and conversational interfaces with 14 physicians, with dialogue analysis additionally pooling pilot participants. Users favor conversation, and freely composed questions trigger more clarification than predefined questions. The small cohort and MIMIC-IV Demo setting limit generalization; usability and perceived trust do not establish clinical accuracy or deployment safety.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.00605",
+          "https://arxiv.org/html/2611.00605v1"
+        ],
+        "artifact_status": "Public study methods and dialogue analysis inspected. No official interface implementation or released interaction-log dataset verified; no study or model result independently reproduced.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-04",
+        "added_on": "2026-11-04"
+      },
+      "work_id": "clinical-conversational-user-study"
+    },
+    {
+      "id": "fde-requirement-discovery",
+      "name": "Can LLM Agents Be Forward-Deployed Engineers? Requirement Discovery and Delivery for Enterprise Text-to-SQL",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Examines agents that elicit hidden customer requirements before planning and executing Text-to-SQL post-training. It separates discovery completeness from delivery acceptance under deployment constraints. Evidence comes from one enterprise engagement with a simulated customer, so it concerns requirement clarification and workflow delivery rather than general query-level ambiguity resolution or a universal agent success rate.",
+      "tags": [
+        "underspecification",
+        "clarification",
+        "agent",
+        "evaluation"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "Public protocol and case-study limitations inspected; no standalone study code or dataset release verified. Referenced upstream models and SQL benchmarks are not new study artifacts.",
+      "sources": [
+        "https://arxiv.org/abs/2611.03551",
+        "https://arxiv.org/html/2611.03551v1"
+      ],
+      "checked": "2026-11-04",
+      "added_on": "2026-11-04",
+      "url": "https://arxiv.org/abs/2611.03551",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#fde-requirement-discovery",
+      "original": {
+        "id": "fde-requirement-discovery",
+        "title": "Can LLM Agents Be Forward-Deployed Engineers? Requirement Discovery and Delivery for Enterprise Text-to-SQL",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.03551",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "interaction",
+        "scope": "adjacent",
+        "topics": [
+          "underspecification",
+          "clarification",
+          "agent",
+          "evaluation"
+        ],
+        "summary": "Examines agents that elicit hidden customer requirements before planning and executing Text-to-SQL post-training. It separates discovery completeness from delivery acceptance under deployment constraints. Evidence comes from one enterprise engagement with a simulated customer, so it concerns requirement clarification and workflow delivery rather than general query-level ambiguity resolution or a universal agent success rate.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.03551",
+          "https://arxiv.org/html/2611.03551v1"
+        ],
+        "artifact_status": "Public protocol and case-study limitations inspected; no standalone study code or dataset release verified. Referenced upstream models and SQL benchmarks are not new study artifacts.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-04",
+        "added_on": "2026-11-04"
+      },
+      "work_id": "fde-requirement-discovery"
+    },
+    {
+      "id": "sqlens",
+      "name": "SQLens: An End-to-End Framework for Error Detection and Correction in Text-to-SQL",
+      "kind": "paper",
+      "year": 2025,
+      "date": "2025",
+      "date_label": "Publication year",
+      "summary": "Aggregates database and LLM error signals with weak supervision to localize clause-level semantic errors and guide sequential repairs. BIRD and Spider experiments support offline debugging, with incomplete detection and failed LLM repairs remaining. The authors position its computational overhead outside latency-sensitive pipelines; detection and repair are not guarantees of request answerability or semantic correctness.",
+      "tags": [
+        "verification",
+        "error-detection",
+        "evaluation",
+        "uncertainty"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "NeurIPS 2025",
+      "status": "NeurIPS proceedings and selected method/limitation sections verified. No official executable implementation or new dataset release verified; results were not reproduced.",
+      "sources": [
+        "https://papers.nips.cc/paper_files/paper/2025/hash/c57812dee8acade8c5e385260b2cde28-Abstract-Conference.html",
+        "https://papers.nips.cc/paper_files/paper/2025/file/c57812dee8acade8c5e385260b2cde28-Paper-Conference.pdf",
+        "https://arxiv.org/abs/2506.04494"
+      ],
+      "checked": "2026-11-04",
+      "added_on": "2026-11-04",
+      "url": "https://papers.nips.cc/paper_files/paper/2025/hash/c57812dee8acade8c5e385260b2cde28-Abstract-Conference.html",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#sqlens",
+      "original": {
+        "id": "sqlens",
+        "title": "SQLens: An End-to-End Framework for Error Detection and Correction in Text-to-SQL",
+        "year": 2025,
+        "publication_status": "NeurIPS 2025",
+        "primary_url": "https://papers.nips.cc/paper_files/paper/2025/hash/c57812dee8acade8c5e385260b2cde28-Abstract-Conference.html",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "verification",
+          "error-detection",
+          "evaluation",
+          "uncertainty"
+        ],
+        "summary": "Aggregates database and LLM error signals with weak supervision to localize clause-level semantic errors and guide sequential repairs. BIRD and Spider experiments support offline debugging, with incomplete detection and failed LLM repairs remaining. The authors position its computational overhead outside latency-sensitive pipelines; detection and repair are not guarantees of request answerability or semantic correctness.",
+        "evidence": [
+          "https://papers.nips.cc/paper_files/paper/2025/hash/c57812dee8acade8c5e385260b2cde28-Abstract-Conference.html",
+          "https://papers.nips.cc/paper_files/paper/2025/file/c57812dee8acade8c5e385260b2cde28-Paper-Conference.pdf",
+          "https://arxiv.org/abs/2506.04494"
+        ],
+        "artifact_status": "NeurIPS proceedings and selected method/limitation sections verified. No official executable implementation or new dataset release verified; results were not reproduced.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-04",
+        "added_on": "2026-11-04"
+      },
+      "work_id": "sqlens"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -9596,12 +9847,12 @@
     {
       "id": "ambiguity",
       "label": "Ambiguity",
-      "count": 33
+      "count": 34
     },
     {
       "id": "clarification",
       "label": "Clarification",
-      "count": 28
+      "count": 30
     },
     {
       "id": "unanswerability",
@@ -9609,29 +9860,29 @@
       "count": 21
     },
     {
+      "id": "evaluation",
+      "label": "Evaluation",
+      "count": 17
+    },
+    {
       "id": "abstention",
       "label": "Abstention",
       "count": 16
     },
     {
-      "id": "evaluation",
-      "label": "Evaluation",
-      "count": 14
-    },
-    {
       "id": "verification",
       "label": "Verification",
-      "count": 13
+      "count": 14
     },
     {
       "id": "uncertainty",
       "label": "Uncertainty",
-      "count": 12
+      "count": 13
     },
     {
       "id": "clinical",
       "label": "Clinical",
-      "count": 9
+      "count": 10
     },
     {
       "id": "interactive-system",
@@ -9654,8 +9905,18 @@
       "count": 5
     },
     {
+      "id": "agent",
+      "label": "Agent",
+      "count": 4
+    },
+    {
       "id": "benchmark-quality",
       "label": "Benchmark quality",
+      "count": 4
+    },
+    {
+      "id": "human-in-the-loop",
+      "label": "Human in the loop",
       "count": 4
     },
     {
@@ -9664,9 +9925,9 @@
       "count": 4
     },
     {
-      "id": "agent",
-      "label": "Agent",
-      "count": 3
+      "id": "underspecification",
+      "label": "Underspecification",
+      "count": 4
     },
     {
       "id": "calibration",
@@ -9684,18 +9945,13 @@
       "count": 3
     },
     {
-      "id": "human-in-the-loop",
-      "label": "Human in the loop",
+      "id": "error-detection",
+      "label": "Error detection",
       "count": 3
     },
     {
       "id": "multi-agent",
       "label": "Multi agent",
-      "count": 3
-    },
-    {
-      "id": "underspecification",
-      "label": "Underspecification",
       "count": 3
     },
     {
@@ -9721,11 +9977,6 @@
     {
       "id": "dynamic-evaluation",
       "label": "Dynamic evaluation",
-      "count": 2
-    },
-    {
-      "id": "error-detection",
-      "label": "Error detection",
       "count": 2
     },
     {

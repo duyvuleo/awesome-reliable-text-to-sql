@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-11-04: human clarification, requirement discovery and SQL debugging](2026-11-04.md)
+
 - [2026-11-02: semantic-error benchmark and annotation access](2026-11-02.md)
 
 - [2026-11-01: historical grounding and SQL counterexamples](2026-11-01.md)
