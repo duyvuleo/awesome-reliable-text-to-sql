@@ -1044,5 +1044,24 @@
       "https://arxiv.org/html/2503.11984v2"
     ],
     "checked_on": "2026-11-02"
+  },
+  {
+    "id": "pascal-system",
+    "name": "PASCAL",
+    "kind": "system",
+    "paper_ids": [
+      "pascal"
+    ],
+    "url": "https://github.com/authurlord/PASCAL_Release",
+    "description": "Interactive Text-to-SQL agent protocol that orders schema, knowledge-base and user-information acquisition before query generation.",
+    "protocol": "BIRD-Interact evaluation uses a model-based user simulator and fixed interaction budgets. The repository also documents an upstream PRACTIQ path; the web demo replays archived runs.",
+    "availability": "Source directories, evaluation scripts and archived trace files are visible. Live execution requires configured model services, databases and upstream ground-truth access; none were run or reproduced.",
+    "license_note": "Root LICENSE is MIT for the software. Upstream benchmark data, models and derived database artifacts require their own terms; no blanket dataset license is inferred.",
+    "evidence": [
+      "https://github.com/authurlord/PASCAL_Release",
+      "https://github.com/authurlord/PASCAL_Release/blob/main/LICENSE",
+      "https://aclanthology.org/2026.emnlp-main.465.pdf"
+    ],
+    "checked_on": "2026-11-05"
   }
 ]

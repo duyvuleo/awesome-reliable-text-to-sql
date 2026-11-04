@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-04",
-  "updated": "2026-11-04",
+  "checked": "2026-11-05",
+  "updated": "2026-11-05",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 83,
-    "system": 13,
+    "paper": 86,
+    "system": 14,
     "tool": 15,
     "benchmark": 29
   },
@@ -736,6 +736,32 @@
       ]
     },
     {
+      "id": "post-sqlfix",
+      "name": "Post-SQLFix: Property-Guided Repair of LLM-Generated SQL with Runtime Verification",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Combines dialect-aware static diagnostics with a monitor that accepts SQL repairs only when they reduce detected violations and respect declared operator contracts. Its bounded guarantees concern the specified rule family and protected query components. They do not establish equivalence to a gold query, preservation of unstated user intent or complete detection of semantic errors.",
+      "entry_ids": [
+        "post-sqlfix"
+      ],
+      "themes": [
+        "constraints",
+        "error-detection",
+        "evaluation",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "premisesql",
       "name": "PremiseSQL: Evaluating Premise Critique and Abstention in Text-to-SQL Systems",
       "date": "2026",
@@ -1249,6 +1275,32 @@
       ]
     },
     {
+      "id": "changing-business-semantics",
+      "name": "Verifying Text-to-SQL Queries under Changing Business Semantics",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Revalidates fixed SQL against an explicitly selected business-definition revision and knowledge cutoff using legal counterexample data. A discrepancy can expose stale semantics even when current-snapshot results agree. Evidence is limited to authored revision families and local model outputs; passing a finite test suite does not establish unrestricted conformance, and the approved definitions remain an external assumption.",
+      "entry_ids": [
+        "changing-business-semantics"
+      ],
+      "themes": [
+        "context",
+        "evaluation",
+        "semantic-drift",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "circleclar",
       "name": "What Is a Clarification? Estimating Model-Dependent Input Ambiguity",
       "date": "2026",
@@ -1293,6 +1345,35 @@
       ],
       "kinds": [
         "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "pascal",
+      "name": "When the Bottleneck Shifts: Diagnosing and Closing Information Gaps in Interactive Text-to-SQL",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "PASCAL routes schema inspection, knowledge retrieval and user clarification before SQL generation, guided by information gaps and interaction costs. BIRD-Interact experiments examine whether targeted acquisition reduces premature SQL attempts. Results depend on the benchmark user simulator, available tools and budgets; acquiring the required evidence does not itself guarantee correct SQL.",
+      "entry_ids": [
+        "pascal",
+        "pascal-system"
+      ],
+      "themes": [
+        "agent",
+        "ambiguity",
+        "clarification",
+        "context",
+        "evaluation"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "kinds": [
+        "paper",
+        "system"
       ],
       "years": [
         2026
@@ -7028,6 +7109,180 @@
       "work_id": "sqlens"
     },
     {
+      "id": "pascal",
+      "name": "When the Bottleneck Shifts: Diagnosing and Closing Information Gaps in Interactive Text-to-SQL",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "PASCAL routes schema inspection, knowledge retrieval and user clarification before SQL generation, guided by information gaps and interaction costs. BIRD-Interact experiments examine whether targeted acquisition reduces premature SQL attempts. Results depend on the benchmark user simulator, available tools and budgets; acquiring the required evidence does not itself guarantee correct SQL.",
+      "tags": [
+        "ambiguity",
+        "clarification",
+        "agent",
+        "context",
+        "evaluation"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "EMNLP 2026",
+      "status": "Official source modules and archived trace filenames are visible. The website replays stored runs; live inference needs model services and upstream benchmark access. Code and experiments were not executed or reproduced.",
+      "sources": [
+        "https://aclanthology.org/2026.emnlp-main.465/",
+        "https://aclanthology.org/2026.emnlp-main.465.pdf",
+        "https://github.com/authurlord/PASCAL_Release"
+      ],
+      "checked": "2026-11-05",
+      "added_on": "2026-11-05",
+      "url": "https://aclanthology.org/2026.emnlp-main.465/",
+      "code_links": [
+        "https://github.com/authurlord/PASCAL_Release"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#pascal",
+      "original": {
+        "id": "pascal",
+        "title": "When the Bottleneck Shifts: Diagnosing and Closing Information Gaps in Interactive Text-to-SQL",
+        "year": 2026,
+        "publication_status": "EMNLP 2026",
+        "primary_url": "https://aclanthology.org/2026.emnlp-main.465/",
+        "code_url": "https://github.com/authurlord/PASCAL_Release",
+        "dataset_url": null,
+        "category": "interaction",
+        "scope": "core",
+        "topics": [
+          "ambiguity",
+          "clarification",
+          "agent",
+          "context",
+          "evaluation"
+        ],
+        "summary": "PASCAL routes schema inspection, knowledge retrieval and user clarification before SQL generation, guided by information gaps and interaction costs. BIRD-Interact experiments examine whether targeted acquisition reduces premature SQL attempts. Results depend on the benchmark user simulator, available tools and budgets; acquiring the required evidence does not itself guarantee correct SQL.",
+        "evidence": [
+          "https://aclanthology.org/2026.emnlp-main.465/",
+          "https://aclanthology.org/2026.emnlp-main.465.pdf",
+          "https://github.com/authurlord/PASCAL_Release"
+        ],
+        "artifact_status": "Official source modules and archived trace filenames are visible. The website replays stored runs; live inference needs model services and upstream benchmark access. Code and experiments were not executed or reproduced.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-05",
+        "added_on": "2026-11-05"
+      },
+      "work_id": "pascal"
+    },
+    {
+      "id": "changing-business-semantics",
+      "name": "Verifying Text-to-SQL Queries under Changing Business Semantics",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Revalidates fixed SQL against an explicitly selected business-definition revision and knowledge cutoff using legal counterexample data. A discrepancy can expose stale semantics even when current-snapshot results agree. Evidence is limited to authored revision families and local model outputs; passing a finite test suite does not establish unrestricted conformance, and the approved definitions remain an external assumption.",
+      "tags": [
+        "verification",
+        "semantic-drift",
+        "context",
+        "evaluation"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "Public manuscript and evaluation boundaries inspected. Appendix C states that no public artifact identifier has been assigned; no code or data release independently verified and no results reproduced.",
+      "sources": [
+        "https://arxiv.org/abs/2610.41090",
+        "https://arxiv.org/html/2610.41090v1"
+      ],
+      "checked": "2026-11-05",
+      "added_on": "2026-11-05",
+      "url": "https://arxiv.org/abs/2610.41090",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#changing-business-semantics",
+      "original": {
+        "id": "changing-business-semantics",
+        "title": "Verifying Text-to-SQL Queries under Changing Business Semantics",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2610.41090",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "verification",
+          "semantic-drift",
+          "context",
+          "evaluation"
+        ],
+        "summary": "Revalidates fixed SQL against an explicitly selected business-definition revision and knowledge cutoff using legal counterexample data. A discrepancy can expose stale semantics even when current-snapshot results agree. Evidence is limited to authored revision families and local model outputs; passing a finite test suite does not establish unrestricted conformance, and the approved definitions remain an external assumption.",
+        "evidence": [
+          "https://arxiv.org/abs/2610.41090",
+          "https://arxiv.org/html/2610.41090v1"
+        ],
+        "artifact_status": "Public manuscript and evaluation boundaries inspected. Appendix C states that no public artifact identifier has been assigned; no code or data release independently verified and no results reproduced.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-05",
+        "added_on": "2026-11-05"
+      },
+      "work_id": "changing-business-semantics"
+    },
+    {
+      "id": "post-sqlfix",
+      "name": "Post-SQLFix: Property-Guided Repair of LLM-Generated SQL with Runtime Verification",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Combines dialect-aware static diagnostics with a monitor that accepts SQL repairs only when they reduce detected violations and respect declared operator contracts. Its bounded guarantees concern the specified rule family and protected query components. They do not establish equivalence to a gold query, preservation of unstated user intent or complete detection of semantic errors.",
+      "tags": [
+        "verification",
+        "error-detection",
+        "constraints",
+        "evaluation"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "Current arXiv version and bounded-soundness definition inspected. Earlier OpenReview search results do not establish venue acceptance. No official implementation or dataset release verified; no experiments reproduced.",
+      "sources": [
+        "https://arxiv.org/abs/2610.41472",
+        "https://arxiv.org/html/2610.41472v1"
+      ],
+      "checked": "2026-11-05",
+      "added_on": "2026-11-05",
+      "url": "https://arxiv.org/abs/2610.41472",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#post-sqlfix",
+      "original": {
+        "id": "post-sqlfix",
+        "title": "Post-SQLFix: Property-Guided Repair of LLM-Generated SQL with Runtime Verification",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2610.41472",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "verification",
+          "error-detection",
+          "constraints",
+          "evaluation"
+        ],
+        "summary": "Combines dialect-aware static diagnostics with a monitor that accepts SQL repairs only when they reduce detected violations and respect declared operator contracts. Its bounded guarantees concern the specified rule family and protected query components. They do not establish equivalence to a gold query, preservation of unstated user intent or complete detection of semantic errors.",
+        "evidence": [
+          "https://arxiv.org/abs/2610.41472",
+          "https://arxiv.org/html/2610.41472v1"
+        ],
+        "artifact_status": "Current arXiv version and bounded-soundness definition inspected. Earlier OpenReview search results do not establish venue acceptance. No official implementation or dataset release verified; no experiments reproduced.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-05",
+        "added_on": "2026-11-05"
+      },
+      "work_id": "post-sqlfix"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -9841,18 +10096,71 @@
         "checked_on": "2026-11-02"
       },
       "work_id": "nl2sql-bugs"
+    },
+    {
+      "id": "pascal-system",
+      "name": "PASCAL",
+      "kind": "system",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Interactive Text-to-SQL agent protocol that orders schema, knowledge-base and user-information acquisition before query generation.",
+      "tags": [
+        "agent",
+        "ambiguity",
+        "clarification",
+        "context",
+        "evaluation"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "resource",
+      "status": "Source directories, evaluation scripts and archived trace files are visible. Live execution requires configured model services, databases and upstream ground-truth access; none were run or reproduced.",
+      "sources": [
+        "https://github.com/authurlord/PASCAL_Release",
+        "https://github.com/authurlord/PASCAL_Release/blob/main/LICENSE",
+        "https://aclanthology.org/2026.emnlp-main.465.pdf"
+      ],
+      "checked": "2026-11-05",
+      "added_on": null,
+      "url": "https://github.com/authurlord/PASCAL_Release",
+      "code_links": [
+        "https://github.com/authurlord/PASCAL_Release"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#pascal-system",
+      "original": {
+        "id": "pascal-system",
+        "name": "PASCAL",
+        "kind": "system",
+        "paper_ids": [
+          "pascal"
+        ],
+        "url": "https://github.com/authurlord/PASCAL_Release",
+        "description": "Interactive Text-to-SQL agent protocol that orders schema, knowledge-base and user-information acquisition before query generation.",
+        "protocol": "BIRD-Interact evaluation uses a model-based user simulator and fixed interaction budgets. The repository also documents an upstream PRACTIQ path; the web demo replays archived runs.",
+        "availability": "Source directories, evaluation scripts and archived trace files are visible. Live execution requires configured model services, databases and upstream ground-truth access; none were run or reproduced.",
+        "license_note": "Root LICENSE is MIT for the software. Upstream benchmark data, models and derived database artifacts require their own terms; no blanket dataset license is inferred.",
+        "evidence": [
+          "https://github.com/authurlord/PASCAL_Release",
+          "https://github.com/authurlord/PASCAL_Release/blob/main/LICENSE",
+          "https://aclanthology.org/2026.emnlp-main.465.pdf"
+        ],
+        "checked_on": "2026-11-05"
+      },
+      "work_id": "pascal"
     }
   ],
   "themes": [
     {
       "id": "ambiguity",
       "label": "Ambiguity",
-      "count": 34
+      "count": 35
     },
     {
       "id": "clarification",
       "label": "Clarification",
-      "count": 30
+      "count": 31
     },
     {
       "id": "unanswerability",
@@ -9862,7 +10170,7 @@
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 17
+      "count": 20
     },
     {
       "id": "abstention",
@@ -9872,7 +10180,7 @@
     {
       "id": "verification",
       "label": "Verification",
-      "count": 14
+      "count": 16
     },
     {
       "id": "uncertainty",
@@ -9900,18 +10208,28 @@
       "count": 7
     },
     {
+      "id": "agent",
+      "label": "Agent",
+      "count": 5
+    },
+    {
       "id": "answerability",
       "label": "Answerability",
       "count": 5
     },
     {
-      "id": "agent",
-      "label": "Agent",
-      "count": 4
+      "id": "context",
+      "label": "Context",
+      "count": 5
     },
     {
       "id": "benchmark-quality",
       "label": "Benchmark quality",
+      "count": 4
+    },
+    {
+      "id": "error-detection",
+      "label": "Error detection",
       "count": 4
     },
     {
@@ -9935,8 +10253,8 @@
       "count": 3
     },
     {
-      "id": "context",
-      "label": "Context",
+      "id": "constraints",
+      "label": "Constraints",
       "count": 3
     },
     {
@@ -9945,19 +10263,9 @@
       "count": 3
     },
     {
-      "id": "error-detection",
-      "label": "Error detection",
-      "count": 3
-    },
-    {
       "id": "multi-agent",
       "label": "Multi agent",
       "count": 3
-    },
-    {
-      "id": "constraints",
-      "label": "Constraints",
-      "count": 2
     },
     {
       "id": "database-retrieval",
@@ -10167,6 +10475,11 @@
     {
       "id": "selective-prediction",
       "label": "Selective prediction",
+      "count": 1
+    },
+    {
+      "id": "semantic-drift",
+      "label": "Semantic drift",
       "count": 1
     },
     {

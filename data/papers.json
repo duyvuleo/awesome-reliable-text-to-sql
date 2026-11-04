@@ -2149,5 +2149,85 @@
     "source_depth": "targeted-full-text",
     "checked_on": "2026-11-04",
     "added_on": "2026-11-04"
+  },
+  {
+    "id": "pascal",
+    "title": "When the Bottleneck Shifts: Diagnosing and Closing Information Gaps in Interactive Text-to-SQL",
+    "year": 2026,
+    "publication_status": "EMNLP 2026",
+    "primary_url": "https://aclanthology.org/2026.emnlp-main.465/",
+    "code_url": "https://github.com/authurlord/PASCAL_Release",
+    "dataset_url": null,
+    "category": "interaction",
+    "scope": "core",
+    "topics": [
+      "ambiguity",
+      "clarification",
+      "agent",
+      "context",
+      "evaluation"
+    ],
+    "summary": "PASCAL routes schema inspection, knowledge retrieval and user clarification before SQL generation, guided by information gaps and interaction costs. BIRD-Interact experiments examine whether targeted acquisition reduces premature SQL attempts. Results depend on the benchmark user simulator, available tools and budgets; acquiring the required evidence does not itself guarantee correct SQL.",
+    "evidence": [
+      "https://aclanthology.org/2026.emnlp-main.465/",
+      "https://aclanthology.org/2026.emnlp-main.465.pdf",
+      "https://github.com/authurlord/PASCAL_Release"
+    ],
+    "artifact_status": "Official source modules and archived trace filenames are visible. The website replays stored runs; live inference needs model services and upstream benchmark access. Code and experiments were not executed or reproduced.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-05",
+    "added_on": "2026-11-05"
+  },
+  {
+    "id": "changing-business-semantics",
+    "title": "Verifying Text-to-SQL Queries under Changing Business Semantics",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2610.41090",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "verification",
+      "semantic-drift",
+      "context",
+      "evaluation"
+    ],
+    "summary": "Revalidates fixed SQL against an explicitly selected business-definition revision and knowledge cutoff using legal counterexample data. A discrepancy can expose stale semantics even when current-snapshot results agree. Evidence is limited to authored revision families and local model outputs; passing a finite test suite does not establish unrestricted conformance, and the approved definitions remain an external assumption.",
+    "evidence": [
+      "https://arxiv.org/abs/2610.41090",
+      "https://arxiv.org/html/2610.41090v1"
+    ],
+    "artifact_status": "Public manuscript and evaluation boundaries inspected. Appendix C states that no public artifact identifier has been assigned; no code or data release independently verified and no results reproduced.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-05",
+    "added_on": "2026-11-05"
+  },
+  {
+    "id": "post-sqlfix",
+    "title": "Post-SQLFix: Property-Guided Repair of LLM-Generated SQL with Runtime Verification",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2610.41472",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "verification",
+      "error-detection",
+      "constraints",
+      "evaluation"
+    ],
+    "summary": "Combines dialect-aware static diagnostics with a monitor that accepts SQL repairs only when they reduce detected violations and respect declared operator contracts. Its bounded guarantees concern the specified rule family and protected query components. They do not establish equivalence to a gold query, preservation of unstated user intent or complete detection of semantic errors.",
+    "evidence": [
+      "https://arxiv.org/abs/2610.41472",
+      "https://arxiv.org/html/2610.41472v1"
+    ],
+    "artifact_status": "Current arXiv version and bounded-soundness definition inspected. Earlier OpenReview search results do not establish venue acceptance. No official implementation or dataset release verified; no experiments reproduced.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-05",
+    "added_on": "2026-11-05"
   }
 ]

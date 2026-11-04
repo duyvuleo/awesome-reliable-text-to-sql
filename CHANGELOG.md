@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-05
+
+- Added PASCAL's EMNLP paper and public system entry, distinguishing archived replay from live inference and simulator evaluation from real-user evidence.
+- Added the business-semantics revalidation and Post-SQLFix preprints after checking their finite-test and rule-coverage boundaries, resolving two earlier literature leads.
+- Preserved unverified artifact status for the preprints; no new benchmark dataset was counted.
+
 ## 2026-11-04
 
 - Added two recent preprints on clinician-facing conversational clarification and enterprise requirement discovery, preserving the distinction between real participants and simulated customers.
