@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-11-06: open calculation choices and judge auditing](2026-11-06.md)
+
 - [2026-11-05: acquisition control and bounded SQL verification](2026-11-05.md)
 
 - [2026-11-04: human clarification, requirement discovery and SQL debugging](2026-11-04.md)

@@ -296,7 +296,7 @@
     "title": "Disentangling Ambiguity from Instability in Large Language Models: A Clinical Text-to-SQL Case Study",
     "year": 2026,
     "publication_status": "ClinicalNLP workshop at LREC 2026",
-    "primary_url": "https://arxiv.org/abs/2602.12015",
+    "primary_url": "https://aclanthology.org/2026.clinicalnlp-1.39/",
     "code_url": "https://github.com/Bayer-Group/clues-clinical-nlp",
     "dataset_url": null,
     "topics": [
@@ -310,10 +310,11 @@
     "evidence": [
       "https://arxiv.org/abs/2602.12015",
       "https://arxiv.org/html/2602.12015v2",
-      "https://github.com/Bayer-Group/clues-clinical-nlp"
+      "https://github.com/Bayer-Group/clues-clinical-nlp",
+      "https://aclanthology.org/2026.clinicalnlp-1.39/"
     ],
     "artifact_status": "MIT implementation and examples verified; no standalone clinical dataset download verified; not executed. Repository includes offline similarity-matrix and live interpretation-generation examples; full-pipeline thresholds require domain-specific calibration.",
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-06",
     "category": "verification",
     "source_depth": "primary-record",
     "added_on": "2026-10-22"
@@ -2229,5 +2230,60 @@
     "source_depth": "targeted-full-text",
     "checked_on": "2026-11-05",
     "added_on": "2026-11-05"
+  },
+  {
+    "id": "specbridge",
+    "title": "Text-to-SQL Models Make Choices Without Saying So",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2611.04318",
+    "code_url": "https://github.com/Xyc-arch/specbridge-artifact",
+    "dataset_url": "https://github.com/Xyc-arch/specbridge-artifact/tree/main/benchmark",
+    "category": "ambiguity",
+    "scope": "core",
+    "topics": [
+      "ambiguity",
+      "interpretation-coverage",
+      "clarification",
+      "evaluation"
+    ],
+    "summary": "SpecBridge pairs an open calculation request with two explicitly specified readings to separate computing an answer from reporting alternatives. It also evaluates deciding which readings to answer and preserving constraints after a user pick. Tests cover one choice and two reference readings at a time; simulated users recognize their intended reading, and product baselines are reconstructions rather than live-product evaluations.",
+    "evidence": [
+      "https://arxiv.org/abs/2611.04318",
+      "https://arxiv.org/html/2611.04318v1",
+      "https://github.com/Xyc-arch/specbridge-artifact"
+    ],
+    "artifact_status": "Official benchmark, scoring and method files are listed publicly; no data or experiments were downloaded or run. Repository describes a PVLDB paper, but an independent proceedings record was not verified, so publication status remains preprint.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-06",
+    "added_on": "2026-11-06"
+  },
+  {
+    "id": "synca-audit",
+    "title": "Auditing and Repairing LLM-as-Judge Failures in a Production Text-to-SQL Pipeline",
+    "year": 2026,
+    "publication_status": "EMNLP 2026 Industry Track",
+    "primary_url": "https://aclanthology.org/2026.emnlp-industry.18/",
+    "code_url": "https://github.com/JamesL404/synca-audit",
+    "dataset_url": null,
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "verification",
+      "evaluation",
+      "human-in-the-loop",
+      "benchmark-quality"
+    ],
+    "summary": "Audits SQL-faithfulness judges against human labels, compares replacements and routes judge disagreements to review. It separates disagreement-enriched samples from random spot-checks, showing why aggregate agreement depends on sampling and domain. Evidence comes from one telecom deployment with limited cross-domain checks; the small head-to-head comparison is inconclusive and gold labels remain tied to the annotation protocol.",
+    "evidence": [
+      "https://aclanthology.org/2026.emnlp-industry.18/",
+      "https://aclanthology.org/2026.emnlp-industry.18.pdf",
+      "https://arxiv.org/abs/2609.30290",
+      "https://github.com/JamesL404/synca-audit"
+    ],
+    "artifact_status": "Official repository contains judge and analysis scripts; its README still defers the audit datasets despite the proceedings publication. The paper-described benchmark is not treated as a verified data download; no results reproduced.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-06",
+    "added_on": "2026-11-06"
   }
 ]

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-06
+
+- Added SpecBridge with its request-set dataset, scoring/disclosure tools and benchmark comparison, preserving the single-choice and idealized-user limits.
+- Added the SynCA judge-audit paper and scripts while keeping its deferred audit datasets distinct from released code.
+- Updated CLUES to the verified ClinicalNLP proceedings link without duplicating the work or changing its original addition date.
+
 ## 2026-11-05
 
 - Added PASCAL's EMNLP paper and public system entry, distinguishing archived replay from live inference and simulator evaluation from real-user evidence.

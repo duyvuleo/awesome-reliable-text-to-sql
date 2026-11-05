@@ -1390,5 +1390,51 @@
       }
     ],
     "checked_on": "2026-11-02"
+  },
+  {
+    "resource_id": "specbridge-data",
+    "label": "SpecBridge",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "One open calculation choice with two scored readings; further valid readings are unscored."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "Requests select or leave open valid interpretations; no refusal task."
+    },
+    "clarification": {
+      "mode": "supplied",
+      "detail": "Specific A/B requests and intended-reading picks are supplied; the companion method generates interpretation options."
+    },
+    "interaction": {
+      "mode": "simulated",
+      "detail": "Main request triples are static; the two-turn comparison assumes a user who always recognizes the intended interpretation."
+    },
+    "domain": "Cross-domain SQLite databases from Spider, BIRD and LiveSQLBench",
+    "evaluation": "Execution correctness, coverage of both readings, judged disclosure and false alarms; simulated turn cost in the companion comparison.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/html/2611.04318v1",
+        "locator": "Sections 2-4, 7.2-7.3 and limitations: paired request construction, scoring and idealized two-turn protocol.",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/Xyc-arch/specbridge-artifact/blob/main/benchmark/README.md",
+        "locator": "Benchmark README describes request_sets.jsonl, accepted subset, 12 SQLite databases and source benchmarks.",
+        "supports": [
+          "data_access",
+          "domain"
+        ]
+      }
+    ],
+    "checked_on": "2026-11-06"
   }
 ]

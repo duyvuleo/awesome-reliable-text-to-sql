@@ -1063,5 +1063,62 @@
       "https://aclanthology.org/2026.emnlp-main.465.pdf"
     ],
     "checked_on": "2026-11-05"
+  },
+  {
+    "id": "specbridge-data",
+    "name": "SpecBridge request sets",
+    "kind": "dataset",
+    "paper_ids": [
+      "specbridge"
+    ],
+    "url": "https://github.com/Xyc-arch/specbridge-artifact/tree/main/benchmark",
+    "description": "Paired SQL readings and open/specific request triples that isolate one calculation choice.",
+    "protocol": "Measure execution-based interpretation coverage and false alarms; additional valid readings and simultaneous open choices are outside the scored target.",
+    "availability": "request_sets.jsonl, database directory, scorer and example-response files are listed. README distinguishes 307 generated sets from 204 accepted sets used in the paper. Files were not downloaded or independently checked.",
+    "license_note": "DATA_LICENSE.md declares CC BY-SA 4.0 for request sets and databases, with upstream source attribution. Code has a separate MIT license.",
+    "evidence": [
+      "https://github.com/Xyc-arch/specbridge-artifact/tree/main/benchmark",
+      "https://github.com/Xyc-arch/specbridge-artifact/blob/main/DATA_LICENSE.md",
+      "https://arxiv.org/html/2611.04318v1"
+    ],
+    "checked_on": "2026-11-06"
+  },
+  {
+    "id": "specbridge-tool",
+    "name": "SpecBridge scoring and disclosure methods",
+    "kind": "tool",
+    "paper_ids": [
+      "specbridge"
+    ],
+    "url": "https://github.com/Xyc-arch/specbridge-artifact",
+    "description": "Scorer and two-phase methods for exposing alternative interpretations and retaining the original request after a user pick.",
+    "protocol": "Execute candidate SQL against paired references; method evaluation includes an idealized two-turn user simulation, not a live analyst study.",
+    "availability": "benchmark/score.py and methods/disclose.py and clarify.py are visible. Saved-run reproduction and fresh model calls are documented separately; neither was executed.",
+    "license_note": "Code LICENSE is MIT; benchmark and saved-output terms are separately declared in DATA_LICENSE.md.",
+    "evidence": [
+      "https://github.com/Xyc-arch/specbridge-artifact",
+      "https://github.com/Xyc-arch/specbridge-artifact/blob/main/LICENSE",
+      "https://github.com/Xyc-arch/specbridge-artifact/blob/main/DATA_LICENSE.md",
+      "https://arxiv.org/html/2611.04318v1"
+    ],
+    "checked_on": "2026-11-06"
+  },
+  {
+    "id": "synca-audit-tool",
+    "name": "SynCA judge-audit scripts",
+    "kind": "tool",
+    "paper_ids": [
+      "synca-audit"
+    ],
+    "url": "https://github.com/JamesL404/synca-audit",
+    "description": "Judge runners, agreement metrics, ensemble analyses and routing experiments for SQL-faithfulness auditing.",
+    "protocol": "Compare judges with domain-specific human labels and distinguish selected disagreement cases from random samples; no universal best-judge claim.",
+    "availability": "Source scripts are visible, but the README defers required audit datasets. Full reproduction is not established from the public files; no code was run.",
+    "license_note": "README declares MIT for code; no root LICENSE file was listed. Dataset terms remain deferred with the data release.",
+    "evidence": [
+      "https://github.com/JamesL404/synca-audit",
+      "https://aclanthology.org/2026.emnlp-industry.18.pdf"
+    ],
+    "checked_on": "2026-11-06"
   }
 ]

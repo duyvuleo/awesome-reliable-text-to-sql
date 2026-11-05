@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-05",
-  "updated": "2026-11-05",
+  "checked": "2026-11-06",
+  "updated": "2026-11-06",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 86,
+    "paper": 88,
     "system": 14,
-    "tool": 15,
-    "benchmark": 29
+    "tool": 17,
+    "benchmark": 30
   },
   "categories": {
     "ambiguity": "Ambiguity and multiple interpretations",
@@ -150,6 +150,34 @@
       "kinds": [
         "paper",
         "system"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "synca-audit",
+      "name": "Auditing and Repairing LLM-as-Judge Failures in a Production Text-to-SQL Pipeline",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Audits SQL-faithfulness judges against human labels, compares replacements and routes judge disagreements to review. It separates disagreement-enriched samples from random spot-checks, showing why aggregate agreement depends on sampling and domain. Evidence comes from one telecom deployment with limited cross-domain checks; the small head-to-head comparison is inconclusive and gold labels remain tied to the annotation protocol.",
+      "entry_ids": [
+        "synca-audit",
+        "synca-audit-tool"
+      ],
+      "themes": [
+        "benchmark-quality",
+        "evaluation",
+        "human-in-the-loop",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper",
+        "tool"
       ],
       "years": [
         2026
@@ -1217,6 +1245,36 @@
         "benchmark",
         "paper",
         "system"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "specbridge",
+      "name": "Text-to-SQL Models Make Choices Without Saying So",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "SpecBridge pairs an open calculation request with two explicitly specified readings to separate computing an answer from reporting alternatives. It also evaluates deciding which readings to answer and preserving constraints after a user pick. Tests cover one choice and two reference readings at a time; simulated users recognize their intended reading, and product baselines are reconstructions rather than live-product evaluations.",
+      "entry_ids": [
+        "specbridge",
+        "specbridge-data",
+        "specbridge-tool"
+      ],
+      "themes": [
+        "ambiguity",
+        "clarification",
+        "evaluation",
+        "interpretation-coverage"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "kinds": [
+        "benchmark",
+        "paper",
+        "tool"
       ],
       "years": [
         2026
@@ -3054,11 +3112,12 @@
       "sources": [
         "https://arxiv.org/abs/2602.12015",
         "https://arxiv.org/html/2602.12015v2",
-        "https://github.com/Bayer-Group/clues-clinical-nlp"
+        "https://github.com/Bayer-Group/clues-clinical-nlp",
+        "https://aclanthology.org/2026.clinicalnlp-1.39/"
       ],
-      "checked": "2026-10-22",
+      "checked": "2026-11-06",
       "added_on": "2026-10-22",
-      "url": "https://arxiv.org/abs/2602.12015",
+      "url": "https://aclanthology.org/2026.clinicalnlp-1.39/",
       "code_links": [
         "https://github.com/Bayer-Group/clues-clinical-nlp"
       ],
@@ -3068,7 +3127,7 @@
         "title": "Disentangling Ambiguity from Instability in Large Language Models: A Clinical Text-to-SQL Case Study",
         "year": 2026,
         "publication_status": "ClinicalNLP workshop at LREC 2026",
-        "primary_url": "https://arxiv.org/abs/2602.12015",
+        "primary_url": "https://aclanthology.org/2026.clinicalnlp-1.39/",
         "code_url": "https://github.com/Bayer-Group/clues-clinical-nlp",
         "dataset_url": null,
         "topics": [
@@ -3082,10 +3141,11 @@
         "evidence": [
           "https://arxiv.org/abs/2602.12015",
           "https://arxiv.org/html/2602.12015v2",
-          "https://github.com/Bayer-Group/clues-clinical-nlp"
+          "https://github.com/Bayer-Group/clues-clinical-nlp",
+          "https://aclanthology.org/2026.clinicalnlp-1.39/"
         ],
         "artifact_status": "MIT implementation and examples verified; no standalone clinical dataset download verified; not executed. Repository includes offline similarity-matrix and live interpretation-generation examples; full-pipeline thresholds require domain-specific calibration.",
-        "checked_on": "2026-10-22",
+        "checked_on": "2026-11-06",
         "category": "verification",
         "source_depth": "primary-record",
         "added_on": "2026-10-22"
@@ -7283,6 +7343,128 @@
       "work_id": "post-sqlfix"
     },
     {
+      "id": "specbridge",
+      "name": "Text-to-SQL Models Make Choices Without Saying So",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "SpecBridge pairs an open calculation request with two explicitly specified readings to separate computing an answer from reporting alternatives. It also evaluates deciding which readings to answer and preserving constraints after a user pick. Tests cover one choice and two reference readings at a time; simulated users recognize their intended reading, and product baselines are reconstructions rather than live-product evaluations.",
+      "tags": [
+        "ambiguity",
+        "interpretation-coverage",
+        "clarification",
+        "evaluation"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "Official benchmark, scoring and method files are listed publicly; no data or experiments were downloaded or run. Repository describes a PVLDB paper, but an independent proceedings record was not verified, so publication status remains preprint.",
+      "sources": [
+        "https://arxiv.org/abs/2611.04318",
+        "https://arxiv.org/html/2611.04318v1",
+        "https://github.com/Xyc-arch/specbridge-artifact"
+      ],
+      "checked": "2026-11-06",
+      "added_on": "2026-11-06",
+      "url": "https://arxiv.org/abs/2611.04318",
+      "code_links": [
+        "https://github.com/Xyc-arch/specbridge-artifact"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#specbridge",
+      "original": {
+        "id": "specbridge",
+        "title": "Text-to-SQL Models Make Choices Without Saying So",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.04318",
+        "code_url": "https://github.com/Xyc-arch/specbridge-artifact",
+        "dataset_url": "https://github.com/Xyc-arch/specbridge-artifact/tree/main/benchmark",
+        "category": "ambiguity",
+        "scope": "core",
+        "topics": [
+          "ambiguity",
+          "interpretation-coverage",
+          "clarification",
+          "evaluation"
+        ],
+        "summary": "SpecBridge pairs an open calculation request with two explicitly specified readings to separate computing an answer from reporting alternatives. It also evaluates deciding which readings to answer and preserving constraints after a user pick. Tests cover one choice and two reference readings at a time; simulated users recognize their intended reading, and product baselines are reconstructions rather than live-product evaluations.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.04318",
+          "https://arxiv.org/html/2611.04318v1",
+          "https://github.com/Xyc-arch/specbridge-artifact"
+        ],
+        "artifact_status": "Official benchmark, scoring and method files are listed publicly; no data or experiments were downloaded or run. Repository describes a PVLDB paper, but an independent proceedings record was not verified, so publication status remains preprint.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-06",
+        "added_on": "2026-11-06"
+      },
+      "work_id": "specbridge"
+    },
+    {
+      "id": "synca-audit",
+      "name": "Auditing and Repairing LLM-as-Judge Failures in a Production Text-to-SQL Pipeline",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Audits SQL-faithfulness judges against human labels, compares replacements and routes judge disagreements to review. It separates disagreement-enriched samples from random spot-checks, showing why aggregate agreement depends on sampling and domain. Evidence comes from one telecom deployment with limited cross-domain checks; the small head-to-head comparison is inconclusive and gold labels remain tied to the annotation protocol.",
+      "tags": [
+        "verification",
+        "evaluation",
+        "human-in-the-loop",
+        "benchmark-quality"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "EMNLP 2026 Industry Track",
+      "status": "Official repository contains judge and analysis scripts; its README still defers the audit datasets despite the proceedings publication. The paper-described benchmark is not treated as a verified data download; no results reproduced.",
+      "sources": [
+        "https://aclanthology.org/2026.emnlp-industry.18/",
+        "https://aclanthology.org/2026.emnlp-industry.18.pdf",
+        "https://arxiv.org/abs/2609.30290",
+        "https://github.com/JamesL404/synca-audit"
+      ],
+      "checked": "2026-11-06",
+      "added_on": "2026-11-06",
+      "url": "https://aclanthology.org/2026.emnlp-industry.18/",
+      "code_links": [
+        "https://github.com/JamesL404/synca-audit"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#synca-audit",
+      "original": {
+        "id": "synca-audit",
+        "title": "Auditing and Repairing LLM-as-Judge Failures in a Production Text-to-SQL Pipeline",
+        "year": 2026,
+        "publication_status": "EMNLP 2026 Industry Track",
+        "primary_url": "https://aclanthology.org/2026.emnlp-industry.18/",
+        "code_url": "https://github.com/JamesL404/synca-audit",
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "verification",
+          "evaluation",
+          "human-in-the-loop",
+          "benchmark-quality"
+        ],
+        "summary": "Audits SQL-faithfulness judges against human labels, compares replacements and routes judge disagreements to review. It separates disagreement-enriched samples from random spot-checks, showing why aggregate agreement depends on sampling and domain. Evidence comes from one telecom deployment with limited cross-domain checks; the small head-to-head comparison is inconclusive and gold labels remain tied to the annotation protocol.",
+        "evidence": [
+          "https://aclanthology.org/2026.emnlp-industry.18/",
+          "https://aclanthology.org/2026.emnlp-industry.18.pdf",
+          "https://arxiv.org/abs/2609.30290",
+          "https://github.com/JamesL404/synca-audit"
+        ],
+        "artifact_status": "Official repository contains judge and analysis scripts; its README still defers the audit datasets despite the proceedings publication. The paper-described benchmark is not treated as a verified data download; no results reproduced.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-06",
+        "added_on": "2026-11-06"
+      },
+      "work_id": "synca-audit"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -10149,18 +10331,177 @@
         "checked_on": "2026-11-05"
       },
       "work_id": "pascal"
+    },
+    {
+      "id": "specbridge-data",
+      "name": "SpecBridge request sets",
+      "kind": "benchmark",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Paired SQL readings and open/specific request triples that isolate one calculation choice.",
+      "tags": [
+        "ambiguity",
+        "clarification",
+        "evaluation",
+        "interpretation-coverage"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "resource",
+      "status": "request_sets.jsonl, database directory, scorer and example-response files are listed. README distinguishes 307 generated sets from 204 accepted sets used in the paper. Files were not downloaded or independently checked.",
+      "sources": [
+        "https://github.com/Xyc-arch/specbridge-artifact/tree/main/benchmark",
+        "https://github.com/Xyc-arch/specbridge-artifact/blob/main/DATA_LICENSE.md",
+        "https://arxiv.org/html/2611.04318v1"
+      ],
+      "checked": "2026-11-06",
+      "added_on": null,
+      "url": "https://github.com/Xyc-arch/specbridge-artifact/tree/main/benchmark",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/datasets/README.md#specbridge-data",
+      "original": {
+        "id": "specbridge-data",
+        "name": "SpecBridge request sets",
+        "kind": "dataset",
+        "paper_ids": [
+          "specbridge"
+        ],
+        "url": "https://github.com/Xyc-arch/specbridge-artifact/tree/main/benchmark",
+        "description": "Paired SQL readings and open/specific request triples that isolate one calculation choice.",
+        "protocol": "Measure execution-based interpretation coverage and false alarms; additional valid readings and simultaneous open choices are outside the scored target.",
+        "availability": "request_sets.jsonl, database directory, scorer and example-response files are listed. README distinguishes 307 generated sets from 204 accepted sets used in the paper. Files were not downloaded or independently checked.",
+        "license_note": "DATA_LICENSE.md declares CC BY-SA 4.0 for request sets and databases, with upstream source attribution. Code has a separate MIT license.",
+        "evidence": [
+          "https://github.com/Xyc-arch/specbridge-artifact/tree/main/benchmark",
+          "https://github.com/Xyc-arch/specbridge-artifact/blob/main/DATA_LICENSE.md",
+          "https://arxiv.org/html/2611.04318v1"
+        ],
+        "checked_on": "2026-11-06"
+      },
+      "work_id": "specbridge"
+    },
+    {
+      "id": "specbridge-tool",
+      "name": "SpecBridge scoring and disclosure methods",
+      "kind": "tool",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Scorer and two-phase methods for exposing alternative interpretations and retaining the original request after a user pick.",
+      "tags": [
+        "ambiguity",
+        "clarification",
+        "evaluation",
+        "interpretation-coverage"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "resource",
+      "status": "benchmark/score.py and methods/disclose.py and clarify.py are visible. Saved-run reproduction and fresh model calls are documented separately; neither was executed.",
+      "sources": [
+        "https://github.com/Xyc-arch/specbridge-artifact",
+        "https://github.com/Xyc-arch/specbridge-artifact/blob/main/LICENSE",
+        "https://github.com/Xyc-arch/specbridge-artifact/blob/main/DATA_LICENSE.md",
+        "https://arxiv.org/html/2611.04318v1"
+      ],
+      "checked": "2026-11-06",
+      "added_on": null,
+      "url": "https://github.com/Xyc-arch/specbridge-artifact",
+      "code_links": [
+        "https://github.com/Xyc-arch/specbridge-artifact"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#specbridge-tool",
+      "original": {
+        "id": "specbridge-tool",
+        "name": "SpecBridge scoring and disclosure methods",
+        "kind": "tool",
+        "paper_ids": [
+          "specbridge"
+        ],
+        "url": "https://github.com/Xyc-arch/specbridge-artifact",
+        "description": "Scorer and two-phase methods for exposing alternative interpretations and retaining the original request after a user pick.",
+        "protocol": "Execute candidate SQL against paired references; method evaluation includes an idealized two-turn user simulation, not a live analyst study.",
+        "availability": "benchmark/score.py and methods/disclose.py and clarify.py are visible. Saved-run reproduction and fresh model calls are documented separately; neither was executed.",
+        "license_note": "Code LICENSE is MIT; benchmark and saved-output terms are separately declared in DATA_LICENSE.md.",
+        "evidence": [
+          "https://github.com/Xyc-arch/specbridge-artifact",
+          "https://github.com/Xyc-arch/specbridge-artifact/blob/main/LICENSE",
+          "https://github.com/Xyc-arch/specbridge-artifact/blob/main/DATA_LICENSE.md",
+          "https://arxiv.org/html/2611.04318v1"
+        ],
+        "checked_on": "2026-11-06"
+      },
+      "work_id": "specbridge"
+    },
+    {
+      "id": "synca-audit-tool",
+      "name": "SynCA judge-audit scripts",
+      "kind": "tool",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Judge runners, agreement metrics, ensemble analyses and routing experiments for SQL-faithfulness auditing.",
+      "tags": [
+        "benchmark-quality",
+        "evaluation",
+        "human-in-the-loop",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "Source scripts are visible, but the README defers required audit datasets. Full reproduction is not established from the public files; no code was run.",
+      "sources": [
+        "https://github.com/JamesL404/synca-audit",
+        "https://aclanthology.org/2026.emnlp-industry.18.pdf"
+      ],
+      "checked": "2026-11-06",
+      "added_on": null,
+      "url": "https://github.com/JamesL404/synca-audit",
+      "code_links": [
+        "https://github.com/JamesL404/synca-audit"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#synca-audit-tool",
+      "original": {
+        "id": "synca-audit-tool",
+        "name": "SynCA judge-audit scripts",
+        "kind": "tool",
+        "paper_ids": [
+          "synca-audit"
+        ],
+        "url": "https://github.com/JamesL404/synca-audit",
+        "description": "Judge runners, agreement metrics, ensemble analyses and routing experiments for SQL-faithfulness auditing.",
+        "protocol": "Compare judges with domain-specific human labels and distinguish selected disagreement cases from random samples; no universal best-judge claim.",
+        "availability": "Source scripts are visible, but the README defers required audit datasets. Full reproduction is not established from the public files; no code was run.",
+        "license_note": "README declares MIT for code; no root LICENSE file was listed. Dataset terms remain deferred with the data release.",
+        "evidence": [
+          "https://github.com/JamesL404/synca-audit",
+          "https://aclanthology.org/2026.emnlp-industry.18.pdf"
+        ],
+        "checked_on": "2026-11-06"
+      },
+      "work_id": "synca-audit"
     }
   ],
   "themes": [
     {
       "id": "ambiguity",
       "label": "Ambiguity",
-      "count": 35
+      "count": 36
     },
     {
       "id": "clarification",
       "label": "Clarification",
-      "count": 31
+      "count": 32
+    },
+    {
+      "id": "evaluation",
+      "label": "Evaluation",
+      "count": 22
     },
     {
       "id": "unanswerability",
@@ -10168,18 +10509,13 @@
       "count": 21
     },
     {
-      "id": "evaluation",
-      "label": "Evaluation",
-      "count": 20
+      "id": "verification",
+      "label": "Verification",
+      "count": 17
     },
     {
       "id": "abstention",
       "label": "Abstention",
-      "count": 16
-    },
-    {
-      "id": "verification",
-      "label": "Verification",
       "count": 16
     },
     {
@@ -10218,28 +10554,28 @@
       "count": 5
     },
     {
+      "id": "benchmark-quality",
+      "label": "Benchmark quality",
+      "count": 5
+    },
+    {
       "id": "context",
       "label": "Context",
       "count": 5
     },
     {
-      "id": "benchmark-quality",
-      "label": "Benchmark quality",
-      "count": 4
-    },
-    {
-      "id": "error-detection",
-      "label": "Error detection",
-      "count": 4
-    },
-    {
       "id": "human-in-the-loop",
       "label": "Human in the loop",
-      "count": 4
+      "count": 5
     },
     {
       "id": "interpretation-coverage",
       "label": "Interpretation coverage",
+      "count": 5
+    },
+    {
+      "id": "error-detection",
+      "label": "Error detection",
       "count": 4
     },
     {
@@ -11951,6 +12287,52 @@
         }
       ],
       "checked_on": "2026-11-02"
+    },
+    {
+      "resource_id": "specbridge-data",
+      "label": "SpecBridge",
+      "relevance": "direct",
+      "ambiguity": {
+        "status": "yes",
+        "detail": "One open calculation choice with two scored readings; further valid readings are unscored."
+      },
+      "unanswerability": {
+        "status": "not_targeted",
+        "detail": "Requests select or leave open valid interpretations; no refusal task."
+      },
+      "clarification": {
+        "mode": "supplied",
+        "detail": "Specific A/B requests and intended-reading picks are supplied; the companion method generates interpretation options."
+      },
+      "interaction": {
+        "mode": "simulated",
+        "detail": "Main request triples are static; the two-turn comparison assumes a user who always recognizes the intended interpretation."
+      },
+      "domain": "Cross-domain SQLite databases from Spider, BIRD and LiveSQLBench",
+      "evaluation": "Execution correctness, coverage of both readings, judged disclosure and false alarms; simulated turn cost in the companion comparison.",
+      "data_access": "public_artifacts",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/html/2611.04318v1",
+          "locator": "Sections 2-4, 7.2-7.3 and limitations: paired request construction, scoring and idealized two-turn protocol.",
+          "supports": [
+            "ambiguity",
+            "unanswerability",
+            "clarification",
+            "interaction",
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://github.com/Xyc-arch/specbridge-artifact/blob/main/benchmark/README.md",
+          "locator": "Benchmark README describes request_sets.jsonl, accepted subset, 12 SQLite databases and source benchmarks.",
+          "supports": [
+            "data_access",
+            "domain"
+          ]
+        }
+      ],
+      "checked_on": "2026-11-06"
     }
   ]
 }
