@@ -1680,8 +1680,8 @@
     "id": "annotation-errors",
     "title": "Pervasive Annotation Errors Break Text-to-SQL Benchmarks and Leaderboards",
     "year": 2026,
-    "publication_status": "VLDB 2026",
-    "primary_url": "https://arxiv.org/abs/2601.08778",
+    "publication_status": "PVLDB 19(5), 2026",
+    "primary_url": "https://www.vldb.org/pvldb/vol19/p931-jin.pdf",
     "code_url": "https://github.com/uiuc-kang-lab/text_to_sql_benchmarks",
     "dataset_url": null,
     "topics": [
@@ -1692,6 +1692,7 @@
     "scope": "adjacent",
     "summary": "Audits annotations in BIRD and Spider 2.0-Snow and re-evaluates agents on a corrected BIRD subset, showing that reference errors can change reported rankings. This supports checking evaluation labels before interpreting reliability scores; the findings concern the inspected benchmark versions and subsets, not every current leaderboard.",
     "evidence": [
+      "https://www.vldb.org/pvldb/vol19/p931-jin.pdf",
       "https://arxiv.org/abs/2601.08778",
       "https://vldb.org/2026/program.html",
       "https://github.com/uiuc-kang-lab/text_to_sql_benchmarks"
@@ -1699,7 +1700,7 @@
     "category": "verification",
     "source_depth": "primary-record",
     "artifact_status": "Official repository exposes code and data-access instructions; dependencies, downloads and reported results were not independently reproduced.",
-    "checked_on": "2026-10-24",
+    "checked_on": "2026-11-08",
     "added_on": "2026-10-24"
   },
   {
@@ -2285,5 +2286,86 @@
     "source_depth": "targeted-full-text",
     "checked_on": "2026-11-06",
     "added_on": "2026-11-06"
+  },
+  {
+    "id": "sqlstructeval",
+    "title": "SQLStructEval: Structural Evaluation of LLM Text-to-SQL Generation",
+    "year": 2026,
+    "publication_status": "Findings of IJCNLP-AACL 2026",
+    "primary_url": "https://aclanthology.org/2026.findings-aacl.122/",
+    "code_url": "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL",
+    "dataset_url": null,
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "evaluation",
+      "verification",
+      "structural-consistency",
+      "robustness"
+    ],
+    "summary": "Measures canonical SQL-structure variation across repeated generations, paraphrases and schema reorderings, including outputs that match reference execution results. A structured-plan compiler is evaluated as a full pipeline. Structural divergence is not itself an error or evidence of user ambiguity; results depend on parsing coverage and supplied database instances, with limited additional-benchmark subsets and no isolated compiler-effect claim.",
+    "evidence": [
+      "https://aclanthology.org/2026.findings-aacl.122/",
+      "https://aclanthology.org/2026.findings-aacl.122.pdf",
+      "https://arxiv.org/abs/2604.06736",
+      "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL"
+    ],
+    "artifact_status": "Official repository exposes core analysis, compilation and experiment files. Its README excludes sampled outputs, manually checked paraphrases, the DIN-SQL baseline and some scope-check components; code availability does not establish exact table reproduction. No linked code was executed.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-08",
+    "added_on": "2026-11-08"
+  },
+  {
+    "id": "consistency-hypothesis",
+    "title": "The Consistency Hypothesis in Uncertainty Quantification for Large Language Models",
+    "year": 2025,
+    "publication_status": "UAI 2025 (PMLR 286)",
+    "primary_url": "https://proceedings.mlr.press/v286/xiao25a.html",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "uncertainty",
+      "confidence",
+      "selective-prediction"
+    ],
+    "summary": "Formalizes and statistically tests whether agreement among sampled generations predicts correctness, including Spider, Spider-Realistic and BIRD, then evaluates similarity aggregation for confidence and selective generation. Support varies with model, dataset and similarity definition. SQL correctness is labeled by reference-result agreement on the supplied database; consistency is not a semantic proof or a diagnosis of request answerability.",
+    "evidence": [
+      "https://proceedings.mlr.press/v286/xiao25a.html",
+      "https://arxiv.org/abs/2506.21849",
+      "https://arxiv.org/html/2506.21849v1"
+    ],
+    "artifact_status": "Publication and targeted full-text sections verified; no dedicated code or dataset release verified in this pass.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-08",
+    "added_on": "2026-11-08"
+  },
+  {
+    "id": "simba-uq",
+    "title": "SIMBA UQ: Similarity-Based Aggregation for Uncertainty Quantification in Large Language Models",
+    "year": 2025,
+    "publication_status": "Findings of EMNLP 2025",
+    "primary_url": "https://aclanthology.org/2025.findings-emnlp.859/",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "uncertainty",
+      "confidence",
+      "calibration",
+      "selective-prediction"
+    ],
+    "summary": "Aggregates similarities among sampled responses into confidence estimates using simple, Bayesian and learned-classifier approaches, with Text-to-SQL evaluation on Spider, Spider-Realistic and BIRD. The learned variants use labeled in-domain examples and matched sampling procedures. Calibration improvements do not guarantee individual correctness or reliable rejection; the study leaves distribution-shift evaluation open and uses execution agreement for SQL labels.",
+    "evidence": [
+      "https://aclanthology.org/2025.findings-emnlp.859/",
+      "https://arxiv.org/abs/2510.13836",
+      "https://arxiv.org/html/2510.13836v1"
+    ],
+    "artifact_status": "Proceedings and method limitations verified; no dedicated Text-to-SQL implementation or dataset release verified in this pass.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-08",
+    "added_on": "2026-11-08"
   }
 ]

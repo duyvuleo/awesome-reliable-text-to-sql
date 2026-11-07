@@ -1120,5 +1120,24 @@
       "https://aclanthology.org/2026.emnlp-industry.18.pdf"
     ],
     "checked_on": "2026-11-06"
+  },
+  {
+    "id": "sqlstructeval-tool",
+    "name": "SQLStructEval structural diagnostics",
+    "kind": "tool",
+    "paper_ids": [
+      "sqlstructeval"
+    ],
+    "url": "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL",
+    "description": "Canonical-structure metrics, JSON-to-SQL compilation and experiment scripts for inspecting generation variability alongside execution results.",
+    "protocol": "Analyze repeated SQL outputs and input perturbations. Canonicalization is not equivalence verification; documented literal-normalization, alias-scope and parse-coverage limits affect interpretation.",
+    "availability": "Core code, experiment scripts, tests and documentation are visible. Benchmark data, sampled outputs, checked paraphrases and some comparison components are excluded; exact paper-table reproduction is not established. No code was run.",
+    "license_note": "Root LICENSE is MIT for code. Benchmark datasets and the paper retain separate terms.",
+    "evidence": [
+      "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL",
+      "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL/blob/main/LICENSE",
+      "https://aclanthology.org/2026.findings-aacl.122.pdf"
+    ],
+    "checked_on": "2026-11-08"
   }
 ]

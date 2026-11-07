@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-11-08: structural diagnostics and consistency-based confidence](2026-11-08.md)
+
 - [2026-11-06: open calculation choices and judge auditing](2026-11-06.md)
 
 - [2026-11-05: acquisition control and bounded SQL verification](2026-11-05.md)

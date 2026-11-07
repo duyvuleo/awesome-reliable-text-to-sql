@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-08
+
+- Added SQLStructEval and its public diagnostics tool, distinguishing structural variation from semantic errors and visible code from complete reproduction artifacts.
+- Added the UAI 2025 consistency-hypothesis study and Findings of EMNLP 2025 SIMBA UQ paper, with execution-label, calibration and distribution-shift limits.
+- Updated the annotation-error audit to its verified PVLDB proceedings URL and volume metadata, preserving its original addition date. No dataset count was added for reused benchmarks.
+
 ## 2026-11-06
 
 - Added SpecBridge with its request-set dataset, scoring/disclosure tools and benchmark comparison, preserving the single-choice and idealized-user limits.

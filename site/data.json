@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-06",
-  "updated": "2026-11-06",
+  "checked": "2026-11-08",
+  "updated": "2026-11-08",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 88,
+    "paper": 91,
     "system": 14,
-    "tool": 17,
+    "tool": 18,
     "benchmark": 30
   },
   "categories": {
@@ -1222,6 +1222,34 @@
       ]
     },
     {
+      "id": "sqlstructeval",
+      "name": "SQLStructEval: Structural Evaluation of LLM Text-to-SQL Generation",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Measures canonical SQL-structure variation across repeated generations, paraphrases and schema reorderings, including outputs that match reference execution results. A structured-plan compiler is evaluated as a full pipeline. Structural divergence is not itself an error or evidence of user ambiguity; results depend on parsing coverage and supplied database instances, with limited additional-benchmark subsets and no isolated compiler-effect claim.",
+      "entry_ids": [
+        "sqlstructeval",
+        "sqlstructeval-tool"
+      ],
+      "themes": [
+        "evaluation",
+        "robustness",
+        "structural-consistency",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper",
+        "tool"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "taco",
       "name": "TACO: A Benchmark for Open-Domain Text-to-SQL with Ambiguous and Cross-Database Queries",
       "date": "2026",
@@ -1863,6 +1891,32 @@
       ]
     },
     {
+      "id": "simba-uq",
+      "name": "SIMBA UQ: Similarity-Based Aggregation for Uncertainty Quantification in Large Language Models",
+      "date": "2025",
+      "year": 2025,
+      "kind": "paper",
+      "summary": "Aggregates similarities among sampled responses into confidence estimates using simple, Bayesian and learned-classifier approaches, with Text-to-SQL evaluation on Spider, Spider-Realistic and BIRD. The learned variants use labeled in-domain examples and matched sampling procedures. Calibration improvements do not guarantee individual correctness or reliable rejection; the study leaves distribution-shift evaluation open and uses execution agreement for SQL labels.",
+      "entry_ids": [
+        "simba-uq"
+      ],
+      "themes": [
+        "calibration",
+        "confidence",
+        "selective-prediction",
+        "uncertainty"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2025
+      ]
+    },
+    {
       "id": "spider2",
       "name": "Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows",
       "date": "2025",
@@ -1936,6 +1990,31 @@
       "kinds": [
         "paper",
         "tool"
+      ],
+      "years": [
+        2025
+      ]
+    },
+    {
+      "id": "consistency-hypothesis",
+      "name": "The Consistency Hypothesis in Uncertainty Quantification for Large Language Models",
+      "date": "2025",
+      "year": 2025,
+      "kind": "paper",
+      "summary": "Formalizes and statistically tests whether agreement among sampled generations predicts correctness, including Spider, Spider-Realistic and BIRD, then evaluates similarity aggregation for confidence and selective generation. Support varies with model, dataset and similarity definition. SQL correctness is labeled by reference-result agreement on the supplied database; consistency is not a semantic proof or a diagnosis of request answerability.",
+      "entry_ids": [
+        "consistency-hypothesis"
+      ],
+      "themes": [
+        "confidence",
+        "selective-prediction",
+        "uncertainty"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper"
       ],
       "years": [
         2025
@@ -6152,16 +6231,17 @@
       "categories": [
         "verification"
       ],
-      "evidence": "VLDB 2026",
+      "evidence": "PVLDB 19(5), 2026",
       "status": "Official repository exposes code and data-access instructions; dependencies, downloads and reported results were not independently reproduced.",
       "sources": [
+        "https://www.vldb.org/pvldb/vol19/p931-jin.pdf",
         "https://arxiv.org/abs/2601.08778",
         "https://vldb.org/2026/program.html",
         "https://github.com/uiuc-kang-lab/text_to_sql_benchmarks"
       ],
-      "checked": "2026-10-24",
+      "checked": "2026-11-08",
       "added_on": "2026-10-24",
-      "url": "https://arxiv.org/abs/2601.08778",
+      "url": "https://www.vldb.org/pvldb/vol19/p931-jin.pdf",
       "code_links": [
         "https://github.com/uiuc-kang-lab/text_to_sql_benchmarks"
       ],
@@ -6170,8 +6250,8 @@
         "id": "annotation-errors",
         "title": "Pervasive Annotation Errors Break Text-to-SQL Benchmarks and Leaderboards",
         "year": 2026,
-        "publication_status": "VLDB 2026",
-        "primary_url": "https://arxiv.org/abs/2601.08778",
+        "publication_status": "PVLDB 19(5), 2026",
+        "primary_url": "https://www.vldb.org/pvldb/vol19/p931-jin.pdf",
         "code_url": "https://github.com/uiuc-kang-lab/text_to_sql_benchmarks",
         "dataset_url": null,
         "topics": [
@@ -6182,6 +6262,7 @@
         "scope": "adjacent",
         "summary": "Audits annotations in BIRD and Spider 2.0-Snow and re-evaluates agents on a corrected BIRD subset, showing that reference errors can change reported rankings. This supports checking evaluation labels before interpreting reliability scores; the findings concern the inspected benchmark versions and subsets, not every current leaderboard.",
         "evidence": [
+          "https://www.vldb.org/pvldb/vol19/p931-jin.pdf",
           "https://arxiv.org/abs/2601.08778",
           "https://vldb.org/2026/program.html",
           "https://github.com/uiuc-kang-lab/text_to_sql_benchmarks"
@@ -6189,7 +6270,7 @@
         "category": "verification",
         "source_depth": "primary-record",
         "artifact_status": "Official repository exposes code and data-access instructions; dependencies, downloads and reported results were not independently reproduced.",
-        "checked_on": "2026-10-24",
+        "checked_on": "2026-11-08",
         "added_on": "2026-10-24"
       },
       "work_id": "annotation-errors"
@@ -7463,6 +7544,182 @@
         "added_on": "2026-11-06"
       },
       "work_id": "synca-audit"
+    },
+    {
+      "id": "sqlstructeval",
+      "name": "SQLStructEval: Structural Evaluation of LLM Text-to-SQL Generation",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Measures canonical SQL-structure variation across repeated generations, paraphrases and schema reorderings, including outputs that match reference execution results. A structured-plan compiler is evaluated as a full pipeline. Structural divergence is not itself an error or evidence of user ambiguity; results depend on parsing coverage and supplied database instances, with limited additional-benchmark subsets and no isolated compiler-effect claim.",
+      "tags": [
+        "evaluation",
+        "verification",
+        "structural-consistency",
+        "robustness"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "Findings of IJCNLP-AACL 2026",
+      "status": "Official repository exposes core analysis, compilation and experiment files. Its README excludes sampled outputs, manually checked paraphrases, the DIN-SQL baseline and some scope-check components; code availability does not establish exact table reproduction. No linked code was executed.",
+      "sources": [
+        "https://aclanthology.org/2026.findings-aacl.122/",
+        "https://aclanthology.org/2026.findings-aacl.122.pdf",
+        "https://arxiv.org/abs/2604.06736",
+        "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL"
+      ],
+      "checked": "2026-11-08",
+      "added_on": "2026-11-08",
+      "url": "https://aclanthology.org/2026.findings-aacl.122/",
+      "code_links": [
+        "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#sqlstructeval",
+      "original": {
+        "id": "sqlstructeval",
+        "title": "SQLStructEval: Structural Evaluation of LLM Text-to-SQL Generation",
+        "year": 2026,
+        "publication_status": "Findings of IJCNLP-AACL 2026",
+        "primary_url": "https://aclanthology.org/2026.findings-aacl.122/",
+        "code_url": "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL",
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "evaluation",
+          "verification",
+          "structural-consistency",
+          "robustness"
+        ],
+        "summary": "Measures canonical SQL-structure variation across repeated generations, paraphrases and schema reorderings, including outputs that match reference execution results. A structured-plan compiler is evaluated as a full pipeline. Structural divergence is not itself an error or evidence of user ambiguity; results depend on parsing coverage and supplied database instances, with limited additional-benchmark subsets and no isolated compiler-effect claim.",
+        "evidence": [
+          "https://aclanthology.org/2026.findings-aacl.122/",
+          "https://aclanthology.org/2026.findings-aacl.122.pdf",
+          "https://arxiv.org/abs/2604.06736",
+          "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL"
+        ],
+        "artifact_status": "Official repository exposes core analysis, compilation and experiment files. Its README excludes sampled outputs, manually checked paraphrases, the DIN-SQL baseline and some scope-check components; code availability does not establish exact table reproduction. No linked code was executed.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-08",
+        "added_on": "2026-11-08"
+      },
+      "work_id": "sqlstructeval"
+    },
+    {
+      "id": "consistency-hypothesis",
+      "name": "The Consistency Hypothesis in Uncertainty Quantification for Large Language Models",
+      "kind": "paper",
+      "year": 2025,
+      "date": "2025",
+      "date_label": "Publication year",
+      "summary": "Formalizes and statistically tests whether agreement among sampled generations predicts correctness, including Spider, Spider-Realistic and BIRD, then evaluates similarity aggregation for confidence and selective generation. Support varies with model, dataset and similarity definition. SQL correctness is labeled by reference-result agreement on the supplied database; consistency is not a semantic proof or a diagnosis of request answerability.",
+      "tags": [
+        "uncertainty",
+        "confidence",
+        "selective-prediction"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "UAI 2025 (PMLR 286)",
+      "status": "Publication and targeted full-text sections verified; no dedicated code or dataset release verified in this pass.",
+      "sources": [
+        "https://proceedings.mlr.press/v286/xiao25a.html",
+        "https://arxiv.org/abs/2506.21849",
+        "https://arxiv.org/html/2506.21849v1"
+      ],
+      "checked": "2026-11-08",
+      "added_on": "2026-11-08",
+      "url": "https://proceedings.mlr.press/v286/xiao25a.html",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#consistency-hypothesis",
+      "original": {
+        "id": "consistency-hypothesis",
+        "title": "The Consistency Hypothesis in Uncertainty Quantification for Large Language Models",
+        "year": 2025,
+        "publication_status": "UAI 2025 (PMLR 286)",
+        "primary_url": "https://proceedings.mlr.press/v286/xiao25a.html",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "uncertainty",
+          "confidence",
+          "selective-prediction"
+        ],
+        "summary": "Formalizes and statistically tests whether agreement among sampled generations predicts correctness, including Spider, Spider-Realistic and BIRD, then evaluates similarity aggregation for confidence and selective generation. Support varies with model, dataset and similarity definition. SQL correctness is labeled by reference-result agreement on the supplied database; consistency is not a semantic proof or a diagnosis of request answerability.",
+        "evidence": [
+          "https://proceedings.mlr.press/v286/xiao25a.html",
+          "https://arxiv.org/abs/2506.21849",
+          "https://arxiv.org/html/2506.21849v1"
+        ],
+        "artifact_status": "Publication and targeted full-text sections verified; no dedicated code or dataset release verified in this pass.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-08",
+        "added_on": "2026-11-08"
+      },
+      "work_id": "consistency-hypothesis"
+    },
+    {
+      "id": "simba-uq",
+      "name": "SIMBA UQ: Similarity-Based Aggregation for Uncertainty Quantification in Large Language Models",
+      "kind": "paper",
+      "year": 2025,
+      "date": "2025",
+      "date_label": "Publication year",
+      "summary": "Aggregates similarities among sampled responses into confidence estimates using simple, Bayesian and learned-classifier approaches, with Text-to-SQL evaluation on Spider, Spider-Realistic and BIRD. The learned variants use labeled in-domain examples and matched sampling procedures. Calibration improvements do not guarantee individual correctness or reliable rejection; the study leaves distribution-shift evaluation open and uses execution agreement for SQL labels.",
+      "tags": [
+        "uncertainty",
+        "confidence",
+        "calibration",
+        "selective-prediction"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "Findings of EMNLP 2025",
+      "status": "Proceedings and method limitations verified; no dedicated Text-to-SQL implementation or dataset release verified in this pass.",
+      "sources": [
+        "https://aclanthology.org/2025.findings-emnlp.859/",
+        "https://arxiv.org/abs/2510.13836",
+        "https://arxiv.org/html/2510.13836v1"
+      ],
+      "checked": "2026-11-08",
+      "added_on": "2026-11-08",
+      "url": "https://aclanthology.org/2025.findings-emnlp.859/",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#simba-uq",
+      "original": {
+        "id": "simba-uq",
+        "title": "SIMBA UQ: Similarity-Based Aggregation for Uncertainty Quantification in Large Language Models",
+        "year": 2025,
+        "publication_status": "Findings of EMNLP 2025",
+        "primary_url": "https://aclanthology.org/2025.findings-emnlp.859/",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "uncertainty",
+          "confidence",
+          "calibration",
+          "selective-prediction"
+        ],
+        "summary": "Aggregates similarities among sampled responses into confidence estimates using simple, Bayesian and learned-classifier approaches, with Text-to-SQL evaluation on Spider, Spider-Realistic and BIRD. The learned variants use labeled in-domain examples and matched sampling procedures. Calibration improvements do not guarantee individual correctness or reliable rejection; the study leaves distribution-shift evaluation open and uses execution agreement for SQL labels.",
+        "evidence": [
+          "https://aclanthology.org/2025.findings-emnlp.859/",
+          "https://arxiv.org/abs/2510.13836",
+          "https://arxiv.org/html/2510.13836v1"
+        ],
+        "artifact_status": "Proceedings and method limitations verified; no dedicated Text-to-SQL implementation or dataset release verified in this pass.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-08",
+        "added_on": "2026-11-08"
+      },
+      "work_id": "simba-uq"
     },
     {
       "id": "clarity-pipeline",
@@ -10485,6 +10742,58 @@
         "checked_on": "2026-11-06"
       },
       "work_id": "synca-audit"
+    },
+    {
+      "id": "sqlstructeval-tool",
+      "name": "SQLStructEval structural diagnostics",
+      "kind": "tool",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Canonical-structure metrics, JSON-to-SQL compilation and experiment scripts for inspecting generation variability alongside execution results.",
+      "tags": [
+        "evaluation",
+        "robustness",
+        "structural-consistency",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "Core code, experiment scripts, tests and documentation are visible. Benchmark data, sampled outputs, checked paraphrases and some comparison components are excluded; exact paper-table reproduction is not established. No code was run.",
+      "sources": [
+        "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL",
+        "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL/blob/main/LICENSE",
+        "https://aclanthology.org/2026.findings-aacl.122.pdf"
+      ],
+      "checked": "2026-11-08",
+      "added_on": null,
+      "url": "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL",
+      "code_links": [
+        "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#sqlstructeval-tool",
+      "original": {
+        "id": "sqlstructeval-tool",
+        "name": "SQLStructEval structural diagnostics",
+        "kind": "tool",
+        "paper_ids": [
+          "sqlstructeval"
+        ],
+        "url": "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL",
+        "description": "Canonical-structure metrics, JSON-to-SQL compilation and experiment scripts for inspecting generation variability alongside execution results.",
+        "protocol": "Analyze repeated SQL outputs and input perturbations. Canonicalization is not equivalence verification; documented literal-normalization, alias-scope and parse-coverage limits affect interpretation.",
+        "availability": "Core code, experiment scripts, tests and documentation are visible. Benchmark data, sampled outputs, checked paraphrases and some comparison components are excluded; exact paper-table reproduction is not established. No code was run.",
+        "license_note": "Root LICENSE is MIT for code. Benchmark datasets and the paper retain separate terms.",
+        "evidence": [
+          "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL",
+          "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL/blob/main/LICENSE",
+          "https://aclanthology.org/2026.findings-aacl.122.pdf"
+        ],
+        "checked_on": "2026-11-08"
+      },
+      "work_id": "sqlstructeval"
     }
   ],
   "themes": [
@@ -10501,7 +10810,7 @@
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 22
+      "count": 23
     },
     {
       "id": "unanswerability",
@@ -10511,7 +10820,7 @@
     {
       "id": "verification",
       "label": "Verification",
-      "count": 17
+      "count": 18
     },
     {
       "id": "abstention",
@@ -10521,7 +10830,7 @@
     {
       "id": "uncertainty",
       "label": "Uncertainty",
-      "count": 13
+      "count": 15
     },
     {
       "id": "clinical",
@@ -10574,6 +10883,11 @@
       "count": 5
     },
     {
+      "id": "calibration",
+      "label": "Calibration",
+      "count": 4
+    },
+    {
       "id": "error-detection",
       "label": "Error detection",
       "count": 4
@@ -10584,8 +10898,8 @@
       "count": 4
     },
     {
-      "id": "calibration",
-      "label": "Calibration",
+      "id": "confidence",
+      "label": "Confidence",
       "count": 3
     },
     {
@@ -10601,6 +10915,11 @@
     {
       "id": "multi-agent",
       "label": "Multi agent",
+      "count": 3
+    },
+    {
+      "id": "selective-prediction",
+      "label": "Selective prediction",
       "count": 3
     },
     {
@@ -10676,11 +10995,6 @@
     {
       "id": "business-semantics",
       "label": "Business semantics",
-      "count": 1
-    },
-    {
-      "id": "confidence",
-      "label": "Confidence",
       "count": 1
     },
     {
@@ -10804,13 +11118,13 @@
       "count": 1
     },
     {
-      "id": "routing",
-      "label": "Routing",
+      "id": "robustness",
+      "label": "Robustness",
       "count": 1
     },
     {
-      "id": "selective-prediction",
-      "label": "Selective prediction",
+      "id": "routing",
+      "label": "Routing",
       "count": 1
     },
     {
@@ -10821,6 +11135,11 @@
     {
       "id": "simulation",
       "label": "Simulation",
+      "count": 1
+    },
+    {
+      "id": "structural-consistency",
+      "label": "Structural consistency",
       "count": 1
     },
     {
