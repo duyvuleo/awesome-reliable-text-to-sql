@@ -1139,5 +1139,80 @@
       "https://aclanthology.org/2026.findings-aacl.122.pdf"
     ],
     "checked_on": "2026-11-08"
+  },
+  {
+    "id": "splash-data",
+    "name": "SPLASH correction feedback",
+    "kind": "dataset",
+    "paper_ids": [
+      "splash"
+    ],
+    "url": "https://github.com/MSR-LIT/Splash",
+    "description": "Spider-derived question, incorrect-SQL, explanation and human-feedback records for semantic parse correction.",
+    "protocol": "Supply recorded feedback for one correction attempt and score exact set match against the reference parse. The original task uses fully specified questions, not ambiguity or refusal labels.",
+    "availability": "Official data directory lists train.json, dev.json, test.json and editsql.json. The README documents record fields and separate Spider database IDs. File contents and end-to-end evaluation were not independently checked.",
+    "license_note": "README explicitly declares CC BY-SA 4.0 for SPLASH. Upstream Spider assets retain their own terms.",
+    "evidence": [
+      "https://github.com/MSR-LIT/Splash",
+      "https://github.com/MSR-LIT/Splash/tree/master/data",
+      "https://aclanthology.org/2020.acl-main.187.pdf"
+    ],
+    "checked_on": "2026-11-09"
+  },
+  {
+    "id": "nl-edit-tool",
+    "name": "NL-EDIT synthesis and SQL edit utilities",
+    "kind": "tool",
+    "paper_ids": [
+      "nl-edit"
+    ],
+    "url": "https://github.com/MSR-LIT/NLEdit",
+    "description": "Source utilities for synthesizing correction feedback, representing and applying SQL edits, and generating SQL explanations.",
+    "protocol": "Supports preparation and analysis of feedback-based correction experiments; visible utility code does not establish release of the complete trained correction model.",
+    "availability": "src/dataaugmentation and src/sqlutils contain source files; data contains SPLASH-derived records and parser-specific feedback files. README documents synthesis setup, but full neural training/inference and checkpoints were not verified. No code was executed.",
+    "license_note": "No LICENSE file was listed in the checked tree and the README did not specify terms. Do not infer a license for code or derived annotations.",
+    "evidence": [
+      "https://github.com/MSR-LIT/NLEdit",
+      "https://github.com/MSR-LIT/NLEdit/tree/main/src",
+      "https://aclanthology.org/2021.naacl-main.444.pdf"
+    ],
+    "checked_on": "2026-11-09"
+  },
+  {
+    "id": "bar-sql-system",
+    "name": "BAR-SQL",
+    "kind": "system",
+    "paper_ids": [
+      "bar-sql"
+    ],
+    "url": "https://github.com/TianSongS/BAR-SQL",
+    "description": "Research training pipeline combining enterprise data synthesis, supervised tuning and task-conditioned reinforcement learning for SQL or non-SQL responses.",
+    "protocol": "Produces SQL, clarification, follow-up or refusal responses. Paper evaluation combines execution matching with LLM judging; it is not a real-user dialogue evaluation.",
+    "availability": "Synthesis, SFT/GRPO launch scripts, reward code and inference/evaluation files are listed. Required database environment, released model weights and exact reproduction were not established; no code was run.",
+    "license_note": "README declares MIT and links a LICENSE file, but no LICENSE was listed in the checked repository tree. Reuse terms remain unverified.",
+    "evidence": [
+      "https://github.com/TianSongS/BAR-SQL",
+      "https://arxiv.org/html/2601.10318v1"
+    ],
+    "checked_on": "2026-11-09"
+  },
+  {
+    "id": "ent-sql-bench",
+    "name": "Ent-SQL-Bench (BAR-SQL)",
+    "kind": "dataset",
+    "paper_ids": [
+      "bar-sql"
+    ],
+    "url": "https://github.com/TianSongS/BAR-SQL/tree/main/benchmark",
+    "description": "Enterprise benchmark mixing SQL generation with ambiguous, missing-constraint and unsupported schema/metric requests.",
+    "protocol": "Static response evaluation: SQL outputs use execution-result agreement; clarification and refusal responses use majority-vote LLM judgments against references. No responsive user simulator is evaluated.",
+    "availability": "Ent-SQL-Bench.json is listed in the official repository. The paper describes 1,262 held-out instances; the instance count, database dependencies and execution setup were not independently validated. Distinct from the EntSQL enterprise-knowledge benchmark.",
+    "license_note": "No dataset-specific license was verified. The repository README's MIT declaration lacks a corresponding LICENSE file in the checked tree.",
+    "evidence": [
+      "https://github.com/TianSongS/BAR-SQL/tree/main/benchmark",
+      "https://github.com/TianSongS/BAR-SQL",
+      "https://arxiv.org/html/2601.10318v1"
+    ],
+    "checked_on": "2026-11-09"
   }
 ]

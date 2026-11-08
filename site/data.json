@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-08",
-  "updated": "2026-11-08",
+  "checked": "2026-11-09",
+  "updated": "2026-11-09",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 91,
-    "system": 14,
-    "tool": 18,
-    "benchmark": 30
+    "paper": 94,
+    "system": 15,
+    "tool": 19,
+    "benchmark": 32
   },
   "categories": {
     "ambiguity": "Ambiguity and multiple interpretations",
@@ -227,6 +227,37 @@
       ],
       "categories": [
         "interaction"
+      ],
+      "kinds": [
+        "benchmark",
+        "paper",
+        "system"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "bar-sql",
+      "name": "Boundary-Aware NL2SQL: Integrating Reliability through Hybrid Reward and Data Synthesis",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Trains SQL generation, clarification, missing-constraint follow-up and refusal with mutated enterprise examples, supervised fine-tuning and task-specific reinforcement-learning rewards. Ent-SQL-Bench combines SQL execution agreement with LLM-judged natural-language responses. Evidence comes from a held-out portion of the authors' synthetic enterprise corpus; response-level clarification scores do not establish successful multi-turn resolution or transfer to unseen domains.",
+      "entry_ids": [
+        "bar-sql",
+        "bar-sql-system",
+        "ent-sql-bench"
+      ],
+      "themes": [
+        "abstention",
+        "ambiguity",
+        "clarification",
+        "reinforcement-learning",
+        "unanswerability"
+      ],
+      "categories": [
+        "answerability"
       ],
       "kinds": [
         "benchmark",
@@ -2285,6 +2316,33 @@
       ]
     },
     {
+      "id": "nl-edit",
+      "name": "NL-EDIT: Correcting Semantic Parse Errors through Natural Language Interaction",
+      "date": "2021",
+      "year": 2021,
+      "kind": "paper",
+      "summary": "Maps feedback, a query explanation and schema context to SQL edits, with synthetic edit-feedback examples supplementing SPLASH training. One-round correction and cross-parser tests expose difficulties with longer explanations, multiple errors and irrelevant extra edits. It supports studying feedback incorporation, but does not establish a clarification policy, answerability detection or preservation of every unaffected part of user intent.",
+      "entry_ids": [
+        "nl-edit",
+        "nl-edit-tool"
+      ],
+      "themes": [
+        "error-correction",
+        "human-in-the-loop",
+        "natural-language-feedback"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "kinds": [
+        "paper",
+        "tool"
+      ],
+      "years": [
+        2021
+      ]
+    },
+    {
       "id": "triagesql",
       "name": "Did You Ask a Good Question? A Cross-Domain Question Intention Classification Benchmark for Text-to-SQL",
       "date": "2020",
@@ -2331,6 +2389,33 @@
       "kinds": [
         "paper",
         "tool"
+      ],
+      "years": [
+        2020
+      ]
+    },
+    {
+      "id": "splash",
+      "name": "Speak to your Parser: Interactive Text-to-SQL with Natural Language Feedback",
+      "date": "2020",
+      "year": 2020,
+      "kind": "paper",
+      "summary": "Introduces SPLASH, pairing Spider questions and erroneous SQL with explanations and crowdsourced correction feedback. Baselines test how feedback repairs a parse, providing a useful comparison for feedback incorporation in interactive agents. The task assumes a fully specified question and supplies a recorded correction turn; it does not evaluate ambiguity detection, clarification-question selection or unanswerable requests. Evaluation uses reference-based exact set match.",
+      "entry_ids": [
+        "splash",
+        "splash-data"
+      ],
+      "themes": [
+        "error-correction",
+        "human-in-the-loop",
+        "natural-language-feedback"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "kinds": [
+        "benchmark",
+        "paper"
       ],
       "years": [
         2020
@@ -7722,6 +7807,186 @@
       "work_id": "simba-uq"
     },
     {
+      "id": "splash",
+      "name": "Speak to your Parser: Interactive Text-to-SQL with Natural Language Feedback",
+      "kind": "paper",
+      "year": 2020,
+      "date": "2020",
+      "date_label": "Publication year",
+      "summary": "Introduces SPLASH, pairing Spider questions and erroneous SQL with explanations and crowdsourced correction feedback. Baselines test how feedback repairs a parse, providing a useful comparison for feedback incorporation in interactive agents. The task assumes a fully specified question and supplies a recorded correction turn; it does not evaluate ambiguity detection, clarification-question selection or unanswerable requests. Evaluation uses reference-based exact set match.",
+      "tags": [
+        "human-in-the-loop",
+        "natural-language-feedback",
+        "error-correction",
+        "benchmark"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "ACL 2020",
+      "status": "Official repository lists train, dev, test and EditSQL feedback JSON files and declares CC BY-SA 4.0. It is a dataset release, not a verified release of the baseline models. Data were not downloaded or executed.",
+      "sources": [
+        "https://aclanthology.org/2020.acl-main.187/",
+        "https://aclanthology.org/2020.acl-main.187.pdf",
+        "https://github.com/MSR-LIT/Splash"
+      ],
+      "checked": "2026-11-09",
+      "added_on": "2026-11-09",
+      "url": "https://aclanthology.org/2020.acl-main.187/",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#splash",
+      "original": {
+        "id": "splash",
+        "title": "Speak to your Parser: Interactive Text-to-SQL with Natural Language Feedback",
+        "year": 2020,
+        "publication_status": "ACL 2020",
+        "primary_url": "https://aclanthology.org/2020.acl-main.187/",
+        "code_url": null,
+        "dataset_url": "https://github.com/MSR-LIT/Splash",
+        "category": "interaction",
+        "scope": "adjacent",
+        "topics": [
+          "human-in-the-loop",
+          "natural-language-feedback",
+          "error-correction",
+          "benchmark"
+        ],
+        "summary": "Introduces SPLASH, pairing Spider questions and erroneous SQL with explanations and crowdsourced correction feedback. Baselines test how feedback repairs a parse, providing a useful comparison for feedback incorporation in interactive agents. The task assumes a fully specified question and supplies a recorded correction turn; it does not evaluate ambiguity detection, clarification-question selection or unanswerable requests. Evaluation uses reference-based exact set match.",
+        "evidence": [
+          "https://aclanthology.org/2020.acl-main.187/",
+          "https://aclanthology.org/2020.acl-main.187.pdf",
+          "https://github.com/MSR-LIT/Splash"
+        ],
+        "artifact_status": "Official repository lists train, dev, test and EditSQL feedback JSON files and declares CC BY-SA 4.0. It is a dataset release, not a verified release of the baseline models. Data were not downloaded or executed.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-09",
+        "added_on": "2026-11-09"
+      },
+      "work_id": "splash"
+    },
+    {
+      "id": "nl-edit",
+      "name": "NL-EDIT: Correcting Semantic Parse Errors through Natural Language Interaction",
+      "kind": "paper",
+      "year": 2021,
+      "date": "2021",
+      "date_label": "Publication year",
+      "summary": "Maps feedback, a query explanation and schema context to SQL edits, with synthetic edit-feedback examples supplementing SPLASH training. One-round correction and cross-parser tests expose difficulties with longer explanations, multiple errors and irrelevant extra edits. It supports studying feedback incorporation, but does not establish a clarification policy, answerability detection or preservation of every unaffected part of user intent.",
+      "tags": [
+        "natural-language-feedback",
+        "error-correction",
+        "human-in-the-loop"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "NAACL 2021",
+      "status": "Official repository contains correction annotations, SQL edit/explanation utilities and data-synthesis scripts. A complete neural-model training/inference release and reuse license were not established from the checked inventory and README; no code or data was run.",
+      "sources": [
+        "https://aclanthology.org/2021.naacl-main.444/",
+        "https://aclanthology.org/2021.naacl-main.444.pdf",
+        "https://github.com/MSR-LIT/NLEdit"
+      ],
+      "checked": "2026-11-09",
+      "added_on": "2026-11-09",
+      "url": "https://aclanthology.org/2021.naacl-main.444/",
+      "code_links": [
+        "https://github.com/MSR-LIT/NLEdit"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#nl-edit",
+      "original": {
+        "id": "nl-edit",
+        "title": "NL-EDIT: Correcting Semantic Parse Errors through Natural Language Interaction",
+        "year": 2021,
+        "publication_status": "NAACL 2021",
+        "primary_url": "https://aclanthology.org/2021.naacl-main.444/",
+        "code_url": "https://github.com/MSR-LIT/NLEdit",
+        "dataset_url": "https://github.com/MSR-LIT/NLEdit/tree/main/data",
+        "category": "interaction",
+        "scope": "adjacent",
+        "topics": [
+          "natural-language-feedback",
+          "error-correction",
+          "human-in-the-loop"
+        ],
+        "summary": "Maps feedback, a query explanation and schema context to SQL edits, with synthetic edit-feedback examples supplementing SPLASH training. One-round correction and cross-parser tests expose difficulties with longer explanations, multiple errors and irrelevant extra edits. It supports studying feedback incorporation, but does not establish a clarification policy, answerability detection or preservation of every unaffected part of user intent.",
+        "evidence": [
+          "https://aclanthology.org/2021.naacl-main.444/",
+          "https://aclanthology.org/2021.naacl-main.444.pdf",
+          "https://github.com/MSR-LIT/NLEdit"
+        ],
+        "artifact_status": "Official repository contains correction annotations, SQL edit/explanation utilities and data-synthesis scripts. A complete neural-model training/inference release and reuse license were not established from the checked inventory and README; no code or data was run.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-09",
+        "added_on": "2026-11-09"
+      },
+      "work_id": "nl-edit"
+    },
+    {
+      "id": "bar-sql",
+      "name": "Boundary-Aware NL2SQL: Integrating Reliability through Hybrid Reward and Data Synthesis",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Trains SQL generation, clarification, missing-constraint follow-up and refusal with mutated enterprise examples, supervised fine-tuning and task-specific reinforcement-learning rewards. Ent-SQL-Bench combines SQL execution agreement with LLM-judged natural-language responses. Evidence comes from a held-out portion of the authors' synthetic enterprise corpus; response-level clarification scores do not establish successful multi-turn resolution or transfer to unseen domains.",
+      "tags": [
+        "ambiguity",
+        "unanswerability",
+        "clarification",
+        "abstention",
+        "reinforcement-learning",
+        "benchmark"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "Official repository lists synthesis, training and evaluation scripts plus Ent-SQL-Bench.json. Required database access, model weights and exact reproduction were not verified. README declares MIT but no root LICENSE was listed; dataset-specific terms remain unverified.",
+      "sources": [
+        "https://arxiv.org/abs/2601.10318",
+        "https://arxiv.org/html/2601.10318v1",
+        "https://github.com/TianSongS/BAR-SQL"
+      ],
+      "checked": "2026-11-09",
+      "added_on": "2026-11-09",
+      "url": "https://arxiv.org/abs/2601.10318",
+      "code_links": [
+        "https://github.com/TianSongS/BAR-SQL"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#bar-sql",
+      "original": {
+        "id": "bar-sql",
+        "title": "Boundary-Aware NL2SQL: Integrating Reliability through Hybrid Reward and Data Synthesis",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2601.10318",
+        "code_url": "https://github.com/TianSongS/BAR-SQL",
+        "dataset_url": "https://github.com/TianSongS/BAR-SQL/tree/main/benchmark",
+        "category": "answerability",
+        "scope": "core",
+        "topics": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "abstention",
+          "reinforcement-learning",
+          "benchmark"
+        ],
+        "summary": "Trains SQL generation, clarification, missing-constraint follow-up and refusal with mutated enterprise examples, supervised fine-tuning and task-specific reinforcement-learning rewards. Ent-SQL-Bench combines SQL execution agreement with LLM-judged natural-language responses. Evidence comes from a held-out portion of the authors' synthetic enterprise corpus; response-level clarification scores do not establish successful multi-turn resolution or transfer to unseen domains.",
+        "evidence": [
+          "https://arxiv.org/abs/2601.10318",
+          "https://arxiv.org/html/2601.10318v1",
+          "https://github.com/TianSongS/BAR-SQL"
+        ],
+        "artifact_status": "Official repository lists synthesis, training and evaluation scripts plus Ent-SQL-Bench.json. Required database access, model weights and exact reproduction were not verified. README declares MIT but no root LICENSE was listed; dataset-specific terms remain unverified.",
+        "source_depth": "targeted-full-text",
+        "checked_on": "2026-11-09",
+        "added_on": "2026-11-09"
+      },
+      "work_id": "bar-sql"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -10794,18 +11059,223 @@
         "checked_on": "2026-11-08"
       },
       "work_id": "sqlstructeval"
+    },
+    {
+      "id": "splash-data",
+      "name": "SPLASH correction feedback",
+      "kind": "benchmark",
+      "year": 2020,
+      "date": "2020",
+      "date_label": "Latest linked paper year",
+      "summary": "Spider-derived question, incorrect-SQL, explanation and human-feedback records for semantic parse correction.",
+      "tags": [
+        "benchmark",
+        "error-correction",
+        "human-in-the-loop",
+        "natural-language-feedback"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "resource",
+      "status": "Official data directory lists train.json, dev.json, test.json and editsql.json. The README documents record fields and separate Spider database IDs. File contents and end-to-end evaluation were not independently checked.",
+      "sources": [
+        "https://github.com/MSR-LIT/Splash",
+        "https://github.com/MSR-LIT/Splash/tree/master/data",
+        "https://aclanthology.org/2020.acl-main.187.pdf"
+      ],
+      "checked": "2026-11-09",
+      "added_on": null,
+      "url": "https://github.com/MSR-LIT/Splash",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/datasets/README.md#splash-data",
+      "original": {
+        "id": "splash-data",
+        "name": "SPLASH correction feedback",
+        "kind": "dataset",
+        "paper_ids": [
+          "splash"
+        ],
+        "url": "https://github.com/MSR-LIT/Splash",
+        "description": "Spider-derived question, incorrect-SQL, explanation and human-feedback records for semantic parse correction.",
+        "protocol": "Supply recorded feedback for one correction attempt and score exact set match against the reference parse. The original task uses fully specified questions, not ambiguity or refusal labels.",
+        "availability": "Official data directory lists train.json, dev.json, test.json and editsql.json. The README documents record fields and separate Spider database IDs. File contents and end-to-end evaluation were not independently checked.",
+        "license_note": "README explicitly declares CC BY-SA 4.0 for SPLASH. Upstream Spider assets retain their own terms.",
+        "evidence": [
+          "https://github.com/MSR-LIT/Splash",
+          "https://github.com/MSR-LIT/Splash/tree/master/data",
+          "https://aclanthology.org/2020.acl-main.187.pdf"
+        ],
+        "checked_on": "2026-11-09"
+      },
+      "work_id": "splash"
+    },
+    {
+      "id": "nl-edit-tool",
+      "name": "NL-EDIT synthesis and SQL edit utilities",
+      "kind": "tool",
+      "year": 2021,
+      "date": "2021",
+      "date_label": "Latest linked paper year",
+      "summary": "Source utilities for synthesizing correction feedback, representing and applying SQL edits, and generating SQL explanations.",
+      "tags": [
+        "error-correction",
+        "human-in-the-loop",
+        "natural-language-feedback"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "resource",
+      "status": "src/dataaugmentation and src/sqlutils contain source files; data contains SPLASH-derived records and parser-specific feedback files. README documents synthesis setup, but full neural training/inference and checkpoints were not verified. No code was executed.",
+      "sources": [
+        "https://github.com/MSR-LIT/NLEdit",
+        "https://github.com/MSR-LIT/NLEdit/tree/main/src",
+        "https://aclanthology.org/2021.naacl-main.444.pdf"
+      ],
+      "checked": "2026-11-09",
+      "added_on": null,
+      "url": "https://github.com/MSR-LIT/NLEdit",
+      "code_links": [
+        "https://github.com/MSR-LIT/NLEdit"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#nl-edit-tool",
+      "original": {
+        "id": "nl-edit-tool",
+        "name": "NL-EDIT synthesis and SQL edit utilities",
+        "kind": "tool",
+        "paper_ids": [
+          "nl-edit"
+        ],
+        "url": "https://github.com/MSR-LIT/NLEdit",
+        "description": "Source utilities for synthesizing correction feedback, representing and applying SQL edits, and generating SQL explanations.",
+        "protocol": "Supports preparation and analysis of feedback-based correction experiments; visible utility code does not establish release of the complete trained correction model.",
+        "availability": "src/dataaugmentation and src/sqlutils contain source files; data contains SPLASH-derived records and parser-specific feedback files. README documents synthesis setup, but full neural training/inference and checkpoints were not verified. No code was executed.",
+        "license_note": "No LICENSE file was listed in the checked tree and the README did not specify terms. Do not infer a license for code or derived annotations.",
+        "evidence": [
+          "https://github.com/MSR-LIT/NLEdit",
+          "https://github.com/MSR-LIT/NLEdit/tree/main/src",
+          "https://aclanthology.org/2021.naacl-main.444.pdf"
+        ],
+        "checked_on": "2026-11-09"
+      },
+      "work_id": "nl-edit"
+    },
+    {
+      "id": "bar-sql-system",
+      "name": "BAR-SQL",
+      "kind": "system",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Research training pipeline combining enterprise data synthesis, supervised tuning and task-conditioned reinforcement learning for SQL or non-SQL responses.",
+      "tags": [
+        "abstention",
+        "ambiguity",
+        "benchmark",
+        "clarification",
+        "reinforcement-learning",
+        "unanswerability"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "resource",
+      "status": "Synthesis, SFT/GRPO launch scripts, reward code and inference/evaluation files are listed. Required database environment, released model weights and exact reproduction were not established; no code was run.",
+      "sources": [
+        "https://github.com/TianSongS/BAR-SQL",
+        "https://arxiv.org/html/2601.10318v1"
+      ],
+      "checked": "2026-11-09",
+      "added_on": null,
+      "url": "https://github.com/TianSongS/BAR-SQL",
+      "code_links": [
+        "https://github.com/TianSongS/BAR-SQL"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#bar-sql-system",
+      "original": {
+        "id": "bar-sql-system",
+        "name": "BAR-SQL",
+        "kind": "system",
+        "paper_ids": [
+          "bar-sql"
+        ],
+        "url": "https://github.com/TianSongS/BAR-SQL",
+        "description": "Research training pipeline combining enterprise data synthesis, supervised tuning and task-conditioned reinforcement learning for SQL or non-SQL responses.",
+        "protocol": "Produces SQL, clarification, follow-up or refusal responses. Paper evaluation combines execution matching with LLM judging; it is not a real-user dialogue evaluation.",
+        "availability": "Synthesis, SFT/GRPO launch scripts, reward code and inference/evaluation files are listed. Required database environment, released model weights and exact reproduction were not established; no code was run.",
+        "license_note": "README declares MIT and links a LICENSE file, but no LICENSE was listed in the checked repository tree. Reuse terms remain unverified.",
+        "evidence": [
+          "https://github.com/TianSongS/BAR-SQL",
+          "https://arxiv.org/html/2601.10318v1"
+        ],
+        "checked_on": "2026-11-09"
+      },
+      "work_id": "bar-sql"
+    },
+    {
+      "id": "ent-sql-bench",
+      "name": "Ent-SQL-Bench (BAR-SQL)",
+      "kind": "benchmark",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Enterprise benchmark mixing SQL generation with ambiguous, missing-constraint and unsupported schema/metric requests.",
+      "tags": [
+        "abstention",
+        "ambiguity",
+        "benchmark",
+        "clarification",
+        "reinforcement-learning",
+        "unanswerability"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "resource",
+      "status": "Ent-SQL-Bench.json is listed in the official repository. The paper describes 1,262 held-out instances; the instance count, database dependencies and execution setup were not independently validated. Distinct from the EntSQL enterprise-knowledge benchmark.",
+      "sources": [
+        "https://github.com/TianSongS/BAR-SQL/tree/main/benchmark",
+        "https://github.com/TianSongS/BAR-SQL",
+        "https://arxiv.org/html/2601.10318v1"
+      ],
+      "checked": "2026-11-09",
+      "added_on": null,
+      "url": "https://github.com/TianSongS/BAR-SQL/tree/main/benchmark",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/datasets/README.md#ent-sql-bench",
+      "original": {
+        "id": "ent-sql-bench",
+        "name": "Ent-SQL-Bench (BAR-SQL)",
+        "kind": "dataset",
+        "paper_ids": [
+          "bar-sql"
+        ],
+        "url": "https://github.com/TianSongS/BAR-SQL/tree/main/benchmark",
+        "description": "Enterprise benchmark mixing SQL generation with ambiguous, missing-constraint and unsupported schema/metric requests.",
+        "protocol": "Static response evaluation: SQL outputs use execution-result agreement; clarification and refusal responses use majority-vote LLM judgments against references. No responsive user simulator is evaluated.",
+        "availability": "Ent-SQL-Bench.json is listed in the official repository. The paper describes 1,262 held-out instances; the instance count, database dependencies and execution setup were not independently validated. Distinct from the EntSQL enterprise-knowledge benchmark.",
+        "license_note": "No dataset-specific license was verified. The repository README's MIT declaration lacks a corresponding LICENSE file in the checked tree.",
+        "evidence": [
+          "https://github.com/TianSongS/BAR-SQL/tree/main/benchmark",
+          "https://github.com/TianSongS/BAR-SQL",
+          "https://arxiv.org/html/2601.10318v1"
+        ],
+        "checked_on": "2026-11-09"
+      },
+      "work_id": "bar-sql"
     }
   ],
   "themes": [
     {
       "id": "ambiguity",
       "label": "Ambiguity",
-      "count": 36
+      "count": 37
     },
     {
       "id": "clarification",
       "label": "Clarification",
-      "count": 32
+      "count": 33
     },
     {
       "id": "evaluation",
@@ -10815,7 +11285,7 @@
     {
       "id": "unanswerability",
       "label": "Unanswerability",
-      "count": 21
+      "count": 22
     },
     {
       "id": "verification",
@@ -10825,7 +11295,7 @@
     {
       "id": "abstention",
       "label": "Abstention",
-      "count": 16
+      "count": 17
     },
     {
       "id": "uncertainty",
@@ -10841,6 +11311,11 @@
       "id": "interactive-system",
       "label": "Interactive system",
       "count": 9
+    },
+    {
+      "id": "human-in-the-loop",
+      "label": "Human in the loop",
+      "count": 7
     },
     {
       "id": "schema-linking",
@@ -10870,11 +11345,6 @@
     {
       "id": "context",
       "label": "Context",
-      "count": 5
-    },
-    {
-      "id": "human-in-the-loop",
-      "label": "Human in the loop",
       "count": 5
     },
     {
@@ -10910,6 +11380,11 @@
     {
       "id": "conversation",
       "label": "Conversation",
+      "count": 3
+    },
+    {
+      "id": "error-correction",
+      "label": "Error correction",
       "count": 3
     },
     {
@@ -10960,6 +11435,16 @@
     {
       "id": "multi-turn",
       "label": "Multi-turn dialogue",
+      "count": 2
+    },
+    {
+      "id": "natural-language-feedback",
+      "label": "Natural language feedback",
+      "count": 2
+    },
+    {
+      "id": "reinforcement-learning",
+      "label": "Reinforcement learning",
       "count": 2
     },
     {
@@ -11038,11 +11523,6 @@
       "count": 1
     },
     {
-      "id": "error-correction",
-      "label": "Error correction",
-      "count": 1
-    },
-    {
       "id": "execution-probing",
       "label": "Execution probing",
       "count": 1
@@ -11100,11 +11580,6 @@
     {
       "id": "query-rewriting",
       "label": "Query rewriting",
-      "count": 1
-    },
-    {
-      "id": "reinforcement-learning",
-      "label": "Reinforcement learning",
       "count": 1
     },
     {
@@ -12652,6 +13127,100 @@
         }
       ],
       "checked_on": "2026-11-06"
+    },
+    {
+      "resource_id": "splash-data",
+      "label": "SPLASH",
+      "relevance": "adjacent",
+      "ambiguity": {
+        "status": "not_targeted",
+        "detail": "The paper explicitly targets correcting a parse of a fully specified question, rather than detecting ambiguity."
+      },
+      "unanswerability": {
+        "status": "not_targeted",
+        "detail": "Reference SQL is supplied for the correction task; refusal is not an evaluated target."
+      },
+      "clarification": {
+        "mode": "supplied",
+        "detail": "Recorded natural-language correction feedback is supplied; no agent-selected clarification question is evaluated."
+      },
+      "interaction": {
+        "mode": "recorded",
+        "detail": "Offline question/incorrect-parse/feedback records support a single correction turn, not a responsive simulator."
+      },
+      "domain": "Cross-domain Spider relational databases",
+      "evaluation": "Correction and end-to-end parsing accuracy using Spider exact set match; README states that SQL values are ignored by the evaluation measure.",
+      "data_access": "public_artifacts",
+      "evidence": [
+        {
+          "url": "https://aclanthology.org/2020.acl-main.187.pdf",
+          "locator": "Sections 2-3 define the task and recorded feedback; Section 5 distinguishes fully specified correction from ambiguity; Section 6 describes exact-set-match evaluation.",
+          "supports": [
+            "ambiguity",
+            "unanswerability",
+            "clarification",
+            "interaction",
+            "domain",
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://github.com/MSR-LIT/Splash",
+          "locator": "Release and Format document the JSON splits, Spider IDs, feedback fields and value-ignoring evaluation.",
+          "supports": [
+            "data_access",
+            "domain",
+            "evaluation"
+          ]
+        }
+      ],
+      "checked_on": "2026-11-09"
+    },
+    {
+      "resource_id": "ent-sql-bench",
+      "label": "Ent-SQL-Bench (BAR-SQL)",
+      "relevance": "direct",
+      "ambiguity": {
+        "status": "yes",
+        "detail": "Seed questions are altered with vague terms and missing mandatory metric constraints."
+      },
+      "unanswerability": {
+        "status": "yes",
+        "detail": "Dimension/metric rejection cases remove schema definitions or request undefined metrics."
+      },
+      "clarification": {
+        "mode": "generated",
+        "detail": "Models generate clarification or follow-up responses scored against references; subsequent user replies are not part of the reported protocol."
+      },
+      "interaction": {
+        "mode": "static",
+        "detail": "Held-out response tasks sampled from the mutated corpus; no measured multi-turn user continuation."
+      },
+      "domain": "Automotive enterprise business intelligence with schema and business-rule context",
+      "evaluation": "Execution-result agreement for SQL; GPT-4o semantic-consistency judgments with three-vote majority for natural-language responses.",
+      "data_access": "public_artifacts",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/html/2601.10318v1",
+          "locator": "Sections 2.1-2.3 describe enterprise synthesis, ambiguity, constraints, rejection and the held-out benchmark; Section 4.1 defines response-level metrics.",
+          "supports": [
+            "ambiguity",
+            "unanswerability",
+            "clarification",
+            "interaction",
+            "domain",
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://github.com/TianSongS/BAR-SQL/tree/main/benchmark",
+          "locator": "Official benchmark directory lists Ent-SQL-Bench.json; full dataset and database execution were not independently validated.",
+          "supports": [
+            "data_access"
+          ]
+        }
+      ],
+      "checked_on": "2026-11-09"
     }
   ]
 }

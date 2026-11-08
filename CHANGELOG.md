@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-09
+
+- Added BAR-SQL with its source implementation, Ent-SQL-Bench artifact entry and comparison row; distinguished response-level clarification scoring from multi-turn resolution and retained license/dependency limits.
+- Added the foundational SPLASH and NL-EDIT papers, recorded human-feedback dataset and partial-release edit utilities, separating correction of fully specified questions from ambiguity detection.
+- Added two benchmark comparisons without counting NL-EDIT's repackaged SPLASH annotations as another copy of the original dataset.
+
 ## 2026-11-08
 
 - Added SQLStructEval and its public diagnostics tool, distinguishing structural variation from semantic errors and visible code from complete reproduction artifacts.

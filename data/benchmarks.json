@@ -1436,5 +1436,99 @@
       }
     ],
     "checked_on": "2026-11-06"
+  },
+  {
+    "resource_id": "splash-data",
+    "label": "SPLASH",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_targeted",
+      "detail": "The paper explicitly targets correcting a parse of a fully specified question, rather than detecting ambiguity."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "Reference SQL is supplied for the correction task; refusal is not an evaluated target."
+    },
+    "clarification": {
+      "mode": "supplied",
+      "detail": "Recorded natural-language correction feedback is supplied; no agent-selected clarification question is evaluated."
+    },
+    "interaction": {
+      "mode": "recorded",
+      "detail": "Offline question/incorrect-parse/feedback records support a single correction turn, not a responsive simulator."
+    },
+    "domain": "Cross-domain Spider relational databases",
+    "evaluation": "Correction and end-to-end parsing accuracy using Spider exact set match; README states that SQL values are ignored by the evaluation measure.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://aclanthology.org/2020.acl-main.187.pdf",
+        "locator": "Sections 2-3 define the task and recorded feedback; Section 5 distinguishes fully specified correction from ambiguity; Section 6 describes exact-set-match evaluation.",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/MSR-LIT/Splash",
+        "locator": "Release and Format document the JSON splits, Spider IDs, feedback fields and value-ignoring evaluation.",
+        "supports": [
+          "data_access",
+          "domain",
+          "evaluation"
+        ]
+      }
+    ],
+    "checked_on": "2026-11-09"
+  },
+  {
+    "resource_id": "ent-sql-bench",
+    "label": "Ent-SQL-Bench (BAR-SQL)",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Seed questions are altered with vague terms and missing mandatory metric constraints."
+    },
+    "unanswerability": {
+      "status": "yes",
+      "detail": "Dimension/metric rejection cases remove schema definitions or request undefined metrics."
+    },
+    "clarification": {
+      "mode": "generated",
+      "detail": "Models generate clarification or follow-up responses scored against references; subsequent user replies are not part of the reported protocol."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Held-out response tasks sampled from the mutated corpus; no measured multi-turn user continuation."
+    },
+    "domain": "Automotive enterprise business intelligence with schema and business-rule context",
+    "evaluation": "Execution-result agreement for SQL; GPT-4o semantic-consistency judgments with three-vote majority for natural-language responses.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/html/2601.10318v1",
+        "locator": "Sections 2.1-2.3 describe enterprise synthesis, ambiguity, constraints, rejection and the held-out benchmark; Section 4.1 defines response-level metrics.",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/TianSongS/BAR-SQL/tree/main/benchmark",
+        "locator": "Official benchmark directory lists Ent-SQL-Bench.json; full dataset and database execution were not independently validated.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-11-09"
   }
 ]

@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-11-09: correction feedback and boundary-aware training](2026-11-09.md)
+
 - [2026-11-08: structural diagnostics and consistency-based confidence](2026-11-08.md)
 
 - [2026-11-06: open calculation choices and judge auditing](2026-11-06.md)

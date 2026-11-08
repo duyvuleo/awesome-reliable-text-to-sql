@@ -2367,5 +2367,87 @@
     "source_depth": "targeted-full-text",
     "checked_on": "2026-11-08",
     "added_on": "2026-11-08"
+  },
+  {
+    "id": "splash",
+    "title": "Speak to your Parser: Interactive Text-to-SQL with Natural Language Feedback",
+    "year": 2020,
+    "publication_status": "ACL 2020",
+    "primary_url": "https://aclanthology.org/2020.acl-main.187/",
+    "code_url": null,
+    "dataset_url": "https://github.com/MSR-LIT/Splash",
+    "category": "interaction",
+    "scope": "adjacent",
+    "topics": [
+      "human-in-the-loop",
+      "natural-language-feedback",
+      "error-correction",
+      "benchmark"
+    ],
+    "summary": "Introduces SPLASH, pairing Spider questions and erroneous SQL with explanations and crowdsourced correction feedback. Baselines test how feedback repairs a parse, providing a useful comparison for feedback incorporation in interactive agents. The task assumes a fully specified question and supplies a recorded correction turn; it does not evaluate ambiguity detection, clarification-question selection or unanswerable requests. Evaluation uses reference-based exact set match.",
+    "evidence": [
+      "https://aclanthology.org/2020.acl-main.187/",
+      "https://aclanthology.org/2020.acl-main.187.pdf",
+      "https://github.com/MSR-LIT/Splash"
+    ],
+    "artifact_status": "Official repository lists train, dev, test and EditSQL feedback JSON files and declares CC BY-SA 4.0. It is a dataset release, not a verified release of the baseline models. Data were not downloaded or executed.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-09"
+  },
+  {
+    "id": "nl-edit",
+    "title": "NL-EDIT: Correcting Semantic Parse Errors through Natural Language Interaction",
+    "year": 2021,
+    "publication_status": "NAACL 2021",
+    "primary_url": "https://aclanthology.org/2021.naacl-main.444/",
+    "code_url": "https://github.com/MSR-LIT/NLEdit",
+    "dataset_url": "https://github.com/MSR-LIT/NLEdit/tree/main/data",
+    "category": "interaction",
+    "scope": "adjacent",
+    "topics": [
+      "natural-language-feedback",
+      "error-correction",
+      "human-in-the-loop"
+    ],
+    "summary": "Maps feedback, a query explanation and schema context to SQL edits, with synthetic edit-feedback examples supplementing SPLASH training. One-round correction and cross-parser tests expose difficulties with longer explanations, multiple errors and irrelevant extra edits. It supports studying feedback incorporation, but does not establish a clarification policy, answerability detection or preservation of every unaffected part of user intent.",
+    "evidence": [
+      "https://aclanthology.org/2021.naacl-main.444/",
+      "https://aclanthology.org/2021.naacl-main.444.pdf",
+      "https://github.com/MSR-LIT/NLEdit"
+    ],
+    "artifact_status": "Official repository contains correction annotations, SQL edit/explanation utilities and data-synthesis scripts. A complete neural-model training/inference release and reuse license were not established from the checked inventory and README; no code or data was run.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-09"
+  },
+  {
+    "id": "bar-sql",
+    "title": "Boundary-Aware NL2SQL: Integrating Reliability through Hybrid Reward and Data Synthesis",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2601.10318",
+    "code_url": "https://github.com/TianSongS/BAR-SQL",
+    "dataset_url": "https://github.com/TianSongS/BAR-SQL/tree/main/benchmark",
+    "category": "answerability",
+    "scope": "core",
+    "topics": [
+      "ambiguity",
+      "unanswerability",
+      "clarification",
+      "abstention",
+      "reinforcement-learning",
+      "benchmark"
+    ],
+    "summary": "Trains SQL generation, clarification, missing-constraint follow-up and refusal with mutated enterprise examples, supervised fine-tuning and task-specific reinforcement-learning rewards. Ent-SQL-Bench combines SQL execution agreement with LLM-judged natural-language responses. Evidence comes from a held-out portion of the authors' synthetic enterprise corpus; response-level clarification scores do not establish successful multi-turn resolution or transfer to unseen domains.",
+    "evidence": [
+      "https://arxiv.org/abs/2601.10318",
+      "https://arxiv.org/html/2601.10318v1",
+      "https://github.com/TianSongS/BAR-SQL"
+    ],
+    "artifact_status": "Official repository lists synthesis, training and evaluation scripts plus Ent-SQL-Bench.json. Required database access, model weights and exact reproduction were not verified. README declares MIT but no root LICENSE was listed; dataset-specific terms remain unverified.",
+    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-09"
   }
 ]
