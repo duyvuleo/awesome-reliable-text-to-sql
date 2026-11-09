@@ -583,6 +583,55 @@
     ]
   },
   {
+    "paper_id": "concept-ambiguity-resolution",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-10",
+    "source_url": "https://raw.githubusercontent.com/mlresearch/v328/main/assets/hu26b/hu26b.pdf",
+    "version": "CPAL 2026 proceedings, PMLR 328:940–956; publisher-linked 17-page PDF, titled Concept based Ambiguity Resolution in LLMs.",
+    "coverage": "All 17 PDF pages: Sections 1–5, references and Appendices A–E; all equations, Algorithm 1, Table 1 and Figures 1–11 with captions/examples. Figure-dependent entropy, detection, API-retrieval and distance-pattern results on PDF pages 5, 9, 10, 14 and 15 were visually inspected.",
+    "unread": [],
+    "problem": "Models may repeatedly produce one reading of an ambiguous request, leaving ordinary embedding similarity or sampled agreement insensitive to alternative interpretations.",
+    "method": "Few-shot examples encourage two interpretations. Sparse-autoencoder features supply masked concept representations for an approximate path-kernel distance, using straight-line interpolation from zero to final weights rather than the original training path. A separate supervised concept predictor retrieves API calls.",
+    "evaluation": "Ambiguity detection uses AMBROSIA questions and generated interpretations treated as unambiguous controls. Distances are compared with dense embeddings; the classification threshold is the intersection of the plotted class-density curves. A 20-question activation study and a separate Gorilla TensorFlow Hub retrieval experiment provide supporting evidence.",
+    "findings": "The paper reports 86.25% detection accuracy versus 70% and 77.75% for dense-distance baselines in this constructed comparison. Targeted activation improves aggregate self-judgment but decreases ambiguous-class accuracy. The best concept-retrieval variant slightly exceeds the compared fine-tuned Gorilla API-call result, while domain accuracy remains lower.",
+    "limitations": "A held-out threshold-selection protocol, independent validation of generated negative labels and repeated-run uncertainty are not clearly reported. Internal activations and model-specific SAEs are required. Limited activation examples support a mechanism hypothesis, not a universal explanation of ambiguity. No SQL execution, active clarification, refusal or user-outcome evaluation is provided.",
+    "relevance": "Directly relevant to pre-generation ambiguity detection for database questions; its API-retrieval result should remain separate from claims about SQL generation or resolving a user’s intended interpretation.",
+    "claims": [
+      {
+        "claim": "The paper establishes improved Text-to-SQL answer accuracy.",
+        "evidence": "Section 4.1 measures ambiguity classification from AMBROSIA question/interpretation distances; Section 4.2 measures API domain and API-call retrieval. No generated-SQL execution or clarification outcome metric is reported.",
+        "locator": "Sections 4.1–4.2, Figures 5–6; Conclusion, PDF pages 7–10",
+        "disposition": "Restrict the SQL contribution to ambiguity detection rather than answer accuracy or completed resolution."
+      },
+      {
+        "claim": "The 86.25% figure establishes held-out general ambiguity-detection performance.",
+        "evidence": "Generated interpretations are treated as unambiguous questions; the threshold is chosen at the intersection of the plotted ambiguous/unambiguous density curves. The paper does not clearly describe separate threshold-fitting and test sets or independent validation of these controls.",
+        "locator": "Section 4.1, PDF pages 8–9; Figure 5; Appendix B.1",
+        "disposition": "Report as a result under the constructed evaluation protocol, with unresolved threshold and label-validation boundaries."
+      },
+      {
+        "claim": "Activating missing concepts improves recognition of ambiguous inputs uniformly.",
+        "evidence": "Table 1 increases unambiguous accuracy from 39.8% to 60.5% but decreases ambiguous accuracy from 59.3% to 42.8%; the stated class ratio is two unambiguous examples per ambiguous example.",
+        "locator": "Appendix B.3 and Table 1, PDF pages 15–16",
+        "disposition": "Distinguish aggregate improvement from the trade-off between detecting ambiguity and rejecting false alarms."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Published metadata",
+        "url": "https://proceedings.mlr.press/v328/hu26b.html"
+      },
+      {
+        "label": "Associated preprint record (title differs; first submitted 16 May 2025, current record v3 dated 1 October 2025)",
+        "url": "https://arxiv.org/abs/2505.11679"
+      },
+      {
+        "label": "Coauthor institutional publication record",
+        "url": "https://research.unsw.edu.au/people/dr-liming-zhu/publications?type=conferencepapers"
+      }
+    ]
+  },
+  {
     "paper_id": "confidence-error",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-09",
@@ -1502,6 +1551,41 @@
     ]
   },
   {
+    "paper_id": "node-level-uncertainty",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-10",
+    "source_url": "https://aclanthology.org/2026.lrec-1.168.pdf",
+    "version": "LREC 2026 proceedings, pages 2145–2153",
+    "coverage": "All nine PDF pages: Sections 1–4, conclusions and limitations, Algorithm 1, Tables 1–2, the AST example, references and all 13 Appendix A examples. Table 1 visually inspected.",
+    "unread": [],
+    "problem": "Locate suspect components in generated SQL instead of assigning one confidence score to the entire query.",
+    "method": "A reference-AST alignment heuristic normalizes aliases and operator symmetry, suppresses blame on containers and globally rescues matching nodes. A LightGBM classifier uses 72 structural, lexical and schema features without reference SQL at inference.",
+    "evaluation": "OmniSQL-7B generates BIRD development candidates and 67,901 SynSQL candidates from 453 databases. Experiments compare query splits within databases, three held-out BIRD databases, and SynSQL-to-BIRD transfer using node-level ROC-AUC against heuristic labels.",
+    "findings": "Overall ROC-AUC is 76.51% in-database, 69.46% across BIRD databases and 66.47% after SynSQL training. Aggregate discrimination exceeds mean token log-probabilities, but not every node type improves; Table nodes are slightly worse in the first experiment.",
+    "limitations": "Labels encode a comparison convention rather than full natural-language correctness. Missing predicates or other omitted clauses are intentionally unlabelled. Thirteen prototyping cases are not an independent label-quality audit. Only one SQL generator is evaluated, and ROC-AUC does not establish calibrated probabilities or useful downstream abstention.",
+    "relevance": "A localized error-confidence baseline for verification and targeted review; direct ambiguity detection, clarification, repair effectiveness and selective-risk control remain untested.",
+    "claims": [
+      {
+        "claim": "The reported uncertainty probabilities are empirically calibrated.",
+        "evidence": "Section 1 interprets uncertainty as calibrated probability, while Section 4 and both result tables report ROC-AUC without calibration-error, reliability-diagram or proper-scoring evaluation.",
+        "locator": "Section 1; Section 4/Tables 1–2",
+        "disposition": "Support error ranking, not demonstrated probability calibration."
+      },
+      {
+        "claim": "No erroneous generated nodes means a complete correct query.",
+        "evidence": "Remark 2 excludes omissions, and Appendix A Example 6 gives no incorrect nodes when ORDER BY is absent from the generated query.",
+        "locator": "Section 3.1/Remark 2; Appendix A Example 6",
+        "disposition": "Node labels do not assess query completeness or general semantic correctness."
+      },
+      {
+        "claim": "The headline 27.44% gain is a relative improvement across all settings.",
+        "evidence": "Table 1 aggregate AUC values are 76.51% and 49.07%, a 27.44-percentage-point difference in the in-database experiment; Table 2 has different cross-database/transfer values.",
+        "locator": "Abstract; Table 1; Table 2",
+        "disposition": "Use percentage points and the specific evaluation condition."
+      }
+    ]
+  },
+  {
     "paper_id": "odutqa-mdc",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-09",
@@ -1533,6 +1617,51 @@
         "evidence": "All tables come from property, real-estate finance and land auctions, and the limitations explicitly leave other vertical industries to generalization.",
         "locator": "§3.2.1; Limitations p. 10915",
         "disposition": "Limit empirical scope to the reported real-estate setting."
+      }
+    ]
+  },
+  {
+    "paper_id": "omnitqa",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-10",
+    "source_url": "https://aclanthology.org/2026.findings-aacl.200.pdf",
+    "version": "Findings of IJCNLP-AACL 2026 proceedings, pp. 3979–4002, November 6–10, 2026; 24-page published version",
+    "coverage": "All 24 PDF pages: Sections 1–8, Tables 1–7, Algorithms 1–2, and complete Appendices A–D covering preprocessing, operator definitions, optimization, batching, experimental settings, extended results, error analysis and every supplied prompt. Result/error/sensitivity plots in Figures 3–15 visually inspected; Figures 1–2 captions and extracted architecture text read. The shorter arXiv version was checked for identity only, not treated as the reviewed full-text version.",
+    "unread": [],
+    "additional_sources": [
+      {
+        "label": "Official implementation inspected at a fixed revision",
+        "url": "https://github.com/megagonlabs/OmniTQA/blob/f85a04e77838ab7c5bb8bbcd2f1e2f731a017e60/src/methods.py"
+      },
+      {
+        "label": "Repository license",
+        "url": "https://github.com/megagonlabs/OmniTQA/blob/f85a04e77838ab7c5bb8bbcd2f1e2f731a017e60/LICENSE"
+      }
+    ],
+    "problem": "Queries over hybrid tables may require attributes hidden in text, while vague language admits several schema mappings or computational interpretations.",
+    "method": "The system prunes and profiles schemas, constructs query-aware data previews, and generates alternative operator DAGs. Relational steps execute through SQL; semantic extraction, filtering, joining and aggregation use LLMs. Optimization and batching reduce costs, then a judge or semantic vote selects one candidate answer.",
+    "evaluation": "RepairTQA supplies paired structured and textual representations; five additional table-QA benchmarks test transfer. Evaluation uses 100 examples per dataset/subset, except 50 for multi-table long. Reference-based LLM scoring measures answer correctness; reference-free candidate selection and oracle ACC@6 are reported separately.",
+    "findings": "Diversification outperforms naive plan sampling in the displayed ablations, and optimization lowers token cost without changing those accuracy scores. The main RepairTQA comparison reports higher selected-answer accuracy, but gains do not hold against every baseline on every extended benchmark.",
+    "limitations": "No user clarification, refusal policy or all-interpretation coverage is evaluated. Model-based answer scoring can err, and preprocessing may discard information. Confidence intervals use aggregate accuracies and nominal sample sizes rather than repeated-run variation. K/batch-size accuracy curves use oracle ACC@K. Token measurements do not establish end-to-end latency or semantic preservation guarantees.",
+    "relevance": "An adjacent implementation direction for recovering missing structure and exploring alternative groundings before committing to an answer, with user-intent validation still unresolved.",
+    "claims": [
+      {
+        "claim": "ACC@6 is deployable single-answer accuracy.",
+        "evidence": "It counts success when any of six candidates matches the reference. A separate LLM selects the deployed answer without reference access.",
+        "locator": "Section 4 Settings, PDF p.6; Figure 3; Appendix C.2",
+        "disposition": "Keep oracle candidate coverage separate from selected-answer performance."
+      },
+      {
+        "claim": "Plan diversification resolves the user’s ambiguity.",
+        "evidence": "Section 3.2 generates alternative schema mappings and vague-intent criteria; Section 3.3 consolidates outputs automatically. Human plan auditing is future work.",
+        "locator": "Sections 3.2–3.3; Section 7; Appendix D consolidation prompts",
+        "disposition": "It explores and selects possible groundings, without confirming the intended reading or measuring clarification success."
+      },
+      {
+        "claim": "Accuracy improvements are universal across extended benchmarks.",
+        "evidence": "Figure 4 shows Direct-LLM above the selected-answer OmniTQA result on FeTaQA and TAT-QA; oracle ACC@6 is higher than the selected-answer result.",
+        "locator": "Figure 4, PDF p.6; Appendix C.2/Figure 9",
+        "disposition": "Retain dataset- and consolidation-specific comparisons."
       }
     ]
   },
@@ -2611,6 +2740,47 @@
         "evidence": "Section 3.4 and Appendix E prose stop when no errors remain or the cap is reached, but Algorithm 1 line 4 uses while errors OR iteration below cap.",
         "locator": "Section 3.4; Appendix E/Algorithm 1",
         "disposition": "Pseudocode/prose inconsistency; no execution-level stopping guarantee inferred."
+      }
+    ]
+  },
+  {
+    "paper_id": "sqloom",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-10",
+    "source_url": "https://arxiv.org/pdf/2611.03298v1",
+    "version": "arXiv v1, 2 November 2026; author publication page identifies a preprint, despite a WWW 2027 running header.",
+    "coverage": "All 12 PDF pages: Sections 1–6, all tables and figures/captions, Algorithm 1, references and Appendices A–F including both proofs and all four prompts. Figures 1 and 3–14 were visually inspected from the public PDF; Figure 2 labels/counts were read in extracted text. No separate supplement is linked in the paper.",
+    "unread": [],
+    "problem": "Single-database execution can reward SQL with the wrong meaning, while erroneous or underspecified references weaken training supervision.",
+    "method": "SQLoom contrasts parser-legal tokens, question-aligned SQL fragments and coordinated clause edits against nearby mistakes. It mutates databases to expose output differences while preserving schema constraints, then combines these signals with staged fine-tuning, error corrections, replay and same-database training examples.",
+    "evaluation": "Qwen3-1.7B is evaluated on official Spider/BIRD splits and three Spider perturbations, with three seeds, transfer tests and same-data objective ablations. Counterexample search allows ten sub-databases with 200 mutations each. Authors manually review flagged Spider annotations; evaluation labels remain unchanged.",
+    "findings": "The reported objective outperforms plain supervised learning on the same augmented data. Spider-Refined training yields smaller additional gains. The 378 reviewed issues include valid alternatives rejected by the comparator and questions underspecifying output columns; this selected audit does not measure general error prevalence.",
+    "limitations": "A legal separating database proves query disagreement, not which query matches natural-language intent. Positive labels still rely on references or model verification; finite search and grammar support limit coverage. No user, clarification or refusal experiment is reported. Training requires 38,000 GPT-4 calls, and official artifacts remain unverified.",
+    "relevance": "An adjacent example of using counterexample verification and annotation repair for supervision, with explicit limits on semantic certification.",
+    "claims": [
+      {
+        "claim": "Programmatic checks eliminate semantic errors introduced by synthesis agents.",
+        "evidence": "The checks establish syntax and output differences; semantic positives use references, while logical positives also require the verification agent to approve question alignment.",
+        "locator": "Sections 3.1, 3.4 and 4.1; Appendix C, Oracle implementation; Appendix F, Prompt 4",
+        "disposition": "Only the non-equivalence witness is programmatically established. Correct-side and intended-meaning judgments remain assumptions."
+      },
+      {
+        "claim": "Spider-Refined establishes corrected evaluation labels or a complete ambiguity benchmark.",
+        "evidence": "The 378 cases are flagged during training-data error mining, manually revised and augmented; all reported evaluation retains official labels. Alternatives are recorded without a dialogue or interpretation-coverage task.",
+        "locator": "Section 4.2; Section 5.1; Appendix D/Figure 14",
+        "disposition": "Treat as training-data curation with selected annotation findings, not corrected leaderboard ground truth or an ambiguity-resolution benchmark."
+      },
+      {
+        "claim": "Single-pass inference makes the complete method inexpensive without proprietary-model use.",
+        "evidence": "Section 5.6 reports 0.42 seconds per query but also 10.8 GPU hours and 38,000 GPT-4 synthesis calls.",
+        "locator": "Section 5.6; Figure 7(c–d)",
+        "disposition": "Separate serving latency from training/data-construction cost and avoid a universal cost advantage."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Author publication record and artifact-link check",
+        "url": "https://people.cs.vt.edu/penggao/publication.html"
       }
     ]
   },

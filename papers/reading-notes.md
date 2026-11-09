@@ -6,7 +6,7 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **91 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **95 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
@@ -26,6 +26,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [Can LLM Agents Be Forward-Deployed Engineers? Requirement Discovery and Delivery for Enterprise Text-to-SQL](notes/fde-requirement-discovery.md) | Full paper read |
 | 2026 | [Certified Against Which Oracle? Execution Labels Set the Reported Risk of Conformal Abstention for Text-to-SQL](notes/oracle-abstention.md) | Full paper read |
 | 2026 | [CLARITY: A Framework and Benchmark for Conversational Language Ambiguity and Unanswerability in Interactive NL2SQL Systems](notes/clarity.md) | Full paper read |
+| 2026 | [Concept based Ambiguity Resolution in LLMs](notes/concept-ambiguity-resolution.md) | Full paper read |
 | 2026 | [Confidence Estimation for Text-to-SQL in Large Language Models](notes/confidence-llms.md) | Full paper read |
 | 2026 | [Conversational Interaction for LLM-Based Clinical Text-to-SQL: A User Study with Healthcare Professionals](notes/clinical-conversational-user-study.md) | Full paper read |
 | 2026 | [Developing and Benchmarking Verification Algorithms to Improve Text-to-SQL Generation](notes/verification-algorithms.md) | Full paper read |
@@ -34,10 +35,12 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [EntSQL: A Benchmark for Grounding Text-to-SQL in Long-Context Enterprise Knowledge](notes/entsql.md) | Full paper read |
 | 2026 | [Evaluating LLMs on Conversational Text-to-SQL under Chain Ambiguity and Intent Drift](notes/tide-bench.md) | Full paper read |
 | 2026 | [FALCON: A Model and Dataset Agnostic Framework for Synthetic Data Generation for NL2SQL Pairs](notes/falcon-synthesis.md) | Full paper read |
+| 2026 | [From Textual Columns to Query Plans: A Unified Relational-Semantic Execution Framework for Hybrid Query Processing](notes/omnitqa.md) | Full paper read |
 | 2026 | [KODE: Mining Implicit Domain Knowledge from Historical Experience for Text-to-SQL](notes/kode.md) | Full paper read |
 | 2026 | [LASSO: An LLM-Agent Synthesized System for SQL Validation](notes/lasso.md) | Full paper read |
 | 2026 | [LatentRefusal: Latent-Signal Refusal for Unanswerable Text-to-SQL Queries](notes/latentrefusal.md) | Full paper read |
 | 2026 | [Never the Number: Structural Abstention for AI Systems Whose Answers Are Consumed as Fact](notes/structural-abstention.md) | Full paper read |
+| 2026 | [Node-Level Uncertainty Estimation in LLM-Generated SQL](notes/node-level-uncertainty.md) | Full paper read |
 | 2026 | [ODUTQA-MDC: A Task for Open-Domain Underspecified Tabular QA with Multi-turn Dialogue-based Clarification](notes/odutqa-mdc.md) | Full paper read |
 | 2026 | [Pervasive Annotation Errors Break Text-to-SQL Benchmarks and Leaderboards](notes/annotation-errors.md) | Full paper read |
 | 2026 | [PleaSQLarify: Visual Pragmatic Repair for Natural Language Database Querying](notes/pleasqlarify.md) | Full paper read |
@@ -56,6 +59,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [SOMA-SQL: Resolving Multi-Source Ambiguity in NL-to-SQL via Synthetic Log and Execution Probing](notes/soma-sql.md) | Full paper read |
 | 2026 | [SpotIt+: Verification-based Text-to-SQL Evaluation with Database Constraints](notes/spotit-plus.md) | Full paper read |
 | 2026 | [SpotIt: Evaluating Text-to-SQL Evaluation with Formal Verification](notes/spotit.md) | Full paper read |
+| 2026 | [SQLoom: Set-Contrastive Learning of Syntactic, Semantic, and Logical Dependencies for Text-to-SQL](notes/sqloom.md) | Full paper read |
 | 2026 | [SQLStructEval: Structural Evaluation of LLM Text-to-SQL Generation](notes/sqlstructeval.md) | Full paper read |
 | 2026 | [TACO: A Benchmark for Open-Domain Text-to-SQL with Ambiguous and Cross-Database Queries](notes/taco.md) | Full paper read |
 | 2026 | [Text-to-SQL Models Make Choices Without Saying So](notes/specbridge.md) | Full paper read |

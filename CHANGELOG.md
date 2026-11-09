@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-10
+
+- Added four fully reviewed papers: concept-based ambiguity detection, node-level SQL uncertainty, SQLoom and OmniTQA, with 12 source-located checks and links to their detailed notes.
+- Distinguished detection from SQL/clarification success, ROC-AUC from probability calibration, query disagreement from intended meaning, and oracle candidate coverage from selected-answer accuracy.
+- Reconciled preprint/proceedings title variants and verified OmniTQA's public source and code license. Kept unverified releases explicit and resource/benchmark counts unchanged.
+
 ## 2026-11-09
 
 - Audited all 94 cataloged papers: 91 complete readings of specified public versions and three explicit full-text access gaps (CLEAR, RaQAD and RAQS-SQL). Added detailed notes with methods, evaluation conditions, limitations and located claim checks.

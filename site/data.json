@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-09",
-  "updated": "2026-11-09",
+  "checked": "2026-11-10",
+  "updated": "2026-11-10",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 94,
+    "paper": 98,
     "system": 15,
     "tool": 19,
     "benchmark": 32
@@ -400,6 +400,31 @@
       ]
     },
     {
+      "id": "concept-ambiguity-resolution",
+      "name": "Concept based Ambiguity Resolution in LLMs",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Uses sparse-autoencoder concepts and an approximate path-kernel distance between a question and generated interpretations to detect ambiguity in AMBROSIA-derived inputs. Generated interpretations serve as unambiguous controls, and a separate held-out threshold protocol is not clearly specified. The SQL evidence concerns detection; missing-concept prediction is evaluated separately on API retrieval, without SQL-generation or clarification-success results.",
+      "entry_ids": [
+        "concept-ambiguity-resolution"
+      ],
+      "themes": [
+        "ambiguity",
+        "detection",
+        "uncertainty"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "confidence-llms",
       "name": "Confidence Estimation for Text-to-SQL in Large Language Models",
       "date": "2026",
@@ -610,6 +635,32 @@
       ]
     },
     {
+      "id": "omnitqa",
+      "name": "From Textual Columns to Query Plans: A Unified Relational-Semantic Execution Framework for Hybrid Query Processing",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "OmniTQA diversifies schema mappings and vague-predicate interpretations within plans that combine SQL and LLM operators over structured and textual data. It selects one answer and evaluates reference agreement; ACC@6 is an oracle candidate-coverage measure. The work supports ambiguity-aware grounding, without evaluating user clarification, abstention or exhaustive interpretation recovery.",
+      "entry_ids": [
+        "omnitqa"
+      ],
+      "themes": [
+        "ambiguity",
+        "hybrid-querying",
+        "query-planning",
+        "schema-linking"
+      ],
+      "categories": [
+        "context"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "kode",
       "name": "KODE: Mining Implicit Domain Knowledge from Historical Experience for Text-to-SQL",
       "date": "2026",
@@ -706,6 +757,32 @@
       ],
       "categories": [
         "answerability"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "node-level-uncertainty",
+      "name": "Node-Level Uncertainty Estimation in LLM-Generated SQL",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Labels generated SQL nodes by heuristic alignment with a reference AST, then predicts node errors from schema-aware features using LightGBM. BIRD and SynSQL transfer experiments improve aggregate ROC-AUC over token probabilities, with weaker out-of-distribution performance. Missing clauses receive no node label; calibration and downstream repair or selective execution are not evaluated.",
+      "entry_ids": [
+        "node-level-uncertainty"
+      ],
+      "themes": [
+        "confidence",
+        "error-detection",
+        "evaluation",
+        "uncertainty"
+      ],
+      "categories": [
+        "verification"
       ],
       "kinds": [
         "paper"
@@ -1241,6 +1318,32 @@
         "evaluation",
         "formal-verification",
         "sql-equivalence"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "sqloom",
+      "name": "SQLoom: Set-Contrastive Learning of Syntactic, Semantic, and Logical Dependencies for Text-to-SQL",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Uses parser checks and schema-legal counterexample databases to construct contrastive SQL training supervision, and reports correcting 378 Spider annotations including underspecified questions. Its relevance is verification-grounded supervision and label quality: query disagreement does not establish which interpretation satisfies a user, and reference/LLM checks remain assumptions. No clarification or abstention policy is evaluated; official code/data downloads were not verified.",
+      "entry_ids": [
+        "sqloom"
+      ],
+      "themes": [
+        "benchmark-quality",
+        "counterexample-generation",
+        "evaluation",
+        "verification"
       ],
       "categories": [
         "verification"
@@ -8293,6 +8396,246 @@
       "work_id": "bar-sql"
     },
     {
+      "id": "concept-ambiguity-resolution",
+      "name": "Concept based Ambiguity Resolution in LLMs",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Uses sparse-autoencoder concepts and an approximate path-kernel distance between a question and generated interpretations to detect ambiguity in AMBROSIA-derived inputs. Generated interpretations serve as unambiguous controls, and a separate held-out threshold protocol is not clearly specified. The SQL evidence concerns detection; missing-concept prediction is evaluated separately on API retrieval, without SQL-generation or clarification-success results.",
+      "tags": [
+        "ambiguity",
+        "detection",
+        "uncertainty"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "CPAL 2026 (PMLR 328); first preprint 2025",
+      "status": "Complete public proceedings paper reviewed. No author implementation or new dataset release verified through the paper, proceedings links, author publication record and exact-title/identifier searches. AMBROSIA, Gorilla and cited pretrained sparse autoencoders are upstream resources, not new artifacts from this work. No code executed or results reproduced.",
+      "sources": [
+        "https://proceedings.mlr.press/v328/hu26b.html",
+        "https://raw.githubusercontent.com/mlresearch/v328/main/assets/hu26b/hu26b.pdf",
+        "https://arxiv.org/abs/2505.11679"
+      ],
+      "checked": "2026-11-10",
+      "added_on": "2026-11-10",
+      "url": "https://proceedings.mlr.press/v328/hu26b.html",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#concept-ambiguity-resolution",
+      "original": {
+        "id": "concept-ambiguity-resolution",
+        "title": "Concept based Ambiguity Resolution in LLMs",
+        "year": 2026,
+        "publication_status": "CPAL 2026 (PMLR 328); first preprint 2025",
+        "primary_url": "https://proceedings.mlr.press/v328/hu26b.html",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "ambiguity",
+        "topics": [
+          "ambiguity",
+          "detection",
+          "uncertainty"
+        ],
+        "scope": "core",
+        "summary": "Uses sparse-autoencoder concepts and an approximate path-kernel distance between a question and generated interpretations to detect ambiguity in AMBROSIA-derived inputs. Generated interpretations serve as unambiguous controls, and a separate held-out threshold protocol is not clearly specified. The SQL evidence concerns detection; missing-concept prediction is evaluated separately on API retrieval, without SQL-generation or clarification-success results.",
+        "evidence": [
+          "https://proceedings.mlr.press/v328/hu26b.html",
+          "https://raw.githubusercontent.com/mlresearch/v328/main/assets/hu26b/hu26b.pdf",
+          "https://arxiv.org/abs/2505.11679"
+        ],
+        "source_depth": "full-text-reviewed",
+        "artifact_status": "Complete public proceedings paper reviewed. No author implementation or new dataset release verified through the paper, proceedings links, author publication record and exact-title/identifier searches. AMBROSIA, Gorilla and cited pretrained sparse autoencoders are upstream resources, not new artifacts from this work. No code executed or results reproduced.",
+        "added_on": "2026-11-10",
+        "checked_on": "2026-11-10",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/concept-ambiguity-resolution.md"
+      },
+      "work_id": "concept-ambiguity-resolution"
+    },
+    {
+      "id": "node-level-uncertainty",
+      "name": "Node-Level Uncertainty Estimation in LLM-Generated SQL",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Labels generated SQL nodes by heuristic alignment with a reference AST, then predicts node errors from schema-aware features using LightGBM. BIRD and SynSQL transfer experiments improve aggregate ROC-AUC over token probabilities, with weaker out-of-distribution performance. Missing clauses receive no node label; calibration and downstream repair or selective execution are not evaluated.",
+      "tags": [
+        "uncertainty",
+        "confidence",
+        "error-detection",
+        "evaluation"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "LREC 2026; first preprint 2025",
+      "status": "Complete LREC proceedings paper and Appendix A reviewed. No official implementation or new annotation-data release verified through the paper, primary record and targeted author/title searches; no experiments reproduced.",
+      "sources": [
+        "https://aclanthology.org/2026.lrec-1.168/",
+        "https://aclanthology.org/2026.lrec-1.168.pdf",
+        "https://arxiv.org/abs/2511.13984"
+      ],
+      "checked": "2026-11-10",
+      "added_on": "2026-11-10",
+      "url": "https://aclanthology.org/2026.lrec-1.168/",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#node-level-uncertainty",
+      "original": {
+        "id": "node-level-uncertainty",
+        "title": "Node-Level Uncertainty Estimation in LLM-Generated SQL",
+        "year": 2026,
+        "publication_status": "LREC 2026; first preprint 2025",
+        "primary_url": "https://aclanthology.org/2026.lrec-1.168/",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "uncertainty",
+          "confidence",
+          "error-detection",
+          "evaluation"
+        ],
+        "summary": "Labels generated SQL nodes by heuristic alignment with a reference AST, then predicts node errors from schema-aware features using LightGBM. BIRD and SynSQL transfer experiments improve aggregate ROC-AUC over token probabilities, with weaker out-of-distribution performance. Missing clauses receive no node label; calibration and downstream repair or selective execution are not evaluated.",
+        "evidence": [
+          "https://aclanthology.org/2026.lrec-1.168/",
+          "https://aclanthology.org/2026.lrec-1.168.pdf",
+          "https://arxiv.org/abs/2511.13984"
+        ],
+        "checked_on": "2026-11-10",
+        "added_on": "2026-11-10",
+        "source_depth": "full-text-reviewed",
+        "artifact_status": "Complete LREC proceedings paper and Appendix A reviewed. No official implementation or new annotation-data release verified through the paper, primary record and targeted author/title searches; no experiments reproduced.",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/node-level-uncertainty.md"
+      },
+      "work_id": "node-level-uncertainty"
+    },
+    {
+      "id": "sqloom",
+      "name": "SQLoom: Set-Contrastive Learning of Syntactic, Semantic, and Logical Dependencies for Text-to-SQL",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Uses parser checks and schema-legal counterexample databases to construct contrastive SQL training supervision, and reports correcting 378 Spider annotations including underspecified questions. Its relevance is verification-grounded supervision and label quality: query disagreement does not establish which interpretation satisfies a user, and reference/LLM checks remain assumptions. No clarification or abstention policy is evaluated; official code/data downloads were not verified.",
+      "tags": [
+        "verification",
+        "evaluation",
+        "benchmark-quality",
+        "counterexample-generation"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "The paper describes SQLoom and Spider-Refined as released, but no official implementation, checkpoint or dataset download was verified. The author publication page lists this work under Preprints and links the paper only. Exact-title and artifact searches did not establish a corresponding public release; the unrelated .NET project named sqloom is not this work. No code was executed or result reproduced.",
+      "sources": [
+        "https://arxiv.org/abs/2611.03298",
+        "https://arxiv.org/pdf/2611.03298v1",
+        "https://people.cs.vt.edu/penggao/publication.html"
+      ],
+      "checked": "2026-11-10",
+      "added_on": "2026-11-10",
+      "url": "https://arxiv.org/abs/2611.03298",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#sqloom",
+      "original": {
+        "id": "sqloom",
+        "title": "SQLoom: Set-Contrastive Learning of Syntactic, Semantic, and Logical Dependencies for Text-to-SQL",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.03298",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "verification",
+          "evaluation",
+          "benchmark-quality",
+          "counterexample-generation"
+        ],
+        "summary": "Uses parser checks and schema-legal counterexample databases to construct contrastive SQL training supervision, and reports correcting 378 Spider annotations including underspecified questions. Its relevance is verification-grounded supervision and label quality: query disagreement does not establish which interpretation satisfies a user, and reference/LLM checks remain assumptions. No clarification or abstention policy is evaluated; official code/data downloads were not verified.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.03298",
+          "https://arxiv.org/pdf/2611.03298v1",
+          "https://people.cs.vt.edu/penggao/publication.html"
+        ],
+        "artifact_status": "The paper describes SQLoom and Spider-Refined as released, but no official implementation, checkpoint or dataset download was verified. The author publication page lists this work under Preprints and links the paper only. Exact-title and artifact searches did not establish a corresponding public release; the unrelated .NET project named sqloom is not this work. No code was executed or result reproduced.",
+        "source_depth": "full-text-reviewed",
+        "checked_on": "2026-11-10",
+        "added_on": "2026-11-10",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sqloom.md"
+      },
+      "work_id": "sqloom"
+    },
+    {
+      "id": "omnitqa",
+      "name": "From Textual Columns to Query Plans: A Unified Relational-Semantic Execution Framework for Hybrid Query Processing",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "OmniTQA diversifies schema mappings and vague-predicate interpretations within plans that combine SQL and LLM operators over structured and textual data. It selects one answer and evaluates reference agreement; ACC@6 is an oracle candidate-coverage measure. The work supports ambiguity-aware grounding, without evaluating user clarification, abstention or exhaustive interpretation recovery.",
+      "tags": [
+        "ambiguity",
+        "schema-linking",
+        "query-planning",
+        "hybrid-querying"
+      ],
+      "categories": [
+        "context"
+      ],
+      "evidence": "Findings of IJCNLP-AACL 2026; first preprint April 2026",
+      "status": "Author-linked public source, notebook, README and BSD-3-Clause LICENSE inspected. The visible OmniTQA entry point executes candidate plans sequentially; the paper’s concurrent runtime and all benchmark settings were not independently reproduced. Upstream datasets are separate; no new OmniTQA dataset release is asserted.",
+      "sources": [
+        "https://aclanthology.org/2026.findings-aacl.200/",
+        "https://aclanthology.org/2026.findings-aacl.200.pdf",
+        "https://arxiv.org/abs/2604.02444v2",
+        "https://github.com/megagonlabs/OmniTQA",
+        "https://github.com/megagonlabs/OmniTQA/blob/f85a04e77838ab7c5bb8bbcd2f1e2f731a017e60/src/methods.py"
+      ],
+      "checked": "2026-11-10",
+      "added_on": "2026-11-10",
+      "url": "https://aclanthology.org/2026.findings-aacl.200/",
+      "code_links": [
+        "https://github.com/megagonlabs/OmniTQA"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#omnitqa",
+      "original": {
+        "id": "omnitqa",
+        "title": "From Textual Columns to Query Plans: A Unified Relational-Semantic Execution Framework for Hybrid Query Processing",
+        "year": 2026,
+        "publication_status": "Findings of IJCNLP-AACL 2026; first preprint April 2026",
+        "primary_url": "https://aclanthology.org/2026.findings-aacl.200/",
+        "code_url": "https://github.com/megagonlabs/OmniTQA",
+        "dataset_url": null,
+        "category": "context",
+        "topics": [
+          "ambiguity",
+          "schema-linking",
+          "query-planning",
+          "hybrid-querying"
+        ],
+        "scope": "adjacent",
+        "summary": "OmniTQA diversifies schema mappings and vague-predicate interpretations within plans that combine SQL and LLM operators over structured and textual data. It selects one answer and evaluates reference agreement; ACC@6 is an oracle candidate-coverage measure. The work supports ambiguity-aware grounding, without evaluating user clarification, abstention or exhaustive interpretation recovery.",
+        "evidence": [
+          "https://aclanthology.org/2026.findings-aacl.200/",
+          "https://aclanthology.org/2026.findings-aacl.200.pdf",
+          "https://arxiv.org/abs/2604.02444v2",
+          "https://github.com/megagonlabs/OmniTQA",
+          "https://github.com/megagonlabs/OmniTQA/blob/f85a04e77838ab7c5bb8bbcd2f1e2f731a017e60/src/methods.py"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/omnitqa.md",
+        "added_on": "2026-11-10",
+        "checked_on": "2026-11-10",
+        "artifact_status": "Author-linked public source, notebook, README and BSD-3-Clause LICENSE inspected. The visible OmniTQA entry point executes candidate plans sequentially; the paper’s concurrent runtime and all benchmark settings were not independently reproduced. Upstream datasets are separate; no new OmniTQA dataset release is asserted."
+      },
+      "work_id": "omnitqa"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -11620,7 +11963,7 @@
     {
       "id": "ambiguity",
       "label": "Ambiguity",
-      "count": 37
+      "count": 39
     },
     {
       "id": "clarification",
@@ -11630,7 +11973,7 @@
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 23
+      "count": 25
     },
     {
       "id": "unanswerability",
@@ -11640,7 +11983,7 @@
     {
       "id": "verification",
       "label": "Verification",
-      "count": 18
+      "count": 19
     },
     {
       "id": "abstention",
@@ -11650,7 +11993,7 @@
     {
       "id": "uncertainty",
       "label": "Uncertainty",
-      "count": 15
+      "count": 17
     },
     {
       "id": "clinical",
@@ -11663,19 +12006,24 @@
       "count": 9
     },
     {
-      "id": "human-in-the-loop",
-      "label": "Human in the loop",
-      "count": 7
-    },
-    {
       "id": "schema-linking",
       "label": "Schema linking",
+      "count": 8
+    },
+    {
+      "id": "human-in-the-loop",
+      "label": "Human in the loop",
       "count": 7
     },
     {
       "id": "sql-equivalence",
       "label": "SQL equivalence",
       "count": 7
+    },
+    {
+      "id": "benchmark-quality",
+      "label": "Benchmark quality",
+      "count": 6
     },
     {
       "id": "agent",
@@ -11688,13 +12036,13 @@
       "count": 5
     },
     {
-      "id": "benchmark-quality",
-      "label": "Benchmark quality",
+      "id": "context",
+      "label": "Context",
       "count": 5
     },
     {
-      "id": "context",
-      "label": "Context",
+      "id": "error-detection",
+      "label": "Error detection",
       "count": 5
     },
     {
@@ -11708,19 +12056,14 @@
       "count": 4
     },
     {
-      "id": "error-detection",
-      "label": "Error detection",
+      "id": "confidence",
+      "label": "Confidence",
       "count": 4
     },
     {
       "id": "underspecification",
       "label": "Underspecification",
       "count": 4
-    },
-    {
-      "id": "confidence",
-      "label": "Confidence",
-      "count": 3
     },
     {
       "id": "constraints",
@@ -11730,6 +12073,11 @@
     {
       "id": "conversation",
       "label": "Conversation",
+      "count": 3
+    },
+    {
+      "id": "detection",
+      "label": "Detection",
       "count": 3
     },
     {
@@ -11755,11 +12103,6 @@
     {
       "id": "database-state",
       "label": "Database state",
-      "count": 2
-    },
-    {
-      "id": "detection",
-      "label": "Detection",
       "count": 2
     },
     {
@@ -11843,6 +12186,11 @@
       "count": 1
     },
     {
+      "id": "counterexample-generation",
+      "label": "Counterexample generation",
+      "count": 1
+    },
+    {
       "id": "cross-database",
       "label": "Cross database",
       "count": 1
@@ -11888,6 +12236,11 @@
       "count": 1
     },
     {
+      "id": "hybrid-querying",
+      "label": "Hybrid querying",
+      "count": 1
+    },
+    {
       "id": "intent-drift",
       "label": "Intent drift",
       "count": 1
@@ -11925,6 +12278,11 @@
     {
       "id": "premise-critique",
       "label": "Premise critique",
+      "count": 1
+    },
+    {
+      "id": "query-planning",
+      "label": "Query planning",
       "count": 1
     },
     {
