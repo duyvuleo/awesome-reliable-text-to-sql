@@ -17,7 +17,8 @@ The UTF-8 JSON files are the source of truth. Generated Markdown is committed fo
 | `scope` | `core` for direct treatment of the focus; `adjacent` for explicitly relevant supporting work. |
 | `summary` | An original concise explanation of the contribution and its boundary. |
 | `evidence` | Public sources supporting the metadata and description. |
-| `source_depth` | Curation metadata retained in JSON and omitted from displayed paper entries: `primary-record` for abstract/metadata inspection, or `targeted-full-text` when relevant paper sections were inspected. Neither means reproduced. |
+| `source_depth` | Metadata retained in JSON and omitted from paper tables: `primary-record` for abstract/metadata inspection, `targeted-full-text` for selected sections, or `full-text-reviewed` for a completed article reading supported by a reading record. None means reproduced. |
+| `reading_notes_url` | Optional link to generated detailed notes covering methods, evaluation, findings and limits. |
 | `added_on` | First inclusion date; retain it when revising an existing entry. Recent additions sort by this date, then publication year and title. |
 | `checked_on` | Date of substantive source verification in `YYYY-MM-DD` format. |
 | `artifact_status` | Optional detail about release or inspection limits. |
@@ -29,6 +30,12 @@ The UTF-8 JSON files are the source of truth. Generated Markdown is committed fo
 The `protocol` field states what the resource supports and any important evaluation limit. `availability` distinguishes visible code/data, access restrictions, documentation-only entries, and unverified downloads. `license_note` reports the checked terms or explicitly leaves them unverified; a paper's license does not determine the dataset's license.
 
 `meta.json` stores collection metadata. Its `updated` field changes for material catalog revisions, not merely because a scheduled search ran. A dated search log may record a search with no qualifying additions.
+
+## Paper reading notes
+
+`paper-reviews.json` contains original annotations keyed by `paper_id`. Each record identifies the exact public `source_url`, `version`, `reviewed_on` date, actual `coverage`, and any `unread` material. Its status is `full-text-reviewed`, `partial`, or `unavailable`. A completed reading must have no unread substantive material and must include located claim checks; a downloaded file alone does not establish completion.
+
+The `problem`, `method`, `evaluation`, `findings`, `limitations`, and `relevance` fields form the detailed note. Each item in `claims` examines a claim or possible inference using `evidence`, a `locator` and a `disposition`; these are paraphrased assessments, not quotations attributed to the authors. Optional `additional_sources` supply labeled public links to separately inspected supplements or artifact evidence. These readings are not independent experimental reproductions. The renderer produces `papers/reading-notes.md` and individual notes under `papers/notes/`; retrieval files and third-party papers are not published.
 
 ## Benchmark comparisons
 

@@ -34,6 +34,8 @@ For each selected work, inspect the primary title, date, publication status, and
 
 The catalog records inspection depth. A primary-record check supports a concise description of the stated task and contribution. It does not imply an audit of every experimental claim. Targeted full-text inspection likewise does not mean reproduction. Quantitative claims requiring detailed validation are generally omitted from the short summaries.
 
+The [detailed reading notes](../papers/reading-notes.md) separately document whole-paper reviews, partial readings and unavailable full texts. A completed review covers the substantive main text, methods, results, limitations, tables and figure captions, plus relevant appendices. Visual evidence is inspected when interpretation depends on the figure or when extraction is ambiguous. Every note identifies its version and actual coverage; unread substantive material prevents a completed-reading label. Located claim checks distinguish reported findings, conditions, conflicting statements and reviewer interpretation. Neither a full reading nor a passing catalog check establishes independent reproduction.
+
 ## Limits
 
 Search indexing is incomplete and delayed, terminology varies, some proceedings are difficult to access, and repository contents can change after inspection. English-language searches may underrepresent other literature. Citation chaining is targeted, not a complete bibliometric crawl. A future daily search can discover an older missing paper as well as a new release.

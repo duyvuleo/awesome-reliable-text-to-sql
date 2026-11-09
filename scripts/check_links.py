@@ -13,6 +13,7 @@ import urllib.request
 from pathlib import Path
 
 from catalog import load_benchmarks, load_catalog, public_url_error
+from paper_reviews import load_reviews
 
 
 class PublicRedirectHandler(urllib.request.HTTPRedirectHandler):
@@ -65,6 +66,9 @@ def main():
         urls.add(item["url"])
     for item in load_benchmarks():
         urls.update(source["url"] for source in item["evidence"])
+    for review in load_reviews(Path(__file__).resolve().parents[1]):
+        urls.add(review["source_url"])
+        urls.update(source["url"] for source in review.get("additional_sources", []))
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as executor:
         results = list(executor.map(lambda url: inspect_url(url, args.timeout), sorted(urls)))
     report = {"checked_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),

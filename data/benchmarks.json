@@ -9,7 +9,7 @@
     },
     "unanswerability": {
       "status": "yes",
-      "detail": "Schema, external-knowledge and improper-question cases."
+      "detail": "Schema, external-knowledge and improper-question cases retained after council attempts fail; not formal impossibility proofs."
     },
     "clarification": {
       "mode": "generated",
@@ -17,10 +17,10 @@
     },
     "interaction": {
       "mode": "simulated",
-      "detail": "Style-aware LLM users in multi-turn sessions."
+      "detail": "Style-aware council users with hidden knowledge; no vague/incorrect replies or intent changes. On benchmark-unanswerable items, the user simulator refuses clarification requests, independently of the evaluated agent’s behavior."
     },
     "domain": "Cross-domain; BIRD and Spider",
-    "evaluation": "Issue recognition/classification, relaxed execution matching and feedback quality.",
+    "evaluation": "Recognition/classification, relaxed execution matching including column supersets, council-judged feedback, and AIR measuring termination rather than correctness.",
     "data_access": "release_unverified",
     "evidence": [
       {
@@ -48,9 +48,18 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://arxiv.org/pdf/2607.23340v1",
+        "locator": "All 17 PDF pages: Sections 1-7.1, Appendices A-D, Tables 1-10, figure captions and references; Figure 2 and Tables 4-6 visually checked.",
+        "supports": [
+          "unanswerability",
+          "interaction",
+          "evaluation"
+        ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "ambiqt-data",
@@ -172,7 +181,7 @@
       "detail": "Controlled questions, interpretations and databases."
     },
     "domain": "Cross-domain; purpose-built databases",
-    "evaluation": "Ambiguity recognition and coverage of SQL interpretations.",
+    "evaluation": "Interpretation precision, recall and AllFound under relaxed execution matching that flattens outputs to sets of values; resolved-input baselines separately assess parsing difficulty.",
     "data_access": "author_download",
     "evidence": [
       {
@@ -193,9 +202,16 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://arxiv.org/pdf/2406.19073v2",
+        "locator": "Section 4; Appendix F",
+        "supports": [
+          "evaluation"
+        ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "arcs-data",
@@ -260,7 +276,7 @@
     },
     "unanswerability": {
       "status": "not_reported",
-      "detail": "No separate infeasible-request split verified."
+      "detail": "No separate infeasible database-question split; UserSim-Guard UNA concerns privileged or out-of-scope simulator requests."
     },
     "clarification": {
       "mode": "generated",
@@ -271,7 +287,7 @@
       "detail": "Function-driven user simulator plus database tools."
     },
     "domain": "Cross-domain business/operational tasks; CRUD",
-    "evaluation": "Executable task success; report variant, protocol and interaction budget.",
+    "evaluation": "Executable task success under the chosen c-Interact/a-Interact budget and Full/Lite variant; follow-up success is cumulative and includes prior-phase failures.",
     "data_access": "public_artifacts",
     "evidence": [
       {
@@ -292,9 +308,17 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://arxiv.org/pdf/2510.05318v3",
+        "locator": "Table 2; Appendices D, F–G, H.1 and O.1",
+        "supports": [
+          "unanswerability",
+          "evaluation"
+        ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "clambsql-data",
@@ -356,14 +380,14 @@
     },
     "clarification": {
       "mode": "supplied",
-      "detail": "Helpful, partial and unhelpful grounded continuations."
+      "detail": "Helpful, partial and unhelpful generated continuations; multi-turn SQL prediction receives the completed conversation excluding final SQL."
     },
     "interaction": {
       "mode": "recorded",
       "detail": "Generated single/multi-turn conversations; not a live-user test."
     },
     "domain": "Cross-domain; Spider and BIRD",
-    "evaluation": "Detection, localization and resolution in the paper-evaluated settings.",
+    "evaluation": "Binary detection and schema localization; single-turn interpretation matching and conversation-conditioned execution accuracy. The evaluated model does not conduct the supplied clarification exchange.",
     "data_access": "public_artifacts",
     "evidence": [
       {
@@ -384,9 +408,17 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://aclanthology.org/2026.acl-industry.86.pdf",
+        "locator": "Sections 4.2–4.3; Appendix C",
+        "supports": [
+          "clarification",
+          "evaluation"
+        ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "cosql-data",
@@ -409,7 +441,7 @@
       "detail": "Human Wizard-of-Oz dialogue collected with SQL experts."
     },
     "domain": "Cross-domain; Spider databases",
-    "evaluation": "SQL state tracking, dialogue acts and response generation; official SQL test-suite evaluation.",
+    "evaluation": "SQL state tracking, dialogue acts and response generation; the 2019 SQL scores use question/interaction exact set match without values. The official site announced Test Suite Accuracy in November 2020; identify the evaluator/version when comparing results.",
     "data_access": "public_artifacts",
     "evidence": [
       {
@@ -430,9 +462,23 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://aclanthology.org/D19-1204.pdf",
+        "locator": "Section 6/Table 5",
+        "supports": [
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://yale-lily.github.io/cosql",
+        "locator": "News entry 11/15/2020; separate exact-set-match and execution leaderboard descriptions, checked 2026-11-09",
+        "supports": [
+          "evaluation"
+        ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "dysql-data",
@@ -440,22 +486,22 @@
     "relevance": "adjacent",
     "ambiguity": {
       "status": "not_reported",
-      "detail": "Evolving requests are targeted; separate ambiguity labels not verified."
+      "detail": "The dialogue is dynamic, but the simulator pursues an original fully parameterized hidden objective; separate ambiguity labels are not reported."
     },
     "unanswerability": {
       "status": "not_reported",
       "detail": "No separate infeasible-request task verified."
     },
     "clarification": {
-      "mode": "not_reported",
-      "detail": "Dynamic requests are verified; an explicit clarification policy is not."
+      "mode": "generated",
+      "detail": "The agent may request additional information from the simulated user; clarification quality is not scored separately."
     },
     "interaction": {
       "mode": "simulated",
-      "detail": "LLM user, tested agent and executable mutable database."
+      "detail": "Qwen2.5-72B user, tested agent and mutable SQLite database; replies aim to fulfill the original task instruction."
     },
     "domain": "Cross-domain database exploration; CRUD",
-    "evaluation": "Dynamic task completion and repeated-run reliability; pin simulator and state.",
+    "evaluation": "Final database-state hash agreement with reference execution, excluding volatile timestamps, plus all-runs-success Pass^k. This does not by itself validate every conversational answer or intermediate action.",
     "data_access": "public_artifacts",
     "evidence": [
       {
@@ -476,17 +522,27 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://aclanthology.org/2026.findings-acl.1654.pdf",
+        "locator": "Section 2 state-hash definition; Section 4 agent behavior/interaction logic; Section 5.1; Appendix J Figures 15–18",
+        "supports": [
+          "ambiguity",
+          "clarification",
+          "interaction",
+          "evaluation"
+        ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "ehrsql-data",
     "label": "EHRSQL",
     "relevance": "direct",
     "ambiguity": {
-      "status": "not_reported",
-      "detail": "No separate ambiguity-resolution task verified."
+      "status": "yes",
+      "detail": "Some ambiguous hospital requests are included within the unanswerable category; no separate ambiguity-resolution or clarification task."
     },
     "unanswerability": {
       "status": "yes",
@@ -501,12 +557,12 @@
       "detail": "Hospital staff informed question collection; no online user."
     },
     "domain": "Clinical; MIMIC-III and eICU",
-    "evaluation": "SQL/result correctness and answerability behavior.",
+    "evaluation": "Answerability precision/recall/F1 and execution-aware precision/recall/F1; templates shared across splits, and a percentile baseline uses the known 33% unanswerable proportion.",
     "data_access": "public_artifacts",
     "evidence": [
       {
-        "url": "https://arxiv.org/abs/2301.07695",
-        "locator": "Abstract and official task/data description",
+        "url": "https://arxiv.org/pdf/2301.07695v6",
+        "locator": "Sections 3.1.1, 3.2, 4.1-4.4; Appendices B.1, C-D, F: ambiguity inside unanswerables, processed data, shared templates and metrics.",
         "supports": [
           "ambiguity",
           "unanswerability",
@@ -518,13 +574,13 @@
       },
       {
         "url": "https://github.com/glee4810/EHRSQL",
-        "locator": "Official artifact page and access instructions; files were not executed.",
+        "locator": "Official artifact and access instructions; no execution reproduced.",
         "supports": [
           "data_access"
         ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "ehrsql-2024-data",
@@ -605,7 +661,7 @@
     },
     "domain": "Enterprise; five business domains, Chinese/English",
     "evaluation": "Document-grounded SQL generation under long context.",
-    "data_access": "release_unverified",
+    "data_access": "public_artifacts",
     "evidence": [
       {
         "url": "https://arxiv.org/html/2606.03363v3",
@@ -625,9 +681,23 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://huggingface.co/datasets/XuWave/Rethinking_Enterprise_Text_to_SQL",
+        "locator": "Dataset Structure and Evaluation describe public database/input files, evaluate.py, withheld gold answers and a forthcoming scoring platform; API file inventory checked.",
+        "supports": [
+          "data_access"
+        ]
+      },
+      {
+        "url": "https://arxiv.org/pdf/2606.03363v3",
+        "locator": "All ten PDF pages, Sections 1-5, limitations/ethics, Tables 1-4 and Figures 1-4; Figure 2 rendered visually to recover damaged font extraction. No appendices in the PDF.",
+        "supports": [
+          "data_access"
+        ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "livesqlbench-data",
@@ -696,7 +766,7 @@
       "detail": "CoSQL-derived and generated multi-turn test conversations."
     },
     "domain": "Cross-domain; CoSQL-derived databases",
-    "evaluation": "Question-type F1, EM/EX, interaction EX, TDEX and response quality.",
+    "evaluation": "Question-type F1, EM/EX and interaction EX; TDEX uses execution on answerable/ambiguous turns and type matching otherwise. RQS is separately model-judged response quality.",
     "data_access": "public_artifacts",
     "evidence": [
       {
@@ -717,9 +787,16 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://arxiv.org/pdf/2412.17867v4",
+        "locator": "Section III-C, Equation 1",
+        "supports": [
+          "evaluation"
+        ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "multisql-data",
@@ -776,8 +853,8 @@
       "detail": "Underspecified or uncertain tabular questions."
     },
     "unanswerability": {
-      "status": "not_reported",
-      "detail": "No separate infeasible-request task verified."
+      "status": "not_targeted",
+      "detail": "Construction filters for answerable targets with dictionary-held corrections; the task studies recoverable underspecification rather than irrecoverable requests."
     },
     "clarification": {
       "mode": "generated",
@@ -785,10 +862,10 @@
     },
     "interaction": {
       "mode": "simulated",
-      "detail": "Dynamic clarification interface with a simulated user."
+      "detail": "Correct gold-label detection unlocks canonical clarification values. Dynamic mode paraphrases them with keyword checks and a fixed-template fallback."
     },
     "domain": "Open-domain tabular QA; SQL-backed answering",
-    "evaluation": "Ambiguity detection, clarification and refined tabular answers.",
+    "evaluation": "Intent/scope/condition detection, table-retrieval F1, SQL executability and exact execution-result match; corrections are provided through a label-gated simulator.",
     "data_access": "public_artifacts",
     "evidence": [
       {
@@ -809,9 +886,18 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://aclanthology.org/2026.acl-long.499.pdf",
+        "locator": "Sections 3.2.2–3.4 and 5.2; Appendices A.5–A.6",
+        "supports": [
+          "unanswerability",
+          "interaction",
+          "evaluation"
+        ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "practiq-data",
@@ -823,11 +909,11 @@
     },
     "unanswerability": {
       "status": "yes",
-      "detail": "Four unanswerable-question categories."
+      "detail": "Four operational categories include nonexistent filter values; some follow-ups change the requested attribute/entity. This does not mean every valid empty result is unanswerable."
     },
     "clarification": {
       "mode": "supplied",
-      "detail": "Baseline SQL prediction receives clarification turns."
+      "detail": "Baseline SQL prediction receives the generated assistant clarification and user reply; the tested generator does not choose the clarification."
     },
     "interaction": {
       "mode": "recorded",
@@ -862,9 +948,17 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://aclanthology.org/2025.naacl-long.13.pdf",
+        "locator": "Section 4; Table 2; Appendices E.4–E.7",
+        "supports": [
+          "unanswerability",
+          "clarification"
+        ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "premisesql-data",
@@ -979,7 +1073,7 @@
       "detail": "Question/candidate-SQL triples; no runtime user."
     },
     "domain": "Clinical; MIMIC-III, MIMIC-IV and eICU",
-    "evaluation": "Joint answerability classification and SQL verification/correction.",
+    "evaluation": "Preservation and correction rates over the complete corresponding categories, plus ambiguity/unanswerability classification metrics. Several baselines receive execution results and annotation evidence.",
     "data_access": "public_artifacts",
     "evidence": [
       {
@@ -1000,9 +1094,16 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://raw.githubusercontent.com/mlresearch/v297/main/assets/lee26b/lee26b.pdf",
+        "locator": "Sections 3–5; Appendix F, prompts 2–8",
+        "supports": [
+          "evaluation"
+        ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "sparc-data",
@@ -1025,7 +1126,7 @@
       "detail": "Human-authored coherent question/SQL sequences."
     },
     "domain": "Cross-domain; Spider databases",
-    "evaluation": "Question/interaction SQL correctness; official test-suite evaluation.",
+    "evaluation": "The 2019 paper reports question-level and whole-interaction exact set match without values. The official site announced Test Suite Accuracy in November 2020; identify the evaluator/version when comparing results.",
     "data_access": "public_artifacts",
     "evidence": [
       {
@@ -1046,9 +1147,23 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://aclanthology.org/P19-1443.pdf",
+        "locator": "Section 6.1/Table 6",
+        "supports": [
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://yale-lily.github.io/sparc",
+        "locator": "News entry 11/15/2020; separate exact-set-match and execution leaderboard descriptions, checked 2026-11-09",
+        "supports": [
+          "evaluation"
+        ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "spider2-data",
@@ -1071,7 +1186,7 @@
       "detail": "Agent explores a workflow environment; user feedback not verified."
     },
     "domain": "Enterprise; local/cloud databases and SQL dialects",
-    "evaluation": "Workflow success; pin Lite/Snow/DBT and environment access.",
+    "evaluation": "Task-specific workflow success or focused execution matching that may ignore extra output columns and row order. Pin Lite/Snow/workflow setting, environment access and evaluator version.",
     "data_access": "public_artifacts",
     "evidence": [
       {
@@ -1092,9 +1207,16 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://arxiv.org/pdf/2411.07763v2",
+        "locator": "Appendix A, equations 1–2 and Table 12",
+        "supports": [
+          "evaluation"
+        ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "taco-data",
@@ -1163,7 +1285,7 @@
       "detail": "Function-driven LLM simulator with controlled drift injection."
     },
     "domain": "Cross-domain; BIRD-derived",
-    "evaluation": "Execution, clarification behavior, chain identification and drift recognition/resolution.",
+    "evaluation": "Layer identification and dialogue execution accuracy; Drift Recognition Rate checks a non-monotonic AST commitment change, while Drift Resolution Accuracy requires correct post-drift execution. Report Full versus L1-primed protocol.",
     "data_access": "release_unverified",
     "evidence": [
       {
@@ -1191,9 +1313,16 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://aclanthology.org/2026.emnlp-main.2454.pdf",
+        "locator": "Section 4.3/Table 2; Appendix A",
+        "supports": [
+          "evaluation"
+        ]
       }
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "triagesql-data",
@@ -1320,7 +1449,7 @@
       "detail": "Offline question-to-SQL/refusal evaluation with database execution."
     },
     "domain": "Healthcare; synthetic OMOP CDM v5.4 PostgreSQL",
-    "evaluation": "Execution accuracy, penalty-based reliability, answerability F1, unanswerable recall and false abstention.",
+    "evaluation": "Execution accuracy and penalty-based reliability on a mixed seen/unseen SQL-variation test; answerability F1, unanswerable recall and false abstention.",
     "data_access": "public_artifacts",
     "evidence": [
       {
@@ -1341,9 +1470,16 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://aclanthology.org/2026.clinicalnlp-1.40.pdf",
+        "locator": "All 13 pages including sections 1–9, all five tables, construction/split diagrams, prompts and concrete examples in supplementary section 8.",
+        "supports": [
+          "evaluation"
+        ]
       }
     ],
-    "checked_on": "2026-10-27"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "nl2sql-bugs-data",
@@ -1366,7 +1502,7 @@
       "detail": "Fixed question, schema, candidate SQL, correctness label and error-type annotations."
     },
     "domain": "Cross-domain; BIRD-derived questions and databases",
-    "evaluation": "Overall accuracy, positive/negative precision and recall, and type-specific error-detection accuracy.",
+    "evaluation": "Overall correctness accuracy and positive/negative precision/recall; Type-Specific Accuracy divides correctly found labels by true instances of each error type and is recall-like, without its own false-positive penalty.",
     "data_access": "public_artifacts",
     "evidence": [
       {
@@ -1387,9 +1523,16 @@
         "supports": [
           "data_access"
         ]
+      },
+      {
+        "url": "https://arxiv.org/pdf/2503.11984v2",
+        "locator": "Section 5.3, Type-Specific Accuracy formula",
+        "supports": [
+          "evaluation"
+        ]
       }
     ],
-    "checked_on": "2026-11-02"
+    "checked_on": "2026-11-09"
   },
   {
     "resource_id": "specbridge-data",

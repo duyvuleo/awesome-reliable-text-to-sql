@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-11-09: full-paper audit, reading notes and access gaps](2026-11-09-full-text.md)
+
 - [2026-11-09: correction feedback and boundary-aware training](2026-11-09.md)
 
 - [2026-11-08: structural diagnostics and consistency-based confidence](2026-11-08.md)

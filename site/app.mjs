@@ -94,7 +94,7 @@ function renderDetails(){
   panel.append(el('h3','Research themes'));const tagWrap=el('div',undefined,'detail-tags');for(const t of w.themes)tagWrap.append(button(themes.get(t)?.label||pretty(t),()=>chooseTheme(t)));panel.append(tagWrap,el('h3',`${w.entry_ids.length} catalog record${w.entry_ids.length===1?'':'s'}`));
   for(const id of w.entry_ids){const r=records.get(id),detail=el('details',undefined,'record');detail.append(el('summary',`${names[r.kind]} · ${pretty(r.evidence)}`));if(id===w.id)detail.open=true;
     if(id!==w.id)detail.append(el('p',r.summary));if(r.status)detail.append(el('p',r.status)); if(r.original.license_note)detail.append(el('p','License: '+r.original.license_note)); if(r.original.protocol)detail.append(el('p',r.original.protocol));
-    const links=el('div',undefined,'detail-actions');links.append(link('Catalog entry ↗',r.catalog_url));for(const u of r.code_links)links.append(link('Code / artifact ↗',u));detail.append(links);
+    const links=el('div',undefined,'detail-actions');links.append(link('Catalog entry ↗',r.catalog_url));if(r.original.reading_notes_url)links.append(link('Reading notes ↗',r.original.reading_notes_url));for(const u of r.code_links)links.append(link('Code / artifact ↗',u));detail.append(links);
     detail.append(el('p',`${r.date_label}: ${r.date}${r.date.length===4?' (year only)':''}${r.added_on ? ` · Added: ${r.added_on}` : ''} · Source checked: ${r.checked}`,'source-meta'));appendSources(detail,r.sources);panel.append(detail);
   }
   for(const c of data.comparisons.filter(c=>w.entry_ids.includes(c.resource_id))){

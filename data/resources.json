@@ -61,14 +61,14 @@
     ],
     "url": "https://github.com/ZhaoFuheng/Sphinteract",
     "description": "Research implementation for resolving NL2SQL ambiguity through user interaction.",
-    "protocol": "Experiment notebooks cover KaggleDBQA and BIRD; linked user-study records support interaction analysis.",
+    "protocol": "Gold-SQL-informed feedback simulation on KaggleDBQA/BIRD plus an 11-person SQL-familiar user study; its roughly 90% objective completion result is from the second, gold-visible phase.",
     "availability": "Public source and usage instructions inspected; not executed or independently reproduced. Linked study archives not downloaded.",
     "license_note": "Repository declares MIT; upstream datasets and study artifacts may have separate terms.",
     "evidence": [
       "https://github.com/ZhaoFuheng/Sphinteract",
       "https://www.vldb.org/pvldb/vol18/p1145-zhao.pdf"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "disambigparse-system",
@@ -116,14 +116,15 @@
     ],
     "url": "https://github.com/mcxiaoxiao/MMSQL",
     "description": "Specialized selector, detector, decomposer, and refiner agents handle different conversational question types.",
-    "protocol": "Multi-turn response generation, question-type decisions, RQS judging, and TDEX/SQL metrics.",
+    "protocol": "Recorded/generated dialogue evaluation. TDEX uses SQL execution for gold answerable/ambiguous turns and question-type matching for other turns; RQS separately uses GPT-4o-mini judging. These are class-dependent measures, not a conjunction of correct routing and SQL on every turn.",
     "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
     "license_note": "Code license not verified; author dataset card declares CC BY 4.0.",
     "evidence": [
       "https://github.com/mcxiaoxiao/MMSQL",
-      "https://arxiv.org/abs/2412.17867"
+      "https://arxiv.org/abs/2412.17867",
+      "https://arxiv.org/pdf/2412.17867v4"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "bird-interact-harness",
@@ -204,14 +205,15 @@
     ],
     "url": "https://github.com/jensenw1/ODUTQA-MDC",
     "description": "Multi-agent framework for underspecified tabular QA, including scope validation, table retrieval, and SQL generation and validation.",
-    "protocol": "Dynamic dialogue-based clarification; primary task is open-domain tabular QA rather than conventional schema-conditioned SQL generation.",
+    "protocol": "Chinese real-estate table retrieval and SQL QA with bounded clarification. The simulator reveals canonical corrections only after predicted underspecification labels match gold; Dynamic mode paraphrases those facts. Targets are filtered toward recoverable, answerable queries.",
     "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
     "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
     "evidence": [
       "https://github.com/jensenw1/ODUTQA-MDC",
-      "https://aclanthology.org/2026.acl-long.499/"
+      "https://aclanthology.org/2026.acl-long.499/",
+      "https://aclanthology.org/2026.acl-long.499.pdf"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "clues-tool",
@@ -295,14 +297,15 @@
     ],
     "url": "https://github.com/google-research/google-research/tree/master/learning_to_clarify",
     "description": "Reference implementation of action-based contrastive self-training for clarify-versus-answer decisions.",
-    "protocol": "Simulated multi-turn outcomes guide preference training; the documented example uses PACIFIC, and standalone AmbigSQL data were not verified.",
+    "protocol": "Simulated multi-turn outcomes guide preference training; the AmbigSQL user simulator is conditioned on the target SQL. The documented code example uses PACIFIC, and a standalone AmbigSQL data download remains unverified.",
     "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
     "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
     "evidence": [
       "https://github.com/google-research/google-research/tree/master/learning_to_clarify",
-      "https://arxiv.org/abs/2406.00222"
+      "https://arxiv.org/abs/2406.00222",
+      "https://arxiv.org/pdf/2406.00222v2"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "rts-sql-tool",
@@ -313,16 +316,17 @@
       "rts-plus"
     ],
     "url": "https://github.com/kckevinchen/RTS-SQL",
-    "description": "Uses candidate execution-result agreement and execution entropy to support SQL selection and abstention.",
-    "protocol": "Risk-control conclusions depend on calibration assumptions and the correctness labels used; execution agreement alone is not intent validity.",
+    "description": "RTS uses hidden-state conformal checks during schema linking; RTS++ adds execution-result clustering, entropy and reranking for selective full-query generation.",
+    "protocol": "Distinguish RTS schema-linking prediction-set coverage from RTS++ selective execution accuracy. Report abstention coverage and feedback assumptions; execution agreement and calibrated sets do not certify user intent.",
     "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
     "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
     "evidence": [
       "https://github.com/kckevinchen/RTS-SQL",
       "https://arxiv.org/abs/2501.10858",
-      "https://openproceedings.org/2026/conf/edbt/paper-177.pdf"
+      "https://openproceedings.org/2026/conf/edbt/paper-177.pdf",
+      "https://arxiv.org/pdf/2501.10858v1"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "test-suite-evaluator",
@@ -407,14 +411,15 @@
     ],
     "url": "https://github.com/glee4810/SCARE",
     "description": "Baseline pipelines and evaluation scripts for answerability classification and candidate-SQL verification or correction.",
-    "protocol": "Joint question classification and SQL correction in EHR QA; benchmark results do not demonstrate clinical deployment safety.",
+    "protocol": "Static question/candidate-SQL verification, correction and ambiguity/unanswerability classification. Several paper baseline prompts also supply execution results and annotation evidence; this is not an execution-free evaluation or a completed clarification dialogue.",
     "availability": "Public code and prompts inspected; databases require separate download; not executed.",
     "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
     "evidence": [
       "https://github.com/glee4810/SCARE",
-      "https://proceedings.mlr.press/v297/lee26b.html"
+      "https://proceedings.mlr.press/v297/lee26b.html",
+      "https://raw.githubusercontent.com/mlresearch/v297/main/assets/lee26b/lee26b.pdf"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "clarity-data",
@@ -425,15 +430,16 @@
     ],
     "url": "https://github.com/duyvuleo/clarity/tree/main/data",
     "description": "Conversational ambiguity and unanswerability annotations packaged with source seeds, schemas, and column catalogs.",
-    "protocol": "Static generated conversations; distinguish packaged files from reconstructed paper evaluation splits.",
+    "protocol": "Static generated conversations: multi-turn SQL evaluation supplies the full dialogue except the final SQL; single-turn evaluation enumerates interpretations. Distinguish packaged files from reconstructed paper evaluation splits.",
     "availability": "Public annotation/data directory and release instructions verified; SQLite databases are not bundled.",
     "license_note": "Spider/BIRD-derived data: CC BY-SA 4.0; code MIT.",
     "evidence": [
       "https://github.com/duyvuleo/clarity/tree/main/data",
       "https://github.com/duyvuleo/clarity",
-      "https://aclanthology.org/2026.acl-industry.86/"
+      "https://aclanthology.org/2026.acl-industry.86/",
+      "https://aclanthology.org/2026.acl-industry.86.pdf"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "abiss-data",
@@ -444,14 +450,15 @@
     ],
     "url": "https://arxiv.org/abs/2607.23340",
     "description": "Describes generation of ambiguous/unanswerable questions and a multi-turn environment with style-aware simulated users.",
-    "protocol": "Dynamic user simulation and classification/SQL-resolution evaluation over ABISS-BIRD and ABISS-Spider.",
+    "protocol": "Balanced category subsets with optional oracle/predicted labels, three clarification turns plus a final response, relaxed execution matching and council-judged feedback. AIR measures next-turn termination after relevant feedback, not SQL correctness.",
     "availability": "Paper-described benchmark; linked author repository says COMING SOON and has no data or implementation visible.",
     "license_note": "Dataset license unverified; placeholder repository's MIT file does not establish dataset terms.",
     "evidence": [
       "https://arxiv.org/abs/2607.23340",
-      "https://github.com/giosullutrone/ABISS-Evaluating-Text-to-SQL-Systems-Through-Agent-Interaction"
+      "https://github.com/giosullutrone/ABISS-Evaluating-Text-to-SQL-Systems-Through-Agent-Interaction",
+      "https://arxiv.org/pdf/2607.23340v1"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "ambiqt-data",
@@ -481,14 +488,15 @@
     ],
     "url": "https://ambrosia-benchmark.github.io/",
     "description": "Ambiguous requests with interpretations and SQL for scope, attachment, and vagueness cases.",
-    "protocol": "Multiple valid interpretations remain possible even with database context; evaluate coverage rather than a single chosen answer.",
+    "protocol": "Models enumerate SQL interpretations with complete schema and database contents supplied. Precision, recall and AllFound use execution outputs flattened to sets of values, which can admit accidental matches.",
     "availability": "Author-controlled download; project asks that data not be mirrored to GitHub or Hugging Face.",
     "license_note": "Dataset license not verified; respect the author's download and redistribution conditions.",
     "evidence": [
       "https://ambrosia-benchmark.github.io/",
-      "https://arxiv.org/abs/2406.19073"
+      "https://arxiv.org/abs/2406.19073",
+      "https://arxiv.org/pdf/2406.19073v2"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "practiq-data",
@@ -499,14 +507,15 @@
     ],
     "url": "https://aclanthology.org/2025.naacl-long.13/",
     "description": "Four-turn conversational examples for ambiguous, unanswerable, and answerable questions, including alternative helpful responses.",
-    "protocol": "Fixed conversations with question classification and clarification-conditioned SQL evaluation.",
+    "protocol": "Fixed dialogues with question-type classification and SQL generation after supplied clarification. Replies are reverse-generated from target SQL; some unanswerable cases become solvable by changing the requested attribute or entity.",
     "availability": "Paper-described benchmark; archived official release contains generation code, but completed benchmark download was not verified.",
     "license_note": "Completed dataset terms unverified; generator repository LICENSE is CC BY-NC 4.0.",
     "evidence": [
       "https://aclanthology.org/2025.naacl-long.13/",
-      "https://github.com/amazon-science/conversational-ambiguous-unanswerable-text2sql"
+      "https://github.com/amazon-science/conversational-ambiguous-unanswerable-text2sql",
+      "https://aclanthology.org/2025.naacl-long.13.pdf"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "trustsql-data",
@@ -535,14 +544,15 @@
     ],
     "url": "https://github.com/glee4810/EHRSQL",
     "description": "Clinical database questions spanning SQL generation, temporal expressions, and abstention.",
-    "protocol": "MIMIC-III/eICU evaluation with processed database values; intended for query evaluation, not clinical analysis.",
+    "protocol": "Template-shared MIMIC-III/eICU query evaluation with disjoint paraphrases and held-out unanswerables. Processed records include time shifts, patient-record shuffling and synthetic costs; not for clinical analysis.",
     "availability": "Annotation files and processed-database download links visible; building from original data requires PhysioNet credentialed access.",
     "license_note": "Annotation repository declares CC BY 4.0; original EHR databases have separate access and use terms.",
     "evidence": [
       "https://github.com/glee4810/EHRSQL",
-      "https://arxiv.org/abs/2301.07695"
+      "https://arxiv.org/abs/2301.07695",
+      "https://arxiv.org/pdf/2301.07695v6"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "ehrsql-2024-data",
@@ -626,15 +636,16 @@
     ],
     "url": "https://huggingface.co/datasets/birdsql/bird-interact-full",
     "description": "Interactive SQL tasks with ambiguity annotations, follow-ups, database environments, and user simulation.",
-    "protocol": "Full/Lite PostgreSQL and Mini SQLite are distinct variants; c-Interact and a-Interact differ in who controls interaction.",
+    "protocol": "Full/Lite PostgreSQL and Mini SQLite are distinct variants; c-Interact and a-Interact differ in who controls interaction. Follow-up success is cumulative; UserSim-Guard refusal labels concern simulator information requests, not infeasible database questions.",
     "availability": "Public task cards/files verified; evaluator ground truth and some materials follow the authors' access procedure.",
     "license_note": "CC BY-SA 4.0 data; MIT code.",
     "evidence": [
       "https://huggingface.co/datasets/birdsql/bird-interact-full",
       "https://bird-interact.github.io/",
-      "https://github.com/bird-bench/BIRD-Interact"
+      "https://github.com/bird-bench/BIRD-Interact",
+      "https://arxiv.org/pdf/2510.05318v3"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "taco-data",
@@ -646,14 +657,15 @@
     "url": "https://huggingface.co/datasets/Akanezora/TACO-Benchmark",
     "description": "Open-domain questions with ambiguous language, unspecified target databases, and cross-database SQL.",
     "protocol": "Execution accuracy over retrieved tables and query plans; not a live clarification benchmark.",
-    "availability": "Author-linked dataset files visible; card reports 12,422 JSON examples, differing from the paper's 14,500; not downloaded.",
+    "availability": "Author-linked public dataset snapshot was previously verified at 12,422 JSON examples, differing from the paper total of 14,500. The proceedings explicitly restrict SmartCity access to approved data-use agreements or author-run evaluation; public OpenData artifacts are separate. Files were not downloaded or reproduced.",
     "license_note": "Dataset card and code repository declare MIT.",
     "evidence": [
       "https://huggingface.co/datasets/Akanezora/TACO-Benchmark",
       "https://arxiv.org/abs/2606.14201",
-      "https://github.com/Akanezora0/TACO-Benchmark"
+      "https://github.com/Akanezora0/TACO-Benchmark",
+      "https://www.vldb.org/pvldb/vol19/p1386-fan.pdf"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "mmsql-data",
@@ -664,15 +676,16 @@
     ],
     "url": "https://huggingface.co/datasets/GuoZiming/MMSQL",
     "description": "Multi-turn conversations with different question types for assessing classification and SQL generation together.",
-    "protocol": "Recorded/generated dialogue; RQS uses model judging alongside TDEX and SQL metrics.",
+    "protocol": "Recorded/generated dialogue evaluation. TDEX uses SQL execution for gold answerable/ambiguous turns and question-type matching for other turns; RQS separately uses GPT-4o-mini judging. These are class-dependent measures, not a conjunction of correct routing and SQL on every turn.",
     "availability": "Public train/test data and dataset card visible; upstream CoSQL SQLite databases are obtained separately.",
     "license_note": "Author dataset card declares CC BY 4.0; upstream CoSQL terms remain relevant.",
     "evidence": [
       "https://huggingface.co/datasets/GuoZiming/MMSQL",
       "https://github.com/mcxiaoxiao/MMSQL",
-      "https://arxiv.org/abs/2412.17867"
+      "https://arxiv.org/abs/2412.17867",
+      "https://arxiv.org/pdf/2412.17867v4"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "cosql-data",
@@ -736,15 +749,16 @@
       "dysql-bench"
     ],
     "url": "https://github.com/Aurora-slz/DySQL-Bench",
-    "description": "Dynamic multi-turn tasks with evolving user requests and database state changes.",
-    "protocol": "Simulated user, tested agent, and executable database interact across CRUD tasks; reliability depends on the defined simulator.",
+    "description": "Dynamic user–agent dialogues pursue a predefined hidden objective while changing database state through CRUD operations.",
+    "protocol": "A Qwen2.5-72B user simulator responds toward the original parameter-complete instruction. Success compares final database-state hashes; Pass^k measures all k sampled runs succeeding, not at least one successful run.",
     "availability": "Public generation/evaluation code and database-fetch instructions visible; not executed.",
     "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
     "evidence": [
       "https://github.com/Aurora-slz/DySQL-Bench",
-      "https://aclanthology.org/2026.findings-acl.1654/"
+      "https://aclanthology.org/2026.findings-acl.1654/",
+      "https://aclanthology.org/2026.findings-acl.1654.pdf"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "odutqa-data",
@@ -755,15 +769,16 @@
     ],
     "url": "https://github.com/jensenw1/ODUTQA-MDC/tree/main/datasets",
     "description": "Underspecified tabular-QA questions and tables with detailed labels and dialogue-based clarification.",
-    "protocol": "Dynamic user simulation plus retrieval and SQL-backed answer generation; adjacent to conventional text-to-SQL.",
+    "protocol": "Chinese real-estate table retrieval and SQL QA with bounded clarification. The simulator reveals canonical corrections only after predicted underspecification labels match gold; Dynamic mode paraphrases those facts. Targets are filtered toward recoverable, answerable queries.",
     "availability": "Data directory and source listed publicly; not downloaded or executed.",
     "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
     "evidence": [
       "https://github.com/jensenw1/ODUTQA-MDC/tree/main/datasets",
       "https://github.com/jensenw1/ODUTQA-MDC",
-      "https://aclanthology.org/2026.acl-long.499/"
+      "https://aclanthology.org/2026.acl-long.499/",
+      "https://aclanthology.org/2026.acl-long.499.pdf"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "spider2-data",
@@ -774,15 +789,16 @@
     ],
     "url": "https://github.com/xlang-ai/Spider2",
     "description": "Enterprise SQL workflow tasks involving large schemas, documentation, and local or cloud databases.",
-    "protocol": "Pin Lite, Snow, or DBT setting and release; oracle-table access is a separate condition; not an explicit answerability benchmark.",
+    "protocol": "Pin Lite, Snow or dbt/workflow setting and release. Focused output checks may ignore extra columns or order; oracle-table access is a separate condition. This is not an explicit answerability benchmark.",
     "availability": "Public tasks and environment instructions verified; cloud access and execution not tested.",
     "license_note": "Dataset and environment-specific terms not verified; consult the selected release.",
     "evidence": [
       "https://github.com/xlang-ai/Spider2",
       "https://spider2-sql.github.io/",
-      "https://arxiv.org/abs/2411.07763"
+      "https://arxiv.org/abs/2411.07763",
+      "https://arxiv.org/pdf/2411.07763v2"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "livesqlbench-data",
@@ -811,31 +827,35 @@
     ],
     "url": "https://arxiv.org/abs/2608.29543",
     "description": "Conversation tasks with dependent clarification chains and user revisions that retract earlier commitments.",
-    "protocol": "Chain identification and intent-drift recognition/resolution metrics complement execution accuracy.",
+    "protocol": "Full and L1-primed protocols evaluate two-layer clarification chains and one intent revision. Drift Recognition Rate is an AST non-monotonic-change proxy; Drift Resolution Accuracy separately checks post-drift execution correctness.",
     "availability": "Paper-described benchmark; linked repository contains only README, LICENSE, and .gitattributes, so downloadable data are unverified.",
     "license_note": "Dataset license unverified; placeholder repository MIT does not establish released dataset terms.",
     "evidence": [
       "https://arxiv.org/abs/2608.29543",
-      "https://github.com/Rcrossmeister/TIDE-Bench"
+      "https://github.com/Rcrossmeister/TIDE-Bench",
+      "https://aclanthology.org/2026.emnlp-main.2454.pdf"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "entsql-data",
-    "name": "EntSQL benchmark design",
+    "name": "EntSQL enterprise-knowledge benchmark",
     "kind": "dataset",
     "paper_ids": [
       "entsql"
     ],
-    "url": "https://arxiv.org/abs/2606.03363",
+    "url": "https://huggingface.co/datasets/XuWave/Rethinking_Enterprise_Text_to_SQL",
     "description": "Bilingual enterprise questions requiring long-form business documentation beyond the database schema.",
     "protocol": "Business-knowledge grounding; adjacent to clarification and unanswerability rather than a direct interaction policy evaluation.",
-    "availability": "Paper-described benchmark; no public dataset download was verified.",
-    "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
+    "availability": "Official release lists five database archives, Chinese/English question-document JSON and evaluate.py. Gold answers are withheld and the card describes the scoring platform as forthcoming. Viewer parsing errors do not establish that the underlying files are absent; downloads and execution were not tested.",
+    "license_note": "Official dataset card declares CC BY 4.0. Restricted gold answers and any separately provided materials remain outside the verified public release.",
     "evidence": [
-      "https://arxiv.org/abs/2606.03363"
+      "https://arxiv.org/abs/2606.03363",
+      "https://arxiv.org/pdf/2606.03363",
+      "https://huggingface.co/datasets/XuWave/Rethinking_Enterprise_Text_to_SQL",
+      "https://arxiv.org/pdf/2606.03363v3"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "arcs-data",
@@ -866,15 +886,16 @@
     ],
     "url": "https://github.com/glee4810/SCARE#dataset",
     "description": "Question, candidate-SQL, and expected-output triples for joint answerability classification and SQL correction.",
-    "protocol": "EHR question classes include answerable, ambiguous, and unanswerable; correction success is distinct from clinical-semantic validity.",
+    "protocol": "Static question/candidate-SQL verification, correction and ambiguity/unanswerability classification. Several paper baseline prompts also supply execution results and annotation evidence; this is not an execution-free evaluation or a completed clarification dialogue.",
     "availability": "Public correction-data and data_final directories inspected; database archive requires separate download and was not inspected.",
     "license_note": "License not verified; consult the resource and any upstream data terms before reuse.",
     "evidence": [
       "https://github.com/glee4810/SCARE#dataset",
       "https://github.com/glee4810/SCARE",
-      "https://proceedings.mlr.press/v297/lee26b.html"
+      "https://proceedings.mlr.press/v297/lee26b.html",
+      "https://raw.githubusercontent.com/mlresearch/v297/main/assets/lee26b/lee26b.pdf"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "premisesql-tool",
@@ -959,7 +980,7 @@
     ],
     "url": "https://github.com/red1dwarf/TEXT-TO-OMOP/tree/main/DATA",
     "description": "Concept-normalized OMOP questions with SQL targets or an explicit abstention target, adapted from EHRSQL resources.",
-    "protocol": "Static SQL generation and answerability evaluation against synthetic OMOP CDM v5.4 PostgreSQL data.",
+    "protocol": "Static SQL generation and answerability evaluation against synthetic OMOP CDM v5.4 PostgreSQL data; the test mixes seen SQL variations and held-out variations.",
     "availability": "Official DATA directory lists source inventories and train/validation/test JSONL files; repository documents a synthetic database dump. Files were not executed or independently reproduced.",
     "license_note": "Repository code license: Apache-2.0. The data notice identifies EHRSQL/EHRSQL-2024-derived files and CC BY 4.0 source attribution obligations; inspect those terms before reuse.",
     "evidence": [
@@ -970,7 +991,7 @@
       "https://github.com/red1dwarf/TEXT-TO-OMOP/blob/main/LICENSE-DATA.md",
       "https://github.com/red1dwarf/TEXT-TO-OMOP/blob/main/LICENSE"
     ],
-    "checked_on": "2026-10-27"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "atomsql-system",
@@ -1035,15 +1056,16 @@
     ],
     "url": "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark/tree/main/data",
     "description": "Correctness labels and hierarchical semantic-error annotations for candidate SQL on BIRD-derived questions.",
-    "protocol": "Static candidate-SQL correctness and error-type detection; reference cleaning and execution-based labeling do not establish unrestricted semantic equivalence.",
+    "protocol": "Static candidate-SQL correctness and error-type detection with execution-based labels. Type-Specific Accuracy is per-type recall-like coverage and does not itself penalize extra predicted types; neither metric proves unrestricted semantic equivalence.",
     "availability": "NL2SQL-Bugs.json and NL2SQL-Bugs-with-evidence.json are listed in the official data directory. BIRD databases require a separate download. File contents and experiments were not downloaded or reproduced.",
     "license_note": "No root repository license or explicit annotation-data license verified; upstream BIRD database terms remain separate.",
     "evidence": [
       "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark/tree/main/data",
       "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark",
-      "https://arxiv.org/html/2503.11984v2"
+      "https://arxiv.org/html/2503.11984v2",
+      "https://arxiv.org/pdf/2503.11984v2"
     ],
-    "checked_on": "2026-11-02"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "pascal-system",

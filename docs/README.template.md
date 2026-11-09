@@ -21,6 +21,8 @@ Natural-language questions do not always determine one SQL query, and a database
 
 Updated **{{UPDATED}}**. Each paper includes a concise summary, publication status, public sources, and a verification date. Core work and adjacent methods are marked separately. Resource counts include clearly labeled benchmark designs whose artifacts are not yet verified released.
 
+[**Read the detailed paper notes →**](papers/reading-notes.md) for methods, evaluation conditions, findings, limitations and checks against the original text. The index records completed readings and remaining access gaps.
+
 ## Contents
 
 - [Interactive explorer](#interactive-explorer)
@@ -29,6 +31,7 @@ Updated **{{UPDATED}}**. Each paper includes a concise summary, publication stat
 - [Worked examples](examples/README.md)
 - [Papers](papers/README.md)
 - [Papers by year](papers/by-year.md)
+- [Detailed paper notes](papers/reading-notes.md)
 - [Systems and tools](systems/README.md)
 - [Datasets and benchmarks](datasets/README.md)
 - [Benchmark selection matrix](docs/benchmark-matrix.md)

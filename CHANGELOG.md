@@ -2,6 +2,9 @@
 
 ## 2026-11-09
 
+- Audited all 94 cataloged papers: 91 complete readings of specified public versions and three explicit full-text access gaps (CLEAR, RaQAD and RAQS-SQL). Added detailed notes with methods, evaluation conditions, limitations and located claim checks.
+- Linked reading notes from the paper tables, year index and explorer; added validation that prevents an incomplete reading from being labeled complete.
+- Revised summaries and benchmark protocols to distinguish supplied/simulated interaction, human evidence, interpretation coverage, conditional guarantees and actual artifact availability. Verified additional official links for Query Carefully, semantic path compilation, oracle-abstention analysis, RAQS-SQL and EntSQL; no experiments were reproduced.
 - Added BAR-SQL with its source implementation, Ent-SQL-Bench artifact entry and comparison row; distinguished response-level clarification scoring from multi-turn resolution and retained license/dependency limits.
 - Added the foundational SPLASH and NL-EDIT papers, recorded human-feedback dataset and partial-release edit utilities, separating correction of fully specified questions from ambiguity detection.
 - Added two benchmark comparisons without counting NL-EDIT's repackaged SPLASH annotations as another copy of the original dataset.

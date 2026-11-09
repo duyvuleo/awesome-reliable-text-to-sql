@@ -15,17 +15,19 @@
       "simulation"
     ],
     "scope": "core",
-    "summary": "Builds taxonomy-conditioned questions and evaluates SQL agents through multi-turn conversations with style-aware simulated users. Its model-council validation approximates unanswerability rather than proving it, and the controlled simulator does not establish performance with real users.",
+    "summary": "Combines an eight-category taxonomy, council-filtered question generation and style-conditioned user simulation to separate diagnosis from final SQL/feedback quality. Oracle labels help, but clarification does not ensure correct SQL. Unanswerability is approximated by council failure, human auditing finds residual SQL-label errors, and simulated users remain cooperative. AIR counts termination after relevant feedback, not successful resolution.",
     "evidence": [
       "https://arxiv.org/abs/2607.23340",
       "https://arxiv.org/html/2607.23340v1",
-      "https://github.com/giosullutrone/ABISS-Evaluating-Text-to-SQL-Systems-Through-Agent-Interaction"
+      "https://github.com/giosullutrone/ABISS-Evaluating-Text-to-SQL-Systems-Through-Agent-Interaction",
+      "https://arxiv.org/pdf/2607.23340v1"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Official project repository is a placeholder marked COMING SOON; runnable code and downloadable benchmark data were not verified released.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/abiss.md"
   },
   {
     "id": "act-ambigsql",
@@ -41,18 +43,20 @@
       "benchmark"
     ],
     "scope": "core",
-    "summary": "ACT optimizes clarify-versus-answer behavior using contrastive actions and simulated multi-turn outcomes, and introduces AmbigSQL for underspecified SQL requests. Its experiments span SQL and other conversational tasks, so improvements should be attributed to the evaluated task and simulator rather than assumed to transfer universally.",
+    "summary": "ACT trains clarify-versus-answer behavior with action-contrast preferences and simulated multi-turn outcomes, improving small-data adaptation of Zephyr on AmbigSQL and two QA tasks. AmbigSQL pairs Spider requests with synthetic underspecification; its user simulator sees the target SQL, so reported recovery measures simulated clarification rather than human interaction.",
     "evidence": [
       "https://arxiv.org/abs/2406.00222",
       "https://proceedings.iclr.cc/paper_files/paper/2025/file/4ffd05ca3cf3985f4572af015b4cfc1e-Paper-Conference.pdf",
       "https://github.com/google-research/google-research/tree/master/learning_to_clarify",
-      "https://research.google/blog/learning-to-clarify-multi-turn-conversations-with-action-based-contrastive-self-training/"
+      "https://research.google/blog/learning-to-clarify-multi-turn-conversations-with-action-based-contrastive-self-training/",
+      "https://arxiv.org/pdf/2406.00222v2"
     ],
     "artifact_status": "Reference training code verified; the documented example uses PACIFIC, and a standalone AmbigSQL download was not verified. AmbigSQL is the benchmark introduced in this paper; it is distinct from the AmbiSQL interactive demonstration system.",
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/act-ambigsql.md"
   },
   {
     "id": "ambiqt",
@@ -69,16 +73,19 @@
       "decoding"
     ],
     "scope": "core",
-    "summary": "Introduces AmbiQT, where one question supports two plausible SQL readings, and LogicalBeam, which diversifies query plans before schema-constrained infilling. The benchmark measures coverage of controlled lexical and structural alternatives rather than a complete interactive clarification policy.",
+    "summary": "Constructs two SQL references per question through four controlled Spider-schema perturbations. LogicalBeam varies join/selection plans and restricts template infilling to schema-name diversity, improving top-five coverage. Evaluation measures candidate availability against the constructed alternatives, not clarification-policy quality or selection of a real user's intended reading; gains and ablation effects vary by ambiguity type.",
     "evidence": [
       "https://aclanthology.org/2023.emnlp-main.436/",
-      "https://github.com/tomartushar/AmbiQT"
+      "https://github.com/tomartushar/AmbiQT",
+      "https://aclanthology.org/2023.emnlp-main.436.pdf",
+      "https://github.com/tomartushar/AmbiQT/tree/master/benchmark"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "ambiguity",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/ambiqt.md"
   },
   {
     "id": "ambisql",
@@ -95,16 +102,18 @@
       "system"
     ],
     "scope": "core",
-    "summary": "Detects ambiguous phrases, presents multiple-choice clarification options, and rewrites the question before passing it to a SQL generator. The demonstration integrates XiYan-SQL and a small set of ambiguous examples, so its interface and detection mechanisms should be separated from claims of general end-to-end reliability.",
+    "summary": "Uses a seven-type taxonomy to detect ambiguity, collect multiple-choice or free-text clarification, maintain preferences and recheck rewritten questions before XiYan-SQL generation. The four-page demonstration provides 40 curated BIRD/TAG examples, not a controlled broad accuracy or user study. Repeated detection does not establish completeness, and the user-facing Abstain option skips a clarification rather than certifying request unanswerability.",
     "evidence": [
       "https://arxiv.org/abs/2508.15276",
-      "https://github.com/JustinzjDing/AmbiSQL"
+      "https://github.com/JustinzjDing/AmbiSQL",
+      "https://arxiv.org/pdf/2508.15276v2"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "artifact_status": "Apache-2.0 code, frontend, and linked demo verified; live demo not exercised; standalone ambiguity dataset release not verified. Distinct from AmbigSQL in Learning to Clarify; current arXiv v2 has six authors and a demonstration-oriented abstract, unlike older indexed snippets.",
     "category": "ambiguity",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/ambisql.md"
   },
   {
     "id": "ambrosia",
@@ -120,16 +129,19 @@
       "benchmark"
     ],
     "scope": "core",
-    "summary": "Pairs scope ambiguity, attachment ambiguity and vagueness with natural-language interpretations and SQL over purpose-built databases. Ambiguity persists despite database context, so the task measures interpretation coverage rather than simply selecting a schema match.",
+    "summary": "Benchmarks scope, attachment and vague interpretations using human questions over constrained synthetic databases. Models receive complete schema/data dumps; best zero-shot interpretation recall is 30.7%, with only 1.9% AllFound. Resolved-input baselines reveal ordinary parsing difficulty. Evaluation flattens outputs to value sets, so matching is relaxed execution evidence; the benchmark does not test unanswerability or live clarification.",
     "evidence": [
       "https://arxiv.org/abs/2406.19073",
-      "https://github.com/saparina/ambrosia"
+      "https://github.com/saparina/ambrosia",
+      "https://arxiv.org/pdf/2406.19073v2",
+      "https://ambrosia-benchmark.github.io/"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "ambiguity",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/ambrosia.md"
   },
   {
     "id": "apel",
@@ -145,15 +157,17 @@
       "interpretation-coverage"
     ],
     "scope": "adjacent",
-    "summary": "Actively finds simple database inputs on which candidate SQL programs disagree and asks non-programmers to select the intended output. This provides an indirect way to choose or annotate programs, but depends on the candidate set containing a suitable interpretation.",
+    "summary": "APEL asks non-programmers to choose outputs on small, informative synthetic databases, then updates a distribution over candidate SQL programs. An 11-participant study on 240 Spider utterances improves annotation accuracy from 59% to 75% and reveals reference-label errors; candidate coverage and human interpretation remain limits, and downstream training gains were not evaluated.",
     "evidence": [
-      "https://aclanthology.org/2023.emnlp-main.312/"
+      "https://aclanthology.org/2023.emnlp-main.312/",
+      "https://aclanthology.org/2023.emnlp-main.312.pdf"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/apel.md"
   },
   {
     "id": "arcs",
@@ -170,19 +184,22 @@
       "structured-interaction"
     ],
     "scope": "core",
-    "summary": "Introduces structured selection among ambiguity points and interpretations, with a corpus built over real-world databases. The benchmark separates disambiguation from SQL generation and uses a user simulator, so its reported results remain specific to the annotated alternatives and interaction protocol.",
+    "summary": "Combines multiple-choice interpretation selection with numeric-threshold adjustment over six existing databases. Generated questions are author-curated and evaluated through a two-stage user simulator, separate disambiguation/SQL metrics and an eight-person interface study. Global conventions, annotation-relative coverage, non-empty intended outputs and permissive extra-column scoring bound the results; manuscript task counts are inconsistent.",
     "evidence": [
       "https://arxiv.org/abs/2610.09396",
       "https://arxiv.org/html/2610.09396v2",
       "https://megagonlabs.github.io/tabulaflow/research/arcs/",
       "https://github.com/megagonlabs/tabulaflow/blob/main/tabulaflow/research/ARCS.md",
-      "https://huggingface.co/datasets/megagonlabs/arcs"
+      "https://huggingface.co/datasets/megagonlabs/arcs",
+      "https://arxiv.org/pdf/2610.09396v2",
+      "https://github.com/megagonlabs/tabulaflow"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "ambiguity",
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Official TabulaFlow implementation and a public Hugging Face release with task files and SQLite databases are available. Dataset card declares CC BY 4.0; release and paper instance counts differ, so pin the selected snapshot. Artifacts were not executed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/arcs.md"
   },
   {
     "id": "bird-interact",
@@ -199,18 +216,20 @@
       "benchmark"
     ],
     "scope": "core",
-    "summary": "Combines database documentation, hierarchical business knowledge, executable tests, and a function-driven user simulator to evaluate conversational and autonomous agent interaction across ambiguous CRUD tasks. Its Full and Lite tasks measure success within a specified simulator and action budget; they do not establish that an assistant has resolved every real user's intent.",
+    "summary": "Evaluates 600 Full and 300 Lite tasks with ambiguity chains, dependent follow-ups, changing database state and a guarded user simulator. Models choose clarification and environment actions under budgets; success follows executable tests. Simulator-human alignment is measured across seven systems on 100 tasks. Ground-truth-informed replies, cumulative follow-up scoring and artificial costs bound generalization; simulator refusal is distinct from database unanswerability.",
     "evidence": [
       "https://arxiv.org/abs/2510.05318",
       "https://bird-interact.github.io/",
       "https://github.com/bird-bench/BIRD-Interact",
-      "https://huggingface.co/datasets/birdsql/bird-interact-full"
+      "https://huggingface.co/datasets/birdsql/bird-interact-full",
+      "https://arxiv.org/pdf/2510.05318v3"
     ],
     "artifact_status": "Code and dataset listings verified; not executed. Code MIT; dataset CC BY-SA 4.0. Full has 600 PostgreSQL tasks; Lite 300; Mini-Interact is a separate SQLite variant. BIRD-Interact-ADK offers modular agent, user-simulator, and database-environment services. Ground-truth solution, knowledge, and test fields are separated from public examples; use official evaluator access procedures.",
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/bird-interact.md"
   },
   {
     "id": "circleclar",
@@ -227,14 +246,16 @@
       "clarification",
       "answer-sets"
     ],
-    "summary": "Distinguishes interpretations admitted by an input from answers accessible to a particular model and estimates answer sets through answer–clarification–answer consistency. Experiments include executable Text-to-SQL, while the abstract's decision-policy results for answering, clarifying, and abstaining are reported for question answering.",
+    "summary": "Estimates model-accessible answer sets through answer–clarification–answer consistency. Four-model evaluation includes 96 AMBROSIA requests, with best set-F1 in two SQL settings; response-policy experiments are QA-only. Recovery shares a semantic judge with reference construction and can preserve confident errors. A singleton accessible answer does not establish that the user’s request has only one valid interpretation.",
     "evidence": [
-      "https://arxiv.org/abs/2610.20052"
+      "https://arxiv.org/abs/2610.20052",
+      "https://arxiv.org/pdf/2610.20052v1"
     ],
-    "checked_on": "2026-10-22",
-    "source_depth": "primary-record",
-    "artifact_status": "Public preprint verified at abstract and metadata level; no implementation or dataset release verified in this pass.",
-    "added_on": "2026-10-22"
+    "checked_on": "2026-11-09",
+    "source_depth": "full-text-reviewed",
+    "artifact_status": "Full public preprint reviewed, including the SQL answer-set experiment and complete prompts. No official implementation or new dataset release independently verified; no experiments reproduced.",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/circleclar.md"
   },
   {
     "id": "clarity",
@@ -252,17 +273,19 @@
       "multi-turn"
     ],
     "scope": "core",
-    "summary": "Generates questions with interacting ambiguity or unanswerability sources, schema-grounded diagnostic metadata, and helpful, partial or unhelpful conversational continuations. Spider and BIRD experiments test detection, localization and resolution under these constructed settings; they do not establish live-user or production performance.",
+    "summary": "Generates SQL-grounded ambiguous and unanswerable questions with pivot-to-schema annotations, multiple facets and varied synthetic clarification responses. Evaluation separates binary detection, target localization and SQL recovery; the multi-turn task supplies a completed dialogue, so its results diagnose conversation-conditioned prediction rather than an agent’s live questioning policy.",
     "evidence": [
       "https://aclanthology.org/2026.acl-industry.86/",
       "https://aclanthology.org/2026.acl-industry.86.pdf",
-      "https://github.com/duyvuleo/clarity"
+      "https://github.com/duyvuleo/clarity",
+      "https://github.com/duyvuleo/clarity/tree/main/data"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Public generation code and Spider/BIRD-derived annotations, seeds, schemas and column catalogs are released. Executable databases are separate upstream dependencies; code is MIT and derived data is CC BY-SA 4.0. Release availability is distinct from reproduction of paper results.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/clarity.md"
   },
   {
     "id": "clear-clambsql",
@@ -285,11 +308,12 @@
       "https://github.com/mengzhang18/CLEAR",
       "https://huggingface.co/datasets/mengxi123/CLAMBSQL"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "ambiguity",
     "source_depth": "primary-record",
     "artifact_status": "Publisher abstract was available in search; direct publisher page required browser verification. Author repository and dataset page were inspected; dataset page has files but no dataset card.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/clear-clambsql.md"
   },
   {
     "id": "clues",
@@ -306,18 +330,20 @@
       "routing"
     ],
     "scope": "core",
-    "summary": "CLUES builds a graph over interpretations and answers to separate variation caused by question ambiguity from variation within the same interpretation. This decomposition supports different clarification and review routes, while its clinical case-study results and domain-dependent thresholds should not be treated as validated clinical deployment guarantees.",
+    "summary": "Decomposes interpretation/answer graph variation into ambiguity and conditional-instability scores. Controlled-interpretation experiments improve pooled failure prediction, but the generated-interpretation clinical setting shows no significant advantage over result entropy. Regime-based error concentration motivates clarification or review routing; actual intervention effectiveness and clinical safety are not evaluated, and results depend on generated interpretations and LLM judgments.",
     "evidence": [
       "https://arxiv.org/abs/2602.12015",
       "https://arxiv.org/html/2602.12015v2",
       "https://github.com/Bayer-Group/clues-clinical-nlp",
-      "https://aclanthology.org/2026.clinicalnlp-1.39/"
+      "https://aclanthology.org/2026.clinicalnlp-1.39/",
+      "https://aclanthology.org/2026.clinicalnlp-1.39.pdf"
     ],
     "artifact_status": "MIT implementation and examples verified; no standalone clinical dataset download verified; not executed. Repository includes offline similarity-matrix and live interpretation-generation examples; full-pipeline thresholds require domain-specific calibration.",
-    "checked_on": "2026-11-06",
+    "checked_on": "2026-11-09",
     "category": "verification",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/clues.md"
   },
   {
     "id": "confidence-error",
@@ -334,15 +360,19 @@
       "uncertainty",
       "error-detection"
     ],
-    "summary": "Studies entropy-based selective classification and calibration for deciding when to withhold SQL under distribution shifts and unanswerable requests. Its error-detection results distinguish irrelevant questions from incorrect generations, so improved rejection should not be interpreted as solving all semantic errors.",
+    "summary": "Studies confidence-based rejection and calibration on English PAUQ distribution shifts and EHRSQL unanswerable requests. Selectors fit on a known portion of shifted data. Unsupported questions are often easier to reject than incorrect SQL for relevant requests, while compositional shifts cause substantial rejection of correct answers. Post-hoc calibration improves scores but does not remove this coverage cost.",
     "evidence": [
       "https://ojs.aaai.org/index.php/AAAI/article/view/34699",
-      "https://github.com/runnerup96/error-detection-in-text2sql"
+      "https://github.com/runnerup96/error-detection-in-text2sql",
+      "https://ojs.aaai.org/index.php/AAAI/article/download/34699/36854",
+      "https://arxiv.org/abs/2501.09527",
+      "https://arxiv.org/pdf/2501.09527v1"
     ],
-    "checked_on": "2026-10-22",
-    "source_depth": "primary-record",
+    "checked_on": "2026-11-09",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Official artifact link inspected or linked by the primary source; no execution reproduced.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/confidence-error.md"
   },
   {
     "id": "confidence-llms",
@@ -359,21 +389,25 @@
       "confidence",
       "calibration"
     ],
-    "summary": "Studies black-box consistency signals and white-box SQL-aware confidence estimates, including execution-based grounding. The work estimates reliability without gold answers at inference time; a confidence score alone does not determine whether the user's request is ambiguous or unsupported.",
+    "summary": "Compares verbal, consistency-based and token-probability confidence for generated SQL. SQL-Aware Confidence filters and folds syntax-related token alternatives; product aggregation leads on Spider while averaging leads on BIRD in the reported experiments. Execution feedback helps selected methods, but candidate-confidence calibration is not a guarantee of semantic correctness or a diagnosis of ambiguity and unanswerability.",
     "evidence": [
-      "https://ojs.aaai.org/index.php/AAAI/article/view/40523"
+      "https://ojs.aaai.org/index.php/AAAI/article/view/40523",
+      "https://arxiv.org/abs/2508.14056",
+      "https://arxiv.org/pdf/2508.14056",
+      "https://arxiv.org/pdf/2508.14056v1"
     ],
-    "checked_on": "2026-10-22",
-    "source_depth": "primary-record",
+    "checked_on": "2026-11-09",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "No code or dataset release verified in this pass.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/confidence-llms.md"
   },
   {
     "id": "cosql",
     "title": "CoSQL: A Conversational Text-to-SQL Challenge Towards Cross-Domain Natural Language Interfaces to Databases",
     "year": 2019,
     "publication_status": "EMNLP-IJCNLP 2019",
-    "primary_url": "https://yale-lily.github.io/cosql",
+    "primary_url": "https://aclanthology.org/D19-1204/",
     "code_url": "https://github.com/taoyds/cosql",
     "dataset_url": "https://yale-lily.github.io/cosql",
     "topics": [
@@ -383,17 +417,19 @@
       "benchmark"
     ],
     "scope": "core",
-    "summary": "Collects Wizard-of-Oz conversations in which SQL experts answer database questions, clarify ambiguities, and identify unanswerable or unrelated requests. It provides foundational dialogue-act and response-generation tasks, but standard SQL state tracking consumes recorded conversation context rather than testing an autonomous live clarification policy.",
+    "summary": "Collects Wizard-of-Oz database dialogues with SQL, result descriptions, ambiguity and unsupported-request acts. Database-disjoint tasks evaluate SQL state tracking, successful-query response generation and user-act prediction. Tracking receives recorded clarifications after user affirmation; the paper explicitly leaves clarification-quality evaluation outside its tasks. Response BLEU and human logical correctness rank baselines differently.",
     "evidence": [
       "https://aclanthology.org/D19-1204/",
       "https://yale-lily.github.io/cosql",
-      "https://github.com/taoyds/cosql"
+      "https://github.com/taoyds/cosql",
+      "https://aclanthology.org/D19-1204.pdf"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "artifact_status": "Official project page verifies downloadable train/development data, baseline code link, and CC BY-SA 4.0 data license; test data withheld. About 3,000 dialogues over 200 databases; choose the relevant dialogue-act, response-generation, or SQL-grounding task rather than treating all turns as answerable SQL examples.",
     "category": "interaction",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/cosql.md"
   },
   {
     "id": "data-ambiguity-documentation",
@@ -409,15 +445,17 @@
       "data-semantics"
     ],
     "scope": "core",
-    "summary": "Studies ambiguity from value consistency, data coverage and granularity, and supplies documentation to help GPT-4 interpret those properties. This shifts attention from question wording to dataset semantics, with evidence bounded to the paper’s evaluated tasks and documentation.",
+    "summary": "Studies value consistency, table coverage and row granularity using GPT-4 on 45 questions from two KaggleDBQA databases. Documentation and query clarifications are manually derived with reference-answer access, and benchmark answers are also corrected. Results support the value of explicit data semantics under this curated setup; they do not establish automatic documentation quality, broad transfer or a live clarification policy.",
     "evidence": [
-      "https://arxiv.org/abs/2310.18742"
+      "https://arxiv.org/abs/2310.18742",
+      "https://arxiv.org/pdf/2310.18742v1"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "context",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/data-ambiguity-documentation.md"
   },
   {
     "id": "dialsql",
@@ -433,15 +471,18 @@
       "error-correction"
     ],
     "scope": "core",
-    "summary": "Detects potential errors in generated SQL and asks multiple-choice validation questions, using feedback to revise the query. Its WikiSQL study uses a dialogue simulator and a black-box base generator, making it a predecessor to interactive correction rather than a broad ambiguity benchmark.",
+    "summary": "Detects possible SQL errors, asks multiple-choice validation questions and revises a black-box parser's query. WikiSQL experiments include reference-aware simulation and a separate 100-question human study; the latter shows a smaller gain than simulation. Single-table queries, predefined error categories and header-only context limit transfer. The author-linked repository is currently a README-only placeholder.",
     "evidence": [
-      "https://aclanthology.org/P18-1124/"
+      "https://aclanthology.org/P18-1124/",
+      "https://aclanthology.org/P18-1124.pdf",
+      "https://github.com/izzeddingur/DialSQL"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
-    "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "artifact_status": "Paper links https://github.com/izzeddingur/DialSQL, but the current repository lists only README.md; executable implementation and reuse terms remain unverified.",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/dialsql.md"
   },
   {
     "id": "disambiguate-first",
@@ -456,16 +497,18 @@
       "interpretation-coverage"
     ],
     "scope": "core",
-    "summary": "Generates initial natural-language readings and trains an infilling model to recover interpretations that the initial LLM omits, then parses each reading into SQL. The modular approach targets coverage on annotated ambiguity datasets; candidate generation alone does not identify the actual user intent.",
+    "summary": "Generates default natural-language readings, infills missing interpretations, then parses each into SQL. It improves reference-reading coverage over prompting and transfers across AmbiQT and AMBROSIA, but does not dominate in-domain fine-tuning on full coverage. Incorrect initial readings are retained, and the unambiguous evaluation does not penalize extra queries; coverage is not actual user-intent selection.",
     "evidence": [
       "https://aclanthology.org/2025.findings-acl.863/",
-      "https://github.com/saparina/disambiguate-then-parse"
+      "https://github.com/saparina/disambiguate-then-parse",
+      "https://aclanthology.org/2025.findings-acl.863.pdf"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "ambiguity",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/disambiguate-first.md"
   },
   {
     "id": "dsabench",
@@ -483,20 +526,22 @@
       "agent"
     ],
     "scope": "core",
-    "summary": "Evaluates source discovery, cross-database coordination and execution, including tasks with alternative source interpretations. Its controlled Ask-Once protocol reveals a branch-specific answer only when a question targets the intended semantic slot, so clarification gains are bounded to the simulator and its question-alignment judge.",
+    "summary": "Provides 815 reviewed tasks for exact database-source selection, coordination and local execution, including 105 two-branch ambiguity tasks. One controlled clarification substantially improves branch-source recovery. Joint scores also include topology-label gates and corpus-specific comparators; retained wording/gold mismatches, only 22 sequential tasks and simulated dialogue limit broader capability conclusions.",
     "evidence": [
       "https://arxiv.org/abs/2610.14700",
-      "https://arxiv.org/html/2610.14700v1"
+      "https://arxiv.org/html/2610.14700v1",
+      "https://arxiv.org/pdf/2610.14700v1"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "artifact_status": "No code or dataset release URL verified; unrelated PyPI dsabench package is not this benchmark.",
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "category": "context",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/dsabench.md"
   },
   {
     "id": "dte-noisysp",
-    "title": "Know What I don’t Know: Handling Ambiguous and Unknown Questions for Text-to-SQL",
+    "title": "Know What I don’t Know: Handling Ambiguous and Unanswerable Questions for Text-to-SQL",
     "year": 2023,
     "publication_status": "Findings of ACL 2023",
     "primary_url": "https://aclanthology.org/2023.findings-acl.352/",
@@ -510,15 +555,18 @@
       "benchmark"
     ],
     "scope": "core",
-    "summary": "Organizes problematic questions into six categories and generates counterfactual examples for a Detecting-Then-Explaining model. Detection, localization and explanation are evaluated on observed and generated cases, without establishing a complete clarification-to-SQL conversation policy.",
+    "summary": "Uses SQL-derived weak supervision to label problematic question spans, ground concepts and generate template explanations. Its six-category taxonomy is broader than NoisySP synthesis, which mainly creates column ambiguity and missing-column cases. Commercial evaluation uses failed requests; ordinary-query SQL tests are separate, and no complete clarification-to-SQL policy is established.",
     "evidence": [
-      "https://aclanthology.org/2023.findings-acl.352/"
+      "https://aclanthology.org/2023.findings-acl.352/",
+      "https://aclanthology.org/2023.findings-acl.352.pdf",
+      "https://github.com/wbbeyourself/DTE"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "ambiguity",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/dte-noisysp.md"
   },
   {
     "id": "dysql-bench",
@@ -535,17 +583,19 @@
       "benchmark"
     ],
     "scope": "adjacent",
-    "summary": "DySQL-Bench evaluates evolving requests through an interacting simulated user, SQL agent, and executable database, including operations that alter state. Its 1,072 tasks across 13 domains stress continued intent tracking and repeated-run reliability, while success remains conditional on the benchmark's generated tasks and simulator.",
+    "summary": "Evaluates SQL agents in dialogue with a simulated user and a mutable SQLite database, using final-state comparison and all-runs-success Pass^k. Tasks pursue a fixed, fully specified hidden objective through dynamic interaction; the paper reports full expert review but contains an unresolved total-versus-short/long count discrepancy, so neither perfect dataset correctness nor unrestricted intent evolution is established.",
     "evidence": [
       "https://aclanthology.org/2026.findings-acl.1654/",
       "https://arxiv.org/abs/2510.26495",
-      "https://github.com/Aurora-slz/DySQL-Bench"
+      "https://github.com/Aurora-slz/DySQL-Bench",
+      "https://aclanthology.org/2026.findings-acl.1654.pdf"
     ],
-    "artifact_status": "Official source, task-generation/evaluation paths, and database-fetch instructions verified; not executed. Paper's older repository name Real-World-SQL-Bench resolves to DySQL-Bench; avoid claiming perfect dataset correctness from the authors' sampled validation statement.",
-    "checked_on": "2026-10-22",
+    "artifact_status": "Official source, task-generation/evaluation paths and database-fetch instructions were previously verified; artifacts were not executed. The older repository name Real-World-SQL-Bench resolves to DySQL-Bench. The reviewed ACL 2026 paper reports full-scope expert review, but this does not prove error-free annotations; its headline and short/long task counts remain unreconciled.",
+    "checked_on": "2026-11-09",
     "category": "context",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/dysql-bench.md"
   },
   {
     "id": "ehrsql",
@@ -561,16 +611,18 @@
       "clinical"
     ],
     "scope": "core",
-    "summary": "Uses hospital-staff questions to construct EHR queries grounded in MIMIC-III and eICU, including temporal reasoning and held-out unanswerable questions. It measures benchmark SQL and answerability behavior; clinical safety and access to the underlying databases are separate concerns.",
+    "summary": "Builds temporal and cohort SQL tasks from hospital-staff questions over processed MIMIC-III/eICU data, with held-out unanswerable requests that can include ambiguity. Templates are shared across splits, and the strongest baseline uses the known unanswerable proportion. Time shifts, shuffled patient-associated records, synthetic costs and annotation assumptions limit clinical and cross-hospital interpretation.",
     "evidence": [
       "https://arxiv.org/abs/2301.07695",
-      "https://github.com/glee4810/EHRSQL"
+      "https://github.com/glee4810/EHRSQL",
+      "https://arxiv.org/pdf/2301.07695v6"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "answerability",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Conference year is 2022 although the arXiv record starts in January 2023. Source paper links the official EHRSQL repository.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/ehrsql.md"
   },
   {
     "id": "ehrsql-2024",
@@ -587,16 +639,18 @@
       "clinical"
     ],
     "scope": "core",
-    "summary": "Defines a shared task for EHR question answering that combines SQL generation with decisions to withhold unreliable answers. The report compares participating methods under a common task protocol; its reliability evaluation is not evidence of clinical deployment readiness.",
+    "summary": "Compares eight clinical SQL-or-abstain systems on MIMIC-IV Demo, with unseen question templates and added unsupported requests. Reliability Score rewards correct answers/refusals and penalizes wrong attempts; all teams fall below abstain-all under its most severe penalty. Results concern the selected templates and ambiguity-reducing preprocessing, not clinical deployment readiness.",
     "evidence": [
       "https://aclanthology.org/2024.clinicalnlp-1.62/",
-      "https://aclanthology.org/2024.clinicalnlp-1.62.pdf"
+      "https://aclanthology.org/2024.clinicalnlp-1.62.pdf",
+      "https://github.com/glee4810/ehrsql-2024"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "answerability",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/ehrsql-2024.md"
   },
   {
     "id": "entsql",
@@ -605,23 +659,26 @@
     "publication_status": "arXiv preprint",
     "primary_url": "https://arxiv.org/abs/2606.03363",
     "code_url": null,
-    "dataset_url": null,
+    "dataset_url": "https://huggingface.co/datasets/XuWave/Rethinking_Enterprise_Text_to_SQL",
     "topics": [
       "missing-knowledge",
       "business-semantics",
       "benchmark"
     ],
     "scope": "adjacent",
-    "summary": "Pairs Chinese and English enterprise questions with business documents to test whether models can ground SQL in internal metric definitions, reporting conventions, and organizational rules. It isolates missing business context as an important failure source, but does not directly evaluate a clarify-or-abstain interaction policy.",
+    "summary": "Evaluates SQL grounding in long-form business documents with 1,066 aligned Chinese-English examples from five domains in one enterprise. English experiments contrast schema-only, full-document and concise-evidence inputs; limited bilingual subsets and one-model error analysis bound transfer claims. Public databases and input JSON are listed, but gold answers are withheld; clarification and abstention policies are not evaluated.",
     "evidence": [
       "https://arxiv.org/abs/2606.03363",
-      "https://arxiv.org/html/2606.03363v3"
+      "https://arxiv.org/html/2606.03363v3",
+      "https://arxiv.org/pdf/2606.03363v3",
+      "https://huggingface.co/datasets/XuWave/Rethinking_Enterprise_Text_to_SQL"
     ],
-    "artifact_status": "Paper verified; public code and dataset release not located in paper links or targeted search. The manuscript reports 1,066 aligned examples across five business domains; treat this as a described benchmark until a public artifact is verified.",
-    "checked_on": "2026-10-22",
+    "artifact_status": "Official Hugging Face release lists five SQLite database archives, bilingual JSON and evaluate.py. The card declares CC BY 4.0, withholds gold answers and describes a scoring platform under construction. Dataset viewer currently errors; archives were not downloaded and scoring was not reproduced.",
+    "checked_on": "2026-11-09",
     "category": "context",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/entsql.md"
   },
   {
     "id": "evaluation-challenges",
@@ -638,14 +695,16 @@
       "benchmark-quality",
       "evaluation"
     ],
-    "summary": "Examines how ambiguous language, evaluation-data quality, and approximate SQL matching can distort Text-to-SQL assessment. Its taxonomy and examples help diagnose aggregate scores, rather than establish a universal correction to every benchmark.",
+    "summary": "Separates Text-to-SQL solution errors, benchmark-data defects and matching-metric biases, illustrating how ambiguity, missing schema information and false presuppositions distort evaluation. A multi-LLM disagreement heuristic supports manual Spider inspection; the resulting example lists are incomplete and do not constitute a validated automatic detector or production noise estimate.",
     "evidence": [
-      "https://arxiv.org/abs/2501.18197"
+      "https://arxiv.org/abs/2501.18197",
+      "https://arxiv.org/pdf/2501.18197v1"
     ],
-    "checked_on": "2026-10-22",
-    "source_depth": "primary-record",
+    "checked_on": "2026-11-09",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "No code or dataset release verified in this pass.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/evaluation-challenges.md"
   },
   {
     "id": "falcon-synthesis",
@@ -661,16 +720,18 @@
       "multi-interpretation"
     ],
     "scope": "core",
-    "summary": "Uses SQL reserved-word seeding, persona prompts, ambiguity handling, and alignment filtering to generate complex NL-SQL training pairs with compact models. Its human checks and downstream training experiments support the tested data pipeline, rather than establishing that automatically generated interpretations exhaust real user intent.",
+    "summary": "Synthesizes SQLite question–SQL pairs using persona/reserved-word seeding, alignment filtering and optional alternative interpretations. Reported gains concentrate on harder queries, while synthetic-only training loses aggregate Spider accuracy; the ambiguity audit has high specificity but 28.6% recall, and cost savings are estimated rather than measured end to end.",
     "evidence": [
       "https://arxiv.org/abs/2610.03625",
-      "https://arxiv.org/html/2610.03625v1"
+      "https://arxiv.org/html/2610.03625v1",
+      "https://arxiv.org/pdf/2610.03625v1"
     ],
     "artifact_status": "Paper verified; public code or dataset artifact not located in manuscript links or targeted search. Distinct from the eosphoros-ai/Falcon Chinese enterprise benchmark.",
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "ambiguity",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/falcon-synthesis.md"
   },
   {
     "id": "intentrl",
@@ -686,18 +747,20 @@
       "ambiguity"
     ],
     "scope": "core",
-    "summary": "IntentRL trains models to emit interpretation-answer pairs, rewarding coverage for ambiguous inputs and precision for unambiguous ones using answer supervision. It evaluates conversational QA and text-to-SQL, including AMBROSIA and AmbiQT, but its principal output enumerates alternatives in one response rather than resolving intent through live dialogue.",
+    "summary": "Trains models with DAPO to produce up to five interpretation–answer pairs, rewarding recall on ambiguous examples and precision on clear ones with ambiguity oversampling. Improves AMBROSIA coverage and transfers to AmbiQT. Human evaluation measures explanation–answer alignment, not correctness or user preference; over-generation, finite interpretation limits and simulated clarification comparisons remain important boundaries.",
     "evidence": [
       "https://arxiv.org/abs/2511.10453",
       "https://arxiv.org/html/2511.10453v4",
       "https://github.com/saparina/intentRL",
-      "https://huggingface.co/irisaparina/IntentRL-Ambig-Text2SQL-4B"
+      "https://huggingface.co/irisaparina/IntentRL-Ambig-Text2SQL-4B",
+      "https://arxiv.org/pdf/2511.10453v4"
     ],
     "artifact_status": "Training/evaluation code and linked model release verified; upstream datasets retain their own access conditions; not executed. Text-to-SQL model: https://huggingface.co/irisaparina/IntentRL-Ambig-Text2SQL-4B . AMBROSIA remains available through its controlled-access author download; do not mirror it.",
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/intentrl.md"
   },
   {
     "id": "latentrefusal",
@@ -713,16 +776,18 @@
       "uncertainty"
     ],
     "scope": "core",
-    "summary": "Predicts answerability from intermediate LLM activations using a lightweight Tri-Residual Gated Encoder before SQL generation. The approach requires access to hidden states and supervised probing; its classification performance does not establish that all admitted SQL answers are correct.",
+    "summary": "Uses a supervised TRGE probe over a frozen LLM’s intermediate activations to gate SQL generation. Experiments train separately for each benchmark and require white-box access; the SQL semantic-entropy baseline approximates equivalence syntactically. Reported probe overhead excludes the backbone pass, and refusal F1 does not certify admitted SQL correctness or zero-shot domain transfer.",
     "evidence": [
       "https://aclanthology.org/2026.findings-acl.1007/",
-      "https://arxiv.org/html/2601.10398v2"
+      "https://arxiv.org/html/2601.10398v2",
+      "https://aclanthology.org/2026.findings-acl.1007.pdf"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "answerability",
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/latentrefusal.md"
   },
   {
     "id": "linkalign-ambidb",
@@ -739,17 +804,18 @@
       "benchmark"
     ],
     "scope": "adjacent",
-    "summary": "Separates database retrieval from table-and-column grounding and introduces AmbiDB to stress ambiguity in large pools of schemas. Its ambiguity concerns schema selection among candidate databases, so it complements benchmarks centered on clarifying user intent.",
+    "summary": "Separates database retrieval, irrelevant-schema filtering and table/column grounding, with pipeline and multi-agent variants. Its synthetic AmbiDB expands Spider with overlapping schemas while retaining clues for one intended database; this stresses automatic schema selection rather than live clarification, and gains vary across exact-match, location and recall metrics.",
     "evidence": [
       "https://aclanthology.org/2025.emnlp-main.51/",
       "https://aclanthology.org/2025.emnlp-main.51.pdf",
       "https://github.com/Satissss/LinkAlign"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "context",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "AmbiDB is described in the paper. The candidate Hugging Face dataset URL returned HTTP 401 during inspection, so a usable direct dataset release is not asserted.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/linkalign-ambidb.md"
   },
   {
     "id": "misp",
@@ -757,7 +823,7 @@
     "year": 2019,
     "publication_status": "EMNLP-IJCNLP 2019",
     "primary_url": "https://aclanthology.org/D19-1547/",
-    "code_url": null,
+    "code_url": "https://github.com/sunlab-osu/MISP",
     "dataset_url": null,
     "topics": [
       "clarification",
@@ -765,15 +831,19 @@
       "uncertainty"
     ],
     "scope": "core",
-    "summary": "Treats interactive parsing as an agent that maintains a predicted parse, detects when intervention is useful and updates that state from clarification. WikiSQL and Spider case studies demonstrate selective interaction with specific base parsers, rather than a general guarantee about unanswerable inputs.",
+    "summary": "Wraps a base parser with uncertainty-triggered yes/no questions and feedback-constrained decoding. WikiSQL and Spider simulations improve accuracy, but human results are smaller and metric-dependent: SQLova execution accuracy slightly decreases without additional information. A separate condition exposes gold SQL, so its stronger result should not be treated as ordinary user clarification.",
     "evidence": [
-      "https://aclanthology.org/D19-1547/"
+      "https://aclanthology.org/D19-1547/",
+      "https://aclanthology.org/D19-1547.pdf",
+      "https://arxiv.org/pdf/1910.05389v1#page=13",
+      "https://github.com/sunlab-osu/MISP"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/misp.md"
   },
   {
     "id": "mmsql",
@@ -790,18 +860,21 @@
       "benchmark"
     ],
     "scope": "core",
-    "summary": "MMSQL evaluates question-type classification and SQL generation in multi-turn conversations and introduces specialized agents for choosing an appropriate response strategy. Its generated conversational test suite and response-quality judging complement execution metrics, while model-based judgments and data construction should be considered when comparing results.",
+    "summary": "Combines CoSQL-derived and generated conversations with four question types, and tests a selector/detector/decomposer/refiner framework. TDEX scores SQL execution on answerable or ambiguous turns and classification on other turns; response quality uses an LLM judge. Results concern a curated, imbalanced dialogue test, with numerical inconsistencies in some detailed reporting and no unrestricted real-user validation.",
     "evidence": [
       "https://arxiv.org/abs/2412.17867",
       "https://mcxiaoxiao.github.io/MMSQL/",
       "https://github.com/mcxiaoxiao/MMSQL",
-      "https://huggingface.co/datasets/GuoZiming/MMSQL/blob/main/README.md"
+      "https://huggingface.co/datasets/GuoZiming/MMSQL/blob/main/README.md",
+      "https://arxiv.org/pdf/2412.17867v4",
+      "https://huggingface.co/datasets/GuoZiming/MMSQL"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "artifact_status": "Code, train/test JSON paths, and CC BY 4.0 dataset card verified; not executed. Includes selector, detector, decomposer, and refiner agents, plus RQS and TDEX evaluation scripts; SQLite databases inherit upstream CoSQL access.",
     "category": "interaction",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/mmsql.md"
   },
   {
     "id": "multisql",
@@ -817,16 +890,18 @@
       "benchmark"
     ],
     "scope": "adjacent",
-    "summary": "Extends conversational SQL datasets with schema-dependent context, longer dialogues, and operations such as CREATE, UPDATE, and INSERT. It is useful for stateful dialogue evaluation, but does not directly measure a model's autonomous choice to clarify ambiguity or refuse an unanswerable request.",
+    "summary": "Extends CoSQL-derived dialogues with schema/content mutations and longer context, using GPT-4 generation followed by human correction. It introduces heuristic context-aware and database-state matching. History/refinement gains depend on model and operation, and Llama outputs receive GPT-3.5 extraction assistance. The fixed corpus tests state tracking rather than autonomous clarification or unanswerability decisions.",
     "evidence": [
       "https://aclanthology.org/2024.findings-acl.823/",
-      "https://github.com/grandchicken/MultiSQL"
+      "https://github.com/grandchicken/MultiSQL",
+      "https://aclanthology.org/2024.findings-acl.823.pdf"
     ],
     "artifact_status": "Dataset repository and database download link verified; README says evaluation code will be released, so code availability is unverified. Nearly 800 dialogue groups and more than 9,000 turns over 166 databases; distinguish fixed conversational context from dynamic user simulation.",
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "context",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/multisql.md"
   },
   {
     "id": "nalir",
@@ -842,15 +917,16 @@
       "interactive-system"
     ],
     "scope": "core",
-    "summary": "Translates a natural-language request into a query tree, explains candidate interpretations and lets users correct the tree before SQL translation. Its pre-LLM architecture and user studies establish an influential interactive design, with supported language and SQL constructs determined by the implementation.",
+    "summary": "Uses dependency parsing, schema/data mappings and user-verified query trees to translate complex requests into SQL, recomputing downstream interpretations after revised choices. A 14-participant, single-domain study improves task completion, but users still accept some wrong answers. Heuristic tree search, fixed condition order and timing restricted to successful tasks limit broader reliability and usability claims.",
     "evidence": [
       "https://www.vldb.org/pvldb/vol8/p73-li.pdf"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/nalir.md"
   },
   {
     "id": "odutqa-mdc",
@@ -867,17 +943,20 @@
       "multi-agent"
     ],
     "scope": "adjacent",
-    "summary": "Combines an underspecified tabular-QA dataset with simulated dialogue clarification and the MAIC-TQA multi-agent framework for retrieval, interpretation, and answer refinement. Its SQL-generation component makes it relevant to database agents, but the benchmark's primary task is open-domain tabular QA rather than conventional schema-conditioned text-to-SQL.",
+    "summary": "Introduces a Chinese real-estate benchmark connecting SELECT/FROM/WHERE underspecification, table retrieval and clarification, plus MAIC-TQA. Its simulator provides canonical corrections only after matching gold detection labels, with optional paraphrasing; results show improved recovery of answerable targets under this controlled protocol, not general unrecoverable-answerability or human-dialogue performance.",
     "evidence": [
       "https://aclanthology.org/2026.acl-long.499/",
       "https://arxiv.org/abs/2604.10159",
-      "https://github.com/jensenw1/ODUTQA-MDC"
+      "https://github.com/jensenw1/ODUTQA-MDC",
+      "https://aclanthology.org/2026.acl-long.499.pdf",
+      "https://github.com/jensenw1/ODUTQA-MDC/tree/main/datasets"
     ],
     "artifact_status": "Source directories, datasets, and launch instructions verified; not executed; repository license not verified. Paper reports 209 tables and 25,105 QA pairs; implementation includes scope validation, table retrieval, and SQL generation/validation agents.",
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/odutqa-mdc.md"
   },
   {
     "id": "oracle-abstention",
@@ -885,7 +964,7 @@
     "year": 2026,
     "publication_status": "arXiv preprint",
     "primary_url": "https://arxiv.org/abs/2609.25938",
-    "code_url": null,
+    "code_url": "https://github.com/yahiko-l/text-to-sql-oracle-certificates",
     "dataset_url": null,
     "category": "verification",
     "scope": "core",
@@ -894,14 +973,17 @@
       "calibration",
       "evaluation"
     ],
-    "summary": "Audits conformal abstention by changing the database-based oracle used to cluster SQL candidates and label correctness, then comparing with expert judgments. The study shows why reported risk must be interpreted relative to the oracle and benchmark quality, rather than treated as an unconditional semantic guarantee.",
+    "summary": "Crosses candidate-clustering and calibration oracles to audit marginal-risk abstention on Spider-Realistic. Suite-based labels change reported risk, while blinded expert judgments show that neither execution oracle is a semantic gold standard. Risk reduction mainly changes which questions are answered; schema-disjoint tests are empirical, and independent expert coverage is limited to two checkpoints at one seed.",
     "evidence": [
-      "https://arxiv.org/abs/2609.25938"
+      "https://arxiv.org/abs/2609.25938",
+      "https://arxiv.org/pdf/2609.25938v1",
+      "https://github.com/yahiko-l/text-to-sql-oracle-certificates"
     ],
-    "checked_on": "2026-10-22",
-    "source_depth": "primary-record",
-    "artifact_status": "No code or dataset release verified in this pass.",
-    "added_on": "2026-10-22"
+    "checked_on": "2026-11-09",
+    "source_depth": "full-text-reviewed",
+    "artifact_status": "Public analysis code and panel-results JSON verified in the official repository. Its current README lists additional pools and audit artifacts, extending the PDF’s older code-only availability statement; complete package reproduction was not performed.",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/oracle-abstention.md"
   },
   {
     "id": "parseval",
@@ -918,15 +1000,16 @@
       "sql-equivalence",
       "test-generation"
     ],
-    "summary": "Generates test databases using coverage of logical query-plan behaviors to uncover non-equivalent SQL pairs. It provides stronger evidence than one fixed execution result, while successful finite tests do not prove unrestricted equivalence.",
+    "summary": "Generates small test databases from logical-plan coverage constraints using symbolic and hybrid solving. Pair-aware tests use both candidate and reference queries; reusable gold-only suites are a separate protocol. Experiments improve counterexample discovery, but NULL multiplicities, special functions and extra joins can escape testing. Passing finite tests does not prove unrestricted equivalence or validate the reference intent.",
     "evidence": [
       "https://www.vldb.org/pvldb/vol18/p4750-miao.pdf",
       "https://github.com/sfu-db/ParSEval"
     ],
-    "checked_on": "2026-10-22",
-    "source_depth": "targeted-full-text",
+    "checked_on": "2026-11-09",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Official artifact link inspected or linked by the primary source; no execution reproduced.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/parseval.md"
   },
   {
     "id": "piia",
@@ -942,15 +1025,17 @@
       "interactive-system"
     ],
     "scope": "core",
-    "summary": "Places multiple-choice clarification in front of existing parsers so users can repair uncertainty in the original question. Simulation and human evaluations cover several parsers on WikiSQL and Spider, but the method is not a comprehensive unanswerability detector.",
+    "summary": "Aligns a question with a template-based restatement of predicted SQL, asks multiple-choice questions and rewrites the input for a black-box parser. Five-parser experiments include a 30-volunteer Spider study with smaller gains than simulation. The simulator uses reference-filtered options and searches answer combinations, so its results are idealized; candidate menus and supported rewriting rules constrain generality.",
     "evidence": [
-      "https://aclanthology.org/2020.emnlp-main.561/"
+      "https://aclanthology.org/2020.emnlp-main.561/",
+      "https://aclanthology.org/2020.emnlp-main.561.pdf"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/piia.md"
   },
   {
     "id": "planpool",
@@ -966,16 +1051,18 @@
       "underspecification"
     ],
     "scope": "core",
-    "summary": "PlanPool stores clarification questions in an explicit mutable pool, requiring each planned question to be asked or deliberately dropped before SQL submission. Experiments on BIRD-Interact- and Spider-derived tasks distinguish ambiguity coverage from execution correctness, but do not guarantee that the initial pool captures every missing constraint.",
+    "summary": "Externalizes planned clarification questions in a mutable pool that must be asked or explicitly dropped before SQL submission. It improves annotated ambiguity coverage with more questions, but does not always improve execution accuracy. BIRD subsets are filtered for solvability after oracle clarification, and groundedness counts questions mapped to annotated ambiguities rather than proving correct answer incorporation.",
     "evidence": [
       "https://arxiv.org/abs/2610.02739",
-      "https://arxiv.org/html/2610.02739v1"
+      "https://arxiv.org/html/2610.02739v1",
+      "https://arxiv.org/pdf/2610.02739v1"
     ],
     "artifact_status": "Paper and method description verified; public code or derived benchmark artifacts not located. Useful design reference for persistent clarification state and tracking silent assumptions.",
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/planpool.md"
   },
   {
     "id": "pleasqlarify",
@@ -992,15 +1079,17 @@
       "visual-interface"
     ],
     "scope": "core",
-    "summary": "Organizes clarification around interpretable decision variables and exposes alternative actions and belief updates in a visual interface. A study with twelve participants supports the interaction design, while broader end-to-end reliability remains a separate evaluation question.",
+    "summary": "Clusters a fixed pool of generated SQL by output similarity and ranks interpretable feature decisions for visual clarification. AMBROSIA tests assume gold-consistent feedback; a twelve-person study uses SQL-familiar participants and small databases. Candidate-pool omissions limit recovery, and reported task completion credits partial subtasks rather than measuring exact original-intent success.",
     "evidence": [
-      "https://arxiv.org/abs/2603.01795"
+      "https://arxiv.org/abs/2603.01795",
+      "https://arxiv.org/pdf/2603.01795v1"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/pleasqlarify.md"
   },
   {
     "id": "practiq",
@@ -1018,16 +1107,18 @@
       "multi-turn"
     ],
     "scope": "core",
-    "summary": "Constructs four-turn conversations across ambiguous and unanswerable question categories, including clarification and a clarified SQL answer. Its baselines classify question type and predict SQL with supplied clarification, which differs from evaluating an agent that must conduct its own dialogue.",
+    "summary": "Builds synthetic dialogues by mutating Spider schemas/values and reverse-generating user replies from target SQL. Baselines classify question types and generate SQL with supplied clarification, sometimes after the request changes. Missing-value unanswerability is a benchmark convention, not a rule for all empty results; scripted dialogue and inconsistent printed totals limit broader claims.",
     "evidence": [
       "https://aclanthology.org/2025.naacl-long.13/",
-      "https://github.com/amazon-science/conversational-ambiguous-unanswerable-text2sql"
+      "https://github.com/amazon-science/conversational-ambiguous-unanswerable-text2sql",
+      "https://aclanthology.org/2025.naacl-long.13.pdf"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Official repository was archived on 2026-07-10 and documents a data-generation pipeline; a ready-to-use dataset download was not confirmed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/practiq.md"
   },
   {
     "id": "premisesql",
@@ -1046,17 +1137,19 @@
     ],
     "scope": "core",
     "category": "answerability",
-    "summary": "Pairs flawed requests with valid originals to evaluate premise detection, error-type identification and SQL abstention under three prompting settings. Stronger critique instructions can also reject valid questions, and the static response evaluation does not establish live clarification ability.",
+    "summary": "Pairs flawed queries with originals to measure premise critique and over-refusal under different prompts. Explicit flaw assertions improve detection while suppressing valid-query generation. GEN is coverage, with separate execution validation. Failure-mechanism analyses use selected consensus cases and AI-assisted human labels; they are not population-level causal explanations or evaluations of live clarification success.",
     "evidence": [
       "https://arxiv.org/abs/2610.22158",
       "https://arxiv.org/html/2610.22158v1",
       "https://github.com/vegeet/PremiseSQL",
-      "https://github.com/vegeet/PremiseSQL/blob/main/DATA_FORMAT.md"
+      "https://github.com/vegeet/PremiseSQL/blob/main/DATA_FORMAT.md",
+      "https://arxiv.org/pdf/2610.22158v1"
     ],
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Public MIT construction and evaluation code verified. The repository explicitly excludes source databases and the final paper dataset; a downloadable benchmark release was not verified. No code was executed.",
-    "checked_on": "2026-10-23",
-    "added_on": "2026-10-23"
+    "checked_on": "2026-11-09",
+    "added_on": "2026-10-23",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/premisesql.md"
   },
   {
     "id": "qda-sql",
@@ -1072,16 +1165,18 @@
       "clarification"
     ],
     "scope": "core",
-    "summary": "Generates multi-turn dialogues with varied question types and applies validation and correction before using them for text-to-SQL training. It targets ambiguous and unanswerable requests, but synthetic-data filtering and reported downstream gains do not by themselves validate every generated conversation.",
+    "summary": "Synthesizes multi-turn dialogues with answerable, ambiguous, unanswerable and non-database questions, then filters and formats them for intent routing and SQL generation. Mixed-type training improves recognition, but ambiguity/unanswerability F1 remains low in the displayed CoSQL experiment. AccS scores nonanswerable turns by category correctness, not clarification quality; absent-value cases are also labeled unanswerable.",
     "evidence": [
       "https://arxiv.org/abs/2406.10593",
-      "https://github.com/mcxiaoxiao/QDA-SQL"
+      "https://github.com/mcxiaoxiao/QDA-SQL",
+      "https://arxiv.org/pdf/2406.10593v3"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "artifact_status": "Generation scripts, evaluation paths, and dataset directory verified; not executed. Supports schema-based generation and supplies a StateFlow-style inference example; MMSQL uses some QDA-SQL-generated data.",
     "category": "interaction",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/qda-sql.md"
   },
   {
     "id": "query-carefully",
@@ -1089,8 +1184,8 @@
     "year": 2025,
     "publication_status": "HC@AIxIA + HYDRA 2025; acceptance stated on arXiv",
     "primary_url": "https://arxiv.org/abs/2512.21345",
-    "code_url": null,
-    "dataset_url": null,
+    "code_url": "https://github.com/JasminSaxer/QueryCarefully",
+    "dataset_url": "https://github.com/JasminSaxer/QueryCarefully",
     "topics": [
       "unanswerability",
       "abstention",
@@ -1098,15 +1193,18 @@
       "benchmark"
     ],
     "scope": "core",
-    "summary": "Adds schema-aware no-answer rules and balanced examples to an LLM SQL pipeline, with an OncoMX-NAQ set spanning eight problematic-question categories. The study uses 80 no-answer questions in a biomedical domain, and ambiguity or missing-value cases remain more difficult than structurally obvious exclusions.",
+    "summary": "Adds schema-aware refusal rules and retrieved answerable/unanswerable examples to a biomedical SQL pipeline. Evaluation covers 99 OncoMX development questions and 80 synthetic, author-reviewed negatives; negative demonstrations are retrieved from that same pool excluding the current question. Balanced prompts help detection, but execution-error repair can increase wrong results and missing values or column ambiguity remain difficult.",
     "evidence": [
-      "https://arxiv.org/abs/2512.21345"
+      "https://arxiv.org/abs/2512.21345",
+      "https://arxiv.org/pdf/2512.21345v1",
+      "https://github.com/JasminSaxer/QueryCarefully"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "answerability",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/query-carefully.md"
   },
   {
     "id": "raqs-sql",
@@ -1114,7 +1212,7 @@
     "year": 2026,
     "publication_status": "IEEE TKDE Early Access",
     "primary_url": "https://ieeexplore.ieee.org/abstract/document/11720244",
-    "code_url": null,
+    "code_url": "https://github.com/pminhtam/RAQS-SQL",
     "dataset_url": "https://huggingface.co/datasets/griffith-bigdata/ambival",
     "topics": [
       "ambiguity",
@@ -1127,13 +1225,16 @@
     "evidence": [
       "https://ieeexplore.ieee.org/abstract/document/11720244",
       "https://huggingface.co/collections/griffith-bigdata/raqs-sql",
-      "https://huggingface.co/datasets/griffith-bigdata/ambival"
+      "https://huggingface.co/datasets/griffith-bigdata/ambival",
+      "https://ieeexplore.ieee.org/document/11720244",
+      "https://github.com/pminhtam/RAQS-SQL"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "ambiguity",
     "source_depth": "primary-record",
-    "artifact_status": "Publisher abstract and date verified through its indexed primary record; direct fetch failed. Author-group collection links the AmbiVal dataset.",
-    "added_on": "2026-10-22"
+    "artifact_status": "Official code repository names the paper and DOI and exposes source/configuration/evaluation directories; code was not executed. Full article could not be read through the publisher verification gate or located in checked public alternatives. The repository displays an MIT license link, but complete license terms were not re-read in this pass.",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/raqs-sql.md"
   },
   {
     "id": "rose",
@@ -1151,17 +1252,18 @@
     ],
     "scope": "adjacent",
     "category": "verification",
-    "summary": "Uses a Prover-Refuter cascade to judge candidate SQL against the question, with the reference query used as challenge evidence, and validates judgments on ROSE-VEC expert-consensus cases. Agreement on those selected cases does not prove semantic correctness for all interpretations or remove dependence on the chosen judges and acceptance criteria.",
+    "summary": "Judges executable SQL with a Prover-Refuter cascade that treats reference SQL as challenge evidence and uses explicit acceptance rules for ambiguity. ROSE-VEC validates agreement on 585 expert-consensus cases; discarded disagreements, reference-visible human annotation and backbone-dependent diagnostic precision limit generalization. Observed leaderboard changes do not isolate model improvements from system engineering.",
     "evidence": [
       "https://aclanthology.org/2026.acl-long.257/",
       "https://aclanthology.org/2026.acl-long.257.pdf",
       "https://github.com/CedricPei/ROSE",
       "https://github.com/CedricPei/ROSE/tree/master/data/annotations"
     ],
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Public evaluator source and ROSE-VEC Spider/BIRD annotation files verified. No root license was identified in the inspected repository; underlying database access and reuse terms require separate checks. No experiments were reproduced.",
-    "checked_on": "2026-10-23",
-    "added_on": "2026-10-23"
+    "checked_on": "2026-11-09",
+    "added_on": "2026-10-23",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/rose.md"
   },
   {
     "id": "rts",
@@ -1178,16 +1280,18 @@
       "schema-linking",
       "clarification"
     ],
-    "summary": "RTS uses conformal prediction at schema-linking decision points to decide when to abstain or request human input before generating SQL. Its guarantees concern the specified schema-linking procedure and calibration conditions, rather than unrestricted semantic correctness of every generated query.",
+    "summary": "Detects schema-linking branching tokens with hidden-state classifiers and conformal prediction, then abstains or seeks surrogate/human feedback. Linking and downstream SQL improve in tested settings, but guarantees concern marginal label-set coverage under calibration assumptions. Human help, hidden-state access and task-specific training are required; distribution shift and full-query semantic correctness are not guaranteed.",
     "evidence": [
       "https://arxiv.org/abs/2501.10858",
       "https://github.com/kckevinchen/RTS-SQL",
-      "https://doi.org/10.1145/3709719"
+      "https://doi.org/10.1145/3709719",
+      "https://arxiv.org/pdf/2501.10858v1"
     ],
-    "checked_on": "2026-10-22",
-    "source_depth": "primary-record",
+    "checked_on": "2026-11-09",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Official artifact link inspected or linked by the primary source; no execution reproduced.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/rts.md"
   },
   {
     "id": "rts-plus",
@@ -1204,16 +1308,17 @@
       "uncertainty",
       "human-in-the-loop"
     ],
-    "summary": "RTS++ combines execution-based uncertainty with conformal calibration to decide when to abstain or seek human feedback during SQL generation. Its reliability claims depend on the calibration assumptions, correctness labels, and tested database setting; they do not prove the user's intent has been fully specified.",
+    "summary": "RTS++ clusters candidate SQL by execution results and combines execution entropy with reranker scores for conformal calibration, abstention and user selection. Spider/BIRD results report accuracy on the non-abstained subset and assume accurate feedback. The stated prediction-set coverage should not be read as an unconditional semantic-error guarantee; candidate coverage, calibration validity and database-result normalization constrain interpretation.",
     "evidence": [
       "https://openproceedings.org/2026/conf/edbt/paper-177.pdf",
       "https://github.com/kckevinchen/RTS-SQL",
       "https://doi.org/10.48786/EDBT.2026.44"
     ],
-    "checked_on": "2026-10-22",
-    "source_depth": "primary-record",
+    "checked_on": "2026-11-09",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Official artifact link inspected or linked by the primary source; no execution reproduced.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/rts-plus.md"
   },
   {
     "id": "scare",
@@ -1231,17 +1336,20 @@
       "benchmark"
     ],
     "scope": "core",
-    "summary": "Tests a post-hoc component that classifies questions as answerable, ambiguous or unanswerable while verifying or correcting candidate SQL. Its question–candidate-SQL triples span three EHR databases and expose a classification-versus-correction trade-off, without validating clinical safety.",
+    "summary": "Balances 4,200 question/candidate-SQL triples across correct, incorrect, ambiguous and unanswerable cases on three EHR schemas. It measures preservation, correction and input classification jointly; baseline prompts can include execution results and annotation evidence. Results expose model-dependent trade-offs, not execution-free verification, realistic clinical prevalence, completed clarification or deployment safety.",
     "evidence": [
       "https://proceedings.mlr.press/v297/lee26b.html",
       "https://proceedings.mlr.press/v297/",
-      "https://github.com/glee4810/SCARE"
+      "https://github.com/glee4810/SCARE",
+      "https://raw.githubusercontent.com/mlresearch/v297/main/assets/lee26b/lee26b.pdf",
+      "https://github.com/glee4810/SCARE#dataset"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "answerability",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Public source and question/candidate-SQL records are present in the official repository. Underlying database downloads and access terms are separate; code and experiments were not executed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/scare.md"
   },
   {
     "id": "selective-prediction",
@@ -1258,14 +1366,16 @@
       "verification",
       "selective-prediction"
     ],
-    "summary": "Compares self-consistency, model scores, and reasoning-based verification signals for ranking SQL correctness and selecting which questions to answer. Results cover the studied BIRD and Spider configurations and highlight that verifier performance within known schemas need not transfer to unseen schemas.",
+    "summary": "Compares sampled agreement, model scores and verifier signals for selective SQL answering. Frozen judges and calibrated ensembles rank reference-execution correctness well on selected BIRD/Spider slices; trained verifiers transfer less well to held-out schemas. These are empirical, configuration-specific results. The notes flag abstract/table and figure/caption inconsistencies; calibrated abstention does not establish request answerability.",
     "evidence": [
-      "https://arxiv.org/abs/2607.06799"
+      "https://arxiv.org/abs/2607.06799",
+      "https://arxiv.org/pdf/2607.06799v1"
     ],
-    "checked_on": "2026-10-22",
-    "source_depth": "primary-record",
+    "checked_on": "2026-11-09",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "No code or dataset release verified in this pass.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/selective-prediction.md"
   },
   {
     "id": "sentinel",
@@ -1283,15 +1393,17 @@
       "agent"
     ],
     "scope": "core",
-    "summary": "Adds a classifier-based confidence layer that can reject a question before execution, stop a failing trajectory or withhold the final answer. EHRSQL results show a coverage–reliability–computation trade-off under configurable penalties, with strong penalties leading to substantial abstention.",
+    "summary": "Learns per-agent confidence from execution trajectories to refuse, stop early or withhold final answers. EHRSQL utility improves at low error penalties, while higher-penalty results approach always refusing. Primary labels use an LLM judge, answerability has strong question-template shortcuts, and reported agent-step savings exclude monitor overhead; the study does not establish clinical deployment safety.",
     "evidence": [
-      "https://arxiv.org/abs/2610.04156"
+      "https://arxiv.org/abs/2610.04156",
+      "https://arxiv.org/pdf/2610.04156v1"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "answerability",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sentinel.md"
   },
   {
     "id": "soma-sql",
@@ -1307,22 +1419,24 @@
       "interactive-system"
     ],
     "scope": "core",
-    "summary": "Creates synthetic query logs and executes targeted probes to gather evidence for SQL selection and repair under ambiguous schemas or questions. Autonomous database inspection can reduce grounding uncertainty, but does not directly reveal preferences or facts known only to the user.",
+    "summary": "Uses candidate-SQL disagreement, an ambiguity taxonomy and executed probes to repair a selected query; optional synthetic-log clarifications supply extra grounding. Reported execution gains support the probing pipeline, but log experiments derive supervision from benchmark gold SQL without a clear disjointness protocol, and database evidence cannot by itself verify a user’s unstated intent.",
     "evidence": [
-      "https://arxiv.org/abs/2606.11424"
+      "https://arxiv.org/abs/2606.11424",
+      "https://arxiv.org/pdf/2606.11424v1"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/soma-sql.md"
   },
   {
     "id": "sparc",
     "title": "SParC: Cross-Domain Semantic Parsing in Context",
     "year": 2019,
     "publication_status": "ACL 2019",
-    "primary_url": "https://yale-lily.github.io/sparc",
+    "primary_url": "https://aclanthology.org/P19-1443/",
     "code_url": "https://github.com/taoyds/sparc",
     "dataset_url": "https://yale-lily.github.io/sparc",
     "topics": [
@@ -1331,16 +1445,18 @@
       "benchmark"
     ],
     "scope": "adjacent",
-    "summary": "Provides coherent sequences of database questions that require carrying context across turns and generalizing to unseen databases. It is a useful conversational baseline and source dataset, while contextual dependence alone is not evidence of explicit ambiguity detection, clarification, or abstention.",
+    "summary": "Provides SQL-expert-authored, goal-guided question sequences over disjoint train/test databases, with question-level and whole-interaction exact-set-match evaluation. Context-aware baselines improve, but later turns combine stronger contextual dependence with harder SQL. The corpus tests contextual interpretation, not agent-selected clarification, responsive users or abstention.",
     "evidence": [
       "https://yale-lily.github.io/sparc",
-      "https://github.com/taoyds/sparc"
+      "https://github.com/taoyds/sparc",
+      "https://aclanthology.org/P19-1443.pdf"
     ],
     "artifact_status": "Official page verifies downloadable train/development data, baseline link, and CC BY-SA 4.0 data license; test data withheld. 4,298 question sequences with over 12,000 questions on 200 databases.",
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "context",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sparc.md"
   },
   {
     "id": "sphinteract",
@@ -1356,16 +1472,18 @@
       "interactive-system"
     ],
     "scope": "core",
-    "summary": "Uses a Summarize–Review–Ask procedure to identify ambiguity, pose targeted questions and incorporate feedback into SQL generation. KaggleDBQA and BIRD experiments support the value of interaction, with outcomes dependent on the clarification and feedback-processing setup.",
+    "summary": "Uses Summarize–Review–Ask to identify ambiguities and integrate clarification feedback into SQL. Benchmark gains use a gold-SQL-informed feedback oracle; the 11-person, SQL-familiar user study separates own-intent tasks from a second gold-visible phase. Reported gains are percentage-point changes, and neither simulator scores nor the gold-visible study establish novice deployment reliability.",
     "evidence": [
       "https://www.vldb.org/pvldb/vol18/p1145-zhao.pdf",
-      "https://github.com/ZhaoFuheng/Sphinteract"
+      "https://github.com/ZhaoFuheng/Sphinteract",
+      "https://raw.githubusercontent.com/ZhaoFuheng/Sphinteract/main/sphinteract_full.pdf#page=18"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Primary PDF reference format gives 2024; some citing papers use 2025. Repository includes experiment scripts and links to logs/user-study material.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sphinteract.md"
   },
   {
     "id": "spider2",
@@ -1381,17 +1499,19 @@
       "benchmark"
     ],
     "scope": "adjacent",
-    "summary": "Evaluates SQL workflows involving large enterprise schemas, documentation, multiple queries, and local or cloud database environments. It supplies important context for realistic database-agent evaluation, but is not an explicit ambiguity-and-unanswerability benchmark and should not be compared as if it were one.",
+    "summary": "Benchmarks enterprise-style SQL workflows involving large schemas, multiple dialects, external definitions and dbt projects, with a tool-using Spider-Agent baseline. Workflow instructions can be underspecified relative to supplied context, but evaluation uses task-specific output checks rather than dedicated clarification or abstention metrics; Lite questions deliberately reduce ambiguity.",
     "evidence": [
       "https://arxiv.org/abs/2411.07763",
       "https://spider2-sql.github.io/",
-      "https://github.com/xlang-ai/Spider2"
+      "https://github.com/xlang-ai/Spider2",
+      "https://arxiv.org/pdf/2411.07763v2"
     ],
     "artifact_status": "Official code, task variants, and data-access documentation verified; cloud access and execution not tested. Pin the specific Lite, Snow, or DBT release and evaluation setting; oracle-table access is explicitly a different condition.",
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "context",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/spider2.md"
   },
   {
     "id": "spotit",
@@ -1408,15 +1528,17 @@
       "sql-equivalence",
       "formal-verification"
     ],
-    "summary": "Uses bounded formal verification to search for database instances that distinguish generated SQL from a reference query. Counterexamples expose differences missed by ordinary execution tests; an equivalence result is limited to supported SQL semantics and the specified bound.",
+    "summary": "Extends bounded SQL equivalence checking with string/date support, backend-validated counterexamples and cross-system reuse. Finds differences missed by execution matching on BIRD and SQLite Spider 2.0. Such differences can expose incorrect predictions, flawed gold queries or valid alternative interpretations; bounded passes, unsupported queries and timeouts must remain distinct from proof of user-intent correctness.",
     "evidence": [
       "https://arxiv.org/abs/2510.26840",
-      "https://github.com/ai-ar-research/SpotIt-plus"
+      "https://github.com/ai-ar-research/SpotIt-plus",
+      "https://arxiv.org/pdf/2510.26840v2"
     ],
-    "checked_on": "2026-10-22",
-    "source_depth": "primary-record",
+    "checked_on": "2026-11-09",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Official artifact link inspected or linked by the primary source; no execution reproduced.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/spotit.md"
   },
   {
     "id": "spotit-plus",
@@ -1433,15 +1555,17 @@
       "sql-equivalence",
       "constraints"
     ],
-    "summary": "Adds database-constraint mining to bounded SQL equivalence checking so distinguishing examples better reflect plausible data. Constraint extraction is best effort, and verification still concerns a generated/reference query pair under the chosen bounds and assumptions.",
+    "summary": "Combines mined database constraints, LLM filtering/repair and bounded SQL equivalence checking. BIRD experiments recheck execution-accepted query pairs under five-row bounds and set semantics; examples show how constraints change counterexamples. Realism remains best effort, users must validate domain assumptions, and neither bounded agreement nor agreement with a potentially faulty reference proves unrestricted correctness.",
     "evidence": [
       "https://arxiv.org/abs/2603.04334",
-      "https://github.com/ai-ar-research/SpotIt-plus"
+      "https://github.com/ai-ar-research/SpotIt-plus",
+      "https://arxiv.org/pdf/2603.04334v3"
     ],
-    "checked_on": "2026-10-22",
-    "source_depth": "primary-record",
+    "checked_on": "2026-11-09",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Official artifact link inspected or linked by the primary source; no execution reproduced.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/spotit-plus.md"
   },
   {
     "id": "sql-eig",
@@ -1457,15 +1581,17 @@
       "interactive-system"
     ],
     "scope": "core",
-    "summary": "Maintains a probability distribution over candidate SQL queries and selects clarification questions by expected information gain. Its decision rule reduces uncertainty within the represented candidates, which need not cover every plausible user interpretation.",
+    "summary": "Selects clarifications by expected entropy reduction over weighted SQL candidates, then filters candidates using feedback. Experiments use gold-based simulation and a confidence-filtered Spider subset. Results depend on candidate coverage and probabilities; one-step EIG does not establish universally optimal dialogue effort. The notes flag conflicting exact-match baselines and incomplete artifact/experiment specification.",
     "evidence": [
-      "https://arxiv.org/abs/2507.06467"
+      "https://arxiv.org/abs/2507.06467",
+      "https://arxiv.org/pdf/2507.06467v1"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "interaction",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sql-eig.md"
   },
   {
     "id": "squab",
@@ -1482,17 +1608,19 @@
       "data-generation"
     ],
     "scope": "core",
-    "summary": "Combines SQL-driven construction with LLM generation to create annotated ambiguous and unanswerable test questions for a supplied database. Its extensible generator supports local evaluation needs, but automatically generated cases still require checking against the intended category and database semantics.",
+    "summary": "Combines table-pattern detection, SQL transformations and LLM verbalization to generate ambiguity and refusal tests. Its evaluation is single-table; cost savings use estimated annotation costs. Out-of-scope unanswerability is not programmatically proved, and the small expert audit identifies category-specific failures. Generated tests therefore need semantic review before being treated as reliable evaluation labels.",
     "evidence": [
       "https://aclanthology.org/2025.emnlp-main.906/",
       "https://aclanthology.org/anthology-files/pdf/emnlp/2025.emnlp-main.906.pdf",
-      "https://github.com/spapicchio/squab"
+      "https://github.com/spapicchio/squab",
+      "https://aclanthology.org/2025.emnlp-main.906.pdf"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "answerability",
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Published PDF gives the named author repository; Anthology abstract still contains an anonymous URL. Repository is a generator, not proof that every evaluated dataset is publicly released.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/squab.md"
   },
   {
     "id": "structural-abstention",
@@ -1510,14 +1638,16 @@
     ],
     "scope": "core",
     "category": "answerability",
-    "summary": "Proposes separating generative interpretation from a deterministic query kernel, using user confirmation and a bounded set of supported question forms to decline requests outside that set. The technical report describes an architectural pattern and case study; its primary record explicitly states that code, schemas, datasets and performance metrics are not included.",
+    "summary": "Proposes a generative shell around an authored, deterministic question-to-query kernel with user confirmation and refusal outside supported shapes. The report offers a qualitative deployment account and synthetic examples, not quantitative validation. Correctness remains conditional on authored mappings and meaningful confirmation; refusing an unsupported shape does not prove the request is intrinsically unanswerable.",
     "evidence": [
-      "https://arxiv.org/abs/2608.13926"
+      "https://arxiv.org/abs/2608.13926",
+      "https://arxiv.org/pdf/2608.13926v1"
     ],
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Architecture/design report only; no code, schemas, datasets or quantitative performance artifacts supplied by the primary record.",
-    "checked_on": "2026-10-23",
-    "added_on": "2026-10-23"
+    "checked_on": "2026-11-09",
+    "added_on": "2026-10-23",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/structural-abstention.md"
   },
   {
     "id": "taco",
@@ -1534,18 +1664,19 @@
       "benchmark"
     ],
     "scope": "core",
-    "summary": "Tests vague questions, unknown target databases, and queries spanning heterogeneous databases; TACO-SQL combines rewriting, table linking, and planning. The benchmark primarily scores executable SQL against selected references, so its open-domain ambiguity challenge differs from enumerating all interpretations or measuring clarification quality.",
+    "summary": "Combines restricted smart-city examples and synthetic public-data queries to test table discovery and cross-database SQL planning. TACO-SQL rewrites requests without user confirmation; evaluation is single-turn execution agreement. Oracle-table and retrieved-table ablations differ, public release coverage differs from the paper total, and no all-interpretation or clarification-dialogue guarantee is established.",
     "evidence": [
       "https://arxiv.org/abs/2606.14201",
       "https://github.com/Akanezora0/TACO-Benchmark",
       "https://huggingface.co/datasets/Akanezora/TACO-Benchmark",
       "https://www.vldb.org/pvldb/vol19/p1386-fan.pdf"
     ],
-    "checked_on": "2026-10-30",
+    "checked_on": "2026-11-09",
     "artifact_status": "Public code and official linked dataset card verified; not downloaded or executed. Both repository and dataset card declare MIT. Paper describes 14,500 examples, while the current Hugging Face card reports 12,422 JSON examples and 46 SQLite databases; distinguish the described benchmark from the released snapshot.",
     "category": "ambiguity",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/taco.md"
   },
   {
     "id": "test-suites",
@@ -1561,15 +1692,17 @@
       "evaluation",
       "sql-equivalence"
     ],
-    "summary": "Constructs compact database test suites to compare predicted and reference queries over more than one database instance. This reduces dependence on coincidental agreement on a single instance, but remains an approximation to semantic equivalence and assumes a suitable reference query.",
+    "summary": "Distills small database test suites that distinguish mutated neighbors of a reference query, improving evaluation beyond single-database agreement and exact-form matching. Tests approximate equivalence, not proof, and can miss prediction-only branches or unstated domain constraints. Historical comparisons substitute gold values; the 100-example human check covers selected metric disagreements, while Appendix A.3 documents a remaining false positive.",
     "evidence": [
       "https://aclanthology.org/2020.emnlp-main.29/",
-      "https://github.com/taoyds/test-suite-sql-eval"
+      "https://github.com/taoyds/test-suite-sql-eval",
+      "https://aclanthology.org/2020.emnlp-main.29.pdf"
     ],
-    "checked_on": "2026-10-22",
-    "source_depth": "primary-record",
+    "checked_on": "2026-11-09",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Official artifact link inspected or linked by the primary source; no execution reproduced.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/test-suites.md"
   },
   {
     "id": "tide-bench",
@@ -1586,18 +1719,20 @@
       "dynamic-evaluation"
     ],
     "scope": "core",
-    "summary": "Introduces TIDE-Bench with dependent clarification chains and user revisions that retract earlier commitments, plus metrics for recognizing and resolving those changes. The 1,542 samples derive from 514 BIRD anchor queries, and the linked repository was only a placeholder when checked despite the manuscript's release statement.",
+    "summary": "Pairs two-layer clarification chains and non-monotonic intent revisions over 514 BIRD anchors, yielding 1,542 samples. Metrics separate layer identification, structural drift and execution success. Drift recognition is an AST-change proxy, and the human audit retains residual validity failures. Results concern two-layer, chain-then-drift simulated dialogues; the linked repository remains a release placeholder.",
     "evidence": [
       "https://aclanthology.org/2026.emnlp-main.2454/",
       "https://arxiv.org/abs/2608.29543",
       "https://arxiv.org/html/2608.29543v1",
-      "https://github.com/Rcrossmeister/TIDE-Bench"
+      "https://github.com/Rcrossmeister/TIDE-Bench",
+      "https://aclanthology.org/2026.emnlp-main.2454.pdf"
     ],
-    "checked_on": "2026-10-29",
+    "checked_on": "2026-11-09",
     "artifact_status": "Repository placeholder: only README, LICENSE, and .gitattributes visible; implementation and dataset not verified released. Name collision: this is the conversational SQL TIDE-Bench, not the unrelated tool-integrated-reasoning benchmark arXiv:2605.09544.",
     "category": "interaction",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/tide-bench.md"
   },
   {
     "id": "tracesql",
@@ -1613,16 +1748,18 @@
       "uncertainty"
     ],
     "scope": "core",
-    "summary": "Learns a verifier from 67 diagnostic features describing ambiguity, question requirements, schema-SQL consistency, SQL structure, and intent alignment. Its answerability estimate concerns whether a candidate SQL answers a question and is evaluated on generated BIRD queries; it is not a general proof that the underlying request is answerable.",
+    "summary": "Learns candidate-SQL verification from LLM-generated diagnostics and SQL-structure signals, retaining feature-to-evidence links. Held-out BIRD tests improve aggregate F1/AUC over GradeSQL-7B but reject many reference queries. The 67-feature pipeline uses reference-execution training labels and substantial upstream LLM assessment; traceability does not establish semantic correctness or general request answerability.",
     "evidence": [
       "https://arxiv.org/abs/2608.17795",
-      "https://arxiv.org/html/2608.17795v2"
+      "https://arxiv.org/html/2608.17795v2",
+      "https://arxiv.org/pdf/2608.17795v2"
     ],
     "artifact_status": "Paper verified; public implementation not located. Do not link the unrelated TraceSQL lineage product. Keep candidate correctness, input answerability, and calibrated deployment risk separate when comparing this verifier with refusal methods.",
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "verification",
-    "source_depth": "primary-record",
-    "added_on": "2026-10-22"
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/tracesql.md"
   },
   {
     "id": "triagesql",
@@ -1638,17 +1775,19 @@
       "benchmark"
     ],
     "scope": "core",
-    "summary": "Introduces TriageSQL to distinguish answerable questions from four classes of inputs that a text-to-SQL system should not directly translate. The task is input-intention classification, so successful detection does not by itself validate SQL generation or an interactive recovery strategy.",
+    "summary": "Classifies schema-question pairs into answerable, improper, missing-knowledge, ambiguous and Non-SQL categories using transformed corpora and a balanced, manually checked cross-schema test set. Non-SQL partly reflects the grammar supported by contemporary parsers, not absolute SQL impossibility. Evaluation concerns input triage only; SQL correctness and recovery dialogues are not tested.",
     "evidence": [
       "https://arxiv.org/abs/2010.12634",
       "https://github.com/yszh8/TriageSQL",
-      "https://intex-sempar.github.io/assets/book.pdf"
+      "https://intex-sempar.github.io/assets/book.pdf",
+      "https://arxiv.org/pdf/2010.12634v1"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "answerability",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Artifact execution and independent reproduction were not assessed.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/triagesql.md"
   },
   {
     "id": "trustsql",
@@ -1665,16 +1804,19 @@
       "reliability"
     ],
     "scope": "core",
-    "summary": "Evaluates systems that answer feasible questions correctly and abstain on infeasible questions, using a reliability score with configurable penalties for errors. Results depend on the selected penalty and question distribution, and should not be compared directly with execution accuracy on answerable-only benchmarks.",
+    "summary": "Evaluates correct SQL and abstention jointly with penalty-based scores on feasible/infeasible questions. Results depend on the chosen penalty and balanced test prevalence: abstain-all scores 50%, so coverage must accompany reliability. Ambiguity resolution is outside scope, and preprocessing removes empty-result cases and implicit context. A positive score is not evidence of deployment safety.",
     "evidence": [
       "https://arxiv.org/abs/2403.15879",
-      "https://github.com/glee4810/TrustSQL"
+      "https://github.com/glee4810/TrustSQL",
+      "https://arxiv.org/pdf/2403.15879v6",
+      "https://github.com/glee4810/TrustSQL#dataset"
     ],
-    "checked_on": "2026-10-22",
+    "checked_on": "2026-11-09",
     "category": "answerability",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Distinct from the 2026 TRUST-SQL unknown-schema reinforcement-learning system.",
-    "added_on": "2026-10-22"
+    "added_on": "2026-10-22",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/trustsql.md"
   },
   {
     "id": "annotation-errors",
@@ -1690,18 +1832,20 @@
       "ambiguity"
     ],
     "scope": "adjacent",
-    "summary": "Audits annotations in BIRD and Spider 2.0-Snow and re-evaluates agents on a corrected BIRD subset, showing that reference errors can change reported rankings. This supports checking evaluation labels before interpreting reliability scores; the findings concern the inspected benchmark versions and subsets, not every current leaderboard.",
+    "summary": "Uses an agent-assisted, human-adjudicated audit to identify annotation errors and ambiguity in dated BIRD Mini-Dev and public-gold Spider 2.0-Snow subsets. Re-evaluating 16 agent implementations on 100 corrected BIRD examples changes rankings. Corrections include questions, knowledge and some database rows; disclosed backend substitutions and subset coverage limit claims about current full leaderboards.",
     "evidence": [
       "https://www.vldb.org/pvldb/vol19/p931-jin.pdf",
       "https://arxiv.org/abs/2601.08778",
       "https://vldb.org/2026/program.html",
-      "https://github.com/uiuc-kang-lab/text_to_sql_benchmarks"
+      "https://github.com/uiuc-kang-lab/text_to_sql_benchmarks",
+      "https://raw.githubusercontent.com/uiuc-kang-lab/text_to_sql_benchmarks/main/materials/supplementary_material.pdf"
     ],
     "category": "verification",
-    "source_depth": "primary-record",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Official repository exposes code and data-access instructions; dependencies, downloads and reported results were not independently reproduced.",
-    "checked_on": "2026-11-08",
-    "added_on": "2026-10-24"
+    "checked_on": "2026-11-09",
+    "added_on": "2026-10-24",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/annotation-errors.md"
   },
   {
     "id": "semantic-path-compilation",
@@ -1709,7 +1853,7 @@
     "year": 2026,
     "publication_status": "arXiv preprint",
     "primary_url": "https://arxiv.org/abs/2608.16663",
-    "code_url": null,
+    "code_url": "https://github.com/yai333/Semantic-Planning-and-Deterministic-for-Text-to-SQL",
     "dataset_url": null,
     "topics": [
       "verification",
@@ -1717,15 +1861,18 @@
       "context"
     ],
     "scope": "adjacent",
-    "summary": "Separates multi-turn semantic planning over governed options from deterministic SQL compilation and checks, targeting wrong relationship roles and aggregation grain. Its insurance-benchmark comparison uses a small adjudicated set and gives the planner semantic artifacts unavailable to the DDL baseline, so it does not isolate compilation as the cause of the gain.",
+    "summary": "Constrains an LLM to governed semantic choices and compiles paths, roles and grain deterministically. A small ACME comparison favors the complete system, but semantic knowledge, retries and development exposure differ from the DDL baseline. LLM adjudication, post-hoc exclusions, nonblocking undecidable checks and incomplete public evaluation artifacts limit guarantees and reproducibility.",
     "evidence": [
-      "https://arxiv.org/abs/2608.16663"
+      "https://arxiv.org/abs/2608.16663",
+      "https://arxiv.org/pdf/2608.16663v1",
+      "https://github.com/yai333/Semantic-Planning-and-Deterministic-for-Text-to-SQL"
     ],
     "category": "verification",
-    "source_depth": "primary-record",
-    "artifact_status": "The primary record describes research artifacts and links a related DOI; artifact contents and execution were not verified in this pass.",
-    "checked_on": "2026-10-24",
-    "added_on": "2026-10-24"
+    "source_depth": "full-text-reviewed",
+    "artifact_status": "A public reference implementation is linked, but the manuscript explicitly excludes benchmark questions, gold labels, fixtures, evaluation harness, frozen verdicts and traces from that snapshot. Exact campaign state and full end-to-end reproduction are unavailable from public artifacts.",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-10-24",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/semantic-path-compilation.md"
   },
   {
     "id": "air",
@@ -1742,17 +1889,19 @@
       "verification"
     ],
     "scope": "core",
-    "summary": "AIR uses competing agents to propose interpretations, prunes SQL candidates by differences in executed results, and synthesizes contrastive clarification questions. Schema-only describes the generation context: verification still accesses the full database, and agreement on the current data does not prove semantic equivalence. Its AMBROSIA/AmbiQT evaluation measures interpretation coverage rather than live-user clarification outcomes.",
+    "summary": "Uses adversarial interpretation proposals, SQL execution and result-based pruning before generating contrastive clarification. Schema-only limits generation context, while verification still queries the full database. Benchmarks measure interpretation coverage, not user clarification quality or completed dialogue success; current-instance agreement can hide semantic differences, and reported serial API latency is substantial.",
     "evidence": [
       "https://aclanthology.org/2026.emnlp-main.2446/",
       "https://arxiv.org/abs/2610.24248",
-      "https://arxiv.org/html/2610.24248v1"
+      "https://arxiv.org/html/2610.24248v1",
+      "https://aclanthology.org/2026.emnlp-main.2446.pdf"
     ],
-    "checked_on": "2026-10-28",
+    "checked_on": "2026-11-09",
     "category": "ambiguity",
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "No official implementation or new dataset release verified in this pass; evaluated on existing AMBROSIA and AmbiQT benchmarks.",
-    "added_on": "2026-10-25"
+    "added_on": "2026-10-25",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/air.md"
   },
   {
     "id": "equitrace",
@@ -1768,16 +1917,18 @@
       "evaluation"
     ],
     "scope": "adjacent",
-    "summary": "EquiTrace constructs replayable SQL-equivalence derivations by aligning query plans and composing admitted rewrite rules under schema constraints. Proof validity depends on those rules and applicability conditions; unsuccessful bounded search returns UNKNOWN, not inequivalence. This supports semantic evaluation of candidate/reference SQL pairs without establishing that the reference captures the user’s intent.",
+    "summary": "Constructs replayable SQL-equivalence derivations by aligning logical plans and composing admitted rewrite rules. Positive results depend on rule soundness and schema constraints; replay checks the recorded derivation using the same implementations. UNKNOWN does not establish inequivalence. Coverage is measured on selected query-pair corpora, often labeled by execution agreement, rather than user-intent correctness.",
     "evidence": [
       "https://arxiv.org/abs/2610.30100",
-      "https://arxiv.org/html/2610.30100v1"
+      "https://arxiv.org/html/2610.30100v1",
+      "https://arxiv.org/pdf/2610.30100v1"
     ],
     "category": "verification",
     "artifact_status": "Public manuscript inspected; no official implementation or downloadable evaluation corpus verified in this pass.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-10-26",
-    "added_on": "2026-10-26"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-10-26",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/equitrace.md"
   },
   {
     "id": "verification-algorithms",
@@ -1794,16 +1945,17 @@
       "evaluation"
     ],
     "scope": "core",
-    "summary": "Compares Round-Trip Critique and Synthetic Execution Consistency for checking candidate SQL against natural-language requests without gold labels at inference time. The study connects verification to benchmark auditing and selective abstention, while false acceptance/rejection trade-offs, generator-dependent error examples and imperfect ordering labels limit conclusions about general semantic correctness.",
+    "summary": "Compares round-trip language critique and synthetic-database execution for reference-free candidate verification and selective abstention. Conservative combinations trade coverage and latency for fewer accepted errors. Benchmark audits use verifier-selected samples; table/prose and arithmetic inconsistencies in reported error estimates limit precise risk claims. These methods do not prove semantic correctness or distinguish every unanswerable request.",
     "evidence": [
       "https://www.vldb.org/pvldb/vol19/p3732-alrashed.pdf",
       "https://vldb.org/2026/program.html"
     ],
     "category": "verification",
     "artifact_status": "The proceedings paper supplies an artifact-availability link; downloadable contents and independent reproduction were not verified in this pass.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-10-26",
-    "added_on": "2026-10-26"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-10-26",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/verification-algorithms.md"
   },
   {
     "id": "text-to-omop",
@@ -1820,17 +1972,19 @@
       "benchmark"
     ],
     "scope": "core",
-    "summary": "Evaluates SQL generation or explicit abstention over synthetic OMOP data using concept-normalized questions and EHRSQL-derived templates and unanswerables. Execution and penalty-based reliability scores test the specified SQL-or-refuse contract; raw-text entity linking, ambiguous concept resolution and clinical deployment safety remain outside the demonstrated evaluation.",
+    "summary": "Evaluates OMOP SQL or exact abstention on concept-normalized inputs and a synthetic PostgreSQL database. The test mixes paraphrases of training-seen SQL variations with held-out variations, despite a stronger split claim elsewhere in the paper. High execution and reliability scores therefore concern this bounded protocol; raw entity linking, fully unseen-template transfer and clinical deployment safety are untested.",
     "evidence": [
       "https://aclanthology.org/2026.clinicalnlp-1.40/",
       "https://aclanthology.org/2026.clinicalnlp-1.40.pdf",
-      "https://github.com/red1dwarf/TEXT-TO-OMOP"
+      "https://github.com/red1dwarf/TEXT-TO-OMOP",
+      "https://github.com/red1dwarf/TEXT-TO-OMOP/tree/main/DATA"
     ],
-    "checked_on": "2026-10-27",
+    "checked_on": "2026-11-09",
     "category": "answerability",
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Official repository lists answerable/unanswerable inventories, train/validation/test files and evaluation scripts; not executed. README notes that split generation consumes the raw unanswerable list, while tagged versions are separate artifacts.",
-    "added_on": "2026-10-27"
+    "added_on": "2026-10-27",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/text-to-omop.md"
   },
   {
     "id": "schema-free-query-logs",
@@ -1847,16 +2001,18 @@
       "evaluation"
     ],
     "scope": "adjacent",
-    "summary": "Builds a graph of schema relationships and business entities from query logs, then retrieves context for SQL generation in poorly documented databases. Its BEAVER experiment instead builds edges from schema metadata, so it does not independently test log-based discovery. Executability and judge preferences do not establish complete intent resolution or abstention ability.",
+    "summary": "Mines query-log relationships and business entities for graph-based context retrieval in an internal enterprise study. Its public BEAVER evaluation instead reconstructs the graph from schema metadata. The reported 95.7% is execution validity, not answer accuracy; small-sample expert preferences and LLM rubric scores do not establish complete ambiguity resolution or abstention.",
     "evidence": [
       "https://arxiv.org/abs/2610.33946",
-      "https://arxiv.org/html/2610.33946v1"
+      "https://arxiv.org/html/2610.33946v1",
+      "https://arxiv.org/pdf/2610.33946v1"
     ],
-    "checked_on": "2026-10-28",
+    "checked_on": "2026-11-09",
     "category": "context",
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Public manuscript inspected; no official code or new dataset release verified. The public paper reports an enterprise study and a distinct schema-derived BEAVER adaptation; neither was reproduced.",
-    "added_on": "2026-10-28"
+    "added_on": "2026-10-28",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/schema-free-query-logs.md"
   },
   {
     "id": "intent-scoping-paraphrasing",
@@ -1873,15 +2029,16 @@
       "schema-linking"
     ],
     "scope": "core",
-    "summary": "Classifies database requests as fully answerable, partially answerable or out of scope, and uses entity-preserving paraphrases to improve NL2SQL robustness. The scoping and paraphrasing components depend on upstream entity recognition; the paper leaves integration with complex joins and nested queries to future work, so the results do not establish complete conversational recovery.",
+    "summary": "Combines in-scope/partial/out-of-scope classification with entity-preserving paraphrase augmentation. Component tests use constructed scope cases; search worsens BIRD scope detection, and augmentation helps BIRD/BI but not Spider. The paper leaves integration into a complete system handling complex joins/nesting to future work, so partial-scope detection is not evidence of successful interactive recovery.",
     "evidence": [
       "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/AIDB/AIDB25_5.pdf"
     ],
-    "checked_on": "2026-10-29",
+    "checked_on": "2026-11-09",
     "category": "answerability",
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "artifact_status": "Public proceedings paper inspected; no official code or dataset release verified in this pass.",
-    "added_on": "2026-10-29"
+    "added_on": "2026-10-29",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/intent-scoping-paraphrasing.md"
   },
   {
     "id": "atomsql",
@@ -1899,16 +2056,17 @@
       "human-in-the-loop",
       "uncertainty"
     ],
-    "summary": "Exposes disagreements between SQL candidates as clause-level atoms aligned with phrases in the question, then uses user selections to adjust future preferences. The demonstration makes alternative interpretations inspectable, but resolution is limited to candidates supplied by the active models: users must reformulate when none expresses their intent.",
+    "summary": "Exposes disagreements between generated SQL candidates as clause-level atoms aligned with question phrases, then updates per-user preferences to rerank later candidates. The paper is an interface demonstration, not a controlled accuracy or user study. Resolution is limited to the supplied candidates, and its agreement-based scores are not established as calibrated confidence.",
     "evidence": [
       "https://www.vldb.org/pvldb/vol19/p4514-mazumder.pdf",
       "https://github.com/aritra741/AtomSQL",
       "https://vldb.org/2026/demonstrations.html"
     ],
     "artifact_status": "Public application, model-adapter and interface source files are visible. The demo was not executed, and no repository license was identified in the inspected file tree.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-10-30",
-    "added_on": "2026-10-30"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-10-30",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/atomsql.md"
   },
   {
     "id": "same-sql-different-decision",
@@ -1927,16 +2085,18 @@
       "multilingual",
       "evaluation"
     ],
-    "summary": "Holds candidate SQL, schema and execution labels fixed while varying question language to audit execute-or-defer decisions. Similar aggregate risk can hide different queries being executed; the study tests score adjustment and translation to English. Results concern English-generated SQL and two main verifiers, with execution-match labels and imperfect translation limiting semantic and end-to-end claims.",
+    "summary": "Audits English-calibrated execute/defer thresholds while holding SQL, schema and execution labels fixed across seven question languages. Aggregate risk can hide unsafe promotions and lost automation. Score transport restores coverage more easily than individual decisions; English pivot translation helps unevenly. Results are verifier/threshold-dependent and conditional on imperfect translations and instance-based labels, not end-to-end multilingual generation.",
     "evidence": [
       "https://aclanthology.org/2026.oracle-main.6/",
       "https://aclanthology.org/2026.oracle-main.6.pdf",
-      "https://github.com/tokenledger/same-sql-different-decision"
+      "https://github.com/tokenledger/same-sql-different-decision",
+      "https://github.com/tokenledger/same-sql-different-decision/tree/main/data/big"
     ],
     "artifact_status": "Official repository lists analysis code, candidate SQL, execution labels and verifier-score files. Artifacts were inspected by description and file inventory, not downloaded or independently reproduced; source datasets and model weights have separate terms.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-10-30",
-    "added_on": "2026-10-30"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-10-30",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/same-sql-different-decision.md"
   },
   {
     "id": "sqd-schema-descriptions",
@@ -1954,15 +2114,16 @@
       "clinical",
       "schema-linking"
     ],
-    "summary": "SQD trains an encoder to predict question-schema relevance using LLM-generated schema descriptions, then thresholds those scores to detect unanswerable requests before SQL generation. Evaluation uses EHRSQL 2024. The paper identifies failures requiring database-content checks and leaves generalization to new schemas untested; schema relevance does not establish downstream SQL correctness.",
+    "summary": "Predicts table relevance using LLM-written schema descriptions, a T5-small encoder and supervised relevance heads, then thresholds the maximum score before SQL generation. EHRSQL-2024 experiments keep the same 17 tables across splits. Description ablations improve detection, but unseen schemas, database-content-dependent answerability and downstream SQL correctness remain unvalidated.",
     "evidence": [
       "https://aclanthology.org/2025.coling-main.706/",
       "https://aclanthology.org/2025.coling-main.706.pdf"
     ],
     "artifact_status": "The paper links venzino-han/ehr_schema_prediction, but both its GitHub page and API returned 404 on this check; public implementation availability is unverified. This does not establish that no implementation exists. No new dataset release or independent reproduction verified.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-10-31",
-    "added_on": "2026-10-31"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-10-31",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sqd-schema-descriptions.md"
   },
   {
     "id": "raqad",
@@ -1984,12 +2145,14 @@
     "evidence": [
       "https://pure.kaist.ac.kr/en/publications/rag-based-unanswerable-question-detection-in-clinical-text-to-sql/",
       "https://doi.org/10.1145/3746252.3760821",
-      "https://github.com/SeungjaeLim"
+      "https://github.com/SeungjaeLim",
+      "https://dl.acm.org/doi/pdf/10.1145/3746252.3760821"
     ],
-    "artifact_status": "Title, authors, CIKM publication and abstract verified through the institutional record and author page. Publisher HTML and PDF returned 403 during this pass. No official code or dataset release verified.",
+    "artifact_status": "Full-text audit remains blocked: author-linked ACM PDF returned 403; the institutional abstract supports the existing bounded summary only. No code/dataset release verified.",
     "source_depth": "primary-record",
-    "checked_on": "2026-10-31",
-    "added_on": "2026-10-31"
+    "checked_on": "2026-11-09",
+    "added_on": "2026-10-31",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/raqad.md"
   },
   {
     "id": "kode",
@@ -2007,15 +2170,16 @@
       "verification",
       "agent"
     ],
-    "summary": "Mines graph-aligned question/SQL histories into templates for omitted joins, formulas and domain filters, then retrieves and checks them during generation. It supports grounding underspecified requests but depends on validated or accumulating in-domain traces. Evaluations distinguish in-domain reuse from abstract cross-schema transfer; the authors identify verification bias and inherited log errors as limitations.",
+    "summary": "Mines reusable domain rules from gaps between historical questions and SQL graphs, then applies retrieval, consensus and localized critique. Controlled studies show larger in-domain gains and smaller abstract-template transfer; optional memory backfill retains execution-based errors, so historical defaults and critic acceptance do not certify a new user’s intended semantics.",
     "evidence": [
       "https://aclanthology.org/2026.findings-emnlp.2032/",
       "https://aclanthology.org/2026.findings-emnlp.2032.pdf"
     ],
     "artifact_status": "Public proceedings paper inspected; no official implementation or new dataset release verified. Execution-accuracy experiments do not establish live-user clarification or unanswerability detection.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-11-01",
-    "added_on": "2026-11-01"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-01",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/kode.md"
   },
   {
     "id": "lasso",
@@ -2033,16 +2197,18 @@
       "test-generation",
       "verification"
     ],
-    "summary": "Builds a heuristic test-data generator using agent-assisted coding, with targeted mutation strategies and cross-checking to expose SQL-result differences. Evaluation measures refutations on sanitized query pairs, not NL-to-SQL accuracy or proof of equivalence. Results depend on normalization, supported dialects and comparison rules; the unseen BEAVER check covers ten queries from one schema.",
+    "summary": "Builds heuristic SQL test-data strategies through agent-assisted coding and human-reviewed regression tests. It refutes query pairs under sanitized, dialect-adjusted execution comparisons; survival is not equivalence proof. Some benchmark failures informed development, timing excludes external test execution, and the BEAVER unseen check measures non-empty generation for ten queries rather than NL-to-SQL accuracy.",
     "evidence": [
       "https://arxiv.org/abs/2610.38294",
       "https://arxiv.org/html/2610.38294v1",
-      "https://gitlab.com/xdata/lasso"
+      "https://gitlab.com/xdata/lasso",
+      "https://arxiv.org/pdf/2610.38294v1"
     ],
     "artifact_status": "Public GitLab source and test directories plus README verified via the project API. Experiment contents were not audited or run. No root repository license identified; the manuscript contains placeholder PVLDB citation fields, so venue publication is not inferred.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-11-01",
-    "added_on": "2026-11-01"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-01",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/lasso.md"
   },
   {
     "id": "nl2sql-bugs",
@@ -2060,17 +2226,20 @@
       "benchmark-quality",
       "error-detection"
     ],
-    "summary": "Benchmarks correctness judgments and error-type detection for candidate SQL using a two-level semantic-error taxonomy. Construction combines BIRD reference cleaning, model-generated candidates, execution-result labels and expert error annotations. This supports verifier evaluation, while reference-dependent labels and the curated candidate mix limit generalization; input ambiguity resolution and unanswerable-request detection are separate tasks.",
+    "summary": "Benchmarks candidate-SQL correctness and a nine-category/31-subtype error taxonomy using screened BIRD references and expert annotations. Correctness labels primarily use current-database execution agreement, which can miss accidental matches. Its Type-Specific Accuracy is recall-like and does not penalize extra type predictions by itself; query answerability and clarification are separate tasks.",
     "evidence": [
       "https://arxiv.org/abs/2503.11984",
       "https://arxiv.org/html/2503.11984v2",
       "https://nl2sql-bugs.github.io/",
-      "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark"
+      "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark",
+      "https://arxiv.org/pdf/2503.11984v2",
+      "https://github.com/HKUSTDial/NL2SQL-Bugs-Benchmark/tree/main/data"
     ],
     "artifact_status": "Official repository lists annotation JSON files, prompts and schema context. Database download is separate. No executable evaluation implementation or repository/data license was verified; files and results were not independently reproduced.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-11-02",
-    "added_on": "2026-11-02"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-02",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/nl2sql-bugs.md"
   },
   {
     "id": "clinical-conversational-user-study",
@@ -2089,15 +2258,17 @@
       "human-in-the-loop",
       "evaluation"
     ],
-    "summary": "Compares single-turn and conversational interfaces with 14 physicians, with dialogue analysis additionally pooling pilot participants. Users favor conversation, and freely composed questions trigger more clarification than predefined questions. The small cohort and MIMIC-IV Demo setting limit generalization; usability and perceived trust do not establish clinical accuracy or deployment safety.",
+    "summary": "Fourteen physicians prefer a conversational interface on MIMIC-IV Demo; pooled pilot/main logs show more clarification for freely composed questions. A post-study review judges 134/186 conversational SQL outputs correct (72.0%), despite high usability. This is not a matched accuracy comparison between interfaces; small-cohort, demo-database and designer-adjudication limits remain.",
     "evidence": [
       "https://arxiv.org/abs/2611.00605",
-      "https://arxiv.org/html/2611.00605v1"
+      "https://arxiv.org/html/2611.00605v1",
+      "https://arxiv.org/pdf/2611.00605v1"
     ],
-    "artifact_status": "Public study methods and dialogue analysis inspected. No official interface implementation or released interaction-log dataset verified; no study or model result independently reproduced.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-11-04",
-    "added_on": "2026-11-04"
+    "artifact_status": "Full public manuscript reviewed. Dialogue logs and surveys are planned for release but currently available only on request with IRB approval; interface code and analysis scripts are request-only. No public implementation/log dataset verified and no study or model results reproduced.",
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-04",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/clinical-conversational-user-study.md"
   },
   {
     "id": "fde-requirement-discovery",
@@ -2115,15 +2286,17 @@
       "agent",
       "evaluation"
     ],
-    "summary": "Examines agents that elicit hidden customer requirements before planning and executing Text-to-SQL post-training. It separates discovery completeness from delivery acceptance under deployment constraints. Evidence comes from one enterprise engagement with a simulated customer, so it concerns requirement clarification and workflow delivery rather than general query-level ambiguity resolution or a universal agent success rate.",
+    "summary": "Studies requirement discovery and post-training delivery for one enterprise Oracle Text-to-SQL engagement using a fact-grounded simulated customer. It separates elicited facts, final handoff recovery and deployment gates; two of eight selected delivery configurations pass, but production compilation is not semantic accuracy and the discovery judge audit covers only 51 fact instances.",
     "evidence": [
       "https://arxiv.org/abs/2611.03551",
-      "https://arxiv.org/html/2611.03551v1"
+      "https://arxiv.org/html/2611.03551v1",
+      "https://arxiv.org/pdf/2611.03551v1"
     ],
     "artifact_status": "Public protocol and case-study limitations inspected; no standalone study code or dataset release verified. Referenced upstream models and SQL benchmarks are not new study artifacts.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-11-04",
-    "added_on": "2026-11-04"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-04",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/fde-requirement-discovery.md"
   },
   {
     "id": "sqlens",
@@ -2141,16 +2314,18 @@
       "evaluation",
       "uncertainty"
     ],
-    "summary": "Aggregates database and LLM error signals with weak supervision to localize clause-level semantic errors and guide sequential repairs. BIRD and Spider experiments support offline debugging, with incomplete detection and failed LLM repairs remaining. The authors position its computational overhead outside latency-sensitive pipelines; detection and repair are not guarantees of request answerability or semantic correctness.",
+    "summary": "Combines database and LLM signals through weak supervision to diagnose clause-level errors and guide sequential SQL repairs. BIRD/Spider experiments report net fixes alongside regressions, with correction evaluated on syntactically valid candidates. Empty-result and schema heuristics can flag valid SQL; the system remains an asynchronous debugging aid, not an answerability or correctness guarantee.",
     "evidence": [
       "https://papers.nips.cc/paper_files/paper/2025/hash/c57812dee8acade8c5e385260b2cde28-Abstract-Conference.html",
       "https://papers.nips.cc/paper_files/paper/2025/file/c57812dee8acade8c5e385260b2cde28-Paper-Conference.pdf",
-      "https://arxiv.org/abs/2506.04494"
+      "https://arxiv.org/abs/2506.04494",
+      "https://arxiv.org/pdf/2506.04494v1"
     ],
-    "artifact_status": "NeurIPS proceedings and selected method/limitation sections verified. No official executable implementation or new dataset release verified; results were not reproduced.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-11-04",
-    "added_on": "2026-11-04"
+    "artifact_status": "Complete arXiv:2506.04494v1 author preprint reviewed, including Appendices A–F. Official NeurIPS PDF retrieval failed, so differences from the final proceedings version were not established. The preprint links an anonymous artifact; no complete public executable implementation or independent reproduction was verified.",
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-04",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sqlens.md"
   },
   {
     "id": "pascal",
@@ -2169,16 +2344,17 @@
       "context",
       "evaluation"
     ],
-    "summary": "PASCAL routes schema inspection, knowledge retrieval and user clarification before SQL generation, guided by information gaps and interaction costs. BIRD-Interact experiments examine whether targeted acquisition reduces premature SQL attempts. Results depend on the benchmark user simulator, available tools and budgets; acquiring the required evidence does not itself guarantee correct SQL.",
+    "summary": "Routes schema inspection, typed knowledge retrieval and clarification before SQL generation, with retry control and follow-up state carry. Reports 51.0% first-phase and 37.0% two-phase success on BIRD-Interact Lite. Gold-derived coverage is a diagnostic proxy; inconsistent budget totals and value-feedback case descriptions limit exact efficiency and equal-protocol comparisons.",
     "evidence": [
       "https://aclanthology.org/2026.emnlp-main.465/",
       "https://aclanthology.org/2026.emnlp-main.465.pdf",
       "https://github.com/authurlord/PASCAL_Release"
     ],
     "artifact_status": "Official source modules and archived trace filenames are visible. The website replays stored runs; live inference needs model services and upstream benchmark access. Code and experiments were not executed or reproduced.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-11-05",
-    "added_on": "2026-11-05"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-05",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/pascal.md"
   },
   {
     "id": "changing-business-semantics",
@@ -2196,15 +2372,17 @@
       "context",
       "evaluation"
     ],
-    "summary": "Revalidates fixed SQL against an explicitly selected business-definition revision and knowledge cutoff using legal counterexample data. A discrepancy can expose stale semantics even when current-snapshot results agree. Evidence is limited to authored revision families and local model outputs; passing a finite test suite does not establish unrestricted conformance, and the approved definitions remain an external assumption.",
+    "summary": "Revalidates fixed SQL against a requested business revision and knowledge cutoff using legal counterexample ledgers and exact monetary semantics. On 32 authored revision families, obligation coverage detects 137/144 discrepancies versus 127/144 for generic ordering; current-only and equal-weight scoring match, so revision-priority gains are unestablished. Evidence remains finite-suite, authored-schema and local-model scoped; no public artifact identifier is assigned.",
     "evidence": [
       "https://arxiv.org/abs/2610.41090",
-      "https://arxiv.org/html/2610.41090v1"
+      "https://arxiv.org/html/2610.41090v1",
+      "https://arxiv.org/pdf/2610.41090v1"
     ],
     "artifact_status": "Public manuscript and evaluation boundaries inspected. Appendix C states that no public artifact identifier has been assigned; no code or data release independently verified and no results reproduced.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-11-05",
-    "added_on": "2026-11-05"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-05",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/changing-business-semantics.md"
   },
   {
     "id": "post-sqlfix",
@@ -2222,15 +2400,17 @@
       "constraints",
       "evaluation"
     ],
-    "summary": "Combines dialect-aware static diagnostics with a monitor that accepts SQL repairs only when they reduce detected violations and respect declared operator contracts. Its bounded guarantees concern the specified rule family and protected query components. They do not establish equivalence to a gold query, preservation of unstated user intent or complete detection of semantic errors.",
+    "summary": "Uses static SQL diagnostics and explicit edit contracts to guide repairs, accepting only proposals that reduce violations and preserve monitored structure. It reports fewer residual execution errors than feedback-only repair; guarantees are bounded to the rule family, while full-pipeline accuracy gains and optional empty-result alignment must be distinguished from semantic correctness.",
     "evidence": [
       "https://arxiv.org/abs/2610.41472",
-      "https://arxiv.org/html/2610.41472v1"
+      "https://arxiv.org/html/2610.41472v1",
+      "https://arxiv.org/pdf/2610.41472v1"
     ],
     "artifact_status": "Current arXiv version and bounded-soundness definition inspected. Earlier OpenReview search results do not establish venue acceptance. No official implementation or dataset release verified; no experiments reproduced.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-11-05",
-    "added_on": "2026-11-05"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-05",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/post-sqlfix.md"
   },
   {
     "id": "specbridge",
@@ -2248,16 +2428,19 @@
       "clarification",
       "evaluation"
     ],
-    "summary": "SpecBridge pairs an open calculation request with two explicitly specified readings to separate computing an answer from reporting alternatives. It also evaluates deciding which readings to answer and preserving constraints after a user pick. Tests cover one choice and two reference readings at a time; simulated users recognize their intended reading, and product baselines are reconstructions rather than live-product evaluations.",
+    "summary": "Builds 204 controlled request triples on 12 existing databases to separate computing an interpretation from disclosing a calculation choice. Models often compute both specific versions but return one for the open request; deciding before separate generation and preserving wording improve coverage. Tests cover one choice/two references, score precision on clear requests, and use simulated users and reconstructed product baselines.",
     "evidence": [
       "https://arxiv.org/abs/2611.04318",
       "https://arxiv.org/html/2611.04318v1",
-      "https://github.com/Xyc-arch/specbridge-artifact"
+      "https://github.com/Xyc-arch/specbridge-artifact",
+      "https://arxiv.org/pdf/2611.04318v1",
+      "https://github.com/Xyc-arch/specbridge-artifact/tree/main/benchmark"
     ],
     "artifact_status": "Official benchmark, scoring and method files are listed publicly; no data or experiments were downloaded or run. Repository describes a PVLDB paper, but an independent proceedings record was not verified, so publication status remains preprint.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-11-06",
-    "added_on": "2026-11-06"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-06",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/specbridge.md"
   },
   {
     "id": "synca-audit",
@@ -2275,7 +2458,7 @@
       "human-in-the-loop",
       "benchmark-quality"
     ],
-    "summary": "Audits SQL-faithfulness judges against human labels, compares replacements and routes judge disagreements to review. It separates disagreement-enriched samples from random spot-checks, showing why aggregate agreement depends on sampling and domain. Evidence comes from one telecom deployment with limited cross-domain checks; the small head-to-head comparison is inconclusive and gold labels remain tied to the annotation protocol.",
+    "summary": "Audits SQL-faithfulness judges using distinct enriched, random and active-disagreement samples, then compares replacements and selective routing. Unanimity gains apply to retained cases, and the Qwen–Opus accuracy comparison is inconclusive. One-domain gold and deferred data limit transfer/reproduction; unreconciled appendix cost and count arithmetic preclude treating precise savings or population estimates as established.",
     "evidence": [
       "https://aclanthology.org/2026.emnlp-industry.18/",
       "https://aclanthology.org/2026.emnlp-industry.18.pdf",
@@ -2283,9 +2466,10 @@
       "https://github.com/JamesL404/synca-audit"
     ],
     "artifact_status": "Official repository contains judge and analysis scripts; its README still defers the audit datasets despite the proceedings publication. The paper-described benchmark is not treated as a verified data download; no results reproduced.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-11-06",
-    "added_on": "2026-11-06"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-06",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/synca-audit.md"
   },
   {
     "id": "sqlstructeval",
@@ -2303,7 +2487,7 @@
       "structural-consistency",
       "robustness"
     ],
-    "summary": "Measures canonical SQL-structure variation across repeated generations, paraphrases and schema reorderings, including outputs that match reference execution results. A structured-plan compiler is evaluated as a full pipeline. Structural divergence is not itself an error or evidence of user ambiguity; results depend on parsing coverage and supplied database instances, with limited additional-benchmark subsets and no isolated compiler-effect claim.",
+    "summary": "Measures canonical SQL-structure variation across repeated generations and input perturbations. A full JSON-to-SQL pipeline improves execution accuracy and correct-output concentration while increasing overall diversity. Metrics also reflect parse coverage; structural variation is not itself error. Selected error-case analyses are not population rates, and the notes flag an inconsistent COUNT(1) label in the pipeline illustration.",
     "evidence": [
       "https://aclanthology.org/2026.findings-aacl.122/",
       "https://aclanthology.org/2026.findings-aacl.122.pdf",
@@ -2311,9 +2495,10 @@
       "https://github.com/XanderZhou2022/AACL2026-SQLSTRUCTEVAL"
     ],
     "artifact_status": "Official repository exposes core analysis, compilation and experiment files. Its README excludes sampled outputs, manually checked paraphrases, the DIN-SQL baseline and some scope-check components; code availability does not establish exact table reproduction. No linked code was executed.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-11-08",
-    "added_on": "2026-11-08"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-08",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sqlstructeval.md"
   },
   {
     "id": "consistency-hypothesis",
@@ -2334,12 +2519,14 @@
     "evidence": [
       "https://proceedings.mlr.press/v286/xiao25a.html",
       "https://arxiv.org/abs/2506.21849",
-      "https://arxiv.org/html/2506.21849v1"
+      "https://arxiv.org/html/2506.21849v1",
+      "https://raw.githubusercontent.com/mlresearch/v286/main/assets/xiao25a/xiao25a.pdf"
     ],
-    "artifact_status": "Publication and targeted full-text sections verified; no dedicated code or dataset release verified in this pass.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-11-08",
-    "added_on": "2026-11-08"
+    "artifact_status": "Complete UAI 2025 publisher paper and supplementary material reviewed. No dedicated code or dataset release verified in this audit; no experiments reproduced.",
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-08",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/consistency-hypothesis.md"
   },
   {
     "id": "simba-uq",
@@ -2357,16 +2544,18 @@
       "calibration",
       "selective-prediction"
     ],
-    "summary": "Aggregates similarities among sampled responses into confidence estimates using simple, Bayesian and learned-classifier approaches, with Text-to-SQL evaluation on Spider, Spider-Realistic and BIRD. The learned variants use labeled in-domain examples and matched sampling procedures. Calibration improvements do not guarantee individual correctness or reliable rejection; the study leaves distribution-shift evaluation open and uses execution agreement for SQL labels.",
+    "summary": "Learns confidence from similarities among sampled responses, optionally adding token-probability features. SQL experiments use reference-execution labels and random in-domain train/test splits on Spider, Spider-Realistic and BIRD. Calibration gains are stronger than selection/discrimination gains; matched sampling, labeled examples and untested distribution-shift behavior limit deployment claims.",
     "evidence": [
       "https://aclanthology.org/2025.findings-emnlp.859/",
       "https://arxiv.org/abs/2510.13836",
-      "https://arxiv.org/html/2510.13836v1"
+      "https://arxiv.org/html/2510.13836v1",
+      "https://aclanthology.org/2025.findings-emnlp.859.pdf"
     ],
     "artifact_status": "Proceedings and method limitations verified; no dedicated Text-to-SQL implementation or dataset release verified in this pass.",
-    "source_depth": "targeted-full-text",
-    "checked_on": "2026-11-08",
-    "added_on": "2026-11-08"
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-09",
+    "added_on": "2026-11-08",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/simba-uq.md"
   },
   {
     "id": "splash",
@@ -2384,16 +2573,17 @@
       "error-correction",
       "benchmark"
     ],
-    "summary": "Introduces SPLASH, pairing Spider questions and erroneous SQL with explanations and crowdsourced correction feedback. Baselines test how feedback repairs a parse, providing a useful comparison for feedback incorporation in interactive agents. The task assumes a fully specified question and supplies a recorded correction turn; it does not evaluate ambiguity detection, clarification-question selection or unanswerable requests. Evaluation uses reference-based exact set match.",
+    "summary": "Pairs Spider parser errors with explanations and short human correction feedback to evaluate one-round parse repair. Correction uses exact set match; end-to-end scores are derived from initial successes and explanation-supported failures. The reported human ceiling estimates feedback completeness, not observed human SQL repair. Fully specified inputs distinguish this task from ambiguity detection and autonomous clarification.",
     "evidence": [
       "https://aclanthology.org/2020.acl-main.187/",
       "https://aclanthology.org/2020.acl-main.187.pdf",
       "https://github.com/MSR-LIT/Splash"
     ],
     "artifact_status": "Official repository lists train, dev, test and EditSQL feedback JSON files and declares CC BY-SA 4.0. It is a dataset release, not a verified release of the baseline models. Data were not downloaded or executed.",
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "checked_on": "2026-11-09",
-    "added_on": "2026-11-09"
+    "added_on": "2026-11-09",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/splash.md"
   },
   {
     "id": "nl-edit",
@@ -2410,16 +2600,18 @@
       "error-correction",
       "human-in-the-loop"
     ],
-    "summary": "Maps feedback, a query explanation and schema context to SQL edits, with synthetic edit-feedback examples supplementing SPLASH training. One-round correction and cross-parser tests expose difficulties with longer explanations, multiple errors and irrelevant extra edits. It supports studying feedback incorporation, but does not establish a clarification policy, answerability detection or preservation of every unaffected part of user intent.",
+    "summary": "Predicts clause-level SQL edits from feedback, explanations and schema context, using synthetic pretraining and SPLASH. One-turn correction improves, but 16.93% of test examples gain errors. Its representation/evaluation ignores condition values and restricts subquery structure; structural progress does not guarantee semantic preservation or faster multi-turn convergence. Cross-parser gains decrease with stronger base parsers.",
     "evidence": [
       "https://aclanthology.org/2021.naacl-main.444/",
       "https://aclanthology.org/2021.naacl-main.444.pdf",
-      "https://github.com/MSR-LIT/NLEdit"
+      "https://github.com/MSR-LIT/NLEdit",
+      "https://github.com/MSR-LIT/NLEdit/tree/main/data"
     ],
     "artifact_status": "Official repository contains correction annotations, SQL edit/explanation utilities and data-synthesis scripts. A complete neural-model training/inference release and reuse license were not established from the checked inventory and README; no code or data was run.",
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "checked_on": "2026-11-09",
-    "added_on": "2026-11-09"
+    "added_on": "2026-11-09",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/nl-edit.md"
   },
   {
     "id": "bar-sql",
@@ -2443,11 +2635,14 @@
     "evidence": [
       "https://arxiv.org/abs/2601.10318",
       "https://arxiv.org/html/2601.10318v1",
-      "https://github.com/TianSongS/BAR-SQL"
+      "https://github.com/TianSongS/BAR-SQL",
+      "https://arxiv.org/pdf/2601.10318v1",
+      "https://github.com/TianSongS/BAR-SQL/tree/main/benchmark"
     ],
     "artifact_status": "Official repository lists synthesis, training and evaluation scripts plus Ent-SQL-Bench.json. Required database access, model weights and exact reproduction were not verified. README declares MIT but no root LICENSE was listed; dataset-specific terms remain unverified.",
-    "source_depth": "targeted-full-text",
+    "source_depth": "full-text-reviewed",
     "checked_on": "2026-11-09",
-    "added_on": "2026-11-09"
+    "added_on": "2026-11-09",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/bar-sql.md"
   }
 ]

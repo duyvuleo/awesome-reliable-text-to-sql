@@ -17,7 +17,7 @@ from catalog import (BENCHMARK_COVERAGE, BENCHMARK_FIELDS, CLARIFICATION_MODES,
 URL_RE = re.compile(r"https?://[^\s<>\"'\])}]+")
 LOCAL_PATH_RE = re.compile(r"(?:/(?:Users|home|private|tmp|var/folders)/[^\s]+|" + "file" + r":/+[^\s]+|[A-Za-z]:\\(?:Users|Windows)\\)")
 LINK_RE = re.compile(r"!?\[[^\]]*\]\((<[^>]+>|[^\s)]+)(?:\s+\"[^\"]*\")?\)")
-SKIP_DIRS = {".git", "__pycache__", ".venv", "node_modules", ".pytest_cache"}
+SKIP_DIRS = {".git", "__pycache__", ".venv", "node_modules", ".pytest_cache", "reports"}
 TEXT_SUFFIXES = {".md", ".json", ".py", ".yml", ".yaml", ".txt", ".cff", ".toml", ".sh", ".sql", ".svg"}
 
 
@@ -119,7 +119,7 @@ def validate_data(papers, resources, meta):
             errors.append(f"{label}.category: unsupported category")
         if item.get("scope") not in ("core", "adjacent"):
             errors.append(f"{label}.scope: expected core or adjacent")
-        if item.get("source_depth") not in ("primary-record", "targeted-full-text"):
+        if item.get("source_depth") not in ("primary-record", "targeted-full-text", "full-text-reviewed"):
             errors.append(f"{label}.source_depth: unsupported evidence depth")
         check_list(item, "topics", label)
         url = item.get("primary_url")
@@ -135,6 +135,8 @@ def validate_data(papers, resources, meta):
                 check_url(item[field], f"{label}.{field}")
         if "artifact_status" in item:
             check_string(item, "artifact_status", label)
+        if item.get("reading_notes_url"):
+            check_url(item["reading_notes_url"], f"{label}.reading_notes_url")
 
     resource_names = set()
     resource_urls = set()
@@ -317,6 +319,8 @@ def validate_repository(root=ROOT):
         errors = validate_data(papers, resources, meta)
         if isinstance(resources, list) and isinstance(meta, dict):
             errors.extend(validate_benchmarks(load_benchmarks(root), resources, meta))
+            from paper_reviews import load_reviews, validate_reviews
+            errors.extend(validate_reviews(load_reviews(root), papers, meta["updated"]))
     except (OSError, ValueError, TypeError) as error:
         return [f"Cannot read catalog: {error}"]
     for path in text_files(root):

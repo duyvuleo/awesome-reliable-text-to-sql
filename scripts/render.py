@@ -54,6 +54,8 @@ def paper_entry(item, compact=False):
              + "<br><em>" + cell_text(item["scope"]) + "</em>")
     artifacts = (" · ".join(links) if links else "Release not verified")
     artifacts += "<br>" + (cell_link("Details", target) if compact else notes(item, include_artifacts=True))
+    if item.get("reading_notes_url"):
+        artifacts += "<br>" + cell_link("Reading notes", item["reading_notes_url"])
     return "| " + " | ".join([str(item["year"]), paper, cell_text(item["summary"]), artifacts]) + " |"
 
 
@@ -88,13 +90,13 @@ def year_groups(items, year_for):
 def papers_by_year(records):
     groups = year_groups(sorted_papers(records), lambda item: item["year"])
     lines = [NOTICE, "# Papers by year", "",
-             "[Overview](../README.md) · [Browse by topic](README.md)", "",
+             "[Overview](../README.md) · [Browse by topic](README.md) · [Detailed reading notes](reading-notes.md)", "",
              "Newest publication years first. Years follow the catalog: the verified venue year when available, otherwise the recorded preprint year.", "",
              "## Jump to a year", "",
              " · ".join(f"[{year} ({len(items)})](#year-{year})" for year, items in groups), ""]
     for year, items in groups:
         lines.extend([f'<a id="year-{year}"></a>', f"## {year}", "",
-                      table(["Year", "Paper / venue", "Concise summary", "Code / data"],
+                      table(["Year", "Paper / venue", "Concise summary", "Links"],
                             [paper_entry(item) for item in items]), ""])
     return "\n".join(lines).rstrip() + "\n"
 
@@ -157,7 +159,7 @@ def benchmark_matrix(root, resources):
 def outputs(root=ROOT):
     records, resources, meta = load_catalog(root)
     by_id = {item["id"]: item for item in records}
-    papers = [NOTICE, "# Papers", "", "[Back to the overview](../README.md) · [Browse by year](by-year.md)", "",
+    papers = [NOTICE, "# Papers", "", "[Back to the overview](../README.md) · [Browse by year](by-year.md) · [Detailed reading notes](reading-notes.md)", "",
               "Annotations describe published evidence and its limits. Source checks do not establish independent reproduction.", "",
               "Expand **Release notes and sources** for artifact qualifications and provenance. "
               "**Release not verified** means no code or data link was confirmed, not that no release exists.", ""]
@@ -167,7 +169,7 @@ def outputs(root=ROOT):
         selected = sorted_papers([item for item in records if item["category"] == category])
         if selected:
             papers.extend([f'<a id="{category}"></a>', f"## {heading}", "",
-                           table(["Year", "Paper / venue", "Concise summary", "Code / data"],
+                           table(["Year", "Paper / venue", "Concise summary", "Links"],
                                  [paper_entry(item) for item in selected]), ""])
     result = {Path("papers/README.md"): "\n".join(papers).rstrip() + "\n"}
     result[Path("papers/by-year.md")] = papers_by_year(records)
@@ -203,7 +205,7 @@ def outputs(root=ROOT):
         "SYSTEM_COUNT": str(sum(item["kind"] in {"system", "tool"} for item in resources)),
         "DATASET_COUNT": str(sum(item["kind"] == "dataset" for item in resources)),
         "UPDATED": meta["updated"],
-        "RECENT": table(["Year", "Paper / venue", "Concise summary", "Code / data"],
+        "RECENT": table(["Year", "Paper / venue", "Concise summary", "Links"],
                         [paper_entry(item, compact=True) for item in recent_papers(records)[:8]]),
     }
     for key, value in replacements.items():
@@ -214,6 +216,8 @@ def outputs(root=ROOT):
     result[Path("README.md")] = NOTICE + template.rstrip() + "\n"
     from explorer_data import render_data
     result[Path("site/data.json")] = render_data(root)
+    from paper_reviews import render_reviews
+    result.update(render_reviews(root, records))
     return result
 
 
