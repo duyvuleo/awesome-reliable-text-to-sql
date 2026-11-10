@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-10",
-  "updated": "2026-11-10",
+  "checked": "2026-11-11",
+  "updated": "2026-11-11",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 98,
-    "system": 15,
+    "paper": 100,
+    "system": 16,
     "tool": 19,
-    "benchmark": 32
+    "benchmark": 33
   },
   "categories": {
     "ambiguity": "Ambiguity and multiple interpretations",
@@ -872,6 +872,36 @@
       ]
     },
     {
+      "id": "pcc-sql",
+      "name": "Policy-Conditioned Constrained Decoding for Column-Level Access Control in Text-to-SQL",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Masks disallowed column uses during SQL decoding and returns REFUSE for blocked or unsupported continuations. This is policy-conditioned refusal, not intrinsic unanswerability. Coverage counts compliant outputs rather than intent-correct answers; semantic execution is tested separately on permitted-reference queries. Guarantees concern a restricted single-query grammar, and token counts do not establish wall-clock efficiency.",
+      "entry_ids": [
+        "pcc-sql",
+        "pcc-sql-system",
+        "spider-cu-data"
+      ],
+      "themes": [
+        "abstention",
+        "constrained-decoding",
+        "evaluation",
+        "verification"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "kinds": [
+        "benchmark",
+        "paper",
+        "system"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "post-sqlfix",
       "name": "Post-SQLFix: Property-Guided Repair of LLM-Generated SQL with Runtime Verification",
       "date": "2026",
@@ -1597,6 +1627,32 @@
       ],
       "years": [
         2026
+      ]
+    },
+    {
+      "id": "scf-calibration",
+      "name": "Calibrating LLMs for Text-to-SQL Parsing by Leveraging Sub-clause Frequencies",
+      "date": "2025",
+      "year": 2025,
+      "kind": "paper",
+      "summary": "Combines token probability and syntactic sub-clause agreement across sampled SQL candidates using supervised multivariate Platt scaling. It improves aggregate calibration and error ranking in the tested Spider/BIRD settings, but requires labeled calibration data and additional generations. Scores concern candidate correctness, with an underspecified correctness evaluator; they do not establish request answerability or guaranteed abstention risk.",
+      "entry_ids": [
+        "scf-calibration"
+      ],
+      "themes": [
+        "calibration",
+        "error-detection",
+        "self-consistency",
+        "uncertainty"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2025
       ]
     },
     {
@@ -8636,6 +8692,132 @@
       "work_id": "omnitqa"
     },
     {
+      "id": "scf-calibration",
+      "name": "Calibrating LLMs for Text-to-SQL Parsing by Leveraging Sub-clause Frequencies",
+      "kind": "paper",
+      "year": 2025,
+      "date": "2025",
+      "date_label": "Publication year",
+      "summary": "Combines token probability and syntactic sub-clause agreement across sampled SQL candidates using supervised multivariate Platt scaling. It improves aggregate calibration and error ranking in the tested Spider/BIRD settings, but requires labeled calibration data and additional generations. Scores concern candidate correctness, with an underspecified correctness evaluator; they do not establish request answerability or guaranteed abstention risk.",
+      "tags": [
+        "calibration",
+        "uncertainty",
+        "error-detection",
+        "self-consistency"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "EMNLP 2025; first preprint May 2025",
+      "status": "Complete proceedings paper and two-page responsible-research checklist reviewed. No paper-specific code, calibrated weights, generated-output bundle or new dataset release verified in the paper, arXiv record or inspected first/last-author publication pages. No linked code executed or experiments reproduced.",
+      "sources": [
+        "https://aclanthology.org/2025.emnlp-main.859/",
+        "https://aclanthology.org/2025.emnlp-main.859.pdf",
+        "https://arxiv.org/abs/2505.23804v2",
+        "https://terranceliu.github.io/",
+        "https://aigen.github.io/"
+      ],
+      "checked": "2026-11-11",
+      "added_on": "2026-11-11",
+      "url": "https://aclanthology.org/2025.emnlp-main.859/",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#scf-calibration",
+      "original": {
+        "id": "scf-calibration",
+        "title": "Calibrating LLMs for Text-to-SQL Parsing by Leveraging Sub-clause Frequencies",
+        "year": 2025,
+        "publication_status": "EMNLP 2025; first preprint May 2025",
+        "primary_url": "https://aclanthology.org/2025.emnlp-main.859/",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "verification",
+        "topics": [
+          "calibration",
+          "uncertainty",
+          "error-detection",
+          "self-consistency"
+        ],
+        "scope": "adjacent",
+        "summary": "Combines token probability and syntactic sub-clause agreement across sampled SQL candidates using supervised multivariate Platt scaling. It improves aggregate calibration and error ranking in the tested Spider/BIRD settings, but requires labeled calibration data and additional generations. Scores concern candidate correctness, with an underspecified correctness evaluator; they do not establish request answerability or guaranteed abstention risk.",
+        "evidence": [
+          "https://aclanthology.org/2025.emnlp-main.859/",
+          "https://aclanthology.org/2025.emnlp-main.859.pdf",
+          "https://arxiv.org/abs/2505.23804v2",
+          "https://terranceliu.github.io/",
+          "https://aigen.github.io/"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/scf-calibration.md",
+        "added_on": "2026-11-11",
+        "checked_on": "2026-11-11",
+        "artifact_status": "Complete proceedings paper and two-page responsible-research checklist reviewed. No paper-specific code, calibrated weights, generated-output bundle or new dataset release verified in the paper, arXiv record or inspected first/last-author publication pages. No linked code executed or experiments reproduced."
+      },
+      "work_id": "scf-calibration"
+    },
+    {
+      "id": "pcc-sql",
+      "name": "Policy-Conditioned Constrained Decoding for Column-Level Access Control in Text-to-SQL",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Masks disallowed column uses during SQL decoding and returns REFUSE for blocked or unsupported continuations. This is policy-conditioned refusal, not intrinsic unanswerability. Coverage counts compliant outputs rather than intent-correct answers; semantic execution is tested separately on permitted-reference queries. Guarantees concern a restricted single-query grammar, and token counts do not establish wall-clock efficiency.",
+      "tags": [
+        "abstention",
+        "constrained-decoding",
+        "verification",
+        "evaluation"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "AACL-IJCNLP 2026",
+      "status": "Author-linked decoder, policy checks and evaluation source are public; MIT license text verified. The Spider-CU JSON was read in memory and contains 1,034 records across 20 databases: 684 SQL and 350 REFUSE labels. README declares CC BY-SA 4.0 for that derived file; upstream databases remain separate. README says BIRD-CU will be added later, despite the paper's broader release statement. Code was not executed and results were not reproduced.",
+      "sources": [
+        "https://aclanthology.org/2026.aacl-long.239/",
+        "https://aclanthology.org/2026.aacl-long.239.pdf",
+        "https://github.com/yamanalab/pcc-sql",
+        "https://arxiv.org/abs/2607.12341"
+      ],
+      "checked": "2026-11-11",
+      "added_on": "2026-11-11",
+      "url": "https://aclanthology.org/2026.aacl-long.239/",
+      "code_links": [
+        "https://github.com/yamanalab/pcc-sql"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#pcc-sql",
+      "original": {
+        "id": "pcc-sql",
+        "title": "Policy-Conditioned Constrained Decoding for Column-Level Access Control in Text-to-SQL",
+        "year": 2026,
+        "publication_status": "AACL-IJCNLP 2026",
+        "primary_url": "https://aclanthology.org/2026.aacl-long.239/",
+        "code_url": "https://github.com/yamanalab/pcc-sql",
+        "dataset_url": "https://github.com/yamanalab/pcc-sql/blob/main/data/dev.json",
+        "category": "answerability",
+        "scope": "adjacent",
+        "topics": [
+          "abstention",
+          "constrained-decoding",
+          "verification",
+          "evaluation"
+        ],
+        "summary": "Masks disallowed column uses during SQL decoding and returns REFUSE for blocked or unsupported continuations. This is policy-conditioned refusal, not intrinsic unanswerability. Coverage counts compliant outputs rather than intent-correct answers; semantic execution is tested separately on permitted-reference queries. Guarantees concern a restricted single-query grammar, and token counts do not establish wall-clock efficiency.",
+        "evidence": [
+          "https://aclanthology.org/2026.aacl-long.239/",
+          "https://aclanthology.org/2026.aacl-long.239.pdf",
+          "https://github.com/yamanalab/pcc-sql",
+          "https://arxiv.org/abs/2607.12341"
+        ],
+        "checked_on": "2026-11-11",
+        "added_on": "2026-11-11",
+        "source_depth": "full-text-reviewed",
+        "artifact_status": "Author-linked decoder, policy checks and evaluation source are public; MIT license text verified. The Spider-CU JSON was read in memory and contains 1,034 records across 20 databases: 684 SQL and 350 REFUSE labels. README declares CC BY-SA 4.0 for that derived file; upstream databases remain separate. README says BIRD-CU will be added later, despite the paper's broader release statement. Code was not executed and results were not reproduced.",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/pcc-sql.md"
+      },
+      "work_id": "pcc-sql"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -11957,6 +12139,112 @@
         "checked_on": "2026-11-09"
       },
       "work_id": "bar-sql"
+    },
+    {
+      "id": "pcc-sql-system",
+      "name": "PCC-SQL policy-conditioned decoder",
+      "kind": "system",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Tracks SQL column-use roles and applies logits masks, with explicit refusal when a permitted supported continuation cannot be produced.",
+      "tags": [
+        "abstention",
+        "constrained-decoding",
+        "evaluation",
+        "verification"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "resource",
+      "status": "Public constrained-decoder, policy-checking, baseline and evaluation files verified by repository inventory and source-text retrieval. No model inference, setup script or evaluation was executed.",
+      "sources": [
+        "https://aclanthology.org/2026.aacl-long.239.pdf",
+        "https://github.com/yamanalab/pcc-sql",
+        "https://github.com/yamanalab/pcc-sql/tree/main/src/constrained",
+        "https://raw.githubusercontent.com/yamanalab/pcc-sql/main/LICENSE"
+      ],
+      "checked": "2026-11-11",
+      "added_on": null,
+      "url": "https://github.com/yamanalab/pcc-sql",
+      "code_links": [
+        "https://github.com/yamanalab/pcc-sql"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#pcc-sql-system",
+      "original": {
+        "id": "pcc-sql-system",
+        "name": "PCC-SQL policy-conditioned decoder",
+        "kind": "system",
+        "paper_ids": [
+          "pcc-sql"
+        ],
+        "url": "https://github.com/yamanalab/pcc-sql",
+        "description": "Tracks SQL column-use roles and applies logits masks, with explicit refusal when a permitted supported continuation cannot be produced.",
+        "protocol": "Single-query Public/ConditionOnly/AggregateOnly/Hidden permissions over a restricted SQL grammar. Policy-conditioned refusal is distinct from intrinsic unanswerability; compliant output is not necessarily intent-correct. Requires logits access and complements database-side authorization.",
+        "availability": "Public constrained-decoder, policy-checking, baseline and evaluation files verified by repository inventory and source-text retrieval. No model inference, setup script or evaluation was executed.",
+        "license_note": "Root MIT license text verified; README explicitly applies MIT to src/, eval/ and benchmark/. Spider-derived data and upstream databases have separate terms.",
+        "evidence": [
+          "https://aclanthology.org/2026.aacl-long.239.pdf",
+          "https://github.com/yamanalab/pcc-sql",
+          "https://github.com/yamanalab/pcc-sql/tree/main/src/constrained",
+          "https://raw.githubusercontent.com/yamanalab/pcc-sql/main/LICENSE"
+        ],
+        "checked_on": "2026-11-11"
+      },
+      "work_id": "pcc-sql"
+    },
+    {
+      "id": "spider-cu-data",
+      "name": "Spider-CU policy-conditioned SQL/refusal benchmark",
+      "kind": "benchmark",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "A Spider development-set extension with per-column permissions, reference SQL, policy violations and SQL/REFUSE labels; the verified file contains 1,034 questions across 20 databases.",
+      "tags": [
+        "abstention",
+        "constrained-decoding",
+        "evaluation",
+        "verification"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "resource",
+      "status": "Official data/dev.json retrieved and parsed in memory; all 1,034 records expose question, original_sql, column_policies, violations_original and gold_label. Raw Spider databases are separate setup dependencies. BIRD-CU is not included in this release claim.",
+      "sources": [
+        "https://aclanthology.org/2026.aacl-long.239.pdf",
+        "https://github.com/yamanalab/pcc-sql",
+        "https://github.com/yamanalab/pcc-sql/blob/main/data/dev.json",
+        "https://raw.githubusercontent.com/yamanalab/pcc-sql/main/data/dev.json"
+      ],
+      "checked": "2026-11-11",
+      "added_on": null,
+      "url": "https://github.com/yamanalab/pcc-sql/blob/main/data/dev.json",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/datasets/README.md#spider-cu-data",
+      "original": {
+        "id": "spider-cu-data",
+        "name": "Spider-CU policy-conditioned SQL/refusal benchmark",
+        "kind": "dataset",
+        "paper_ids": [
+          "pcc-sql"
+        ],
+        "url": "https://github.com/yamanalab/pcc-sql/blob/main/data/dev.json",
+        "description": "A Spider development-set extension with per-column permissions, reference SQL, policy violations and SQL/REFUSE labels; the verified file contains 1,034 questions across 20 databases.",
+        "protocol": "684 SQL and 350 REFUSE records were counted. REFUSE labels follow reference-query policy violations rather than intrinsic unanswerability. Evaluation separates compliant-output coverage, leakage and failure; semantic execution is checked on SQL-gold only.",
+        "availability": "Official data/dev.json retrieved and parsed in memory; all 1,034 records expose question, original_sql, column_policies, violations_original and gold_label. Raw Spider databases are separate setup dependencies. BIRD-CU is not included in this release claim.",
+        "license_note": "The official README declares data/dev.json to be Spider-derived and licensed CC BY-SA 4.0. The code's MIT license is separate; upstream database access and redistribution terms still apply.",
+        "evidence": [
+          "https://aclanthology.org/2026.aacl-long.239.pdf",
+          "https://github.com/yamanalab/pcc-sql",
+          "https://github.com/yamanalab/pcc-sql/blob/main/data/dev.json",
+          "https://raw.githubusercontent.com/yamanalab/pcc-sql/main/data/dev.json"
+        ],
+        "checked_on": "2026-11-11"
+      },
+      "work_id": "pcc-sql"
     }
   ],
   "themes": [
@@ -11973,7 +12261,7 @@
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 25
+      "count": 26
     },
     {
       "id": "unanswerability",
@@ -11983,17 +12271,17 @@
     {
       "id": "verification",
       "label": "Verification",
-      "count": 19
+      "count": 20
     },
     {
       "id": "abstention",
       "label": "Abstention",
-      "count": 17
+      "count": 18
     },
     {
       "id": "uncertainty",
       "label": "Uncertainty",
-      "count": 17
+      "count": 18
     },
     {
       "id": "clinical",
@@ -12026,6 +12314,11 @@
       "count": 6
     },
     {
+      "id": "error-detection",
+      "label": "Error detection",
+      "count": 6
+    },
+    {
       "id": "agent",
       "label": "Agent",
       "count": 5
@@ -12036,24 +12329,19 @@
       "count": 5
     },
     {
-      "id": "context",
-      "label": "Context",
+      "id": "calibration",
+      "label": "Calibration",
       "count": 5
     },
     {
-      "id": "error-detection",
-      "label": "Error detection",
+      "id": "context",
+      "label": "Context",
       "count": 5
     },
     {
       "id": "interpretation-coverage",
       "label": "Interpretation coverage",
       "count": 5
-    },
-    {
-      "id": "calibration",
-      "label": "Calibration",
-      "count": 4
     },
     {
       "id": "confidence",
@@ -12178,6 +12466,11 @@
     {
       "id": "confirmation",
       "label": "Confirmation",
+      "count": 1
+    },
+    {
+      "id": "constrained-decoding",
+      "label": "Constrained decoding",
       "count": 1
     },
     {
@@ -12308,6 +12601,11 @@
     {
       "id": "routing",
       "label": "Routing",
+      "count": 1
+    },
+    {
+      "id": "self-consistency",
+      "label": "Self consistency",
       "count": 1
     },
     {
@@ -14072,6 +14370,67 @@
         }
       ],
       "checked_on": "2026-11-09"
+    },
+    {
+      "resource_id": "spider-cu-data",
+      "label": "Spider-CU",
+      "relevance": "adjacent",
+      "ambiguity": {
+        "status": "not_targeted",
+        "detail": "No dedicated linguistic-ambiguity or multiple-interpretation annotations; the task varies allowed column uses under a supplied policy."
+      },
+      "unanswerability": {
+        "status": "not_targeted",
+        "detail": "REFUSE is a policy-compliance label on the reference SQL, not missing-information or intrinsic-unanswerability ground truth. A compliant alternative may exist."
+      },
+      "clarification": {
+        "mode": "not_targeted",
+        "detail": "The system emits SQL or REFUSE without eliciting user clarification."
+      },
+      "interaction": {
+        "mode": "static",
+        "detail": "One question, schema and policy per record; the study compares decoding and repair/refusal baselines, not a user dialogue."
+      },
+      "domain": "Cross-domain Spider databases with synthetic column-use policies; the verified release has 20 databases and 1,034 questions.",
+      "evaluation": "Leakage, compliant-output Coverage, SQL-gold Recall, REFUSE-gold Recovery, failures and calls/tokens. Recovery does not establish intent equivalence; semantic execution match is separately reported only for SQL-gold.",
+      "data_access": "public_artifacts",
+      "evidence": [
+        {
+          "url": "https://aclanthology.org/2026.aacl-long.239.pdf",
+          "locator": "Sections 3–5.4 and Appendices B–D: roles, SQL/REFUSE labels, static inputs, corpus construction and policy-relative scope.",
+          "supports": [
+            "ambiguity",
+            "unanswerability",
+            "clarification",
+            "interaction",
+            "domain"
+          ]
+        },
+        {
+          "url": "https://aclanthology.org/2026.aacl-long.239.pdf",
+          "locator": "Sections 5.4 and 6.3; Appendix G and Table 11: coverage/recovery definitions and SQL-gold-only semantic execution scoring.",
+          "supports": [
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://github.com/yamanalab/pcc-sql",
+          "locator": "README Repository Layout and License: data/dev.json is Spider-CU, raw Spider is fetched separately, derived data is declared CC BY-SA 4.0; BIRD-CU is forthcoming.",
+          "supports": [
+            "data_access"
+          ]
+        },
+        {
+          "url": "https://github.com/yamanalab/pcc-sql/blob/main/data/dev.json",
+          "locator": "Parsed official JSON: 1,034 records, 20 db_id values, 684 SQL and 350 REFUSE gold labels with per-column policies.",
+          "supports": [
+            "data_access",
+            "domain",
+            "unanswerability"
+          ]
+        }
+      ],
+      "checked_on": "2026-11-11"
     }
   ]
 }

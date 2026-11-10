@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-11
+
+- Added two fully reviewed papers on sub-clause confidence calibration and policy-conditioned SQL/refusal, with detailed notes and six source-located checks. The catalog now contains 100 papers.
+- Added the verified PCC-SQL decoder and Spider-CU annotation dataset/comparison, distinguishing policy-compliant output from intent-correct answers and intrinsic unanswerability.
+- Preserved calibration-label uncertainty, restricted-grammar guarantees and artifact boundaries; BIRD-CU remains unverified as released, and no research results were reproduced.
+
 ## 2026-11-10
 
 - Added four fully reviewed papers: concept-based ambiguity detection, node-level SQL uncertainty, SQLoom and OmniTQA, with 12 source-located checks and links to their detailed notes.

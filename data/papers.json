@@ -2757,5 +2757,64 @@
     "added_on": "2026-11-10",
     "checked_on": "2026-11-10",
     "artifact_status": "Author-linked public source, notebook, README and BSD-3-Clause LICENSE inspected. The visible OmniTQA entry point executes candidate plans sequentially; the paper’s concurrent runtime and all benchmark settings were not independently reproduced. Upstream datasets are separate; no new OmniTQA dataset release is asserted."
+  },
+  {
+    "id": "scf-calibration",
+    "title": "Calibrating LLMs for Text-to-SQL Parsing by Leveraging Sub-clause Frequencies",
+    "year": 2025,
+    "publication_status": "EMNLP 2025; first preprint May 2025",
+    "primary_url": "https://aclanthology.org/2025.emnlp-main.859/",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "verification",
+    "topics": [
+      "calibration",
+      "uncertainty",
+      "error-detection",
+      "self-consistency"
+    ],
+    "scope": "adjacent",
+    "summary": "Combines token probability and syntactic sub-clause agreement across sampled SQL candidates using supervised multivariate Platt scaling. It improves aggregate calibration and error ranking in the tested Spider/BIRD settings, but requires labeled calibration data and additional generations. Scores concern candidate correctness, with an underspecified correctness evaluator; they do not establish request answerability or guaranteed abstention risk.",
+    "evidence": [
+      "https://aclanthology.org/2025.emnlp-main.859/",
+      "https://aclanthology.org/2025.emnlp-main.859.pdf",
+      "https://arxiv.org/abs/2505.23804v2",
+      "https://terranceliu.github.io/",
+      "https://aigen.github.io/"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/scf-calibration.md",
+    "added_on": "2026-11-11",
+    "checked_on": "2026-11-11",
+    "artifact_status": "Complete proceedings paper and two-page responsible-research checklist reviewed. No paper-specific code, calibrated weights, generated-output bundle or new dataset release verified in the paper, arXiv record or inspected first/last-author publication pages. No linked code executed or experiments reproduced."
+  },
+  {
+    "id": "pcc-sql",
+    "title": "Policy-Conditioned Constrained Decoding for Column-Level Access Control in Text-to-SQL",
+    "year": 2026,
+    "publication_status": "AACL-IJCNLP 2026",
+    "primary_url": "https://aclanthology.org/2026.aacl-long.239/",
+    "code_url": "https://github.com/yamanalab/pcc-sql",
+    "dataset_url": "https://github.com/yamanalab/pcc-sql/blob/main/data/dev.json",
+    "category": "answerability",
+    "scope": "adjacent",
+    "topics": [
+      "abstention",
+      "constrained-decoding",
+      "verification",
+      "evaluation"
+    ],
+    "summary": "Masks disallowed column uses during SQL decoding and returns REFUSE for blocked or unsupported continuations. This is policy-conditioned refusal, not intrinsic unanswerability. Coverage counts compliant outputs rather than intent-correct answers; semantic execution is tested separately on permitted-reference queries. Guarantees concern a restricted single-query grammar, and token counts do not establish wall-clock efficiency.",
+    "evidence": [
+      "https://aclanthology.org/2026.aacl-long.239/",
+      "https://aclanthology.org/2026.aacl-long.239.pdf",
+      "https://github.com/yamanalab/pcc-sql",
+      "https://arxiv.org/abs/2607.12341"
+    ],
+    "checked_on": "2026-11-11",
+    "added_on": "2026-11-11",
+    "source_depth": "full-text-reviewed",
+    "artifact_status": "Author-linked decoder, policy checks and evaluation source are public; MIT license text verified. The Spider-CU JSON was read in memory and contains 1,034 records across 20 databases: 684 SQL and 350 REFUSE labels. README declares CC BY-SA 4.0 for that derived file; upstream databases remain separate. README says BIRD-CU will be added later, despite the paper's broader release statement. Code was not executed and results were not reproduced.",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/pcc-sql.md"
   }
 ]

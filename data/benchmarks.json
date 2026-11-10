@@ -1673,5 +1673,66 @@
       }
     ],
     "checked_on": "2026-11-09"
+  },
+  {
+    "resource_id": "spider-cu-data",
+    "label": "Spider-CU",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_targeted",
+      "detail": "No dedicated linguistic-ambiguity or multiple-interpretation annotations; the task varies allowed column uses under a supplied policy."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "REFUSE is a policy-compliance label on the reference SQL, not missing-information or intrinsic-unanswerability ground truth. A compliant alternative may exist."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "The system emits SQL or REFUSE without eliciting user clarification."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "One question, schema and policy per record; the study compares decoding and repair/refusal baselines, not a user dialogue."
+    },
+    "domain": "Cross-domain Spider databases with synthetic column-use policies; the verified release has 20 databases and 1,034 questions.",
+    "evaluation": "Leakage, compliant-output Coverage, SQL-gold Recall, REFUSE-gold Recovery, failures and calls/tokens. Recovery does not establish intent equivalence; semantic execution match is separately reported only for SQL-gold.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://aclanthology.org/2026.aacl-long.239.pdf",
+        "locator": "Sections 3–5.4 and Appendices B–D: roles, SQL/REFUSE labels, static inputs, corpus construction and policy-relative scope.",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain"
+        ]
+      },
+      {
+        "url": "https://aclanthology.org/2026.aacl-long.239.pdf",
+        "locator": "Sections 5.4 and 6.3; Appendix G and Table 11: coverage/recovery definitions and SQL-gold-only semantic execution scoring.",
+        "supports": [
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/yamanalab/pcc-sql",
+        "locator": "README Repository Layout and License: data/dev.json is Spider-CU, raw Spider is fetched separately, derived data is declared CC BY-SA 4.0; BIRD-CU is forthcoming.",
+        "supports": [
+          "data_access"
+        ]
+      },
+      {
+        "url": "https://github.com/yamanalab/pcc-sql/blob/main/data/dev.json",
+        "locator": "Parsed official JSON: 1,034 records, 20 db_id values, 684 SQL and 350 REFUSE gold labels with per-column policies.",
+        "supports": [
+          "data_access",
+          "domain",
+          "unanswerability"
+        ]
+      }
+    ],
+    "checked_on": "2026-11-11"
   }
 ]

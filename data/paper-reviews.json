@@ -1771,6 +1771,59 @@
     ]
   },
   {
+    "paper_id": "pcc-sql",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-11",
+    "source_url": "https://aclanthology.org/2026.aacl-long.239.pdf",
+    "version": "AACL-IJCNLP 2026 proceedings, pages 5377–5391; complete 15-page publisher PDF.",
+    "coverage": "All 15 PDF pages: Sections 1–8, limitations, references and Appendices A–H; all prompts, decoding details, policy-construction rules and Tables 1–11. Figures 1–2 were visually inspected. Artifact source and license inspection was textual only.",
+    "unread": [],
+    "problem": "Database interfaces must refuse or adapt requests when the allowed use of a column depends on whether it is projected, filtered, joined or aggregated.",
+    "method": "PCC-SQL tracks grammar roles and scope, masks disallowed column tokens and emits REFUSE when continuation is blocked, validation fails or syntax is unsupported. Four permission types distinguish public, condition-only, aggregate-only and hidden columns.",
+    "evaluation": "Three open models are compared with prompting, retry, verification and rollback on Spider-CU, BIRD-CU and Spider-ACL. Synthetic policies use column-name rules and reference-query usage. Coverage measures compliant output; execution match is separately measured only on SQL-gold cases. Spider-ACL omits runtime execution checks.",
+    "findings": "The paper reports zero policy violations in the tested decoder cells and high compliant-output coverage. These figures do not imply correct answers: weaker-model execution accuracy can decrease, and compliant alternatives on REFUSE-gold cases are not checked against intent-equivalent references.",
+    "limitations": "Policy validity has only a 40-assignment author sanity check. Guarantees cover supported single-query column roles, excluding richer SQL, multi-query inference and broader privacy properties. Unsupported syntax or difficult planning can cause false refusal. Logits access is required, while token/call measurements omit wall-clock latency and masking overhead.",
+    "relevance": "A concrete adjacent baseline for permission-dependent refusal and constrained answering. Its labels distinguish prohibited query uses from missing information, ambiguous intent or proof that no valid answer exists.",
+    "claims": [
+      {
+        "claim": "Coverage and Recovery Rate measure semantically correct answers or restored user intent.",
+        "evidence": "SafeSQL means policy compliance and executability, and Refuse-gold can receive any compliant alternative. Appendix G tests execution match only on SQL-gold; Appendix E omits runtime checks entirely for Spider-ACL.",
+        "locator": "Section 5.4; Section 6.3; Appendices C, E and G; Table 11",
+        "disposition": "Keep compliant-output coverage separate from semantic correctness, and state the Spider-ACL execution exception."
+      },
+      {
+        "claim": "A REFUSE label establishes intrinsic unanswerability.",
+        "evidence": "Appendix C assigns REFUSE when the reference SQL violates the constructed policy. Appendix B also refuses unsupported grammar, out-of-scope references, failed validation or an empty allowed set; the limitations acknowledge refusal even when a safe alternative exists.",
+        "locator": "Sections 4.2 and 5.4; Appendices B–C; Limitations",
+        "disposition": "Describe policy/decoder-relative refusal, not missing-fact impossibility or complete detection of all admissible answers."
+      },
+      {
+        "claim": "Zero leakage establishes broad privacy protection with measured low latency.",
+        "evidence": "The guarantee is limited to supported single-query column-use compliance. The limitations exclude inference attacks, joint-distribution leakage and differential privacy, and explicitly say wall-clock latency and mask overhead were not measured.",
+        "locator": "Section 4.3; Section 7; Limitations, printed page 5385",
+        "disposition": "Qualify the guarantee's grammar and threat scope; report call/token cost rather than end-to-end latency."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Official implementation and release notes",
+        "url": "https://github.com/yamanalab/pcc-sql"
+      },
+      {
+        "label": "Verified Spider-CU policy/refusal records",
+        "url": "https://github.com/yamanalab/pcc-sql/blob/main/data/dev.json"
+      },
+      {
+        "label": "MIT code license text",
+        "url": "https://raw.githubusercontent.com/yamanalab/pcc-sql/main/LICENSE"
+      },
+      {
+        "label": "Preprint identity/version record",
+        "url": "https://arxiv.org/abs/2607.12341"
+      }
+    ]
+  },
+  {
     "paper_id": "piia",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-09",
@@ -2222,6 +2275,47 @@
         "evidence": "This is true for the main Gemini-2.5-Flash table, while Appendix A reports higher GPT-5-mini F1.",
         "locator": "Section 5.3; Table 3; Appendix A Table 6",
         "disposition": "Keep backbone qualification rather than presenting a universal benchmark ceiling."
+      }
+    ]
+  },
+  {
+    "paper_id": "scf-calibration",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-11",
+    "source_url": "https://aclanthology.org/2025.emnlp-main.859.pdf",
+    "version": "EMNLP 2025 proceedings, pp. 16958–16982, November 4–9, 2025; 25-page published version",
+    "coverage": "All 25 PDF pages: Sections 1–11, Tables 1–17, Figures 1–5 and their captions, Appendix A supplementary experiments and selected cases, Appendix B feature derivation/Algorithms 1–3, and Appendix C prompts, hyperparameters, compute and license statements. Calibration curves (PDF p.8) and Q-MATCH pseudocode (p.22) visually checked. Both pages of the separately linked responsible-research checklist were also read.",
+    "unread": [],
+    "additional_sources": [
+      {
+        "label": "Responsible NLP Checklist",
+        "url": "https://aclanthology.org/attachments/2025.emnlp-main.859.checklist.pdf"
+      }
+    ],
+    "problem": "Raw SQL-generation probabilities can be poorly calibrated, limiting their usefulness for identifying likely parser errors.",
+    "method": "SQLGlot-derived clause matches across nucleus and beam candidates yield frequency features for set operations and two query branches. Their products and the primary output’s token-probability score feed a logistic calibration model. The main setup draws ten candidates by each method; calibration changes confidence, not the selected SQL.",
+    "evaluation": "T5-PICARD and Llama models are tested on English Spider/BIRD. Spider development data calibrate the test predictions; BIRD uses 1,000 training examples for calibration and 1,534 development examples for testing. Main results use one calibration run, with ten-bin ECE/ACE, Brier score and error-detection AUC; malformed outputs are removed.",
+    "findings": "MPS improves all four aggregate metrics over ordinary Platt scaling in the four main model/dataset configurations. Improvements are not uniform within difficulty strata. Smaller calibration samples generally weaken performance, and additional generation adds computational cost.",
+    "limitations": "Representative labeled calibration data are needed; no distribution-shift or selective-risk guarantee is established. The binary correctness evaluator is not identified precisely enough to call the labels execution-match or test-suite labels. Syntactic agreement is not semantic equivalence. A sensitivity discussion inconsistently describes the default sampling budget, and main metrics lack repeated-run uncertainty.",
+    "relevance": "A practical confidence-calibration baseline for selective SQL answering, distinct from detecting an unanswerable request or validating the user’s intended interpretation.",
+    "claims": [
+      {
+        "claim": "Better calibration certifies correct admitted SQL or a guaranteed abstention risk.",
+        "evidence": "The objective is binwise average correctness under distribution D; experiments report calibration metrics and AUC, without a selective-risk theorem or an evaluated answer/abstain policy.",
+        "locator": "Section 3, Equations 1–3; Sections 5.4 and 6.2; Table 1",
+        "disposition": "Use as empirical confidence/error-ranking evidence under the tested distributions, not an individual-query or abstention guarantee."
+      },
+      {
+        "claim": "The evaluated correctness labels are fully specified execution labels over every generated query.",
+        "evidence": "Section 3 defines Y as correctness relative to the prompt; Sections 5 and Appendix A/Table 5 do not name an execution-match, exact-match or test-suite labeling procedure. Section 5.3 excludes some syntactically erroneous outputs.",
+        "locator": "Section 3; Sections 5.1–5.4; Appendix A, Accuracy of language models/Table 5",
+        "disposition": "Keep the correctness-oracle uncertainty and syntactic filtering explicit; do not infer a concrete evaluator or full-output-population result."
+      },
+      {
+        "claim": "The main method uses only five candidates per sampling scheme.",
+        "evidence": "Section 5.3, Appendix A/Table 5 and Appendix C.2 specify ten nucleus plus ten beam candidates. Section 7.4/Table 3 legitimately varies k, but its prose calls k=5 the setting used in the paper.",
+        "locator": "Sections 5.3 and 7.4/Table 3; Appendix A/Table 5; Appendix C.2",
+        "disposition": "Use the consistently specified main budget of 20 candidates. Treat the sensitivity discussion’s default-setting phrase as a reporting inconsistency, not evidence that the sensitivity experiment is invalid."
       }
     ]
   },

@@ -6,7 +6,7 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **95 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **97 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
@@ -44,6 +44,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [ODUTQA-MDC: A Task for Open-Domain Underspecified Tabular QA with Multi-turn Dialogue-based Clarification](notes/odutqa-mdc.md) | Full paper read |
 | 2026 | [Pervasive Annotation Errors Break Text-to-SQL Benchmarks and Leaderboards](notes/annotation-errors.md) | Full paper read |
 | 2026 | [PleaSQLarify: Visual Pragmatic Repair for Natural Language Database Querying](notes/pleasqlarify.md) | Full paper read |
+| 2026 | [Policy-Conditioned Constrained Decoding for Column-Level Access Control in Text-to-SQL](notes/pcc-sql.md) | Full paper read |
 | 2026 | [Post-SQLFix: Property-Guided Repair of LLM-Generated SQL with Runtime Verification](notes/post-sqlfix.md) | Full paper read |
 | 2026 | [PremiseSQL: Evaluating Premise Critique and Abstention in Text-to-SQL Systems](notes/premisesql.md) | Full paper read |
 | 2026 | [Probing Ambiguity: Adversarial Intent Resolution for Robust Text-to-SQL](notes/air.md) | Full paper read |
@@ -69,6 +70,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [What Is a Clarification? Estimating Model-Dependent Input Ambiguity](notes/circleclar.md) | Full paper read |
 | 2026 | [What Predicts Correctness in Text-to-SQL? A Selective-Prediction Study](notes/selective-prediction.md) | Full paper read |
 | 2026 | [When the Bottleneck Shifts: Diagnosing and Closing Information Gaps in Interactive Text-to-SQL](notes/pascal.md) | Full paper read |
+| 2025 | [Calibrating LLMs for Text-to-SQL Parsing by Leveraging Sub-clause Frequencies](notes/scf-calibration.md) | Full paper read |
 | 2025 | [CLEAR: A Parser-Independent Disambiguation Framework for NL2SQL](notes/clear-clambsql.md) | Full text unavailable |
 | 2025 | [Confidence Estimation for Error Detection in Text-to-SQL Systems](notes/confidence-error.md) | Full paper read |
 | 2025 | [Disambiguate First, Parse Later: Generating Interpretations for Ambiguity Resolution in Semantic Parsing](notes/disambiguate-first.md) | Full paper read |

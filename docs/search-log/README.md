@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-11-11: sub-clause calibration and policy-conditioned refusal](2026-11-11.md)
+
 - [2026-11-10: concept ambiguity, localized uncertainty and verified supervision](2026-11-10.md)
 
 - [2026-11-09: full-paper audit, reading notes and access gaps](2026-11-09-full-text.md)

@@ -1236,5 +1236,45 @@
       "https://arxiv.org/html/2601.10318v1"
     ],
     "checked_on": "2026-11-09"
+  },
+  {
+    "id": "pcc-sql-system",
+    "name": "PCC-SQL policy-conditioned decoder",
+    "kind": "system",
+    "paper_ids": [
+      "pcc-sql"
+    ],
+    "url": "https://github.com/yamanalab/pcc-sql",
+    "description": "Tracks SQL column-use roles and applies logits masks, with explicit refusal when a permitted supported continuation cannot be produced.",
+    "protocol": "Single-query Public/ConditionOnly/AggregateOnly/Hidden permissions over a restricted SQL grammar. Policy-conditioned refusal is distinct from intrinsic unanswerability; compliant output is not necessarily intent-correct. Requires logits access and complements database-side authorization.",
+    "availability": "Public constrained-decoder, policy-checking, baseline and evaluation files verified by repository inventory and source-text retrieval. No model inference, setup script or evaluation was executed.",
+    "license_note": "Root MIT license text verified; README explicitly applies MIT to src/, eval/ and benchmark/. Spider-derived data and upstream databases have separate terms.",
+    "evidence": [
+      "https://aclanthology.org/2026.aacl-long.239.pdf",
+      "https://github.com/yamanalab/pcc-sql",
+      "https://github.com/yamanalab/pcc-sql/tree/main/src/constrained",
+      "https://raw.githubusercontent.com/yamanalab/pcc-sql/main/LICENSE"
+    ],
+    "checked_on": "2026-11-11"
+  },
+  {
+    "id": "spider-cu-data",
+    "name": "Spider-CU policy-conditioned SQL/refusal benchmark",
+    "kind": "dataset",
+    "paper_ids": [
+      "pcc-sql"
+    ],
+    "url": "https://github.com/yamanalab/pcc-sql/blob/main/data/dev.json",
+    "description": "A Spider development-set extension with per-column permissions, reference SQL, policy violations and SQL/REFUSE labels; the verified file contains 1,034 questions across 20 databases.",
+    "protocol": "684 SQL and 350 REFUSE records were counted. REFUSE labels follow reference-query policy violations rather than intrinsic unanswerability. Evaluation separates compliant-output coverage, leakage and failure; semantic execution is checked on SQL-gold only.",
+    "availability": "Official data/dev.json retrieved and parsed in memory; all 1,034 records expose question, original_sql, column_policies, violations_original and gold_label. Raw Spider databases are separate setup dependencies. BIRD-CU is not included in this release claim.",
+    "license_note": "The official README declares data/dev.json to be Spider-derived and licensed CC BY-SA 4.0. The code's MIT license is separate; upstream database access and redistribution terms still apply.",
+    "evidence": [
+      "https://aclanthology.org/2026.aacl-long.239.pdf",
+      "https://github.com/yamanalab/pcc-sql",
+      "https://github.com/yamanalab/pcc-sql/blob/main/data/dev.json",
+      "https://raw.githubusercontent.com/yamanalab/pcc-sql/main/data/dev.json"
+    ],
+    "checked_on": "2026-11-11"
   }
 ]
