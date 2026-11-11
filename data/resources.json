@@ -1276,5 +1276,26 @@
       "https://raw.githubusercontent.com/yamanalab/pcc-sql/main/data/dev.json"
     ],
     "checked_on": "2026-11-11"
+  },
+  {
+    "id": "calibration-metric-tool",
+    "name": "Semantic parsing calibration metrics",
+    "kind": "tool",
+    "paper_ids": [
+      "calibrated-interpretation"
+    ],
+    "url": "https://github.com/esteng/calibration_metric",
+    "description": "Computes calibration metrics and reliability plots from confidence scores and binary correctness labels, with fixed or adaptive binning and sequence-model logit readers.",
+    "protocol": "Supplied labels define correctness. Token-level versus sequence-level aggregation, binning and weighting must be reported; the library does not determine SQL semantics or certify an abstention policy.",
+    "availability": "Public metric, plotting and reader modules plus tests inspected at revision 591f55b42820c73c3503a0de0afcf1f7b3b8e1df. Not installed or executed. README call examples reverse the argument order shown by ECEMetric.__call__; verify usage against the source.",
+    "license_note": "pyproject.toml declares an MIT classifier and references LICENSE, but no LICENSE file appears in the inspected repository tree and the direct path returns 404. Complete reuse terms were not verified; do not inherit the separate analysis repository’s MIT license.",
+    "evidence": [
+      "https://aclanthology.org/2023.tacl-1.69.pdf",
+      "https://github.com/esteng/calibration_metric",
+      "https://github.com/esteng/calibration_metric/blob/591f55b42820c73c3503a0de0afcf1f7b3b8e1df/calibration_metric/metric.py",
+      "https://github.com/esteng/calibration_metric/blob/591f55b42820c73c3503a0de0afcf1f7b3b8e1df/pyproject.toml",
+      "https://github.com/esteng/calibration_metric/blob/591f55b42820c73c3503a0de0afcf1f7b3b8e1df/README.md"
+    ],
+    "checked_on": "2026-11-12"
   }
 ]

@@ -2816,5 +2816,36 @@
     "source_depth": "full-text-reviewed",
     "artifact_status": "Author-linked decoder, policy checks and evaluation source are public; MIT license text verified. The Spider-CU JSON was read in memory and contains 1,034 records across 20 databases: 684 SQL and 350 REFUSE labels. README declares CC BY-SA 4.0 for that derived file; upstream databases remain separate. README says BIRD-CU will be added later, despite the paper's broader release statement. Code was not executed and results were not reproduced.",
     "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/pcc-sql.md"
+  },
+  {
+    "id": "calibrated-interpretation",
+    "title": "Calibrated Interpretation: Confidence Estimation in Semantic Parsing",
+    "year": 2023,
+    "publication_status": "TACL 11, 1213–1231 (2023); first preprint November 2022",
+    "primary_url": "https://aclanthology.org/2023.tacl-1.69/",
+    "code_url": "https://github.com/esteng/calibration_miso",
+    "dataset_url": null,
+    "category": "verification",
+    "topics": [
+      "calibration",
+      "uncertainty",
+      "evaluation",
+      "semantic-parsing"
+    ],
+    "scope": "adjacent",
+    "summary": "Audits raw token and program confidence across semantic parsers, including Spider and CoSQL. SQL models appear more overconfident than dialogue parsers, while a separate Spider test-suite comparison reduces measured SQL overconfidence relative to exact matching. Teacher-forced token diagnostics, generated-sequence confidence and correctness metrics must remain distinct; clarification and safe-abstention policies are not evaluated.",
+    "evidence": [
+      "https://aclanthology.org/2023.tacl-1.69/",
+      "https://aclanthology.org/2023.tacl-1.69.pdf",
+      "https://arxiv.org/abs/2211.07443v6",
+      "https://github.com/esteng/calibration_miso",
+      "https://github.com/esteng/calibration_metric",
+      "https://github.com/esteng/semantic_parsing_with_constrained_lm/tree/nl2sql"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/calibrated-interpretation.md",
+    "added_on": "2026-11-12",
+    "checked_on": "2026-11-12",
+    "artifact_status": "Author-linked analysis/MISO code, SQL experiment branch and separate calibration-metric source inspected. Released EASY/HARD splits are SMCalFlow/TreeDST subsets, not new SQL benchmarks. No package installation, model execution or results reproduced; metric-package licensing is declared in metadata but its referenced LICENSE file was not present."
   }
 ]

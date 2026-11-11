@@ -6,7 +6,7 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **97 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **98 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
@@ -98,6 +98,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2024 | [Sphinteract: Resolving Ambiguities in NL2SQL Through User Interaction](notes/sphinteract.md) | Full paper read |
 | 2024 | [TrustSQL: Benchmarking Text-to-SQL Reliability with Penalty-Based Scoring](notes/trustsql.md) | Full paper read |
 | 2023 | [Benchmarking and Improving Text-to-SQL Generation under Ambiguity](notes/ambiqt.md) | Full paper read |
+| 2023 | [Calibrated Interpretation: Confidence Estimation in Semantic Parsing](notes/calibrated-interpretation.md) | Full paper read |
 | 2023 | [Data Ambiguity Strikes Back: How Documentation Improves GPT’s Text-to-SQL](notes/data-ambiguity-documentation.md) | Full paper read |
 | 2023 | [Know What I don’t Know: Handling Ambiguous and Unanswerable Questions for Text-to-SQL](notes/dte-noisysp.md) | Full paper read |
 | 2023 | [Non-Programmers Can Label Programs Indirectly via Active Examples: A Case Study with Text-to-SQL](notes/apel.md) | Full paper read |

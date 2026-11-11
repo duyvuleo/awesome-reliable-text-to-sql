@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-12
+
+- Added a complete reading of Calibrated Interpretation (TACL 2023), separating teacher-forced token confidence, generated-program confidence, exact-match labels and the specific Spider test-suite analysis.
+- Added the associated calibration-metric tool with explicit API-documentation and licensing-verification limits. No new SQL dataset was counted from its dialogue-only challenge subsets.
+- Recorded scope exclusions and retained a clarification prototype as a lead pending end-to-end outcome evidence; prior catalog records and check dates remain unchanged.
+
 ## 2026-11-11
 
 - Added two fully reviewed papers on sub-clause confidence calibration and policy-conditioned SQL/refusal, with detailed notes and six source-located checks. The catalog now contains 100 papers.

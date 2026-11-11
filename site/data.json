@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-11",
-  "updated": "2026-11-11",
+  "checked": "2026-11-12",
+  "updated": "2026-11-12",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 100,
+    "paper": 101,
     "system": 16,
-    "tool": 19,
+    "tool": 20,
     "benchmark": 33
   },
   "categories": {
@@ -2365,6 +2365,34 @@
       "kinds": [
         "benchmark",
         "paper"
+      ],
+      "years": [
+        2023
+      ]
+    },
+    {
+      "id": "calibrated-interpretation",
+      "name": "Calibrated Interpretation: Confidence Estimation in Semantic Parsing",
+      "date": "2023",
+      "year": 2023,
+      "kind": "paper",
+      "summary": "Audits raw token and program confidence across semantic parsers, including Spider and CoSQL. SQL models appear more overconfident than dialogue parsers, while a separate Spider test-suite comparison reduces measured SQL overconfidence relative to exact matching. Teacher-forced token diagnostics, generated-sequence confidence and correctness metrics must remain distinct; clarification and safe-abstention policies are not evaluated.",
+      "entry_ids": [
+        "calibrated-interpretation",
+        "calibration-metric-tool"
+      ],
+      "themes": [
+        "calibration",
+        "evaluation",
+        "semantic-parsing",
+        "uncertainty"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper",
+        "tool"
       ],
       "years": [
         2023
@@ -8818,6 +8846,73 @@
       "work_id": "pcc-sql"
     },
     {
+      "id": "calibrated-interpretation",
+      "name": "Calibrated Interpretation: Confidence Estimation in Semantic Parsing",
+      "kind": "paper",
+      "year": 2023,
+      "date": "2023",
+      "date_label": "Publication year",
+      "summary": "Audits raw token and program confidence across semantic parsers, including Spider and CoSQL. SQL models appear more overconfident than dialogue parsers, while a separate Spider test-suite comparison reduces measured SQL overconfidence relative to exact matching. Teacher-forced token diagnostics, generated-sequence confidence and correctness metrics must remain distinct; clarification and safe-abstention policies are not evaluated.",
+      "tags": [
+        "calibration",
+        "uncertainty",
+        "evaluation",
+        "semantic-parsing"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "TACL 11, 1213–1231 (2023); first preprint November 2022",
+      "status": "Author-linked analysis/MISO code, SQL experiment branch and separate calibration-metric source inspected. Released EASY/HARD splits are SMCalFlow/TreeDST subsets, not new SQL benchmarks. No package installation, model execution or results reproduced; metric-package licensing is declared in metadata but its referenced LICENSE file was not present.",
+      "sources": [
+        "https://aclanthology.org/2023.tacl-1.69/",
+        "https://aclanthology.org/2023.tacl-1.69.pdf",
+        "https://arxiv.org/abs/2211.07443v6",
+        "https://github.com/esteng/calibration_miso",
+        "https://github.com/esteng/calibration_metric",
+        "https://github.com/esteng/semantic_parsing_with_constrained_lm/tree/nl2sql"
+      ],
+      "checked": "2026-11-12",
+      "added_on": "2026-11-12",
+      "url": "https://aclanthology.org/2023.tacl-1.69/",
+      "code_links": [
+        "https://github.com/esteng/calibration_miso"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#calibrated-interpretation",
+      "original": {
+        "id": "calibrated-interpretation",
+        "title": "Calibrated Interpretation: Confidence Estimation in Semantic Parsing",
+        "year": 2023,
+        "publication_status": "TACL 11, 1213–1231 (2023); first preprint November 2022",
+        "primary_url": "https://aclanthology.org/2023.tacl-1.69/",
+        "code_url": "https://github.com/esteng/calibration_miso",
+        "dataset_url": null,
+        "category": "verification",
+        "topics": [
+          "calibration",
+          "uncertainty",
+          "evaluation",
+          "semantic-parsing"
+        ],
+        "scope": "adjacent",
+        "summary": "Audits raw token and program confidence across semantic parsers, including Spider and CoSQL. SQL models appear more overconfident than dialogue parsers, while a separate Spider test-suite comparison reduces measured SQL overconfidence relative to exact matching. Teacher-forced token diagnostics, generated-sequence confidence and correctness metrics must remain distinct; clarification and safe-abstention policies are not evaluated.",
+        "evidence": [
+          "https://aclanthology.org/2023.tacl-1.69/",
+          "https://aclanthology.org/2023.tacl-1.69.pdf",
+          "https://arxiv.org/abs/2211.07443v6",
+          "https://github.com/esteng/calibration_miso",
+          "https://github.com/esteng/calibration_metric",
+          "https://github.com/esteng/semantic_parsing_with_constrained_lm/tree/nl2sql"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/calibrated-interpretation.md",
+        "added_on": "2026-11-12",
+        "checked_on": "2026-11-12",
+        "artifact_status": "Author-linked analysis/MISO code, SQL experiment branch and separate calibration-metric source inspected. Released EASY/HARD splits are SMCalFlow/TreeDST subsets, not new SQL benchmarks. No package installation, model execution or results reproduced; metric-package licensing is declared in metadata but its referenced LICENSE file was not present."
+      },
+      "work_id": "calibrated-interpretation"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -12245,6 +12340,62 @@
         "checked_on": "2026-11-11"
       },
       "work_id": "pcc-sql"
+    },
+    {
+      "id": "calibration-metric-tool",
+      "name": "Semantic parsing calibration metrics",
+      "kind": "tool",
+      "year": 2023,
+      "date": "2023",
+      "date_label": "Latest linked paper year",
+      "summary": "Computes calibration metrics and reliability plots from confidence scores and binary correctness labels, with fixed or adaptive binning and sequence-model logit readers.",
+      "tags": [
+        "calibration",
+        "evaluation",
+        "semantic-parsing",
+        "uncertainty"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "Public metric, plotting and reader modules plus tests inspected at revision 591f55b42820c73c3503a0de0afcf1f7b3b8e1df. Not installed or executed. README call examples reverse the argument order shown by ECEMetric.__call__; verify usage against the source.",
+      "sources": [
+        "https://aclanthology.org/2023.tacl-1.69.pdf",
+        "https://github.com/esteng/calibration_metric",
+        "https://github.com/esteng/calibration_metric/blob/591f55b42820c73c3503a0de0afcf1f7b3b8e1df/calibration_metric/metric.py",
+        "https://github.com/esteng/calibration_metric/blob/591f55b42820c73c3503a0de0afcf1f7b3b8e1df/pyproject.toml",
+        "https://github.com/esteng/calibration_metric/blob/591f55b42820c73c3503a0de0afcf1f7b3b8e1df/README.md"
+      ],
+      "checked": "2026-11-12",
+      "added_on": null,
+      "url": "https://github.com/esteng/calibration_metric",
+      "code_links": [
+        "https://github.com/esteng/calibration_metric"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#calibration-metric-tool",
+      "original": {
+        "id": "calibration-metric-tool",
+        "name": "Semantic parsing calibration metrics",
+        "kind": "tool",
+        "paper_ids": [
+          "calibrated-interpretation"
+        ],
+        "url": "https://github.com/esteng/calibration_metric",
+        "description": "Computes calibration metrics and reliability plots from confidence scores and binary correctness labels, with fixed or adaptive binning and sequence-model logit readers.",
+        "protocol": "Supplied labels define correctness. Token-level versus sequence-level aggregation, binning and weighting must be reported; the library does not determine SQL semantics or certify an abstention policy.",
+        "availability": "Public metric, plotting and reader modules plus tests inspected at revision 591f55b42820c73c3503a0de0afcf1f7b3b8e1df. Not installed or executed. README call examples reverse the argument order shown by ECEMetric.__call__; verify usage against the source.",
+        "license_note": "pyproject.toml declares an MIT classifier and references LICENSE, but no LICENSE file appears in the inspected repository tree and the direct path returns 404. Complete reuse terms were not verified; do not inherit the separate analysis repository’s MIT license.",
+        "evidence": [
+          "https://aclanthology.org/2023.tacl-1.69.pdf",
+          "https://github.com/esteng/calibration_metric",
+          "https://github.com/esteng/calibration_metric/blob/591f55b42820c73c3503a0de0afcf1f7b3b8e1df/calibration_metric/metric.py",
+          "https://github.com/esteng/calibration_metric/blob/591f55b42820c73c3503a0de0afcf1f7b3b8e1df/pyproject.toml",
+          "https://github.com/esteng/calibration_metric/blob/591f55b42820c73c3503a0de0afcf1f7b3b8e1df/README.md"
+        ],
+        "checked_on": "2026-11-12"
+      },
+      "work_id": "calibrated-interpretation"
     }
   ],
   "themes": [
@@ -12261,7 +12412,7 @@
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 26
+      "count": 27
     },
     {
       "id": "unanswerability",
@@ -12274,13 +12425,13 @@
       "count": 20
     },
     {
-      "id": "abstention",
-      "label": "Abstention",
-      "count": 18
-    },
-    {
       "id": "uncertainty",
       "label": "Uncertainty",
+      "count": 19
+    },
+    {
+      "id": "abstention",
+      "label": "Abstention",
       "count": 18
     },
     {
@@ -12314,6 +12465,11 @@
       "count": 6
     },
     {
+      "id": "calibration",
+      "label": "Calibration",
+      "count": 6
+    },
+    {
       "id": "error-detection",
       "label": "Error detection",
       "count": 6
@@ -12326,11 +12482,6 @@
     {
       "id": "answerability",
       "label": "Answerability",
-      "count": 5
-    },
-    {
-      "id": "calibration",
-      "label": "Calibration",
       "count": 5
     },
     {
@@ -12611,6 +12762,11 @@
     {
       "id": "semantic-drift",
       "label": "Semantic drift",
+      "count": 1
+    },
+    {
+      "id": "semantic-parsing",
+      "label": "Semantic parsing",
       "count": 1
     },
     {
