@@ -6,7 +6,7 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **98 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **101 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
@@ -65,6 +65,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [TACO: A Benchmark for Open-Domain Text-to-SQL with Ambiguous and Cross-Database Queries](notes/taco.md) | Full paper read |
 | 2026 | [Text-to-SQL Models Make Choices Without Saying So](notes/specbridge.md) | Full paper read |
 | 2026 | [TraceSQL: Traceable Answerability Estimation for Reference-Free Text-to-SQL Verification](notes/tracesql.md) | Full paper read |
+| 2026 | [Tracing Recurrent and Emergent Hallucination Patterns in Decomposed Text-to-SQL Generation](notes/drilldown-hallucinations.md) | Full paper read |
 | 2026 | [Trajectory-Derived Confidence for Reliable, Resource-Aware Clinical Text-to-SQL Agents](notes/sentinel.md) | Full paper read |
 | 2026 | [Verifying Text-to-SQL Queries under Changing Business Semantics](notes/changing-business-semantics.md) | Full paper read |
 | 2026 | [What Is a Clarification? Estimating Model-Dependent Input Ambiguity](notes/circleclar.md) | Full paper read |
@@ -91,9 +92,11 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2025 | [Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows](notes/spider2.md) | Full paper read |
 | 2025 | [SQLens: An End-to-End Framework for Error Detection and Correction in Text-to-SQL](notes/sqlens.md) | Full paper read |
 | 2025 | [SQUAB: Evaluating LLM robustness to Ambiguous and Unanswerable Questions in Semantic Parsing](notes/squab.md) | Full paper read |
+| 2025 | [The Case for Intent-Based Query Rewriting](notes/inqure.md) | Full paper read |
 | 2025 | [The Consistency Hypothesis in Uncertainty Quantification for Large Language Models](notes/consistency-hypothesis.md) | Full paper read |
 | 2024 | [AMBROSIA: A Benchmark for Parsing Ambiguous Questions into Database Queries](notes/ambrosia.md) | Full paper read |
 | 2024 | [MultiSQL: A Schema-Integrated Context-Dependent Text2SQL Dataset with Diverse SQL Operations](notes/multisql.md) | Full paper read |
+| 2024 | [NL2SQL is a solved problem... Not!](notes/nl2sql-not-solved.md) | Full paper read |
 | 2024 | [Overview of the EHRSQL 2024 Shared Task on Reliable Text-to-SQL Modeling on Electronic Health Records](notes/ehrsql-2024.md) | Full paper read |
 | 2024 | [Sphinteract: Resolving Ambiguities in NL2SQL Through User Interaction](notes/sphinteract.md) | Full paper read |
 | 2024 | [TrustSQL: Benchmarking Text-to-SQL Reliability with Penalty-Based Scoring](notes/trustsql.md) | Full paper read |

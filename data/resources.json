@@ -358,13 +358,15 @@
     "description": "Searches for database counterexamples to candidate/reference SQL equivalence using bounded verification and database constraints.",
     "protocol": "Bounded equivalence or counterexample generation; conclusions depend on supported SQL, search bounds, and constraint validity.",
     "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
-    "license_note": "License file exists; exact terms and submodule licenses not verified.",
+    "license_note": "Root SpotIt+ source uses the modified BSD three-clause license. The VeriEQL submodule and other dependencies have separate terms not verified in this check.",
     "evidence": [
       "https://github.com/ai-ar-research/SpotIt-plus",
       "https://arxiv.org/abs/2510.26840",
-      "https://arxiv.org/abs/2603.04334"
+      "https://arxiv.org/abs/2603.04334",
+      "https://github.com/ai-ar-research/SpotIt-plus/blob/abee2baa26b2b50398c1807a46b2db126d2dda97/LICENSE",
+      "https://github.com/ai-ar-research/SpotIt-plus/blob/abee2baa26b2b50398c1807a46b2db126d2dda97/.gitmodules"
     ],
-    "checked_on": "2026-10-22"
+    "checked_on": "2026-11-13"
   },
   {
     "id": "parseval-tool",
@@ -1297,5 +1299,65 @@
       "https://github.com/esteng/calibration_metric/blob/591f55b42820c73c3503a0de0afcf1f7b3b8e1df/README.md"
     ],
     "checked_on": "2026-11-12"
+  },
+  {
+    "id": "archerfish",
+    "name": "Archerfish",
+    "kind": "tool",
+    "paper_ids": [
+      "nl2sql-not-solved"
+    ],
+    "url": "https://github.com/archerfish-bench/benchmark",
+    "description": "NL2SQL benchmarking framework with adapters, workload specifications, reports and configurable comparison of generated and reference query results.",
+    "protocol": "Its relaxed comparison can accept alternative output columns and ignore row order; this evaluates a chosen acceptance policy rather than proving SQL equivalence or identifying the user’s intended interpretation. The inspected default comparator also conditionally removes duplicates, rounds numbers and treats NULL/None and zero as matching.",
+    "availability": "Public driver, adapters, comparator, tests and example workloads inspected at revision 620fbcc4cff11dfbc8d17db20fc762073b43afa3. No installation, database execution or reproduction performed. README comparison rules differ from implementation details; inspect the pinned source before reuse.",
+    "license_note": "Apache-2.0 license verified in the repository LICENSE file; dependency and workload-data terms require separate checks.",
+    "evidence": [
+      "https://www.vldb.org/cidrdb/papers/2024/p74-floratou.pdf",
+      "https://github.com/archerfish-bench/benchmark",
+      "https://github.com/archerfish-bench/benchmark/blob/620fbcc4cff11dfbc8d17db20fc762073b43afa3/src/benchmark/utils/result_set_match.py",
+      "https://github.com/archerfish-bench/benchmark/blob/620fbcc4cff11dfbc8d17db20fc762073b43afa3/README.md",
+      "https://github.com/archerfish-bench/benchmark/blob/620fbcc4cff11dfbc8d17db20fc762073b43afa3/LICENSE"
+    ],
+    "checked_on": "2026-11-13"
+  },
+  {
+    "id": "inqure-system",
+    "name": "InQuRe",
+    "kind": "system",
+    "paper_ids": [
+      "inqure"
+    ],
+    "url": "https://github.com/dbislab/InQuRe",
+    "description": "SQL-to-SQL candidate reformulation over available table schemas, using table filtering, inferred intent, join pruning and ranking of related analytical alternatives.",
+    "protocol": "Input is an SQL query plus available schemas. The system permits meaning-changing substitutes, so ranked intent similarity is not semantic equivalence or verified recovery of the original request. The paper evaluates human judgments and rewrite latency, not populated-database result correctness or speedup; no user clarification/refusal policy is evaluated.",
+    "availability": "Public implementation and schema/example resource listings verified at commit 61c48e36a7cd5cf81e7cd56257ef9631e572a861. Source includes rewriting, ranking, executability checks, correction and tests; none was run. README says user-study data were not uploaded. Natural-language requests are explicitly rejected by the checked main program; listed DuckDB files were not downloaded.",
+    "license_note": "No repository license file found in the full 52-file tree; root LICENSE returned HTTP 404 and GitHub license metadata was null. Reuse terms remain unverified. The paper's CC BY-NC-ND 4.0 notice does not establish code or derived-data licensing.",
+    "evidence": [
+      "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/DATAI/DATAI25_5.pdf",
+      "https://github.com/dbislab/InQuRe/tree/61c48e36a7cd5cf81e7cd56257ef9631e572a861",
+      "https://github.com/dbislab/InQuRe/blob/61c48e36a7cd5cf81e7cd56257ef9631e572a861/README.md",
+      "https://github.com/dbislab/InQuRe/blob/61c48e36a7cd5cf81e7cd56257ef9631e572a861/query_rewriting/main.py"
+    ],
+    "checked_on": "2026-11-13"
+  },
+  {
+    "id": "drilldown-hallucination-diagnostics",
+    "name": "BIRD-mini drill-down diagnostics",
+    "kind": "tool",
+    "paper_ids": [
+      "drilldown-hallucinations"
+    ],
+    "url": "https://github.com/HaydenMM/bird-mini-drilldown",
+    "description": "Progressive SQL decomposition and analysis of recurrent versus emergent rule-based error categories, with saved model generations and annotations.",
+    "protocol": "Offline schema/reference-dependent diagnosis over BIRD-mini paths, including comparisons with prior conversational history. Heuristic structural labels can flag equivalent alternatives; conditional category recurrence is not causal error propagation or calibrated confidence.",
+    "availability": "Public decomposition/prompting and execution-evaluation scripts, analysis notebooks, figures, saved generations and annotation JSON inspected at revision 9050803cada1a0750d783685a2508c95fc45e3b0. Underlying BIRD databases require a separate upstream download. Not executed or independently reproduced.",
+    "license_note": "No repository license file verified; upstream BIRD data terms remain separate.",
+    "evidence": [
+      "https://aclanthology.org/2026.uncertainlp-main.40.pdf",
+      "https://github.com/HaydenMM/bird-mini-drilldown/tree/9050803cada1a0750d783685a2508c95fc45e3b0",
+      "https://github.com/HaydenMM/bird-mini-drilldown/blob/9050803cada1a0750d783685a2508c95fc45e3b0/llm/mini_dev_data/README.md"
+    ],
+    "checked_on": "2026-11-13"
   }
 ]

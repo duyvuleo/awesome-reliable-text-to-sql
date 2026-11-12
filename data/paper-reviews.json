@@ -890,6 +890,47 @@
     ]
   },
   {
+    "paper_id": "drilldown-hallucinations",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-13",
+    "source_url": "https://aclanthology.org/2026.uncertainlp-main.40.pdf",
+    "version": "UncertaiNLP 2026 proceedings, pages 672–682; 11-page workshop paper",
+    "coverage": "All 11 PDF pages: Sections 1–9, limitations, references, Appendices A–D, all six annotation-rule definitions, prompts, Figures 1–5 and Tables 1–3. Visually inspected the workflow, category distribution, conditional-probability plots and final execution table on PDF pages 3, 5, 6, 7 and 11. Separately inspected the paper-linked public artifact inventory and evaluation-script/annotation structure.",
+    "unread": [],
+    "problem": "Final-query scores obscure whether an error category was already observed on simpler components or appears only when the complete query is generated.",
+    "method": "Deterministically decomposes reference SQL into executable sub-queries, generates corresponding questions with GPT-4o-mini, and compares predictions with schema and reference structure. Six heuristic categories receive recurrent or emergent labels according to earlier category detection within the path.",
+    "evaluation": "Expands 500 PostgreSQL BIRD-mini cases into 1,384 question–query pairs and evaluates five commercial models with and without prior questions and generations. Reports conditional category probabilities, execution accuracy and result-overlap Soft-F1.",
+    "findings": "History is generally associated with higher conditional recurrence and lower emergence, with model/category exceptions. Mean final-query execution accuracy changes from 38.28% without history to 37.56% with history, while individual model directions differ.",
+    "limitations": "Generated questions lack independent human equivalence validation. Rules can flag valid alternative SQL and have not been comprehensively checked against expert judgments. Category recurrence does not identify the same error instance or causal propagation. A single benchmark and changing commercial APIs limit transfer and regeneration; no calibrated uncertainty, ambiguity-handling policy or mitigation intervention is evaluated.",
+    "relevance": "Provides an inspectable trajectory diagnostic for evaluating verification and history-selection hypotheses, with explicit separation of operational labels, semantic correctness and causal explanations.",
+    "claims": [
+      {
+        "claim": "Recurrence quantifies the fraction of final errors caused by earlier errors.",
+        "evidence": "The measured quantity is P(category in final step | category detected earlier), not the reverse conditional; the authors explicitly state that no causal mechanism is identified.",
+        "locator": "Sections 4 and 7.1, pages 674 and 676; Limitations, page 679",
+        "disposition": "Retain descriptive category-level association only; neither origin attribution nor causal propagation follows."
+      },
+      {
+        "claim": "The deterministic hallucination labels establish semantic incorrectness.",
+        "evidence": "Appendix B flags extra valid columns, clauses, casts and joins relative to one reference, as well as selected wildcard/backtick patterns. Sections 5.1–5.2 disclose unvalidated generated questions and operational rather than human-validated labels.",
+        "locator": "Sections 5.1–5.2, page 675; Appendices A–B, pages 680–682",
+        "disposition": "Describe reference-sensitive structural heuristics, not definitive semantic gold labels or a complete error detector."
+      },
+      {
+        "claim": "Adding history reduces uncertainty or uniformly improves reliability.",
+        "evidence": "Figures 4–5 show opposite movements for recurrence and emergence and exceptions close to zero; Table 3 contains both positive and negative EX changes. Section 8.1 explicitly says confidence, predictive entropy and epistemic uncertainty are not measured.",
+        "locator": "Sections 7.3–8.2; Figures 4–5, pages 677–678; Appendix D/Table 3, page 682",
+        "disposition": "Report the conditional-history pattern and model dependence, without a calibrated-uncertainty or tested-mitigation claim."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Paper-linked evaluation artifacts at inspected revision",
+        "url": "https://github.com/HaydenMM/bird-mini-drilldown/tree/9050803cada1a0750d783685a2508c95fc45e3b0"
+      }
+    ]
+  },
+  {
     "paper_id": "dsabench",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-09",
@@ -1212,6 +1253,59 @@
         "evidence": "Human validation of source requirements differs from the scoring audit: the latter covers one trajectory for each of three models, with 36/51 recovery-label agreements.",
         "locator": "Appendix C, Table 8",
         "disposition": "State the narrow audit and residual judge uncertainty; do not generalize its bias direction to the full cohort."
+      }
+    ]
+  },
+  {
+    "paper_id": "inqure",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-13",
+    "source_url": "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/DATAI/DATAI25_5.pdf",
+    "version": "Official DATAI 2025 workshop PDF hosted by VLDB, 10 pages; no appended supplement.",
+    "coverage": "All 10 PDF pages: Sections 1–7, Listings 1–5, complete displayed prompts, all figure captions and references. Quality, retrieval, runtime and token-cost plots in Figures 3–11 on pages 7–9 were visually inspected. Official README and limited source text were separately inspected at the pinned artifact revision.",
+    "unread": [],
+    "problem": "A SQL request may reference inaccessible or unavailable tables while other available sources could support a related analytical goal.",
+    "method": "InQuRe filters candidate tables, prompts GPT-4o for diverse SQL alternatives directly or through an inferred natural-language intent, prunes implausible joins, ranks using embedding or LLM similarity with optional MMR, and repairs executability errors.",
+    "evaluation": "The study uses 957 Spider-derived table schemas across 138 domains, ten authored SQL queries and three raters per candidate. Majority judgments define perceived intent preservation. Quality requests five rewrites per query; separate runtime experiments request ten. Runtime measures rewriting components, not execution over populated tables.",
+    "findings": "LLM-based filtering and intent-mediated rewriting outperform the tested embedding-filter configurations on judged rewrite quality. Failures include unusable joins, omitted constraints and unsuitable proxy attributes. LLM similarity improves ranking at added rewrite cost; schema-based correction does not establish result correctness.",
+    "limitations": "Different result sets and correlated substitutes are permitted by design, without a formal or empirical semantic-equivalence guarantee. No actual-data answer validation or query-speedup study is reported. One model, ten inputs and sparsely documented rater protocol limit generalization; user-study annotations are not released. Natural-language input is unsupported in the checked code.",
+    "relevance": "An adjacent source-recovery design showing how an unavailable request can be reformulated. Such proposals should remain distinguishable from answering the original intent, detecting intrinsic unanswerability, or obtaining user approval for changed assumptions.",
+    "claims": [
+      {
+        "claim": "Intent-based rewrites preserve the original query's answer semantics.",
+        "evidence": "The introduction explicitly permits different tuples and gives proxy examples such as income or property prices instead of land values. Sections 4–5 score relatedness using model or embedding judgments, not an equivalence proof.",
+        "locator": "Section 1 and Figure 1/Listings 1–2, PDF pages 1–2; Sections 4.2 and 5.2, pages 4–6",
+        "disposition": "Describe related analytical alternatives rather than semantically equivalent answers; actual source relationships and user acceptance are not established by the examples."
+      },
+      {
+        "claim": "The experiments demonstrate faster query execution or correct results on real data.",
+        "evidence": "Section 6's Runtime paragraph explicitly excludes executing originals and rewrites over actual data tables; Section 7 leaves query-speedup evaluation to future work. Section 5.3 and the code nevertheless perform executability checks and error correction.",
+        "locator": "Section 6, PDF page 7; Section 7, page 10; Section 5.3, page 6",
+        "disposition": "Report schema-based rewrite judgments and rewriting latency only. Avoid the stronger, inaccurate assertion that the implementation never executes SQL."
+      },
+      {
+        "claim": "The natural-language rewriting variant is an evaluated NL2SQL interface.",
+        "evidence": "Section 4.2 derives a natural-language intent from the supplied SQL before generating alternatives. The evaluation starts from ten authored SQL queries; the pinned main.py rejects Natural Language inputs.",
+        "locator": "Sections 4.2 and 6, PDF pages 5–6; official README Usage and query_rewriting/main.py around lines 232–239",
+        "disposition": "SQL-to-SQL reformulation with an internal natural-language step, not measured NL2SQL or interactive clarification."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Official implementation snapshot",
+        "url": "https://github.com/dbislab/InQuRe/tree/61c48e36a7cd5cf81e7cd56257ef9631e572a861"
+      },
+      {
+        "label": "Release notes and withheld user-study data",
+        "url": "https://github.com/dbislab/InQuRe/blob/61c48e36a7cd5cf81e7cd56257ef9631e572a861/README.md"
+      },
+      {
+        "label": "Natural-language input guard",
+        "url": "https://github.com/dbislab/InQuRe/blob/61c48e36a7cd5cf81e7cd56257ef9631e572a861/query_rewriting/main.py"
+      },
+      {
+        "label": "Executability-check implementation",
+        "url": "https://github.com/dbislab/InQuRe/blob/61c48e36a7cd5cf81e7cd56257ef9631e572a861/query_rewriting/input_processor/check_executability.py"
       }
     ]
   },
@@ -1596,6 +1690,61 @@
         "evidence": "Section 2 includes current-instance accidental agreement as an error, but Section 4.2 assigns correctness primarily through execution-result matching.",
         "locator": "Sections 2.1 and 4.2",
         "disposition": "Retain the instance/reference-bound labeling limitation."
+      }
+    ]
+  },
+  {
+    "paper_id": "nl2sql-not-solved",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-13",
+    "source_url": "https://www.vldb.org/cidrdb/papers/2024/p74-floratou.pdf",
+    "version": "CIDR 2024 proceedings PDF; eight pages",
+    "coverage": "All eight pages: Sections 1–6, definitions, experiments, metric rules, limitations and references. Figures 1–4 and their captions were inspected in rendered pages 2, 4, 6 and 7. The PDF contains no appendix. The linked public tool was inspected separately without execution.",
+    "unread": [],
+    "additional_sources": [
+      {
+        "label": "CIDR proceedings record",
+        "url": "https://vldb.org/cidrdb/2024/nl2sql-is-a-solved-problem-not.html"
+      },
+      {
+        "label": "Archerfish comparator at inspected revision",
+        "url": "https://github.com/archerfish-bench/benchmark/blob/620fbcc4cff11dfbc8d17db20fc762073b43afa3/src/benchmark/utils/result_set_match.py"
+      },
+      {
+        "label": "Archerfish README at inspected revision",
+        "url": "https://github.com/archerfish-bench/benchmark/blob/620fbcc4cff11dfbc8d17db20fc762073b43afa3/README.md"
+      }
+    ],
+    "problem": "Single-reference evaluation can reject plausible interpretations of an underspecified question, while a system may generate SQL even when the database cannot supply the requested information.",
+    "method": "Defines ambiguity through multiple acceptable, non-equivalent SQL interpretations. Probes ambiguity with two annotators and prompted GPT-3.5/GPT-4, and probes semantic mismatch by pairing questions with an unrelated database. Proposes relaxed execution matching based on row order, extra output columns and alternative candidate keys, implemented through the Archerfish framework.",
+    "evaluation": "The ambiguity study covers 272 KaggleDBQA questions and marks a question ambiguous when either annotator does. The mismatch experiment sends Spider questions to the KaggleDBQA crime database with two prompt examples. Metric comparisons use GPT-4 on three Spider databases; additional preliminary studies concern schema selection, demographic-column detection and multilingual/dialect behavior.",
+    "findings": "The union of two annotators flags 112 questions; Figure 2 reports 62.1% human agreement and 65.8% GPT-4/human agreement. These are agreement rates, not correctness scores. Relaxed matching accepts more outputs than execution matching on the three illustrated databases, showing sensitivity to evaluator rules. The mismatch result concerns a deliberately unrelated-schema setup.",
+    "limitations": "A position paper with small or selectively reported studies, historical models and informal customer input rather than a controlled intent-satisfaction study. A higher score under a more permissive metric does not demonstrate better SQL generation. The metric remains tied to one database instance and selected relaxation rules. The public article also discusses nonpublic safety experiments; those results were not independently accessible or reproduced.",
+    "relevance": "Provides historical evidence and definitions directly relevant to ambiguity, answerability and evaluator design, together with an inspectable example of how intent-oriented relaxations change accepted answers.",
+    "claims": [
+      {
+        "claim": "The ambiguity study establishes a reliable accuracy benchmark for detection.",
+        "evidence": "Section 3.1 uses the union of two annotators to flag 112 of 272 questions. Figure 2 reports agreement, and the authors explicitly decline to interpret precision/recall given substantial annotator disagreement.",
+        "locator": "Section 3.1, pp. 3–4; Figure 2",
+        "disposition": "Useful evidence of annotation uncertainty, not an adjudicated detection gold standard."
+      },
+      {
+        "claim": "Successful mismatch detection establishes general unanswerability detection.",
+        "evidence": "The experiment pairs Spider questions with one unrelated crime database and supplies positive/negative prompt examples. The partial semantic mismatch example is illustrative, not a separately reported evaluation of missing attributes or subtly incompatible meanings.",
+        "locator": "Section 3.2, p. 4",
+        "disposition": "Keep the unrelated-schema setting separate from general answerability or interactive recovery."
+      },
+      {
+        "claim": "Intent-based execution matching proves a query preserves the intended semantics.",
+        "evidence": "Section 4 allows specified order, projection and candidate-key differences; footnote 5 acknowledges that execution agreement on one instance is only a proxy. Figure 3 shows more outputs accepted by this changed metric, without an independent user-intent correctness study.",
+        "locator": "Section 4, p. 5, rules 1–3 and footnote 5; Section 4.1/Figure 3, p. 6",
+        "disposition": "A pragmatic evaluation heuristic, not equivalence certification or demonstrated improvement in user satisfaction."
+      },
+      {
+        "claim": "The released comparator is a neutral strict correctness oracle.",
+        "evidence": "The default intent path searches rows without ordering, conditionally removes duplicates, rounds numeric comparisons to one decimal and matches None with zero. These implementation rules extend beyond the paper’s three stated relaxations; README rounding and case-insensitivity wording do not exactly match the inspected code.",
+        "locator": "Archerfish revision 620fbcc4cff11dfbc8d17db20fc762073b43afa3: compare_results, is_match, remove_duplicates; README Benchmark Result Comparison",
+        "disposition": "Report the configured comparison semantics. Static source inspection only; no runtime behavior or benchmark results reproduced."
       }
     ]
   },

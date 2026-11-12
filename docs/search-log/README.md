@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-11-13: ambiguity, unavailable-source reformulation and evaluator limits](2026-11-13.md)
+
 - [2026-11-12: calibration measurement and clarification-system screening](2026-11-12.md)
 
 - [2026-11-11: sub-clause calibration and policy-conditioned refusal](2026-11-11.md)

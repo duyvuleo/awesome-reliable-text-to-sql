@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-13
+
+- Added three full-paper readings: the CIDR 2024 ambiguity/semantic-mismatch study, InQuRe on unavailable-source reformulation, and UncertaiNLP 2026 drill-down error diagnostics. The catalog now contains 104 papers, with 101 complete readings and three explicit access gaps.
+- Added Archerfish, InQuRe and BIRD-mini drill-down resources, distinguishing relaxed matching, meaning-changing alternatives and heuristic error labels from semantic correctness. No new dataset count was added.
+- Verified the root source licenses for RAQS-SQL and SpotIt+, preserving separate dependency/data terms, original addition dates and article-reading status.
+
 ## 2026-11-12
 
 - Added a complete reading of Calibrated Interpretation (TACL 2023), separating teacher-forced token confidence, generated-program confidence, exact-match labels and the specific Spider test-suite analysis.

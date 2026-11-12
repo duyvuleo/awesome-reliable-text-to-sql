@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-12",
-  "updated": "2026-11-12",
+  "checked": "2026-11-13",
+  "updated": "2026-11-13",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 101,
-    "system": 16,
-    "tool": 20,
+    "paper": 104,
+    "system": 17,
+    "tool": 22,
     "benchmark": 33
   },
   "categories": {
@@ -1498,6 +1498,33 @@
       ]
     },
     {
+      "id": "drilldown-hallucinations",
+      "name": "Tracing Recurrent and Emergent Hallucination Patterns in Decomposed Text-to-SQL Generation",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Decomposes BIRD-mini SQL into executable sub-query paths and diagnoses six rule-based error categories across five models, with and without prior history. Separates categories recurring at the final step from those first detected there. Labels are reference-sensitive structural heuristics, not definitive semantic judgments; conditional recurrence is neither causal error propagation nor calibrated uncertainty, and no mitigation is tested.",
+      "entry_ids": [
+        "drilldown-hallucinations",
+        "drilldown-hallucination-diagnostics"
+      ],
+      "themes": [
+        "conversation",
+        "evaluation",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper",
+        "tool"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "sentinel",
       "name": "Trajectory-Derived Confidence for Reliable, Resource-Aware Clinical Text-to-SQL Agents",
       "date": "2026",
@@ -2186,6 +2213,34 @@
       ]
     },
     {
+      "id": "inqure",
+      "name": "The Case for Intent-Based Query Rewriting",
+      "date": "2025",
+      "year": 2025,
+      "kind": "paper",
+      "summary": "Proposes alternative SQL over available schemas when a query's original tables are inaccessible, allowing different results that raters consider useful for a similar analytical goal. Ten authored SQL queries and three-rater judgments test rewrite plausibility across 957 table schemas. Actual-data answer correctness and query-execution speed are not evaluated; correlated substitutes do not guarantee semantic equivalence or faithful recovery of the original request.",
+      "entry_ids": [
+        "inqure",
+        "inqure-system"
+      ],
+      "themes": [
+        "answerability",
+        "context",
+        "database-retrieval",
+        "query-rewriting"
+      ],
+      "categories": [
+        "context"
+      ],
+      "kinds": [
+        "paper",
+        "system"
+      ],
+      "years": [
+        2025
+      ]
+    },
+    {
       "id": "consistency-hypothesis",
       "name": "The Consistency Hypothesis in Uncertainty Quantification for Large Language Models",
       "date": "2025",
@@ -2257,6 +2312,34 @@
       "kinds": [
         "benchmark",
         "paper"
+      ],
+      "years": [
+        2024
+      ]
+    },
+    {
+      "id": "nl2sql-not-solved",
+      "name": "NL2SQL is a solved problem... Not!",
+      "date": "2024",
+      "year": 2024,
+      "kind": "paper",
+      "summary": "Studies ambiguity and semantic mismatch in enterprise NL2SQL, including a two-annotator KaggleDBQA audit and questions paired with an unrelated database. Introduces Archerfish and a relaxed execution metric that permits selected output differences. Agreement is not ambiguity-detection accuracy, the mismatch test does not establish general answerability, and relaxed matching is not semantic equivalence.",
+      "entry_ids": [
+        "nl2sql-not-solved",
+        "archerfish"
+      ],
+      "themes": [
+        "ambiguity",
+        "enterprise",
+        "evaluation",
+        "unanswerability"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "kinds": [
+        "paper",
+        "tool"
       ],
       "years": [
         2024
@@ -5412,15 +5495,16 @@
         "ambiguity"
       ],
       "evidence": "IEEE TKDE Early Access",
-      "status": "Official code repository names the paper and DOI and exposes source/configuration/evaluation directories; code was not executed. Full article could not be read through the publisher verification gate or located in checked public alternatives. The repository displays an MIT license link, but complete license terms were not re-read in this pass.",
+      "status": "Official code repository names the paper and DOI and exposes source/configuration/evaluation directories; code was not executed. The root source license was verified as MIT; vendored baselines, models and datasets have separate terms not verified in this check. Full article could not be read through the publisher verification gate or located in checked public alternatives.",
       "sources": [
         "https://ieeexplore.ieee.org/abstract/document/11720244",
         "https://huggingface.co/collections/griffith-bigdata/raqs-sql",
         "https://huggingface.co/datasets/griffith-bigdata/ambival",
         "https://ieeexplore.ieee.org/document/11720244",
-        "https://github.com/pminhtam/RAQS-SQL"
+        "https://github.com/pminhtam/RAQS-SQL",
+        "https://github.com/pminhtam/RAQS-SQL/blob/ca90d0b3c91afc83028707f1fa0c8471af9a129e/LICENSE"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-11-13",
       "added_on": "2026-10-22",
       "url": "https://ieeexplore.ieee.org/abstract/document/11720244",
       "code_links": [
@@ -5448,12 +5532,13 @@
           "https://huggingface.co/collections/griffith-bigdata/raqs-sql",
           "https://huggingface.co/datasets/griffith-bigdata/ambival",
           "https://ieeexplore.ieee.org/document/11720244",
-          "https://github.com/pminhtam/RAQS-SQL"
+          "https://github.com/pminhtam/RAQS-SQL",
+          "https://github.com/pminhtam/RAQS-SQL/blob/ca90d0b3c91afc83028707f1fa0c8471af9a129e/LICENSE"
         ],
-        "checked_on": "2026-11-09",
+        "checked_on": "2026-11-13",
         "category": "ambiguity",
         "source_depth": "primary-record",
-        "artifact_status": "Official code repository names the paper and DOI and exposes source/configuration/evaluation directories; code was not executed. Full article could not be read through the publisher verification gate or located in checked public alternatives. The repository displays an MIT license link, but complete license terms were not re-read in this pass.",
+        "artifact_status": "Official code repository names the paper and DOI and exposes source/configuration/evaluation directories; code was not executed. The root source license was verified as MIT; vendored baselines, models and datasets have separate terms not verified in this check. Full article could not be read through the publisher verification gate or located in checked public alternatives.",
         "added_on": "2026-10-22",
         "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/raqs-sql.md"
       },
@@ -8913,6 +8998,187 @@
       "work_id": "calibrated-interpretation"
     },
     {
+      "id": "nl2sql-not-solved",
+      "name": "NL2SQL is a solved problem... Not!",
+      "kind": "paper",
+      "year": 2024,
+      "date": "2024",
+      "date_label": "Publication year",
+      "summary": "Studies ambiguity and semantic mismatch in enterprise NL2SQL, including a two-annotator KaggleDBQA audit and questions paired with an unrelated database. Introduces Archerfish and a relaxed execution metric that permits selected output differences. Agreement is not ambiguity-detection accuracy, the mismatch test does not establish general answerability, and relaxed matching is not semantic equivalence.",
+      "tags": [
+        "ambiguity",
+        "unanswerability",
+        "evaluation",
+        "enterprise"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "CIDR 2024; position paper with preliminary empirical studies",
+      "status": "Archerfish driver, adapters, result comparator, tests, workload examples and Apache-2.0 license inspected at a pinned public revision. No project code executed or results reproduced; no separately released ambiguity/answerability annotations verified.",
+      "sources": [
+        "https://vldb.org/cidrdb/2024/nl2sql-is-a-solved-problem-not.html",
+        "https://www.vldb.org/cidrdb/papers/2024/p74-floratou.pdf",
+        "https://github.com/archerfish-bench/benchmark",
+        "https://github.com/archerfish-bench/benchmark/blob/620fbcc4cff11dfbc8d17db20fc762073b43afa3/src/benchmark/utils/result_set_match.py"
+      ],
+      "checked": "2026-11-13",
+      "added_on": "2026-11-13",
+      "url": "https://vldb.org/cidrdb/2024/nl2sql-is-a-solved-problem-not.html",
+      "code_links": [
+        "https://github.com/archerfish-bench/benchmark"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#nl2sql-not-solved",
+      "original": {
+        "id": "nl2sql-not-solved",
+        "title": "NL2SQL is a solved problem... Not!",
+        "year": 2024,
+        "publication_status": "CIDR 2024; position paper with preliminary empirical studies",
+        "primary_url": "https://vldb.org/cidrdb/2024/nl2sql-is-a-solved-problem-not.html",
+        "code_url": "https://github.com/archerfish-bench/benchmark",
+        "dataset_url": null,
+        "category": "ambiguity",
+        "scope": "core",
+        "topics": [
+          "ambiguity",
+          "unanswerability",
+          "evaluation",
+          "enterprise"
+        ],
+        "summary": "Studies ambiguity and semantic mismatch in enterprise NL2SQL, including a two-annotator KaggleDBQA audit and questions paired with an unrelated database. Introduces Archerfish and a relaxed execution metric that permits selected output differences. Agreement is not ambiguity-detection accuracy, the mismatch test does not establish general answerability, and relaxed matching is not semantic equivalence.",
+        "evidence": [
+          "https://vldb.org/cidrdb/2024/nl2sql-is-a-solved-problem-not.html",
+          "https://www.vldb.org/cidrdb/papers/2024/p74-floratou.pdf",
+          "https://github.com/archerfish-bench/benchmark",
+          "https://github.com/archerfish-bench/benchmark/blob/620fbcc4cff11dfbc8d17db20fc762073b43afa3/src/benchmark/utils/result_set_match.py"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/nl2sql-not-solved.md",
+        "added_on": "2026-11-13",
+        "checked_on": "2026-11-13",
+        "artifact_status": "Archerfish driver, adapters, result comparator, tests, workload examples and Apache-2.0 license inspected at a pinned public revision. No project code executed or results reproduced; no separately released ambiguity/answerability annotations verified."
+      },
+      "work_id": "nl2sql-not-solved"
+    },
+    {
+      "id": "inqure",
+      "name": "The Case for Intent-Based Query Rewriting",
+      "kind": "paper",
+      "year": 2025,
+      "date": "2025",
+      "date_label": "Publication year",
+      "summary": "Proposes alternative SQL over available schemas when a query's original tables are inaccessible, allowing different results that raters consider useful for a similar analytical goal. Ten authored SQL queries and three-rater judgments test rewrite plausibility across 957 table schemas. Actual-data answer correctness and query-execution speed are not evaluated; correlated substitutes do not guarantee semantic equivalence or faithful recovery of the original request.",
+      "tags": [
+        "database-retrieval",
+        "context",
+        "answerability",
+        "query-rewriting"
+      ],
+      "categories": [
+        "context"
+      ],
+      "evidence": "DATAI 2025 workshop at VLDB 2025",
+      "status": "Official source and schema/example-resource listings verified at commit 61c48e36a7cd5cf81e7cd56257ef9631e572a861. README states user-study data were not uploaded, and main.py explicitly rejects natural-language input. No repository license was found in the complete 52-file tree; root LICENSE returned 404 and GitHub license metadata was null. The paper's license is not applied to the code. Database files were not downloaded; code and experiments were not executed.",
+      "sources": [
+        "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/DATAI/DATAI25_5.pdf",
+        "https://github.com/dbislab/InQuRe"
+      ],
+      "checked": "2026-11-13",
+      "added_on": "2026-11-13",
+      "url": "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/DATAI/DATAI25_5.pdf",
+      "code_links": [
+        "https://github.com/dbislab/InQuRe"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#inqure",
+      "original": {
+        "id": "inqure",
+        "title": "The Case for Intent-Based Query Rewriting",
+        "year": 2025,
+        "publication_status": "DATAI 2025 workshop at VLDB 2025",
+        "primary_url": "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/DATAI/DATAI25_5.pdf",
+        "code_url": "https://github.com/dbislab/InQuRe",
+        "dataset_url": null,
+        "category": "context",
+        "scope": "adjacent",
+        "topics": [
+          "database-retrieval",
+          "context",
+          "answerability",
+          "query-rewriting"
+        ],
+        "summary": "Proposes alternative SQL over available schemas when a query's original tables are inaccessible, allowing different results that raters consider useful for a similar analytical goal. Ten authored SQL queries and three-rater judgments test rewrite plausibility across 957 table schemas. Actual-data answer correctness and query-execution speed are not evaluated; correlated substitutes do not guarantee semantic equivalence or faithful recovery of the original request.",
+        "evidence": [
+          "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/DATAI/DATAI25_5.pdf",
+          "https://github.com/dbislab/InQuRe"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/inqure.md",
+        "checked_on": "2026-11-13",
+        "added_on": "2026-11-13",
+        "artifact_status": "Official source and schema/example-resource listings verified at commit 61c48e36a7cd5cf81e7cd56257ef9631e572a861. README states user-study data were not uploaded, and main.py explicitly rejects natural-language input. No repository license was found in the complete 52-file tree; root LICENSE returned 404 and GitHub license metadata was null. The paper's license is not applied to the code. Database files were not downloaded; code and experiments were not executed."
+      },
+      "work_id": "inqure"
+    },
+    {
+      "id": "drilldown-hallucinations",
+      "name": "Tracing Recurrent and Emergent Hallucination Patterns in Decomposed Text-to-SQL Generation",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Decomposes BIRD-mini SQL into executable sub-query paths and diagnoses six rule-based error categories across five models, with and without prior history. Separates categories recurring at the final step from those first detected there. Labels are reference-sensitive structural heuristics, not definitive semantic judgments; conditional recurrence is neither causal error propagation nor calibrated uncertainty, and no mitigation is tested.",
+      "tags": [
+        "evaluation",
+        "verification",
+        "conversation"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "UncertaiNLP workshop at EMNLP 2026",
+      "status": "Public decomposition/prompting and evaluation scripts, analysis notebooks, saved model outputs and heuristic annotations inspected at a pinned revision. Underlying databases are obtained separately from BIRD. No project code executed, results reproduced, or repository license verified.",
+      "sources": [
+        "https://aclanthology.org/2026.uncertainlp-main.40/",
+        "https://aclanthology.org/2026.uncertainlp-main.40.pdf",
+        "https://github.com/HaydenMM/bird-mini-drilldown/tree/9050803cada1a0750d783685a2508c95fc45e3b0"
+      ],
+      "checked": "2026-11-13",
+      "added_on": "2026-11-13",
+      "url": "https://aclanthology.org/2026.uncertainlp-main.40/",
+      "code_links": [
+        "https://github.com/HaydenMM/bird-mini-drilldown"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#drilldown-hallucinations",
+      "original": {
+        "id": "drilldown-hallucinations",
+        "title": "Tracing Recurrent and Emergent Hallucination Patterns in Decomposed Text-to-SQL Generation",
+        "year": 2026,
+        "publication_status": "UncertaiNLP workshop at EMNLP 2026",
+        "primary_url": "https://aclanthology.org/2026.uncertainlp-main.40/",
+        "code_url": "https://github.com/HaydenMM/bird-mini-drilldown",
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "evaluation",
+          "verification",
+          "conversation"
+        ],
+        "summary": "Decomposes BIRD-mini SQL into executable sub-query paths and diagnoses six rule-based error categories across five models, with and without prior history. Separates categories recurring at the final step from those first detected there. Labels are reference-sensitive structural heuristics, not definitive semantic judgments; conditional recurrence is neither causal error propagation nor calibrated uncertainty, and no mitigation is tested.",
+        "evidence": [
+          "https://aclanthology.org/2026.uncertainlp-main.40/",
+          "https://aclanthology.org/2026.uncertainlp-main.40.pdf",
+          "https://github.com/HaydenMM/bird-mini-drilldown/tree/9050803cada1a0750d783685a2508c95fc45e3b0"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/drilldown-hallucinations.md",
+        "added_on": "2026-11-13",
+        "checked_on": "2026-11-13",
+        "artifact_status": "Public decomposition/prompting and evaluation scripts, analysis notebooks, saved model outputs and heuristic annotations inspected at a pinned revision. Underlying databases are obtained separately from BIRD. No project code executed, results reproduced, or repository license verified."
+      },
+      "work_id": "drilldown-hallucinations"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -9884,9 +10150,11 @@
       "sources": [
         "https://github.com/ai-ar-research/SpotIt-plus",
         "https://arxiv.org/abs/2510.26840",
-        "https://arxiv.org/abs/2603.04334"
+        "https://arxiv.org/abs/2603.04334",
+        "https://github.com/ai-ar-research/SpotIt-plus/blob/abee2baa26b2b50398c1807a46b2db126d2dda97/LICENSE",
+        "https://github.com/ai-ar-research/SpotIt-plus/blob/abee2baa26b2b50398c1807a46b2db126d2dda97/.gitmodules"
       ],
-      "checked": "2026-10-22",
+      "checked": "2026-11-13",
       "added_on": null,
       "url": "https://github.com/ai-ar-research/SpotIt-plus",
       "code_links": [
@@ -9905,13 +10173,15 @@
         "description": "Searches for database counterexamples to candidate/reference SQL equivalence using bounded verification and database constraints.",
         "protocol": "Bounded equivalence or counterexample generation; conclusions depend on supported SQL, search bounds, and constraint validity.",
         "availability": "Public source and usage instructions inspected; not executed or independently reproduced.",
-        "license_note": "License file exists; exact terms and submodule licenses not verified.",
+        "license_note": "Root SpotIt+ source uses the modified BSD three-clause license. The VeriEQL submodule and other dependencies have separate terms not verified in this check.",
         "evidence": [
           "https://github.com/ai-ar-research/SpotIt-plus",
           "https://arxiv.org/abs/2510.26840",
-          "https://arxiv.org/abs/2603.04334"
+          "https://arxiv.org/abs/2603.04334",
+          "https://github.com/ai-ar-research/SpotIt-plus/blob/abee2baa26b2b50398c1807a46b2db126d2dda97/LICENSE",
+          "https://github.com/ai-ar-research/SpotIt-plus/blob/abee2baa26b2b50398c1807a46b2db126d2dda97/.gitmodules"
         ],
-        "checked_on": "2026-10-22"
+        "checked_on": "2026-11-13"
       },
       "work_id": "spotit-tool"
     },
@@ -12396,13 +12666,174 @@
         "checked_on": "2026-11-12"
       },
       "work_id": "calibrated-interpretation"
+    },
+    {
+      "id": "archerfish",
+      "name": "Archerfish",
+      "kind": "tool",
+      "year": 2024,
+      "date": "2024",
+      "date_label": "Latest linked paper year",
+      "summary": "NL2SQL benchmarking framework with adapters, workload specifications, reports and configurable comparison of generated and reference query results.",
+      "tags": [
+        "ambiguity",
+        "enterprise",
+        "evaluation",
+        "unanswerability"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "resource",
+      "status": "Public driver, adapters, comparator, tests and example workloads inspected at revision 620fbcc4cff11dfbc8d17db20fc762073b43afa3. No installation, database execution or reproduction performed. README comparison rules differ from implementation details; inspect the pinned source before reuse.",
+      "sources": [
+        "https://www.vldb.org/cidrdb/papers/2024/p74-floratou.pdf",
+        "https://github.com/archerfish-bench/benchmark",
+        "https://github.com/archerfish-bench/benchmark/blob/620fbcc4cff11dfbc8d17db20fc762073b43afa3/src/benchmark/utils/result_set_match.py",
+        "https://github.com/archerfish-bench/benchmark/blob/620fbcc4cff11dfbc8d17db20fc762073b43afa3/README.md",
+        "https://github.com/archerfish-bench/benchmark/blob/620fbcc4cff11dfbc8d17db20fc762073b43afa3/LICENSE"
+      ],
+      "checked": "2026-11-13",
+      "added_on": null,
+      "url": "https://github.com/archerfish-bench/benchmark",
+      "code_links": [
+        "https://github.com/archerfish-bench/benchmark"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#archerfish",
+      "original": {
+        "id": "archerfish",
+        "name": "Archerfish",
+        "kind": "tool",
+        "paper_ids": [
+          "nl2sql-not-solved"
+        ],
+        "url": "https://github.com/archerfish-bench/benchmark",
+        "description": "NL2SQL benchmarking framework with adapters, workload specifications, reports and configurable comparison of generated and reference query results.",
+        "protocol": "Its relaxed comparison can accept alternative output columns and ignore row order; this evaluates a chosen acceptance policy rather than proving SQL equivalence or identifying the user’s intended interpretation. The inspected default comparator also conditionally removes duplicates, rounds numbers and treats NULL/None and zero as matching.",
+        "availability": "Public driver, adapters, comparator, tests and example workloads inspected at revision 620fbcc4cff11dfbc8d17db20fc762073b43afa3. No installation, database execution or reproduction performed. README comparison rules differ from implementation details; inspect the pinned source before reuse.",
+        "license_note": "Apache-2.0 license verified in the repository LICENSE file; dependency and workload-data terms require separate checks.",
+        "evidence": [
+          "https://www.vldb.org/cidrdb/papers/2024/p74-floratou.pdf",
+          "https://github.com/archerfish-bench/benchmark",
+          "https://github.com/archerfish-bench/benchmark/blob/620fbcc4cff11dfbc8d17db20fc762073b43afa3/src/benchmark/utils/result_set_match.py",
+          "https://github.com/archerfish-bench/benchmark/blob/620fbcc4cff11dfbc8d17db20fc762073b43afa3/README.md",
+          "https://github.com/archerfish-bench/benchmark/blob/620fbcc4cff11dfbc8d17db20fc762073b43afa3/LICENSE"
+        ],
+        "checked_on": "2026-11-13"
+      },
+      "work_id": "nl2sql-not-solved"
+    },
+    {
+      "id": "inqure-system",
+      "name": "InQuRe",
+      "kind": "system",
+      "year": 2025,
+      "date": "2025",
+      "date_label": "Latest linked paper year",
+      "summary": "SQL-to-SQL candidate reformulation over available table schemas, using table filtering, inferred intent, join pruning and ranking of related analytical alternatives.",
+      "tags": [
+        "answerability",
+        "context",
+        "database-retrieval",
+        "query-rewriting"
+      ],
+      "categories": [
+        "context"
+      ],
+      "evidence": "resource",
+      "status": "Public implementation and schema/example resource listings verified at commit 61c48e36a7cd5cf81e7cd56257ef9631e572a861. Source includes rewriting, ranking, executability checks, correction and tests; none was run. README says user-study data were not uploaded. Natural-language requests are explicitly rejected by the checked main program; listed DuckDB files were not downloaded.",
+      "sources": [
+        "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/DATAI/DATAI25_5.pdf",
+        "https://github.com/dbislab/InQuRe/tree/61c48e36a7cd5cf81e7cd56257ef9631e572a861",
+        "https://github.com/dbislab/InQuRe/blob/61c48e36a7cd5cf81e7cd56257ef9631e572a861/README.md",
+        "https://github.com/dbislab/InQuRe/blob/61c48e36a7cd5cf81e7cd56257ef9631e572a861/query_rewriting/main.py"
+      ],
+      "checked": "2026-11-13",
+      "added_on": null,
+      "url": "https://github.com/dbislab/InQuRe",
+      "code_links": [
+        "https://github.com/dbislab/InQuRe"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#inqure-system",
+      "original": {
+        "id": "inqure-system",
+        "name": "InQuRe",
+        "kind": "system",
+        "paper_ids": [
+          "inqure"
+        ],
+        "url": "https://github.com/dbislab/InQuRe",
+        "description": "SQL-to-SQL candidate reformulation over available table schemas, using table filtering, inferred intent, join pruning and ranking of related analytical alternatives.",
+        "protocol": "Input is an SQL query plus available schemas. The system permits meaning-changing substitutes, so ranked intent similarity is not semantic equivalence or verified recovery of the original request. The paper evaluates human judgments and rewrite latency, not populated-database result correctness or speedup; no user clarification/refusal policy is evaluated.",
+        "availability": "Public implementation and schema/example resource listings verified at commit 61c48e36a7cd5cf81e7cd56257ef9631e572a861. Source includes rewriting, ranking, executability checks, correction and tests; none was run. README says user-study data were not uploaded. Natural-language requests are explicitly rejected by the checked main program; listed DuckDB files were not downloaded.",
+        "license_note": "No repository license file found in the full 52-file tree; root LICENSE returned HTTP 404 and GitHub license metadata was null. Reuse terms remain unverified. The paper's CC BY-NC-ND 4.0 notice does not establish code or derived-data licensing.",
+        "evidence": [
+          "https://www.vldb.org/2025/Workshops/VLDB-Workshops-2025/DATAI/DATAI25_5.pdf",
+          "https://github.com/dbislab/InQuRe/tree/61c48e36a7cd5cf81e7cd56257ef9631e572a861",
+          "https://github.com/dbislab/InQuRe/blob/61c48e36a7cd5cf81e7cd56257ef9631e572a861/README.md",
+          "https://github.com/dbislab/InQuRe/blob/61c48e36a7cd5cf81e7cd56257ef9631e572a861/query_rewriting/main.py"
+        ],
+        "checked_on": "2026-11-13"
+      },
+      "work_id": "inqure"
+    },
+    {
+      "id": "drilldown-hallucination-diagnostics",
+      "name": "BIRD-mini drill-down diagnostics",
+      "kind": "tool",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Progressive SQL decomposition and analysis of recurrent versus emergent rule-based error categories, with saved model generations and annotations.",
+      "tags": [
+        "conversation",
+        "evaluation",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "Public decomposition/prompting and execution-evaluation scripts, analysis notebooks, figures, saved generations and annotation JSON inspected at revision 9050803cada1a0750d783685a2508c95fc45e3b0. Underlying BIRD databases require a separate upstream download. Not executed or independently reproduced.",
+      "sources": [
+        "https://aclanthology.org/2026.uncertainlp-main.40.pdf",
+        "https://github.com/HaydenMM/bird-mini-drilldown/tree/9050803cada1a0750d783685a2508c95fc45e3b0",
+        "https://github.com/HaydenMM/bird-mini-drilldown/blob/9050803cada1a0750d783685a2508c95fc45e3b0/llm/mini_dev_data/README.md"
+      ],
+      "checked": "2026-11-13",
+      "added_on": null,
+      "url": "https://github.com/HaydenMM/bird-mini-drilldown",
+      "code_links": [
+        "https://github.com/HaydenMM/bird-mini-drilldown"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#drilldown-hallucination-diagnostics",
+      "original": {
+        "id": "drilldown-hallucination-diagnostics",
+        "name": "BIRD-mini drill-down diagnostics",
+        "kind": "tool",
+        "paper_ids": [
+          "drilldown-hallucinations"
+        ],
+        "url": "https://github.com/HaydenMM/bird-mini-drilldown",
+        "description": "Progressive SQL decomposition and analysis of recurrent versus emergent rule-based error categories, with saved model generations and annotations.",
+        "protocol": "Offline schema/reference-dependent diagnosis over BIRD-mini paths, including comparisons with prior conversational history. Heuristic structural labels can flag equivalent alternatives; conditional category recurrence is not causal error propagation or calibrated confidence.",
+        "availability": "Public decomposition/prompting and execution-evaluation scripts, analysis notebooks, figures, saved generations and annotation JSON inspected at revision 9050803cada1a0750d783685a2508c95fc45e3b0. Underlying BIRD databases require a separate upstream download. Not executed or independently reproduced.",
+        "license_note": "No repository license file verified; upstream BIRD data terms remain separate.",
+        "evidence": [
+          "https://aclanthology.org/2026.uncertainlp-main.40.pdf",
+          "https://github.com/HaydenMM/bird-mini-drilldown/tree/9050803cada1a0750d783685a2508c95fc45e3b0",
+          "https://github.com/HaydenMM/bird-mini-drilldown/blob/9050803cada1a0750d783685a2508c95fc45e3b0/llm/mini_dev_data/README.md"
+        ],
+        "checked_on": "2026-11-13"
+      },
+      "work_id": "drilldown-hallucinations"
     }
   ],
   "themes": [
     {
       "id": "ambiguity",
       "label": "Ambiguity",
-      "count": 39
+      "count": 40
     },
     {
       "id": "clarification",
@@ -12412,17 +12843,17 @@
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 27
+      "count": 29
     },
     {
       "id": "unanswerability",
       "label": "Unanswerability",
-      "count": 22
+      "count": 23
     },
     {
       "id": "verification",
       "label": "Verification",
-      "count": 20
+      "count": 21
     },
     {
       "id": "uncertainty",
@@ -12460,6 +12891,11 @@
       "count": 7
     },
     {
+      "id": "answerability",
+      "label": "Answerability",
+      "count": 6
+    },
+    {
       "id": "benchmark-quality",
       "label": "Benchmark quality",
       "count": 6
@@ -12467,6 +12903,11 @@
     {
       "id": "calibration",
       "label": "Calibration",
+      "count": 6
+    },
+    {
+      "id": "context",
+      "label": "Context",
       "count": 6
     },
     {
@@ -12480,16 +12921,6 @@
       "count": 5
     },
     {
-      "id": "answerability",
-      "label": "Answerability",
-      "count": 5
-    },
-    {
-      "id": "context",
-      "label": "Context",
-      "count": 5
-    },
-    {
       "id": "interpretation-coverage",
       "label": "Interpretation coverage",
       "count": 5
@@ -12497,6 +12928,11 @@
     {
       "id": "confidence",
       "label": "Confidence",
+      "count": 4
+    },
+    {
+      "id": "conversation",
+      "label": "Conversation",
       "count": 4
     },
     {
@@ -12510,8 +12946,8 @@
       "count": 3
     },
     {
-      "id": "conversation",
-      "label": "Conversation",
+      "id": "database-retrieval",
+      "label": "Database retrieval",
       "count": 3
     },
     {
@@ -12533,11 +12969,6 @@
       "id": "selective-prediction",
       "label": "Selective prediction",
       "count": 3
-    },
-    {
-      "id": "database-retrieval",
-      "label": "Database retrieval",
-      "count": 2
     },
     {
       "id": "database-state",
@@ -12572,6 +13003,11 @@
     {
       "id": "natural-language-feedback",
       "label": "Natural language feedback",
+      "count": 2
+    },
+    {
+      "id": "query-rewriting",
+      "label": "Query rewriting",
       "count": 2
     },
     {
@@ -12660,6 +13096,11 @@
       "count": 1
     },
     {
+      "id": "enterprise",
+      "label": "Enterprise",
+      "count": 1
+    },
+    {
       "id": "enterprise-workflows",
       "label": "Enterprise workflows",
       "count": 1
@@ -12727,11 +13168,6 @@
     {
       "id": "query-planning",
       "label": "Query planning",
-      "count": 1
-    },
-    {
-      "id": "query-rewriting",
-      "label": "Query rewriting",
       "count": 1
     },
     {
