@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-14
+
+- Added complete readings of FlinkEval, MTSQL-R1 and STRATOS, distinguishing oracle clues, learned memory checks and automatic domain grounding from verified intent resolution. The catalog now has 107 papers, including 104 full readings and three access gaps.
+- Added FlinkEval as a paper-described benchmark and comparison row with unverified public release; judge-pass and operational execution outcomes remain separate.
+- Added the MTSQL-R1 system with pinned implementation caveats and separately checked checkpoint licensing, plus two explicitly documentation-only hosted systems: Databricks Genie Agents and Snowflake Cortex Analyst. No service or model execution was performed.
+
 ## 2026-11-13
 
 - Added three full-paper readings: the CIDR 2024 ambiguity/semantic-mismatch study, InQuRe on unavailable-source reformulation, and UncertaiNLP 2026 drill-down error diagnostics. The catalog now contains 104 papers, with 101 complete readings and three explicit access gaps.

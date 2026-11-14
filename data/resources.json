@@ -1359,5 +1359,81 @@
       "https://github.com/HaydenMM/bird-mini-drilldown/blob/9050803cada1a0750d783685a2508c95fc45e3b0/llm/mini_dev_data/README.md"
     ],
     "checked_on": "2026-11-13"
+  },
+  {
+    "id": "databricks-genie",
+    "name": "Databricks Genie Agents (vendor documentation)",
+    "kind": "system",
+    "paper_ids": [],
+    "url": "https://docs.databricks.com/aws/en/genie-agents/talk-to-genie",
+    "description": "Hosted conversational SQL interface whose documentation describes clarification, stating insufficient information, and incorporating user-defined terms within a conversation.",
+    "protocol": "Documented behavior rather than an independently evaluated research result. Curators can specify missing-information triggers and follow-up questions; the docs acknowledge nondeterministic responses. Thread context does not carry to separate chats, and clarification quality or refusal accuracy is not established here.",
+    "availability": "Official end-user and curation documentation inspected, including Define terms in a conversation and Prompt Genie to ask clarification questions. No account, private workspace, service execution or deployment was accessed. Genie Agents were previously called Genie Spaces.",
+    "license_note": "Hosted service documentation; service-use and reuse terms were not reviewed. No open-source implementation license is inferred.",
+    "evidence": [
+      "https://docs.databricks.com/aws/en/genie-agents/talk-to-genie",
+      "https://docs.databricks.com/aws/en/genie-agents/best-practices"
+    ],
+    "checked_on": "2026-11-14"
+  },
+  {
+    "id": "snowflake-cortex-analyst",
+    "name": "Snowflake Cortex Analyst (vendor documentation)",
+    "kind": "system",
+    "paper_ids": [],
+    "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst/rest-api",
+    "description": "Semantic-model-backed SQL generation API with a documented alternative-question response when ambiguity prevents SQL generation.",
+    "protocol": "The documented response contract makes question suggestions and SQL mutually exclusive. Suggestions are possible reformulations, not proof that all interpretations were covered or that the original request is unanswerable. The documented confidence object identifies a reused verified query, not a calibrated correctness probability.",
+    "availability": "Public API request/response documentation and ambiguity examples inspected; no service calls or performance tests performed. The page recommends transition to Cortex Agents; this entry records the Analyst API contract without treating the migration recommendation as independent quality evidence.",
+    "license_note": "Hosted service documentation; service-use and reuse terms were not reviewed. No open-source implementation license is inferred.",
+    "evidence": [
+      "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst/rest-api"
+    ],
+    "checked_on": "2026-11-14"
+  },
+  {
+    "id": "mtsql-r1-system",
+    "name": "MTSQL-R1",
+    "kind": "system",
+    "paper_ids": [
+      "mtsql-r1"
+    ],
+    "url": "https://github.com/taichengguo/MTSQL-R1",
+    "description": "Training and inference framework for conversational SQL with database execution feedback, historical SQL retrieval and iterative model-based verification and correction.",
+    "protocol": "Main paper results condition on gold prior SQL, with a separate predicted-history CoSQL test. Memory checks are model judgments, not user confirmation or semantic-equivalence proofs. No clarification or abstention policy is evaluated; source-level EM and verification-tag differences require reconciliation for reproduction.",
+    "availability": "Public source verified at a720f970c4308980812d830bd60f1d69f2ab57fa, including memory/reward modules and training/evaluation entry points. Four author-linked CoSQL/SParC checkpoints (4B and 1.7B) have public, ungated safetensors file listings. README asks users to obtain upstream benchmarks and prepare local parquet inputs. A separate release of collected reasoning trajectories was not verified. No linked code or weights executed; no data or weights downloaded.",
+    "license_note": "Repository LICENSE contains Apache-2.0. Both 4B model cards declare Apache-2.0; neither 1.7B repository had a model card or license metadata at inspection, so their terms remain unverified. Upstream benchmark and dependency terms require separate checks.",
+    "evidence": [
+      "https://aclanthology.org/2026.acl-long.1563.pdf",
+      "https://github.com/taichengguo/MTSQL-R1/tree/a720f970c4308980812d830bd60f1d69f2ab57fa",
+      "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/README.md",
+      "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/LICENSE",
+      "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/verl/tools/memory_retriever.py",
+      "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/verl/utils/reward_score/text2sql_process.py",
+      "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/verl/utils/reward_score/eval/evaluation.py",
+      "https://huggingface.co/taicheng/MTSQL-R1-CoSQL-4B/tree/05047f58cd959979343f6651ba21075dba8ad179",
+      "https://huggingface.co/taicheng/MTSQL-R1-SPARC-4B/tree/8ebe01a2e2117fa82dd79cc160df9ac728d96e49",
+      "https://huggingface.co/taicheng/MTSQL-R1-CoSQL-1.7B/tree/401cc76ef27817210d5c3d30801b0c42cbc9f872",
+      "https://huggingface.co/taicheng/MTSQL-R1-SPARC-1.7B/tree/0a61bed339f676410278257801c846f4e7d0fd3c"
+    ],
+    "checked_on": "2026-11-14"
+  },
+  {
+    "id": "flinkeval-data",
+    "name": "FlinkEval",
+    "kind": "dataset",
+    "paper_ids": [
+      "flinkeval"
+    ],
+    "url": "https://arxiv.org/abs/2611.17093",
+    "description": "Paper-described synthetic streaming-SQL corpus of 3,903 pairs, with seven request-specification conditions and ranked oracle clues across 45 business domains.",
+    "protocol": "Static requests with full domain DDLs; the ladder compares one model on 600 selected questions under reference-anchored and face-value model judging. Clues are supplied offline, item-level ambiguity is not established, and no unanswerability task or streaming execution-equivalence metric is evaluated. Known TUMBLE/HOP failures and incomplete variant verification restrict the evaluated subset.",
+    "availability": "Benchmark design and corpus-entry schema are available in the paper. Public corpus, sidecar, code and exact deployment artifacts were not verified; the article's v3.1/v2 release names do not by themselves establish public access. No execution or independent reproduction performed.",
+    "license_note": "Dataset and code terms not verified; the article's license does not establish artifact reuse terms.",
+    "evidence": [
+      "https://arxiv.org/abs/2611.17093",
+      "https://arxiv.org/pdf/2611.17093v1"
+    ],
+    "checked_on": "2026-11-14"
   }
 ]

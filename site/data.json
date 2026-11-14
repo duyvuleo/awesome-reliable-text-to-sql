@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-13",
-  "updated": "2026-11-13",
+  "checked": "2026-11-14",
+  "updated": "2026-11-14",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 104,
-    "system": 17,
+    "paper": 107,
+    "system": 20,
     "tool": 22,
-    "benchmark": 33
+    "benchmark": 34
   },
   "categories": {
     "ambiguity": "Ambiguity and multiple interpretations",
@@ -635,6 +635,33 @@
       ]
     },
     {
+      "id": "flinkeval",
+      "name": "FlinkEval: A Synthetic Corpus for Evaluating Natural Language Interfaces to Streaming SQL",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Introduces a streaming-SQL corpus and a seven-level request-specification ladder, contrasting schema-explicit and potentially underspecified requests with ranked oracle clues. Reference-anchored and face-value model judgments diverge substantially. Clues are supplied rather than elicited through dialogue; per-item ambiguity is not validated, and judge-pass rates are not execution-equivalence accuracy. Public code and data release remain unverified.",
+      "entry_ids": [
+        "flinkeval",
+        "flinkeval-data"
+      ],
+      "themes": [
+        "clarification",
+        "evaluation",
+        "underspecification"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "kinds": [
+        "benchmark",
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "omnitqa",
       "name": "From Textual Columns to Query Plans: A Unified Relational-Semantic Execution Framework for Hybrid Query Processing",
       "date": "2026",
@@ -734,6 +761,36 @@
       ],
       "kinds": [
         "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "mtsql-r1",
+      "name": "MTSQL-R1: Towards Long-Horizon Multi-Turn Text-to-SQL via Agentic Training",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Trains a conversational SQL agent to execute candidates, retrieve earlier SQL and parsed constraints, and revise inconsistencies. CoSQL/SParC ablations support execution and memory checks; main results use gold history, with a separate predicted-history test. Verification remains a learned judgment with reference-based rewards, and clarification or unanswerability is not evaluated.",
+      "entry_ids": [
+        "mtsql-r1",
+        "mtsql-r1-system"
+      ],
+      "themes": [
+        "context",
+        "conversation",
+        "error-correction",
+        "multi-turn",
+        "reinforcement-learning",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper",
+        "system"
       ],
       "years": [
         2026
@@ -1408,6 +1465,31 @@
       "kinds": [
         "paper",
         "tool"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "stratos",
+      "name": "STRATOS: Bridging the Symbolic-to-Numeric Gap in Spatio-Temporal Text-to-SQL for Meteorological Data",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Grounds meteorological place names and fuzzy climate concepts through Wikidata/OpenStreetMap retrieval, a domain ontology and array-schema hints before SQL generation, then rewrites costly spatial predicates. Evaluation exposes valid aggregation interpretations rejected by single-gold result matching. Automatic grounding is not user clarification; exact and approximate spatial targets can yield different answers, and optimizer speedups depend on PostgreSQL.",
+      "entry_ids": [
+        "stratos"
+      ],
+      "themes": [
+        "ambiguity",
+        "context",
+        "evaluation"
+      ],
+      "categories": [
+        "context"
+      ],
+      "kinds": [
+        "paper"
       ],
       "years": [
         2026
@@ -2845,6 +2927,23 @@
       ]
     },
     {
+      "id": "databricks-genie",
+      "name": "Databricks Genie Agents (vendor documentation)",
+      "date": "Undated",
+      "year": null,
+      "kind": "system",
+      "summary": "Hosted conversational SQL interface whose documentation describes clarification, stating insufficient information, and incorporating user-defined terms within a conversation.",
+      "entry_ids": [
+        "databricks-genie"
+      ],
+      "themes": [],
+      "categories": [],
+      "kinds": [
+        "system"
+      ],
+      "years": []
+    },
+    {
       "id": "intentsql-system",
       "name": "IntentSQL",
       "date": "Undated",
@@ -2875,6 +2974,23 @@
       "categories": [],
       "kinds": [
         "benchmark"
+      ],
+      "years": []
+    },
+    {
+      "id": "snowflake-cortex-analyst",
+      "name": "Snowflake Cortex Analyst (vendor documentation)",
+      "date": "Undated",
+      "year": null,
+      "kind": "system",
+      "summary": "Semantic-model-backed SQL generation API with a documented alternative-question response when ambiguity prevents SQL generation.",
+      "entry_ids": [
+        "snowflake-cortex-analyst"
+      ],
+      "themes": [],
+      "categories": [],
+      "kinds": [
+        "system"
       ],
       "years": []
     }
@@ -9179,6 +9295,187 @@
       "work_id": "drilldown-hallucinations"
     },
     {
+      "id": "mtsql-r1",
+      "name": "MTSQL-R1: Towards Long-Horizon Multi-Turn Text-to-SQL via Agentic Training",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Trains a conversational SQL agent to execute candidates, retrieve earlier SQL and parsed constraints, and revise inconsistencies. CoSQL/SParC ablations support execution and memory checks; main results use gold history, with a separate predicted-history test. Verification remains a learned judgment with reference-based rewards, and clarification or unanswerability is not evaluated.",
+      "tags": [
+        "multi-turn",
+        "conversation",
+        "context",
+        "verification",
+        "error-correction",
+        "reinforcement-learning"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "ACL 2026; first preprint October 2025",
+      "status": "Official training, rollout, memory and reward source inspected at a720f970c4308980812d830bd60f1d69f2ab57fa. Four author-linked public model repositories list safetensors weights; weights were not downloaded or run. README requires locally prepared benchmark/parquet inputs; a separate trajectory-data release was not verified. Paper/source metric and verdict-tag discrepancies are documented in the reading note. No independent reproduction.",
+      "sources": [
+        "https://aclanthology.org/2026.acl-long.1563/",
+        "https://aclanthology.org/2026.acl-long.1563.pdf",
+        "https://arxiv.org/abs/2510.12831v3",
+        "https://github.com/taichengguo/MTSQL-R1",
+        "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/verl/utils/reward_score/text2sql_process.py"
+      ],
+      "checked": "2026-11-14",
+      "added_on": "2026-11-14",
+      "url": "https://aclanthology.org/2026.acl-long.1563/",
+      "code_links": [
+        "https://github.com/taichengguo/MTSQL-R1"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#mtsql-r1",
+      "original": {
+        "id": "mtsql-r1",
+        "title": "MTSQL-R1: Towards Long-Horizon Multi-Turn Text-to-SQL via Agentic Training",
+        "year": 2026,
+        "publication_status": "ACL 2026; first preprint October 2025",
+        "primary_url": "https://aclanthology.org/2026.acl-long.1563/",
+        "code_url": "https://github.com/taichengguo/MTSQL-R1",
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "multi-turn",
+          "conversation",
+          "context",
+          "verification",
+          "error-correction",
+          "reinforcement-learning"
+        ],
+        "summary": "Trains a conversational SQL agent to execute candidates, retrieve earlier SQL and parsed constraints, and revise inconsistencies. CoSQL/SParC ablations support execution and memory checks; main results use gold history, with a separate predicted-history test. Verification remains a learned judgment with reference-based rewards, and clarification or unanswerability is not evaluated.",
+        "evidence": [
+          "https://aclanthology.org/2026.acl-long.1563/",
+          "https://aclanthology.org/2026.acl-long.1563.pdf",
+          "https://arxiv.org/abs/2510.12831v3",
+          "https://github.com/taichengguo/MTSQL-R1",
+          "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/verl/utils/reward_score/text2sql_process.py"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/mtsql-r1.md",
+        "added_on": "2026-11-14",
+        "checked_on": "2026-11-14",
+        "artifact_status": "Official training, rollout, memory and reward source inspected at a720f970c4308980812d830bd60f1d69f2ab57fa. Four author-linked public model repositories list safetensors weights; weights were not downloaded or run. README requires locally prepared benchmark/parquet inputs; a separate trajectory-data release was not verified. Paper/source metric and verdict-tag discrepancies are documented in the reading note. No independent reproduction."
+      },
+      "work_id": "mtsql-r1"
+    },
+    {
+      "id": "stratos",
+      "name": "STRATOS: Bridging the Symbolic-to-Numeric Gap in Spatio-Temporal Text-to-SQL for Meteorological Data",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Grounds meteorological place names and fuzzy climate concepts through Wikidata/OpenStreetMap retrieval, a domain ontology and array-schema hints before SQL generation, then rewrites costly spatial predicates. Evaluation exposes valid aggregation interpretations rejected by single-gold result matching. Automatic grounding is not user clarification; exact and approximate spatial targets can yield different answers, and optimizer speedups depend on PostgreSQL.",
+      "tags": [
+        "context",
+        "ambiguity",
+        "evaluation"
+      ],
+      "categories": [
+        "context"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "The paper describes a system and evaluation workload; an official implementation or workload download was not established from the paper or checked public searches. No project code, datasets or experiments were executed or independently reproduced.",
+      "sources": [
+        "https://arxiv.org/abs/2607.03501",
+        "https://arxiv.org/pdf/2607.03501v2",
+        "https://arxiv.org/html/2607.03501v2"
+      ],
+      "checked": "2026-11-14",
+      "added_on": "2026-11-14",
+      "url": "https://arxiv.org/abs/2607.03501",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#stratos",
+      "original": {
+        "id": "stratos",
+        "title": "STRATOS: Bridging the Symbolic-to-Numeric Gap in Spatio-Temporal Text-to-SQL for Meteorological Data",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2607.03501",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "context",
+        "scope": "adjacent",
+        "topics": [
+          "context",
+          "ambiguity",
+          "evaluation"
+        ],
+        "summary": "Grounds meteorological place names and fuzzy climate concepts through Wikidata/OpenStreetMap retrieval, a domain ontology and array-schema hints before SQL generation, then rewrites costly spatial predicates. Evaluation exposes valid aggregation interpretations rejected by single-gold result matching. Automatic grounding is not user clarification; exact and approximate spatial targets can yield different answers, and optimizer speedups depend on PostgreSQL.",
+        "evidence": [
+          "https://arxiv.org/abs/2607.03501",
+          "https://arxiv.org/pdf/2607.03501v2",
+          "https://arxiv.org/html/2607.03501v2"
+        ],
+        "artifact_status": "The paper describes a system and evaluation workload; an official implementation or workload download was not established from the paper or checked public searches. No project code, datasets or experiments were executed or independently reproduced.",
+        "source_depth": "full-text-reviewed",
+        "checked_on": "2026-11-14",
+        "added_on": "2026-11-14",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/stratos.md"
+      },
+      "work_id": "stratos"
+    },
+    {
+      "id": "flinkeval",
+      "name": "FlinkEval: A Synthetic Corpus for Evaluating Natural Language Interfaces to Streaming SQL",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Introduces a streaming-SQL corpus and a seven-level request-specification ladder, contrasting schema-explicit and potentially underspecified requests with ranked oracle clues. Reference-anchored and face-value model judgments diverge substantially. Clues are supplied rather than elicited through dialogue; per-item ambiguity is not validated, and judge-pass rates are not execution-equivalence accuracy. Public code and data release remain unverified.",
+      "tags": [
+        "underspecification",
+        "clarification",
+        "evaluation"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "The paper describes corpus releases, JSONL records and specification sidecars, but supplies no verified public download or code URL. Exact-name public GitHub and Hugging Face searches returned no matching artifacts on the check date. These searches do not establish that artifacts are absent. No code executed or results reproduced.",
+      "sources": [
+        "https://arxiv.org/abs/2611.17093",
+        "https://arxiv.org/pdf/2611.17093v1"
+      ],
+      "checked": "2026-11-14",
+      "added_on": "2026-11-14",
+      "url": "https://arxiv.org/abs/2611.17093",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#flinkeval",
+      "original": {
+        "id": "flinkeval",
+        "title": "FlinkEval: A Synthetic Corpus for Evaluating Natural Language Interfaces to Streaming SQL",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.17093",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "ambiguity",
+        "scope": "core",
+        "topics": [
+          "underspecification",
+          "clarification",
+          "evaluation"
+        ],
+        "summary": "Introduces a streaming-SQL corpus and a seven-level request-specification ladder, contrasting schema-explicit and potentially underspecified requests with ranked oracle clues. Reference-anchored and face-value model judgments diverge substantially. Clues are supplied rather than elicited through dialogue; per-item ambiguity is not validated, and judge-pass rates are not execution-equivalence accuracy. Public code and data release remain unverified.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.17093",
+          "https://arxiv.org/pdf/2611.17093v1"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/flinkeval.md",
+        "added_on": "2026-11-14",
+        "checked_on": "2026-11-14",
+        "artifact_status": "The paper describes corpus releases, JSONL records and specification sidecars, but supplies no verified public download or code URL. Exact-name public GitHub and Hugging Face searches returned no matching artifacts on the check date. These searches do not establish that artifacts are absent. No code executed or results reproduced."
+      },
+      "work_id": "flinkeval"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -12827,23 +13124,220 @@
         "checked_on": "2026-11-13"
       },
       "work_id": "drilldown-hallucinations"
+    },
+    {
+      "id": "databricks-genie",
+      "name": "Databricks Genie Agents (vendor documentation)",
+      "kind": "system",
+      "year": null,
+      "date": "Undated",
+      "date_label": "Latest linked paper year",
+      "summary": "Hosted conversational SQL interface whose documentation describes clarification, stating insufficient information, and incorporating user-defined terms within a conversation.",
+      "tags": [],
+      "categories": [],
+      "evidence": "resource",
+      "status": "Official end-user and curation documentation inspected, including Define terms in a conversation and Prompt Genie to ask clarification questions. No account, private workspace, service execution or deployment was accessed. Genie Agents were previously called Genie Spaces.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/genie-agents/talk-to-genie",
+        "https://docs.databricks.com/aws/en/genie-agents/best-practices"
+      ],
+      "checked": "2026-11-14",
+      "added_on": null,
+      "url": "https://docs.databricks.com/aws/en/genie-agents/talk-to-genie",
+      "code_links": [
+        "https://docs.databricks.com/aws/en/genie-agents/talk-to-genie"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#databricks-genie",
+      "original": {
+        "id": "databricks-genie",
+        "name": "Databricks Genie Agents (vendor documentation)",
+        "kind": "system",
+        "paper_ids": [],
+        "url": "https://docs.databricks.com/aws/en/genie-agents/talk-to-genie",
+        "description": "Hosted conversational SQL interface whose documentation describes clarification, stating insufficient information, and incorporating user-defined terms within a conversation.",
+        "protocol": "Documented behavior rather than an independently evaluated research result. Curators can specify missing-information triggers and follow-up questions; the docs acknowledge nondeterministic responses. Thread context does not carry to separate chats, and clarification quality or refusal accuracy is not established here.",
+        "availability": "Official end-user and curation documentation inspected, including Define terms in a conversation and Prompt Genie to ask clarification questions. No account, private workspace, service execution or deployment was accessed. Genie Agents were previously called Genie Spaces.",
+        "license_note": "Hosted service documentation; service-use and reuse terms were not reviewed. No open-source implementation license is inferred.",
+        "evidence": [
+          "https://docs.databricks.com/aws/en/genie-agents/talk-to-genie",
+          "https://docs.databricks.com/aws/en/genie-agents/best-practices"
+        ],
+        "checked_on": "2026-11-14"
+      },
+      "work_id": "databricks-genie"
+    },
+    {
+      "id": "snowflake-cortex-analyst",
+      "name": "Snowflake Cortex Analyst (vendor documentation)",
+      "kind": "system",
+      "year": null,
+      "date": "Undated",
+      "date_label": "Latest linked paper year",
+      "summary": "Semantic-model-backed SQL generation API with a documented alternative-question response when ambiguity prevents SQL generation.",
+      "tags": [],
+      "categories": [],
+      "evidence": "resource",
+      "status": "Public API request/response documentation and ambiguity examples inspected; no service calls or performance tests performed. The page recommends transition to Cortex Agents; this entry records the Analyst API contract without treating the migration recommendation as independent quality evidence.",
+      "sources": [
+        "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst/rest-api"
+      ],
+      "checked": "2026-11-14",
+      "added_on": null,
+      "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst/rest-api",
+      "code_links": [
+        "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst/rest-api"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#snowflake-cortex-analyst",
+      "original": {
+        "id": "snowflake-cortex-analyst",
+        "name": "Snowflake Cortex Analyst (vendor documentation)",
+        "kind": "system",
+        "paper_ids": [],
+        "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst/rest-api",
+        "description": "Semantic-model-backed SQL generation API with a documented alternative-question response when ambiguity prevents SQL generation.",
+        "protocol": "The documented response contract makes question suggestions and SQL mutually exclusive. Suggestions are possible reformulations, not proof that all interpretations were covered or that the original request is unanswerable. The documented confidence object identifies a reused verified query, not a calibrated correctness probability.",
+        "availability": "Public API request/response documentation and ambiguity examples inspected; no service calls or performance tests performed. The page recommends transition to Cortex Agents; this entry records the Analyst API contract without treating the migration recommendation as independent quality evidence.",
+        "license_note": "Hosted service documentation; service-use and reuse terms were not reviewed. No open-source implementation license is inferred.",
+        "evidence": [
+          "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst/rest-api"
+        ],
+        "checked_on": "2026-11-14"
+      },
+      "work_id": "snowflake-cortex-analyst"
+    },
+    {
+      "id": "mtsql-r1-system",
+      "name": "MTSQL-R1",
+      "kind": "system",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Training and inference framework for conversational SQL with database execution feedback, historical SQL retrieval and iterative model-based verification and correction.",
+      "tags": [
+        "context",
+        "conversation",
+        "error-correction",
+        "multi-turn",
+        "reinforcement-learning",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "Public source verified at a720f970c4308980812d830bd60f1d69f2ab57fa, including memory/reward modules and training/evaluation entry points. Four author-linked CoSQL/SParC checkpoints (4B and 1.7B) have public, ungated safetensors file listings. README asks users to obtain upstream benchmarks and prepare local parquet inputs. A separate release of collected reasoning trajectories was not verified. No linked code or weights executed; no data or weights downloaded.",
+      "sources": [
+        "https://aclanthology.org/2026.acl-long.1563.pdf",
+        "https://github.com/taichengguo/MTSQL-R1/tree/a720f970c4308980812d830bd60f1d69f2ab57fa",
+        "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/README.md",
+        "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/LICENSE",
+        "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/verl/tools/memory_retriever.py",
+        "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/verl/utils/reward_score/text2sql_process.py",
+        "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/verl/utils/reward_score/eval/evaluation.py",
+        "https://huggingface.co/taicheng/MTSQL-R1-CoSQL-4B/tree/05047f58cd959979343f6651ba21075dba8ad179",
+        "https://huggingface.co/taicheng/MTSQL-R1-SPARC-4B/tree/8ebe01a2e2117fa82dd79cc160df9ac728d96e49",
+        "https://huggingface.co/taicheng/MTSQL-R1-CoSQL-1.7B/tree/401cc76ef27817210d5c3d30801b0c42cbc9f872",
+        "https://huggingface.co/taicheng/MTSQL-R1-SPARC-1.7B/tree/0a61bed339f676410278257801c846f4e7d0fd3c"
+      ],
+      "checked": "2026-11-14",
+      "added_on": null,
+      "url": "https://github.com/taichengguo/MTSQL-R1",
+      "code_links": [
+        "https://github.com/taichengguo/MTSQL-R1"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#mtsql-r1-system",
+      "original": {
+        "id": "mtsql-r1-system",
+        "name": "MTSQL-R1",
+        "kind": "system",
+        "paper_ids": [
+          "mtsql-r1"
+        ],
+        "url": "https://github.com/taichengguo/MTSQL-R1",
+        "description": "Training and inference framework for conversational SQL with database execution feedback, historical SQL retrieval and iterative model-based verification and correction.",
+        "protocol": "Main paper results condition on gold prior SQL, with a separate predicted-history CoSQL test. Memory checks are model judgments, not user confirmation or semantic-equivalence proofs. No clarification or abstention policy is evaluated; source-level EM and verification-tag differences require reconciliation for reproduction.",
+        "availability": "Public source verified at a720f970c4308980812d830bd60f1d69f2ab57fa, including memory/reward modules and training/evaluation entry points. Four author-linked CoSQL/SParC checkpoints (4B and 1.7B) have public, ungated safetensors file listings. README asks users to obtain upstream benchmarks and prepare local parquet inputs. A separate release of collected reasoning trajectories was not verified. No linked code or weights executed; no data or weights downloaded.",
+        "license_note": "Repository LICENSE contains Apache-2.0. Both 4B model cards declare Apache-2.0; neither 1.7B repository had a model card or license metadata at inspection, so their terms remain unverified. Upstream benchmark and dependency terms require separate checks.",
+        "evidence": [
+          "https://aclanthology.org/2026.acl-long.1563.pdf",
+          "https://github.com/taichengguo/MTSQL-R1/tree/a720f970c4308980812d830bd60f1d69f2ab57fa",
+          "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/README.md",
+          "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/LICENSE",
+          "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/verl/tools/memory_retriever.py",
+          "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/verl/utils/reward_score/text2sql_process.py",
+          "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/verl/utils/reward_score/eval/evaluation.py",
+          "https://huggingface.co/taicheng/MTSQL-R1-CoSQL-4B/tree/05047f58cd959979343f6651ba21075dba8ad179",
+          "https://huggingface.co/taicheng/MTSQL-R1-SPARC-4B/tree/8ebe01a2e2117fa82dd79cc160df9ac728d96e49",
+          "https://huggingface.co/taicheng/MTSQL-R1-CoSQL-1.7B/tree/401cc76ef27817210d5c3d30801b0c42cbc9f872",
+          "https://huggingface.co/taicheng/MTSQL-R1-SPARC-1.7B/tree/0a61bed339f676410278257801c846f4e7d0fd3c"
+        ],
+        "checked_on": "2026-11-14"
+      },
+      "work_id": "mtsql-r1"
+    },
+    {
+      "id": "flinkeval-data",
+      "name": "FlinkEval",
+      "kind": "benchmark",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Paper-described synthetic streaming-SQL corpus of 3,903 pairs, with seven request-specification conditions and ranked oracle clues across 45 business domains.",
+      "tags": [
+        "clarification",
+        "evaluation",
+        "underspecification"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "resource",
+      "status": "Benchmark design and corpus-entry schema are available in the paper. Public corpus, sidecar, code and exact deployment artifacts were not verified; the article's v3.1/v2 release names do not by themselves establish public access. No execution or independent reproduction performed.",
+      "sources": [
+        "https://arxiv.org/abs/2611.17093",
+        "https://arxiv.org/pdf/2611.17093v1"
+      ],
+      "checked": "2026-11-14",
+      "added_on": null,
+      "url": "https://arxiv.org/abs/2611.17093",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/datasets/README.md#flinkeval-data",
+      "original": {
+        "id": "flinkeval-data",
+        "name": "FlinkEval",
+        "kind": "dataset",
+        "paper_ids": [
+          "flinkeval"
+        ],
+        "url": "https://arxiv.org/abs/2611.17093",
+        "description": "Paper-described synthetic streaming-SQL corpus of 3,903 pairs, with seven request-specification conditions and ranked oracle clues across 45 business domains.",
+        "protocol": "Static requests with full domain DDLs; the ladder compares one model on 600 selected questions under reference-anchored and face-value model judging. Clues are supplied offline, item-level ambiguity is not established, and no unanswerability task or streaming execution-equivalence metric is evaluated. Known TUMBLE/HOP failures and incomplete variant verification restrict the evaluated subset.",
+        "availability": "Benchmark design and corpus-entry schema are available in the paper. Public corpus, sidecar, code and exact deployment artifacts were not verified; the article's v3.1/v2 release names do not by themselves establish public access. No execution or independent reproduction performed.",
+        "license_note": "Dataset and code terms not verified; the article's license does not establish artifact reuse terms.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.17093",
+          "https://arxiv.org/pdf/2611.17093v1"
+        ],
+        "checked_on": "2026-11-14"
+      },
+      "work_id": "flinkeval"
     }
   ],
   "themes": [
     {
       "id": "ambiguity",
       "label": "Ambiguity",
-      "count": 40
+      "count": 41
     },
     {
       "id": "clarification",
       "label": "Clarification",
-      "count": 33
+      "count": 34
     },
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 29
+      "count": 31
     },
     {
       "id": "unanswerability",
@@ -12853,7 +13347,7 @@
     {
       "id": "verification",
       "label": "Verification",
-      "count": 21
+      "count": 22
     },
     {
       "id": "uncertainty",
@@ -12874,6 +13368,11 @@
       "id": "interactive-system",
       "label": "Interactive system",
       "count": 9
+    },
+    {
+      "id": "context",
+      "label": "Context",
+      "count": 8
     },
     {
       "id": "schema-linking",
@@ -12906,11 +13405,6 @@
       "count": 6
     },
     {
-      "id": "context",
-      "label": "Context",
-      "count": 6
-    },
-    {
       "id": "error-detection",
       "label": "Error detection",
       "count": 6
@@ -12921,8 +13415,18 @@
       "count": 5
     },
     {
+      "id": "conversation",
+      "label": "Conversation",
+      "count": 5
+    },
+    {
       "id": "interpretation-coverage",
       "label": "Interpretation coverage",
+      "count": 5
+    },
+    {
+      "id": "underspecification",
+      "label": "Underspecification",
       "count": 5
     },
     {
@@ -12931,13 +13435,8 @@
       "count": 4
     },
     {
-      "id": "conversation",
-      "label": "Conversation",
-      "count": 4
-    },
-    {
-      "id": "underspecification",
-      "label": "Underspecification",
+      "id": "error-correction",
+      "label": "Error correction",
       "count": 4
     },
     {
@@ -12956,13 +13455,18 @@
       "count": 3
     },
     {
-      "id": "error-correction",
-      "label": "Error correction",
+      "id": "multi-agent",
+      "label": "Multi agent",
       "count": 3
     },
     {
-      "id": "multi-agent",
-      "label": "Multi agent",
+      "id": "multi-turn",
+      "label": "Multi-turn dialogue",
+      "count": 3
+    },
+    {
+      "id": "reinforcement-learning",
+      "label": "Reinforcement learning",
       "count": 3
     },
     {
@@ -12996,11 +13500,6 @@
       "count": 2
     },
     {
-      "id": "multi-turn",
-      "label": "Multi-turn dialogue",
-      "count": 2
-    },
-    {
       "id": "natural-language-feedback",
       "label": "Natural language feedback",
       "count": 2
@@ -13008,11 +13507,6 @@
     {
       "id": "query-rewriting",
       "label": "Query rewriting",
-      "count": 2
-    },
-    {
-      "id": "reinforcement-learning",
-      "label": "Reinforcement learning",
       "count": 2
     },
     {
@@ -15023,6 +15517,58 @@
         }
       ],
       "checked_on": "2026-11-11"
+    },
+    {
+      "resource_id": "flinkeval-data",
+      "label": "FlinkEval",
+      "relevance": "direct",
+      "ambiguity": {
+        "status": "yes",
+        "detail": "Explicitly studies potentially underspecified business-language requests and contextually recoverable versus unresolved omissions; no per-item proof of multiple valid interpretations or omission-recoverability annotation."
+      },
+      "unanswerability": {
+        "status": "not_targeted",
+        "detail": "No unanswerable-query classification or abstention evaluation. Recorded engine, missing-sink and result-retrieval failures are operational outcomes rather than answerability labels."
+      },
+      "clarification": {
+        "mode": "supplied",
+        "detail": "Zero to three LLM-ranked oracle clues are appended to a fixed base request; question generation, user responses and clue retrieval are not evaluated."
+      },
+      "interaction": {
+        "mode": "static",
+        "detail": "Single generated SQL per request condition with live engine observation; no runtime user dialogue. Appendix E's clarification exchange is schematic, not a measured interaction."
+      },
+      "domain": "45 synthetic business domains over one Confluent Cloud Apache Flink deployment; snapshot, streaming and background/DML modes.",
+      "evaluation": "Adjudicated three-model judge-pass under reference-anchored and face-value criteria, plus execution-error rate and pass-without-error. No streaming execution-equivalence accuracy; five-model comparison uses 666 selected questions and the specification ladder uses 600 with one generator.",
+      "data_access": "release_unverified",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/pdf/2611.17093v1",
+          "locator": "Section 3.1/Table 1, pages 3–4; Section 5.2/Table 4, pages 5–6; Specification validity, page 7; Appendix E.1, pages 16–17.",
+          "supports": [
+            "ambiguity",
+            "clarification",
+            "interaction"
+          ]
+        },
+        {
+          "url": "https://arxiv.org/pdf/2611.17093v1",
+          "locator": "Sections 3.2, 4.2 and 5.1–5.2, pages 3–6; Appendix B.2.1, pages 11–12; Appendix C, pages 13–14; Appendix D, page 15. The tasks concern supplied reference SQL and operational execution, without an unanswerability class.",
+          "supports": [
+            "unanswerability",
+            "domain",
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://arxiv.org/abs/2611.17093",
+          "locator": "Primary record and linked full paper checked 2026-11-14; Appendix B.5 describes corpus files, but no public artifact URL was verified. Exact-name GitHub and Hugging Face discovery also returned no matching public artifacts; absence is not established.",
+          "supports": [
+            "data_access"
+          ]
+        }
+      ],
+      "checked_on": "2026-11-14"
     }
   ]
 }

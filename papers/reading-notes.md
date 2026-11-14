@@ -6,7 +6,7 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **101 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **104 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
@@ -35,10 +35,12 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [EntSQL: A Benchmark for Grounding Text-to-SQL in Long-Context Enterprise Knowledge](notes/entsql.md) | Full paper read |
 | 2026 | [Evaluating LLMs on Conversational Text-to-SQL under Chain Ambiguity and Intent Drift](notes/tide-bench.md) | Full paper read |
 | 2026 | [FALCON: A Model and Dataset Agnostic Framework for Synthetic Data Generation for NL2SQL Pairs](notes/falcon-synthesis.md) | Full paper read |
+| 2026 | [FlinkEval: A Synthetic Corpus for Evaluating Natural Language Interfaces to Streaming SQL](notes/flinkeval.md) | Full paper read |
 | 2026 | [From Textual Columns to Query Plans: A Unified Relational-Semantic Execution Framework for Hybrid Query Processing](notes/omnitqa.md) | Full paper read |
 | 2026 | [KODE: Mining Implicit Domain Knowledge from Historical Experience for Text-to-SQL](notes/kode.md) | Full paper read |
 | 2026 | [LASSO: An LLM-Agent Synthesized System for SQL Validation](notes/lasso.md) | Full paper read |
 | 2026 | [LatentRefusal: Latent-Signal Refusal for Unanswerable Text-to-SQL Queries](notes/latentrefusal.md) | Full paper read |
+| 2026 | [MTSQL-R1: Towards Long-Horizon Multi-Turn Text-to-SQL via Agentic Training](notes/mtsql-r1.md) | Full paper read |
 | 2026 | [Never the Number: Structural Abstention for AI Systems Whose Answers Are Consumed as Fact](notes/structural-abstention.md) | Full paper read |
 | 2026 | [Node-Level Uncertainty Estimation in LLM-Generated SQL](notes/node-level-uncertainty.md) | Full paper read |
 | 2026 | [ODUTQA-MDC: A Task for Open-Domain Underspecified Tabular QA with Multi-turn Dialogue-based Clarification](notes/odutqa-mdc.md) | Full paper read |
@@ -62,6 +64,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [SpotIt: Evaluating Text-to-SQL Evaluation with Formal Verification](notes/spotit.md) | Full paper read |
 | 2026 | [SQLoom: Set-Contrastive Learning of Syntactic, Semantic, and Logical Dependencies for Text-to-SQL](notes/sqloom.md) | Full paper read |
 | 2026 | [SQLStructEval: Structural Evaluation of LLM Text-to-SQL Generation](notes/sqlstructeval.md) | Full paper read |
+| 2026 | [STRATOS: Bridging the Symbolic-to-Numeric Gap in Spatio-Temporal Text-to-SQL for Meteorological Data](notes/stratos.md) | Full paper read |
 | 2026 | [TACO: A Benchmark for Open-Domain Text-to-SQL with Ambiguous and Cross-Database Queries](notes/taco.md) | Full paper read |
 | 2026 | [Text-to-SQL Models Make Choices Without Saying So](notes/specbridge.md) | Full paper read |
 | 2026 | [TraceSQL: Traceable Answerability Estimation for Reference-Free Text-to-SQL Verification](notes/tracesql.md) | Full paper read |

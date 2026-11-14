@@ -1734,5 +1734,57 @@
       }
     ],
     "checked_on": "2026-11-11"
+  },
+  {
+    "resource_id": "flinkeval-data",
+    "label": "FlinkEval",
+    "relevance": "direct",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Explicitly studies potentially underspecified business-language requests and contextually recoverable versus unresolved omissions; no per-item proof of multiple valid interpretations or omission-recoverability annotation."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "No unanswerable-query classification or abstention evaluation. Recorded engine, missing-sink and result-retrieval failures are operational outcomes rather than answerability labels."
+    },
+    "clarification": {
+      "mode": "supplied",
+      "detail": "Zero to three LLM-ranked oracle clues are appended to a fixed base request; question generation, user responses and clue retrieval are not evaluated."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Single generated SQL per request condition with live engine observation; no runtime user dialogue. Appendix E's clarification exchange is schematic, not a measured interaction."
+    },
+    "domain": "45 synthetic business domains over one Confluent Cloud Apache Flink deployment; snapshot, streaming and background/DML modes.",
+    "evaluation": "Adjudicated three-model judge-pass under reference-anchored and face-value criteria, plus execution-error rate and pass-without-error. No streaming execution-equivalence accuracy; five-model comparison uses 666 selected questions and the specification ladder uses 600 with one generator.",
+    "data_access": "release_unverified",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/pdf/2611.17093v1",
+        "locator": "Section 3.1/Table 1, pages 3–4; Section 5.2/Table 4, pages 5–6; Specification validity, page 7; Appendix E.1, pages 16–17.",
+        "supports": [
+          "ambiguity",
+          "clarification",
+          "interaction"
+        ]
+      },
+      {
+        "url": "https://arxiv.org/pdf/2611.17093v1",
+        "locator": "Sections 3.2, 4.2 and 5.1–5.2, pages 3–6; Appendix B.2.1, pages 11–12; Appendix C, pages 13–14; Appendix D, page 15. The tasks concern supplied reference SQL and operational execution, without an unanswerability class.",
+        "supports": [
+          "unanswerability",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://arxiv.org/abs/2611.17093",
+        "locator": "Primary record and linked full paper checked 2026-11-14; Appendix B.5 describes corpus files, but no public artifact URL was verified. Exact-name GitHub and Hugging Face discovery also returned no matching public artifacts; absence is not established.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-11-14"
   }
 ]

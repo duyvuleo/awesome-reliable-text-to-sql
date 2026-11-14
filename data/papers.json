@@ -2931,5 +2931,90 @@
     "added_on": "2026-11-13",
     "checked_on": "2026-11-13",
     "artifact_status": "Public decomposition/prompting and evaluation scripts, analysis notebooks, saved model outputs and heuristic annotations inspected at a pinned revision. Underlying databases are obtained separately from BIRD. No project code executed, results reproduced, or repository license verified."
+  },
+  {
+    "id": "mtsql-r1",
+    "title": "MTSQL-R1: Towards Long-Horizon Multi-Turn Text-to-SQL via Agentic Training",
+    "year": 2026,
+    "publication_status": "ACL 2026; first preprint October 2025",
+    "primary_url": "https://aclanthology.org/2026.acl-long.1563/",
+    "code_url": "https://github.com/taichengguo/MTSQL-R1",
+    "dataset_url": null,
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "multi-turn",
+      "conversation",
+      "context",
+      "verification",
+      "error-correction",
+      "reinforcement-learning"
+    ],
+    "summary": "Trains a conversational SQL agent to execute candidates, retrieve earlier SQL and parsed constraints, and revise inconsistencies. CoSQL/SParC ablations support execution and memory checks; main results use gold history, with a separate predicted-history test. Verification remains a learned judgment with reference-based rewards, and clarification or unanswerability is not evaluated.",
+    "evidence": [
+      "https://aclanthology.org/2026.acl-long.1563/",
+      "https://aclanthology.org/2026.acl-long.1563.pdf",
+      "https://arxiv.org/abs/2510.12831v3",
+      "https://github.com/taichengguo/MTSQL-R1",
+      "https://github.com/taichengguo/MTSQL-R1/blob/a720f970c4308980812d830bd60f1d69f2ab57fa/verl/utils/reward_score/text2sql_process.py"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/mtsql-r1.md",
+    "added_on": "2026-11-14",
+    "checked_on": "2026-11-14",
+    "artifact_status": "Official training, rollout, memory and reward source inspected at a720f970c4308980812d830bd60f1d69f2ab57fa. Four author-linked public model repositories list safetensors weights; weights were not downloaded or run. README requires locally prepared benchmark/parquet inputs; a separate trajectory-data release was not verified. Paper/source metric and verdict-tag discrepancies are documented in the reading note. No independent reproduction."
+  },
+  {
+    "id": "stratos",
+    "title": "STRATOS: Bridging the Symbolic-to-Numeric Gap in Spatio-Temporal Text-to-SQL for Meteorological Data",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2607.03501",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "context",
+    "scope": "adjacent",
+    "topics": [
+      "context",
+      "ambiguity",
+      "evaluation"
+    ],
+    "summary": "Grounds meteorological place names and fuzzy climate concepts through Wikidata/OpenStreetMap retrieval, a domain ontology and array-schema hints before SQL generation, then rewrites costly spatial predicates. Evaluation exposes valid aggregation interpretations rejected by single-gold result matching. Automatic grounding is not user clarification; exact and approximate spatial targets can yield different answers, and optimizer speedups depend on PostgreSQL.",
+    "evidence": [
+      "https://arxiv.org/abs/2607.03501",
+      "https://arxiv.org/pdf/2607.03501v2",
+      "https://arxiv.org/html/2607.03501v2"
+    ],
+    "artifact_status": "The paper describes a system and evaluation workload; an official implementation or workload download was not established from the paper or checked public searches. No project code, datasets or experiments were executed or independently reproduced.",
+    "source_depth": "full-text-reviewed",
+    "checked_on": "2026-11-14",
+    "added_on": "2026-11-14",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/stratos.md"
+  },
+  {
+    "id": "flinkeval",
+    "title": "FlinkEval: A Synthetic Corpus for Evaluating Natural Language Interfaces to Streaming SQL",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2611.17093",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "ambiguity",
+    "scope": "core",
+    "topics": [
+      "underspecification",
+      "clarification",
+      "evaluation"
+    ],
+    "summary": "Introduces a streaming-SQL corpus and a seven-level request-specification ladder, contrasting schema-explicit and potentially underspecified requests with ranked oracle clues. Reference-anchored and face-value model judgments diverge substantially. Clues are supplied rather than elicited through dialogue; per-item ambiguity is not validated, and judge-pass rates are not execution-equivalence accuracy. Public code and data release remain unverified.",
+    "evidence": [
+      "https://arxiv.org/abs/2611.17093",
+      "https://arxiv.org/pdf/2611.17093v1"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/flinkeval.md",
+    "added_on": "2026-11-14",
+    "checked_on": "2026-11-14",
+    "artifact_status": "The paper describes corpus releases, JSONL records and specification sidecars, but supplies no verified public download or code URL. Exact-name public GitHub and Hugging Face searches returned no matching artifacts on the check date. These searches do not establish that artifacts are absent. No code executed or results reproduced."
   }
 ]
