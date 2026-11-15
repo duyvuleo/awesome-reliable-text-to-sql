@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-16
+
+- Added complete readings of SQLucid, AIRI’s EHRSQL 2024 system and the access-control probing study, with explicit user-study denominators, false-refusal behavior and authorization limits. The catalog now contains 110 papers, with 107 full readings and three access gaps.
+- Added SQLucid and AIRI system entries, distinguishing paper-era code, cached-prediction replay and unverified external artifacts; no additional dataset was counted.
+- Independently verified AmbiSQL’s SIGMOD 2026 demonstration status and clarified the MISP branch for the original 2019 experiments. Original addition dates and existing scientific reviews were preserved.
+
 ## 2026-11-14
 
 - Added complete readings of FlinkEval, MTSQL-R1 and STRATOS, distinguishing oracle clues, learned memory checks and automatic domain grounding from verified intent resolution. The catalog now has 107 papers, including 104 full readings and three access gaps.

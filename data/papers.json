@@ -91,7 +91,7 @@
     "id": "ambisql",
     "title": "AmbiSQL: Interactive Ambiguity Detection and Resolution for Text-to-SQL",
     "year": 2026,
-    "publication_status": "SIGMOD 2026 demonstration described in author manuscript; first preprint 2025",
+    "publication_status": "SIGMOD 2026 demonstration; first preprint 2025",
     "primary_url": "https://arxiv.org/abs/2508.15276",
     "code_url": "https://github.com/JustinzjDing/AmbiSQL",
     "dataset_url": null,
@@ -106,9 +106,11 @@
     "evidence": [
       "https://arxiv.org/abs/2508.15276",
       "https://github.com/JustinzjDing/AmbiSQL",
-      "https://arxiv.org/pdf/2508.15276v2"
+      "https://arxiv.org/pdf/2508.15276v2",
+      "https://2026.sigmod.org/sigmod_demos.shtml",
+      "https://2026.sigmod.org/sigmod_program_detailed.shtml"
     ],
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-16",
     "artifact_status": "Apache-2.0 code, frontend, and linked demo verified; live demo not exercised; standalone ambiguity dataset release not verified. Distinct from AmbigSQL in Learning to Clarify; current arXiv v2 has six authors and a demonstration-oriented abstract, unlike older indexed snippets.",
     "category": "ambiguity",
     "source_depth": "full-text-reviewed",
@@ -836,12 +838,14 @@
       "https://aclanthology.org/D19-1547/",
       "https://aclanthology.org/D19-1547.pdf",
       "https://arxiv.org/pdf/1910.05389v1#page=13",
-      "https://github.com/sunlab-osu/MISP"
+      "https://github.com/sunlab-osu/MISP",
+      "https://github.com/sunlab-osu/MISP/blob/7870566ab6b9e121d648478968367bc79c12f7ef/README.md",
+      "https://github.com/sunlab-osu/MISP/tree/d517d7e08fd2f5eb3609755998b8ae47b3bfcc5e"
     ],
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-16",
     "category": "interaction",
     "source_depth": "full-text-reviewed",
-    "artifact_status": "Artifact execution and independent reproduction were not assessed.",
+    "artifact_status": "The official README identifies the emnlp branch for the EMNLP 2019 binary-choice experiments. The default multichoice_q_v2 branch includes later multi-choice interfaces and EMNLP 2020 interactive-learning code. The 2019 branch exists at d517d7e08fd2f5eb3609755998b8ae47b3bfcc5e; artifacts were not executed or independently reproduced.",
     "added_on": "2026-10-22",
     "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/misp.md"
   },
@@ -3016,5 +3020,93 @@
     "added_on": "2026-11-14",
     "checked_on": "2026-11-14",
     "artifact_status": "The paper describes corpus releases, JSONL records and specification sidecars, but supplies no verified public download or code URL. Exact-name public GitHub and Hugging Face searches returned no matching artifacts on the check date. These searches do not establish that artifacts are absent. No code executed or results reproduced."
+  },
+  {
+    "id": "airi-ehrsql-2024",
+    "title": "AIRI NLP Team at EHRSQL 2024 Shared Task: T5 and Logistic Regression to the Rescue",
+    "year": 2024,
+    "publication_status": "ClinicalNLP 2024 shared-task system paper, pp. 431–438",
+    "primary_url": "https://aclanthology.org/2024.clinicalnlp-1.43/",
+    "code_url": "https://github.com/runnerup96/EHRSQL-text2sql-solution",
+    "dataset_url": null,
+    "category": "answerability",
+    "scope": "core",
+    "topics": [
+      "unanswerability",
+      "abstention",
+      "clinical",
+      "evaluation"
+    ],
+    "summary": "Combines lexical/schema features and logistic regression for answerability, a fine-tuned T5 SQL generator, and an execution-result filter. The shared-task study reports distribution-shift failures and false refusals of valid zero or missing-valued results. Its released final runner rejects a fixed fraction of questions using inferred test prevalence; neither this policy nor successful execution proves semantic correctness.",
+    "evidence": [
+      "https://aclanthology.org/2024.clinicalnlp-1.43/",
+      "https://aclanthology.org/2024.clinicalnlp-1.43.pdf",
+      "https://github.com/runnerup96/EHRSQL-text2sql-solution",
+      "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/ehrsql_solution/final_system.py",
+      "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/ehrsql_solution/support_functions.py"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/airi-ehrsql-2024.md",
+    "added_on": "2026-11-16",
+    "checked_on": "2026-11-16",
+    "artifact_status": "Official training/inference and final-system source inspected at fec14ccd78a4ade3ad1087a9791ae66f3699a311. The final runner consumes cached T5 predictions and precomputed schema features; this is distinct from fresh generation. No cached predictions, data or model weights were downloaded or executed; no independent reproduction."
+  },
+  {
+    "id": "access-control-probes",
+    "title": "Embarrassingly Simple Access Control for Large Language Models",
+    "year": 2026,
+    "publication_status": "AACL-IJCNLP 2026",
+    "primary_url": "https://aclanthology.org/2026.aacl-long.110/",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "answerability",
+    "scope": "adjacent",
+    "topics": [
+      "abstention",
+      "verification",
+      "evaluation"
+    ],
+    "summary": "Trains logistic-regression probes on frozen LLM hidden states to predict policy-based grant/deny decisions, including adapted BIRD and Spider tasks. Probes perform strongly under standard SQL-policy prompts but degrade under adversarial instructions and usually underperform prompting on OrgAccess. This is authorization prediction rather than intrinsic unanswerability or enforced SQL security; paper-specific implementation and weights were not verified.",
+    "evidence": [
+      "https://aclanthology.org/2026.aacl-long.110/",
+      "https://aclanthology.org/2026.aacl-long.110.pdf",
+      "https://www.anthonyrios.net/publications/"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/access-control-probes.md",
+    "added_on": "2026-11-16",
+    "checked_on": "2026-11-16",
+    "artifact_status": "No paper-specific code, trained probes or reproducible configuration release was verified in the article or author publication listing. Exact-title public repository search returned no matches, which does not establish absence. The study reuses prior RBAC-adapted SQL and OrgAccess datasets; no new dataset or tool release is inferred."
+  },
+  {
+    "id": "sqlucid",
+    "title": "SQLucid: Grounding Natural Language Database Queries with Interactive Explanations",
+    "year": 2024,
+    "publication_status": "UIST 2024; article 12",
+    "primary_url": "https://arxiv.org/abs/2409.06178",
+    "code_url": "https://github.com/magic-YuanTian/SQLucid",
+    "dataset_url": null,
+    "category": "interaction",
+    "scope": "adjacent",
+    "topics": [
+      "human-in-the-loop",
+      "explanation",
+      "natural-language-feedback",
+      "error-correction",
+      "verification",
+      "visual-interface"
+    ],
+    "summary": "Helps users inspect and repair SQL through editable step explanations, linked database highlighting and intermediate results. Studies with 30 and eight participants evaluate correction and effort. Its 85% accuracy excludes skipped/unattempted tasks; a separate 89% result comes from an author-operated trial. No autonomous clarification or unanswerability evaluation is reported.",
+    "evidence": [
+      "https://tianyi-zhang.github.io/files/uist2024-sqlucid.pdf",
+      "https://arxiv.org/abs/2409.06178",
+      "https://github.com/magic-YuanTian/SQLucid",
+      "https://github.com/magic-YuanTian/SQLucid/blob/52f3692328e4c86aba4e7ba07d157fb6a313bfea/README.md"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sqlucid.md",
+    "added_on": "2026-11-16",
+    "checked_on": "2026-11-16",
+    "artifact_status": "Public V1/V2 frontend and backend source trees verified at 52f3692328e4c86aba4e7ba07d157fb6a313bfea, with Apache-2.0 LICENSE. README identifies V1 as the evaluated SmBoP/STEPS version and V2 as a later ChatGPT version. Complete bundles/models are linked through author downloads; access and contents were not verified. No software executed, user logs inspected, bundles downloaded or results reproduced."
   }
 ]

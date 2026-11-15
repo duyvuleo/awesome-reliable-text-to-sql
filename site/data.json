@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-14",
-  "updated": "2026-11-14",
+  "checked": "2026-11-16",
+  "updated": "2026-11-16",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 107,
-    "system": 20,
+    "paper": 110,
+    "system": 22,
     "tool": 22,
     "benchmark": 34
   },
@@ -548,6 +548,31 @@
       ],
       "categories": [
         "context"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "access-control-probes",
+      "name": "Embarrassingly Simple Access Control for Large Language Models",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Trains logistic-regression probes on frozen LLM hidden states to predict policy-based grant/deny decisions, including adapted BIRD and Spider tasks. Probes perform strongly under standard SQL-policy prompts but degrade under adversarial instructions and usually underperform prompting on OrgAccess. This is authorization prediction rather than intrinsic unanswerability or enforced SQL security; paper-specific implementation and weights were not verified.",
+      "entry_ids": [
+        "access-control-probes"
+      ],
+      "themes": [
+        "abstention",
+        "evaluation",
+        "verification"
+      ],
+      "categories": [
+        "answerability"
       ],
       "kinds": [
         "paper"
@@ -2348,6 +2373,34 @@
       ]
     },
     {
+      "id": "airi-ehrsql-2024",
+      "name": "AIRI NLP Team at EHRSQL 2024 Shared Task: T5 and Logistic Regression to the Rescue",
+      "date": "2024",
+      "year": 2024,
+      "kind": "paper",
+      "summary": "Combines lexical/schema features and logistic regression for answerability, a fine-tuned T5 SQL generator, and an execution-result filter. The shared-task study reports distribution-shift failures and false refusals of valid zero or missing-valued results. Its released final runner rejects a fixed fraction of questions using inferred test prevalence; neither this policy nor successful execution proves semantic correctness.",
+      "entry_ids": [
+        "airi-ehrsql-2024",
+        "airi-ehrsql-system"
+      ],
+      "themes": [
+        "abstention",
+        "clinical",
+        "evaluation",
+        "unanswerability"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "kinds": [
+        "paper",
+        "system"
+      ],
+      "years": [
+        2024
+      ]
+    },
+    {
       "id": "ambrosia",
       "name": "AMBROSIA: A Benchmark for Parsing Ambiguous Questions into Database Queries",
       "date": "2024",
@@ -2469,6 +2522,36 @@
         "ambiguity",
         "clarification",
         "interactive-system"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "kinds": [
+        "paper",
+        "system"
+      ],
+      "years": [
+        2024
+      ]
+    },
+    {
+      "id": "sqlucid",
+      "name": "SQLucid: Grounding Natural Language Database Queries with Interactive Explanations",
+      "date": "2024",
+      "year": 2024,
+      "kind": "paper",
+      "summary": "Helps users inspect and repair SQL through editable step explanations, linked database highlighting and intermediate results. Studies with 30 and eight participants evaluate correction and effort. Its 85% accuracy excludes skipped/unattempted tasks; a separate 89% result comes from an author-operated trial. No autonomous clarification or unanswerability evaluation is reported.",
+      "entry_ids": [
+        "sqlucid",
+        "sqlucid-system"
+      ],
+      "themes": [
+        "error-correction",
+        "explanation",
+        "human-in-the-loop",
+        "natural-language-feedback",
+        "verification",
+        "visual-interface"
       ],
       "categories": [
         "interaction"
@@ -3202,14 +3285,16 @@
       "categories": [
         "ambiguity"
       ],
-      "evidence": "SIGMOD 2026 demonstration described in author manuscript; first preprint 2025",
+      "evidence": "SIGMOD 2026 demonstration; first preprint 2025",
       "status": "Apache-2.0 code, frontend, and linked demo verified; live demo not exercised; standalone ambiguity dataset release not verified. Distinct from AmbigSQL in Learning to Clarify; current arXiv v2 has six authors and a demonstration-oriented abstract, unlike older indexed snippets.",
       "sources": [
         "https://arxiv.org/abs/2508.15276",
         "https://github.com/JustinzjDing/AmbiSQL",
-        "https://arxiv.org/pdf/2508.15276v2"
+        "https://arxiv.org/pdf/2508.15276v2",
+        "https://2026.sigmod.org/sigmod_demos.shtml",
+        "https://2026.sigmod.org/sigmod_program_detailed.shtml"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-11-16",
       "added_on": "2026-10-22",
       "url": "https://arxiv.org/abs/2508.15276",
       "code_links": [
@@ -3220,7 +3305,7 @@
         "id": "ambisql",
         "title": "AmbiSQL: Interactive Ambiguity Detection and Resolution for Text-to-SQL",
         "year": 2026,
-        "publication_status": "SIGMOD 2026 demonstration described in author manuscript; first preprint 2025",
+        "publication_status": "SIGMOD 2026 demonstration; first preprint 2025",
         "primary_url": "https://arxiv.org/abs/2508.15276",
         "code_url": "https://github.com/JustinzjDing/AmbiSQL",
         "dataset_url": null,
@@ -3235,9 +3320,11 @@
         "evidence": [
           "https://arxiv.org/abs/2508.15276",
           "https://github.com/JustinzjDing/AmbiSQL",
-          "https://arxiv.org/pdf/2508.15276v2"
+          "https://arxiv.org/pdf/2508.15276v2",
+          "https://2026.sigmod.org/sigmod_demos.shtml",
+          "https://2026.sigmod.org/sigmod_program_detailed.shtml"
         ],
-        "checked_on": "2026-11-09",
+        "checked_on": "2026-11-16",
         "artifact_status": "Apache-2.0 code, frontend, and linked demo verified; live demo not exercised; standalone ambiguity dataset release not verified. Distinct from AmbigSQL in Learning to Clarify; current arXiv v2 has six authors and a demonstration-oriented abstract, unlike older indexed snippets.",
         "category": "ambiguity",
         "source_depth": "full-text-reviewed",
@@ -4772,14 +4859,16 @@
         "interaction"
       ],
       "evidence": "EMNLP-IJCNLP 2019",
-      "status": "Artifact execution and independent reproduction were not assessed.",
+      "status": "The official README identifies the emnlp branch for the EMNLP 2019 binary-choice experiments. The default multichoice_q_v2 branch includes later multi-choice interfaces and EMNLP 2020 interactive-learning code. The 2019 branch exists at d517d7e08fd2f5eb3609755998b8ae47b3bfcc5e; artifacts were not executed or independently reproduced.",
       "sources": [
         "https://aclanthology.org/D19-1547/",
         "https://aclanthology.org/D19-1547.pdf",
         "https://arxiv.org/pdf/1910.05389v1#page=13",
-        "https://github.com/sunlab-osu/MISP"
+        "https://github.com/sunlab-osu/MISP",
+        "https://github.com/sunlab-osu/MISP/blob/7870566ab6b9e121d648478968367bc79c12f7ef/README.md",
+        "https://github.com/sunlab-osu/MISP/tree/d517d7e08fd2f5eb3609755998b8ae47b3bfcc5e"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-11-16",
       "added_on": "2026-10-22",
       "url": "https://aclanthology.org/D19-1547/",
       "code_links": [
@@ -4805,12 +4894,14 @@
           "https://aclanthology.org/D19-1547/",
           "https://aclanthology.org/D19-1547.pdf",
           "https://arxiv.org/pdf/1910.05389v1#page=13",
-          "https://github.com/sunlab-osu/MISP"
+          "https://github.com/sunlab-osu/MISP",
+          "https://github.com/sunlab-osu/MISP/blob/7870566ab6b9e121d648478968367bc79c12f7ef/README.md",
+          "https://github.com/sunlab-osu/MISP/tree/d517d7e08fd2f5eb3609755998b8ae47b3bfcc5e"
         ],
-        "checked_on": "2026-11-09",
+        "checked_on": "2026-11-16",
         "category": "interaction",
         "source_depth": "full-text-reviewed",
-        "artifact_status": "Artifact execution and independent reproduction were not assessed.",
+        "artifact_status": "The official README identifies the emnlp branch for the EMNLP 2019 binary-choice experiments. The default multichoice_q_v2 branch includes later multi-choice interfaces and EMNLP 2020 interactive-learning code. The 2019 branch exists at d517d7e08fd2f5eb3609755998b8ae47b3bfcc5e; artifacts were not executed or independently reproduced.",
         "added_on": "2026-10-22",
         "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/misp.md"
       },
@@ -9476,6 +9567,195 @@
       "work_id": "flinkeval"
     },
     {
+      "id": "airi-ehrsql-2024",
+      "name": "AIRI NLP Team at EHRSQL 2024 Shared Task: T5 and Logistic Regression to the Rescue",
+      "kind": "paper",
+      "year": 2024,
+      "date": "2024",
+      "date_label": "Publication year",
+      "summary": "Combines lexical/schema features and logistic regression for answerability, a fine-tuned T5 SQL generator, and an execution-result filter. The shared-task study reports distribution-shift failures and false refusals of valid zero or missing-valued results. Its released final runner rejects a fixed fraction of questions using inferred test prevalence; neither this policy nor successful execution proves semantic correctness.",
+      "tags": [
+        "unanswerability",
+        "abstention",
+        "clinical",
+        "evaluation"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "ClinicalNLP 2024 shared-task system paper, pp. 431–438",
+      "status": "Official training/inference and final-system source inspected at fec14ccd78a4ade3ad1087a9791ae66f3699a311. The final runner consumes cached T5 predictions and precomputed schema features; this is distinct from fresh generation. No cached predictions, data or model weights were downloaded or executed; no independent reproduction.",
+      "sources": [
+        "https://aclanthology.org/2024.clinicalnlp-1.43/",
+        "https://aclanthology.org/2024.clinicalnlp-1.43.pdf",
+        "https://github.com/runnerup96/EHRSQL-text2sql-solution",
+        "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/ehrsql_solution/final_system.py",
+        "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/ehrsql_solution/support_functions.py"
+      ],
+      "checked": "2026-11-16",
+      "added_on": "2026-11-16",
+      "url": "https://aclanthology.org/2024.clinicalnlp-1.43/",
+      "code_links": [
+        "https://github.com/runnerup96/EHRSQL-text2sql-solution"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#airi-ehrsql-2024",
+      "original": {
+        "id": "airi-ehrsql-2024",
+        "title": "AIRI NLP Team at EHRSQL 2024 Shared Task: T5 and Logistic Regression to the Rescue",
+        "year": 2024,
+        "publication_status": "ClinicalNLP 2024 shared-task system paper, pp. 431–438",
+        "primary_url": "https://aclanthology.org/2024.clinicalnlp-1.43/",
+        "code_url": "https://github.com/runnerup96/EHRSQL-text2sql-solution",
+        "dataset_url": null,
+        "category": "answerability",
+        "scope": "core",
+        "topics": [
+          "unanswerability",
+          "abstention",
+          "clinical",
+          "evaluation"
+        ],
+        "summary": "Combines lexical/schema features and logistic regression for answerability, a fine-tuned T5 SQL generator, and an execution-result filter. The shared-task study reports distribution-shift failures and false refusals of valid zero or missing-valued results. Its released final runner rejects a fixed fraction of questions using inferred test prevalence; neither this policy nor successful execution proves semantic correctness.",
+        "evidence": [
+          "https://aclanthology.org/2024.clinicalnlp-1.43/",
+          "https://aclanthology.org/2024.clinicalnlp-1.43.pdf",
+          "https://github.com/runnerup96/EHRSQL-text2sql-solution",
+          "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/ehrsql_solution/final_system.py",
+          "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/ehrsql_solution/support_functions.py"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/airi-ehrsql-2024.md",
+        "added_on": "2026-11-16",
+        "checked_on": "2026-11-16",
+        "artifact_status": "Official training/inference and final-system source inspected at fec14ccd78a4ade3ad1087a9791ae66f3699a311. The final runner consumes cached T5 predictions and precomputed schema features; this is distinct from fresh generation. No cached predictions, data or model weights were downloaded or executed; no independent reproduction."
+      },
+      "work_id": "airi-ehrsql-2024"
+    },
+    {
+      "id": "access-control-probes",
+      "name": "Embarrassingly Simple Access Control for Large Language Models",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Trains logistic-regression probes on frozen LLM hidden states to predict policy-based grant/deny decisions, including adapted BIRD and Spider tasks. Probes perform strongly under standard SQL-policy prompts but degrade under adversarial instructions and usually underperform prompting on OrgAccess. This is authorization prediction rather than intrinsic unanswerability or enforced SQL security; paper-specific implementation and weights were not verified.",
+      "tags": [
+        "abstention",
+        "verification",
+        "evaluation"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "AACL-IJCNLP 2026",
+      "status": "No paper-specific code, trained probes or reproducible configuration release was verified in the article or author publication listing. Exact-title public repository search returned no matches, which does not establish absence. The study reuses prior RBAC-adapted SQL and OrgAccess datasets; no new dataset or tool release is inferred.",
+      "sources": [
+        "https://aclanthology.org/2026.aacl-long.110/",
+        "https://aclanthology.org/2026.aacl-long.110.pdf",
+        "https://www.anthonyrios.net/publications/"
+      ],
+      "checked": "2026-11-16",
+      "added_on": "2026-11-16",
+      "url": "https://aclanthology.org/2026.aacl-long.110/",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#access-control-probes",
+      "original": {
+        "id": "access-control-probes",
+        "title": "Embarrassingly Simple Access Control for Large Language Models",
+        "year": 2026,
+        "publication_status": "AACL-IJCNLP 2026",
+        "primary_url": "https://aclanthology.org/2026.aacl-long.110/",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "answerability",
+        "scope": "adjacent",
+        "topics": [
+          "abstention",
+          "verification",
+          "evaluation"
+        ],
+        "summary": "Trains logistic-regression probes on frozen LLM hidden states to predict policy-based grant/deny decisions, including adapted BIRD and Spider tasks. Probes perform strongly under standard SQL-policy prompts but degrade under adversarial instructions and usually underperform prompting on OrgAccess. This is authorization prediction rather than intrinsic unanswerability or enforced SQL security; paper-specific implementation and weights were not verified.",
+        "evidence": [
+          "https://aclanthology.org/2026.aacl-long.110/",
+          "https://aclanthology.org/2026.aacl-long.110.pdf",
+          "https://www.anthonyrios.net/publications/"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/access-control-probes.md",
+        "added_on": "2026-11-16",
+        "checked_on": "2026-11-16",
+        "artifact_status": "No paper-specific code, trained probes or reproducible configuration release was verified in the article or author publication listing. Exact-title public repository search returned no matches, which does not establish absence. The study reuses prior RBAC-adapted SQL and OrgAccess datasets; no new dataset or tool release is inferred."
+      },
+      "work_id": "access-control-probes"
+    },
+    {
+      "id": "sqlucid",
+      "name": "SQLucid: Grounding Natural Language Database Queries with Interactive Explanations",
+      "kind": "paper",
+      "year": 2024,
+      "date": "2024",
+      "date_label": "Publication year",
+      "summary": "Helps users inspect and repair SQL through editable step explanations, linked database highlighting and intermediate results. Studies with 30 and eight participants evaluate correction and effort. Its 85% accuracy excludes skipped/unattempted tasks; a separate 89% result comes from an author-operated trial. No autonomous clarification or unanswerability evaluation is reported.",
+      "tags": [
+        "human-in-the-loop",
+        "explanation",
+        "natural-language-feedback",
+        "error-correction",
+        "verification",
+        "visual-interface"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "UIST 2024; article 12",
+      "status": "Public V1/V2 frontend and backend source trees verified at 52f3692328e4c86aba4e7ba07d157fb6a313bfea, with Apache-2.0 LICENSE. README identifies V1 as the evaluated SmBoP/STEPS version and V2 as a later ChatGPT version. Complete bundles/models are linked through author downloads; access and contents were not verified. No software executed, user logs inspected, bundles downloaded or results reproduced.",
+      "sources": [
+        "https://tianyi-zhang.github.io/files/uist2024-sqlucid.pdf",
+        "https://arxiv.org/abs/2409.06178",
+        "https://github.com/magic-YuanTian/SQLucid",
+        "https://github.com/magic-YuanTian/SQLucid/blob/52f3692328e4c86aba4e7ba07d157fb6a313bfea/README.md"
+      ],
+      "checked": "2026-11-16",
+      "added_on": "2026-11-16",
+      "url": "https://arxiv.org/abs/2409.06178",
+      "code_links": [
+        "https://github.com/magic-YuanTian/SQLucid"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#sqlucid",
+      "original": {
+        "id": "sqlucid",
+        "title": "SQLucid: Grounding Natural Language Database Queries with Interactive Explanations",
+        "year": 2024,
+        "publication_status": "UIST 2024; article 12",
+        "primary_url": "https://arxiv.org/abs/2409.06178",
+        "code_url": "https://github.com/magic-YuanTian/SQLucid",
+        "dataset_url": null,
+        "category": "interaction",
+        "scope": "adjacent",
+        "topics": [
+          "human-in-the-loop",
+          "explanation",
+          "natural-language-feedback",
+          "error-correction",
+          "verification",
+          "visual-interface"
+        ],
+        "summary": "Helps users inspect and repair SQL through editable step explanations, linked database highlighting and intermediate results. Studies with 30 and eight participants evaluate correction and effort. Its 85% accuracy excludes skipped/unattempted tasks; a separate 89% result comes from an author-operated trial. No autonomous clarification or unanswerability evaluation is reported.",
+        "evidence": [
+          "https://tianyi-zhang.github.io/files/uist2024-sqlucid.pdf",
+          "https://arxiv.org/abs/2409.06178",
+          "https://github.com/magic-YuanTian/SQLucid",
+          "https://github.com/magic-YuanTian/SQLucid/blob/52f3692328e4c86aba4e7ba07d157fb6a313bfea/README.md"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sqlucid.md",
+        "added_on": "2026-11-16",
+        "checked_on": "2026-11-16",
+        "artifact_status": "Public V1/V2 frontend and backend source trees verified at 52f3692328e4c86aba4e7ba07d157fb6a313bfea, with Apache-2.0 LICENSE. README identifies V1 as the evaluated SmBoP/STEPS version and V2 as a later ChatGPT version. Complete bundles/models are linked through author downloads; access and contents were not verified. No software executed, user logs inspected, bundles downloaded or results reproduced."
+      },
+      "work_id": "sqlucid"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -13321,6 +13601,124 @@
         "checked_on": "2026-11-14"
       },
       "work_id": "flinkeval"
+    },
+    {
+      "id": "airi-ehrsql-system",
+      "name": "AIRI EHRSQL 2024 system",
+      "kind": "system",
+      "year": 2024,
+      "date": "2024",
+      "date_label": "Latest linked paper year",
+      "summary": "Clinical SQL/refusal pipeline combining lexical/schema features, logistic regression, T5 generation and execution-result filtering.",
+      "tags": [
+        "abstention",
+        "clinical",
+        "evaluation",
+        "unanswerability"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "resource",
+      "status": "Training/inference scripts, final pipeline and scoring utilities inspected at fec14ccd78a4ade3ad1087a9791ae66f3699a311. The final runner uses cached predictions and precomputed features; fresh model generation and published results were not reproduced. Upstream database access is separate.",
+      "sources": [
+        "https://aclanthology.org/2024.clinicalnlp-1.43.pdf",
+        "https://github.com/runnerup96/EHRSQL-text2sql-solution",
+        "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/README.md",
+        "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/LICENSE",
+        "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/ehrsql_solution/final_system.py",
+        "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/ehrsql_solution/support_functions.py"
+      ],
+      "checked": "2026-11-16",
+      "added_on": null,
+      "url": "https://github.com/runnerup96/EHRSQL-text2sql-solution",
+      "code_links": [
+        "https://github.com/runnerup96/EHRSQL-text2sql-solution"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#airi-ehrsql-system",
+      "original": {
+        "id": "airi-ehrsql-system",
+        "name": "AIRI EHRSQL 2024 system",
+        "kind": "system",
+        "paper_ids": [
+          "airi-ehrsql-2024"
+        ],
+        "url": "https://github.com/runnerup96/EHRSQL-text2sql-solution",
+        "description": "Clinical SQL/refusal pipeline combining lexical/schema features, logistic regression, T5 generation and execution-result filtering.",
+        "protocol": "Shared-task SQL generation and answerability scoring; no live clarification. The released final runner ranks questions and rejects a fixed 19.95% before result filtering. Empty results and zero/None first cells can trigger refusal, including for valid queries.",
+        "availability": "Training/inference scripts, final pipeline and scoring utilities inspected at fec14ccd78a4ade3ad1087a9791ae66f3699a311. The final runner uses cached predictions and precomputed features; fresh model generation and published results were not reproduced. Upstream database access is separate.",
+        "license_note": "Root LICENSE identifies CC BY 4.0. Upstream database, model and dependency terms remain separate and were not fully reviewed.",
+        "evidence": [
+          "https://aclanthology.org/2024.clinicalnlp-1.43.pdf",
+          "https://github.com/runnerup96/EHRSQL-text2sql-solution",
+          "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/README.md",
+          "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/LICENSE",
+          "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/ehrsql_solution/final_system.py",
+          "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/ehrsql_solution/support_functions.py"
+        ],
+        "checked_on": "2026-11-16"
+      },
+      "work_id": "airi-ehrsql-2024"
+    },
+    {
+      "id": "sqlucid-system",
+      "name": "SQLucid",
+      "kind": "system",
+      "year": 2024,
+      "date": "2024",
+      "date_label": "Latest linked paper year",
+      "summary": "Interactive interface for understanding and correcting generated SQL through editable step explanations, database-entity highlighting and intermediate query results.",
+      "tags": [
+        "error-correction",
+        "explanation",
+        "human-in-the-loop",
+        "natural-language-feedback",
+        "verification",
+        "visual-interface"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "resource",
+      "status": "Complete public Git tree at 52f3692328e4c86aba4e7ba07d157fb6a313bfea contains V1/V2 React frontends and Python backends. README links external complete-project bundles and labels V1 as the paper version, while V2 uses ChatGPT. Download permissions, model contents, external dependencies and the live demo were not tested; no software installed or run. A separate reusable user-study dataset was not verified.",
+      "sources": [
+        "https://tianyi-zhang.github.io/files/uist2024-sqlucid.pdf",
+        "https://github.com/magic-YuanTian/SQLucid/tree/52f3692328e4c86aba4e7ba07d157fb6a313bfea",
+        "https://github.com/magic-YuanTian/SQLucid/blob/52f3692328e4c86aba4e7ba07d157fb6a313bfea/README.md",
+        "https://github.com/magic-YuanTian/SQLucid/blob/52f3692328e4c86aba4e7ba07d157fb6a313bfea/LICENSE",
+        "https://github.com/magic-YuanTian/SQLucid/tree/52f3692328e4c86aba4e7ba07d157fb6a313bfea/SQLucid_v1",
+        "https://github.com/magic-YuanTian/SQLucid/tree/52f3692328e4c86aba4e7ba07d157fb6a313bfea/SQLucid_v2"
+      ],
+      "checked": "2026-11-16",
+      "added_on": null,
+      "url": "https://github.com/magic-YuanTian/SQLucid",
+      "code_links": [
+        "https://github.com/magic-YuanTian/SQLucid"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#sqlucid-system",
+      "original": {
+        "id": "sqlucid-system",
+        "name": "SQLucid",
+        "kind": "system",
+        "paper_ids": [
+          "sqlucid"
+        ],
+        "url": "https://github.com/magic-YuanTian/SQLucid",
+        "description": "Interactive interface for understanding and correcting generated SQL through editable step explanations, database-entity highlighting and intermediate query results.",
+        "protocol": "Users inspect an initial query and directly edit, add or remove explanation steps. The paper studies real human correction on Spider-derived tasks, with a time limit and separate completion/conditional-accuracy measures. It does not evaluate an autonomous ask-or-abstain policy; confidence ratings do not certify correctness.",
+        "availability": "Complete public Git tree at 52f3692328e4c86aba4e7ba07d157fb6a313bfea contains V1/V2 React frontends and Python backends. README links external complete-project bundles and labels V1 as the paper version, while V2 uses ChatGPT. Download permissions, model contents, external dependencies and the live demo were not tested; no software installed or run. A separate reusable user-study dataset was not verified.",
+        "license_note": "Apache-2.0 verified in repository LICENSE. External model, benchmark and download-bundle terms were not independently verified; the paper license does not establish their terms.",
+        "evidence": [
+          "https://tianyi-zhang.github.io/files/uist2024-sqlucid.pdf",
+          "https://github.com/magic-YuanTian/SQLucid/tree/52f3692328e4c86aba4e7ba07d157fb6a313bfea",
+          "https://github.com/magic-YuanTian/SQLucid/blob/52f3692328e4c86aba4e7ba07d157fb6a313bfea/README.md",
+          "https://github.com/magic-YuanTian/SQLucid/blob/52f3692328e4c86aba4e7ba07d157fb6a313bfea/LICENSE",
+          "https://github.com/magic-YuanTian/SQLucid/tree/52f3692328e4c86aba4e7ba07d157fb6a313bfea/SQLucid_v1",
+          "https://github.com/magic-YuanTian/SQLucid/tree/52f3692328e4c86aba4e7ba07d157fb6a313bfea/SQLucid_v2"
+        ],
+        "checked_on": "2026-11-16"
+      },
+      "work_id": "sqlucid"
     }
   ],
   "themes": [
@@ -13337,17 +13735,22 @@
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 31
+      "count": 33
     },
     {
       "id": "unanswerability",
       "label": "Unanswerability",
-      "count": 23
+      "count": 24
     },
     {
       "id": "verification",
       "label": "Verification",
-      "count": 22
+      "count": 24
+    },
+    {
+      "id": "abstention",
+      "label": "Abstention",
+      "count": 20
     },
     {
       "id": "uncertainty",
@@ -13355,14 +13758,9 @@
       "count": 19
     },
     {
-      "id": "abstention",
-      "label": "Abstention",
-      "count": 18
-    },
-    {
       "id": "clinical",
       "label": "Clinical",
-      "count": 10
+      "count": 11
     },
     {
       "id": "interactive-system",
@@ -13375,14 +13773,14 @@
       "count": 8
     },
     {
-      "id": "schema-linking",
-      "label": "Schema linking",
+      "id": "human-in-the-loop",
+      "label": "Human in the loop",
       "count": 8
     },
     {
-      "id": "human-in-the-loop",
-      "label": "Human in the loop",
-      "count": 7
+      "id": "schema-linking",
+      "label": "Schema linking",
+      "count": 8
     },
     {
       "id": "sql-equivalence",
@@ -13420,6 +13818,11 @@
       "count": 5
     },
     {
+      "id": "error-correction",
+      "label": "Error correction",
+      "count": 5
+    },
+    {
       "id": "interpretation-coverage",
       "label": "Interpretation coverage",
       "count": 5
@@ -13432,11 +13835,6 @@
     {
       "id": "confidence",
       "label": "Confidence",
-      "count": 4
-    },
-    {
-      "id": "error-correction",
-      "label": "Error correction",
       "count": 4
     },
     {
@@ -13465,6 +13863,11 @@
       "count": 3
     },
     {
+      "id": "natural-language-feedback",
+      "label": "Natural language feedback",
+      "count": 3
+    },
+    {
       "id": "reinforcement-learning",
       "label": "Reinforcement learning",
       "count": 3
@@ -13485,6 +13888,11 @@
       "count": 2
     },
     {
+      "id": "explanation",
+      "label": "Explanation",
+      "count": 2
+    },
+    {
       "id": "formal-verification",
       "label": "Formal verification",
       "count": 2
@@ -13500,11 +13908,6 @@
       "count": 2
     },
     {
-      "id": "natural-language-feedback",
-      "label": "Natural language feedback",
-      "count": 2
-    },
-    {
       "id": "query-rewriting",
       "label": "Query rewriting",
       "count": 2
@@ -13517,6 +13920,11 @@
     {
       "id": "test-generation",
       "label": "Test generation",
+      "count": 2
+    },
+    {
+      "id": "visual-interface",
+      "label": "Visual interface",
       "count": 2
     },
     {
@@ -13602,11 +14010,6 @@
     {
       "id": "execution-probing",
       "label": "Execution probing",
-      "count": 1
-    },
-    {
-      "id": "explanation",
-      "label": "Explanation",
       "count": 1
     },
     {
@@ -13727,11 +14130,6 @@
     {
       "id": "value-grounding",
       "label": "Value grounding",
-      "count": 1
-    },
-    {
-      "id": "visual-interface",
-      "label": "Visual interface",
       "count": 1
     }
   ],

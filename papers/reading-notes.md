@@ -6,7 +6,7 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **104 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **107 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
@@ -32,6 +32,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [Developing and Benchmarking Verification Algorithms to Improve Text-to-SQL Generation](notes/verification-algorithms.md) | Full paper read |
 | 2026 | [Disentangling Ambiguity from Instability in Large Language Models: A Clinical Text-to-SQL Case Study](notes/clues.md) | Full paper read |
 | 2026 | [DSABench: Benchmarking Source Discovery, Coordination, and Execution for Multi-Database Agents](notes/dsabench.md) | Full paper read |
+| 2026 | [Embarrassingly Simple Access Control for Large Language Models](notes/access-control-probes.md) | Full paper read |
 | 2026 | [EntSQL: A Benchmark for Grounding Text-to-SQL in Long-Context Enterprise Knowledge](notes/entsql.md) | Full paper read |
 | 2026 | [Evaluating LLMs on Conversational Text-to-SQL under Chain Ambiguity and Intent Drift](notes/tide-bench.md) | Full paper read |
 | 2026 | [FALCON: A Model and Dataset Agnostic Framework for Synthetic Data Generation for NL2SQL Pairs](notes/falcon-synthesis.md) | Full paper read |
@@ -97,11 +98,13 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2025 | [SQUAB: Evaluating LLM robustness to Ambiguous and Unanswerable Questions in Semantic Parsing](notes/squab.md) | Full paper read |
 | 2025 | [The Case for Intent-Based Query Rewriting](notes/inqure.md) | Full paper read |
 | 2025 | [The Consistency Hypothesis in Uncertainty Quantification for Large Language Models](notes/consistency-hypothesis.md) | Full paper read |
+| 2024 | [AIRI NLP Team at EHRSQL 2024 Shared Task: T5 and Logistic Regression to the Rescue](notes/airi-ehrsql-2024.md) | Full paper read |
 | 2024 | [AMBROSIA: A Benchmark for Parsing Ambiguous Questions into Database Queries](notes/ambrosia.md) | Full paper read |
 | 2024 | [MultiSQL: A Schema-Integrated Context-Dependent Text2SQL Dataset with Diverse SQL Operations](notes/multisql.md) | Full paper read |
 | 2024 | [NL2SQL is a solved problem... Not!](notes/nl2sql-not-solved.md) | Full paper read |
 | 2024 | [Overview of the EHRSQL 2024 Shared Task on Reliable Text-to-SQL Modeling on Electronic Health Records](notes/ehrsql-2024.md) | Full paper read |
 | 2024 | [Sphinteract: Resolving Ambiguities in NL2SQL Through User Interaction](notes/sphinteract.md) | Full paper read |
+| 2024 | [SQLucid: Grounding Natural Language Database Queries with Interactive Explanations](notes/sqlucid.md) | Full paper read |
 | 2024 | [TrustSQL: Benchmarking Text-to-SQL Reliability with Penalty-Based Scoring](notes/trustsql.md) | Full paper read |
 | 2023 | [Benchmarking and Improving Text-to-SQL Generation under Ambiguity](notes/ambiqt.md) | Full paper read |
 | 2023 | [Calibrated Interpretation: Confidence Estimation in Semantic Parsing](notes/calibrated-interpretation.md) | Full paper read |

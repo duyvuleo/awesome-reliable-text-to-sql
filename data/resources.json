@@ -1435,5 +1435,49 @@
       "https://arxiv.org/pdf/2611.17093v1"
     ],
     "checked_on": "2026-11-14"
+  },
+  {
+    "id": "airi-ehrsql-system",
+    "name": "AIRI EHRSQL 2024 system",
+    "kind": "system",
+    "paper_ids": [
+      "airi-ehrsql-2024"
+    ],
+    "url": "https://github.com/runnerup96/EHRSQL-text2sql-solution",
+    "description": "Clinical SQL/refusal pipeline combining lexical/schema features, logistic regression, T5 generation and execution-result filtering.",
+    "protocol": "Shared-task SQL generation and answerability scoring; no live clarification. The released final runner ranks questions and rejects a fixed 19.95% before result filtering. Empty results and zero/None first cells can trigger refusal, including for valid queries.",
+    "availability": "Training/inference scripts, final pipeline and scoring utilities inspected at fec14ccd78a4ade3ad1087a9791ae66f3699a311. The final runner uses cached predictions and precomputed features; fresh model generation and published results were not reproduced. Upstream database access is separate.",
+    "license_note": "Root LICENSE identifies CC BY 4.0. Upstream database, model and dependency terms remain separate and were not fully reviewed.",
+    "evidence": [
+      "https://aclanthology.org/2024.clinicalnlp-1.43.pdf",
+      "https://github.com/runnerup96/EHRSQL-text2sql-solution",
+      "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/README.md",
+      "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/LICENSE",
+      "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/ehrsql_solution/final_system.py",
+      "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/ehrsql_solution/support_functions.py"
+    ],
+    "checked_on": "2026-11-16"
+  },
+  {
+    "id": "sqlucid-system",
+    "name": "SQLucid",
+    "kind": "system",
+    "paper_ids": [
+      "sqlucid"
+    ],
+    "url": "https://github.com/magic-YuanTian/SQLucid",
+    "description": "Interactive interface for understanding and correcting generated SQL through editable step explanations, database-entity highlighting and intermediate query results.",
+    "protocol": "Users inspect an initial query and directly edit, add or remove explanation steps. The paper studies real human correction on Spider-derived tasks, with a time limit and separate completion/conditional-accuracy measures. It does not evaluate an autonomous ask-or-abstain policy; confidence ratings do not certify correctness.",
+    "availability": "Complete public Git tree at 52f3692328e4c86aba4e7ba07d157fb6a313bfea contains V1/V2 React frontends and Python backends. README links external complete-project bundles and labels V1 as the paper version, while V2 uses ChatGPT. Download permissions, model contents, external dependencies and the live demo were not tested; no software installed or run. A separate reusable user-study dataset was not verified.",
+    "license_note": "Apache-2.0 verified in repository LICENSE. External model, benchmark and download-bundle terms were not independently verified; the paper license does not establish their terms.",
+    "evidence": [
+      "https://tianyi-zhang.github.io/files/uist2024-sqlucid.pdf",
+      "https://github.com/magic-YuanTian/SQLucid/tree/52f3692328e4c86aba4e7ba07d157fb6a313bfea",
+      "https://github.com/magic-YuanTian/SQLucid/blob/52f3692328e4c86aba4e7ba07d157fb6a313bfea/README.md",
+      "https://github.com/magic-YuanTian/SQLucid/blob/52f3692328e4c86aba4e7ba07d157fb6a313bfea/LICENSE",
+      "https://github.com/magic-YuanTian/SQLucid/tree/52f3692328e4c86aba4e7ba07d157fb6a313bfea/SQLucid_v1",
+      "https://github.com/magic-YuanTian/SQLucid/tree/52f3692328e4c86aba4e7ba07d157fb6a313bfea/SQLucid_v2"
+    ],
+    "checked_on": "2026-11-16"
   }
 ]

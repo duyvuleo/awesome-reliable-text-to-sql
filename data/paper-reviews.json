@@ -35,6 +35,41 @@
     ]
   },
   {
+    "paper_id": "access-control-probes",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-16",
+    "source_url": "https://aclanthology.org/2026.aacl-long.110.pdf",
+    "version": "AACL-IJCNLP 2026 proceedings, pages 2417–2431, 6–10 November 2026",
+    "coverage": "All 15 PDF pages: Sections 1–7, limitations, references, Appendices A–F, role/policy examples, normal and adversarial prompts, hyperparameters, both workflow figures and Tables 1–8. Tables 3 and 5–7 were additionally inspected visually on PDF pages 6 and 8. Author publication metadata and public artifact discovery were checked separately.",
+    "unread": [],
+    "problem": "Natural-language database requests may be answerable but disallowed for a particular role, and prompting alone can miss restrictions in long table/column policies.",
+    "method": "Combines role, policy and query text, extracts the final token's last-layer hidden state from frozen Llama, Qwen or Mistral models, and fits a logistic-regression authorization probe. Separate probes are learned for each model rather than changing the language-model weights.",
+    "evaluation": "Uses RBAC-adapted BIRD/Spider and the organizational OrgAccess benchmark, database- or department-separated splits, multiple policy lengths, direct/two-step prompting comparators and adversarial instructions. Macro-F1 measures access-decision classification; the study does not evaluate end-to-end secure SQL execution.",
+    "findings": "Standard SQL-policy probes generally outperform matched prompting, particularly on long policies. These gains are model-dependent: adversarial instructions sharply reduce performance, and probes lose seven of nine matched OrgAccess comparisons. Best standard averages on BIRD and Spider come from different backbones.",
+    "limitations": "Synthetic policy structures and small model families limit transfer. Prediction quality does not guarantee permission enforcement, calibrated false-permit risk or multi-turn robustness. The binary sigmoid/BCE description does not explain OrgAccess's three-label training/decoding, and the cross-dataset generalization paragraph lacks a complete dedicated results table. Implementation availability remains unverified.",
+    "relevance": "Supplies a lightweight baseline and negative evidence for policy-based refusal gates, distinct from semantic answerability detection and SQL-generation correctness.",
+    "claims": [
+      {
+        "claim": "High standard-prompt probe scores establish robust authorization across prompts and domains.",
+        "evidence": "Tables 5–6 show substantial degradation under adversarial instructions; for example the Llama Spider average falls from .902 to .310. Table 7 shows probing below matched prompting in seven of nine OrgAccess comparisons.",
+        "locator": "Section 5, Tables 4–7, pages 2423–2424; Section 6, page 2425",
+        "disposition": "Keep robustness conditional on model, prompt and domain; standard SQL-policy results do not establish adversarial resilience."
+      },
+      {
+        "claim": "The probe establishes safe database access or intrinsic question unanswerability.",
+        "evidence": "Inputs are role, policy and request, and reported outcomes are grant/deny classification scores. The limitations explicitly distinguish authorization prediction from secure deployment and retain external authentication, policy engines and other enforcement components.",
+        "locator": "Sections 3–4, pages 2420–2421; Limitations, page 2426",
+        "disposition": "Describe a policy-decision predictor, not a database answerability classifier, SQL verifier or end-to-end access-control guarantee."
+      },
+      {
+        "claim": "The paper fully specifies the three-class organizational probe and supports precise cross-dataset transfer claims.",
+        "evidence": "Section 4 supplies a binary sigmoid threshold and binary cross-entropy while parenthetically naming rejected/partial/full OrgAccess outcomes; Appendix C again specifies binary loss. The cross-dataset paragraph reports selected ranges without a full task-by-model table or explicit matching protocol.",
+        "locator": "Section 4, page 2421; Section 5 cross-dataset paragraph, page 2424; Appendices A.1 and C, pages 2429–2430",
+        "disposition": "Retain these as reporting/reproducibility limits without inventing a label mapping or claiming that the experiments are invalid."
+      }
+    ]
+  },
+  {
     "paper_id": "act-ambigsql",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-09",
@@ -95,6 +130,61 @@
         "evidence": "Benchmarks score output sets; Limitations leaves dialogue/user-quality evaluation open and reports approximately 40-second serial latency.",
         "locator": "Sections 5-6; Limitations",
         "disposition": "Report interpretation coverage and candidate economy, not proven user-experience or real-time superiority."
+      }
+    ]
+  },
+  {
+    "paper_id": "airi-ehrsql-2024",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-16",
+    "source_url": "https://aclanthology.org/2024.clinicalnlp-1.43.pdf",
+    "version": "ClinicalNLP 2024 proceedings, pp. 431–438; eight-page paper",
+    "coverage": "All eight PDF pages: Sections 1–6, ethics statement, references, four figures and Table 1. Figures and results table visually inspected on PDF pages 1, 3, 4, 5 and 6. No appendix. Public README, final-system source and result-filter functions inspected separately without execution.",
+    "unread": [],
+    "problem": "A clinical database interface must distinguish unsupported questions from answerable requests and SQL-generation errors without rejecting valid answers merely because they are zero or empty.",
+    "method": "A logistic-regression classifier uses schema/content overlap, initial-word patterns and question length. Accepted questions pass to fine-tuned T5-3B, then an execution-result inspector can replace the SQL with a refusal token.",
+    "evaluation": "The EHRSQL 2024 shared-task study reports separate local validation protocols and four leaderboard submissions with different mistake penalties. The released README targets MIMIC-IV demo data. Question-classifier validation approximates the inferred test refusal prevalence; the generator uses an i.i.d. SQL-pair split.",
+    "findings": "The final system reports 68.9 Accuracy0, 56.5 Accuracy5 and 44 Accuracy10, but a strongly negative AccuracyN. The tested GPT-4 debugging variant worsens results, with removed conditions noted in error analysis. The authors explicitly acknowledge false refusals of otherwise correct results and weak distribution-shift robustness.",
+    "limitations": "Local component scores and penalty-free leaderboard scores are not safety guarantees. Feature and prevalence choices use leaderboard information. The result filter rejects valid zero/None outputs, and the released runner makes a batch-level fixed-quota decision. The paper’s multiplication of component probabilities assumes error independence without demonstrating it. No interactive clarification or clinical deployment evaluation is reported.",
+    "relevance": "An inspectable answerability baseline illustrating the difference between conservative filtering, correctly detecting unsupported requests and preserving legitimate empty or zero answers.",
+    "claims": [
+      {
+        "claim": "A query returning zero, None or no rows is necessarily wrong or unanswerable.",
+        "evidence": "Section 3.4 applies result filtering; Section 5 explicitly acknowledges that correct SQL can return None or zero and be withheld. The released check_sql_result also rejects empty lists and a zero/None first cell.",
+        "locator": "Sections 3.4 and 5, pp. 434 and 436; pinned support_functions.py, check_sql_result lines 107–124",
+        "disposition": "A heuristic with false refusals, not an answerability oracle or semantic verifier."
+      },
+      {
+        "claim": "The deployed rejection policy is simply the validation classifier at threshold 0.5.",
+        "evidence": "Section 3.2 reports 0.5 for local validation. The released final_system.py instead ranks test questions by predicted refusal score and rejects the top int(N * 0.1995); the paper estimates test prevalence through an all-NULL leaderboard submission.",
+        "locator": "Sections 3.1–3.2, pp. 433–434; pinned final_system.py, null_known_ratio and null_samples",
+        "disposition": "Distinguish validation thresholding from a test-batch prevalence-dependent policy; transfer to an unknown prevalence is unverified."
+      },
+      {
+        "claim": "The reported 68.9 score or high component accuracies establish reliable end-to-end behavior.",
+        "evidence": "Table 1 gives 68.9 with no mistake penalty, 56.5/44 with penalties 5/10, and -2831.1 under AccuracyN. Section 6 derives pipeline probabilities from separate component estimates without an error-independence study.",
+        "locator": "Section 4/Table 1, p. 435; Sections 5–6, pp. 436–437",
+        "disposition": "Retain metric and validation boundaries; modular implementation does not establish statistical independence of its errors."
+      },
+      {
+        "claim": "The final-system script independently regenerates all published predictions.",
+        "evidence": "The pinned runner loads cached T5 predictions and precomputed overlap features, then checks its output against a saved submission. Separate training and inference entry points are listed in README.",
+        "locator": "Pinned README Our solution; final_system.py cached prediction load and final assertion",
+        "disposition": "Source availability and a replay assertion are not a fresh-generation reproduction; none of these files was executed."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Official implementation snapshot",
+        "url": "https://github.com/runnerup96/EHRSQL-text2sql-solution/tree/fec14ccd78a4ade3ad1087a9791ae66f3699a311"
+      },
+      {
+        "label": "Final system and fixed refusal quota",
+        "url": "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/ehrsql_solution/final_system.py"
+      },
+      {
+        "label": "Result filter",
+        "url": "https://github.com/runnerup96/EHRSQL-text2sql-solution/blob/fec14ccd78a4ade3ad1087a9791ae66f3699a311/ehrsql_solution/support_functions.py"
       }
     ]
   },
@@ -3220,6 +3310,71 @@
         "evidence": "Appendix C labels 100 selected error/disagreement cases per setting rather than all outputs.",
         "locator": "Appendix C.2/Table 8",
         "disposition": "Conditional category proportions, not overall error-rate estimates."
+      }
+    ]
+  },
+  {
+    "paper_id": "sqlucid",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-16",
+    "source_url": "https://tianyi-zhang.github.io/files/uist2024-sqlucid.pdf",
+    "version": "Author-hosted UIST 2024 proceedings paper, article 12, 20 pages; DOI 10.1145/3654777.3676368. Public arXiv record 2409.06178 was first submitted on 10 September 2024.",
+    "coverage": "All 20 PDF pages: Sections 1–10, references, Appendices A–C, Tables 1–6 and captions. All Figures 1–15 were visually inspected, including comparison distributions, feature ablations and baseline screenshots; Table 6 was also visually checked. Official GitHub README, complete 104-entry tree and LICENSE were inspected separately; no linked code, model or dataset was executed.",
+    "unread": [],
+    "problem": "Non-experts may accept a plausible but incorrect SQL result because they cannot inspect its computation or express a precise correction.",
+    "method": "SQLucid combines grammar-based step explanations with linked table/column highlighting, intermediate results computed over the full database and editable explanation steps. SmBoP generates the initial SQL; STEPS converts edited descriptions into clause updates. Users can add, remove or revise steps and revisit edit history.",
+    "evaluation": "A randomized-order within-subject study compares adapted MISP, DIY and SQLucid with a shared SmBoP backend in 30 university students. Each condition gives eight stratified Spider tasks and ten minutes. A second eight-person study ablates highlighting and intermediate results. Separately, the first author attempts 100 tasks.",
+    "findings": "Study 1 reports 85% correctness among completed tasks, while Figure 7 shows 70% of all assigned tasks correct. Participants complete 6.6 of eight tasks per session. The feature study favors the full interface; the separate author-operated trial reports 89%, not a novice-user result.",
+    "limitations": "Skipped and unattempted tasks are excluded from the headline accuracy denominator. Student sampling, small ablation groups and adapted historical baselines limit generalization. Self-reported confidence is not calibrated correctness. Printed task/reference mismatches require checking before reuse; their effect on study scoring is unknown. Later ChatGPT-based code is not evaluated by this paper.",
+    "relevance": "An adjacent human-verification and feedback interface with measured effort and repair outcomes. It supports inspecting and correcting generated SQL, without evaluating autonomous clarification decisions, refusal or complete ambiguity coverage.",
+    "claims": [
+      {
+        "claim": "The study shows that SQLucid correctly solves 85% of all assigned tasks.",
+        "evidence": "Section 6.5 defines task completion accuracy using completed tasks only, excluding skipped and unattempted tasks. Figure 7 labels SQLucid outcomes as 70% correct, 12% incorrect, 4% skipped and 14% remaining. Table 1 reports 85% completion accuracy.",
+        "locator": "Section 6.5, Figure 7 and Table 1, PDF page 9",
+        "disposition": "Keep conditional completion accuracy separate from the fraction of assigned tasks solved. Do not present the 48%-to-85% discussion as a matched-denominator overall accuracy gain."
+      },
+      {
+        "claim": "The reported 89% performance measures typical non-expert users.",
+        "evidence": "Section 8 identifies the experimenter as the first author, familiar with the tool and database querying, attempting 100 Spider tasks. Sections 6–7 describe the separate 30- and eight-person studies.",
+        "locator": "Section 8/Table 5, PDF page 12; Sections 6–7, pages 8–11",
+        "disposition": "Describe an author-operated feasibility trial. The paper calls it an upper bound, but it is not a formal bound on future user performance."
+      },
+      {
+        "claim": "The comparison isolates a universally superior correction mechanism and establishes calibrated trust.",
+        "evidence": "The baselines use redesigned interfaces and a shared SmBoP generator. The eight-person ablation retains explanation editing while removing highlighting/intermediate results. Confidence is a post-task seven-point self-report, not a calibration analysis against correctness.",
+        "locator": "Sections 6.1–6.6, pages 8–10; Sections 7.1–7.3, page 11; Appendix C, pages 16–17",
+        "disposition": "Limit conclusions to these study conditions; confidence and subjective workload supplement rather than certify correctness."
+      },
+      {
+        "claim": "The printed task references establish an error-free correctness oracle.",
+        "evidence": "The rendered Table 6 pairs the request for countries with at least one car maker with HAVING COUNT(*) = 1. Two other displayed SQL examples omit comparison operators before 200 and 10. These issues are visible in the PDF, not extraction artifacts.",
+        "locator": "Appendix B/Table 6, PDF page 18, car_1, flights_2 and battle_death rows",
+        "disposition": "Flag printed-reference inconsistencies before reusing the examples. This does not establish which queries were used to score participants or quantify any effect on the published outcomes."
+      },
+      {
+        "claim": "The current ChatGPT implementation inherits the published user-study results.",
+        "evidence": "The official README distinguishes V1, the version described in the paper using SmBoP and a fine-tuned text-to-clause model, from later ChatGPT-based V2 with a revised interface.",
+        "locator": "Paper Sections 4.1–4.5, pages 5–6; pinned README Implementation/V1/V2",
+        "disposition": "Keep paper-era evaluation separate from current artifact capability. Neither version was independently run or reproduced."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Public preprint identity",
+        "url": "https://arxiv.org/abs/2409.06178"
+      },
+      {
+        "label": "Official repository snapshot",
+        "url": "https://github.com/magic-YuanTian/SQLucid/tree/52f3692328e4c86aba4e7ba07d157fb6a313bfea"
+      },
+      {
+        "label": "Version and deployment distinctions",
+        "url": "https://github.com/magic-YuanTian/SQLucid/blob/52f3692328e4c86aba4e7ba07d157fb6a313bfea/README.md"
+      },
+      {
+        "label": "Repository license",
+        "url": "https://github.com/magic-YuanTian/SQLucid/blob/52f3692328e4c86aba4e7ba07d157fb6a313bfea/LICENSE"
       }
     ]
   },
