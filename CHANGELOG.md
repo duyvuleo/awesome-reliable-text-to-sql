@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-17
+
+- Added full readings of Bridge, LuthorSQL, STEPS and Role-Conditioned Refusals, separating gold-informed simulation, confidence routing, real-user correction and policy denial. The catalog now contains 114 papers, with 111 complete readings and three access gaps.
+- Added three system entries and one combined role-conditioned Spider/BIRD dataset comparison, preserving release, labeling and licensing limits.
+- Recorded cost/accuracy counterexamples, development-set reuse, idealized feedback and permission-label construction boundaries; no linked experiments were executed or reproduced.
+
 ## 2026-11-16
 
 - Added complete readings of SQLucid, AIRI’s EHRSQL 2024 system and the access-control probing study, with explicit user-study denominators, false-refusal behavior and authorization limits. The catalog now contains 110 papers, with 107 full readings and three access gaps.

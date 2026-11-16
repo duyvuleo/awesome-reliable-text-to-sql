@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-16",
-  "updated": "2026-11-16",
+  "checked": "2026-11-17",
+  "updated": "2026-11-17",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 110,
-    "system": 22,
+    "paper": 114,
+    "system": 25,
     "tool": 22,
-    "benchmark": 34
+    "benchmark": 35
   },
   "categories": {
     "ambiguity": "Ambiguity and multiple interpretations",
@@ -288,6 +288,34 @@
       ],
       "kinds": [
         "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "bridge-disambiguation",
+      "name": "Bridge: Database-Grounded Interactive Disambiguation for Text-to-SQL",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Builds an offline column-ambiguity graph and value-similarity index to retrieve alternatives around an initially rejected SQL query, then asks a first-turn clarification batch before continuing a Sphinteract-style loop. Evaluation uses a gold-informed simulated user and single-reference BIRD execution matching. Reported token savings exclude user simulation; offline construction and incomplete released reproduction inputs require separate accounting.",
+      "entry_ids": [
+        "bridge-disambiguation",
+        "bridge-disambiguation-system"
+      ],
+      "themes": [
+        "ambiguity",
+        "clarification",
+        "interaction",
+        "schema-linking"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "kinds": [
+        "paper",
+        "system"
       ],
       "years": [
         2026
@@ -792,6 +820,35 @@
       ]
     },
     {
+      "id": "luthorsql",
+      "name": "LuthorSQL: A One-Pass Text-to-SQL Model as System 1 for a Slower LLM Agent",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Uses a bounded-plan generator and learned SQL validator to keep high-margin answers local and defer other requests to a tool-using LLM. Evaluates cost versus reference execution agreement across several routing settings. Margin scores are not calibrated answerability; savings depend on handoff and compute accounting, some runs lose accuracy, and development-set reuse limits generalization claims.",
+      "entry_ids": [
+        "luthorsql",
+        "luthorsql-system"
+      ],
+      "themes": [
+        "agent",
+        "evaluation",
+        "routing",
+        "uncertainty",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper",
+        "system"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "mtsql-r1",
       "name": "MTSQL-R1: Towards Long-Horizon Multi-Turn Text-to-SQL via Agentic Training",
       "date": "2026",
@@ -1189,6 +1246,33 @@
       ],
       "categories": [
         "context"
+      ],
+      "kinds": [
+        "benchmark",
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "role-conditioned-refusals",
+      "name": "Role-Conditioned Refusals: Evaluating Access Control Reasoning in Large Language Models",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Augments Spider and BIRD with role policies to compare direct SQL-or-refuse prompting, an LLM generator/verifier and LoRA training. Verification often improves refusal metrics, while transfer and longer policies remain difficult. These are authorization decisions, not intrinsic unanswerability or guaranteed enforcement. Released Spider labeling normalizes all execution errors to denial; BIRD documents privilege-specific filtering.",
+      "entry_ids": [
+        "role-conditioned-refusals",
+        "role-conditioned-refusal-data"
+      ],
+      "themes": [
+        "abstention",
+        "evaluation",
+        "verification"
+      ],
+      "categories": [
+        "answerability"
       ],
       "kinds": [
         "benchmark",
@@ -2666,6 +2750,35 @@
       ],
       "kinds": [
         "paper"
+      ],
+      "years": [
+        2023
+      ]
+    },
+    {
+      "id": "steps",
+      "name": "Interactive Text-to-SQL Generation via Editable Step-by-Step Explanations",
+      "date": "2023",
+      "year": 2023,
+      "kind": "paper",
+      "summary": "STEPS lets users repair SQL by editing clause-level explanations, combining direct entity transformations with a neural text-to-clause model. A 24-person study measures correction and effort. Its 97.9% simulated accuracy assumes perfect reference-aware feedback; real-user accuracy is conditional on completed tasks. It evaluates repair of single questions, not autonomous clarification or refusal.",
+      "entry_ids": [
+        "steps",
+        "steps-system"
+      ],
+      "themes": [
+        "error-correction",
+        "explanation",
+        "human-in-the-loop",
+        "natural-language-feedback",
+        "verification"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "kinds": [
+        "paper",
+        "system"
       ],
       "years": [
         2023
@@ -9756,6 +9869,270 @@
       "work_id": "sqlucid"
     },
     {
+      "id": "steps",
+      "name": "Interactive Text-to-SQL Generation via Editable Step-by-Step Explanations",
+      "kind": "paper",
+      "year": 2023,
+      "date": "2023",
+      "date_label": "Publication year",
+      "summary": "STEPS lets users repair SQL by editing clause-level explanations, combining direct entity transformations with a neural text-to-clause model. A 24-person study measures correction and effort. Its 97.9% simulated accuracy assumes perfect reference-aware feedback; real-user accuracy is conditional on completed tasks. It evaluates repair of single questions, not autonomous clarification or refusal.",
+      "tags": [
+        "human-in-the-loop",
+        "explanation",
+        "natural-language-feedback",
+        "error-correction",
+        "verification"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "EMNLP 2023; first preprint May 2023",
+      "status": "Explanation, correction and paraphrasing source plus data-archive listings verified at 7dfb85d532667223d82aebb37e181782e9893f8f. The author-linked Hugging Face repository publicly lists modelS.tar.gz and declares MIT in its card; no weight/archive contents were downloaded. No code/data license was found in the complete 189-entry Git tree, root LICENSE returned 404 and GitHub license metadata was null. External Drive/SharePoint bundles and full UI deployment were not verified; no code executed or results reproduced.",
+      "sources": [
+        "https://aclanthology.org/2023.emnlp-main.1004/",
+        "https://aclanthology.org/2023.emnlp-main.1004.pdf",
+        "https://github.com/magic-YuanTian/STEPS",
+        "https://github.com/magic-YuanTian/STEPS/blob/7dfb85d532667223d82aebb37e181782e9893f8f/README.md",
+        "https://github.com/magic-YuanTian/STEPS/blob/7dfb85d532667223d82aebb37e181782e9893f8f/Paraphrase/replacement_dict.json"
+      ],
+      "checked": "2026-11-17",
+      "added_on": "2026-11-17",
+      "url": "https://aclanthology.org/2023.emnlp-main.1004/",
+      "code_links": [
+        "https://github.com/magic-YuanTian/STEPS"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#steps",
+      "original": {
+        "id": "steps",
+        "title": "Interactive Text-to-SQL Generation via Editable Step-by-Step Explanations",
+        "year": 2023,
+        "publication_status": "EMNLP 2023; first preprint May 2023",
+        "primary_url": "https://aclanthology.org/2023.emnlp-main.1004/",
+        "code_url": "https://github.com/magic-YuanTian/STEPS",
+        "dataset_url": null,
+        "category": "interaction",
+        "scope": "adjacent",
+        "topics": [
+          "human-in-the-loop",
+          "explanation",
+          "natural-language-feedback",
+          "error-correction",
+          "verification"
+        ],
+        "summary": "STEPS lets users repair SQL by editing clause-level explanations, combining direct entity transformations with a neural text-to-clause model. A 24-person study measures correction and effort. Its 97.9% simulated accuracy assumes perfect reference-aware feedback; real-user accuracy is conditional on completed tasks. It evaluates repair of single questions, not autonomous clarification or refusal.",
+        "evidence": [
+          "https://aclanthology.org/2023.emnlp-main.1004/",
+          "https://aclanthology.org/2023.emnlp-main.1004.pdf",
+          "https://github.com/magic-YuanTian/STEPS",
+          "https://github.com/magic-YuanTian/STEPS/blob/7dfb85d532667223d82aebb37e181782e9893f8f/README.md",
+          "https://github.com/magic-YuanTian/STEPS/blob/7dfb85d532667223d82aebb37e181782e9893f8f/Paraphrase/replacement_dict.json"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/steps.md",
+        "added_on": "2026-11-17",
+        "checked_on": "2026-11-17",
+        "artifact_status": "Explanation, correction and paraphrasing source plus data-archive listings verified at 7dfb85d532667223d82aebb37e181782e9893f8f. The author-linked Hugging Face repository publicly lists modelS.tar.gz and declares MIT in its card; no weight/archive contents were downloaded. No code/data license was found in the complete 189-entry Git tree, root LICENSE returned 404 and GitHub license metadata was null. External Drive/SharePoint bundles and full UI deployment were not verified; no code executed or results reproduced."
+      },
+      "work_id": "steps"
+    },
+    {
+      "id": "role-conditioned-refusals",
+      "name": "Role-Conditioned Refusals: Evaluating Access Control Reasoning in Large Language Models",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Augments Spider and BIRD with role policies to compare direct SQL-or-refuse prompting, an LLM generator/verifier and LoRA training. Verification often improves refusal metrics, while transfer and longer policies remain difficult. These are authorization decisions, not intrinsic unanswerability or guaranteed enforcement. Released Spider labeling normalizes all execution errors to denial; BIRD documents privilege-specific filtering.",
+      "tags": [
+        "abstention",
+        "verification",
+        "evaluation"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "Findings of EACL 2026; first preprint October 2025",
+      "status": "Official data-archive listings, schema documentation and PostgreSQL construction/labeling scripts inspected at 9179b2ec6d84df56803cbbeb2650cd86b7c1b56f. Zip contents and split membership were not downloaded or verified; no model training/evaluation runner or checkpoints were visible in the complete repository tree. No code executed or results reproduced.",
+      "sources": [
+        "https://aclanthology.org/2026.findings-eacl.316/",
+        "https://aclanthology.org/2026.findings-eacl.316.pdf",
+        "https://arxiv.org/abs/2510.07642",
+        "https://github.com/klisura-code/LLM-Access-Control-Datasets",
+        "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data/spider/SCHEMA.md",
+        "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data/bird/SCHEMA.md"
+      ],
+      "checked": "2026-11-17",
+      "added_on": "2026-11-17",
+      "url": "https://aclanthology.org/2026.findings-eacl.316/",
+      "code_links": [
+        "https://github.com/klisura-code/LLM-Access-Control-Datasets"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#role-conditioned-refusals",
+      "original": {
+        "id": "role-conditioned-refusals",
+        "title": "Role-Conditioned Refusals: Evaluating Access Control Reasoning in Large Language Models",
+        "year": 2026,
+        "publication_status": "Findings of EACL 2026; first preprint October 2025",
+        "primary_url": "https://aclanthology.org/2026.findings-eacl.316/",
+        "code_url": "https://github.com/klisura-code/LLM-Access-Control-Datasets",
+        "dataset_url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/tree/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data",
+        "category": "answerability",
+        "scope": "adjacent",
+        "topics": [
+          "abstention",
+          "verification",
+          "evaluation"
+        ],
+        "summary": "Augments Spider and BIRD with role policies to compare direct SQL-or-refuse prompting, an LLM generator/verifier and LoRA training. Verification often improves refusal metrics, while transfer and longer policies remain difficult. These are authorization decisions, not intrinsic unanswerability or guaranteed enforcement. Released Spider labeling normalizes all execution errors to denial; BIRD documents privilege-specific filtering.",
+        "evidence": [
+          "https://aclanthology.org/2026.findings-eacl.316/",
+          "https://aclanthology.org/2026.findings-eacl.316.pdf",
+          "https://arxiv.org/abs/2510.07642",
+          "https://github.com/klisura-code/LLM-Access-Control-Datasets",
+          "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data/spider/SCHEMA.md",
+          "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data/bird/SCHEMA.md"
+        ],
+        "source_depth": "full-text-reviewed",
+        "checked_on": "2026-11-17",
+        "added_on": "2026-11-17",
+        "artifact_status": "Official data-archive listings, schema documentation and PostgreSQL construction/labeling scripts inspected at 9179b2ec6d84df56803cbbeb2650cd86b7c1b56f. Zip contents and split membership were not downloaded or verified; no model training/evaluation runner or checkpoints were visible in the complete repository tree. No code executed or results reproduced.",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/role-conditioned-refusals.md"
+      },
+      "work_id": "role-conditioned-refusals"
+    },
+    {
+      "id": "luthorsql",
+      "name": "LuthorSQL: A One-Pass Text-to-SQL Model as System 1 for a Slower LLM Agent",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Uses a bounded-plan generator and learned SQL validator to keep high-margin answers local and defer other requests to a tool-using LLM. Evaluates cost versus reference execution agreement across several routing settings. Margin scores are not calibrated answerability; savings depend on handoff and compute accounting, some runs lose accuracy, and development-set reuse limits generalization claims.",
+      "tags": [
+        "uncertainty",
+        "routing",
+        "verification",
+        "evaluation",
+        "agent"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "Public source, adapter-weight listings and evaluation-data listings verified at pinned revisions; no weights, database payloads or runtime transcripts inspected. Cards retain private-pre-release wording despite public access. Source/model licensing remains undecided; dataset terms vary by underlying source. No execution or independent reproduction.",
+      "sources": [
+        "https://arxiv.org/abs/2611.17780",
+        "https://arxiv.org/pdf/2611.17780v1",
+        "https://github.com/IAMIbrahimmemon/luthorsql/blob/02e3fc954346ebb9c0d380b77318b790e29290a7/README.md",
+        "https://huggingface.co/IAMIbrahim/luthorsql-bird/blob/a8428b96d0a3598c835aff13fe81fca55c996cc2/README.md",
+        "https://huggingface.co/datasets/IAMIbrahim/luthorsql-fresh-unseen/blob/691ae35675eca8fc456fc0681315ba3b61b4c020/README.md"
+      ],
+      "checked": "2026-11-17",
+      "added_on": "2026-11-17",
+      "url": "https://arxiv.org/abs/2611.17780",
+      "code_links": [
+        "https://github.com/IAMIbrahimmemon/luthorsql"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#luthorsql",
+      "original": {
+        "id": "luthorsql",
+        "title": "LuthorSQL: A One-Pass Text-to-SQL Model as System 1 for a Slower LLM Agent",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.17780",
+        "code_url": "https://github.com/IAMIbrahimmemon/luthorsql",
+        "dataset_url": "https://huggingface.co/datasets/IAMIbrahim/luthorsql-fresh-unseen",
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "uncertainty",
+          "routing",
+          "verification",
+          "evaluation",
+          "agent"
+        ],
+        "summary": "Uses a bounded-plan generator and learned SQL validator to keep high-margin answers local and defer other requests to a tool-using LLM. Evaluates cost versus reference execution agreement across several routing settings. Margin scores are not calibrated answerability; savings depend on handoff and compute accounting, some runs lose accuracy, and development-set reuse limits generalization claims.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.17780",
+          "https://arxiv.org/pdf/2611.17780v1",
+          "https://github.com/IAMIbrahimmemon/luthorsql/blob/02e3fc954346ebb9c0d380b77318b790e29290a7/README.md",
+          "https://huggingface.co/IAMIbrahim/luthorsql-bird/blob/a8428b96d0a3598c835aff13fe81fca55c996cc2/README.md",
+          "https://huggingface.co/datasets/IAMIbrahim/luthorsql-fresh-unseen/blob/691ae35675eca8fc456fc0681315ba3b61b4c020/README.md"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/luthorsql.md",
+        "added_on": "2026-11-17",
+        "checked_on": "2026-11-17",
+        "artifact_status": "Public source, adapter-weight listings and evaluation-data listings verified at pinned revisions; no weights, database payloads or runtime transcripts inspected. Cards retain private-pre-release wording despite public access. Source/model licensing remains undecided; dataset terms vary by underlying source. No execution or independent reproduction."
+      },
+      "work_id": "luthorsql"
+    },
+    {
+      "id": "bridge-disambiguation",
+      "name": "Bridge: Database-Grounded Interactive Disambiguation for Text-to-SQL",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Builds an offline column-ambiguity graph and value-similarity index to retrieve alternatives around an initially rejected SQL query, then asks a first-turn clarification batch before continuing a Sphinteract-style loop. Evaluation uses a gold-informed simulated user and single-reference BIRD execution matching. Reported token savings exclude user simulation; offline construction and incomplete released reproduction inputs require separate accounting.",
+      "tags": [
+        "ambiguity",
+        "clarification",
+        "interaction",
+        "schema-linking"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "Offline graph/value-index construction, online clarification/repair and evaluation source inspected at revision dbc49e3fc2c7b865b5ce2bf80b907550fb609c06. BIRD databases, seed predictions, generated graphs and few-shot stores are not bundled; the online README says the few-shot builder/documentation is unfinished. Repository license was not verified. No linked code executed or results reproduced.",
+      "sources": [
+        "https://arxiv.org/abs/2611.17770",
+        "https://arxiv.org/pdf/2611.17770v1",
+        "https://github.com/slyipae1/BRIDGE",
+        "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/docs/RELEASE_SCOPE.md",
+        "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/online/README.md"
+      ],
+      "checked": "2026-11-17",
+      "added_on": "2026-11-17",
+      "url": "https://arxiv.org/abs/2611.17770",
+      "code_links": [
+        "https://github.com/slyipae1/BRIDGE"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#bridge-disambiguation",
+      "original": {
+        "id": "bridge-disambiguation",
+        "title": "Bridge: Database-Grounded Interactive Disambiguation for Text-to-SQL",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.17770",
+        "code_url": "https://github.com/slyipae1/BRIDGE",
+        "dataset_url": null,
+        "category": "ambiguity",
+        "scope": "core",
+        "topics": [
+          "ambiguity",
+          "clarification",
+          "interaction",
+          "schema-linking"
+        ],
+        "summary": "Builds an offline column-ambiguity graph and value-similarity index to retrieve alternatives around an initially rejected SQL query, then asks a first-turn clarification batch before continuing a Sphinteract-style loop. Evaluation uses a gold-informed simulated user and single-reference BIRD execution matching. Reported token savings exclude user simulation; offline construction and incomplete released reproduction inputs require separate accounting.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.17770",
+          "https://arxiv.org/pdf/2611.17770v1",
+          "https://github.com/slyipae1/BRIDGE",
+          "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/docs/RELEASE_SCOPE.md",
+          "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/online/README.md"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/bridge-disambiguation.md",
+        "added_on": "2026-11-17",
+        "checked_on": "2026-11-17",
+        "artifact_status": "Offline graph/value-index construction, online clarification/repair and evaluation source inspected at revision dbc49e3fc2c7b865b5ce2bf80b907550fb609c06. BIRD databases, seed predictions, generated graphs and few-shot stores are not bundled; the online README says the few-shot builder/documentation is unfinished. Repository license was not verified. No linked code executed or results reproduced."
+      },
+      "work_id": "bridge-disambiguation"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -13719,23 +14096,255 @@
         "checked_on": "2026-11-16"
       },
       "work_id": "sqlucid"
+    },
+    {
+      "id": "steps-system",
+      "name": "STEPS",
+      "kind": "system",
+      "year": 2023,
+      "date": "2023",
+      "date_label": "Latest linked paper year",
+      "summary": "Interactive SQL correction through editable natural-language explanations, with rule-based entity changes and neural clause generation followed by query composition.",
+      "tags": [
+        "error-correction",
+        "explanation",
+        "human-in-the-loop",
+        "natural-language-feedback",
+        "verification"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "resource",
+      "status": "Public source and data-archive listings inspected at 7dfb85d532667223d82aebb37e181782e9893f8f. The author-linked Hugging Face repository has an ungated modelS.tar.gz file listing at 871aff718429fb4f2c2987a74935b4cb051449d5; weights and archives were not downloaded or executed. README also points to external data/model/project downloads and notes that its packaged project excludes the interface. Full deployment and external access remain unverified.",
+      "sources": [
+        "https://aclanthology.org/2023.emnlp-main.1004.pdf",
+        "https://github.com/magic-YuanTian/STEPS/tree/7dfb85d532667223d82aebb37e181782e9893f8f",
+        "https://github.com/magic-YuanTian/STEPS/blob/7dfb85d532667223d82aebb37e181782e9893f8f/README.md",
+        "https://github.com/magic-YuanTian/STEPS/blob/7dfb85d532667223d82aebb37e181782e9893f8f/Paraphrase/README.md",
+        "https://github.com/magic-YuanTian/STEPS/blob/7dfb85d532667223d82aebb37e181782e9893f8f/Paraphrase/replacement_dict.json",
+        "https://github.com/magic-YuanTian/STEPS/tree/7dfb85d532667223d82aebb37e181782e9893f8f/Paraphrase/data",
+        "https://huggingface.co/DoctorChaos/text-to-SQL-clause-smbop/tree/871aff718429fb4f2c2987a74935b4cb051449d5",
+        "https://huggingface.co/DoctorChaos/text-to-SQL-clause-smbop/blob/871aff718429fb4f2c2987a74935b4cb051449d5/README.md"
+      ],
+      "checked": "2026-11-17",
+      "added_on": null,
+      "url": "https://github.com/magic-YuanTian/STEPS",
+      "code_links": [
+        "https://github.com/magic-YuanTian/STEPS"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#steps-system",
+      "original": {
+        "id": "steps-system",
+        "name": "STEPS",
+        "kind": "system",
+        "paper_ids": [
+          "steps"
+        ],
+        "url": "https://github.com/magic-YuanTian/STEPS",
+        "description": "Interactive SQL correction through editable natural-language explanations, with rule-based entity changes and neural clause generation followed by query composition.",
+        "protocol": "Users add, remove or revise explanation steps for a single initial question. Simulation assumes perfect reference-derived feedback; the separate real-user study measures correction under a time limit. Neither protocol establishes an autonomous clarification/refusal policy or general SQL semantic equivalence.",
+        "availability": "Public source and data-archive listings inspected at 7dfb85d532667223d82aebb37e181782e9893f8f. The author-linked Hugging Face repository has an ungated modelS.tar.gz file listing at 871aff718429fb4f2c2987a74935b4cb051449d5; weights and archives were not downloaded or executed. README also points to external data/model/project downloads and notes that its packaged project excludes the interface. Full deployment and external access remain unverified.",
+        "license_note": "No repository license found in the complete Git tree; root LICENSE returned 404 and GitHub license metadata was null. The author-linked checkpoint card declares MIT, but this is not applied to the main repository, data archives or upstream benchmarks; those reuse terms remain unverified.",
+        "evidence": [
+          "https://aclanthology.org/2023.emnlp-main.1004.pdf",
+          "https://github.com/magic-YuanTian/STEPS/tree/7dfb85d532667223d82aebb37e181782e9893f8f",
+          "https://github.com/magic-YuanTian/STEPS/blob/7dfb85d532667223d82aebb37e181782e9893f8f/README.md",
+          "https://github.com/magic-YuanTian/STEPS/blob/7dfb85d532667223d82aebb37e181782e9893f8f/Paraphrase/README.md",
+          "https://github.com/magic-YuanTian/STEPS/blob/7dfb85d532667223d82aebb37e181782e9893f8f/Paraphrase/replacement_dict.json",
+          "https://github.com/magic-YuanTian/STEPS/tree/7dfb85d532667223d82aebb37e181782e9893f8f/Paraphrase/data",
+          "https://huggingface.co/DoctorChaos/text-to-SQL-clause-smbop/tree/871aff718429fb4f2c2987a74935b4cb051449d5",
+          "https://huggingface.co/DoctorChaos/text-to-SQL-clause-smbop/blob/871aff718429fb4f2c2987a74935b4cb051449d5/README.md"
+        ],
+        "checked_on": "2026-11-17"
+      },
+      "work_id": "steps"
+    },
+    {
+      "id": "role-conditioned-refusal-data",
+      "name": "Spider/BIRD role-conditioned refusal data",
+      "kind": "benchmark",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Spider and BIRD question/reference-SQL records augmented with user roles, PostgreSQL GRANT policies and permit/deny outcomes.",
+      "tags": [
+        "abstention",
+        "evaluation",
+        "verification"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "resource",
+      "status": "Official Spider and BIRD zip archives, field schemas and generation scripts are listed publicly. Archive contents, record counts and evaluation splits were not independently checked; no execution or reproduction.",
+      "sources": [
+        "https://aclanthology.org/2026.findings-eacl.316.pdf",
+        "https://github.com/klisura-code/LLM-Access-Control-Datasets/tree/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f",
+        "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/README.md",
+        "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data/spider/SCHEMA.md",
+        "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data/bird/SCHEMA.md"
+      ],
+      "checked": "2026-11-17",
+      "added_on": null,
+      "url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/tree/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/datasets/README.md#role-conditioned-refusal-data",
+      "original": {
+        "id": "role-conditioned-refusal-data",
+        "name": "Spider/BIRD role-conditioned refusal data",
+        "kind": "dataset",
+        "paper_ids": [
+          "role-conditioned-refusals"
+        ],
+        "url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/tree/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data",
+        "description": "Spider and BIRD question/reference-SQL records augmented with user roles, PostgreSQL GRANT policies and permit/deny outcomes.",
+        "protocol": "Static policy-relative SQL/refusal evaluation. Labels come from the reference SQL under a role; they do not prove intrinsic unanswerability or that no compliant alternative exists. Spider documentation maps any ERROR to DENY; BIRD documents privilege-specific filtering.",
+        "availability": "Official Spider and BIRD zip archives, field schemas and generation scripts are listed publicly. Archive contents, record counts and evaluation splits were not independently checked; no execution or reproduction.",
+        "license_note": "README declares MIT, but no standalone LICENSE file is present in the inspected revision. Upstream Spider/BIRD terms remain separate; complete redistribution terms are unverified.",
+        "evidence": [
+          "https://aclanthology.org/2026.findings-eacl.316.pdf",
+          "https://github.com/klisura-code/LLM-Access-Control-Datasets/tree/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f",
+          "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/README.md",
+          "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data/spider/SCHEMA.md",
+          "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data/bird/SCHEMA.md"
+        ],
+        "checked_on": "2026-11-17"
+      },
+      "work_id": "role-conditioned-refusals"
+    },
+    {
+      "id": "luthorsql-system",
+      "name": "LuthorSQL",
+      "kind": "system",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Local slot-plan SQL generation and candidate validation, with score-margin escalation to a slower tool-using LLM.",
+      "tags": [
+        "agent",
+        "evaluation",
+        "routing",
+        "uncertainty",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "Source and experiment-file inventories verified at 02e3fc954346ebb9c0d380b77318b790e29290a7. Public generator/validator adapter listings and evaluation-data listings were checked without payload downloads. Cards retain private-pre-release wording; some packaged predictions differ from reported scoring. No software run or results reproduced.",
+      "sources": [
+        "https://arxiv.org/pdf/2611.17780v1",
+        "https://github.com/IAMIbrahimmemon/luthorsql/blob/02e3fc954346ebb9c0d380b77318b790e29290a7/README.md",
+        "https://huggingface.co/IAMIbrahim/luthorsql-bird/blob/a8428b96d0a3598c835aff13fe81fca55c996cc2/README.md",
+        "https://huggingface.co/datasets/IAMIbrahim/luthorsql-fresh-unseen/blob/691ae35675eca8fc456fc0681315ba3b61b4c020/README.md"
+      ],
+      "checked": "2026-11-17",
+      "added_on": null,
+      "url": "https://github.com/IAMIbrahimmemon/luthorsql",
+      "code_links": [
+        "https://github.com/IAMIbrahimmemon/luthorsql"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#luthorsql-system",
+      "original": {
+        "id": "luthorsql-system",
+        "name": "LuthorSQL",
+        "kind": "system",
+        "paper_ids": [
+          "luthorsql"
+        ],
+        "url": "https://github.com/IAMIbrahimmemon/luthorsql",
+        "description": "Local slot-plan SQL generation and candidate validation, with score-margin escalation to a slower tool-using LLM.",
+        "protocol": "Compare local answers and cascaded agent outputs under reference execution scoring. Routing is not an unanswerability decision or calibrated guarantee; API handoff, development splits, timeouts and compute-cost assumptions affect conclusions.",
+        "availability": "Source and experiment-file inventories verified at 02e3fc954346ebb9c0d380b77318b790e29290a7. Public generator/validator adapter listings and evaluation-data listings were checked without payload downloads. Cards retain private-pre-release wording; some packaged predictions differ from reported scoring. No software run or results reproduced.",
+        "license_note": "Repository README and model cards leave licensing undecided or describe expected research-only use. Evaluation data retain separate source terms, including non-commercial/share-alike restrictions; complete reuse rights were not independently established.",
+        "evidence": [
+          "https://arxiv.org/pdf/2611.17780v1",
+          "https://github.com/IAMIbrahimmemon/luthorsql/blob/02e3fc954346ebb9c0d380b77318b790e29290a7/README.md",
+          "https://huggingface.co/IAMIbrahim/luthorsql-bird/blob/a8428b96d0a3598c835aff13fe81fca55c996cc2/README.md",
+          "https://huggingface.co/datasets/IAMIbrahim/luthorsql-fresh-unseen/blob/691ae35675eca8fc456fc0681315ba3b61b4c020/README.md"
+        ],
+        "checked_on": "2026-11-17"
+      },
+      "work_id": "luthorsql"
+    },
+    {
+      "id": "bridge-disambiguation-system",
+      "name": "Bridge database-grounded clarification",
+      "kind": "system",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Builds potential column-ambiguity relations and value indexes offline, then retrieves alternative groundings for clarification and SQL repair.",
+      "tags": [
+        "ambiguity",
+        "clarification",
+        "interaction",
+        "schema-linking"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "resource",
+      "status": "Public offline, online and evaluation source inspected at dbc49e3fc2c7b865b5ce2bf80b907550fb609c06. Requires separately supplied BIRD data, compatible seed predictions and derived graph/LSH/few-shot artifacts. The few-shot store builder/documentation and exact trigger-context ablation are not included; an explicit zero-shot fallback changes the paper setting. Not executed or independently reproduced.",
+      "sources": [
+        "https://arxiv.org/pdf/2611.17770v1",
+        "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/README.md",
+        "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/docs/RELEASE_SCOPE.md",
+        "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/online/README.md",
+        "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/online/reformatted_v2_moduleA_v2/stages/stage_seed.py"
+      ],
+      "checked": "2026-11-17",
+      "added_on": null,
+      "url": "https://github.com/slyipae1/BRIDGE",
+      "code_links": [
+        "https://github.com/slyipae1/BRIDGE"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#bridge-disambiguation-system",
+      "original": {
+        "id": "bridge-disambiguation-system",
+        "name": "Bridge database-grounded clarification",
+        "kind": "system",
+        "paper_ids": [
+          "bridge-disambiguation"
+        ],
+        "url": "https://github.com/slyipae1/BRIDGE",
+        "description": "Builds potential column-ambiguity relations and value indexes offline, then retrieves alternative groundings for clarification and SQL repair.",
+        "protocol": "Research correction pipeline with a first-turn CQ batch followed by three Sphinteract-style turns. Released evaluation checks seeds against gold and uses a gold-informed simulated user. No unanswerability or real-user evaluation; reference matching and column overlap do not prove all intended interpretations were covered.",
+        "availability": "Public offline, online and evaluation source inspected at dbc49e3fc2c7b865b5ce2bf80b907550fb609c06. Requires separately supplied BIRD data, compatible seed predictions and derived graph/LSH/few-shot artifacts. The few-shot store builder/documentation and exact trigger-context ablation are not included; an explicit zero-shot fallback changes the paper setting. Not executed or independently reproduced.",
+        "license_note": "No repository license file verified; article and upstream dataset terms do not establish code or derived-artifact reuse rights.",
+        "evidence": [
+          "https://arxiv.org/pdf/2611.17770v1",
+          "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/README.md",
+          "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/docs/RELEASE_SCOPE.md",
+          "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/online/README.md",
+          "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/online/reformatted_v2_moduleA_v2/stages/stage_seed.py"
+        ],
+        "checked_on": "2026-11-17"
+      },
+      "work_id": "bridge-disambiguation"
     }
   ],
   "themes": [
     {
       "id": "ambiguity",
       "label": "Ambiguity",
-      "count": 41
+      "count": 42
     },
     {
       "id": "clarification",
       "label": "Clarification",
-      "count": 34
+      "count": 35
     },
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 33
+      "count": 35
+    },
+    {
+      "id": "verification",
+      "label": "Verification",
+      "count": 27
     },
     {
       "id": "unanswerability",
@@ -13743,19 +14352,14 @@
       "count": 24
     },
     {
-      "id": "verification",
-      "label": "Verification",
-      "count": 24
-    },
-    {
       "id": "abstention",
       "label": "Abstention",
-      "count": 20
+      "count": 21
     },
     {
       "id": "uncertainty",
       "label": "Uncertainty",
-      "count": 19
+      "count": 20
     },
     {
       "id": "clinical",
@@ -13763,8 +14367,18 @@
       "count": 11
     },
     {
+      "id": "human-in-the-loop",
+      "label": "Human in the loop",
+      "count": 9
+    },
+    {
       "id": "interactive-system",
       "label": "Interactive system",
+      "count": 9
+    },
+    {
+      "id": "schema-linking",
+      "label": "Schema linking",
       "count": 9
     },
     {
@@ -13773,19 +14387,14 @@
       "count": 8
     },
     {
-      "id": "human-in-the-loop",
-      "label": "Human in the loop",
-      "count": 8
-    },
-    {
-      "id": "schema-linking",
-      "label": "Schema linking",
-      "count": 8
-    },
-    {
       "id": "sql-equivalence",
       "label": "SQL equivalence",
       "count": 7
+    },
+    {
+      "id": "agent",
+      "label": "Agent",
+      "count": 6
     },
     {
       "id": "answerability",
@@ -13803,23 +14412,18 @@
       "count": 6
     },
     {
+      "id": "error-correction",
+      "label": "Error correction",
+      "count": 6
+    },
+    {
       "id": "error-detection",
       "label": "Error detection",
       "count": 6
     },
     {
-      "id": "agent",
-      "label": "Agent",
-      "count": 5
-    },
-    {
       "id": "conversation",
       "label": "Conversation",
-      "count": 5
-    },
-    {
-      "id": "error-correction",
-      "label": "Error correction",
       "count": 5
     },
     {
@@ -13838,6 +14442,11 @@
       "count": 4
     },
     {
+      "id": "natural-language-feedback",
+      "label": "Natural language feedback",
+      "count": 4
+    },
+    {
       "id": "constraints",
       "label": "Constraints",
       "count": 3
@@ -13853,6 +14462,11 @@
       "count": 3
     },
     {
+      "id": "explanation",
+      "label": "Explanation",
+      "count": 3
+    },
+    {
       "id": "multi-agent",
       "label": "Multi agent",
       "count": 3
@@ -13860,11 +14474,6 @@
     {
       "id": "multi-turn",
       "label": "Multi-turn dialogue",
-      "count": 3
-    },
-    {
-      "id": "natural-language-feedback",
-      "label": "Natural language feedback",
       "count": 3
     },
     {
@@ -13888,11 +14497,6 @@
       "count": 2
     },
     {
-      "id": "explanation",
-      "label": "Explanation",
-      "count": 2
-    },
-    {
       "id": "formal-verification",
       "label": "Formal verification",
       "count": 2
@@ -13910,6 +14514,11 @@
     {
       "id": "query-rewriting",
       "label": "Query rewriting",
+      "count": 2
+    },
+    {
+      "id": "routing",
+      "label": "Routing",
       "count": 2
     },
     {
@@ -14033,6 +14642,11 @@
       "count": 1
     },
     {
+      "id": "interaction",
+      "label": "Interaction",
+      "count": 1
+    },
+    {
       "id": "missing-knowledge",
       "label": "Missing knowledge",
       "count": 1
@@ -14080,11 +14694,6 @@
     {
       "id": "robustness",
       "label": "Robustness",
-      "count": 1
-    },
-    {
-      "id": "routing",
-      "label": "Routing",
       "count": 1
     },
     {
@@ -15967,6 +16576,68 @@
         }
       ],
       "checked_on": "2026-11-14"
+    },
+    {
+      "resource_id": "role-conditioned-refusal-data",
+      "label": "Role-conditioned Spider/BIRD",
+      "relevance": "adjacent",
+      "ambiguity": {
+        "status": "not_targeted",
+        "detail": "No dedicated linguistic ambiguity or interpretation-coverage annotations; supplied table/column policies are explicit, with conflicting or ambiguous organizational rules excluded by the study."
+      },
+      "unanswerability": {
+        "status": "not_targeted",
+        "detail": "DENY concerns authorization of the supplied reference SQL, not missing facts or intrinsic inability to answer. Spider normalizes all ERROR outcomes to denial; BIRD documents retaining privilege-denied cases."
+      },
+      "clarification": {
+        "mode": "not_targeted",
+        "detail": "Models return SQL or a refusal without eliciting user clarification."
+      },
+      "interaction": {
+        "mode": "static",
+        "detail": "Each record supplies one question, schema, role and policy. The paper separately simulates retrying agents; the dataset is not a human-clarification dialogue corpus."
+      },
+      "domain": "Cross-domain Spider/BIRD databases converted to PostgreSQL with synthetic table/column permission profiles. Released archive counts were not independently measured.",
+      "evaluation": "Refusal precision/recall/F1 and false-permit rates; SQL execution accuracy is reported for permitted requests. Policy-length, verifier and cross-dataset comparisons are separate from deterministic access enforcement.",
+      "data_access": "public_artifacts",
+      "evidence": [
+        {
+          "url": "https://aclanthology.org/2026.findings-eacl.316.pdf",
+          "locator": "Sections 3–5 and 8; Appendices A–G: static explicit role policies, evaluation and limits.",
+          "supports": [
+            "ambiguity",
+            "unanswerability",
+            "clarification",
+            "interaction",
+            "domain",
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data/spider/SCHEMA.md",
+          "locator": "Summary and normalization rule: reported counts and all-ERROR-to-DENY mapping.",
+          "supports": [
+            "domain",
+            "unanswerability"
+          ]
+        },
+        {
+          "url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data/bird/SCHEMA.md",
+          "locator": "Summary and Notes: reported counts and privilege-only denial filtering.",
+          "supports": [
+            "domain",
+            "unanswerability"
+          ]
+        },
+        {
+          "url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/tree/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data",
+          "locator": "Official Spider/BIRD subdirectories list zip archives and schema documentation; archive contents not downloaded.",
+          "supports": [
+            "data_access"
+          ]
+        }
+      ],
+      "checked_on": "2026-11-17"
     }
   ]
 }

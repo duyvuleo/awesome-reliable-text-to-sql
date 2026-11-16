@@ -480,6 +480,59 @@
     ]
   },
   {
+    "paper_id": "bridge-disambiguation",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-17",
+    "source_url": "https://arxiv.org/pdf/2611.17770v1",
+    "version": "arXiv:2611.17770v1, 13 November 2026; manuscript PVLDB reference and DOI fields remain placeholders",
+    "coverage": "All 13 PDF pages: Sections 1–6, references, Algorithm 1, all equations, Figures 1–4 and Tables 1–7. No appendices are attached. Visually inspected the running example, workflow, accuracy–cost plot and column-linking results on PDF pages 2, 5, 9 and 10. Separately inspected public release documentation and seed-evaluation/simulated-user source text.",
+    "unread": [],
+    "problem": "Repeated clarification can revisit plausible meanings while missing the database columns or values required by the intended interpretation.",
+    "method": "Constructs candidate column pairs from semantic, name and value signals, then uses an LLM to annotate potential ambiguity conditions. First-turn retrieval combines graph neighbors and MinHash value matches, prunes alternatives, and generates a clarification batch. Later turns use Sphinteract's output/question taxonomy.",
+    "evaluation": "Uses 1,534 BIRD-dev questions, primarily without supplied evidence, a shared seed parser, corrected single references and a gold-informed Qwen user simulator. Reports column-order-insensitive execution matching, reference-column precision/recall and system-side trajectory tokens. Ablations vary graph construction, retrieval, model size and supplied evidence.",
+    "findings": "At four turns, Bridge reports 77.38% execution matching versus Sphinteract's 65.78% at comparable token cost; Sphinteract's ten-turn result is 69.82%. Graph and trigger-context ablations reduce accuracy. Gains remain smaller when BIRD evidence is supplied.",
+    "limitations": "Evaluation assumes rejected predictions can be identified and simulated users know the gold SQL. Multiple-gold ambiguity corrections are excluded; wrong-column failures are only a proxy for ambiguity. Token accounting excludes user simulation and does not establish total deployment cost. No real-user or unanswerability evaluation is reported; graph maintenance under database changes remains future work.",
+    "relevance": "Provides concrete database-grounded clarification cues and controlled component comparisons, with conditional correction results rather than general ambiguity-detection guarantees.",
+    "claims": [
+      {
+        "claim": "Bridge autonomously knows when clarification is needed and demonstrates real-user resolution.",
+        "evidence": "The protocol begins from a rejected seed; the simulator sees gold SQL. Released seed evaluation compares predictions with gold and marks matches completed before clarification.",
+        "locator": "Sections 3.3, 4.1 and 5.1.4, PDF pages 4 and 8; released stages/stage_seed.py run_seed_evaluation and feedback_prompts.py",
+        "disposition": "Describe gold-informed simulated correction and oracle evaluation gating, not measured autonomous triggering or human usability."
+      },
+      {
+        "claim": "The headline 11.60% gain is over the strongest baseline's final result and includes all operating costs.",
+        "evidence": "Figure 3 compares 77.38% at Bridge T4 with 65.78% at Sphinteract T4, selected for similar tokens; Sphinteract T10 is 69.82%. Section 5.1.2 excludes user-simulation tokens; offline work is separately assessed using verification-call counts.",
+        "locator": "Section 5.1.2, page 8; Section 5.2/Figure 3, page 9; Section 5.3.3/Table 2, page 11",
+        "disposition": "Report an 11.60-percentage-point difference at the stated comparison point; do not equate trajectory tokens with human effort or complete build/run cost."
+      },
+      {
+        "claim": "Verified graph edges and column-error counts prove genuine ambiguity or complete intent coverage.",
+        "evidence": "Graph verification is an LLM judgment about possible trigger contexts; the introduction calls wrong-column failures an upper bound on ambiguity-related errors. The evaluation retains one gold SQL even where prior corrections provide ambiguity-related alternatives.",
+        "locator": "Introduction, page 1; Section 4.2.3, page 6; Sections 5.1.1 and 5.3.1, pages 8 and 10",
+        "disposition": "Distinguish potential relations and reference-column proxies from independently validated ambiguity labels or complete interpretation coverage."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Public release scope at inspected revision",
+        "url": "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/docs/RELEASE_SCOPE.md"
+      },
+      {
+        "label": "Online dependencies and retained ablations",
+        "url": "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/online/README.md"
+      },
+      {
+        "label": "Seed acceptance against gold",
+        "url": "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/online/reformatted_v2_moduleA_v2/stages/stage_seed.py"
+      },
+      {
+        "label": "Gold-informed simulated-user prompts",
+        "url": "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/online/reformatted_v2_moduleA_v2/module_a_base/feedback_prompts.py"
+      }
+    ]
+  },
+  {
     "paper_id": "calibrated-interpretation",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-12",
@@ -1639,6 +1692,65 @@
     ]
   },
   {
+    "paper_id": "luthorsql",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-17",
+    "source_url": "https://arxiv.org/pdf/2611.17780v1",
+    "version": "arXiv:2611.17780v1, 13 November 2026; 23-page paper",
+    "coverage": "All 23 PDF pages: main Sections 1–7, limitations, ethics, references and Appendices A–L; all 16 tables and three figures. Figures 1–2 were visually inspected on pages 2 and 8, and Figure 3 with Table 14 on page 20. Public repository/model/dataset cards and file inventories were checked separately; no runtime transcripts, data payloads or weights were inspected.",
+    "unread": [],
+    "problem": "Routing easier database questions to a local generator may reduce agent cost, but a confidence gate must account for wrong high-confidence queries and stronger-agent gains.",
+    "method": "One generator pass fills bounded plan slots; a deterministic compiler constructs SQL, up to 32 candidates are executed, and a second adapter scores them. The score gap between result groups controls escalation to an LLM agent, optionally with candidate handoff. This is routing to another generator, not refusal of unsupported questions.",
+    "evaluation": "BIRD standalone generation, an adapter-held-out selection split, repeated RESERVED runs, external benchmarks and 227 newly constructed questions are evaluated using reference execution agreement, latency and cost. Different experiments use Claude Code or direct API agents and different handoff designs. Main hidden-test results concern the standalone model, not the cascade.",
+    "findings": "Routing reduces agent calls in several settings, but its first RESERVED run fails the authors’ acceptance rule. The original candidate-handoff API cascade costs more than the API baseline on RESERVED; a later question-only variant saves cost with lower accuracy there. The fresh-set API accuracy difference is small, but this does not prove equivalent correctness.",
+    "limitations": "Calibration, universal no-loss behavior and intrinsic answerability are not established. Development data influenced checkpoints and hard-negative design; backbone training includes BIRD train. Result equality on one database is not semantic proof. Timeout/row caps differ between systems, cost conventions vary, and public package predictions differ from scored predictions. Self-hashed registrations are not externally timestamped evidence.",
+    "relevance": "Adjacent evidence for selective SQL generation and confidence-based escalation, with useful negative results showing why routing quality and cost need protocol-specific evaluation.",
+    "claims": [
+      {
+        "claim": "The cascade preserves the stronger agent’s accuracy across deployment modes.",
+        "evidence": "Table 2 reports a 3.08-point fresh-set loss under the subagent setup. Section 6.3 says RESERVED run 1 misses its acceptance thresholds. Appendix G.5 reports that API candidate handoff costs 18.3% more on RESERVED; a later question-only variant saves cost but loses accuracy.",
+        "locator": "Sections 6.3–6.4, pp. 7–8; Appendix G.5, p. 21; Table 2",
+        "disposition": "Keep agent mode, routing variant, baseline and error differences separate. A nonsignificant difference is not proof of equivalence or successful non-inferiority."
+      },
+      {
+        "claim": "The selection and held-out experiments are independent of prior model development and externally preregistered.",
+        "evidence": "Appendices E/H disclose checkpoint selection and earlier scoring involving these databases, backbone exposure to BIRD train, and hard-negative design informed by DECISION errors. Appendix G.6 describes private self-hashed registrations; some first commits coincide with results.",
+        "locator": "Limitations, p. 9; Appendices E and H, pp. 15–17 and 21; Appendix G.6/Table 15, p. 21",
+        "disposition": "Use author-recorded registration and adapter-held-out language, not fully unseen or externally timestamped confirmatory evidence."
+      },
+      {
+        "claim": "The validator margin certifies semantic correctness or question answerability.",
+        "evidence": "The margin separates result groups from a bounded candidate set. DECISION uses gold grammar coverage for some routing, while held-out tests use the margin alone. A live candidate must finish within three seconds and return a non-NULL value; fallback still selects a candidate when none is live.",
+        "locator": "Sections 3.2, 3.5–3.6 and 4–5, pp. 4–6; Appendices F–G",
+        "disposition": "A reference-trained ranking/routing signal, not calibrated refusal or exhaustive interpretation verification. Empty, slow and unsupported-plan cases need separate treatment."
+      },
+      {
+        "claim": "Headline timing, cost and release availability establish end-to-end reproduction.",
+        "evidence": "The 0.84-second timing comes from a seeded DECISION sample, not measured hidden-test cascade latency. Local compute is costed as zero in selected comparisons. Appendix E uses different timeout/row caps for System 1 and the agent; Appendix F reports 59 of 1,534 development predictions differing between package and scored versions. Cards expose files but retain pre-release wording and unresolved terms.",
+        "locator": "Sections 5–6.1, pp. 6–7; Appendices E–F, especially p. 17, and Appendix I; pinned repository/model/dataset cards",
+        "disposition": "Report timing population and cost assumptions; visible files are not evidence that the published run is reproduced or unrestricted for reuse."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Official source snapshot",
+        "url": "https://github.com/IAMIbrahimmemon/luthorsql/tree/02e3fc954346ebb9c0d380b77318b790e29290a7"
+      },
+      {
+        "label": "Artifact and licensing notes",
+        "url": "https://github.com/IAMIbrahimmemon/luthorsql/blob/02e3fc954346ebb9c0d380b77318b790e29290a7/README.md"
+      },
+      {
+        "label": "Two-adapter model card",
+        "url": "https://huggingface.co/IAMIbrahim/luthorsql-bird/blob/a8428b96d0a3598c835aff13fe81fca55c996cc2/README.md"
+      },
+      {
+        "label": "Evaluation-set provenance and terms",
+        "url": "https://huggingface.co/datasets/IAMIbrahim/luthorsql-fresh-unseen/blob/691ae35675eca8fc456fc0681315ba3b61b4c020/README.md"
+      }
+    ]
+  },
+  {
     "paper_id": "misp",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-09",
@@ -2518,6 +2630,73 @@
       {
         "label": "Official source repository",
         "url": "https://github.com/pminhtam/RAQS-SQL"
+      }
+    ]
+  },
+  {
+    "paper_id": "role-conditioned-refusals",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-17",
+    "source_url": "https://aclanthology.org/2026.findings-eacl.316.pdf",
+    "version": "Findings of EACL 2026 proceedings, pp. 6018–6034; 17 PDF pages. First preprint October 2025.",
+    "coverage": "All 17 PDF pages: Sections 1–8, limitations, references and Appendices A–I, including all prompts, five figures and Tables 1–13. All five figures and dense refusal/ablation tables were visually inspected. Official README, both SCHEMA documents, both labeling scripts and the BIRD final-record builder were read separately as text.",
+    "unread": [],
+    "problem": "An otherwise answerable database request may be unauthorized for one role. The study asks whether language models can recognize that distinction while preserving useful SQL generation for permitted requests.",
+    "method": "Spider and BIRD are converted to PostgreSQL and paired with four synthetic table/column permission profiles. The study compares direct SQL-or-refuse prompting, SQL generation followed by an LLM policy verifier, and Spider-trained LoRA models. Reference-query execution supplies artifact labels.",
+    "evaluation": "Experiments report refusal precision/recall/F1, false permits and SQL execution accuracy, with policy-length and verifier-swap analyses. A separate OrgAccess classification test and a 2,000-instance retry-agent simulation extend evaluation. Fine-tuning reuses original Spider splits but reports a disjoint role-conditioned evaluation; released split membership was not audited.",
+    "findings": "Two-stage verification improves many zero-shot results, but not every few-shot comparison. LoRA refusal performance drops under Spider-to-BIRD transfer. Longer policies correlate with poorer results, and qualitative errors include refusal text followed by SQL. Permission-aware simulation reports fewer repeated calls.",
+    "limitations": "These model judgments do not replace database enforcement or certify intrinsic answerability. Execution accuracy is discussed for correctly permitted requests, rather than unconditional success. Spider documentation maps all ERROR strings to DENY; BIRD documents privilege-specific filtering. Error-label purity, disjoint splits and published model runs were not independently verified.",
+    "relevance": "A distinct public policy-refusal benchmark and precursor to the collection's access-control probe study, useful for separating authorization, SQL correctness, over-refusal and genuinely unsupported questions.",
+    "claims": [
+      {
+        "claim": "A DENY label establishes intrinsic unanswerability or proves that no permitted equivalent SQL exists.",
+        "evidence": "The paper formalizes existence of a compliant query, but public ground-truth scripts execute the supplied reference query under each role; they do not enumerate equivalent formulations. Static explicit permissions determine the intended task, and Appendix F's organizational labels are a separate setting.",
+        "locator": "Sections 3–4, pp. 6021–6022; scripts/spider/dataset-groundtruth.py lines 56-74,125-129; scripts/bird/dataset-groundtruth-bird.py lines 145-165.",
+        "disposition": "Treat labels as policy-relative reference-query outcomes, not an intrinsic-answerability oracle or an exhaustive impossibility proof."
+      },
+      {
+        "claim": "Both released datasets isolate permission denial from all unrelated execution errors.",
+        "evidence": "Spider SCHEMA lines 23,29-31 map every ERROR-prefixed outcome to DENY, while its labeler catches any exception and records connection failures as ERROR. BIRD SCHEMA lines10,48-52 says the final data retain PERMIT and SQLSTATE 42501 cases; its builder provides an explicit only_privilege_or_permit filter. Archives were not downloaded.",
+        "locator": "Pinned data/spider/SCHEMA.md; scripts/spider/dataset-groundtruth.py lines 69-74,114-122; data/bird/SCHEMA.md; scripts/bird/build_access_control_dataset_bitd.py.",
+        "disposition": "Documented labeling-rule risk for Spider; no claim about the number of contaminated records or which errors occur in the released archive."
+      },
+      {
+        "claim": "Two-stage verification uniformly improves refusal quality and establishes safe end-to-end SQL behavior.",
+        "evidence": "Table 2 includes GPT-4o-mini few-shot F1 decreases from .832 to .775 on Spider and .780 to .720 on BIRD. Section 5 frames execution accuracy on correctly permitted requests. False permits and over-refusal remain, and Section 5's implications retain independent enforcement.",
+        "locator": "Section 5, Tables 2–4, pp. 6023–6026; Appendix G, p. 6033.",
+        "disposition": "Reported improvements are setting-dependent. Conditional execution quality and refusal classification do not establish deployment-level enforcement."
+      },
+      {
+        "claim": "The public repository is a complete reproduction of all training, evaluation and agent-simulation results.",
+        "evidence": "The inspected tree contains two archive files, schema docs, database/role construction scripts and Docker configuration. Training/evaluation runners and model checkpoints were not visible; archive contents and the stated non-overlapping evaluation split were not audited.",
+        "locator": "Repository tree at 9179b2ec6d84df56803cbbeb2650cd86b7c1b56f; README; Section 4 and Appendix A.5.",
+        "disposition": "Verify public data listings and construction source only; do not infer full experimental reproducibility or independent execution."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Official artifact snapshot",
+        "url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/tree/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f"
+      },
+      {
+        "label": "Spider fields and normalization",
+        "url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data/spider/SCHEMA.md"
+      },
+      {
+        "label": "BIRD fields and filtering",
+        "url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data/bird/SCHEMA.md"
+      },
+      {
+        "label": "Spider reference-query execution",
+        "url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/scripts/spider/dataset-groundtruth.py"
+      },
+      {
+        "label": "BIRD reference-query execution",
+        "url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/scripts/bird/dataset-groundtruth-bird.py"
+      },
+      {
+        "label": "BIRD optional privilege filter",
+        "url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/scripts/bird/build_access_control_dataset_bitd.py"
       }
     ]
   },
@@ -3404,6 +3583,83 @@
         "evidence": "Table 14 reports 9/24 calculation-unanswerability cases with low correctness despite 88% high aggregate judgments.",
         "locator": "Appendix B/Table 14 p. 17937",
         "disposition": "Retain category-level validity caveat."
+      }
+    ]
+  },
+  {
+    "paper_id": "steps",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-17",
+    "source_url": "https://aclanthology.org/2023.emnlp-main.1004.pdf",
+    "version": "EMNLP 2023 proceedings, pages 16149–16166, 18 PDF pages. First preprint 12 May 2023; arXiv metadata separately lists v5 dated 4 January 2024, which was not the full-text version reviewed.",
+    "coverage": "All 18 proceedings PDF pages: Sections 1–10, references, Appendices A–G, Algorithm 1, Tables 1–11 and all captions. Figures 1–9 were visually inspected on PDF pages 1, 3–5, 8, 15–16 and 18, including the interface screenshots and expertise comparison. Table 9 was visually checked. Official README, complete repository inventory, paraphrasing rules and linked checkpoint card were inspected separately as public text; no linked code or data was run.",
+    "unread": [],
+    "problem": "Users may recognize a wrong result but lack a precise, understandable way to locate and repair the corresponding SQL component.",
+    "method": "STEPS explains SQL clause by clause using grammar rules, then converts edited explanations into query updates. Aligned entity edits use direct transformation; larger changes use a SmBoP-based text-to-clause model trained on 83,000 generated explanation–clause pairs. Composition heuristics add joins, merge clauses and discard duplicate ordering/grouping clauses.",
+    "evaluation": "Reference-aware simulation on Spider, Spider-DK, Spider-Syn and WikiSQL supplies corrected gold-clause explanations. A separate counterbalanced study recruits 24 participants to complete eight Spider tasks per tool in ten minutes using STEPS, MISP or a DIY reimplementation. Metrics include exact-set/execution matching, completed and correct tasks, skips and subjective confidence/load.",
+    "findings": "Simulation reaches 97.9% exact-set match with EditSQL. Real users average 5.7 correct of eight assigned tasks, with 85.81% correctness among completed tasks. The hybrid correction method matches the neural-only accuracy at lower reported correction latency; direct transformation alone has narrower coverage.",
+    "limitations": "Simulation assumes perfect error localization and correction, unlike real users. The human sample is small, tutorial durations differ, and skipped/unattempted tasks are outside its accuracy denominator. NL-EDIT comparison numbers are imported, not rerun. Some listed paraphrases alter equality boundaries. Support is limited to Spider query constructs; clarification decisions, abstention and context-dependent multi-question dialogues are not evaluated.",
+    "relevance": "An adjacent human-feedback mechanism that makes the location and content of corrections explicit, useful for studying verification effort without conflating oracle feedback with realistic interaction.",
+    "claims": [
+      {
+        "claim": "The 97.9% result demonstrates near-perfect performance with ordinary users.",
+        "evidence": "Section 4.1 compares predicted and reference clauses, then deletes erroneous steps or supplies paraphrased explanations derived from the correct clauses. Section 9 explicitly calls this optimistic and not representative of real-world use. Table 1 reports the resulting 97.9% exact-set match.",
+        "locator": "Sections 4.1–4.3, PDF pages 5–6; Table 1, page 6; Section 9, page 10",
+        "disposition": "Report a reference-aware simulation result. It tests repair given idealized feedback, not autonomous error detection, natural clarification or real-user success."
+      },
+      {
+        "claim": "Real users solve 85.81% of all assigned tasks.",
+        "evidence": "Section 5.4 defines task completion accuracy as correct divided by completed. Table 5 reports 6.7 completed and 5.7 correct tasks from eight assigned, with 0.3 skipped. Sessions last ten minutes; tutorial videos last six minutes for STEPS, three for MISP and two for DIY.",
+        "locator": "Sections 5.3–5.4 and Table 5, PDF page 8",
+        "disposition": "Preserve the completed-task denominator and report the correct-task count alongside it. Do not interpret accuracy or subjective confidence as guaranteed intent correctness."
+      },
+      {
+        "claim": "The paper establishes a controlled, matched-feedback superiority over NL-EDIT.",
+        "evidence": "The authors could not run NL-EDIT because of missing code and runtime problems and instead use its published accuracy. STEPS simulation supplies corrected explanations of gold clauses, whereas the original NL-EDIT task consumes recorded user feedback.",
+        "locator": "Footnote 1, PDF page 2; Sections 4.1–4.3, pages 5–6; existing NL-EDIT primary task description",
+        "disposition": "Treat the numerical comparison as protocol-dependent rather than a fresh matched-feedback reproduction. NL-EDIT was not included in the real-user study."
+      },
+      {
+        "claim": "The synthetic paraphrasing rules necessarily preserve the SQL meaning.",
+        "evidence": "Appendix B/Table 9 permits greater than to become no less than and less than to become no more than. Those substitutions change whether equality is included. The same alternatives appear in the pinned Paraphrase/replacement_dict.json source.",
+        "locator": "Appendix B, PDF page 13; Table 9, page 15; pinned Paraphrase/replacement_dict.json greater than and less than entries",
+        "disposition": "A concrete semantic-quality caveat for the rule inventory; the number of affected generated examples and any impact on reported scores were not measured."
+      },
+      {
+        "claim": "Editable explanations support arbitrary SQL and evaluated conversational ambiguity resolution.",
+        "evidence": "Section 9 limits the implementation to keywords appearing in Spider and excludes update operations. It also states that evaluation concerns single-turn SQL generation; context-dependent multi-turn extension is future work. Component matching is used as an evaluation heuristic, not a general equivalence proof.",
+        "locator": "Sections 4.1 and 9, PDF pages 5 and 10; Appendix A, pages 13–14",
+        "disposition": "Describe iterative repair of an initial query within the supported grammar, without claiming complete ambiguity coverage, refusal handling or preservation guarantees."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Primary proceedings identity",
+        "url": "https://aclanthology.org/2023.emnlp-main.1004/"
+      },
+      {
+        "label": "Preprint version history",
+        "url": "https://arxiv.org/abs/2305.07372"
+      },
+      {
+        "label": "Official implementation snapshot",
+        "url": "https://github.com/magic-YuanTian/STEPS/tree/7dfb85d532667223d82aebb37e181782e9893f8f"
+      },
+      {
+        "label": "Release and data/model instructions",
+        "url": "https://github.com/magic-YuanTian/STEPS/blob/7dfb85d532667223d82aebb37e181782e9893f8f/README.md"
+      },
+      {
+        "label": "Released paraphrasing rule inventory",
+        "url": "https://github.com/magic-YuanTian/STEPS/blob/7dfb85d532667223d82aebb37e181782e9893f8f/Paraphrase/replacement_dict.json"
+      },
+      {
+        "label": "Author-linked checkpoint card",
+        "url": "https://huggingface.co/DoctorChaos/text-to-SQL-clause-smbop/blob/871aff718429fb4f2c2987a74935b4cb051449d5/README.md"
+      },
+      {
+        "label": "NL-EDIT original feedback task",
+        "url": "https://aclanthology.org/2021.naacl-main.444.pdf"
       }
     ]
   },

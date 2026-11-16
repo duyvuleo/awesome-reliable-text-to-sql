@@ -1786,5 +1786,67 @@
       }
     ],
     "checked_on": "2026-11-14"
+  },
+  {
+    "resource_id": "role-conditioned-refusal-data",
+    "label": "Role-conditioned Spider/BIRD",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_targeted",
+      "detail": "No dedicated linguistic ambiguity or interpretation-coverage annotations; supplied table/column policies are explicit, with conflicting or ambiguous organizational rules excluded by the study."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "DENY concerns authorization of the supplied reference SQL, not missing facts or intrinsic inability to answer. Spider normalizes all ERROR outcomes to denial; BIRD documents retaining privilege-denied cases."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Models return SQL or a refusal without eliciting user clarification."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Each record supplies one question, schema, role and policy. The paper separately simulates retrying agents; the dataset is not a human-clarification dialogue corpus."
+    },
+    "domain": "Cross-domain Spider/BIRD databases converted to PostgreSQL with synthetic table/column permission profiles. Released archive counts were not independently measured.",
+    "evaluation": "Refusal precision/recall/F1 and false-permit rates; SQL execution accuracy is reported for permitted requests. Policy-length, verifier and cross-dataset comparisons are separate from deterministic access enforcement.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://aclanthology.org/2026.findings-eacl.316.pdf",
+        "locator": "Sections 3–5 and 8; Appendices A–G: static explicit role policies, evaluation and limits.",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data/spider/SCHEMA.md",
+        "locator": "Summary and normalization rule: reported counts and all-ERROR-to-DENY mapping.",
+        "supports": [
+          "domain",
+          "unanswerability"
+        ]
+      },
+      {
+        "url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/blob/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data/bird/SCHEMA.md",
+        "locator": "Summary and Notes: reported counts and privilege-only denial filtering.",
+        "supports": [
+          "domain",
+          "unanswerability"
+        ]
+      },
+      {
+        "url": "https://github.com/klisura-code/LLM-Access-Control-Datasets/tree/9179b2ec6d84df56803cbbeb2650cd86b7c1b56f/data",
+        "locator": "Official Spider/BIRD subdirectories list zip archives and schema documentation; archive contents not downloaded.",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-11-17"
   }
 ]

@@ -6,7 +6,7 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **107 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **111 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
@@ -22,6 +22,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [BIRD-INTERACT: Re-imagining Text-to-SQL Evaluation for Large Language Models via Lens of Dynamic Interactions](notes/bird-interact.md) | Full paper read |
 | 2026 | [Boundary-Aware NL2SQL: Integrating Reliability through Hybrid Reward and Data Synthesis](notes/bar-sql.md) | Full paper read |
 | 2026 | [Bounded Semantic Planning and Deterministic Compilation for Reliable Enterprise Text-to-SQL](notes/semantic-path-compilation.md) | Full paper read |
+| 2026 | [Bridge: Database-Grounded Interactive Disambiguation for Text-to-SQL](notes/bridge-disambiguation.md) | Full paper read |
 | 2026 | [Building SQL Equivalence Proofs from Query Rewrite Rules](notes/equitrace.md) | Full paper read |
 | 2026 | [Can LLM Agents Be Forward-Deployed Engineers? Requirement Discovery and Delivery for Enterprise Text-to-SQL](notes/fde-requirement-discovery.md) | Full paper read |
 | 2026 | [Certified Against Which Oracle? Execution Labels Set the Reported Risk of Conformal Abstention for Text-to-SQL](notes/oracle-abstention.md) | Full paper read |
@@ -41,6 +42,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [KODE: Mining Implicit Domain Knowledge from Historical Experience for Text-to-SQL](notes/kode.md) | Full paper read |
 | 2026 | [LASSO: An LLM-Agent Synthesized System for SQL Validation](notes/lasso.md) | Full paper read |
 | 2026 | [LatentRefusal: Latent-Signal Refusal for Unanswerable Text-to-SQL Queries](notes/latentrefusal.md) | Full paper read |
+| 2026 | [LuthorSQL: A One-Pass Text-to-SQL Model as System 1 for a Slower LLM Agent](notes/luthorsql.md) | Full paper read |
 | 2026 | [MTSQL-R1: Towards Long-Horizon Multi-Turn Text-to-SQL via Agentic Training](notes/mtsql-r1.md) | Full paper read |
 | 2026 | [Never the Number: Structural Abstention for AI Systems Whose Answers Are Consumed as Fact](notes/structural-abstention.md) | Full paper read |
 | 2026 | [Node-Level Uncertainty Estimation in LLM-Generated SQL](notes/node-level-uncertainty.md) | Full paper read |
@@ -56,6 +58,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [Reasoning about Intent for Ambiguous Requests](notes/intentrl.md) | Full paper read |
 | 2026 | [Reliable End-to-End Text-to-SQL Generation](notes/rts-plus.md) | Full paper read |
 | 2026 | [Rethinking Text-to-SQL: Dynamic Multi-turn SQL Interaction for Real-world Database Exploration](notes/dysql-bench.md) | Full paper read |
+| 2026 | [Role-Conditioned Refusals: Evaluating Access Control Reasoning in Large Language Models](notes/role-conditioned-refusals.md) | Full paper read |
 | 2026 | [ROSE: An Intent-Centered Evaluation Metric for NL2SQL](notes/rose.md) | Full paper read |
 | 2026 | [Same SQL, Different Decision: Aggregate Risk Hides Cross-Lingual Instability in Text-to-SQL Verification](notes/same-sql-different-decision.md) | Full paper read |
 | 2026 | [SCARE: A Benchmark for SQL Correction and Question Answerability Classification for Reliable EHR Question Answering](notes/scare.md) | Full paper read |
@@ -109,6 +112,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2023 | [Benchmarking and Improving Text-to-SQL Generation under Ambiguity](notes/ambiqt.md) | Full paper read |
 | 2023 | [Calibrated Interpretation: Confidence Estimation in Semantic Parsing](notes/calibrated-interpretation.md) | Full paper read |
 | 2023 | [Data Ambiguity Strikes Back: How Documentation Improves GPT’s Text-to-SQL](notes/data-ambiguity-documentation.md) | Full paper read |
+| 2023 | [Interactive Text-to-SQL Generation via Editable Step-by-Step Explanations](notes/steps.md) | Full paper read |
 | 2023 | [Know What I don’t Know: Handling Ambiguous and Unanswerable Questions for Text-to-SQL](notes/dte-noisysp.md) | Full paper read |
 | 2023 | [Non-Programmers Can Label Programs Indirectly via Active Examples: A Case Study with Text-to-SQL](notes/apel.md) | Full paper read |
 | 2022 | [EHRSQL: A Practical Text-to-SQL Benchmark for Electronic Health Records](notes/ehrsql.md) | Full paper read |
