@@ -975,6 +975,91 @@
     ]
   },
   {
+    "paper_id": "decoval",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-18",
+    "source_url": "https://arxiv.org/pdf/2611.20511v1",
+    "version": "arXiv:2611.20511v1, submitted 16 November 2026; 20 pages. The PDF has placeholder PVLDB 2027 page numbers and DOI, so proceedings acceptance/publication is not established.",
+    "coverage": "All 20 pages: Sections 1–10, references, Appendices A–D including complete DP/A* proofs, semantic/validation prompts, human-study question and SQL examples, and metric definitions. Figures 1–7 and Tables 2, 4–6 were visually inspected on pages 1–3, 5, 9, 11–12 and 20; all six tables and Algorithm 1 were read. Official README, benchmark/prompt guides, notices and selected task-assignment/recomposition source sections were separately inspected. No linked code or experiments were executed, and benchmark records were not downloaded.",
+    "unread": [],
+    "problem": "A validator can miss semantic errors when judging a large generated SQL query as one unit without a trusted reference.",
+    "method": "DecoVal enumerates restricted logical-plan rewrites and cuts them into blocks that recompose to the candidate. DP or A* minimizes a modeled validation cost using structural complexity, interface load, LLM-rated semantics and judgment count. LLMs write requirements and input descriptions; accepting every block accepts the query.",
+    "evaluation": "Twenty SQL-proficient volunteers assess two clarified BEAVER tasks; analysis retains 17 judgments per presentation condition. Three LLM validators evaluate 305 generated candidates from support-filtered BEAVER/Spider 2.0 questions, labeled by benchmark execution evaluators. Baselines include repeated whole-query judgments, syntactic/random decompositions and round-trip or synthetic-execution validation.",
+    "findings": "Humans correctly reject in 10/11 judgments of erroneous candidates with decomposition versus 4/11 without, but median time on erroneous queries increases from 486 to 931 seconds. Default LLM error recall rises from 25.1% to 39.9% while false rejections increase from six to eight. Finer decomposition further trades specificity for recall.",
+    "limitations": "Optimization is exact only within the enumerated space and chosen model; its probability interpretation assumes independent errors and valid per-task probabilities. Intent soundness additionally requires consistent requirements and correct local judgments. Requirements remain LLM-generated, thresholds are manually chosen, and benchmark execution labels are not semantic proofs. Five unsupported candidates receive no verdict but remain in metric denominators.",
+    "relevance": "Adjacent support for reference-free verification and human error localization under a fixed interpretation, not an evaluated ambiguity-resolution or unanswerability policy.",
+    "claims": [
+      {
+        "claim": "Semantics-preserving decomposition certifies that an accepted candidate answers the intended question.",
+        "evidence": "Proposition 4.1 concerns preservation of the candidate, including its errors, under deterministic, runtime-error-free conjuncts. Proposition 3.2 additionally assumes consistent tasks and actual local correctness. Section 7 obtains requirements and input descriptions from LLMs; Section 9.2 describes an error missed by local judgments but caught when the whole query is shown.",
+        "locator": "Sections 3.1 and 4.1–4.2, pages 4–6; Proposition 3.2 and Proposition 4.1; Sections 7 and 9.2, pages 9 and 12",
+        "disposition": "Keep candidate-preservation guarantees separate from fallible intent judgments. The structural checks and EXPLAIN acceptance do not prove that the candidate satisfies the natural-language request."
+      },
+      {
+        "claim": "The optimizer finds the universally most reliable decomposition and provides calibrated correctness probabilities.",
+        "evidence": "Definition 3.3 and Theorems 6.1–6.2 optimize the finite rewrite/cut space under the chosen objective. Proposition 5.1 assumes independent errors and per-task correctness probabilities equal to the model. Section 9.1 sets thresholds from literature and author judgment; fitting them to past validator behavior is future work.",
+        "locator": "Sections 3.2, 5.2–5.3 and 6, pages 5 and 7–9; Appendix A, pages 16–18; Sections 9.1 and 10, pages 11–12",
+        "disposition": "An exact modeled-cost search with conditional theory, not a universal or empirically calibrated reliability guarantee."
+      },
+      {
+        "claim": "The 91% human result establishes broad accuracy gains with lower effort.",
+        "evidence": "Twenty volunteers each evaluate two tasks; one correct candidate per task is dropped for too few validations, leaving 17 judgments in each condition. Error detection is 10/11 versus 4/11; each condition has only six correct-candidate judgments, all accepted. Median time for erroneous queries is 931 versus 486 seconds. Appendix C rewrites the two questions using gold SQL to make them precise.",
+        "locator": "Section 8 and Table 2, pages 9–10; Appendix C, pages 19–20",
+        "disposition": "Preserve the small denominators, two-task setting, precise-question preparation and time trade-off. These participants were SQL-proficient; this is not a non-expert or natural-ambiguity study."
+      },
+      {
+        "claim": "Higher error recall means that every validation outcome improves.",
+        "evidence": "Table 4 gives default DecoVal recall 39.9% versus Whole 25.1%, with eight versus six false rejections; specificity falls from 88.7% to 85.5%. DecoVal+SE raises recall to 90.5% but rejects 46 of 62 officially correct candidates and lowers balanced accuracy relative to SE. Figure 7 shows further specificity losses at fine granularity.",
+        "locator": "Table 4/Figure 5 and Sections 9.2–9.4, pages 11–12",
+        "disposition": "Report recall together with false rejection/specificity and the chosen granularity. More local judgments can improve detection while increasing unjustified rejection."
+      },
+      {
+        "claim": "The reference-free evaluation establishes correctness independently of benchmark references and query support restrictions.",
+        "evidence": "Validators do not receive references, but candidate labels come from official benchmark evaluators: BEAVER set-of-result-row agreement or Spider 2.0 result acceptance. Questions are selected among those with supported gold SQL. Five generated candidates are unsupported; Appendix D counts unsupported incorrect candidates as false negatives while unsupported correct candidates are neither TN nor FP.",
+        "locator": "Section 9.1, pages 10–11; Appendix D, page 20; pinned benchmarks/README.md",
+        "disposition": "Distinguish reference-free inference from reference-dependent evaluation. Keep coverage restrictions and execution-oracle limits visible rather than implying formal semantic ground truth."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Preprint identity and version",
+        "url": "https://arxiv.org/abs/2611.20511v1"
+      },
+      {
+        "label": "Official artifact snapshot",
+        "url": "https://github.com/Inverse0/validation-aware-decomposition/tree/a1aacc8b554749768544025fbafb569543c0562d"
+      },
+      {
+        "label": "Release instructions",
+        "url": "https://github.com/Inverse0/validation-aware-decomposition/blob/a1aacc8b554749768544025fbafb569543c0562d/README.md"
+      },
+      {
+        "label": "Benchmark provenance and labels",
+        "url": "https://github.com/Inverse0/validation-aware-decomposition/blob/a1aacc8b554749768544025fbafb569543c0562d/benchmarks/README.md"
+      },
+      {
+        "label": "Third-party permissions and project license boundary",
+        "url": "https://github.com/Inverse0/validation-aware-decomposition/blob/a1aacc8b554749768544025fbafb569543c0562d/THIRD_PARTY_NOTICES.md"
+      },
+      {
+        "label": "Requirement prompt",
+        "url": "https://github.com/Inverse0/validation-aware-decomposition/blob/a1aacc8b554749768544025fbafb569543c0562d/prompts/tasks/requirement_prompt.txt"
+      },
+      {
+        "label": "Input-description prompt",
+        "url": "https://github.com/Inverse0/validation-aware-decomposition/blob/a1aacc8b554749768544025fbafb569543c0562d/prompts/tasks/describe_prompt.txt"
+      },
+      {
+        "label": "Task assignment source",
+        "url": "https://github.com/Inverse0/validation-aware-decomposition/blob/a1aacc8b554749768544025fbafb569543c0562d/sqldecomp/tasks.py"
+      },
+      {
+        "label": "Candidate-preservation checks",
+        "url": "https://github.com/Inverse0/validation-aware-decomposition/blob/a1aacc8b554749768544025fbafb569543c0562d/sqldecomp/printer/checks.py"
+      }
+    ]
+  },
+  {
     "paper_id": "dialsql",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-09",
@@ -1029,6 +1114,61 @@
         "evidence": "Table 5 scores whether gold SQL is found and explicitly does not penalize extra queries.",
         "locator": "Section 4 unambiguous evaluation/Table 5",
         "disposition": "Supports retrieval of the correct reading, not low false-ambiguity rate."
+      }
+    ]
+  },
+  {
+    "paper_id": "diy",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-18",
+    "source_url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2021/02/diy_iui_2021.pdf",
+    "version": "Microsoft Research-hosted IUI 2021 paper, 11 PDF pages; proceedings pages 597–607, DOI 10.1145/3397481.3450667. No appendix or substantive supplement accompanies this PDF.",
+    "coverage": "All 11 pages: Sections 1–6, complete methods, user-study protocol and qualitative results, limitations, references, Tables 1–3 and Listings 1–2. Figures 1–7 were visually inspected on PDF pages 1, 3, 5–6 and 9; the implementation-status table was also visually inspected on page 7. Microsoft Research and author publication/project pages were checked separately for original artifact links.",
+    "unread": [],
+    "problem": "Plausible answers can conceal an incorrect mapping from a natural-language request to SQL, especially when users cannot inspect SQL directly.",
+    "method": "DIY wraps RAT-SQL with editable question-to-query mappings and a sandbox containing typically five sampled rows per relevant table. Sampling seeks illustrative positive and negative cases for supported query constructs. Users inspect stepwise natural-language/table explanations, alter sample rows to test behavior, or change mappings before applying the revised query to the original database.",
+    "evaluation": "An exploratory remote study recruits 12 employees from one technology company. Participants receive a tutorial, attempt eight curated tasks with four correct and four erroneous initial responses, and think aloud while an experimenter can probe or assist. The study reports qualitative observations and a System Usability Scale score, without a comparison condition or aggregate task-correction accuracy.",
+    "findings": "Participants used inspection, sample-data manipulation and mapping changes as distinct debugging strategies. Mean SUS is 65.42. Six participants noticed the ambiguity of since 1980, but only two changed the greater-than mapping. Several confused answers on the sample with those on the full database.",
+    "limitations": "Small, curated, assisted sessions do not establish comparative efficiency or calibrated trust. Sample construction is incomplete for HAVING, set operations, nested queries and several functions/operators; query explanations have separate coverage. New mappings are restricted by the original interpretation. Successful sample checks do not certify full-data correctness or resolve absent information.",
+    "relevance": "Adjacent evidence for human verification and interpretation repair, including the gap between noticing ambiguity and acting on it. It does not evaluate an autonomous clarification policy, answerability classifier or refusal behavior.",
+    "claims": [
+      {
+        "claim": "DIY demonstrates a measured improvement in task accuracy or speed over another interface.",
+        "evidence": "Sections 4.1–4.2 describe one exploratory 12-person design probe with eight curated tasks, think-aloud interaction, occasional experimenter questions and a mean SUS score of 65.42. No controlled comparator or aggregate completion/correction-time metric is reported.",
+        "locator": "Sections 4.1–4.2, PDF pages 8–10; Table 3 and Figure 7, page 9",
+        "disposition": "Use the qualitative usability and debugging observations. SUS is a usability score, not correctness accuracy or evidence of superior task performance."
+      },
+      {
+        "claim": "Inspecting the sample database certifies that the query matches the intended answer on the production database.",
+        "evidence": "Sections 3.3.1–3.3.2 allow partially relevant samples when constraints are infeasible or costly. Section 4.2.4 records confusion because sample and full-database answers differ. Table 1 marks several smart sampling constraints unimplemented, even though Table 2 can explain some of those SQL constructs.",
+        "locator": "Sections 3.3.1–3.3.2, PDF pages 5–6; Tables 1–2, pages 7–8; Section 4.2.4, page 10",
+        "disposition": "Describe an inspection aid with limited sampling coverage. Distinguish unsupported sample-generation constraints from unsupported SQL explanation, and avoid semantic-equivalence or correctness guarantees."
+      },
+      {
+        "claim": "Providing ambiguity widgets ensures that users resolve an ambiguous interpretation.",
+        "evidence": "In the since 1980 task, the model uses greater than. Six participants explicitly notice the greater-than versus greater-than-or-equal ambiguity, but only two change the mapping. Section 5.2.1 also restricts new mappings to columns already implicated by the initial interpretation.",
+        "locator": "Sections 5.1.1 and 5.2.1, PDF page 10; Table 3 task 5, page 9",
+        "disposition": "Keep ambiguity recognition, user action and successful resolution separate; this qualitative case is not a benchmark-wide clarification success rate."
+      },
+      {
+        "claim": "The example about car makers headquartered on Mars establishes unanswerability detection.",
+        "evidence": "The example illustrates an unsatisfiable positive sampling constraint. The described response is to generate partially relevant sample data and allow users to modify it, not to classify or refuse the original question.",
+        "locator": "Section 3.3.2, PDF page 6",
+        "disposition": "Do not label this as an evaluated answerability or abstention capability. Synthetic edits help test query behavior rather than establish facts missing from the original database."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Institutional publication record",
+        "url": "https://www.microsoft.com/en-us/research/publication/diy-assessing-the-correctness-of-natural-language-to-sql-systems-2/"
+      },
+      {
+        "label": "Author project page and media links",
+        "url": "https://datavisards.com/projects/2021-paper-diy/"
+      },
+      {
+        "label": "Coauthor publication listing",
+        "url": "https://www.adamfourney.com/publications/"
       }
     ]
   },
@@ -1688,6 +1828,51 @@
         "evidence": "The paper explicitly dates its first-place statement to submission and uses different model backbones across compared entries.",
         "locator": "Abstract and Table 1",
         "disposition": "Report as historical paper result, not current or controlled superiority."
+      }
+    ]
+  },
+  {
+    "paper_id": "living-context-graphs",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-18",
+    "source_url": "https://arxiv.org/pdf/2611.20976v1",
+    "version": "arXiv:2611.20976v1, 16 November 2026; author-reported acceptance at the non-archival CL4FMAgents workshop at NeurIPS 2026",
+    "coverage": "All 22 PDF pages: Sections 1–6, limitations, references, Appendices A–C, all state/score/update equations, Figures 1–5 and Tables 1–11. Visually inspected workflow, worked retrieval, admission ablation, incremental plots, serving-path plots and checkpoint/recovery tables on PDF pages 4, 16–20. Separately checked the official workshop website and public annotation-release README/inventory.",
+    "unread": [],
+    "problem": "Persisted business definitions can improve SQL generation but also spread erroneous or stale conventions across later requests.",
+    "method": "Bootstraps semantic objects, writes reusable rule revisions from verified outcomes, and requires model-judged admission before they serve. A separate concept graph routes context using outcome-based allow-list states, freshness checks and a heuristic recovery score; invalidation withdraws routes rather than deleting stored knowledge.",
+    "evaluation": "One fixed Gemini stack uses 353 history and 146 held-out questions from three selected BIRD databases. Every held-out fact has a history teacher. Learning receives answer-match verdicts and retries, while evaluation freezes state. Predicted MySQL row sets are compared with SQLite gold using a 300-second timeout.",
+    "findings": "Held-out correct answers rise from 20 to 53 of 146; disabling the admission judge reduces this to 29. Disabling final graph routing changes accuracy by at most one question per database while increasing serving cost and latency. Some newly learned rules regress earlier answers.",
+    "limitations": "The deliberately reachable transfer split is not natural question traffic. Single runs, author fact annotations, strong answer-oracle feedback and unmeasured generator–judge dependence constrain generalization. Recovery counts are correctness flips rather than causal invalidation estimates; claimed checkpoint-noise bounds also conflict with one table transition. No ambiguity, clarification or abstention evaluation is reported.",
+    "relevance": "Provides a concrete context-admission diagnostic and auditable route-state design, without establishing semantic truth, calibrated confidence or robust deployment-time forgetting.",
+    "claims": [
+      {
+        "claim": "Graph routing and invalidation cause the reported accuracy gain and recovery rate.",
+        "evidence": "Appendix A/Table 3 disables routing and the invalidation loop in Experiments 1–2. Table 6 isolates admission filtering, while graph-off endpoints differ by at most one answer per database. Table 9 defines recovery as right–wrong–right checkpoint outcomes and calls the 25/41 rate an upper bound on invalidation effects.",
+        "locator": "Sections 5.2–5.3, pages 6–8; Appendix A/Table 3, page 12; Appendix B/Tables 6, 8–9, pages 17 and 20",
+        "disposition": "Separate measured admission effects, graph serving efficiency and noncausal recovery observations."
+      },
+      {
+        "claim": "Verified outcomes establish durable semantic correctness under ordinary enterprise feedback.",
+        "evidence": "The retry loop receives gold-answer-match verdicts, stronger than passive deployment feedback. An LLM judge approves rules without measured agreement with human reviewers. The selected transfer split guarantees history coverage of held-out facts, and row-set scoring can still accept an unintended SQL interpretation.",
+        "locator": "Sections 4–5.2 and Limitations, pages 4–8; Appendix A scoring and reliability definitions, pages 14–17; Appendix C/Table 11, pages 21–22",
+        "disposition": "Keep strong supervision, selected scope and heuristic validation explicit; do not interpret route states or reliability weights as calibrated semantic guarantees."
+      },
+      {
+        "claim": "Incremental and one-shot learning are statistically equivalent, with every checkpoint decline within the stated 1–2-question noise.",
+        "evidence": "Each condition uses a single run. The endpoints agree on two databases and differ by one on the third, but no repeated-run equivalence analysis is supplied. Section 5.3 says declines are one to two questions; Table 8 and Figure 3 show card_games falling from 16 to 13 correct between t=40 and t=60.",
+        "locator": "Section 5.3 and Limitations, pages 7–8; Appendix B/Figure 3 and Table 8, pages 18 and 20",
+        "disposition": "Describe near-matching observed endpoints, retain the three-question reporting discrepancy, and avoid a tested-equivalence or replicated-noise conclusion."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Public split and fact-family release at inspected revision",
+        "url": "https://github.com/varunagrawal2002/Living-Context-Graph/blob/3732c24e60849873b64322248b522f3d24595c94/README.md"
+      },
+      {
+        "label": "Official workshop identity and non-archival status",
+        "url": "https://neurips26-cl4fmagents.github.io/"
       }
     ]
   },
@@ -2419,6 +2604,47 @@
         "evidence": "Section 9.1 requires basic SQL familiarity; section 11.2 describes it as a research tool and leaves nontechnical accessibility open.",
         "locator": "Sections 9.1 and 11.2",
         "disposition": "Scope human evidence to the recruited SQL-familiar sample."
+      }
+    ]
+  },
+  {
+    "paper_id": "pluq",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-18",
+    "source_url": "https://aclanthology.org/2024.clinicalnlp-1.61.pdf",
+    "version": "ClinicalNLP 2024 proceedings, pp. 635–643; nine-page paper",
+    "coverage": "All nine PDF pages: Sections 1–5, limitations, acknowledgments, references, three figures and four tables. The training diagram, score definition, prompt and all results/ablation tables were visually checked on PDF pages 3 and 5–7. No appendix is present. Author publication listing inspected separately; no private repository was accessed.",
+    "unread": [],
+    "problem": "Clinical SQL systems need to withhold unsupported or unreliable predictions despite class imbalance between answerable and unanswerable requests.",
+    "method": "Fine-tunes GPT-3.5-Turbo-0125 on labeled EHRSQL data and schema/instruction prompts. The seed labels development/test questions, and predicted-unanswerable examples augment another training round. Maximum token entropy and execution-error/empty-result filters then replace uncertain outputs with a null refusal.",
+    "evaluation": "The EHRSQL 2024 shared-task development/test setting uses a MIMIC-IV demo database and penalty-based reliability scores. Model, prompt and filter ablations are reported on development data; the test question pool participates in pseudo-label training without access to its gold answers.",
+    "findings": "Table 1 reports test RS(10) of 81.32 and RS(N) of -711.83. In Table 4, adding entropy filtering raises development RS(10) from 85.38 to 88.65 while lowering RS(0) from 93.98 to 90.37. The trade-off depends on error penalties rather than improving every outcome.",
+    "limitations": "This is transductive adaptation, not a clean unseen-question test. Seed-generated labels are not independently validated; filter thresholds use an assumed unanswerable proportion. Execution failures or empty/None results do not prove intrinsic unanswerability. The ablations do not isolate self-training with all other components fixed. Training-count wording is inconsistent, and Table 1 qualifies its development result as not posted to the leaderboard. No clinical deployment is evaluated.",
+    "relevance": "A directly relevant unanswerability/self-training baseline with explicit distinctions between unsupported requests, uncertain SQL, evaluation-pool adaptation and penalty-dependent abstention.",
+    "claims": [
+      {
+        "claim": "Test performance measures generalization to questions never seen during model training.",
+        "evidence": "Figure 1 and Section 3 explicitly pseudo-label the test pool and append predicted-null samples to the training set before final fine-tuning. Section 3.2 also describes development/test adaptation. Gold labels are not used for that step.",
+        "locator": "Figure 1 and Section 3, p. 637; Section 3.2, p. 638",
+        "disposition": "Describe transductive learning on the evaluation question pool, without equating it to supervised test-label access or unseen-query generalization."
+      },
+      {
+        "claim": "Entropy/execution filtering establishes that a refused request is intrinsically unanswerable.",
+        "evidence": "Section 3.3 filters high-entropy predictions using a proportion-based threshold and treats execution errors, empty values and None as unanswerable. Table 4 filters the top 7% by entropy. These conditions concern predictions/results, not an impossibility proof about the request.",
+        "locator": "Section 3.3, pp. 638–639; Table 4, p. 641",
+        "disposition": "A selective-output heuristic; it can withhold valid empty answers and answerable requests on which the model is uncertain. No calibrated answerability guarantee is established."
+      },
+      {
+        "claim": "The ranking and ablations prove the self-training step improves clinical safety on its own.",
+        "evidence": "Tables 2–4 vary models, prompts and filtering, without a matched self-training-only comparison. Entropy filtering trades lower RS(0) for higher RS(10). The reported test RS(N) remains negative, which the limitations explicitly flag.",
+        "locator": "Tables 1–4, pp. 640–641; Limitations, pp. 641–642",
+        "disposition": "Attribute results to the full tested method and chosen penalties. Neither a component-specific causal gain nor clinical safety follows."
+      },
+      {
+        "claim": "Every reported quantity and development result has unambiguous independent leaderboard provenance.",
+        "evidence": "Section 3.1 and Section 4.1 state 5,124 total training entries, while Section 3.2 calls 5,124 answerable plus 450 unanswerable. Table 1 states that the authors did not post its development score to the leaderboard, qualifying broader surrounding wording.",
+        "locator": "Sections 3.1–3.2, p. 638; Section 4.1, p. 639; Table 1 caption, p. 640",
+        "disposition": "Retain the reporting conflicts rather than infer an augmented sample count or independent verification of the unposted development score."
       }
     ]
   },
@@ -3392,7 +3618,7 @@
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-09",
     "source_url": "https://arxiv.org/pdf/2506.04494v1",
-    "version": "Full arXiv:2506.04494v1, 4 June 2025; NeurIPS final-version PDF could not be compared because official endpoints failed timeout/certificate checks",
+    "version": "Full arXiv:2506.04494v1, 4 June 2025. This whole-paper review applies to the author preprint. The now-accessible NeurIPS proceedings checklist was inspected separately on 2026-11-18; a complete substantive final-version comparison remains unfinished.",
     "coverage": "All 25 pages of the author preprint: sections 1–6 and appendices A–F, all signal definitions, prompts, correction pseudocode and result tables. This is a version-specific reading, not a claim to have compared the final proceedings PDF.",
     "unread": [],
     "problem": "Executable generated SQL can contain localized semantic mistakes, and self-correction can damage queries that were already correct.",
@@ -3413,6 +3639,12 @@
         "evidence": "Section 3.4 and Appendix E prose stop when no errors remain or the cap is reached, but Algorithm 1 line 4 uses while errors OR iteration below cap.",
         "locator": "Section 3.4; Appendix E/Algorithm 1",
         "disposition": "Pseudocode/prose inconsistency; no execution-level stopping guarantee inferred."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "NeurIPS final PDF: targeted code/data checklist, Question 5, pp. 16–17, checked 2026-11-18; not a complete final-version reading",
+        "url": "https://papers.nips.cc/paper_files/paper/2025/file/c57812dee8acade8c5e385260b2cde28-Paper-Conference.pdf"
       }
     ]
   },

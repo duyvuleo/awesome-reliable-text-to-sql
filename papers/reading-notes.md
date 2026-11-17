@@ -6,7 +6,7 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **111 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **115 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
@@ -42,11 +42,13 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [KODE: Mining Implicit Domain Knowledge from Historical Experience for Text-to-SQL](notes/kode.md) | Full paper read |
 | 2026 | [LASSO: An LLM-Agent Synthesized System for SQL Validation](notes/lasso.md) | Full paper read |
 | 2026 | [LatentRefusal: Latent-Signal Refusal for Unanswerable Text-to-SQL Queries](notes/latentrefusal.md) | Full paper read |
+| 2026 | [Living Context Graphs: Continual Semantic Learning for Enterprise Data Reasoning](notes/living-context-graphs.md) | Full paper read |
 | 2026 | [LuthorSQL: A One-Pass Text-to-SQL Model as System 1 for a Slower LLM Agent](notes/luthorsql.md) | Full paper read |
 | 2026 | [MTSQL-R1: Towards Long-Horizon Multi-Turn Text-to-SQL via Agentic Training](notes/mtsql-r1.md) | Full paper read |
 | 2026 | [Never the Number: Structural Abstention for AI Systems Whose Answers Are Consumed as Fact](notes/structural-abstention.md) | Full paper read |
 | 2026 | [Node-Level Uncertainty Estimation in LLM-Generated SQL](notes/node-level-uncertainty.md) | Full paper read |
 | 2026 | [ODUTQA-MDC: A Task for Open-Domain Underspecified Tabular QA with Multi-turn Dialogue-based Clarification](notes/odutqa-mdc.md) | Full paper read |
+| 2026 | [Optimizing Query Decomposition for Reliable Validation](notes/decoval.md) | Full paper read |
 | 2026 | [Pervasive Annotation Errors Break Text-to-SQL Benchmarks and Leaderboards](notes/annotation-errors.md) | Full paper read |
 | 2026 | [PleaSQLarify: Visual Pragmatic Repair for Natural Language Database Querying](notes/pleasqlarify.md) | Full paper read |
 | 2026 | [Policy-Conditioned Constrained Decoding for Column-Level Access Control in Text-to-SQL](notes/pcc-sql.md) | Full paper read |
@@ -103,6 +105,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2025 | [The Consistency Hypothesis in Uncertainty Quantification for Large Language Models](notes/consistency-hypothesis.md) | Full paper read |
 | 2024 | [AIRI NLP Team at EHRSQL 2024 Shared Task: T5 and Logistic Regression to the Rescue](notes/airi-ehrsql-2024.md) | Full paper read |
 | 2024 | [AMBROSIA: A Benchmark for Parsing Ambiguous Questions into Database Queries](notes/ambrosia.md) | Full paper read |
+| 2024 | [LG AI Research &amp; KAIST at EHRSQL 2024: Self-Training Large Language Models with Pseudo-Labeled Unanswerable Questions for a Reliable Text-to-SQL System on EHRs](notes/pluq.md) | Full paper read |
 | 2024 | [MultiSQL: A Schema-Integrated Context-Dependent Text2SQL Dataset with Diverse SQL Operations](notes/multisql.md) | Full paper read |
 | 2024 | [NL2SQL is a solved problem... Not!](notes/nl2sql-not-solved.md) | Full paper read |
 | 2024 | [Overview of the EHRSQL 2024 Shared Task on Reliable Text-to-SQL Modeling on Electronic Health Records](notes/ehrsql-2024.md) | Full paper read |
@@ -116,6 +119,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2023 | [Know What I don’t Know: Handling Ambiguous and Unanswerable Questions for Text-to-SQL](notes/dte-noisysp.md) | Full paper read |
 | 2023 | [Non-Programmers Can Label Programs Indirectly via Active Examples: A Case Study with Text-to-SQL](notes/apel.md) | Full paper read |
 | 2022 | [EHRSQL: A Practical Text-to-SQL Benchmark for Electronic Health Records](notes/ehrsql.md) | Full paper read |
+| 2021 | [DIY: Assessing the Correctness of Natural Language to SQL Systems](notes/diy.md) | Full paper read |
 | 2021 | [NL-EDIT: Correcting Semantic Parse Errors through Natural Language Interaction](notes/nl-edit.md) | Full paper read |
 | 2020 | [Did You Ask a Good Question? A Cross-Domain Question Intention Classification Benchmark for Text-to-SQL](notes/triagesql.md) | Full paper read |
 | 2020 | [Semantic Evaluation for Text-to-SQL with Distilled Test Suites](notes/test-suites.md) | Full paper read |

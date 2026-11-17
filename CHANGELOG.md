@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-18
+
+- Added complete readings of DecoVal, Living Context Graphs, DIY and PLUQ, preserving conditional validation guarantees, context-admission evidence, qualitative user-study limits and transductive test-pool training. The catalog now contains 118 papers, with 115 complete readings and three access gaps.
+- Added the DecoVal tool and a paper-described DIY system; no additional benchmark was counted from reused or evaluation-specific material.
+- Updated LASSO’s official repository and root license metadata. Recorded SQLens’s accessible final-paper release statement while retaining the existing full preprint review and its date.
+
 ## 2026-11-17
 
 - Added full readings of Bridge, LuthorSQL, STEPS and Role-Conditioned Refusals, separating gold-informed simulation, confidence routing, real-user correction and policy denial. The catalog now contains 114 papers, with 111 complete readings and three access gaps.

@@ -1038,16 +1038,19 @@
     "paper_ids": [
       "lasso"
     ],
-    "url": "https://gitlab.com/xdata/lasso",
+    "url": "https://github.com/xdata-lasso/lasso",
     "description": "Generates targeted test databases for standalone SQL testing and candidate/reference counterexample discovery.",
     "protocol": "Mutation-focused test generation and cross-checking under explicit normalization and result-comparison rules. A found counterexample refutes the tested pair; absence of one does not prove equivalence or alignment with user intent.",
-    "availability": "Public README, source-module inventory, tests and experiment directory verified. Dependencies, generated datasets and reported results were not executed or independently reproduced.",
-    "license_note": "No root license identified in the inspected project tree; repository and bundled dependency/data reuse terms remain unverified.",
+    "availability": "Official GitLab migration notice and GitHub source, tests and experiment directories verified at f14b283e84845f985fe7e0cd4e82d0cff325c629. Dependencies, generated datasets and reported results were not executed or independently reproduced.",
+    "license_note": "Root LASSO code is Apache-2.0. Bundled baselines, dependencies and datasets retain separate terms that were not audited; no blanket license is inferred for those materials.",
     "evidence": [
       "https://gitlab.com/xdata/lasso",
-      "https://arxiv.org/html/2610.38294v1"
+      "https://arxiv.org/html/2610.38294v1",
+      "https://gitlab.com/xdata/lasso/-/blob/2d1ade3edededc121983d2158cd4ebc4444a2c35/README.md",
+      "https://github.com/xdata-lasso/lasso",
+      "https://github.com/xdata-lasso/lasso/blob/f14b283e84845f985fe7e0cd4e82d0cff325c629/LICENSE"
     ],
-    "checked_on": "2026-11-01"
+    "checked_on": "2026-11-18"
   },
   {
     "id": "nl2sql-bugs-data",
@@ -1565,5 +1568,49 @@
       "https://github.com/slyipae1/BRIDGE/blob/dbc49e3fc2c7b865b5ce2bf80b907550fb609c06/online/reformatted_v2_moduleA_v2/stages/stage_seed.py"
     ],
     "checked_on": "2026-11-17"
+  },
+  {
+    "id": "diy-system",
+    "name": "DIY (Debug-It-Yourself)",
+    "kind": "system",
+    "paper_ids": [
+      "diy"
+    ],
+    "url": "https://datavisards.com/projects/2021-paper-diy/",
+    "description": "Paper-described interactive prototype for inspecting generated SQL through query-token mappings, a small editable sample database and stepwise natural-language/tabular explanations.",
+    "protocol": "Users inspect or manipulate sample data and edit mappings before applying a revised query to the original database. The original study is an exploratory 12-person design probe; sample behavior does not certify full-data correctness. Supports bounded user-driven interpretation repair, without an evaluated autonomous clarification or refusal policy.",
+    "availability": "Original implementation release remains unverified. Official project and publication pages document the prototype and link paper/video/slides; the project-page GitHub footer is the lab website source. No runnable original package, independent reproduction or reusable study-data release was established. Later reimplementations are not treated as the original artifact.",
+    "license_note": "No original implementation or study-data license verified. Publication access and the lab website repository license do not establish reuse terms for the DIY prototype.",
+    "evidence": [
+      "https://www.microsoft.com/en-us/research/wp-content/uploads/2021/02/diy_iui_2021.pdf",
+      "https://www.microsoft.com/en-us/research/publication/diy-assessing-the-correctness-of-natural-language-to-sql-systems-2/",
+      "https://datavisards.com/projects/2021-paper-diy/",
+      "https://www.adamfourney.com/publications/"
+    ],
+    "checked_on": "2026-11-18"
+  },
+  {
+    "id": "decoval-tool",
+    "name": "DecoVal",
+    "kind": "tool",
+    "paper_ids": [
+      "decoval"
+    ],
+    "url": "https://github.com/Inverse0/validation-aware-decomposition",
+    "description": "Validation-oriented SQL decomposition optimizer and evaluation pipeline, with logical-plan rewrites, block requirements/input descriptions and combined human or LLM verdicts.",
+    "protocol": "Selects blocks under a validator-profile cost model, preserves the supported candidate under stated rewrite assumptions and rejects when any local verdict rejects. This does not prove agreement with user intent. The core judgment reads SQL and schema; optional synthetic-execution baselines use generated data. Unsupported queries or time-budget exhaustion can yield no decomposition.",
+    "availability": "Public importer, memo/search, printer/check, constraint, task-assignment and reproduction modules verified at a1aacc8b554749768544025fbafb569543c0562d. Documentation and file listings expose a 305-candidate benchmark with schemas and official-evaluator labels; its contents were not fetched or independently counted. Requirements/descriptions use LLM calls. No setup, database access, tests or experiments executed.",
+    "license_note": "THIRD_PARTY_NOTICES.md explicitly states that no new project-wide open-source license is assigned. It attributes upstream BEAVER/Spider 2.0 materials to MIT and RT/SE-derived material to CC BY 4.0; these statements do not license new DecoVal code or generated additions. GitHub license metadata is null and root LICENSE returns 404. New-project reuse terms remain unverified.",
+    "evidence": [
+      "https://arxiv.org/pdf/2611.20511v1",
+      "https://github.com/Inverse0/validation-aware-decomposition/tree/a1aacc8b554749768544025fbafb569543c0562d",
+      "https://github.com/Inverse0/validation-aware-decomposition/blob/a1aacc8b554749768544025fbafb569543c0562d/README.md",
+      "https://github.com/Inverse0/validation-aware-decomposition/blob/a1aacc8b554749768544025fbafb569543c0562d/THIRD_PARTY_NOTICES.md",
+      "https://github.com/Inverse0/validation-aware-decomposition/blob/a1aacc8b554749768544025fbafb569543c0562d/benchmarks/README.md",
+      "https://github.com/Inverse0/validation-aware-decomposition/blob/a1aacc8b554749768544025fbafb569543c0562d/prompts/README.md",
+      "https://github.com/Inverse0/validation-aware-decomposition/blob/a1aacc8b554749768544025fbafb569543c0562d/sqldecomp/tasks.py",
+      "https://github.com/Inverse0/validation-aware-decomposition/blob/a1aacc8b554749768544025fbafb569543c0562d/sqldecomp/printer/checks.py"
+    ],
+    "checked_on": "2026-11-18"
   }
 ]

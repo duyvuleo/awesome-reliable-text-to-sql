@@ -6,9 +6,11 @@
 
 **Full paper read · 2026-11-09**
 
-[Original source](https://arxiv.org/pdf/2506.04494v1) · Full arXiv:2506.04494v1, 4 June 2025; NeurIPS final-version PDF could not be compared because official endpoints failed timeout/certificate checks
+[Original source](https://arxiv.org/pdf/2506.04494v1) · Full arXiv:2506.04494v1, 4 June 2025. This whole-paper review applies to the author preprint. The now-accessible NeurIPS proceedings checklist was inspected separately on 2026-11-18; a complete substantive final-version comparison remains unfinished.
 
 **Reading coverage:** All 25 pages of the author preprint: sections 1–6 and appendices A–F, all signal definitions, prompts, correction pseudocode and result tables. This is a version-specific reading, not a claim to have compared the final proceedings PDF.
+
+**Additional inspected sources:** [NeurIPS final PDF: targeted code/data checklist, Question 5, pp. 16–17, checked 2026-11-18; not a complete final-version reading](https://papers.nips.cc/paper_files/paper/2025/file/c57812dee8acade8c5e385260b2cde28-Paper-Conference.pdf)
 
 ## Research question
 
