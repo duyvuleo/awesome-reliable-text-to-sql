@@ -4,37 +4,37 @@
 
 [All reading notes](../reading-notes.md) · [Catalog entry](../README.md#sqlens)
 
-**Full paper read · 2026-11-09**
+**Full paper read · 2026-11-19**
 
-[Original source](https://arxiv.org/pdf/2506.04494v1) · Full arXiv:2506.04494v1, 4 June 2025. This whole-paper review applies to the author preprint. The now-accessible NeurIPS proceedings checklist was inspected separately on 2026-11-18; a complete substantive final-version comparison remains unfinished.
+[Original source](https://papers.nips.cc/paper_files/paper/2025/file/c57812dee8acade8c5e385260b2cde28-Paper-Conference.pdf) · Complete official NeurIPS 2025 proceedings PDF, 34 pages. Compared with the previously reviewed 25-page arXiv:2506.04494v1 (4 June 2025); this note now applies to the final proceedings version.
 
-**Reading coverage:** All 25 pages of the author preprint: sections 1–6 and appendices A–F, all signal definitions, prompts, correction pseudocode and result tables. This is a version-specific reading, not a claim to have compared the final proceedings PDF.
+**Reading coverage:** All 34 pages: Sections 1–6, references, complete NeurIPS checklist, Appendices A–F, all signal definitions and examples, full prompts, correction pseudocode, and all 15 tables. Figures 1–7, Algorithm 1 and the result/example tables were visually inspected on PDF pages 2–9, 22, 24–25 and 31–34. Method, main-result, cost, artifact-availability and stopping-rule changes were compared with the public preprint. No implementation or experiments were executed.
 
-**Additional inspected sources:** [NeurIPS final PDF: targeted code/data checklist, Question 5, pp. 16–17, checked 2026-11-18; not a complete final-version reading](https://papers.nips.cc/paper_files/paper/2025/file/c57812dee8acade8c5e385260b2cde28-Paper-Conference.pdf)
+**Additional inspected sources:** [Official NeurIPS publication record](https://papers.nips.cc/paper_files/paper/2025/hash/c57812dee8acade8c5e385260b2cde28-Abstract-Conference.html) · [Earlier author preprint: full version comparison source](https://arxiv.org/pdf/2506.04494v1)
 
 ## Research question
 
-Executable generated SQL can contain localized semantic mistakes, and self-correction can damage queries that were already correct.
+Executable generated SQL can contain localized semantic mistakes, while attempted repairs can damage queries that were already correct.
 
 ## Method
 
-Database heuristics and LLM assessments become noisy labeling functions. Weak supervision aggregates them for correctness prediction; error reports guide sequential correction, a guardrail pass and an LLM auditor comparing original versus revised SQL.
+Database heuristics and LLM assessments become noisy labeling functions. A Snorkel LabelModel combines signals into probabilistic labels for a correctness classifier. Error reports guide sequential LLM correction, syntax checking, a guardrail pass and an auditor choosing between original and revised SQL. The final version specifies up to three correction iterations.
 
 ## Evaluation
 
-Claude 3.5 Sonnet-based generators are assessed on BIRD/Spider development sets. Detection uses five-fold evaluation; correction reports fixed, broken and net-fixed counts. Appendix F distinguishes all-generated queries from the syntactically valid subsets used for correction.
+Claude 3.5 Sonnet generates and repairs candidates from four systems on BIRD/Spider development data. Detection uses five-fold evaluation with execution-result labels. Correction considers syntactically valid candidates and reports fixed, broken and net-fixed counts. A new comparison table uses different frameworks’ best-reported generator settings.
 
 ## What the results support
 
-Signal-guided correction improves reported net execution accuracy over self-reflection in the studied settings, but still breaks correct queries. The auditor reduces some regressions while sometimes reducing net repairs; detector recall remains incomplete.
+The main correction and detection results remain consistent with the preprint. For MAC-SQL on BIRD, 78 fixes and 18 regressions yield 60 net fixes and reported net accuracy 64.03%. The final comparison instead cites its 65.23% fix-only figure. Added token accounting reports about 9,963 tokens per query on average.
 
 ## Limits and qualifications
 
-Signals such as empty outputs, missing declared foreign keys or redundant joins can flag legitimate queries. Execution-match labels and developer-selected heuristics bound semantics. The authors position this as asynchronous debugging. Pseudocode uses an OR loop condition where prose describes stopping at either no errors or the iteration cap.
+Empty, zero or NULL results and schema heuristics can flag valid SQL; execution agreement is not semantic certification. The auditor retains nonzero regressions, and recall remains incomplete. Algorithm 1 still uses OR where the prose describes stopping when either errors disappear or the cap is reached. Code/data are withheld, limiting verification of these reporting and implementation details.
 
 ## Relevance to reliable Text-to-SQL
 
-Useful diagnosis/repair evidence, with regression counts and source-version boundaries retained rather than treating repair as correctness certification.
+Useful evidence for clause-level diagnosis and repair, with regression-aware evaluation. The authors position it as asynchronous debugging, not an answerability policy or correctness guarantee.
 
 ## Checks against the paper
 
@@ -42,7 +42,10 @@ These are interpretations checked against the source, not verbatim quotations at
 
 | Claim or inference examined | Original evidence | Location | Assessment |
 | --- | --- | --- | --- |
-| Correction always preserves correct queries. | Tables 1, 3 and 9 report nonzero Nbreak, including with the auditor. | Section 4.2/Table 1; section 4.3/Table 3; Appendix F/Table 9 | Unsupported; report net repair and collateral regressions separately. |
-| The described loop has an unambiguous maximum-iteration stop. | Section 3.4 and Appendix E prose stop when no errors remain or the cap is reached, but Algorithm 1 line 4 uses while errors OR iteration below cap. | Section 3.4; Appendix E/Algorithm 1 | Pseudocode/prose inconsistency; no execution-level stopping guarantee inferred. |
+| The final comparison establishes 65.23% net post-correction accuracy for SQLens with MAC-SQL. | New Table 2 and its surrounding paragraph report 60.04 to 65.23 as initial-to-corrected accuracy. Table 1 labels 65.23 as the Nfix-only figure, while its Nnet figure is 64.03 after 78 fixes and 18 regressions. Table 2 also uses different generators and their best-reported settings across frameworks. | Final Sections 4.1–4.2, Table 1 p. 7 and Table 2 p. 8 | Use the reported 64.03% net figure for regression-aware outcomes. Treat the new comparison as protocol-dependent and retain its fix-only/net inconsistency; it does not establish a matched, net-accuracy advantage. |
+| Correction always preserves queries that were already correct. | Final Tables 1, 4 and 10 contain nonzero Nbreak values, including with the auditor. In the BIRD vanilla setting the auditor reduces breaks from 19 to 16 but also reduces fixes from 72 to 66, lowering net fixes from 53 to 50. | Final Section 4.2/Table 1 p. 7; Section 4.3/Table 4 p. 8; Appendix F.1/Table 10 p. 32 | Preserve fixes, regressions and net outcomes separately. The auditor offers a measured trade-off rather than a preservation guarantee. |
+| The final algorithm unambiguously enforces the stated three-iteration cap. | Section 4.1 now explicitly configures up to three iterations, and Section 3.4/Appendix E describe ending when errors disappear or the cap is reached. Algorithm 1 line 4 still continues while errors remain OR the iteration count is below the cap. | Final Sections 3.4 and 4.1 pp. 6–7; Appendix E/Algorithm 1 line 4 p. 31; same OR condition in preprint Appendix E | The preprint’s pseudocode/prose discrepancy persists. Without executable source, do not infer the actual runtime stopping behavior. |
+| A flagged clause proves semantic error or intrinsic unanswerability. | Appendix B explicitly permits false positives for intentional empty/zero/NULL answers, incomplete PK/FK documentation, legitimate extra joins, necessary subqueries and similar tables. Appendix C acknowledges fallible LLM judgments. Table 9 distinguishes all generated queries from the syntax-valid subsets used in correction. | Final Appendices B–C pp. 22–25; Tables 5 and 9 pp. 9 and 31 | Signals are noisy diagnostic evidence, not an impossibility test or correctness certificate. Preserve the syntactically valid correction population and execution-oracle limits. |
+| The preprint’s implementation-availability statement establishes a reproducible final public release. | The preprint Section 4.1 advertised an implementation link. The final Section 4.1 instead documents Python 3.9, Snorkel LabelModel and the iteration setting; checklist Questions 5 and 13 explicitly say code and data cannot be released publicly under company policy. | Preprint Section 4.1 p. 7; final Section 4.1 p. 7; final checklist Question 5 pp. 16–17 and Question 13 pp. 19–20 | Record the final withholding statement and do not carry forward a public-release claim. No withheld code or company data was accessed. |
 
 Reading and source inspection do not establish independent reproduction. Artifact availability is recorded separately in the catalog.

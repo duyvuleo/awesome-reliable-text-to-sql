@@ -6,7 +6,7 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **115 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **116 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
@@ -16,6 +16,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [AmbiSQL: Interactive Ambiguity Detection and Resolution for Text-to-SQL](notes/ambisql.md) | Full paper read |
 | 2026 | [An OMOP-Based Open-Source Text-to-SQL Benchmark Dataset](notes/text-to-omop.md) | Full paper read |
 | 2026 | [ARCS: Towards Precise Text-to-SQL via Structured Disambiguation](notes/arcs.md) | Full paper read |
+| 2026 | [Asking What Matters: Disagreement-Guided Ambiguity Detection for Interactive Text-to-SQL](notes/disguad.md) | Full paper read |
 | 2026 | [AtomSQL: Interactive Disambiguation of NL-to-SQL via User-Guided Atom-Level Alignment](notes/atomsql.md) | Full paper read |
 | 2026 | [Auditing and Repairing LLM-as-Judge Failures in a Production Text-to-SQL Pipeline](notes/synca-audit.md) | Full paper read |
 | 2026 | [Beyond Correctness: Resolving Underspecification in Agentic Text-to-SQL](notes/planpool.md) | Full paper read |

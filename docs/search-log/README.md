@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-11-19: announcement coverage, disagreement-guided clarification and final-version audit](2026-11-19.md)
+
 - [2026-11-18: decomposition validation, learned context and clinical self-training](2026-11-18.md)
 
 - [2026-11-17: grounded disambiguation, confidence routing and feedback evaluation](2026-11-17.md)

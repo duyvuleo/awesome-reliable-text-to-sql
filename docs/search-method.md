@@ -38,6 +38,6 @@ The [detailed reading notes](../papers/reading-notes.md) separately document who
 
 ## Limits
 
-Search indexing is incomplete and delayed, terminology varies, some proceedings are difficult to access, and repository contents can change after inspection. English-language searches may underrepresent other literature. Citation chaining is targeted, not a complete bibliometric crawl. A future daily search can discover an older missing paper as well as a new release.
+Search indexing is incomplete and delayed, terminology varies, some proceedings are difficult to access, and repository contents can change after inspection. Submission, revision, announcement and discovery dates can differ: a newly announced arXiv paper can retain an older submission timestamp. Announcement listings therefore supplement date-filtered searches; the dated logs record which listings and intervals were actually checked. English-language searches may underrepresent other literature. Citation chaining is targeted, not a complete bibliometric crawl. A future daily search can discover an older missing paper as well as a new release.
 
 Public repositories that are gated, empty, archived, or incomplete remain labeled accordingly. An HTTP error does not prove an artifact is absent. Access conditions and licenses should be rechecked before reuse. Suggestions and corrections are welcome through [contributions](../CONTRIBUTING.md).

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-19
+
+- Added a complete DisGuAD reading with structural-disagreement, lexical-coverage, simulated-user and inference-cost limits. The catalog now contains 119 papers, with 116 complete readings and three access gaps; resource counts are unchanged.
+- Reconciled SQLens with its complete 34-page NeurIPS final version. Documented the comparison table’s fix-only versus net-accuracy discrepancy, persistent stopping-rule inconsistency and final release restriction while preserving its original addition date.
+- Expanded documented search coverage to include announcement listings after a newly announced arXiv paper was found with older submission metadata. Both primary dates are retained.
+
 ## 2026-11-18
 
 - Added complete readings of DecoVal, Living Context Graphs, DIY and PLUQ, preserving conditional validation guarantees, context-admission evidence, qualitative user-study limits and transductive test-pool training. The catalog now contains 118 papers, with 115 complete readings and three access gaps.

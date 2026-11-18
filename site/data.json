@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-18",
-  "updated": "2026-11-18",
+  "checked": "2026-11-19",
+  "updated": "2026-11-19",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 118,
+    "paper": 119,
     "system": 26,
     "tool": 23,
     "benchmark": 35
@@ -121,6 +121,32 @@
       ],
       "kinds": [
         "benchmark",
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "disguad",
+      "name": "Asking What Matters: Disagreement-Guided Ambiguity Detection for Interactive Text-to-SQL",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "DisGuAD generates contrastive SQL probes, compares canonical components, and maps recurring differences to prioritized user-facing clarification targets while keeping the final SQL generator fixed. Reports gains on simulated BIRD-Interact tasks. Probes are not executed, target coverage uses lexical matching, and total inference-cost benefits are unmeasured; structural disagreement is not proof of distinct valid meanings. A public implementation was not verified.",
+      "entry_ids": [
+        "disguad"
+      ],
+      "themes": [
+        "ambiguity",
+        "clarification",
+        "evaluation",
+        "interaction"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "kinds": [
         "paper"
       ],
       "years": [
@@ -2412,7 +2438,7 @@
       "date": "2025",
       "year": 2025,
       "kind": "paper",
-      "summary": "Combines database and LLM signals through weak supervision to diagnose clause-level errors and guide sequential SQL repairs. BIRD/Spider experiments report net fixes alongside regressions, with correction evaluated on syntactically valid candidates. Empty-result and schema heuristics can flag valid SQL; the system remains an asynchronous debugging aid, not an answerability or correctness guarantee.",
+      "summary": "Aggregates database and LLM signals through weak supervision to diagnose clause-level errors and guide sequential SQL repairs. BIRD/Spider results report repairs alongside regressions on syntactically valid candidates. The final paper’s comparison table uses a fix-only score where net accuracy is lower; empty-result and schema heuristics remain fallible, and repair does not certify correctness or answerability.",
       "entry_ids": [
         "sqlens"
       ],
@@ -8267,7 +8293,7 @@
       "year": 2025,
       "date": "2025",
       "date_label": "Publication year",
-      "summary": "Combines database and LLM signals through weak supervision to diagnose clause-level errors and guide sequential SQL repairs. BIRD/Spider experiments report net fixes alongside regressions, with correction evaluated on syntactically valid candidates. Empty-result and schema heuristics can flag valid SQL; the system remains an asynchronous debugging aid, not an answerability or correctness guarantee.",
+      "summary": "Aggregates database and LLM signals through weak supervision to diagnose clause-level errors and guide sequential SQL repairs. BIRD/Spider results report repairs alongside regressions on syntactically valid candidates. The final paper’s comparison table uses a fix-only score where net accuracy is lower; empty-result and schema heuristics remain fallible, and repair does not certify correctness or answerability.",
       "tags": [
         "verification",
         "error-detection",
@@ -8278,14 +8304,14 @@
         "verification"
       ],
       "evidence": "NeurIPS 2025",
-      "status": "Complete arXiv:2506.04494v1 author preprint reviewed. The official NeurIPS PDF is now accessible; checklist Question 5 (p. 17) states that research code and data cannot be publicly released under company policy. Only targeted final-version sections were inspected on 2026-11-18; a complete substantive comparison with the preprint remains unfinished. No public executable implementation or independent reproduction was verified.",
+      "status": "The complete 34-page NeurIPS 2025 proceedings PDF was read and compared with arXiv:2506.04494v1 on 2026-11-19. The final checklist, Question 5 (p. 17), states that research code and data cannot be publicly released under company policy, superseding the preprint’s availability statement. No public executable implementation or independent reproduction was verified.",
       "sources": [
         "https://papers.nips.cc/paper_files/paper/2025/hash/c57812dee8acade8c5e385260b2cde28-Abstract-Conference.html",
         "https://papers.nips.cc/paper_files/paper/2025/file/c57812dee8acade8c5e385260b2cde28-Paper-Conference.pdf",
         "https://arxiv.org/abs/2506.04494",
         "https://arxiv.org/pdf/2506.04494v1"
       ],
-      "checked": "2026-11-18",
+      "checked": "2026-11-19",
       "added_on": "2026-11-04",
       "url": "https://papers.nips.cc/paper_files/paper/2025/hash/c57812dee8acade8c5e385260b2cde28-Abstract-Conference.html",
       "code_links": [],
@@ -8306,16 +8332,16 @@
           "evaluation",
           "uncertainty"
         ],
-        "summary": "Combines database and LLM signals through weak supervision to diagnose clause-level errors and guide sequential SQL repairs. BIRD/Spider experiments report net fixes alongside regressions, with correction evaluated on syntactically valid candidates. Empty-result and schema heuristics can flag valid SQL; the system remains an asynchronous debugging aid, not an answerability or correctness guarantee.",
+        "summary": "Aggregates database and LLM signals through weak supervision to diagnose clause-level errors and guide sequential SQL repairs. BIRD/Spider results report repairs alongside regressions on syntactically valid candidates. The final paper’s comparison table uses a fix-only score where net accuracy is lower; empty-result and schema heuristics remain fallible, and repair does not certify correctness or answerability.",
         "evidence": [
           "https://papers.nips.cc/paper_files/paper/2025/hash/c57812dee8acade8c5e385260b2cde28-Abstract-Conference.html",
           "https://papers.nips.cc/paper_files/paper/2025/file/c57812dee8acade8c5e385260b2cde28-Paper-Conference.pdf",
           "https://arxiv.org/abs/2506.04494",
           "https://arxiv.org/pdf/2506.04494v1"
         ],
-        "artifact_status": "Complete arXiv:2506.04494v1 author preprint reviewed. The official NeurIPS PDF is now accessible; checklist Question 5 (p. 17) states that research code and data cannot be publicly released under company policy. Only targeted final-version sections were inspected on 2026-11-18; a complete substantive comparison with the preprint remains unfinished. No public executable implementation or independent reproduction was verified.",
+        "artifact_status": "The complete 34-page NeurIPS 2025 proceedings PDF was read and compared with arXiv:2506.04494v1 on 2026-11-19. The final checklist, Question 5 (p. 17), states that research code and data cannot be publicly released under company policy, superseding the preprint’s availability statement. No public executable implementation or independent reproduction was verified.",
         "source_depth": "full-text-reviewed",
-        "checked_on": "2026-11-18",
+        "checked_on": "2026-11-19",
         "added_on": "2026-11-04",
         "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sqlens.md"
       },
@@ -10503,6 +10529,63 @@
         "artifact_status": "Public source, prompt and benchmark file listings verified at a1aacc8b554749768544025fbafb569543c0562d (164-entry untruncated tree). README describes 305 labeled candidates; dataset contents were not downloaded or independently counted. THIRD_PARTY_NOTICES explicitly assigns no new project-wide open-source license; upstream permissions apply only to their materials. No package installed, linked code executed or result reproduced."
       },
       "work_id": "decoval"
+    },
+    {
+      "id": "disguad",
+      "name": "Asking What Matters: Disagreement-Guided Ambiguity Detection for Interactive Text-to-SQL",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "DisGuAD generates contrastive SQL probes, compares canonical components, and maps recurring differences to prioritized user-facing clarification targets while keeping the final SQL generator fixed. Reports gains on simulated BIRD-Interact tasks. Probes are not executed, target coverage uses lexical matching, and total inference-cost benefits are unmeasured; structural disagreement is not proof of distinct valid meanings. A public implementation was not verified.",
+      "tags": [
+        "ambiguity",
+        "clarification",
+        "interaction",
+        "evaluation"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "The paper supplies prompt templates, but an author-linked public implementation or data-release URL was not verified. BIRD-Interact is reused; no new dataset or runnable system release is inferred. Search non-discovery does not establish absence.",
+      "sources": [
+        "https://arxiv.org/abs/2611.21645",
+        "https://arxiv.org/pdf/2611.21645v1"
+      ],
+      "checked": "2026-11-19",
+      "added_on": "2026-11-19",
+      "url": "https://arxiv.org/abs/2611.21645",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#disguad",
+      "original": {
+        "id": "disguad",
+        "title": "Asking What Matters: Disagreement-Guided Ambiguity Detection for Interactive Text-to-SQL",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.21645",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "ambiguity",
+        "scope": "core",
+        "topics": [
+          "ambiguity",
+          "clarification",
+          "interaction",
+          "evaluation"
+        ],
+        "summary": "DisGuAD generates contrastive SQL probes, compares canonical components, and maps recurring differences to prioritized user-facing clarification targets while keeping the final SQL generator fixed. Reports gains on simulated BIRD-Interact tasks. Probes are not executed, target coverage uses lexical matching, and total inference-cost benefits are unmeasured; structural disagreement is not proof of distinct valid meanings. A public implementation was not verified.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.21645",
+          "https://arxiv.org/pdf/2611.21645v1"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/disguad.md",
+        "added_on": "2026-11-19",
+        "checked_on": "2026-11-19",
+        "artifact_status": "The paper supplies prompt templates, but an author-linked public implementation or data-release URL was not verified. BIRD-Interact is reused; no new dataset or runnable system release is inferred. Search non-discovery does not establish absence."
+      },
+      "work_id": "disguad"
     },
     {
       "id": "clarity-pipeline",
@@ -14828,17 +14911,17 @@
     {
       "id": "ambiguity",
       "label": "Ambiguity",
-      "count": 43
+      "count": 44
     },
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 37
+      "count": 38
     },
     {
       "id": "clarification",
       "label": "Clarification",
-      "count": 35
+      "count": 36
     },
     {
       "id": "verification",
@@ -15006,6 +15089,11 @@
       "count": 2
     },
     {
+      "id": "interaction",
+      "label": "Interaction",
+      "count": 2
+    },
+    {
       "id": "interactive-agents",
       "label": "Interactive agents",
       "count": 2
@@ -15143,11 +15231,6 @@
     {
       "id": "intent-evolution",
       "label": "Intent evolution",
-      "count": 1
-    },
-    {
-      "id": "interaction",
-      "label": "Interaction",
       "count": 1
     },
     {
