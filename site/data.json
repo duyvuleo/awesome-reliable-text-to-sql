@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-19",
-  "updated": "2026-11-19",
+  "checked": "2026-11-20",
+  "updated": "2026-11-20",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 119,
+    "paper": 121,
     "system": 26,
     "tool": 23,
-    "benchmark": 35
+    "benchmark": 36
   },
   "categories": {
     "ambiguity": "Ambiguity and multiple interpretations",
@@ -1716,6 +1716,34 @@
       ]
     },
     {
+      "id": "spiders",
+      "name": "Text-to-(Single-or-Multi)-SQL: Bridging Real-World Needs with Spider𝕊",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Studies evaluation of clear composite requests answered by one or several SQL queries. Its proposed score permits extra columns, rejects extra rows and matches predicted result units one-to-one against a gold solution set. This addresses reference-format false negatives, not competing meanings or unanswerability. Single-instance matching, inconsistent strategy/prompt wording and unverified artifact access limit conclusions.",
+      "entry_ids": [
+        "spiders",
+        "spiders-data"
+      ],
+      "themes": [
+        "benchmark-quality",
+        "evaluation",
+        "query-planning",
+        "routing"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "benchmark",
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "specbridge",
       "name": "Text-to-SQL Models Make Choices Without Saying So",
       "date": "2026",
@@ -1740,6 +1768,33 @@
         "benchmark",
         "paper",
         "tool"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "value-semantics-layer",
+      "name": "The Value Semantics Layer: Enabling Machine-Understandable Databases for Agentic AI",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "VSL persists value-semantic assertions and uses their admissible operations and contextual conditions in NL2SQL prompting or planning with rule-based validation. A selected-failure study reports improved full resolution overall but worse quantitative-category results. Author-assigned labels, overlapping intent patterns and bundled regeneration limit inference. Clarification, calibrated confidence and drift revalidation remain unimplemented.",
+      "entry_ids": [
+        "value-semantics-layer"
+      ],
+      "themes": [
+        "business-semantics",
+        "constraints",
+        "context",
+        "evaluation",
+        "verification"
+      ],
+      "categories": [
+        "context"
+      ],
+      "kinds": [
+        "paper"
       ],
       "years": [
         2026
@@ -10588,6 +10643,124 @@
       "work_id": "disguad"
     },
     {
+      "id": "spiders",
+      "name": "Text-to-(Single-or-Multi)-SQL: Bridging Real-World Needs with Spider𝕊",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Studies evaluation of clear composite requests answered by one or several SQL queries. Its proposed score permits extra columns, rejects extra rows and matches predicted result units one-to-one against a gold solution set. This addresses reference-format false negatives, not competing meanings or unanswerability. Single-instance matching, inconsistent strategy/prompt wording and unverified artifact access limit conclusions.",
+      "tags": [
+        "evaluation",
+        "benchmark",
+        "benchmark-quality",
+        "query-planning",
+        "routing"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "Findings of EMNLP 2026; pages 9792–9821",
+      "status": "The paper claims data/code at github.com/ygan/SpiderS, but the exact link returned HTTP 404 through both GitHub API and web access on 2026-11-20. Targeted primary/title searches did not establish an alternate release. Evaluator implementation, dataset files and reuse license remain unverified; no code executed or data downloaded.",
+      "sources": [
+        "https://aclanthology.org/2026.findings-emnlp.467/",
+        "https://aclanthology.org/2026.findings-emnlp.467.pdf"
+      ],
+      "checked": "2026-11-20",
+      "added_on": "2026-11-20",
+      "url": "https://aclanthology.org/2026.findings-emnlp.467/",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#spiders",
+      "original": {
+        "id": "spiders",
+        "title": "Text-to-(Single-or-Multi)-SQL: Bridging Real-World Needs with Spider𝕊",
+        "year": 2026,
+        "publication_status": "Findings of EMNLP 2026; pages 9792–9821",
+        "primary_url": "https://aclanthology.org/2026.findings-emnlp.467/",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "evaluation",
+          "benchmark",
+          "benchmark-quality",
+          "query-planning",
+          "routing"
+        ],
+        "summary": "Studies evaluation of clear composite requests answered by one or several SQL queries. Its proposed score permits extra columns, rejects extra rows and matches predicted result units one-to-one against a gold solution set. This addresses reference-format false negatives, not competing meanings or unanswerability. Single-instance matching, inconsistent strategy/prompt wording and unverified artifact access limit conclusions.",
+        "evidence": [
+          "https://aclanthology.org/2026.findings-emnlp.467/",
+          "https://aclanthology.org/2026.findings-emnlp.467.pdf"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/spiders.md",
+        "added_on": "2026-11-20",
+        "checked_on": "2026-11-20",
+        "artifact_status": "The paper claims data/code at github.com/ygan/SpiderS, but the exact link returned HTTP 404 through both GitHub API and web access on 2026-11-20. Targeted primary/title searches did not establish an alternate release. Evaluator implementation, dataset files and reuse license remain unverified; no code executed or data downloaded."
+      },
+      "work_id": "spiders"
+    },
+    {
+      "id": "value-semantics-layer",
+      "name": "The Value Semantics Layer: Enabling Machine-Understandable Databases for Agentic AI",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "VSL persists value-semantic assertions and uses their admissible operations and contextual conditions in NL2SQL prompting or planning with rule-based validation. A selected-failure study reports improved full resolution overall but worse quantitative-category results. Author-assigned labels, overlapping intent patterns and bundled regeneration limit inference. Clarification, calibrated confidence and drift revalidation remain unimplemented.",
+      "tags": [
+        "context",
+        "business-semantics",
+        "constraints",
+        "verification",
+        "evaluation"
+      ],
+      "categories": [
+        "context"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "The paper describes two prototypes integrated with Blue NL2SQL, but a VSL-specific public implementation, evaluation-case release or registry release was not verified from the paper, arXiv record, author-organization listings or bounded title searches. Generic Blue availability does not establish release of these prototypes. No new system or benchmark resource is inferred; search non-discovery is not proof of absence.",
+      "sources": [
+        "https://arxiv.org/abs/2611.23629",
+        "https://arxiv.org/pdf/2611.23629v1"
+      ],
+      "checked": "2026-11-20",
+      "added_on": "2026-11-20",
+      "url": "https://arxiv.org/abs/2611.23629",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#value-semantics-layer",
+      "original": {
+        "id": "value-semantics-layer",
+        "title": "The Value Semantics Layer: Enabling Machine-Understandable Databases for Agentic AI",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.23629",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "context",
+        "scope": "adjacent",
+        "topics": [
+          "context",
+          "business-semantics",
+          "constraints",
+          "verification",
+          "evaluation"
+        ],
+        "summary": "VSL persists value-semantic assertions and uses their admissible operations and contextual conditions in NL2SQL prompting or planning with rule-based validation. A selected-failure study reports improved full resolution overall but worse quantitative-category results. Author-assigned labels, overlapping intent patterns and bundled regeneration limit inference. Clarification, calibrated confidence and drift revalidation remain unimplemented.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.23629",
+          "https://arxiv.org/pdf/2611.23629v1"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/value-semantics-layer.md",
+        "added_on": "2026-11-20",
+        "checked_on": "2026-11-20",
+        "artifact_status": "The paper describes two prototypes integrated with Blue NL2SQL, but a VSL-specific public implementation, evaluation-case release or registry release was not verified from the paper, arXiv record, author-organization listings or bounded title searches. Generic Blue availability does not establish release of these prototypes. No new system or benchmark resource is inferred; search non-discovery is not proof of absence."
+      },
+      "work_id": "value-semantics-layer"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -14905,6 +15078,55 @@
         "checked_on": "2026-11-18"
       },
       "work_id": "decoval"
+    },
+    {
+      "id": "spiders-data",
+      "name": "Spider𝕊 (paper-described benchmark)",
+      "kind": "benchmark",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Reported 11,746-example Spider-derived benchmark of clear composite requests with two or three query components and alternative single-query realizations.",
+      "tags": [
+        "benchmark",
+        "benchmark-quality",
+        "evaluation",
+        "query-planning",
+        "routing"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "Benchmark design and split counts verified in the complete proceedings paper; actual data and evaluator release remain unverified. The paper-linked GitHub repository returns 404. No dataset contents, evaluation code or model checkpoints were retrieved or run.",
+      "sources": [
+        "https://aclanthology.org/2026.findings-emnlp.467/",
+        "https://aclanthology.org/2026.findings-emnlp.467.pdf"
+      ],
+      "checked": "2026-11-20",
+      "added_on": null,
+      "url": "https://aclanthology.org/2026.findings-emnlp.467/",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/datasets/README.md#spiders-data",
+      "original": {
+        "id": "spiders-data",
+        "name": "Spider𝕊 (paper-described benchmark)",
+        "kind": "dataset",
+        "paper_ids": [
+          "spiders"
+        ],
+        "url": "https://aclanthology.org/2026.findings-emnlp.467/",
+        "description": "Reported 11,746-example Spider-derived benchmark of clear composite requests with two or three query components and alternative single-query realizations.",
+        "protocol": "Execution Score maximizes one-to-one result matching against alternative gold query sets and penalizes unmatched extra queries; full accuracy requires complete coverage. The stated matcher allows extra projected columns but not extra rows or incorrect ordering. Questions are deliberately disambiguated during construction; this is static fixed-intent evaluation, not multiple interpretations or interactive clarification.",
+        "availability": "Benchmark design and split counts verified in the complete proceedings paper; actual data and evaluator release remain unverified. The paper-linked GitHub repository returns 404. No dataset contents, evaluation code or model checkpoints were retrieved or run.",
+        "license_note": "Reuse license not verified because the claimed artifact could not be accessed. The paper says derived artifacts should follow upstream Spider constraints; this does not establish a specific license for Spider𝕊.",
+        "evidence": [
+          "https://aclanthology.org/2026.findings-emnlp.467/",
+          "https://aclanthology.org/2026.findings-emnlp.467.pdf"
+        ],
+        "checked_on": "2026-11-20"
+      },
+      "work_id": "spiders"
     }
   ],
   "themes": [
@@ -14916,7 +15138,7 @@
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 38
+      "count": 40
     },
     {
       "id": "clarification",
@@ -14926,7 +15148,7 @@
     {
       "id": "verification",
       "label": "Verification",
-      "count": 30
+      "count": 31
     },
     {
       "id": "unanswerability",
@@ -14956,7 +15178,7 @@
     {
       "id": "context",
       "label": "Context",
-      "count": 9
+      "count": 10
     },
     {
       "id": "interactive-system",
@@ -14972,6 +15194,11 @@
       "id": "sql-equivalence",
       "label": "SQL equivalence",
       "count": 8
+    },
+    {
+      "id": "benchmark-quality",
+      "label": "Benchmark quality",
+      "count": 7
     },
     {
       "id": "error-correction",
@@ -14991,11 +15218,6 @@
     {
       "id": "answerability",
       "label": "Answerability",
-      "count": 6
-    },
-    {
-      "id": "benchmark-quality",
-      "label": "Benchmark quality",
       "count": 6
     },
     {
@@ -15029,14 +15251,14 @@
       "count": 4
     },
     {
-      "id": "natural-language-feedback",
-      "label": "Natural language feedback",
+      "id": "constraints",
+      "label": "Constraints",
       "count": 4
     },
     {
-      "id": "constraints",
-      "label": "Constraints",
-      "count": 3
+      "id": "natural-language-feedback",
+      "label": "Natural language feedback",
+      "count": 4
     },
     {
       "id": "database-retrieval",
@@ -15059,8 +15281,18 @@
       "count": 3
     },
     {
+      "id": "query-planning",
+      "label": "Query planning",
+      "count": 3
+    },
+    {
       "id": "reinforcement-learning",
       "label": "Reinforcement learning",
+      "count": 3
+    },
+    {
+      "id": "routing",
+      "label": "Routing",
       "count": 3
     },
     {
@@ -15072,6 +15304,11 @@
       "id": "visual-interface",
       "label": "Visual interface",
       "count": 3
+    },
+    {
+      "id": "business-semantics",
+      "label": "Business semantics",
+      "count": 2
     },
     {
       "id": "database-state",
@@ -15104,18 +15341,8 @@
       "count": 2
     },
     {
-      "id": "query-planning",
-      "label": "Query planning",
-      "count": 2
-    },
-    {
       "id": "query-rewriting",
       "label": "Query rewriting",
-      "count": 2
-    },
-    {
-      "id": "routing",
-      "label": "Routing",
       "count": 2
     },
     {
@@ -15146,11 +15373,6 @@
     {
       "id": "architecture",
       "label": "Architecture",
-      "count": 1
-    },
-    {
-      "id": "business-semantics",
-      "label": "Business semantics",
       "count": 1
     },
     {
@@ -17220,6 +17442,58 @@
         }
       ],
       "checked_on": "2026-11-17"
+    },
+    {
+      "resource_id": "spiders-data",
+      "label": "Spider𝕊",
+      "relevance": "adjacent",
+      "ambiguity": {
+        "status": "not_targeted",
+        "detail": "Requests are explicitly made clear during annotation; multiple queries jointly fulfill fixed information needs rather than represent competing interpretations."
+      },
+      "unanswerability": {
+        "status": "not_targeted",
+        "detail": "Constructed requests have gold SQL solutions; no unsupported-question/refusal task is evaluated."
+      },
+      "clarification": {
+        "mode": "not_targeted",
+        "detail": "Annotators revise ambiguous wording before evaluation; models are not assessed on runtime clarification questions."
+      },
+      "interaction": {
+        "mode": "static",
+        "detail": "One input request/schema produces a single SQL or query set; no user-feedback dialogue."
+      },
+      "domain": "Cross-domain Spider databases; largely synthetic composite requests from 14 patterns, with 890 manually created seeds.",
+      "evaluation": "Execution Score for partial one-to-one coverage of gold query sets; EX requires score one. Projection permits extra columns, while extra rows and wrong order are rejected as described. No semantic-equivalence proof or audited implementation.",
+      "data_access": "release_unverified",
+      "evidence": [
+        {
+          "url": "https://aclanthology.org/2026.findings-emnlp.467.pdf",
+          "locator": "Section 4 pp. 3–4; Appendix A.4 pp. 12–13 and Appendix D.1 pp. 15–16",
+          "supports": [
+            "ambiguity",
+            "unanswerability",
+            "clarification",
+            "interaction",
+            "domain"
+          ]
+        },
+        {
+          "url": "https://aclanthology.org/2026.findings-emnlp.467.pdf",
+          "locator": "Section 5, Equations 4–6, pp. 4–5; Appendix A.4 p. 13",
+          "supports": [
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://aclanthology.org/2026.findings-emnlp.467.pdf",
+          "locator": "Abstract p. 1 gives the release claim/link; link unavailable at the 2026-11-20 inspection",
+          "supports": [
+            "data_access"
+          ]
+        }
+      ],
+      "checked_on": "2026-11-20"
     }
   ]
 }

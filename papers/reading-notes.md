@@ -6,7 +6,7 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **116 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **118 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
@@ -73,7 +73,9 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [SQLStructEval: Structural Evaluation of LLM Text-to-SQL Generation](notes/sqlstructeval.md) | Full paper read |
 | 2026 | [STRATOS: Bridging the Symbolic-to-Numeric Gap in Spatio-Temporal Text-to-SQL for Meteorological Data](notes/stratos.md) | Full paper read |
 | 2026 | [TACO: A Benchmark for Open-Domain Text-to-SQL with Ambiguous and Cross-Database Queries](notes/taco.md) | Full paper read |
+| 2026 | [Text-to-(Single-or-Multi)-SQL: Bridging Real-World Needs with Spider𝕊](notes/spiders.md) | Full paper read |
 | 2026 | [Text-to-SQL Models Make Choices Without Saying So](notes/specbridge.md) | Full paper read |
+| 2026 | [The Value Semantics Layer: Enabling Machine-Understandable Databases for Agentic AI](notes/value-semantics-layer.md) | Full paper read |
 | 2026 | [TraceSQL: Traceable Answerability Estimation for Reference-Free Text-to-SQL Verification](notes/tracesql.md) | Full paper read |
 | 2026 | [Tracing Recurrent and Emergent Hallucination Patterns in Decomposed Text-to-SQL Generation](notes/drilldown-hallucinations.md) | Full paper read |
 | 2026 | [Trajectory-Derived Confidence for Reliable, Resource-Aware Clinical Text-to-SQL Agents](notes/sentinel.md) | Full paper read |

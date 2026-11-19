@@ -1848,5 +1848,57 @@
       }
     ],
     "checked_on": "2026-11-17"
+  },
+  {
+    "resource_id": "spiders-data",
+    "label": "Spider𝕊",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_targeted",
+      "detail": "Requests are explicitly made clear during annotation; multiple queries jointly fulfill fixed information needs rather than represent competing interpretations."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "Constructed requests have gold SQL solutions; no unsupported-question/refusal task is evaluated."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Annotators revise ambiguous wording before evaluation; models are not assessed on runtime clarification questions."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "One input request/schema produces a single SQL or query set; no user-feedback dialogue."
+    },
+    "domain": "Cross-domain Spider databases; largely synthetic composite requests from 14 patterns, with 890 manually created seeds.",
+    "evaluation": "Execution Score for partial one-to-one coverage of gold query sets; EX requires score one. Projection permits extra columns, while extra rows and wrong order are rejected as described. No semantic-equivalence proof or audited implementation.",
+    "data_access": "release_unverified",
+    "evidence": [
+      {
+        "url": "https://aclanthology.org/2026.findings-emnlp.467.pdf",
+        "locator": "Section 4 pp. 3–4; Appendix A.4 pp. 12–13 and Appendix D.1 pp. 15–16",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain"
+        ]
+      },
+      {
+        "url": "https://aclanthology.org/2026.findings-emnlp.467.pdf",
+        "locator": "Section 5, Equations 4–6, pp. 4–5; Appendix A.4 p. 13",
+        "supports": [
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://aclanthology.org/2026.findings-emnlp.467.pdf",
+        "locator": "Abstract p. 1 gives the release claim/link; link unavailable at the 2026-11-20 inspection",
+        "supports": [
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-11-20"
   }
 ]

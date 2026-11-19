@@ -1612,5 +1612,23 @@
       "https://github.com/Inverse0/validation-aware-decomposition/blob/a1aacc8b554749768544025fbafb569543c0562d/sqldecomp/printer/checks.py"
     ],
     "checked_on": "2026-11-18"
+  },
+  {
+    "id": "spiders-data",
+    "name": "Spider𝕊 (paper-described benchmark)",
+    "kind": "dataset",
+    "paper_ids": [
+      "spiders"
+    ],
+    "url": "https://aclanthology.org/2026.findings-emnlp.467/",
+    "description": "Reported 11,746-example Spider-derived benchmark of clear composite requests with two or three query components and alternative single-query realizations.",
+    "protocol": "Execution Score maximizes one-to-one result matching against alternative gold query sets and penalizes unmatched extra queries; full accuracy requires complete coverage. The stated matcher allows extra projected columns but not extra rows or incorrect ordering. Questions are deliberately disambiguated during construction; this is static fixed-intent evaluation, not multiple interpretations or interactive clarification.",
+    "availability": "Benchmark design and split counts verified in the complete proceedings paper; actual data and evaluator release remain unverified. The paper-linked GitHub repository returns 404. No dataset contents, evaluation code or model checkpoints were retrieved or run.",
+    "license_note": "Reuse license not verified because the claimed artifact could not be accessed. The paper says derived artifacts should follow upstream Spider constraints; this does not establish a specific license for Spider𝕊.",
+    "evidence": [
+      "https://aclanthology.org/2026.findings-emnlp.467/",
+      "https://aclanthology.org/2026.findings-emnlp.467.pdf"
+    ],
+    "checked_on": "2026-11-20"
   }
 ]

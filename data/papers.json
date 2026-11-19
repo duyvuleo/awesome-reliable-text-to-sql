@@ -3380,5 +3380,61 @@
     "added_on": "2026-11-19",
     "checked_on": "2026-11-19",
     "artifact_status": "The paper supplies prompt templates, but an author-linked public implementation or data-release URL was not verified. BIRD-Interact is reused; no new dataset or runnable system release is inferred. Search non-discovery does not establish absence."
+  },
+  {
+    "id": "spiders",
+    "title": "Text-to-(Single-or-Multi)-SQL: Bridging Real-World Needs with Spider𝕊",
+    "year": 2026,
+    "publication_status": "Findings of EMNLP 2026; pages 9792–9821",
+    "primary_url": "https://aclanthology.org/2026.findings-emnlp.467/",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "evaluation",
+      "benchmark",
+      "benchmark-quality",
+      "query-planning",
+      "routing"
+    ],
+    "summary": "Studies evaluation of clear composite requests answered by one or several SQL queries. Its proposed score permits extra columns, rejects extra rows and matches predicted result units one-to-one against a gold solution set. This addresses reference-format false negatives, not competing meanings or unanswerability. Single-instance matching, inconsistent strategy/prompt wording and unverified artifact access limit conclusions.",
+    "evidence": [
+      "https://aclanthology.org/2026.findings-emnlp.467/",
+      "https://aclanthology.org/2026.findings-emnlp.467.pdf"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/spiders.md",
+    "added_on": "2026-11-20",
+    "checked_on": "2026-11-20",
+    "artifact_status": "The paper claims data/code at github.com/ygan/SpiderS, but the exact link returned HTTP 404 through both GitHub API and web access on 2026-11-20. Targeted primary/title searches did not establish an alternate release. Evaluator implementation, dataset files and reuse license remain unverified; no code executed or data downloaded."
+  },
+  {
+    "id": "value-semantics-layer",
+    "title": "The Value Semantics Layer: Enabling Machine-Understandable Databases for Agentic AI",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2611.23629",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "context",
+    "scope": "adjacent",
+    "topics": [
+      "context",
+      "business-semantics",
+      "constraints",
+      "verification",
+      "evaluation"
+    ],
+    "summary": "VSL persists value-semantic assertions and uses their admissible operations and contextual conditions in NL2SQL prompting or planning with rule-based validation. A selected-failure study reports improved full resolution overall but worse quantitative-category results. Author-assigned labels, overlapping intent patterns and bundled regeneration limit inference. Clarification, calibrated confidence and drift revalidation remain unimplemented.",
+    "evidence": [
+      "https://arxiv.org/abs/2611.23629",
+      "https://arxiv.org/pdf/2611.23629v1"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/value-semantics-layer.md",
+    "added_on": "2026-11-20",
+    "checked_on": "2026-11-20",
+    "artifact_status": "The paper describes two prototypes integrated with Blue NL2SQL, but a VSL-specific public implementation, evaluation-case release or registry release was not verified from the paper, arXiv record, author-organization listings or bounded title searches. Generic Blue availability does not establish release of these prototypes. No new system or benchmark resource is inferred; search non-discovery is not proof of absence."
   }
 ]

@@ -3498,6 +3498,65 @@
     ]
   },
   {
+    "paper_id": "spiders",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-20",
+    "source_url": "https://aclanthology.org/2026.findings-emnlp.467.pdf",
+    "version": "Findings of EMNLP 2026 proceedings, pages 9792–9821; 30 PDF pages. Title uses Spider𝕊.",
+    "coverage": "All 30 pages: Sections 1–8, limitations, ethics, references and Appendices A–L, including complete theoretical assumptions, construction patterns, quality audits, efficiency/router/overlap diagnostics and image-only experiment prompts on page 30. All five figures were visually inspected on pages 1, 3–4 and 6; all 14 tables were read, with efficiency Tables 5–7 also visually checked on page 24. The paper-linked artifact was checked but could not be retrieved.",
+    "unread": [],
+    "problem": "Rigid single-result evaluation can reject an answer that supplies the requested information through a different query layout or several queries.",
+    "method": "Spider𝕊 constructs clear composite requests from Spider using 14 patterns. Its evaluator projects predictions onto required columns, permits extra columns but rejects extra rows or wrong order, and maximizes one-to-one matching across predicted/gold query sets. Execution Score normalizes matched queries by the larger set size; full accuracy requires score one.",
+    "evaluation": "The paper reports 11,746 examples, including 890 manual seeds, with GPT-4o generation and validation plus human review. Models are evaluated on full 2,147-example tests where feasible and independently sampled 1,000-example Spider and Spider𝕊 subsets. Separate experiments examine fine-tuning, a single/multi-output router, synthetic BIRD transfer, prompt sensitivity and execution costs.",
+    "findings": "Allowing multi-query output improves reported composite-task scores, while unnecessary extra queries lower full accuracy on ordinary Spider. Router-guided prompts mitigate this effect. Single statements have lower median latency and are faster in most measured cases, although a few large outputs make multi-query execution faster in total.",
+    "limitations": "The task excludes ambiguous interpretations and is not an answerability test. Matching executions on one database does not prove semantic equivalence or validate relationships absent from the annotated result units. Single-query impossibility claims conflict with constructed single-statement alternatives. The displayed single-query prompt also requests separate queries. Artifact access failed, preventing implementation, licensing and dataset verification.",
+    "relevance": "Adjacent evaluation work on reference-format tolerance and completeness of composite answers. It should be separated from multiple interpretations, interactive clarification and unsupported-request refusal.",
+    "claims": [
+      {
+        "claim": "Multiple SQL outputs in Spider𝕊 represent competing interpretations of an ambiguous request.",
+        "evidence": "Appendix A.4 explicitly distinguishes the task from AmbiQT, AMBROSIA and PRACTIQ. Appendix D.1 revises ambiguous requests using cues such as separately or first/then so that all returned queries jointly fulfill one clear composite request.",
+        "locator": "Section 4.1 p. 3; Appendix A.4 pp. 12–13; Appendix D.1 pp. 15–16",
+        "disposition": "Classify as adjacent evaluation/decomposition, with ambiguity, runtime clarification and unanswerability not targeted."
+      },
+      {
+        "claim": "The relaxed evaluator accepts arbitrary over-generation or arbitrary splitting of associated values.",
+        "evidence": "Section 5 compares projected execution results, disallows extra rows, and uses a maximum one-to-one matching between predicted queries and one complete gold solution set. The denominator is the larger query-set size, so extra unmatched queries reduce ES and prevent EX=1. Matching a gold result requires its essential columns together, rather than merely matching independent column marginals.",
+        "locator": "Section 5, Equations 4–6 and Figure 4, pp. 4–5; Appendix J, p. 28",
+        "disposition": "These are stated safeguards, not an audited implementation. They do not prove equivalence on other database instances or preserve associations that are absent from the annotated gold units. Composite-query splitting, duplicate handling and ordering details could not be checked in code."
+      },
+      {
+        "claim": "Router labels identify requests that cannot be answered by one SQL statement.",
+        "evidence": "Section 1 states that all questions admit a correct single-SQL solution, and Appendix G constructs equivalent single statements for all 2,147 test examples. Appendix C.3 nevertheless calls the label a minimal generation strategy, and several Appendix E patterns describe single-SQL generation as impossible.",
+        "locator": "Section 1 p. 2; Appendix C.3 p. 15; Appendix E pp. 17–22; Appendix G pp. 23–25",
+        "disposition": "Treat the labels as benchmark strategy conventions/preferences, not proof of minimal SQL count or fundamental answerability."
+      },
+      {
+        "claim": "The prompt comparison changes only an otherwise unambiguous single-versus-multiple instruction.",
+        "evidence": "The image-only single-query template asks for one SQL, but its requirement 3 also instructs the model to decompose the question and generate separate SQL queries. The multiple-output template requests one to three SQLs and provides three JSON slots.",
+        "locator": "Appendix L, rendered PDF page 30; Section 7.1, p. 5",
+        "disposition": "Preserve the displayed prompt conflict when interpreting sensitivity results. It is not a clean comparison between two internally consistent query-count instructions."
+      },
+      {
+        "claim": "The data review establishes a residual semantic error rate of about one percent.",
+        "evidence": "Appendix D.4 explicitly calls this a human-review rejection rate after model filtering, with some removals for complexity or clarity rather than incorrect semantics. It reports approximately 25% filtering before that review. Source-identification analysis concerns distinguishing human versus generated text, not verifying SQL correctness.",
+        "locator": "Appendix D.4 p. 17; Limitations p. 9",
+        "disposition": "Do not convert rejection rates or indistinguishable writing styles into a quantified correctness guarantee."
+      },
+      {
+        "claim": "Multi-query generation is universally more reliable or more efficient.",
+        "evidence": "The theoretical result assumes exponential success decay, independent subquery correctness and positive single-query composition overhead. Appendix G compares sequential queries with a specific UNION ALL/NULL-padding wrapper; single statements are faster in 1,861 of 2,147 cases despite their slightly slower aggregate runtime. Appendix F says experiments were run once.",
+        "locator": "Section 3 p. 3; Appendix B pp. 13–14; Appendix F p. 23; Appendix G/Tables 5–7 pp. 24–25",
+        "disposition": "Conditional motivation and setting-specific measurements, not calibrated model probabilities or a general optimal execution strategy."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Official proceedings identity",
+        "url": "https://aclanthology.org/2026.findings-emnlp.467/"
+      }
+    ]
+  },
+  {
     "paper_id": "splash",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-09",
@@ -4281,6 +4340,41 @@
         "evidence": "Supplement G replaces ambiguous times/user references and repairs null-result instances.",
         "locator": "Supplement G",
         "disposition": "A curated test distribution with explicit preprocessing limits."
+      }
+    ]
+  },
+  {
+    "paper_id": "value-semantics-layer",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-20",
+    "source_url": "https://arxiv.org/pdf/2611.23629v1",
+    "version": "arXiv:2611.23629v1, submitted 17 November 2026.",
+    "coverage": "All 7 PDF pages: Sections 1–6, Tables 1–2, Figures 1–3 and captions, and references. Figures 1–3 and Table 2 were also visually inspected. No appendices or separately linked scientific supplement in this version.",
+    "unread": [],
+    "problem": "Schemas and ordinary descriptions may omit the operational meaning needed to translate analytical concepts into appropriate SQL.",
+    "method": "VSL persists assertions about semantic roles, permissible operations, contextual conditions, supporting evidence and heuristic confidence. A Blue NL2SQL prototype supplies these assertions through prompting or planning plus a deterministic sqlglot-based checker and targeted regeneration.",
+    "evaluation": "The authors select 124 non-policy operationalization failures from 236 intents across finance, public safety and HR. GPT-4o runs once per case. Author-assigned full/partial/unresolved labels compare two VSL variants, plain descriptions and information-matched prose.",
+    "findings": "Fully resolved cases rise from 20 with matched prose to 35 with VST prompting and 51 with planner integration. Process cases improve from 3/40 to 16/40, but quantitative cases fall from 11/20 to 8/20. Regeneration triggers on 6% of cases.",
+    "limitations": "Selected failures and domain-specific intent patterns overlapping evaluation phrasing restrict generalization. Planning and regeneration effects are not isolated. Partial-credit grounding is not full-resolution accuracy. Assertion confidence is uncalibrated, the checker misses some invalid operations, and clarification, conflict alternatives, drift revalidation and compositional validity remain unimplemented or open. No VSL-specific release was verified.",
+    "relevance": "An adjacent test of operational context and bounded SQL validation, with clear remaining gaps between executable queries, admissible operations and the user's intended analytical proxy.",
+    "claims": [
+      {
+        "claim": "Planner-enforced VSL achieves 92.7% correct operationalizations.",
+        "evidence": "Section 4 reports 51 fully and 64 partially resolved cases among 124. The 92.7% grounding figure includes both; full resolution is 51/124. Table 2 also reports a quantitative-category decline from 11 to 8 fully resolved cases.",
+        "locator": "Section 4, Results; Table 2, pp. 5–6",
+        "disposition": "Do not report 92.7% as full correctness or universal category improvement. Prefer the full-resolution counts and retain the regression."
+      },
+      {
+        "claim": "The prototype detects conflicting meanings and asks users to clarify them.",
+        "evidence": "The implementation-scope paragraph explicitly lists low-margin alternative retention and clarification, empirical confidence calibration and drift revalidation as unimplemented. Current consolidation thresholds to one interpretation.",
+        "locator": "Section 4, Implementation scope, p. 5; Section 5 C1, p. 6",
+        "disposition": "Treat these as research goals, not implemented ambiguity or abstention capabilities."
+      },
+      {
+        "claim": "The comparison isolates reliable semantic enforcement independently of extra inference and prior information.",
+        "evidence": "The information-matched prose control carries the same facts, but planner integration bundles planning constraints and regeneration. Author-assigned single-run labels, overlapping intent patterns and curated failure selection are explicit. The checker missed an unsupported filter and invalid progression comparison.",
+        "locator": "Section 4, Evaluation/Results/Overhead, pp. 5–6",
+        "disposition": "Evidence supports a bounded prototype comparison, not a causal estimate of enforcement alone, general semantic correctness, or end-to-end overhead of about 1 ms."
       }
     ]
   },

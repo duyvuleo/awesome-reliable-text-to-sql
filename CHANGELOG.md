@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-20
+
+- Added complete readings of VSL and Spider𝕊 as adjacent context and evaluation work. The catalog now contains 121 papers, with 118 complete readings and three access gaps.
+- Distinguished implemented validation from proposed clarification/calibration, and alternative SQL realizations from ambiguous intent. Preserved selected-failure, prompt-conflict and evaluator-verification limits.
+- Added one explicitly paper-described Spider𝕊 benchmark and comparison row; its public release and license remain unverified. The collection now contains 36 benchmark entries and 49 systems/tools.
+
 ## 2026-11-19
 
 - Added a complete DisGuAD reading with structural-disagreement, lexical-coverage, simulated-user and inference-cost limits. The catalog now contains 119 papers, with 116 complete readings and three access gaps; resource counts are unchanged.
