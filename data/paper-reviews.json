@@ -2398,6 +2398,65 @@
     ]
   },
   {
+    "paper_id": "operationalization-failures",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-21",
+    "source_url": "https://vldb.org/2026/Workshops/VLDB-Workshops-2026/NOVAS/NOVAS26_6.pdf",
+    "version": "Official six-page NOVAS workshop paper hosted in the VLDB 2026 workshop proceedings. The five-page arXiv:2607.00828v1 preprint, submitted 1 July 2026, was separately identified but is not the full-text version reviewed.",
+    "coverage": "All six official PDF pages: Sections 1–6, study setup and selection, failure definitions and examples, BIRD follow-up analyses, implications, conclusion and all references. Figure 1 and Tables 1–2 were visually inspected on pages 2 and 4. No appendix or separately linked substantive supplement is present. VSL Section 4 was inspected separately to verify shared study provenance.",
+    "unread": [],
+    "problem": "An executable SQL query can still use an unjustified threshold, proxy, temporal operator, metric or policy criterion for the user’s analytical concept.",
+    "method": "The authors manually inspect SQL and results produced by a GPT-4o-based Blue agent. Inputs include schemas, attribute descriptions, profiling statistics and sample values, without handcrafted analytical rules. Iterative qualitative analysis assigns each failure to one dominant class: comparative grounding, roles, processes, quantitative reasoning or policy grounding.",
+    "evaluation": "From 250 constructed finance, HR and public-safety intents, 236 executable cases are retained. Separate analyses examine 31 BIRD MiniDev financial intents and 145 challenging BIRD intents, of which 130 yield executable queries. Judgments concern whether selected analytical operations faithfully instantiate the intended concept, rather than syntax alone.",
+    "findings": "The authors identify 153 failures among 236 retained cases, 19 among 31 financial cases and 88 among 130 executable challenging cases. Table 1’s category percentages use the 153 failures as denominator. Comparative and process failures account for the largest reported shares.",
+    "limitations": "One model/platform and manually judged, selected tasks do not establish a population failure rate or model-independent causes. Annotator agreement, a fully specified adjudication rubric and repeated-run uncertainty are not reported. Illustrative replacements do not uniquely determine underspecified intent. No clarification, retrieval or repair intervention is evaluated; transfer to heterogeneous multi-tool agents is explicitly a hypothesis.",
+    "relevance": "An adjacent diagnosis of missing operational context for NL2SQL. The later VSL paper reuses 124 non-policy failures from this corpus, so its intervention results are not an independent replication of this study.",
+    "claims": [
+      {
+        "claim": "The reported failure counts estimate end-to-end failure rates for agentic analytical systems generally.",
+        "evidence": "Section 3 begins with 250 constructed intents and retains 236 after feasibility validation. Failures are classified only for syntactically valid, successfully executed queries. In the challenging BIRD follow-up, 15 of 145 intents are excluded for API timeouts or SQL-generation failures, leaving 88 failures among 130 executable cases.",
+        "locator": "Section 3, official PDF page 3",
+        "disposition": "Keep each conditional denominator and selection process. Do not combine these workloads into a representative population rate or omit execution/generation exclusions."
+      },
+      {
+        "claim": "The five classes are exhaustive, independently validated causal diagnoses.",
+        "evidence": "Failures are grouped by iterative qualitative analysis into one dominant class. Section 4 explicitly says the taxonomy is not complete, and Section 3 does not report annotator counts, inter-rater agreement or a blinded adjudication procedure. Table 1 gives category shares over the 153 identified failures.",
+        "locator": "Sections 3–4, official PDF pages 3–4; Table 1",
+        "disposition": "Treat the classes as formative diagnostic patterns. The study does not isolate missing metadata, model reasoning and intent ambiguity through controlled interventions."
+      },
+      {
+        "claim": "The knowledge-aware alternatives are uniquely correct SQL specifications, and the study demonstrates successful clarification or repair.",
+        "evidence": "Table 2 is explicitly illustrative; for unusually large withdrawals it suggests a mean-plus-two-standard-deviations threshold, while other alternatives are prose such as temporal persistence analysis or policy-defined thresholds. Section 5 proposes clarification, retrieval, validation and repair as future responses rather than evaluating them.",
+        "locator": "Table 2 and Section 4, official PDF page 4; Section 5, page 5",
+        "disposition": "Use examples to expose missing semantic dependencies, not as universal gold answers. Choosing a reference population, threshold or policy may still require authoritative context or user agreement."
+      },
+      {
+        "claim": "The analysis validates general multi-tool agent behavior independently of the later VSL evaluation.",
+        "evidence": "Section 6 states that multi-tool/heterogeneous workflow transfer remains an empirical question. VSL Section 4 explicitly selects 124 non-policy failures from this study’s 236-intent collection, excluding 29 policy cases and 83 non-failures.",
+        "locator": "Official PDF Section 6, page 5; VSL arXiv:2611.23629v1, Section 4 Evaluation",
+        "disposition": "Keep the original failure characterization separate from VSL’s later intervention, and acknowledge their shared corpus rather than count them as independent replications."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Official VLDB workshop proceedings listing",
+        "url": "https://vldb.org/2026/Workshops/vldb.html"
+      },
+      {
+        "label": "Official NOVAS accepted-paper list",
+        "url": "https://www.novasworkshop.org/accepted-papers"
+      },
+      {
+        "label": "Earlier author preprint metadata",
+        "url": "https://arxiv.org/abs/2607.00828"
+      },
+      {
+        "label": "VSL shared-corpus declaration, Section 4",
+        "url": "https://arxiv.org/html/2611.23629v1"
+      }
+    ]
+  },
+  {
     "paper_id": "oracle-abstention",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-09",
@@ -2680,6 +2739,51 @@
         "evidence": "Section 3.1 and Section 4.1 state 5,124 total training entries, while Section 3.2 calls 5,124 answerable plus 450 unanswerable. Table 1 states that the authors did not post its development score to the leaderboard, qualifying broader surrounding wording.",
         "locator": "Sections 3.1–3.2, p. 638; Section 4.1, p. 639; Table 1 caption, p. 640",
         "disposition": "Retain the reporting conflicts rather than infer an augmented sample count or independent verification of the unposted development score."
+      }
+    ]
+  },
+  {
+    "paper_id": "pooldpp",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-21",
+    "source_url": "https://arxiv.org/pdf/2611.25003v1",
+    "version": "arXiv:2611.25003v1, 18 November 2026; exact title appears in the official NeurIPS 2026 program listing.",
+    "coverage": "All 56 PDF pages: Sections 1–7, references, Appendices A–I, algorithms, tables, figures/captions and checklist. Appendix A pp.15–26 was read separately and reconciled with the main theorem statements. Figure 3 and Tables 15–16 were visually checked; Appendix A equation pages 15,16,22,24,26 were also visually inspected. No separately linked substantive supplement was omitted.",
+    "unread": [],
+    "problem": "Independent SQL samples can repeat one reading of an ambiguous request while missing other valid interpretations.",
+    "method": "PoolDPP draws candidate strings, combines language-model likelihood with normalized embedding geometry, and selects a fixed-size set using a determinantal point process. Stochastic selection uses importance correction; greedy MAP targets the best subset of the observed pool.",
+    "evaluation": "The SQL experiment uses Gemma-2-9B, MiniLM-L6, 100 AMBROSIA questions, 100 pools of 200 candidates and three selected queries. Recall counts annotated interpretations matched by execution; precision requires an entire result match. FineWeb and mathematical reasoning supply additional tests.",
+    "findings": "At reported high-recall settings, both variants improve AMBROSIA recall over ancestral sampling while reducing precision. Question-paired tests do not resolve recall gains over K-means. The largest tested pool-coverage mean is 41.8%; selection cannot recover absent interpretations.",
+    "limitations": "SQL evidence comes from one model and a small fixed subset. Temperature selection and proposal coverage matter; likelihood, embeddings and finite database results are imperfect semantic proxies. Pool generation dominates cost. The conditional KL theorem concerns target-to-average stochastic output, not each realized pool, MAP or SQL correctness; numerical bounds use restricted pool-built instances. Repository documentation leaves some early-run settings unrecorded. No independent execution or proof checking was performed.",
+    "relevance": "Useful adjacent evidence for constructing interpretation sets, with precision and pool-coverage limits; it does not implement clarification, abstention or user-intent recovery.",
+    "claims": [
+      {
+        "claim": "PoolDPP establishes a general improvement in ambiguous SQL correctness over reranking baselines.",
+        "evidence": "Table 14 reports MAP recall/precision of 0.251/0.322 versus ancestral sampling at 0.233/0.394; stochastic PoolDPP scores 0.244/0.375. Table 15 question-paired recall comparisons against K-means have p=0.12 for MAP and p=0.54 for sampling, despite significant pool-paired differences.",
+        "locator": "Section 6.2/Figure 3 p. 9; Appendix G.1 Table 14 p. 41; Appendix G.2 Table 15 p. 42",
+        "disposition": "Describe a precision–recall trade-off on the inspected 100-question subset. Do not generalize fixed-question pool significance to a demonstrated K-means advantage across questions."
+      },
+      {
+        "claim": "The diversity objective or larger candidate sets recover all plausible meanings.",
+        "evidence": "Section 7 and Table 16 bound recall by the candidate pool: average coverage peaks at 0.418, with PoolDPP recovering about 52–53% of per-question pool coverage at reported settings. Appendix G.4 also shows raw likelihood’s length coupling; execution matching uses the supplied database.",
+        "locator": "Section 7 p. 10; Appendix G.3 Table 16 p. 43; Appendix G.4 Table 17 p. 44",
+        "disposition": "Interpretation completeness and semantic equivalence are not guaranteed. Keep candidate-generation cost, embedding choice, finite-database labels and missing-pool interpretations explicit."
+      },
+      {
+        "claim": "The finite-sample theorem certifies each output set or the MAP variant.",
+        "evidence": "Theorems 5.1–5.2 and Appendix A require well-behaved unbiased sketches, proposal support coverage, finite moments, a positive target normalizer, adequate embedding rank and N at least K. The KL orientation is target P to the stochastic output law averaged over random pools. MAP has a separate pool-relative volume approximation. Appendix B’s numerical evaluations retain only observed support.",
+        "locator": "Sections 4–5 pp. 5–7; Appendix A pp. 15–26; Appendix B pp. 27–28",
+        "disposition": "Retain the conditional distributional scope and fixed-K, fixed-instance asymptotics. This is not a SQL-correctness guarantee, a bound for every fixed pool, or an empirical full-proposal certificate. Lean files were not run or independently audited."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Pinned author reproduction and early-run documentation",
+        "url": "https://github.com/rycolab/pool-dpp/blob/9eaf64c6aa0d1dbd148b189ac35386c40771e4ff/README.md"
+      },
+      {
+        "label": "Official NeurIPS 2026 exact-title listing",
+        "url": "https://neurips.cc/Downloads/2026"
       }
     ]
   },
@@ -4340,6 +4444,77 @@
         "evidence": "Supplement G replaces ambiguous times/user references and repairs null-result instances.",
         "locator": "Supplement G",
         "disposition": "A curated test distribution with explicit preprocessing limits."
+      }
+    ]
+  },
+  {
+    "paper_id": "two-surfaces",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-21",
+    "source_url": "https://vldb.org/2026/Workshops/VLDB-Workshops-2026/AIDB/aidb26_10.pdf",
+    "version": "Official AIDB 2026 workshop proceedings PDF, 10 pages.",
+    "coverage": "All 10 pages: Sections 1–8, limitations, references, Tables 1–11 and Figures 1–2. Both figures and result Tables 5–11 were visually inspected. This version has no appendices. Public repository file listings and selected documentation were inspected separately; this was not a whole-code audit.",
+    "unread": [],
+    "problem": "Question-only introspection and candidate-SQL disagreement may expose different underspecified choices, but broader detection need not improve the answer delivered under a clarification budget.",
+    "method": "Compares single and sampled introspection with single-pass and independently sampled SQL candidates. SQL methods analyze structural differences to generate clarification questions; a union combines the channels. Detection uses a cross-model simulator encoder, while a separate agent receives a question pool and chooses interactions.",
+    "evaluation": "BIRD-Interact-Lite supplies 300 tasks and 1,550 annotated terms across 18 databases. Four models are tested for detection; three open-weight models for agentic stress-mode evaluation. Most stochastic open-model detector runs use three seeds; deterministic introspection and proprietary-model results use one. AMBROSIA transfer covers 1,149 ambiguous questions with Qwen3.5-122B.",
+    "findings": "Union recall exceeds either low-budget detector, with different subtype strengths. Both introspection and union improve over the ReAct baseline, but their downstream differences are not significant. On AMBROSIA, AllFound rises from 2.5% to 13.4% while precision falls from 45.2% to 20.9% and average unique SQLs rise from 2.0 to 6.9. Multi-label scoring changes masked-knowledge recall without establishing better user interaction.",
+    "limitations": "All interactive evidence uses simulated users and benchmark annotations. The union emits more questions and SQL candidates; its three-call count excludes encoder calls and the subsequent agent loop. Rare subtypes have few examples. Structural diversity does not prove semantic alternatives, and no user-budget-aware ranking method is evaluated. Ground-truth dependencies and a paper/README baseline discrepancy limit reproduction claims.",
+    "relevance": "Direct ambiguity-detection and clarification research that separates detection coverage, annotation/scoring effects, interpretation-set precision and downstream success.",
+    "claims": [
+      {
+        "claim": "The union is a consistently better end-to-end agent than one-call introspection.",
+        "evidence": "Table 10 reports union versus introspection NR of 20.2 versus 20.4, 25.2 versus 24.6, and 27.1 versus 26.4. Section 5.5 reports no significant difference (p at least 0.76). Tests against ReAct use Phase-1 McNemar, rather than a direct statistical test of aggregate NR.",
+        "locator": "Section 5.5 p. 7; Table 10 p. 8; Section 6 p. 9",
+        "disposition": "Detection complementarity is supported; universal downstream superiority over introspection is not. Benchmark non-critical labels and the small interaction budget are proposed explanations, not a separately randomized causal decomposition."
+      },
+      {
+        "claim": "Higher AMBROSIA AllFound establishes better selected answers at a matched candidate budget.",
+        "evidence": "Table 11 compares 2.0 average unique SQLs/45.2% precision/2.5% AllFound for the same-model baseline with 6.9/20.9%/13.4% for the single-pass union. Only ambiguous cases are tested; this arm enumerates interpretations rather than conducts dialogue.",
+        "locator": "Section 5.5 p. 7; Table 11 p. 8",
+        "disposition": "Report the coverage/precision/candidate-count trade-off. This is neither selected-answer accuracy nor real-user clarification success."
+      },
+      {
+        "claim": "The method needs three total calls and only a small number of user questions.",
+        "evidence": "Three calls generate the two detection channels. Section 4.2 adds one encoder call per emitted clarification; Table 5 reports 12–17 questions before the agentic deduplication described in Section 5.5. The agent then performs its own budgeted loop.",
+        "locator": "Sections 4.2–5.3 pp. 4–5; Table 5 p. 6; Section 5.5 p. 7; Figure 2/Table 10 p. 8",
+        "disposition": "Three is a detection-generation count, not end-to-end inference cost or user effort. No real-user burden study or optimized question selector is reported."
+      },
+      {
+        "claim": "The multi-label encoder improves the agent’s ability to resolve hidden knowledge.",
+        "evidence": "The diagnostic allows one generated question to receive several annotation labels. Masked-knowledge recall rises from roughly 20–30% to 72–86%, while the decoder continues to receive only the primary label. Primary experiments retain the original single-label scorer.",
+        "locator": "Section 5.4 pp. 6–7; Table 9 p. 7",
+        "disposition": "This isolates a measurement limitation. It is not an additional clarification behavior or an independently established task-success improvement."
+      },
+      {
+        "claim": "Candidate clustering establishes semantically distinct valid SQL interpretations.",
+        "evidence": "Section 3.3 uses weighted-Jaccard structural fingerprints and thresholds; the detector analyzes generated SQL without result-set validation. Section 7.3 leaves an execution-result surface unevaluated. The separate AMBROSIA experiment executes and deduplicates outputs on its available database.",
+        "locator": "Sections 3.3–3.4 p. 4; Section 5.5 p. 7; Section 7.3 p. 9",
+        "disposition": "Treat detection-time structure as a heuristic and one-instance execution agreement as limited evidence, not universal SQL equivalence or verified user intent."
+      },
+      {
+        "claim": "The public package alone reproduces the reported scores.",
+        "evidence": "The pinned data README says no datasets are bundled and reference SQL/test cases are required separately. The root README lists MiniMax ReAct NR as 18.2, whereas Table 10 reports 17.9. README and package metadata declare Apache-2.0, but the file tree contains no standalone license text.",
+        "locator": "Table 10 p. 8; pinned README Prerequisites/Expected wall-clock/License, data/README Ground truth, and pyproject.toml",
+        "disposition": "Record visible source and the declared code license with separate upstream terms. Preserve the score discrepancy without claiming which release reproduces the paper; no execution was attempted."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Official workshop proceedings listing",
+        "url": "https://vldb.org/2026/Workshops/vldb.html"
+      },
+      {
+        "label": "Pinned author README",
+        "url": "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/README.md"
+      },
+      {
+        "label": "Pinned data-access requirements",
+        "url": "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/data/README.md"
+      },
+      {
+        "label": "Package license declaration",
+        "url": "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/pyproject.toml"
       }
     ]
   },

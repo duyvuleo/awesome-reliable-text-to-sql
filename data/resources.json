@@ -1630,5 +1630,47 @@
       "https://aclanthology.org/2026.findings-emnlp.467.pdf"
     ],
     "checked_on": "2026-11-20"
+  },
+  {
+    "id": "two-surfaces-tool",
+    "name": "Two Surfaces ambiguity-detection pipelines",
+    "kind": "tool",
+    "paper_ids": [
+      "two-surfaces"
+    ],
+    "url": "https://github.com/BHT-Math/text2sql-ambiguity-detection",
+    "description": "Public code for introspective and sampled-SQL clarification detection, an agentic BIRD-Interact runner, encoder replay and AMBROSIA interpretation-set evaluation.",
+    "protocol": "Detection scores use a simulator encoder; the agentic run separately measures budgeted task success. Union coverage can increase question count, and AMBROSIA coverage trades against precision. Multi-label replay diagnoses annotation credit, not a new user-interaction result. Existing benchmarks are reused.",
+    "availability": "Source tree and documentation inspected at 53c14a7cc491dde4349d6df263af860f851a55a6; no installation or execution. Data are not bundled. Author documentation requires separately obtained BIRD-Interact reference SQL/test cases for paper-comparable scoring, plus external databases and model endpoints. The README and proceedings differ on one baseline NR value.",
+    "license_note": "Apache-2.0 declared in the pinned README and package metadata; no standalone license file found in the complete tree listing. Dataset, model and database-image terms remain separate upstream conditions.",
+    "evidence": [
+      "https://vldb.org/2026/Workshops/VLDB-Workshops-2026/AIDB/aidb26_10.pdf",
+      "https://github.com/BHT-Math/text2sql-ambiguity-detection/tree/53c14a7cc491dde4349d6df263af860f851a55a6",
+      "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/README.md",
+      "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/data/README.md",
+      "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/pyproject.toml"
+    ],
+    "checked_on": "2026-11-21"
+  },
+  {
+    "id": "pooldpp-tool",
+    "name": "PoolDPP",
+    "kind": "tool",
+    "paper_ids": [
+      "pooldpp"
+    ],
+    "url": "https://github.com/rycolab/pool-dpp",
+    "description": "Public implementation of stochastic determinantal subset selection and greedy MAP selection over generated candidate strings, with an AMBROSIA interpretation-coverage experiment.",
+    "protocol": "Selects K strings from a likelihood-scored embedded pool; the SQL study selects three from 200 candidates and evaluates annotated-interpretation coverage and full-result precision on 100 AMBROSIA questions. It does not implement clarification or answerability classification and cannot recover interpretations missing from the pool.",
+    "availability": "Source tree and documentation inspected at 9eaf64c6aa0d1dbd148b189ac35386c40771e4ff: visible source, experiment scripts, analysis, tests and Lean files. README requires AMBROSIA separately and a patched vLLM for candidate generation. Some early-run hardware/settings are unrecorded. Code and formal proofs were not executed; results were not independently reproduced.",
+    "license_note": "No explicit license file was found in the inspected complete repository tree; GitHub license metadata is null and pyproject.toml has no license declaration. Reuse terms remain unverified; upstream datasets and models retain their own terms.",
+    "evidence": [
+      "https://github.com/rycolab/pool-dpp",
+      "https://github.com/rycolab/pool-dpp/blob/9eaf64c6aa0d1dbd148b189ac35386c40771e4ff/README.md",
+      "https://github.com/rycolab/pool-dpp/blob/9eaf64c6aa0d1dbd148b189ac35386c40771e4ff/src/lm_dpp/estimation.py",
+      "https://github.com/rycolab/pool-dpp/blob/9eaf64c6aa0d1dbd148b189ac35386c40771e4ff/pyproject.toml",
+      "https://arxiv.org/pdf/2611.25003v1"
+    ],
+    "checked_on": "2026-11-21"
   }
 ]

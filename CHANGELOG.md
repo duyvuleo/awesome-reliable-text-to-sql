@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-21
+
+- Added complete readings of Two Surfaces of Ambiguity, PoolDPP and the NOVAS operationalization-failure study. The catalog now contains 124 papers, with 121 complete readings and three access gaps.
+- Added two source-code tools while preserving separate benchmark dependencies and license qualifications; totals are 51 systems/tools and 36 benchmark entries.
+- Retained detection-versus-task-success distinctions, precision/coverage trade-offs, conditional sampler guarantees and executable-case selection. Identified the formative study’s shared corpus with VSL rather than treating it as independent replication.
+
 ## 2026-11-20
 
 - Added complete readings of VSL and Spider𝕊 as adjacent context and evaluation work. The catalog now contains 121 papers, with 118 complete readings and three access gaps.

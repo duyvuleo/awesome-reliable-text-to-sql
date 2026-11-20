@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-11-21: complementary ambiguity detection, diverse interpretation sets and operational failures](2026-11-21.md)
+
 - [2026-11-20: operational semantics and alternative-answer evaluation](2026-11-20.md)
 
 - [2026-11-19: announcement coverage, disagreement-guided clarification and final-version audit](2026-11-19.md)

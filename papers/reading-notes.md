@@ -6,12 +6,13 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **118 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **121 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
 | Year | Paper | Reading coverage |
 | --- | --- | --- |
+| 2026 | [A Model of Diverse Sampling from Language Models](notes/pooldpp.md) | Full paper read |
 | 2026 | [ABISS: Evaluating Text-to-SQL Systems Through Agent Interaction](notes/abiss.md) | Full paper read |
 | 2026 | [AmbiSQL: Interactive Ambiguity Detection and Resolution for Text-to-SQL](notes/ambisql.md) | Full paper read |
 | 2026 | [An OMOP-Based Open-Source Text-to-SQL Benchmark Dataset](notes/text-to-omop.md) | Full paper read |
@@ -37,6 +38,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [Embarrassingly Simple Access Control for Large Language Models](notes/access-control-probes.md) | Full paper read |
 | 2026 | [EntSQL: A Benchmark for Grounding Text-to-SQL in Long-Context Enterprise Knowledge](notes/entsql.md) | Full paper read |
 | 2026 | [Evaluating LLMs on Conversational Text-to-SQL under Chain Ambiguity and Intent Drift](notes/tide-bench.md) | Full paper read |
+| 2026 | [Exploring the Semantic Gap in Agentic Data Systems: A Formative Study of Operationalization Failures in Analytical Workflows](notes/operationalization-failures.md) | Full paper read |
 | 2026 | [FALCON: A Model and Dataset Agnostic Framework for Synthetic Data Generation for NL2SQL Pairs](notes/falcon-synthesis.md) | Full paper read |
 | 2026 | [FlinkEval: A Synthetic Corpus for Evaluating Natural Language Interfaces to Streaming SQL](notes/flinkeval.md) | Full paper read |
 | 2026 | [From Textual Columns to Query Plans: A Unified Relational-Semantic Execution Framework for Hybrid Query Processing](notes/omnitqa.md) | Full paper read |
@@ -79,6 +81,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [TraceSQL: Traceable Answerability Estimation for Reference-Free Text-to-SQL Verification](notes/tracesql.md) | Full paper read |
 | 2026 | [Tracing Recurrent and Emergent Hallucination Patterns in Decomposed Text-to-SQL Generation](notes/drilldown-hallucinations.md) | Full paper read |
 | 2026 | [Trajectory-Derived Confidence for Reliable, Resource-Aware Clinical Text-to-SQL Agents](notes/sentinel.md) | Full paper read |
+| 2026 | [Two Surfaces of Ambiguity: Complementary Detection for Text-to-SQL](notes/two-surfaces.md) | Full paper read |
 | 2026 | [Verifying Text-to-SQL Queries under Changing Business Semantics](notes/changing-business-semantics.md) | Full paper read |
 | 2026 | [What Is a Clarification? Estimating Model-Dependent Input Ambiguity](notes/circleclar.md) | Full paper read |
 | 2026 | [What Predicts Correctness in Text-to-SQL? A Selective-Prediction Study](notes/selective-prediction.md) | Full paper read |

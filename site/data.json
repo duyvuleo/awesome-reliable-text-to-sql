@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-20",
-  "updated": "2026-11-20",
+  "checked": "2026-11-21",
+  "updated": "2026-11-21",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 121,
+    "paper": 124,
     "system": 26,
-    "tool": 23,
+    "tool": 25,
     "benchmark": 36
   },
   "categories": {
@@ -17,6 +17,34 @@
     "verification": "Verification and evaluation validity"
   },
   "works": [
+    {
+      "id": "pooldpp",
+      "name": "A Model of Diverse Sampling from Language Models",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "PoolDPP selects sets of candidate strings using likelihood-weighted determinantal diversity, with stochastic sampling and greedy MAP variants. An AMBROSIA experiment measures coverage of annotated SQL interpretations and full-result precision. Reported recall gains over ancestral sampling trade off precision; question-paired tests do not resolve gains over K-means. Coverage is limited by the generated pool, and embedding diversity does not certify semantic validity or identify the user's intended reading.",
+      "entry_ids": [
+        "pooldpp",
+        "pooldpp-tool"
+      ],
+      "themes": [
+        "ambiguity",
+        "evaluation",
+        "interpretation-coverage",
+        "multi-interpretation"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "kinds": [
+        "paper",
+        "tool"
+      ],
+      "years": [
+        2026
+      ]
+    },
     {
       "id": "abiss",
       "name": "ABISS: Evaluating Text-to-SQL Systems Through Agent Interaction",
@@ -682,6 +710,34 @@
       ],
       "kinds": [
         "benchmark",
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "operationalization-failures",
+      "name": "Exploring the Semantic Gap in Agentic Data Systems: A Formative Study of Operationalization Failures in Analytical Workflows",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Manually analyzes executable GPT-4o/Blue SQL for failures involving comparative baselines, analytical roles, temporal processes, derived metrics and policies. Reports 153 failures among 236 retained intents and additional BIRD analyses. Counts are conditional on executable cases; proposed clarification/repair responses are not tested. The later VSL evaluation reuses a selected subset of this corpus.",
+      "entry_ids": [
+        "operationalization-failures"
+      ],
+      "themes": [
+        "business-semantics",
+        "context",
+        "evaluation",
+        "missing-knowledge",
+        "underspecification",
+        "verification"
+      ],
+      "categories": [
+        "context"
+      ],
+      "kinds": [
         "paper"
       ],
       "years": [
@@ -1874,6 +1930,35 @@
       ],
       "kinds": [
         "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "two-surfaces",
+      "name": "Two Surfaces of Ambiguity: Complementary Detection for Text-to-SQL",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Combines question introspection with sampled-SQL differences to broaden clarification coverage on BIRD-Interact. Its union improves detection but does not significantly outperform introspection alone on downstream task success; AMBROSIA interpretation coverage improves while precision falls. Simulator-label limitations, question budgets and unexecuted detection probes constrain interpretation. Public pipelines reuse existing benchmarks and require separate inputs.",
+      "entry_ids": [
+        "two-surfaces",
+        "two-surfaces-tool"
+      ],
+      "themes": [
+        "ambiguity",
+        "clarification",
+        "evaluation",
+        "interactive-system",
+        "interpretation-coverage"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "kinds": [
+        "paper",
+        "tool"
       ],
       "years": [
         2026
@@ -10761,6 +10846,201 @@
       "work_id": "value-semantics-layer"
     },
     {
+      "id": "two-surfaces",
+      "name": "Two Surfaces of Ambiguity: Complementary Detection for Text-to-SQL",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Combines question introspection with sampled-SQL differences to broaden clarification coverage on BIRD-Interact. Its union improves detection but does not significantly outperform introspection alone on downstream task success; AMBROSIA interpretation coverage improves while precision falls. Simulator-label limitations, question budgets and unexecuted detection probes constrain interpretation. Public pipelines reuse existing benchmarks and require separate inputs.",
+      "tags": [
+        "ambiguity",
+        "clarification",
+        "interpretation-coverage",
+        "evaluation",
+        "interactive-system"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "AIDB workshop at VLDB 2026",
+      "status": "Public detection-only, agentic and AMBROSIA pipeline source tree inspected at 53c14a7cc491dde4349d6df263af860f851a55a6. The author documentation states that BIRD-Interact reference SQL/test cases must be acquired separately for paper-comparable scoring; no datasets are bundled. README/package metadata declare Apache-2.0, but no standalone license file was found. No code was executed or results reproduced.",
+      "sources": [
+        "https://vldb.org/2026/Workshops/VLDB-Workshops-2026/AIDB/aidb26_10.pdf",
+        "https://vldb.org/2026/Workshops/vldb.html",
+        "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/README.md",
+        "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/data/README.md"
+      ],
+      "checked": "2026-11-21",
+      "added_on": "2026-11-21",
+      "url": "https://vldb.org/2026/Workshops/VLDB-Workshops-2026/AIDB/aidb26_10.pdf",
+      "code_links": [
+        "https://github.com/BHT-Math/text2sql-ambiguity-detection"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#two-surfaces",
+      "original": {
+        "id": "two-surfaces",
+        "title": "Two Surfaces of Ambiguity: Complementary Detection for Text-to-SQL",
+        "year": 2026,
+        "publication_status": "AIDB workshop at VLDB 2026",
+        "primary_url": "https://vldb.org/2026/Workshops/VLDB-Workshops-2026/AIDB/aidb26_10.pdf",
+        "code_url": "https://github.com/BHT-Math/text2sql-ambiguity-detection",
+        "dataset_url": null,
+        "category": "ambiguity",
+        "scope": "core",
+        "topics": [
+          "ambiguity",
+          "clarification",
+          "interpretation-coverage",
+          "evaluation",
+          "interactive-system"
+        ],
+        "summary": "Combines question introspection with sampled-SQL differences to broaden clarification coverage on BIRD-Interact. Its union improves detection but does not significantly outperform introspection alone on downstream task success; AMBROSIA interpretation coverage improves while precision falls. Simulator-label limitations, question budgets and unexecuted detection probes constrain interpretation. Public pipelines reuse existing benchmarks and require separate inputs.",
+        "evidence": [
+          "https://vldb.org/2026/Workshops/VLDB-Workshops-2026/AIDB/aidb26_10.pdf",
+          "https://vldb.org/2026/Workshops/vldb.html",
+          "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/README.md",
+          "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/data/README.md"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/two-surfaces.md",
+        "added_on": "2026-11-21",
+        "checked_on": "2026-11-21",
+        "artifact_status": "Public detection-only, agentic and AMBROSIA pipeline source tree inspected at 53c14a7cc491dde4349d6df263af860f851a55a6. The author documentation states that BIRD-Interact reference SQL/test cases must be acquired separately for paper-comparable scoring; no datasets are bundled. README/package metadata declare Apache-2.0, but no standalone license file was found. No code was executed or results reproduced."
+      },
+      "work_id": "two-surfaces"
+    },
+    {
+      "id": "operationalization-failures",
+      "name": "Exploring the Semantic Gap in Agentic Data Systems: A Formative Study of Operationalization Failures in Analytical Workflows",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Manually analyzes executable GPT-4o/Blue SQL for failures involving comparative baselines, analytical roles, temporal processes, derived metrics and policies. Reports 153 failures among 236 retained intents and additional BIRD analyses. Counts are conditional on executable cases; proposed clarification/repair responses are not tested. The later VSL evaluation reuses a selected subset of this corpus.",
+      "tags": [
+        "business-semantics",
+        "context",
+        "underspecification",
+        "missing-knowledge",
+        "evaluation",
+        "verification"
+      ],
+      "categories": [
+        "context"
+      ],
+      "evidence": "NOVAS workshop at VLDB 2026; first preprint July 2026",
+      "status": "Complete official six-page workshop paper inspected. A study-specific public release of prompts, generated SQL, judgment annotations or the complete three-domain corpus was not verified. The cited Blue platform is not treated as a release of these study materials. No code executed, datasets downloaded or experiments reproduced.",
+      "sources": [
+        "https://vldb.org/2026/Workshops/VLDB-Workshops-2026/NOVAS/NOVAS26_6.pdf",
+        "https://vldb.org/2026/Workshops/vldb.html",
+        "https://www.novasworkshop.org/accepted-papers",
+        "https://arxiv.org/abs/2607.00828",
+        "https://arxiv.org/html/2611.23629v1"
+      ],
+      "checked": "2026-11-21",
+      "added_on": "2026-11-21",
+      "url": "https://vldb.org/2026/Workshops/VLDB-Workshops-2026/NOVAS/NOVAS26_6.pdf",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#operationalization-failures",
+      "original": {
+        "id": "operationalization-failures",
+        "title": "Exploring the Semantic Gap in Agentic Data Systems: A Formative Study of Operationalization Failures in Analytical Workflows",
+        "year": 2026,
+        "publication_status": "NOVAS workshop at VLDB 2026; first preprint July 2026",
+        "primary_url": "https://vldb.org/2026/Workshops/VLDB-Workshops-2026/NOVAS/NOVAS26_6.pdf",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "context",
+        "scope": "adjacent",
+        "topics": [
+          "business-semantics",
+          "context",
+          "underspecification",
+          "missing-knowledge",
+          "evaluation",
+          "verification"
+        ],
+        "summary": "Manually analyzes executable GPT-4o/Blue SQL for failures involving comparative baselines, analytical roles, temporal processes, derived metrics and policies. Reports 153 failures among 236 retained intents and additional BIRD analyses. Counts are conditional on executable cases; proposed clarification/repair responses are not tested. The later VSL evaluation reuses a selected subset of this corpus.",
+        "evidence": [
+          "https://vldb.org/2026/Workshops/VLDB-Workshops-2026/NOVAS/NOVAS26_6.pdf",
+          "https://vldb.org/2026/Workshops/vldb.html",
+          "https://www.novasworkshop.org/accepted-papers",
+          "https://arxiv.org/abs/2607.00828",
+          "https://arxiv.org/html/2611.23629v1"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/operationalization-failures.md",
+        "added_on": "2026-11-21",
+        "checked_on": "2026-11-21",
+        "artifact_status": "Complete official six-page workshop paper inspected. A study-specific public release of prompts, generated SQL, judgment annotations or the complete three-domain corpus was not verified. The cited Blue platform is not treated as a release of these study materials. No code executed, datasets downloaded or experiments reproduced."
+      },
+      "work_id": "operationalization-failures"
+    },
+    {
+      "id": "pooldpp",
+      "name": "A Model of Diverse Sampling from Language Models",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "PoolDPP selects sets of candidate strings using likelihood-weighted determinantal diversity, with stochastic sampling and greedy MAP variants. An AMBROSIA experiment measures coverage of annotated SQL interpretations and full-result precision. Reported recall gains over ancestral sampling trade off precision; question-paired tests do not resolve gains over K-means. Coverage is limited by the generated pool, and embedding diversity does not certify semantic validity or identify the user's intended reading.",
+      "tags": [
+        "ambiguity",
+        "multi-interpretation",
+        "interpretation-coverage",
+        "evaluation"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "NeurIPS 2026 (official program listing; arXiv version reviewed)",
+      "status": "Public source tree inspected at 9eaf64c6aa0d1dbd148b189ac35386c40771e4ff: selection/generation code, AMBROSIA experiment scripts, analysis, tests and Lean proof files. Source and documentation were inspected without executing code or checking Lean. AMBROSIA must be obtained separately; no new benchmark resource is inferred. No explicit license was verified in the complete tree or package metadata.",
+      "sources": [
+        "https://arxiv.org/abs/2611.25003",
+        "https://arxiv.org/pdf/2611.25003v1",
+        "https://neurips.cc/Downloads/2026",
+        "https://github.com/rycolab/pool-dpp/blob/9eaf64c6aa0d1dbd148b189ac35386c40771e4ff/README.md"
+      ],
+      "checked": "2026-11-21",
+      "added_on": "2026-11-21",
+      "url": "https://arxiv.org/abs/2611.25003",
+      "code_links": [
+        "https://github.com/rycolab/pool-dpp"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#pooldpp",
+      "original": {
+        "id": "pooldpp",
+        "title": "A Model of Diverse Sampling from Language Models",
+        "year": 2026,
+        "publication_status": "NeurIPS 2026 (official program listing; arXiv version reviewed)",
+        "primary_url": "https://arxiv.org/abs/2611.25003",
+        "code_url": "https://github.com/rycolab/pool-dpp",
+        "dataset_url": null,
+        "category": "ambiguity",
+        "scope": "adjacent",
+        "topics": [
+          "ambiguity",
+          "multi-interpretation",
+          "interpretation-coverage",
+          "evaluation"
+        ],
+        "summary": "PoolDPP selects sets of candidate strings using likelihood-weighted determinantal diversity, with stochastic sampling and greedy MAP variants. An AMBROSIA experiment measures coverage of annotated SQL interpretations and full-result precision. Reported recall gains over ancestral sampling trade off precision; question-paired tests do not resolve gains over K-means. Coverage is limited by the generated pool, and embedding diversity does not certify semantic validity or identify the user's intended reading.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.25003",
+          "https://arxiv.org/pdf/2611.25003v1",
+          "https://neurips.cc/Downloads/2026",
+          "https://github.com/rycolab/pool-dpp/blob/9eaf64c6aa0d1dbd148b189ac35386c40771e4ff/README.md"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/pooldpp.md",
+        "added_on": "2026-11-21",
+        "checked_on": "2026-11-21",
+        "artifact_status": "Public source tree inspected at 9eaf64c6aa0d1dbd148b189ac35386c40771e4ff: selection/generation code, AMBROSIA experiment scripts, analysis, tests and Lean proof files. Source and documentation were inspected without executing code or checking Lean. AMBROSIA must be obtained separately; no new benchmark resource is inferred. No explicit license was verified in the complete tree or package metadata."
+      },
+      "work_id": "pooldpp"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -15127,28 +15407,141 @@
         "checked_on": "2026-11-20"
       },
       "work_id": "spiders"
+    },
+    {
+      "id": "two-surfaces-tool",
+      "name": "Two Surfaces ambiguity-detection pipelines",
+      "kind": "tool",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Public code for introspective and sampled-SQL clarification detection, an agentic BIRD-Interact runner, encoder replay and AMBROSIA interpretation-set evaluation.",
+      "tags": [
+        "ambiguity",
+        "clarification",
+        "evaluation",
+        "interactive-system",
+        "interpretation-coverage"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "resource",
+      "status": "Source tree and documentation inspected at 53c14a7cc491dde4349d6df263af860f851a55a6; no installation or execution. Data are not bundled. Author documentation requires separately obtained BIRD-Interact reference SQL/test cases for paper-comparable scoring, plus external databases and model endpoints. The README and proceedings differ on one baseline NR value.",
+      "sources": [
+        "https://vldb.org/2026/Workshops/VLDB-Workshops-2026/AIDB/aidb26_10.pdf",
+        "https://github.com/BHT-Math/text2sql-ambiguity-detection/tree/53c14a7cc491dde4349d6df263af860f851a55a6",
+        "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/README.md",
+        "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/data/README.md",
+        "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/pyproject.toml"
+      ],
+      "checked": "2026-11-21",
+      "added_on": null,
+      "url": "https://github.com/BHT-Math/text2sql-ambiguity-detection",
+      "code_links": [
+        "https://github.com/BHT-Math/text2sql-ambiguity-detection"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#two-surfaces-tool",
+      "original": {
+        "id": "two-surfaces-tool",
+        "name": "Two Surfaces ambiguity-detection pipelines",
+        "kind": "tool",
+        "paper_ids": [
+          "two-surfaces"
+        ],
+        "url": "https://github.com/BHT-Math/text2sql-ambiguity-detection",
+        "description": "Public code for introspective and sampled-SQL clarification detection, an agentic BIRD-Interact runner, encoder replay and AMBROSIA interpretation-set evaluation.",
+        "protocol": "Detection scores use a simulator encoder; the agentic run separately measures budgeted task success. Union coverage can increase question count, and AMBROSIA coverage trades against precision. Multi-label replay diagnoses annotation credit, not a new user-interaction result. Existing benchmarks are reused.",
+        "availability": "Source tree and documentation inspected at 53c14a7cc491dde4349d6df263af860f851a55a6; no installation or execution. Data are not bundled. Author documentation requires separately obtained BIRD-Interact reference SQL/test cases for paper-comparable scoring, plus external databases and model endpoints. The README and proceedings differ on one baseline NR value.",
+        "license_note": "Apache-2.0 declared in the pinned README and package metadata; no standalone license file found in the complete tree listing. Dataset, model and database-image terms remain separate upstream conditions.",
+        "evidence": [
+          "https://vldb.org/2026/Workshops/VLDB-Workshops-2026/AIDB/aidb26_10.pdf",
+          "https://github.com/BHT-Math/text2sql-ambiguity-detection/tree/53c14a7cc491dde4349d6df263af860f851a55a6",
+          "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/README.md",
+          "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/data/README.md",
+          "https://github.com/BHT-Math/text2sql-ambiguity-detection/blob/53c14a7cc491dde4349d6df263af860f851a55a6/pyproject.toml"
+        ],
+        "checked_on": "2026-11-21"
+      },
+      "work_id": "two-surfaces"
+    },
+    {
+      "id": "pooldpp-tool",
+      "name": "PoolDPP",
+      "kind": "tool",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Public implementation of stochastic determinantal subset selection and greedy MAP selection over generated candidate strings, with an AMBROSIA interpretation-coverage experiment.",
+      "tags": [
+        "ambiguity",
+        "evaluation",
+        "interpretation-coverage",
+        "multi-interpretation"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "resource",
+      "status": "Source tree and documentation inspected at 9eaf64c6aa0d1dbd148b189ac35386c40771e4ff: visible source, experiment scripts, analysis, tests and Lean files. README requires AMBROSIA separately and a patched vLLM for candidate generation. Some early-run hardware/settings are unrecorded. Code and formal proofs were not executed; results were not independently reproduced.",
+      "sources": [
+        "https://github.com/rycolab/pool-dpp",
+        "https://github.com/rycolab/pool-dpp/blob/9eaf64c6aa0d1dbd148b189ac35386c40771e4ff/README.md",
+        "https://github.com/rycolab/pool-dpp/blob/9eaf64c6aa0d1dbd148b189ac35386c40771e4ff/src/lm_dpp/estimation.py",
+        "https://github.com/rycolab/pool-dpp/blob/9eaf64c6aa0d1dbd148b189ac35386c40771e4ff/pyproject.toml",
+        "https://arxiv.org/pdf/2611.25003v1"
+      ],
+      "checked": "2026-11-21",
+      "added_on": null,
+      "url": "https://github.com/rycolab/pool-dpp",
+      "code_links": [
+        "https://github.com/rycolab/pool-dpp"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#pooldpp-tool",
+      "original": {
+        "id": "pooldpp-tool",
+        "name": "PoolDPP",
+        "kind": "tool",
+        "paper_ids": [
+          "pooldpp"
+        ],
+        "url": "https://github.com/rycolab/pool-dpp",
+        "description": "Public implementation of stochastic determinantal subset selection and greedy MAP selection over generated candidate strings, with an AMBROSIA interpretation-coverage experiment.",
+        "protocol": "Selects K strings from a likelihood-scored embedded pool; the SQL study selects three from 200 candidates and evaluates annotated-interpretation coverage and full-result precision on 100 AMBROSIA questions. It does not implement clarification or answerability classification and cannot recover interpretations missing from the pool.",
+        "availability": "Source tree and documentation inspected at 9eaf64c6aa0d1dbd148b189ac35386c40771e4ff: visible source, experiment scripts, analysis, tests and Lean files. README requires AMBROSIA separately and a patched vLLM for candidate generation. Some early-run hardware/settings are unrecorded. Code and formal proofs were not executed; results were not independently reproduced.",
+        "license_note": "No explicit license file was found in the inspected complete repository tree; GitHub license metadata is null and pyproject.toml has no license declaration. Reuse terms remain unverified; upstream datasets and models retain their own terms.",
+        "evidence": [
+          "https://github.com/rycolab/pool-dpp",
+          "https://github.com/rycolab/pool-dpp/blob/9eaf64c6aa0d1dbd148b189ac35386c40771e4ff/README.md",
+          "https://github.com/rycolab/pool-dpp/blob/9eaf64c6aa0d1dbd148b189ac35386c40771e4ff/src/lm_dpp/estimation.py",
+          "https://github.com/rycolab/pool-dpp/blob/9eaf64c6aa0d1dbd148b189ac35386c40771e4ff/pyproject.toml",
+          "https://arxiv.org/pdf/2611.25003v1"
+        ],
+        "checked_on": "2026-11-21"
+      },
+      "work_id": "pooldpp"
     }
   ],
   "themes": [
     {
       "id": "ambiguity",
       "label": "Ambiguity",
-      "count": 44
+      "count": 46
     },
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 40
+      "count": 43
     },
     {
       "id": "clarification",
       "label": "Clarification",
-      "count": 36
+      "count": 37
     },
     {
       "id": "verification",
       "label": "Verification",
-      "count": 31
+      "count": 32
     },
     {
       "id": "unanswerability",
@@ -15171,19 +15564,19 @@
       "count": 12
     },
     {
+      "id": "context",
+      "label": "Context",
+      "count": 11
+    },
+    {
       "id": "human-in-the-loop",
       "label": "Human in the loop",
       "count": 11
     },
     {
-      "id": "context",
-      "label": "Context",
-      "count": 10
-    },
-    {
       "id": "interactive-system",
       "label": "Interactive system",
-      "count": 9
+      "count": 10
     },
     {
       "id": "schema-linking",
@@ -15211,6 +15604,11 @@
       "count": 7
     },
     {
+      "id": "interpretation-coverage",
+      "label": "Interpretation coverage",
+      "count": 7
+    },
+    {
       "id": "agent",
       "label": "Agent",
       "count": 6
@@ -15226,6 +15624,11 @@
       "count": 6
     },
     {
+      "id": "underspecification",
+      "label": "Underspecification",
+      "count": 6
+    },
+    {
       "id": "conversation",
       "label": "Conversation",
       "count": 5
@@ -15233,16 +15636,6 @@
     {
       "id": "explanation",
       "label": "Explanation",
-      "count": 5
-    },
-    {
-      "id": "interpretation-coverage",
-      "label": "Interpretation coverage",
-      "count": 5
-    },
-    {
-      "id": "underspecification",
-      "label": "Underspecification",
       "count": 5
     },
     {
@@ -15261,6 +15654,11 @@
       "count": 4
     },
     {
+      "id": "business-semantics",
+      "label": "Business semantics",
+      "count": 3
+    },
+    {
       "id": "database-retrieval",
       "label": "Database retrieval",
       "count": 3
@@ -15273,6 +15671,11 @@
     {
       "id": "multi-agent",
       "label": "Multi agent",
+      "count": 3
+    },
+    {
+      "id": "multi-interpretation",
+      "label": "Multi interpretation",
       "count": 3
     },
     {
@@ -15306,11 +15709,6 @@
       "count": 3
     },
     {
-      "id": "business-semantics",
-      "label": "Business semantics",
-      "count": 2
-    },
-    {
       "id": "database-state",
       "label": "Database state",
       "count": 2
@@ -15336,8 +15734,8 @@
       "count": 2
     },
     {
-      "id": "multi-interpretation",
-      "label": "Multi interpretation",
+      "id": "missing-knowledge",
+      "label": "Missing knowledge",
       "count": 2
     },
     {
@@ -15453,11 +15851,6 @@
     {
       "id": "intent-evolution",
       "label": "Intent evolution",
-      "count": 1
-    },
-    {
-      "id": "missing-knowledge",
-      "label": "Missing knowledge",
       "count": 1
     },
     {
