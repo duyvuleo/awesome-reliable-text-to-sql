@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-22",
-  "updated": "2026-11-22",
+  "checked": "2026-11-23",
+  "updated": "2026-11-23",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
     "paper": 125,
@@ -1317,6 +1317,31 @@
       ]
     },
     {
+      "id": "query-carefully",
+      "name": "Query Carefully: Detecting the Unanswerables in Text-to-SQL Tasks",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Adds schema-aware refusal rules and retrieved answerable/unanswerable examples to a biomedical SQL pipeline. Evaluation covers 99 OncoMX development questions and 80 synthetic, author-reviewed negatives; negative demonstrations are retrieved from that same pool excluding the current question. Balanced prompts help detection, but execution-error repair can increase wrong results and missing values or column ambiguity remain difficult.",
+      "entry_ids": [
+        "query-carefully"
+      ],
+      "themes": [
+        "abstention",
+        "clinical",
+        "unanswerability"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "raqs-sql",
       "name": "RAQS-SQL: Schema and Value Ambiguity Resolution in Text-to-SQL",
       "date": "2026",
@@ -2468,31 +2493,6 @@
         "benchmark",
         "paper",
         "tool"
-      ],
-      "years": [
-        2025
-      ]
-    },
-    {
-      "id": "query-carefully",
-      "name": "Query Carefully: Detecting the Unanswerables in Text-to-SQL Tasks",
-      "date": "2025",
-      "year": 2025,
-      "kind": "paper",
-      "summary": "Adds schema-aware refusal rules and retrieved answerable/unanswerable examples to a biomedical SQL pipeline. Evaluation covers 99 OncoMX development questions and 80 synthetic, author-reviewed negatives; negative demonstrations are retrieved from that same pool excluding the current question. Balanced prompts help detection, but execution-error repair can increase wrong results and missing values or column ambiguity remain difficult.",
-      "entry_ids": [
-        "query-carefully"
-      ],
-      "themes": [
-        "abstention",
-        "clinical",
-        "unanswerability"
-      ],
-      "categories": [
-        "answerability"
-      ],
-      "kinds": [
-        "paper"
       ],
       "years": [
         2025
@@ -6047,8 +6047,8 @@
       "id": "query-carefully",
       "name": "Query Carefully: Detecting the Unanswerables in Text-to-SQL Tasks",
       "kind": "paper",
-      "year": 2025,
-      "date": "2025",
+      "year": 2026,
+      "date": "2026",
       "date_label": "Publication year",
       "summary": "Adds schema-aware refusal rules and retrieved answerable/unanswerable examples to a biomedical SQL pipeline. Evaluation covers 99 OncoMX development questions and 80 synthetic, author-reviewed negatives; negative demonstrations are retrieved from that same pool excluding the current question. Balanced prompts help detection, but execution-error repair can increase wrong results and missing values or column ambiguity remain difficult.",
       "tags": [
@@ -6060,16 +6060,18 @@
       "categories": [
         "answerability"
       ],
-      "evidence": "HC@AIxIA + HYDRA 2025; acceptance stated on arXiv",
-      "status": "Artifact execution and independent reproduction were not assessed.",
+      "evidence": "HC@AIxIA + HYDRA 2025; Springer CCIS 2830 proceedings published 2026",
+      "status": "Publication metadata verified against the Springer proceedings record. The detailed reading and scientific summary cover arXiv:2512.21345v1; the publisher full text was not newly read. Artifact execution and independent reproduction were not assessed.",
       "sources": [
         "https://arxiv.org/abs/2512.21345",
         "https://arxiv.org/pdf/2512.21345v1",
-        "https://github.com/JasminSaxer/QueryCarefully"
+        "https://github.com/JasminSaxer/QueryCarefully",
+        "https://link.springer.com/chapter/10.1007/978-3-032-16708-8_39",
+        "https://digitalcollection.zhaw.ch/items/f30948a1-ab7c-44cf-8766-b1bbb063d8f1"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-11-23",
       "added_on": "2026-10-22",
-      "url": "https://arxiv.org/abs/2512.21345",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-032-16708-8_39",
       "code_links": [
         "https://github.com/JasminSaxer/QueryCarefully"
       ],
@@ -6077,9 +6079,9 @@
       "original": {
         "id": "query-carefully",
         "title": "Query Carefully: Detecting the Unanswerables in Text-to-SQL Tasks",
-        "year": 2025,
-        "publication_status": "HC@AIxIA + HYDRA 2025; acceptance stated on arXiv",
-        "primary_url": "https://arxiv.org/abs/2512.21345",
+        "year": 2026,
+        "publication_status": "HC@AIxIA + HYDRA 2025; Springer CCIS 2830 proceedings published 2026",
+        "primary_url": "https://link.springer.com/chapter/10.1007/978-3-032-16708-8_39",
         "code_url": "https://github.com/JasminSaxer/QueryCarefully",
         "dataset_url": "https://github.com/JasminSaxer/QueryCarefully",
         "topics": [
@@ -6093,12 +6095,14 @@
         "evidence": [
           "https://arxiv.org/abs/2512.21345",
           "https://arxiv.org/pdf/2512.21345v1",
-          "https://github.com/JasminSaxer/QueryCarefully"
+          "https://github.com/JasminSaxer/QueryCarefully",
+          "https://link.springer.com/chapter/10.1007/978-3-032-16708-8_39",
+          "https://digitalcollection.zhaw.ch/items/f30948a1-ab7c-44cf-8766-b1bbb063d8f1"
         ],
-        "checked_on": "2026-11-09",
+        "checked_on": "2026-11-23",
         "category": "answerability",
         "source_depth": "full-text-reviewed",
-        "artifact_status": "Artifact execution and independent reproduction were not assessed.",
+        "artifact_status": "Publication metadata verified against the Springer proceedings record. The detailed reading and scientific summary cover arXiv:2512.21345v1; the publisher full text was not newly read. Artifact execution and independent reproduction were not assessed.",
         "added_on": "2026-10-22",
         "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/query-carefully.md"
       },

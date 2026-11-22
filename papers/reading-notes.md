@@ -60,6 +60,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [Probing Ambiguity: Adversarial Intent Resolution for Robust Text-to-SQL](notes/air.md) | Full paper read |
 | 2026 | [PV-SQL: Synergizing Database Probing and Rule-based Verification for Text-to-SQL Agents](notes/pv-sql.md) | Full paper read |
 | 2026 | [QDA-SQL: Questions Enhanced Dialogue Augmentation for Multi-Turn Text-to-SQL](notes/qda-sql.md) | Full paper read |
+| 2026 | [Query Carefully: Detecting the Unanswerables in Text-to-SQL Tasks](notes/query-carefully.md) | Full paper read |
 | 2026 | [RAQS-SQL: Schema and Value Ambiguity Resolution in Text-to-SQL](notes/raqs-sql.md) | Full text unavailable |
 | 2026 | [Reasoning about Intent for Ambiguous Requests](notes/intentrl.md) | Full paper read |
 | 2026 | [Reliable End-to-End Text-to-SQL Generation](notes/rts-plus.md) | Full paper read |
@@ -101,7 +102,6 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2025 | [NL2SQL-BUGs: A Benchmark for Detecting Semantic Errors in NL2SQL Translation](notes/nl2sql-bugs.md) | Full paper read |
 | 2025 | [ParSEval: Plan-aware Test Database Generation for SQL Equivalence Evaluation](notes/parseval.md) | Full paper read |
 | 2025 | [PRACTIQ: A Practical Conversational Text-to-SQL dataset with Ambiguous and Unanswerable Queries](notes/practiq.md) | Full paper read |
-| 2025 | [Query Carefully: Detecting the Unanswerables in Text-to-SQL Tasks](notes/query-carefully.md) | Full paper read |
 | 2025 | [RAG-based Unanswerable Question Detection in Clinical Text-to-SQL](notes/raqad.md) | Full text unavailable |
 | 2025 | [Reliable Text-to-SQL with Adaptive Abstention](notes/rts.md) | Full paper read |
 | 2025 | [SIMBA UQ: Similarity-Based Aggregation for Uncertainty Quantification in Large Language Models](notes/simba-uq.md) | Full paper read |

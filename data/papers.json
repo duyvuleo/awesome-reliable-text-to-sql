@@ -1185,9 +1185,9 @@
   {
     "id": "query-carefully",
     "title": "Query Carefully: Detecting the Unanswerables in Text-to-SQL Tasks",
-    "year": 2025,
-    "publication_status": "HC@AIxIA + HYDRA 2025; acceptance stated on arXiv",
-    "primary_url": "https://arxiv.org/abs/2512.21345",
+    "year": 2026,
+    "publication_status": "HC@AIxIA + HYDRA 2025; Springer CCIS 2830 proceedings published 2026",
+    "primary_url": "https://link.springer.com/chapter/10.1007/978-3-032-16708-8_39",
     "code_url": "https://github.com/JasminSaxer/QueryCarefully",
     "dataset_url": "https://github.com/JasminSaxer/QueryCarefully",
     "topics": [
@@ -1201,12 +1201,14 @@
     "evidence": [
       "https://arxiv.org/abs/2512.21345",
       "https://arxiv.org/pdf/2512.21345v1",
-      "https://github.com/JasminSaxer/QueryCarefully"
+      "https://github.com/JasminSaxer/QueryCarefully",
+      "https://link.springer.com/chapter/10.1007/978-3-032-16708-8_39",
+      "https://digitalcollection.zhaw.ch/items/f30948a1-ab7c-44cf-8766-b1bbb063d8f1"
     ],
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-23",
     "category": "answerability",
     "source_depth": "full-text-reviewed",
-    "artifact_status": "Artifact execution and independent reproduction were not assessed.",
+    "artifact_status": "Publication metadata verified against the Springer proceedings record. The detailed reading and scientific summary cover arXiv:2512.21345v1; the publisher full text was not newly read. Artifact execution and independent reproduction were not assessed.",
     "added_on": "2026-10-22",
     "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/query-carefully.md"
   },

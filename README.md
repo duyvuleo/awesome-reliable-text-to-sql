@@ -20,7 +20,7 @@ Natural-language questions do not always determine one SQL query, and a database
 
 [**Explore the interactive catalog →**](https://duyvuleo.github.io/awesome-reliable-text-to-sql/) · [Browse papers](papers/README.md) · [Compare benchmarks](docs/benchmark-matrix.md) · [Try the examples](examples/README.md) · [Contribute](CONTRIBUTING.md)
 
-Updated **2026-11-22**. Each paper includes a concise summary, publication status, public sources, and a verification date. Core work and adjacent methods are marked separately. Resource counts include clearly labeled benchmark designs whose artifacts are not yet verified released.
+Updated **2026-11-23**. Each paper includes a concise summary, publication status, public sources, and a verification date. Core work and adjacent methods are marked separately. Resource counts include clearly labeled benchmark designs whose artifacts are not yet verified released.
 
 [**Read the detailed paper notes →**](papers/reading-notes.md) for methods, evaluation conditions, findings, limitations and checks against the original text. The index records completed readings and remaining access gaps.
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-23
+
+- Reconciled Query Carefully with its verified Springer CCIS 2830 publication on 1 April 2026. Updated publication year/status and primary source while preserving its original inclusion date and arXiv-specific full reading.
+- Regenerated year-based paper views; counts remain 125 papers, 52 systems/tools and 36 benchmark entries. No new artifact release or full-paper reading is claimed.
+- Recorded the broad arXiv feed's HTTP 429 coverage gap, with its last successful check retained as 22 November, and held unresolved public leads outside the catalog.
+
 ## 2026-11-22
 
 - Added a complete PV-SQL reading and one public system, with constraint-level metrics, development-set limits, conflicting VES values and pinned paper/source differences made explicit. Totals are 125 papers, 52 systems/tools and 36 benchmarks; 122 papers have complete readings and three retain access gaps.
