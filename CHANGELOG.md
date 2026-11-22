@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-22
+
+- Added a complete PV-SQL reading and one public system, with constraint-level metrics, development-set limits, conflicting VES values and pinned paper/source differences made explicit. Totals are 125 papers, 52 systems/tools and 36 benchmarks; 122 papers have complete readings and three retain access gaps.
+- Corrected AMBROSIA’s dataset license metadata to the author-declared CC BY 4.0, preserving the separate download and no-mirroring request. No dataset was downloaded or newly counted.
+- Rechecked the three previously inconclusive VLDB links successfully; recorded unchanged recent feeds and unresolved public leads without advancing unchanged catalog dates.
+
 ## 2026-11-21
 
 - Added complete readings of Two Surfaces of Ambiguity, PoolDPP and the NOVAS operationalization-failure study. The catalog now contains 124 papers, with 121 complete readings and three access gaps.

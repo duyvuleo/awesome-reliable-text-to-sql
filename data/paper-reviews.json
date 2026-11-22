@@ -2893,6 +2893,95 @@
     ]
   },
   {
+    "paper_id": "pv-sql",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-22",
+    "source_url": "https://aclanthology.org/2026.findings-acl.1286.pdf",
+    "version": "Findings of ACL 2026 proceedings version, pages 25827–25845, 19 PDF pages, DOI 10.18653/v1/2026.findings-acl.1286.",
+    "coverage": "All 19 PDF pages: Sections 1–7, limitations, references, Appendices A–K, Algorithm 1, Tables 1–17 and all seven prompts. Figures 1–5 and the central rule/result tables were visually inspected on PDF pages 1, 5, 7–8, 11–12 and 15. The official repository documentation, license and relevant implementation were inspected separately as text. The separately linked reproducibility checklist returned HTTP 404; all substantive material in the proceedings PDF was read.",
+    "unread": [],
+    "problem": "Generated SQL can execute while using the wrong database values or omitting requirements from the question.",
+    "method": "PV-SQL issues targeted database probes, summarizes observations, extracts a checklist from question patterns, and generates SQL. Syntax, execution and construct checks guide bounded repairs. The paper describes ten constraint categories; these checks cover only part of a request’s semantics.",
+    "evaluation": "Experiments use development sets: 1,534 BIRD questions, its 500-example Mini-Dev subset, and 1,034 Spider questions. Six LLMs, seven framework baselines, component ablations and token/latency measurements are reported. EX compares execution results with gold SQL; VES additionally measures query efficiency.",
+    "findings": "With GPT-4o, BIRD EX is 65.12, versus 62.13 without probing and 61.80 without repair. Gains are not universal: Qwen3-0.6B performs below zero-shot CoT. Gold-derived oracle constraints repair 15.7% of previously failed cases in a diagnostic experiment.",
+    "limitations": "The 99.39% extraction score is gold-SQL checklist pass rate, not completeness or semantic accuracy; repair success and regression are constraint-level measures. Equivalent SQL can use different constructs, while matching constructs can still express the wrong intent. GPT-4.1-mini VES differs between tables, and released verification differs from the paper description. No held-out test, user-clarification or unanswerability evaluation is reported.",
+    "relevance": "Adjacent evidence for database-grounded verification and repair, with explicit limits on checklist coverage, model dependence and reproducibility.",
+    "claims": [
+      {
+        "claim": "Passing the checklist establishes semantic correctness, and 99.39% measures extraction completeness.",
+        "evidence": "Table 7 and Section 6.4 define extraction accuracy by whether gold SQL satisfies every extracted constraint. Tables 9–10 inspect selected constructs, such as AVG for averages and LIMIT for top-k. Limitations explicitly leave nuanced and domain-specific constraints to the LLM. Appendix E derives oracle constraints from gold SQL and fixes 15.7% of previously failed cases; this is not a measured deployment recall rate.",
+        "locator": "Section 4.3/Table 2, PDF page 5; Table 7/Section 6.4, pages 7–8; Limitations, page 9; Tables 9–10, page 12; Appendix E, page 13",
+        "disposition": "Treat the checklist as a partial heuristic. As a methodological inference, construct matching can both miss wrong semantics and flag valid alternative implementations; the paper does not separately quantify these cases."
+      },
+      {
+        "claim": "The 90.82% repair success and 8.71% regression rates describe whole-query correctness transitions.",
+        "evidence": "The Table 7 caption and Section 6.4 define success as detected violations addressed and regression as previously satisfied constraints broken. These are not counts of incorrect queries becoming correct or correct queries becoming incorrect.",
+        "locator": "Table 7, PDF page 7; Section 6.4, page 8",
+        "disposition": "Preserve the constraint-level denominator and avoid treating either number as semantic repair accuracy or whole-query harm."
+      },
+      {
+        "claim": "The headline BIRD scores identify one consistent model configuration.",
+        "evidence": "Table 4 reports GPT-4o EX/VES 65.12/75.55 and GPT-4.1-mini 63.62/86.9. The introduction pairs 65.12 with 86.9, which come from different model columns. Appendix Table 12 instead reports GPT-4.1-mini BIRD EX/VES 63.62/72.78.",
+        "locator": "Introduction, PDF page 2; Tables 3–4, pages 6–7; Appendix B/Table 12, page 15",
+        "disposition": "Use model-specific results and retain the unresolved 86.9 versus 72.78 reporting difference without guessing which is correct."
+      },
+      {
+        "claim": "PV-SQL improves every model and has the lowest inference cost.",
+        "evidence": "Table 4 gives Qwen3-0.6B PV-SQL EX/VES 11.08/15.39, below zero-shot CoT 13.10/15.52. Table 8 shows several lower-token or faster alternatives; default GPT-4o PV-SQL uses 3,805 input and 248 output tokens and 3.4 seconds on BIRD. Figure 3 weights input tokens by one eighth, while VES measures SQL execution efficiency. The TS-SQL baseline was reconstructed from published prompts rather than available source.",
+        "locator": "Sections 5.2–5.3, PDF pages 5–6; Table 4, page 7; Table 8/Figure 3/footnote 6, page 8",
+        "disposition": "Report an accuracy–cost trade-off under these settings, not universal improvement, equal compute or a single combined measure of agent and query efficiency."
+      },
+      {
+        "claim": "Database probing evaluates resolution of genuine user-intent ambiguity or unsupported requests.",
+        "evidence": "The experiments evaluate SQL generation on development sets, and Mini-Dev is described as containing unambiguous queries. Figure 4 uses a model-judged error taxonomy, with only 100 classification cases manually checked and reported classification accuracy of 88%. No clarification protocol, refusal labels or unsupported-question metric is provided.",
+        "locator": "Sections 3.2 and 5.1, PDF pages 3 and 5; Section 6.6/Figure 4, page 8; Appendix G/Prompt 4, pages 13 and 17",
+        "disposition": "Classify as adjacent verification/value grounding. Model-judged failure categories are estimates, not independently established intent labels or evidence of clarification and unanswerability performance."
+      },
+      {
+        "claim": "The inspected source implements the paper’s stated parsed-SQL exact-count and direction checks.",
+        "evidence": "Appendix K describes sqlparse traversal; Table 10 requires LIMIT N matching the requested count and temporal ASC/DESC agreement. In the pinned implementation, constraint extraction and verification use regular expressions and substring tests. limit_k is parsed, but the verifier tests only for a LIMIT token; superlative flags lead to an IS NOT NULL substring check rather than direction validation. The source also requires a DISTINCT substring rather than accepting GROUP BY as Table 10 permits. Released defaults allow three repairs, while the paper describes five; the budget is configurable.",
+        "locator": "Appendix K, PDF page 14; Table 10, page 12; pinned pvsql/pv_sql.py lines 21–30, 173–237 and 370–404; pinned pvsql/pv_sql.py lines 32–33; Appendix C, PDF page 12",
+        "disposition": "A static paper/source discrepancy that should be reconciled before reproduction. This inspection does not establish which source revision generated the published scores."
+      },
+      {
+        "claim": "The released bounded repair loop always returns a candidate that passed verification.",
+        "evidence": "The pinned loop can return SQL when issues remain, and its final budget-exhausting rewrite is not reverified; final_issues may describe the preceding candidate. Setting max_repairs to zero also skips verification. Algorithm 1 likewise returns after the bounded repair loop rather than establishing a correctness postcondition.",
+        "locator": "Pinned pvsql/pv_sql.py lines 570–625; Algorithm 1, PDF page 4",
+        "disposition": "Treat the output as a candidate, not a certified result. These are static control-flow observations, not experimentally reproduced failures or claims about the published runs."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Official proceedings identity",
+        "url": "https://aclanthology.org/2026.findings-acl.1286/"
+      },
+      {
+        "label": "Official implementation snapshot",
+        "url": "https://github.com/magic-YuanTian/PV-SQL/tree/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6"
+      },
+      {
+        "label": "Release instructions",
+        "url": "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/README.md"
+      },
+      {
+        "label": "Probe and verification implementation",
+        "url": "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/pvsql/pv_sql.py"
+      },
+      {
+        "label": "Database adapter",
+        "url": "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/pvsql/db.py"
+      },
+      {
+        "label": "MIT license",
+        "url": "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/LICENSE"
+      },
+      {
+        "label": "Batch-runner configuration",
+        "url": "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/scripts/run_batch.py"
+      }
+    ]
+  },
+  {
     "paper_id": "qda-sql",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-09",

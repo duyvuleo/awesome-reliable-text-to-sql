@@ -3527,5 +3527,36 @@
     "added_on": "2026-11-21",
     "checked_on": "2026-11-21",
     "artifact_status": "Public source tree inspected at 9eaf64c6aa0d1dbd148b189ac35386c40771e4ff: selection/generation code, AMBROSIA experiment scripts, analysis, tests and Lean proof files. Source and documentation were inspected without executing code or checking Lean. AMBROSIA must be obtained separately; no new benchmark resource is inferred. No explicit license was verified in the complete tree or package metadata."
+  },
+  {
+    "id": "pv-sql",
+    "title": "PV-SQL: Synergizing Database Probing and Rule-based Verification for Text-to-SQL Agents",
+    "year": 2026,
+    "publication_status": "Findings of ACL 2026",
+    "primary_url": "https://aclanthology.org/2026.findings-acl.1286/",
+    "code_url": "https://github.com/magic-YuanTian/PV-SQL",
+    "dataset_url": null,
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "verification",
+      "value-grounding",
+      "context",
+      "error-correction",
+      "evaluation"
+    ],
+    "summary": "Combines targeted database probes with a rule-based checklist and iterative SQL repair. Development-set ablations on BIRD, Mini-Dev and Spider support the contribution of probing and repair, but construct checks do not certify intended semantics. Reported component success measures constraint satisfaction rather than whole-query correctness, and public source checks differ from the paper description. Clarification and unanswerability are not evaluated.",
+    "evidence": [
+      "https://aclanthology.org/2026.findings-acl.1286/",
+      "https://aclanthology.org/2026.findings-acl.1286.pdf",
+      "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/README.md",
+      "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/pvsql/pv_sql.py",
+      "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/LICENSE"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/pv-sql.md",
+    "added_on": "2026-11-22",
+    "checked_on": "2026-11-22",
+    "artifact_status": "Official public source inspected at 9f2bcd9a16ec1029649222851bd9e08a2af3e2c6: probe/generate/verify/repair implementation, SQLite adapter, example scripts and batch runner. MIT license text verified. Benchmarks and official evaluators must be obtained separately. The released regex/substring checks and default repair budget differ from some paper descriptions; these are static reproducibility caveats, not evidence about the exact revision used for published scores. No linked code executed or results reproduced."
   }
 ]

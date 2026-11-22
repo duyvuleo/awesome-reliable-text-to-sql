@@ -492,13 +492,14 @@
     "description": "Ambiguous requests with interpretations and SQL for scope, attachment, and vagueness cases.",
     "protocol": "Models enumerate SQL interpretations with complete schema and database contents supplied. Precision, recall and AllFound use execution outputs flattened to sets of values, which can admit accidental matches.",
     "availability": "Author-controlled download; project asks that data not be mirrored to GitHub or Hugging Face.",
-    "license_note": "Dataset license not verified; respect the author's download and redistribution conditions.",
+    "license_note": "The official author README declares CC BY 4.0 for AMBROSIA and its released software. The project separately asks users not to mirror the dataset on GitHub or Hugging Face; use the author-controlled download. No dataset archive was downloaded or inspected.",
     "evidence": [
       "https://ambrosia-benchmark.github.io/",
       "https://arxiv.org/abs/2406.19073",
-      "https://arxiv.org/pdf/2406.19073v2"
+      "https://arxiv.org/pdf/2406.19073v2",
+      "https://github.com/saparina/AMBROSIA/blob/7de80a41f1ad4f01aed9bb55e734654688b572a8/README.md"
     ],
-    "checked_on": "2026-11-09"
+    "checked_on": "2026-11-22"
   },
   {
     "id": "practiq-data",
@@ -1672,5 +1673,27 @@
       "https://arxiv.org/pdf/2611.25003v1"
     ],
     "checked_on": "2026-11-21"
+  },
+  {
+    "id": "pv-sql-system",
+    "name": "PV-SQL",
+    "kind": "system",
+    "paper_ids": [
+      "pv-sql"
+    ],
+    "url": "https://github.com/magic-YuanTian/PV-SQL",
+    "description": "Public probe–generate–verify–repair implementation for grounding SQL in database observations and checking selected question requirements.",
+    "protocol": "Runs targeted database probes, extracts heuristic constraints, generates a candidate and uses syntax/execution feedback plus regex and substring checks to request repairs. The public reference adapter supports SQLite. Passing checks does not certify semantic equivalence or intended meaning, and the loop can return unresolved or unreverified candidates.",
+    "availability": "Complete 15-entry source tree, README and relevant implementation inspected at 9f2bcd9a16ec1029649222851bd9e08a2af3e2c6. Includes core modules, a batch runner and example-building scripts; benchmark databases and official scoring must be obtained separately. No project code or example builder was executed, no data downloaded, and no published result independently reproduced.",
+    "license_note": "MIT license text verified in the pinned root LICENSE, copyright 2026 Yuan Tian and Tianyi Zhang. This does not establish licenses for externally obtained benchmarks or models.",
+    "evidence": [
+      "https://github.com/magic-YuanTian/PV-SQL",
+      "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/README.md",
+      "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/LICENSE",
+      "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/pvsql/pv_sql.py",
+      "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/pvsql/db.py",
+      "https://aclanthology.org/2026.findings-acl.1286.pdf"
+    ],
+    "checked_on": "2026-11-22"
   }
 ]

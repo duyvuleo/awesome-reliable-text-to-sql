@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-21",
-  "updated": "2026-11-21",
+  "checked": "2026-11-22",
+  "updated": "2026-11-22",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 124,
-    "system": 26,
+    "paper": 125,
+    "system": 27,
     "tool": 25,
     "benchmark": 36
   },
@@ -1255,6 +1255,35 @@
       ],
       "kinds": [
         "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "pv-sql",
+      "name": "PV-SQL: Synergizing Database Probing and Rule-based Verification for Text-to-SQL Agents",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Combines targeted database probes with a rule-based checklist and iterative SQL repair. Development-set ablations on BIRD, Mini-Dev and Spider support the contribution of probing and repair, but construct checks do not certify intended semantics. Reported component success measures constraint satisfaction rather than whole-query correctness, and public source checks differ from the paper description. Clarification and unanswerability are not evaluated.",
+      "entry_ids": [
+        "pv-sql",
+        "pv-sql-system"
+      ],
+      "themes": [
+        "context",
+        "error-correction",
+        "evaluation",
+        "value-grounding",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper",
+        "system"
       ],
       "years": [
         2026
@@ -11041,6 +11070,73 @@
       "work_id": "pooldpp"
     },
     {
+      "id": "pv-sql",
+      "name": "PV-SQL: Synergizing Database Probing and Rule-based Verification for Text-to-SQL Agents",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Combines targeted database probes with a rule-based checklist and iterative SQL repair. Development-set ablations on BIRD, Mini-Dev and Spider support the contribution of probing and repair, but construct checks do not certify intended semantics. Reported component success measures constraint satisfaction rather than whole-query correctness, and public source checks differ from the paper description. Clarification and unanswerability are not evaluated.",
+      "tags": [
+        "verification",
+        "value-grounding",
+        "context",
+        "error-correction",
+        "evaluation"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "Findings of ACL 2026",
+      "status": "Official public source inspected at 9f2bcd9a16ec1029649222851bd9e08a2af3e2c6: probe/generate/verify/repair implementation, SQLite adapter, example scripts and batch runner. MIT license text verified. Benchmarks and official evaluators must be obtained separately. The released regex/substring checks and default repair budget differ from some paper descriptions; these are static reproducibility caveats, not evidence about the exact revision used for published scores. No linked code executed or results reproduced.",
+      "sources": [
+        "https://aclanthology.org/2026.findings-acl.1286/",
+        "https://aclanthology.org/2026.findings-acl.1286.pdf",
+        "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/README.md",
+        "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/pvsql/pv_sql.py",
+        "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/LICENSE"
+      ],
+      "checked": "2026-11-22",
+      "added_on": "2026-11-22",
+      "url": "https://aclanthology.org/2026.findings-acl.1286/",
+      "code_links": [
+        "https://github.com/magic-YuanTian/PV-SQL"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#pv-sql",
+      "original": {
+        "id": "pv-sql",
+        "title": "PV-SQL: Synergizing Database Probing and Rule-based Verification for Text-to-SQL Agents",
+        "year": 2026,
+        "publication_status": "Findings of ACL 2026",
+        "primary_url": "https://aclanthology.org/2026.findings-acl.1286/",
+        "code_url": "https://github.com/magic-YuanTian/PV-SQL",
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "verification",
+          "value-grounding",
+          "context",
+          "error-correction",
+          "evaluation"
+        ],
+        "summary": "Combines targeted database probes with a rule-based checklist and iterative SQL repair. Development-set ablations on BIRD, Mini-Dev and Spider support the contribution of probing and repair, but construct checks do not certify intended semantics. Reported component success measures constraint satisfaction rather than whole-query correctness, and public source checks differ from the paper description. Clarification and unanswerability are not evaluated.",
+        "evidence": [
+          "https://aclanthology.org/2026.findings-acl.1286/",
+          "https://aclanthology.org/2026.findings-acl.1286.pdf",
+          "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/README.md",
+          "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/pvsql/pv_sql.py",
+          "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/LICENSE"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/pv-sql.md",
+        "added_on": "2026-11-22",
+        "checked_on": "2026-11-22",
+        "artifact_status": "Official public source inspected at 9f2bcd9a16ec1029649222851bd9e08a2af3e2c6: probe/generate/verify/repair implementation, SQLite adapter, example scripts and batch runner. MIT license text verified. Benchmarks and official evaluators must be obtained separately. The released regex/substring checks and default repair budget differ from some paper descriptions; these are static reproducibility caveats, not evidence about the exact revision used for published scores. No linked code executed or results reproduced."
+      },
+      "work_id": "pv-sql"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -12373,9 +12469,10 @@
       "sources": [
         "https://ambrosia-benchmark.github.io/",
         "https://arxiv.org/abs/2406.19073",
-        "https://arxiv.org/pdf/2406.19073v2"
+        "https://arxiv.org/pdf/2406.19073v2",
+        "https://github.com/saparina/AMBROSIA/blob/7de80a41f1ad4f01aed9bb55e734654688b572a8/README.md"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-11-22",
       "added_on": null,
       "url": "https://ambrosia-benchmark.github.io/",
       "code_links": [],
@@ -12391,13 +12488,14 @@
         "description": "Ambiguous requests with interpretations and SQL for scope, attachment, and vagueness cases.",
         "protocol": "Models enumerate SQL interpretations with complete schema and database contents supplied. Precision, recall and AllFound use execution outputs flattened to sets of values, which can admit accidental matches.",
         "availability": "Author-controlled download; project asks that data not be mirrored to GitHub or Hugging Face.",
-        "license_note": "Dataset license not verified; respect the author's download and redistribution conditions.",
+        "license_note": "The official author README declares CC BY 4.0 for AMBROSIA and its released software. The project separately asks users not to mirror the dataset on GitHub or Hugging Face; use the author-controlled download. No dataset archive was downloaded or inspected.",
         "evidence": [
           "https://ambrosia-benchmark.github.io/",
           "https://arxiv.org/abs/2406.19073",
-          "https://arxiv.org/pdf/2406.19073v2"
+          "https://arxiv.org/pdf/2406.19073v2",
+          "https://github.com/saparina/AMBROSIA/blob/7de80a41f1ad4f01aed9bb55e734654688b572a8/README.md"
         ],
-        "checked_on": "2026-11-09"
+        "checked_on": "2026-11-22"
       },
       "work_id": "ambrosia"
     },
@@ -15520,6 +15618,65 @@
         "checked_on": "2026-11-21"
       },
       "work_id": "pooldpp"
+    },
+    {
+      "id": "pv-sql-system",
+      "name": "PV-SQL",
+      "kind": "system",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Public probe–generate–verify–repair implementation for grounding SQL in database observations and checking selected question requirements.",
+      "tags": [
+        "context",
+        "error-correction",
+        "evaluation",
+        "value-grounding",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "Complete 15-entry source tree, README and relevant implementation inspected at 9f2bcd9a16ec1029649222851bd9e08a2af3e2c6. Includes core modules, a batch runner and example-building scripts; benchmark databases and official scoring must be obtained separately. No project code or example builder was executed, no data downloaded, and no published result independently reproduced.",
+      "sources": [
+        "https://github.com/magic-YuanTian/PV-SQL",
+        "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/README.md",
+        "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/LICENSE",
+        "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/pvsql/pv_sql.py",
+        "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/pvsql/db.py",
+        "https://aclanthology.org/2026.findings-acl.1286.pdf"
+      ],
+      "checked": "2026-11-22",
+      "added_on": null,
+      "url": "https://github.com/magic-YuanTian/PV-SQL",
+      "code_links": [
+        "https://github.com/magic-YuanTian/PV-SQL"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#pv-sql-system",
+      "original": {
+        "id": "pv-sql-system",
+        "name": "PV-SQL",
+        "kind": "system",
+        "paper_ids": [
+          "pv-sql"
+        ],
+        "url": "https://github.com/magic-YuanTian/PV-SQL",
+        "description": "Public probe–generate–verify–repair implementation for grounding SQL in database observations and checking selected question requirements.",
+        "protocol": "Runs targeted database probes, extracts heuristic constraints, generates a candidate and uses syntax/execution feedback plus regex and substring checks to request repairs. The public reference adapter supports SQLite. Passing checks does not certify semantic equivalence or intended meaning, and the loop can return unresolved or unreverified candidates.",
+        "availability": "Complete 15-entry source tree, README and relevant implementation inspected at 9f2bcd9a16ec1029649222851bd9e08a2af3e2c6. Includes core modules, a batch runner and example-building scripts; benchmark databases and official scoring must be obtained separately. No project code or example builder was executed, no data downloaded, and no published result independently reproduced.",
+        "license_note": "MIT license text verified in the pinned root LICENSE, copyright 2026 Yuan Tian and Tianyi Zhang. This does not establish licenses for externally obtained benchmarks or models.",
+        "evidence": [
+          "https://github.com/magic-YuanTian/PV-SQL",
+          "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/README.md",
+          "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/LICENSE",
+          "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/pvsql/pv_sql.py",
+          "https://github.com/magic-YuanTian/PV-SQL/blob/9f2bcd9a16ec1029649222851bd9e08a2af3e2c6/pvsql/db.py",
+          "https://aclanthology.org/2026.findings-acl.1286.pdf"
+        ],
+        "checked_on": "2026-11-22"
+      },
+      "work_id": "pv-sql"
     }
   ],
   "themes": [
@@ -15531,7 +15688,7 @@
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 43
+      "count": 44
     },
     {
       "id": "clarification",
@@ -15541,7 +15698,7 @@
     {
       "id": "verification",
       "label": "Verification",
-      "count": 32
+      "count": 33
     },
     {
       "id": "unanswerability",
@@ -15566,7 +15723,7 @@
     {
       "id": "context",
       "label": "Context",
-      "count": 11
+      "count": 12
     },
     {
       "id": "human-in-the-loop",
@@ -15584,6 +15741,11 @@
       "count": 9
     },
     {
+      "id": "error-correction",
+      "label": "Error correction",
+      "count": 8
+    },
+    {
       "id": "sql-equivalence",
       "label": "SQL equivalence",
       "count": 8
@@ -15591,11 +15753,6 @@
     {
       "id": "benchmark-quality",
       "label": "Benchmark quality",
-      "count": 7
-    },
-    {
-      "id": "error-correction",
-      "label": "Error correction",
       "count": 7
     },
     {
@@ -15751,6 +15908,11 @@
     {
       "id": "test-generation",
       "label": "Test generation",
+      "count": 2
+    },
+    {
+      "id": "value-grounding",
+      "label": "Value grounding",
       "count": 2
     },
     {
@@ -15931,11 +16093,6 @@
     {
       "id": "tabular-qa",
       "label": "Tabular qa",
-      "count": 1
-    },
-    {
-      "id": "value-grounding",
-      "label": "Value grounding",
       "count": 1
     }
   ],

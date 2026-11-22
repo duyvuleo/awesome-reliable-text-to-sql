@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-11-22: probing/checklist verification and AMBROSIA license clarification](2026-11-22.md)
+
 - [2026-11-21: complementary ambiguity detection, diverse interpretation sets and operational failures](2026-11-21.md)
 
 - [2026-11-20: operational semantics and alternative-answer evaluation](2026-11-20.md)

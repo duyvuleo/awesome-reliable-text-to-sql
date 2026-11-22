@@ -6,7 +6,7 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **121 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **122 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
@@ -58,6 +58,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [Post-SQLFix: Property-Guided Repair of LLM-Generated SQL with Runtime Verification](notes/post-sqlfix.md) | Full paper read |
 | 2026 | [PremiseSQL: Evaluating Premise Critique and Abstention in Text-to-SQL Systems](notes/premisesql.md) | Full paper read |
 | 2026 | [Probing Ambiguity: Adversarial Intent Resolution for Robust Text-to-SQL](notes/air.md) | Full paper read |
+| 2026 | [PV-SQL: Synergizing Database Probing and Rule-based Verification for Text-to-SQL Agents](notes/pv-sql.md) | Full paper read |
 | 2026 | [QDA-SQL: Questions Enhanced Dialogue Augmentation for Multi-Turn Text-to-SQL](notes/qda-sql.md) | Full paper read |
 | 2026 | [RAQS-SQL: Schema and Value Ambiguity Resolution in Text-to-SQL](notes/raqs-sql.md) | Full text unavailable |
 | 2026 | [Reasoning about Intent for Ambiguous Requests](notes/intentrl.md) | Full paper read |
