@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-11-24: intent/data clarification, context-bank consistency and rewrite verification](2026-11-24.md)
+
 - [2026-11-23: verified Query Carefully proceedings and bounded artifact rechecks](2026-11-23.md)
 
 - [2026-11-22: probing/checklist verification and AMBROSIA license clarification](2026-11-22.md)

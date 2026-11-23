@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-24
+
+- Added complete readings of AskWise, Know Your Context Bank and QO-Verify, with conditional guarantees, simulated evaluation, context-label and rewrite-verification limits. Totals are 128 papers, with 125 complete readings and three existing access gaps.
+- Added the AskWise tool and one combined paper-described CAT-BIRD/CAT-Spider benchmark comparison. Counts are 53 systems/tools and 37 benchmark entries; CAT’s release remains unverified.
+- Recovered the broader arXiv search after the prior rate limit using an extended overlap. Existing records and their original dates remain unchanged; no linked research code or datasets were executed.
+
 ## 2026-11-23
 
 - Reconciled Query Carefully with its verified Springer CCIS 2830 publication on 1 April 2026. Updated publication year/status and primary source while preserving its original inclusion date and arXiv-specific full reading.

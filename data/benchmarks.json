@@ -1900,5 +1900,59 @@
       }
     ],
     "checked_on": "2026-11-20"
+  },
+  {
+    "resource_id": "cat-context-benchmarks",
+    "label": "CAT-BIRD / CAT-Spider",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_targeted",
+      "detail": "CAT measures transfer from cleaned context banks and filters detected conflicts. Separate paper experiments study convention-open requests; CAT is not an ambiguity-detection or interpretation-coverage benchmark."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "Tests SQL generation against selected executable gold queries, with no intrinsic-unanswerability labels or refusal target. Exclusion of empty or bare 0/1/NULL gold results is a construction filter, not an answerability definition."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "No clarification dialogue is evaluated; test questions receive schema and optionally retrieved examples, or a bank-fine-tuned model."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Offline question–SQL evaluation with fixed banks and generated/reused test questions; no simulated or real user feedback during inference."
+    },
+    "domain": "Cross-domain SQLite benchmarks derived from BIRD and Spider. CAT-BIRD uses 14 bank databases and 5 additional unseen databases; CAT-Spider uses 42 bank databases and 20 unseen Spider-dev databases.",
+    "evaluation": "Execution accuracy and gain over no-context or matched no-bank controls across scorer-defined distance groups. CAT-BIRD difficulty matching is model-conditioned and imposed by selection; CAT-Spider far groups are smaller and not matched. Finite execution checks and LLM judgments do not prove semantic correctness.",
+    "data_access": "release_unverified",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/pdf/2611.26775v1",
+        "locator": "Section 6, pp.8–9; Appendix F, pp.24–25",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://arxiv.org/pdf/2611.26775v1",
+        "locator": "Reproducibility statement, p.10",
+        "supports": [
+          "data_access"
+        ]
+      },
+      {
+        "url": "https://arxiv.org/pdf/2611.26775v1",
+        "locator": "Appendix H item 2, pp.26–27",
+        "supports": [
+          "evaluation",
+          "ambiguity"
+        ]
+      }
+    ],
+    "checked_on": "2026-11-24"
   }
 ]

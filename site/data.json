@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-23",
-  "updated": "2026-11-23",
+  "checked": "2026-11-24",
+  "updated": "2026-11-24",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 125,
+    "paper": 128,
     "system": 27,
-    "tool": 25,
-    "benchmark": 36
+    "tool": 26,
+    "benchmark": 37
   },
   "categories": {
     "ambiguity": "Ambiguity and multiple interpretations",
@@ -176,6 +176,36 @@
       ],
       "kinds": [
         "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "askwise",
+      "name": "AskWise: Execution-Guided Clarification of Intent and Data in Text-to-SQL",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "AskWise pairs query interpretations with possible database repairs, asks about choices supported by execution witnesses, and returns an answer when all surviving worlds agree. A four-cell bound selects EC2-maximizing questions for uniform binary worlds with Boolean answers. Synthetic policy experiments and an AmbiQT value-swap study expose the limits of grouping queries by observed results alone. Correctness requires the true query/data world to be included and replies to be truthful; the model study measures reference-signature retention, not end-to-end dialogue success.",
+      "entry_ids": [
+        "askwise",
+        "askwise-tool"
+      ],
+      "themes": [
+        "ambiguity",
+        "clarification",
+        "database-state",
+        "evaluation",
+        "interaction",
+        "verification"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "kinds": [
+        "paper",
+        "tool"
       ],
       "years": [
         2026
@@ -823,6 +853,35 @@
       ]
     },
     {
+      "id": "context-bank",
+      "name": "Know Your Context Bank: Repairing Inconsistency and Measuring Generalization in Context-Aware Text-to-SQL",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Audits SQL example banks using semantic-unit comparisons, a distilled conflict scorer and two-track adjudication under explicit conventions. Cleaning improves one-model fine-tuning, while separate convention-open experiments show that inconsistent examples can steer otherwise defensible answers. CAT-BIRD and CAT-Spider measure transfer across scored distances from a context bank. LLM labels, selected difficulty, simple retrieval and single-seed runs limit generalization claims; clarification and abstention are not evaluated.",
+      "entry_ids": [
+        "context-bank",
+        "cat-context-benchmarks"
+      ],
+      "themes": [
+        "ambiguity",
+        "benchmark-quality",
+        "business-semantics",
+        "context",
+        "evaluation"
+      ],
+      "categories": [
+        "context"
+      ],
+      "kinds": [
+        "benchmark",
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "kode",
       "name": "KODE: Mining Implicit Domain Knowledge from Historical Experience for Text-to-SQL",
       "date": "2026",
@@ -893,6 +952,32 @@
       ],
       "categories": [
         "answerability"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "qo-verify",
+      "name": "Leveraging Query Optimizers to Verify the Soundness of LLM-based Query Rewrites for Real-World Workloads, and More!",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "QO-Verify checks whether two SQL queries share a logical expression in optimizer-generated memos. SQL Server experiments verify a subset of LLM rewrites, with coverage depending on available transformation rules and search limits. Soundness relies on those rules and correct expression matching; Unknown is inconclusive. The method preserves an input SQL query rather than verifying its alignment with a natural-language request.",
+      "entry_ids": [
+        "qo-verify"
+      ],
+      "themes": [
+        "evaluation",
+        "query-rewriting",
+        "sql-equivalence",
+        "verification"
+      ],
+      "categories": [
+        "verification"
       ],
       "kinds": [
         "paper"
@@ -11141,6 +11226,193 @@
       "work_id": "pv-sql"
     },
     {
+      "id": "askwise",
+      "name": "AskWise: Execution-Guided Clarification of Intent and Data in Text-to-SQL",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "AskWise pairs query interpretations with possible database repairs, asks about choices supported by execution witnesses, and returns an answer when all surviving worlds agree. A four-cell bound selects EC2-maximizing questions for uniform binary worlds with Boolean answers. Synthetic policy experiments and an AmbiQT value-swap study expose the limits of grouping queries by observed results alone. Correctness requires the true query/data world to be included and replies to be truthful; the model study measures reference-signature retention, not end-to-end dialogue success.",
+      "tags": [
+        "ambiguity",
+        "clarification",
+        "database-state",
+        "interaction",
+        "verification",
+        "evaluation"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "The paper-linked repository exposes finite-world policies, relevance checks, experiment scripts, tests and an offline demonstration. README, experiment protocol and relevance-check source were inspected at fce577f91188c82766def7c7fbe0235dd7fc2818 without execution. AmbiQT annotations/databases and model APIs are separate dependencies. No explicit license for the project's own code was verified; third-party notices do not supply one.",
+      "sources": [
+        "https://arxiv.org/abs/2611.27474",
+        "https://arxiv.org/pdf/2611.27474v1",
+        "https://github.com/fmh1art/AskWise/tree/fce577f91188c82766def7c7fbe0235dd7fc2818"
+      ],
+      "checked": "2026-11-24",
+      "added_on": "2026-11-24",
+      "url": "https://arxiv.org/abs/2611.27474",
+      "code_links": [
+        "https://github.com/fmh1art/AskWise"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#askwise",
+      "original": {
+        "id": "askwise",
+        "title": "AskWise: Execution-Guided Clarification of Intent and Data in Text-to-SQL",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.27474",
+        "code_url": "https://github.com/fmh1art/AskWise",
+        "dataset_url": null,
+        "category": "ambiguity",
+        "scope": "core",
+        "topics": [
+          "ambiguity",
+          "clarification",
+          "database-state",
+          "interaction",
+          "verification",
+          "evaluation"
+        ],
+        "summary": "AskWise pairs query interpretations with possible database repairs, asks about choices supported by execution witnesses, and returns an answer when all surviving worlds agree. A four-cell bound selects EC2-maximizing questions for uniform binary worlds with Boolean answers. Synthetic policy experiments and an AmbiQT value-swap study expose the limits of grouping queries by observed results alone. Correctness requires the true query/data world to be included and replies to be truthful; the model study measures reference-signature retention, not end-to-end dialogue success.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.27474",
+          "https://arxiv.org/pdf/2611.27474v1",
+          "https://github.com/fmh1art/AskWise/tree/fce577f91188c82766def7c7fbe0235dd7fc2818"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/askwise.md",
+        "added_on": "2026-11-24",
+        "checked_on": "2026-11-24",
+        "artifact_status": "The paper-linked repository exposes finite-world policies, relevance checks, experiment scripts, tests and an offline demonstration. README, experiment protocol and relevance-check source were inspected at fce577f91188c82766def7c7fbe0235dd7fc2818 without execution. AmbiQT annotations/databases and model APIs are separate dependencies. No explicit license for the project's own code was verified; third-party notices do not supply one."
+      },
+      "work_id": "askwise"
+    },
+    {
+      "id": "qo-verify",
+      "name": "Leveraging Query Optimizers to Verify the Soundness of LLM-based Query Rewrites for Real-World Workloads, and More!",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "QO-Verify checks whether two SQL queries share a logical expression in optimizer-generated memos. SQL Server experiments verify a subset of LLM rewrites, with coverage depending on available transformation rules and search limits. Soundness relies on those rules and correct expression matching; Unknown is inconclusive. The method preserves an input SQL query rather than verifying its alignment with a natural-language request.",
+      "tags": [
+        "sql-equivalence",
+        "verification",
+        "query-rewriting",
+        "evaluation"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "CIDR 2026",
+      "status": "The complete 12-page CIDR proceedings paper was read. It describes changes to the Microsoft SQL Server optimizer to export memos and a client-side matcher. A later four-page PVLDB demonstration describes QO-Verify as a DLL in an SSMS extension; its text was inspected for implementation provenance. No public QO-Verify source, binary download or software license was verified. The enterprise workloads discussed in the public paper were not accessed, and no result was independently reproduced.",
+      "sources": [
+        "https://www.vldb.org/cidrdb/papers/2026/p33-narasayya.pdf",
+        "https://vldb.org/cidrdb/2026/",
+        "https://www.vldb.org/pvldb/vol19/p4594-narasayya.pdf"
+      ],
+      "checked": "2026-11-24",
+      "added_on": "2026-11-24",
+      "url": "https://www.vldb.org/cidrdb/papers/2026/p33-narasayya.pdf",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#qo-verify",
+      "original": {
+        "id": "qo-verify",
+        "title": "Leveraging Query Optimizers to Verify the Soundness of LLM-based Query Rewrites for Real-World Workloads, and More!",
+        "year": 2026,
+        "publication_status": "CIDR 2026",
+        "primary_url": "https://www.vldb.org/cidrdb/papers/2026/p33-narasayya.pdf",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "sql-equivalence",
+          "verification",
+          "query-rewriting",
+          "evaluation"
+        ],
+        "summary": "QO-Verify checks whether two SQL queries share a logical expression in optimizer-generated memos. SQL Server experiments verify a subset of LLM rewrites, with coverage depending on available transformation rules and search limits. Soundness relies on those rules and correct expression matching; Unknown is inconclusive. The method preserves an input SQL query rather than verifying its alignment with a natural-language request.",
+        "evidence": [
+          "https://www.vldb.org/cidrdb/papers/2026/p33-narasayya.pdf",
+          "https://vldb.org/cidrdb/2026/",
+          "https://www.vldb.org/pvldb/vol19/p4594-narasayya.pdf"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/qo-verify.md",
+        "added_on": "2026-11-24",
+        "checked_on": "2026-11-24",
+        "artifact_status": "The complete 12-page CIDR proceedings paper was read. It describes changes to the Microsoft SQL Server optimizer to export memos and a client-side matcher. A later four-page PVLDB demonstration describes QO-Verify as a DLL in an SSMS extension; its text was inspected for implementation provenance. No public QO-Verify source, binary download or software license was verified. The enterprise workloads discussed in the public paper were not accessed, and no result was independently reproduced."
+      },
+      "work_id": "qo-verify"
+    },
+    {
+      "id": "context-bank",
+      "name": "Know Your Context Bank: Repairing Inconsistency and Measuring Generalization in Context-Aware Text-to-SQL",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Audits SQL example banks using semantic-unit comparisons, a distilled conflict scorer and two-track adjudication under explicit conventions. Cleaning improves one-model fine-tuning, while separate convention-open experiments show that inconsistent examples can steer otherwise defensible answers. CAT-BIRD and CAT-Spider measure transfer across scored distances from a context bank. LLM labels, selected difficulty, simple retrieval and single-seed runs limit generalization claims; clarification and abstention are not evaluated.",
+      "tags": [
+        "context",
+        "business-semantics",
+        "benchmark-quality",
+        "ambiguity",
+        "evaluation",
+        "benchmark"
+      ],
+      "categories": [
+        "context"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "The reproducibility statement promises the CAT pipeline, CAT-BIRD/CAT-Spider and their context banks, synthesized convention banks, scorer weights and cleaning ledgers. No official release was verified through the paper or bounded author/GitHub/Hugging Face searches; no code, data or model was executed or downloaded.",
+      "sources": [
+        "https://arxiv.org/abs/2611.26775",
+        "https://arxiv.org/html/2611.26775v1",
+        "https://arxiv.org/pdf/2611.26775v1"
+      ],
+      "checked": "2026-11-24",
+      "added_on": "2026-11-24",
+      "url": "https://arxiv.org/abs/2611.26775",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#context-bank",
+      "original": {
+        "id": "context-bank",
+        "title": "Know Your Context Bank: Repairing Inconsistency and Measuring Generalization in Context-Aware Text-to-SQL",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.26775",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "context",
+        "topics": [
+          "context",
+          "business-semantics",
+          "benchmark-quality",
+          "ambiguity",
+          "evaluation",
+          "benchmark"
+        ],
+        "scope": "adjacent",
+        "summary": "Audits SQL example banks using semantic-unit comparisons, a distilled conflict scorer and two-track adjudication under explicit conventions. Cleaning improves one-model fine-tuning, while separate convention-open experiments show that inconsistent examples can steer otherwise defensible answers. CAT-BIRD and CAT-Spider measure transfer across scored distances from a context bank. LLM labels, selected difficulty, simple retrieval and single-seed runs limit generalization claims; clarification and abstention are not evaluated.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.26775",
+          "https://arxiv.org/html/2611.26775v1",
+          "https://arxiv.org/pdf/2611.26775v1"
+        ],
+        "artifact_status": "The reproducibility statement promises the CAT pipeline, CAT-BIRD/CAT-Spider and their context banks, synthesized convention banks, scorer weights and cleaning ledgers. No official release was verified through the paper or bounded author/GitHub/Hugging Face searches; no code, data or model was executed or downloaded.",
+        "checked_on": "2026-11-24",
+        "source_depth": "full-text-reviewed",
+        "added_on": "2026-11-24",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/context-bank.md"
+      },
+      "work_id": "context-bank"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -15681,28 +15953,138 @@
         "checked_on": "2026-11-22"
       },
       "work_id": "pv-sql"
+    },
+    {
+      "id": "askwise-tool",
+      "name": "AskWise",
+      "kind": "tool",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Finite-world clarification research implementation combining query interpretations and proposed data repairs, with execution witnesses, question-selection bounds and an offline revenue demonstration.",
+      "tags": [
+        "ambiguity",
+        "clarification",
+        "database-state",
+        "evaluation",
+        "interaction",
+        "verification"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "resource",
+      "status": "Visible Python algorithms, evaluation scripts, tests, protocols and offline demo at fce577f91188c82766def7c7fbe0235dd7fc2818. Model experiments require external AmbiQT data, API access and caches described in the README/protocol. Source was inspected without execution or independent reproduction.",
+      "sources": [
+        "https://github.com/fmh1art/AskWise/tree/fce577f91188c82766def7c7fbe0235dd7fc2818",
+        "https://github.com/fmh1art/AskWise/blob/fce577f91188c82766def7c7fbe0235dd7fc2818/README.md",
+        "https://github.com/fmh1art/AskWise/blob/fce577f91188c82766def7c7fbe0235dd7fc2818/a2/relevance.py",
+        "https://github.com/fmh1art/AskWise/blob/fce577f91188c82766def7c7fbe0235dd7fc2818/experiments/E003-protocol.md",
+        "https://github.com/fmh1art/AskWise/blob/fce577f91188c82766def7c7fbe0235dd7fc2818/THIRD_PARTY_NOTICES.md",
+        "https://arxiv.org/pdf/2611.27474v1"
+      ],
+      "checked": "2026-11-24",
+      "added_on": null,
+      "url": "https://github.com/fmh1art/AskWise",
+      "code_links": [
+        "https://github.com/fmh1art/AskWise"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#askwise-tool",
+      "original": {
+        "id": "askwise-tool",
+        "name": "AskWise",
+        "kind": "tool",
+        "paper_ids": [
+          "askwise"
+        ],
+        "url": "https://github.com/fmh1art/AskWise",
+        "description": "Finite-world clarification research implementation combining query interpretations and proposed data repairs, with execution witnesses, question-selection bounds and an offline revenue demonstration.",
+        "protocol": "Requires supplied candidate interpretations/repairs and known or requested SQL answers. Synthetic policy tests use truthful coordinate replies, uniform binary worlds and cached SQLite results; the exact question-gain bound targets Boolean answers. A separate AmbiQT study compares pruning on one versus two database states. This is not a complete natural-language dialogue or unanswerability benchmark.",
+        "availability": "Visible Python algorithms, evaluation scripts, tests, protocols and offline demo at fce577f91188c82766def7c7fbe0235dd7fc2818. Model experiments require external AmbiQT data, API access and caches described in the README/protocol. Source was inspected without execution or independent reproduction.",
+        "license_note": "No explicit license for this project's own code was found in the inspected complete tree or README. GitHub license metadata is null. THIRD_PARTY_NOTICES.md documents external provenance but does not grant a project-wide reuse license.",
+        "evidence": [
+          "https://github.com/fmh1art/AskWise/tree/fce577f91188c82766def7c7fbe0235dd7fc2818",
+          "https://github.com/fmh1art/AskWise/blob/fce577f91188c82766def7c7fbe0235dd7fc2818/README.md",
+          "https://github.com/fmh1art/AskWise/blob/fce577f91188c82766def7c7fbe0235dd7fc2818/a2/relevance.py",
+          "https://github.com/fmh1art/AskWise/blob/fce577f91188c82766def7c7fbe0235dd7fc2818/experiments/E003-protocol.md",
+          "https://github.com/fmh1art/AskWise/blob/fce577f91188c82766def7c7fbe0235dd7fc2818/THIRD_PARTY_NOTICES.md",
+          "https://arxiv.org/pdf/2611.27474v1"
+        ],
+        "checked_on": "2026-11-24"
+      },
+      "work_id": "askwise"
+    },
+    {
+      "id": "cat-context-benchmarks",
+      "name": "CAT-BIRD and CAT-Spider benchmark designs",
+      "kind": "benchmark",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Paper-described tests of SQL generation at controlled scored distances from cleaned question–SQL context banks: 1,097 CAT-BIRD and 953 CAT-Spider questions.",
+      "tags": [
+        "ambiguity",
+        "benchmark",
+        "benchmark-quality",
+        "business-semantics",
+        "context",
+        "evaluation"
+      ],
+      "categories": [
+        "context"
+      ],
+      "evidence": "resource",
+      "status": "Paper-described benchmark designs. The reproducibility statement promises release of both datasets and context banks; no official downloadable artifact was verified. Counts and protocols are paper-reported, not independently inspected dataset contents.",
+      "sources": [
+        "https://arxiv.org/abs/2611.26775",
+        "https://arxiv.org/pdf/2611.26775v1"
+      ],
+      "checked": "2026-11-24",
+      "added_on": null,
+      "url": "https://arxiv.org/abs/2611.26775",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/datasets/README.md#cat-context-benchmarks",
+      "original": {
+        "id": "cat-context-benchmarks",
+        "name": "CAT-BIRD and CAT-Spider benchmark designs",
+        "kind": "dataset",
+        "paper_ids": [
+          "context-bank"
+        ],
+        "url": "https://arxiv.org/abs/2611.26775",
+        "description": "Paper-described tests of SQL generation at controlled scored distances from cleaned question–SQL context banks: 1,097 CAT-BIRD and 953 CAT-Spider questions.",
+        "protocol": "Static execution evaluation compares schema-only generation, top-3 lexical retrieval and bank fine-tuning across rephrasing, increasing novelty and unseen-database groups. CAT-BIRD matches no-context difficulty by selection; CAT-Spider’s farther groups are not fully matched. Generated gold SQL is LLM-judged, with conflict checks against the source and about 18 nearby bank entries.",
+        "availability": "Paper-described benchmark designs. The reproducibility statement promises release of both datasets and context banks; no official downloadable artifact was verified. Counts and protocols are paper-reported, not independently inspected dataset contents.",
+        "license_note": "Dataset-specific terms were not verified. Existing BIRD, Spider and model licenses do not establish terms for the unreleased CAT artifacts.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.26775",
+          "https://arxiv.org/pdf/2611.26775v1"
+        ],
+        "checked_on": "2026-11-24"
+      },
+      "work_id": "context-bank"
     }
   ],
   "themes": [
     {
       "id": "ambiguity",
       "label": "Ambiguity",
-      "count": 46
+      "count": 48
     },
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 44
+      "count": 47
     },
     {
       "id": "clarification",
       "label": "Clarification",
-      "count": 37
+      "count": 38
     },
     {
       "id": "verification",
       "label": "Verification",
-      "count": 33
+      "count": 35
     },
     {
       "id": "unanswerability",
@@ -15720,13 +16102,13 @@
       "count": 21
     },
     {
-      "id": "clinical",
-      "label": "Clinical",
-      "count": 12
-    },
-    {
       "id": "context",
       "label": "Context",
+      "count": 13
+    },
+    {
+      "id": "clinical",
+      "label": "Clinical",
       "count": 12
     },
     {
@@ -15745,19 +16127,19 @@
       "count": 9
     },
     {
-      "id": "error-correction",
-      "label": "Error correction",
-      "count": 8
-    },
-    {
       "id": "sql-equivalence",
       "label": "SQL equivalence",
-      "count": 8
+      "count": 9
     },
     {
       "id": "benchmark-quality",
       "label": "Benchmark quality",
-      "count": 7
+      "count": 8
+    },
+    {
+      "id": "error-correction",
+      "label": "Error correction",
+      "count": 8
     },
     {
       "id": "error-detection",
@@ -15800,6 +16182,11 @@
       "count": 5
     },
     {
+      "id": "business-semantics",
+      "label": "Business semantics",
+      "count": 4
+    },
+    {
       "id": "confidence",
       "label": "Confidence",
       "count": 4
@@ -15815,18 +16202,23 @@
       "count": 4
     },
     {
-      "id": "business-semantics",
-      "label": "Business semantics",
-      "count": 3
-    },
-    {
       "id": "database-retrieval",
       "label": "Database retrieval",
       "count": 3
     },
     {
+      "id": "database-state",
+      "label": "Database state",
+      "count": 3
+    },
+    {
       "id": "detection",
       "label": "Detection",
+      "count": 3
+    },
+    {
+      "id": "interaction",
+      "label": "Interaction",
       "count": 3
     },
     {
@@ -15850,6 +16242,11 @@
       "count": 3
     },
     {
+      "id": "query-rewriting",
+      "label": "Query rewriting",
+      "count": 3
+    },
+    {
       "id": "reinforcement-learning",
       "label": "Reinforcement learning",
       "count": 3
@@ -15870,11 +16267,6 @@
       "count": 3
     },
     {
-      "id": "database-state",
-      "label": "Database state",
-      "count": 2
-    },
-    {
       "id": "dynamic-evaluation",
       "label": "Dynamic evaluation",
       "count": 2
@@ -15885,11 +16277,6 @@
       "count": 2
     },
     {
-      "id": "interaction",
-      "label": "Interaction",
-      "count": 2
-    },
-    {
       "id": "interactive-agents",
       "label": "Interactive agents",
       "count": 2
@@ -15897,11 +16284,6 @@
     {
       "id": "missing-knowledge",
       "label": "Missing knowledge",
-      "count": 2
-    },
-    {
-      "id": "query-rewriting",
-      "label": "Query rewriting",
       "count": 2
     },
     {
@@ -18048,6 +18430,60 @@
         }
       ],
       "checked_on": "2026-11-20"
+    },
+    {
+      "resource_id": "cat-context-benchmarks",
+      "label": "CAT-BIRD / CAT-Spider",
+      "relevance": "adjacent",
+      "ambiguity": {
+        "status": "not_targeted",
+        "detail": "CAT measures transfer from cleaned context banks and filters detected conflicts. Separate paper experiments study convention-open requests; CAT is not an ambiguity-detection or interpretation-coverage benchmark."
+      },
+      "unanswerability": {
+        "status": "not_targeted",
+        "detail": "Tests SQL generation against selected executable gold queries, with no intrinsic-unanswerability labels or refusal target. Exclusion of empty or bare 0/1/NULL gold results is a construction filter, not an answerability definition."
+      },
+      "clarification": {
+        "mode": "not_targeted",
+        "detail": "No clarification dialogue is evaluated; test questions receive schema and optionally retrieved examples, or a bank-fine-tuned model."
+      },
+      "interaction": {
+        "mode": "static",
+        "detail": "Offline question–SQL evaluation with fixed banks and generated/reused test questions; no simulated or real user feedback during inference."
+      },
+      "domain": "Cross-domain SQLite benchmarks derived from BIRD and Spider. CAT-BIRD uses 14 bank databases and 5 additional unseen databases; CAT-Spider uses 42 bank databases and 20 unseen Spider-dev databases.",
+      "evaluation": "Execution accuracy and gain over no-context or matched no-bank controls across scorer-defined distance groups. CAT-BIRD difficulty matching is model-conditioned and imposed by selection; CAT-Spider far groups are smaller and not matched. Finite execution checks and LLM judgments do not prove semantic correctness.",
+      "data_access": "release_unverified",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/pdf/2611.26775v1",
+          "locator": "Section 6, pp.8–9; Appendix F, pp.24–25",
+          "supports": [
+            "ambiguity",
+            "unanswerability",
+            "clarification",
+            "interaction",
+            "domain",
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://arxiv.org/pdf/2611.26775v1",
+          "locator": "Reproducibility statement, p.10",
+          "supports": [
+            "data_access"
+          ]
+        },
+        {
+          "url": "https://arxiv.org/pdf/2611.26775v1",
+          "locator": "Appendix H item 2, pp.26–27",
+          "supports": [
+            "evaluation",
+            "ambiguity"
+          ]
+        }
+      ],
+      "checked_on": "2026-11-24"
     }
   ]
 }

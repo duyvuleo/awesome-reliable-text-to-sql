@@ -381,6 +381,55 @@
     ]
   },
   {
+    "paper_id": "askwise",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-24",
+    "source_url": "https://arxiv.org/pdf/2611.27474v1",
+    "version": "arXiv:2611.27474v1, submitted 20 November 2026.",
+    "coverage": "All 18 PDF pages: Sections 1–6, limitations, ethical considerations, references, Appendices A–G, proofs, all tables and figure captions, worked SQL examples and candidate-audit prompts. Figures 3–5 and Tables 2–4 were also visually inspected on pages 6 and 8. No substantive supplement was omitted.",
+    "unread": [],
+    "problem": "Queries agreeing on observed records can diverge after a data correction, making intent clarification and record checking interdependent.",
+    "method": "AskWise maintains query–repair worlds. A question requires two executed worlds differing only in that choice with different answers; answering requires known agreement across all surviving worlds. An exact four-cell bound compares EC2 question gains under uniform binary worlds and Boolean outputs.",
+    "evaluation": "Policy evaluation uses 120 synthetic sales tasks with 16 equally likely worlds each, truthful simulated responses and precomputed SQLite answers. Separate AmbiQT experiments audit 1,206 eligible value swaps and prune identical model candidates on 155 questions from 20 databases.",
+    "findings": "The exact bound requests fewer executions than a partition relaxation; immediate witnessing needs fewer still but asks slightly more questions. Comparing both database states preserves additional reference signatures. Missing candidates remain unrecoverable, and precision changes are inconclusive.",
+    "limitations": "Correctness assumes the intended query and true data state lie in the supplied space. The exact bound excludes dependent repairs, unequal priors and unequal question costs. Reported decision timings omit live SQL execution. One AmbiQT category and controlled swaps do not estimate natural repair prevalence. Signature matching preserves duplicate rows but ignores row order and requires column order; it is not universal equivalence or human intent validation. Error annotations use one model pass, not an independent human gold audit.",
+    "relevance": "Core clarification research linking intent choices to data uncertainty, with explicit finite-world and simulated-user boundaries rather than demonstrated unanswerability handling.",
+    "claims": [
+      {
+        "claim": "The answer certificate guarantees correctness for arbitrary user requests and databases.",
+        "evidence": "Section 3 assumes a finite supplied interpretation/repair space, intended world membership and truthful responses. Section 4's exact bound further assumes Boolean answers, a uniform binary Cartesian cube and equal question costs. The implementation requires every surviving world's answer to be known and equal.",
+        "locator": "Sections 3.1–3.3 pp.3–4; Sections 4.2–4.3 pp.4–5; Limitations p.9; Appendix A pp.11–12",
+        "disposition": "Keep the conditional finite-world guarantee. Do not infer semantic completeness, noisy-user robustness, universal SQL equivalence or refusal capability."
+      },
+      {
+        "claim": "Certified selection is uniformly fastest or globally cost-optimal.",
+        "evidence": "On Sales Test, exact/fixed uses 13.80 requested executions versus partition/fixed 14.88 and immediate 13.18. It saves 0.025 questions relative to immediate selection; their reweighted mean costs cross at question cost 24.75. The measured milliseconds cover policy logic and cached-answer lookup, excluding SQLite map construction and live query execution.",
+        "locator": "Section 5.2/Table 2 pp.6–7; Appendix C.1 pp.13–14; Appendix E policy accounting pp.14–15",
+        "disposition": "The certificate identifies an EC2-gain maximizer, not a universally optimal total-cost policy. Report the execution–question trade-off and distinguish cached computation from database latency."
+      },
+      {
+        "claim": "The AmbiQT recall gains establish better end-to-end clarification or semantic accuracy.",
+        "evidence": "Two-state pruning receives the same generated queries as observed-state pruning. Its recall increases 8.71/10.00 points, all on 53 questions with two reference signatures, while retaining more candidates. Precision differences include zero in paired intervals; 67/62 of 208 reference signatures are absent before pruning. Evaluation uses one controlled swap and matches typed-row multisets with fixed column order; the 100-query discrepancy audit uses one Codex pass.",
+        "locator": "Sections 5.4–5.6 pp.7–8; Table 3 p.8; Appendices D–G pp.14–18; public E003 protocol",
+        "disposition": "Describe reference-signature preservation under a controlled intervention. It is neither complete support recovery nor a user study, and it does not reproduce AIR's full generation pipeline."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Pinned author implementation and dependency instructions",
+        "url": "https://github.com/fmh1art/AskWise/tree/fce577f91188c82766def7c7fbe0235dd7fc2818"
+      },
+      {
+        "label": "Candidate-generation and pruning protocol",
+        "url": "https://github.com/fmh1art/AskWise/blob/fce577f91188c82766def7c7fbe0235dd7fc2818/experiments/E003-protocol.md"
+      },
+      {
+        "label": "Third-party provenance notices",
+        "url": "https://github.com/fmh1art/AskWise/blob/fce577f91188c82766def7c7fbe0235dd7fc2818/THIRD_PARTY_NOTICES.md"
+      }
+    ]
+  },
+  {
     "paper_id": "atomsql",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-09",
@@ -913,6 +962,47 @@
         "evidence": "The comparison is CodeLlama few-shot versus a different DeepSeek model fine-tuned on Spider.",
         "locator": "Section 4 setup and 4.4/Figure 6",
         "disposition": "Observed configuration difference; not an isolated causal effect of fine-tuning."
+      }
+    ]
+  },
+  {
+    "paper_id": "context-bank",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-24",
+    "source_url": "https://arxiv.org/pdf/2611.26775v1",
+    "version": "arXiv:2611.26775v1, 19 November 2026",
+    "coverage": "All 27 PDF pages: Sections 1–7; reproducibility, ethics and AI-use statements; references; Appendices A–H; Figures 1–2 and Tables 1–15. Rendered Figure 1 on p.4, Figure 2/Table 13 on p.24 and Table 4 on p.9 visually inspected. No additional linked supplement was identified.",
+    "unread": [],
+    "problem": "Individually defensible question–SQL examples can encode incompatible business conventions, while ordinary accuracy hides how far a model generalizes beyond its context bank.",
+    "method": "Decomposes queries into semantic units grounded in question wording or schema structure and distills align–conflict–novel judgments into a scorer. Conflict flags prioritize review; entry audits and an editable rulebook decide removals. CAT generates questions at scored distances from cleaned banks.",
+    "evaluation": "Uses BIRD, Spider and LiveSQLBench for bank analysis; matched-size BIRD fine-tuning controls, convention-open prompting experiments, and CAT-BIRD/CAT-Spider execution evaluation. The scorer is assessed against constructed and LLM-labeled pairs, with human calibration and a separate expert-audit overlap check.",
+    "findings": "Cleaned BIRD training improves over a stratified random control across four epochs. Demonstrations matching the gold convention beat opposing examples. Retrieval benefits generally decline with distance; fine-tuning results depend on the dataset, backbone and learning rate.",
+    "limitations": "Most cleaning removals are per-entry defects, so training gains do not isolate consistency. Conflict scores are not probabilities or verified contradictions. Gold conventions determine matched prompts. LLM-generated tests, imposed baseline difficulty, nearest-neighbor conflict checks, simple retrieval and single seeds constrain transfer; scorer dialect portability remains unverified.",
+    "relevance": "Connects underspecification to conflicting reusable context and evaluates context dependence explicitly. It does not establish intrinsic unanswerability, automatic recovery of organizational intent, formal semantic guarantees or a live clarification policy.",
+    "claims": [
+      {
+        "claim": "Cleaning improves fine-tuning by resolving cross-entry inconsistency alone.",
+        "evidence": "Table 2 reports cleaned versus stratified same-size random gains at all four epochs, averaging about 2.6 points. Track A removes 1,252 of the 1,332 removed BIRD-train entries, and Appendix H explicitly leaves a Track-B-only training arm to future work. There is one training seed per arm.",
+        "locator": "Section 5.1/Table 2, pp.6–7; Appendix D/Table 10, pp.20–21; Appendix H items 4–5, p.27",
+        "disposition": "Supports the combined cleaning procedure under the tested recipe; it does not isolate consistency as the cause or supply independent seed-level replication."
+      },
+      {
+        "claim": "The 92.4% external-audit agreement establishes broad detection accuracy.",
+        "evidence": "Among 1,821 questions shared with BIRD-Platinum, 317 of 343 removed questions had expert SQL corrections, compared with 45.6% of all shared questions. Appendix D says the protocol catches only 33–38% of expert corrections.",
+        "locator": "Section 4.2, p.6; Appendix D, Agreement with BIRD-Platinum, p.21",
+        "disposition": "The 92.4% is overlap among removed entries within the shared audited subset, not recall, a global error-prevalence estimate or complete expert validation of the ledger."
+      },
+      {
+        "claim": "Consistent examples identify the uniquely correct convention.",
+        "evidence": "Matched and opposite prompts are defined against each question’s existing gold SQL. Both convention choices can be defensible, and BHI scores both equally clean. The 120-question comparison gives a 13.3-point matched-minus-opposite gap; the two 60-question strata have p=.11 and p=.002.",
+        "locator": "Section 5.2/Table 3, p.7; Appendix E.1–E.3/Table 11, pp.21–22",
+        "disposition": "Shows steering toward a specified gold convention under controlled prompting; it does not infer user preference or demonstrate that one convention is universally correct."
+      },
+      {
+        "claim": "CAT establishes a universal boundary when three quarters of query logic is new.",
+        "evidence": "Distances come from the learned alignment scorer. CAT-BIRD selects questions using no-context performance; conflict checks examine the source and about 18 neighbors. The same two models generate probes and are tested with lexical retrieval. CAT-Spider far groups are not difficulty-matched; its Qwen gains fall below the no-bank control at d3 and dmax.",
+        "locator": "Section 6/Table 4, pp.8–9; Appendix F/Table 14, pp.24–25; Appendix H item 2, pp.26–27",
+        "disposition": "Supports a conditional distance-dependent pattern, not an exact semantic novelty threshold or a universal generalization law. Retriever recall, generation style, sample size and fine-tuning recipe remain relevant."
       }
     ]
   },
@@ -3007,6 +3097,83 @@
         "evidence": "Table VII reports F1=20.0 for both ambiguous and unanswerable classes; Tables V/VI also disagree on mixed-type CoSQL QM.",
         "locator": "Tables V-VII, PDF p. 8",
         "disposition": "Relative improvement with substantial residual failure and one unresolved numeric inconsistency."
+      }
+    ]
+  },
+  {
+    "paper_id": "qo-verify",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-24",
+    "source_url": "https://www.vldb.org/cidrdb/papers/2026/p33-narasayya.pdf",
+    "version": "CIDR 2026 published proceedings version, 12 pages, Vivek Narasayya and Surajit Chaudhuri; PDF metadata dated 10 December 2025. The proceedings index uses the final title; an earlier acceptance list retains Examining the Practicality of LLM-based Query Rewriting.",
+    "coverage": "All 12 pages: Sections 1–7, references, Algorithm 1, Table 1, Queries 1–7 and Figures 1–13. Figures and the workload table were visually inspected on pages 3, 6–10. No appendices are present. Separately inspected the text of the four-page PVLDB 19(12) demonstration, pp. 4594–4597, for QO-Verify integration and availability; its screenshots were not independently inspected.",
+    "unread": [],
+    "problem": "An LLM rewrite may run faster and match one database’s results while changing the original SQL’s semantics.",
+    "method": "QO-Verify generates optimizer memos and recursively searches for a common logical expression, matching operators, predicates and ordered children. A match implies equivalence under sound normalization and transformation rules; otherwise it returns Unknown. Search limits and missing rules reduce coverage.",
+    "evaluation": "SQL Server experiments use four enterprise workloads described in the paper and TPC-DS, JOB and TPC-H, with tuned indexes. GPT-4o-mini and GPT-5 generate rewrites using four prompts and retries. Cold-run timings and equivalence checks are reported after filtering for identical current-database results.",
+    "findings": "The checker accepts approximately 37% of 3,100+ result-matching candidates. Acceptance ranges from 95% for hints to 8% for unconstrained rewrites. Median improvement for best verified rewrites is at most 6%, substantially below that for merely result-matching candidates. Default optimizer limits reduce overhead and coverage.",
+    "limitations": "The soundness argument trusts optimizer rules and implementation; it is not a complete SQL decision procedure. Unknown candidates lack adjudicated equivalence labels. Workload totals conflict across the introduction and table. A displayed rewrite changes NULL handling relative to its accompanying rule. No public implementation or independent reproduction was verified.",
+    "relevance": "Adjacent support for preserving SQL semantics during agent refinement and for distinguishing proof, empirical result agreement and inconclusive checking. It does not assess natural-language intent, clarification or intrinsic unanswerability.",
+    "claims": [
+      {
+        "claim": "QO-Verify is a complete semantic checker, and Unknown establishes inequivalence.",
+        "evidence": "Sections 2–2.2 require a common logical expression reached through semantics-preserving normalization and optimizer transformations. Operator-specific matching includes predicates and ordered children. Missing transformation rules, heuristic guidance and search limits can prevent a match even for equivalent queries. The external result is True or Unknown, not a negative proof.",
+        "locator": "Sections 2–2.2, pages 2–5; Algorithm 1, page 4",
+        "disposition": "Treat positive verification as conditional on sound optimizer rules, applicable assumptions and correct matching. Unknown is inconclusive and is not an answerability or refusal label. The paper does not independently prove the entire SQL Server optimizer correct."
+      },
+      {
+        "claim": "The reported 37% is recall over all truly equivalent rewrites, or demonstrates that remaining rewrites are wrong.",
+        "evidence": "Section 4.2 discards approximately 32% of rewrites with differing results on the current database, ignoring row order, and calls the remaining 3,100+ rewrites candidates. Section 4.3 verifies 1,150+ of these, approximately 37%. It does not establish semantic equivalence or inequivalence for every Unknown pair. Prompt-specific acceptance is 95% for QHint, 24% for CTE, 20% for SubQ and 8% for General.",
+        "locator": "Section 4.2, page 8; Section 4.3 and Figures 12–13, page 10",
+        "disposition": "The observed statistic is acceptance among result-matching candidates, not equivalence recall or an overall error-detection rate. Current-instance agreement is only a necessary filter, not a proof."
+      },
+      {
+        "claim": "The best-candidate speedup distribution is achieved by verified rewrites at negligible end-to-end cost.",
+        "evidence": "Figure 7 reports median elapsed-time improvements of 38% overall, 29% on real workloads and 46% on benchmarks for best result-matching candidates. Figure 11 shows medians at or below 6% for best verified rewrites. Candidate selection involves multiple prompts, up to three attempts per prompt, and cold executions. Section 4.2 explicitly notes that LLM calls, unsuccessful candidates and query execution add costs.",
+        "locator": "Section 4.2 and Figures 6–9, pages 8–9; Section 4.3/Figure 11, page 10",
+        "disposition": "Keep candidate and verified results separate. Query execution improvements do not establish net tuning savings, optimal SQL or universally beneficial rewrites."
+      },
+      {
+        "claim": "The approximately 1.2-second verification time is a worst-case bound that transfers unchanged across databases.",
+        "evidence": "With task limits disabled, median total verification is approximately 1.2 seconds; per-query memo construction has median/P90 0.57/17.5 seconds and matching has 0.03/5.4 seconds. Default task limits yield median total time approximately 0.85 seconds and reduce observed acceptance by about two percentage points. The implementation extends Microsoft SQL Server; these measurements are not cross-engine benchmarks.",
+        "locator": "Section 4.3, pages 10–11; implementation notes in Section 2.2, page 4",
+        "disposition": "Report measured medians and the coverage–cost trade-off; do not convert them into latency bounds or assume the optimizer modifications are portable without engineering."
+      },
+      {
+        "claim": "Every displayed candidate rewrite is unconditionally equivalent and already verified by QO-Verify.",
+        "evidence": "Section 3 derives candidate transformation rules manually from examples for which QO-Verify returned Unknown. Figure 5 uses ELSE NULL for a conditional aggregate, but Query 7 prints ELSE 0. For a nonempty preserved input with no qualifying promotion, Query 6’s promotion SUM is NULL whereas the printed Query 7 yields zero. This is a logical counterexample inferred from the displayed SQL, not an executed test of the authors’ workloads.",
+        "locator": "Section 3, page 5; Section 3.3, Queries 6–7 and Figure 5, pages 7–8",
+        "disposition": "Keep the displayed NULL-handling discrepancy separate from the conditional soundness of memo matching. The simplified example needs qualification or correction; no failure of the proprietary verifier or actual experimental query is established."
+      },
+      {
+        "claim": "The paper provides one internally consistent exact workload count.",
+        "evidence": "The introduction says 118 real-world and 224 benchmark queries. Table 1 lists real-workload counts 39, 40, 25 and 12, summing to 116, and benchmark counts 99, 113 and 22, summing to 234.",
+        "locator": "Introduction, page 1; Section 4.1/Table 1, page 8",
+        "disposition": "Retain this as an unresolved reporting difference. Neither the true executed totals nor the source of the mismatch can be inferred from the public paper."
+      },
+      {
+        "claim": "The published implementation is publicly downloadable, and its SQL proof validates the user’s intended question.",
+        "evidence": "CIDR Section 2.2 describes an optimizer extension that exports memos and a client matcher. The later PVLDB demo describes a DLL inside an SSMS extension and an anytime algorithm that skips Unknown rewrites. Neither inspected paper supplies a public software download or source link. Both start from a SQL query; they do not evaluate whether it expresses a natural-language intent.",
+        "locator": "CIDR Section 2.2, page 4; PVLDB demonstration Sections 2–3 and Algorithm 1, pp. 4595–4596",
+        "disposition": "Describe a paper-reported implementation with unverified public release. Preserving an input SQL query does not prove that input’s intent correctness, clarify ambiguity or identify unsupported requests."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Official CIDR 2026 proceedings index",
+        "url": "https://vldb.org/cidrdb/2026/"
+      },
+      {
+        "label": "Related PVLDB 2026 demonstration: integration text inspected",
+        "url": "https://www.vldb.org/pvldb/vol19/p4594-narasayya.pdf"
+      },
+      {
+        "label": "Official VLDB 2026 demonstration listing",
+        "url": "https://vldb.org/2026/program.html"
+      },
+      {
+        "label": "Distinct Query Hint Recommendation tool documentation",
+        "url": "https://learn.microsoft.com/en-us/ssms/query-hint-tool/hint-tool-overview"
       }
     ]
   },

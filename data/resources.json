@@ -1695,5 +1695,45 @@
       "https://aclanthology.org/2026.findings-acl.1286.pdf"
     ],
     "checked_on": "2026-11-22"
+  },
+  {
+    "id": "askwise-tool",
+    "name": "AskWise",
+    "kind": "tool",
+    "paper_ids": [
+      "askwise"
+    ],
+    "url": "https://github.com/fmh1art/AskWise",
+    "description": "Finite-world clarification research implementation combining query interpretations and proposed data repairs, with execution witnesses, question-selection bounds and an offline revenue demonstration.",
+    "protocol": "Requires supplied candidate interpretations/repairs and known or requested SQL answers. Synthetic policy tests use truthful coordinate replies, uniform binary worlds and cached SQLite results; the exact question-gain bound targets Boolean answers. A separate AmbiQT study compares pruning on one versus two database states. This is not a complete natural-language dialogue or unanswerability benchmark.",
+    "availability": "Visible Python algorithms, evaluation scripts, tests, protocols and offline demo at fce577f91188c82766def7c7fbe0235dd7fc2818. Model experiments require external AmbiQT data, API access and caches described in the README/protocol. Source was inspected without execution or independent reproduction.",
+    "license_note": "No explicit license for this project's own code was found in the inspected complete tree or README. GitHub license metadata is null. THIRD_PARTY_NOTICES.md documents external provenance but does not grant a project-wide reuse license.",
+    "evidence": [
+      "https://github.com/fmh1art/AskWise/tree/fce577f91188c82766def7c7fbe0235dd7fc2818",
+      "https://github.com/fmh1art/AskWise/blob/fce577f91188c82766def7c7fbe0235dd7fc2818/README.md",
+      "https://github.com/fmh1art/AskWise/blob/fce577f91188c82766def7c7fbe0235dd7fc2818/a2/relevance.py",
+      "https://github.com/fmh1art/AskWise/blob/fce577f91188c82766def7c7fbe0235dd7fc2818/experiments/E003-protocol.md",
+      "https://github.com/fmh1art/AskWise/blob/fce577f91188c82766def7c7fbe0235dd7fc2818/THIRD_PARTY_NOTICES.md",
+      "https://arxiv.org/pdf/2611.27474v1"
+    ],
+    "checked_on": "2026-11-24"
+  },
+  {
+    "id": "cat-context-benchmarks",
+    "name": "CAT-BIRD and CAT-Spider benchmark designs",
+    "kind": "dataset",
+    "paper_ids": [
+      "context-bank"
+    ],
+    "url": "https://arxiv.org/abs/2611.26775",
+    "description": "Paper-described tests of SQL generation at controlled scored distances from cleaned question–SQL context banks: 1,097 CAT-BIRD and 953 CAT-Spider questions.",
+    "protocol": "Static execution evaluation compares schema-only generation, top-3 lexical retrieval and bank fine-tuning across rephrasing, increasing novelty and unseen-database groups. CAT-BIRD matches no-context difficulty by selection; CAT-Spider’s farther groups are not fully matched. Generated gold SQL is LLM-judged, with conflict checks against the source and about 18 nearby bank entries.",
+    "availability": "Paper-described benchmark designs. The reproducibility statement promises release of both datasets and context banks; no official downloadable artifact was verified. Counts and protocols are paper-reported, not independently inspected dataset contents.",
+    "license_note": "Dataset-specific terms were not verified. Existing BIRD, Spider and model licenses do not establish terms for the unreleased CAT artifacts.",
+    "evidence": [
+      "https://arxiv.org/abs/2611.26775",
+      "https://arxiv.org/pdf/2611.26775v1"
+    ],
+    "checked_on": "2026-11-24"
   }
 ]

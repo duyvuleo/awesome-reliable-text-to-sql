@@ -3560,5 +3560,93 @@
     "added_on": "2026-11-22",
     "checked_on": "2026-11-22",
     "artifact_status": "Official public source inspected at 9f2bcd9a16ec1029649222851bd9e08a2af3e2c6: probe/generate/verify/repair implementation, SQLite adapter, example scripts and batch runner. MIT license text verified. Benchmarks and official evaluators must be obtained separately. The released regex/substring checks and default repair budget differ from some paper descriptions; these are static reproducibility caveats, not evidence about the exact revision used for published scores. No linked code executed or results reproduced."
+  },
+  {
+    "id": "askwise",
+    "title": "AskWise: Execution-Guided Clarification of Intent and Data in Text-to-SQL",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2611.27474",
+    "code_url": "https://github.com/fmh1art/AskWise",
+    "dataset_url": null,
+    "category": "ambiguity",
+    "scope": "core",
+    "topics": [
+      "ambiguity",
+      "clarification",
+      "database-state",
+      "interaction",
+      "verification",
+      "evaluation"
+    ],
+    "summary": "AskWise pairs query interpretations with possible database repairs, asks about choices supported by execution witnesses, and returns an answer when all surviving worlds agree. A four-cell bound selects EC2-maximizing questions for uniform binary worlds with Boolean answers. Synthetic policy experiments and an AmbiQT value-swap study expose the limits of grouping queries by observed results alone. Correctness requires the true query/data world to be included and replies to be truthful; the model study measures reference-signature retention, not end-to-end dialogue success.",
+    "evidence": [
+      "https://arxiv.org/abs/2611.27474",
+      "https://arxiv.org/pdf/2611.27474v1",
+      "https://github.com/fmh1art/AskWise/tree/fce577f91188c82766def7c7fbe0235dd7fc2818"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/askwise.md",
+    "added_on": "2026-11-24",
+    "checked_on": "2026-11-24",
+    "artifact_status": "The paper-linked repository exposes finite-world policies, relevance checks, experiment scripts, tests and an offline demonstration. README, experiment protocol and relevance-check source were inspected at fce577f91188c82766def7c7fbe0235dd7fc2818 without execution. AmbiQT annotations/databases and model APIs are separate dependencies. No explicit license for the project's own code was verified; third-party notices do not supply one."
+  },
+  {
+    "id": "qo-verify",
+    "title": "Leveraging Query Optimizers to Verify the Soundness of LLM-based Query Rewrites for Real-World Workloads, and More!",
+    "year": 2026,
+    "publication_status": "CIDR 2026",
+    "primary_url": "https://www.vldb.org/cidrdb/papers/2026/p33-narasayya.pdf",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "sql-equivalence",
+      "verification",
+      "query-rewriting",
+      "evaluation"
+    ],
+    "summary": "QO-Verify checks whether two SQL queries share a logical expression in optimizer-generated memos. SQL Server experiments verify a subset of LLM rewrites, with coverage depending on available transformation rules and search limits. Soundness relies on those rules and correct expression matching; Unknown is inconclusive. The method preserves an input SQL query rather than verifying its alignment with a natural-language request.",
+    "evidence": [
+      "https://www.vldb.org/cidrdb/papers/2026/p33-narasayya.pdf",
+      "https://vldb.org/cidrdb/2026/",
+      "https://www.vldb.org/pvldb/vol19/p4594-narasayya.pdf"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/qo-verify.md",
+    "added_on": "2026-11-24",
+    "checked_on": "2026-11-24",
+    "artifact_status": "The complete 12-page CIDR proceedings paper was read. It describes changes to the Microsoft SQL Server optimizer to export memos and a client-side matcher. A later four-page PVLDB demonstration describes QO-Verify as a DLL in an SSMS extension; its text was inspected for implementation provenance. No public QO-Verify source, binary download or software license was verified. The enterprise workloads discussed in the public paper were not accessed, and no result was independently reproduced."
+  },
+  {
+    "id": "context-bank",
+    "title": "Know Your Context Bank: Repairing Inconsistency and Measuring Generalization in Context-Aware Text-to-SQL",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2611.26775",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "context",
+    "topics": [
+      "context",
+      "business-semantics",
+      "benchmark-quality",
+      "ambiguity",
+      "evaluation",
+      "benchmark"
+    ],
+    "scope": "adjacent",
+    "summary": "Audits SQL example banks using semantic-unit comparisons, a distilled conflict scorer and two-track adjudication under explicit conventions. Cleaning improves one-model fine-tuning, while separate convention-open experiments show that inconsistent examples can steer otherwise defensible answers. CAT-BIRD and CAT-Spider measure transfer across scored distances from a context bank. LLM labels, selected difficulty, simple retrieval and single-seed runs limit generalization claims; clarification and abstention are not evaluated.",
+    "evidence": [
+      "https://arxiv.org/abs/2611.26775",
+      "https://arxiv.org/html/2611.26775v1",
+      "https://arxiv.org/pdf/2611.26775v1"
+    ],
+    "artifact_status": "The reproducibility statement promises the CAT pipeline, CAT-BIRD/CAT-Spider and their context banks, synthesized convention banks, scorer weights and cleaning ledgers. No official release was verified through the paper or bounded author/GitHub/Hugging Face searches; no code, data or model was executed or downloaded.",
+    "checked_on": "2026-11-24",
+    "source_depth": "full-text-reviewed",
+    "added_on": "2026-11-24",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/context-bank.md"
   }
 ]
