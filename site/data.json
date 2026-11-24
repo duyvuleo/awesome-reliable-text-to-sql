@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-24",
-  "updated": "2026-11-24",
+  "checked": "2026-11-25",
+  "updated": "2026-11-25",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 128,
-    "system": 27,
-    "tool": 26,
-    "benchmark": 37
+    "paper": 132,
+    "system": 28,
+    "tool": 27,
+    "benchmark": 39
   },
   "categories": {
     "ambiguity": "Ambiguity and multiple interpretations",
@@ -853,6 +853,34 @@
       ]
     },
     {
+      "id": "conformal-confidence-abstention",
+      "name": "Know When to Abstain: Conformal Confidence Estimation for Text-to-SQL",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Fuses generator confidence, critic judgments, token probabilities and SQL features with a supervised Random Forest. Separate calibration rules provide a marginal false-abstention bound and high-probability selective-risk control under their stated distributional assumptions. Spider experiments show useful coverage at moderate risk budgets, while tighter budgets can force complete abstention. The guarantee concerns gold-query execution labels, requires labeled calibration, and its Spider-certified threshold exceeds the target risk after transfer to BIRD; it does not establish semantic truth or question answerability.",
+      "entry_ids": [
+        "conformal-confidence-abstention"
+      ],
+      "themes": [
+        "abstention",
+        "calibration",
+        "confidence",
+        "evaluation",
+        "selective-prediction",
+        "verification"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "context-bank",
       "name": "Know Your Context Bank: Repairing Inconsistency and Measuring Generalization in Context-Aware Text-to-SQL",
       "date": "2026",
@@ -1035,6 +1063,39 @@
       "kinds": [
         "paper",
         "system"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "mind-the-trap",
+      "name": "Mind the Trap As LLMs Guess the Data Model: Grain-Aware Guards Against Fan-out in Text-to-SQL and Its Benchmarks",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Audits aggregate fan-out on actual database instances and supplies measure-grain, repetition and dependency evidence to SQL agents. BIRD-FanOut and synthetic GrainTraps expose over-counting that execution against flawed gold can miss. Grain-aware evidence reduces selected fan-out errors, including on held-out questions, but does not establish general accuracy or intent correctness. Labels are LLM-produced, main runs receive reference-query tables, and repetition flags can also mark intended counting.",
+      "entry_ids": [
+        "mind-the-trap",
+        "misqal-tool",
+        "bird-fanout-data",
+        "graintraps-data"
+      ],
+      "themes": [
+        "benchmark-quality",
+        "constraints",
+        "data-semantics",
+        "evaluation",
+        "underspecification",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "benchmark",
+        "paper",
+        "tool"
       ],
       "years": [
         2026
@@ -1693,6 +1754,33 @@
       ],
       "categories": [
         "context"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "semantic-aware-decoding",
+      "name": "Semantic-aware Decoding for Diverse Text-to-SQL under Schema Ambiguity",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "SLA boosts schema-token alternatives using normalized embedding similarity; SchemaBeam combines it with prefix-tree constraints and syntactic deduplication. It improves top-five coverage of two reference interpretations across tested schema-ambiguity settings. Results use selected AmbiQT categories and a modified AMBROSIA subset; coverage does not establish selected-answer correctness, complete semantic diversity or successful user clarification. Logit access is required, and an official implementation was not verified.",
+      "entry_ids": [
+        "semantic-aware-decoding"
+      ],
+      "themes": [
+        "ambiguity",
+        "decoding",
+        "evaluation",
+        "interpretation-coverage",
+        "schema-linking"
+      ],
+      "categories": [
+        "ambiguity"
       ],
       "kinds": [
         "paper"
@@ -2867,6 +2955,35 @@
       ],
       "kinds": [
         "paper"
+      ],
+      "years": [
+        2024
+      ]
+    },
+    {
+      "id": "ltrc-iiith-ehrsql-2024",
+      "name": "LTRC-IIITH at EHRSQL 2024: Enhancing Reliability of Text-to-SQL Systems through Abstention and Confidence Thresholding",
+      "date": "2024",
+      "year": 2024,
+      "kind": "paper",
+      "summary": "Combines schema-conditioned answerability classification, SQLCoder generation, token-log-probability thresholding and execution-error filtering on EHRSQL 2024. The system separates unsupported questions from unreliable generated candidates, although both can lead to abstention. Thresholds are chosen using the test-score distribution, and reported utility depends on the error penalty; the method does not establish calibrated confidence or clinical deployment safety.",
+      "entry_ids": [
+        "ltrc-iiith-ehrsql-2024",
+        "ltrc-iiith-ehrsql-2024-system"
+      ],
+      "themes": [
+        "abstention",
+        "clinical",
+        "confidence",
+        "evaluation",
+        "unanswerability"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "kinds": [
+        "paper",
+        "system"
       ],
       "years": [
         2024
@@ -11413,6 +11530,264 @@
       "work_id": "context-bank"
     },
     {
+      "id": "semantic-aware-decoding",
+      "name": "Semantic-aware Decoding for Diverse Text-to-SQL under Schema Ambiguity",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "SLA boosts schema-token alternatives using normalized embedding similarity; SchemaBeam combines it with prefix-tree constraints and syntactic deduplication. It improves top-five coverage of two reference interpretations across tested schema-ambiguity settings. Results use selected AmbiQT categories and a modified AMBROSIA subset; coverage does not establish selected-answer correctness, complete semantic diversity or successful user clarification. Logit access is required, and an official implementation was not verified.",
+      "tags": [
+        "ambiguity",
+        "schema-linking",
+        "interpretation-coverage",
+        "decoding",
+        "evaluation"
+      ],
+      "categories": [
+        "ambiguity"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "The complete public arXiv v1 was read. No author-linked implementation or separate dataset release was verified in the paper, primary record or bounded exact-title/SchemaBeam searches. AmbiQT and AMBROSIA are reused; no new resource count or software license is inferred from the paper license. No project code executed or result independently reproduced.",
+      "sources": [
+        "https://arxiv.org/abs/2611.30873",
+        "https://arxiv.org/pdf/2611.30873v1",
+        "https://arxiv.org/html/2611.30873v1"
+      ],
+      "checked": "2026-11-25",
+      "added_on": "2026-11-25",
+      "url": "https://arxiv.org/abs/2611.30873",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#semantic-aware-decoding",
+      "original": {
+        "id": "semantic-aware-decoding",
+        "title": "Semantic-aware Decoding for Diverse Text-to-SQL under Schema Ambiguity",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.30873",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "ambiguity",
+        "scope": "core",
+        "topics": [
+          "ambiguity",
+          "schema-linking",
+          "interpretation-coverage",
+          "decoding",
+          "evaluation"
+        ],
+        "summary": "SLA boosts schema-token alternatives using normalized embedding similarity; SchemaBeam combines it with prefix-tree constraints and syntactic deduplication. It improves top-five coverage of two reference interpretations across tested schema-ambiguity settings. Results use selected AmbiQT categories and a modified AMBROSIA subset; coverage does not establish selected-answer correctness, complete semantic diversity or successful user clarification. Logit access is required, and an official implementation was not verified.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.30873",
+          "https://arxiv.org/pdf/2611.30873v1",
+          "https://arxiv.org/html/2611.30873v1"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/semantic-aware-decoding.md",
+        "added_on": "2026-11-25",
+        "checked_on": "2026-11-25",
+        "artifact_status": "The complete public arXiv v1 was read. No author-linked implementation or separate dataset release was verified in the paper, primary record or bounded exact-title/SchemaBeam searches. AmbiQT and AMBROSIA are reused; no new resource count or software license is inferred from the paper license. No project code executed or result independently reproduced."
+      },
+      "work_id": "semantic-aware-decoding"
+    },
+    {
+      "id": "conformal-confidence-abstention",
+      "name": "Know When to Abstain: Conformal Confidence Estimation for Text-to-SQL",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Fuses generator confidence, critic judgments, token probabilities and SQL features with a supervised Random Forest. Separate calibration rules provide a marginal false-abstention bound and high-probability selective-risk control under their stated distributional assumptions. Spider experiments show useful coverage at moderate risk budgets, while tighter budgets can force complete abstention. The guarantee concerns gold-query execution labels, requires labeled calibration, and its Spider-certified threshold exceeds the target risk after transfer to BIRD; it does not establish semantic truth or question answerability.",
+      "tags": [
+        "abstention",
+        "confidence",
+        "calibration",
+        "selective-prediction",
+        "verification",
+        "evaluation"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "The reproducibility statement promises feature-extraction, training, calibration and evaluation code upon paper acceptance. No official public implementation, trained forest, calibration scores or new dataset release was verified from the paper/primary record and bounded exact-title artifact searches. Existing Spider, BIRD and NL2SQL-BUGs data are reused; no released tool or dataset resource is inferred.",
+      "sources": [
+        "https://arxiv.org/abs/2611.31190",
+        "https://arxiv.org/pdf/2611.31190v1"
+      ],
+      "checked": "2026-11-25",
+      "added_on": "2026-11-25",
+      "url": "https://arxiv.org/abs/2611.31190",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#conformal-confidence-abstention",
+      "original": {
+        "id": "conformal-confidence-abstention",
+        "title": "Know When to Abstain: Conformal Confidence Estimation for Text-to-SQL",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.31190",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "answerability",
+        "scope": "core",
+        "topics": [
+          "abstention",
+          "confidence",
+          "calibration",
+          "selective-prediction",
+          "verification",
+          "evaluation"
+        ],
+        "summary": "Fuses generator confidence, critic judgments, token probabilities and SQL features with a supervised Random Forest. Separate calibration rules provide a marginal false-abstention bound and high-probability selective-risk control under their stated distributional assumptions. Spider experiments show useful coverage at moderate risk budgets, while tighter budgets can force complete abstention. The guarantee concerns gold-query execution labels, requires labeled calibration, and its Spider-certified threshold exceeds the target risk after transfer to BIRD; it does not establish semantic truth or question answerability.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.31190",
+          "https://arxiv.org/pdf/2611.31190v1"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/conformal-confidence-abstention.md",
+        "added_on": "2026-11-25",
+        "checked_on": "2026-11-25",
+        "artifact_status": "The reproducibility statement promises feature-extraction, training, calibration and evaluation code upon paper acceptance. No official public implementation, trained forest, calibration scores or new dataset release was verified from the paper/primary record and bounded exact-title artifact searches. Existing Spider, BIRD and NL2SQL-BUGs data are reused; no released tool or dataset resource is inferred."
+      },
+      "work_id": "conformal-confidence-abstention"
+    },
+    {
+      "id": "ltrc-iiith-ehrsql-2024",
+      "name": "LTRC-IIITH at EHRSQL 2024: Enhancing Reliability of Text-to-SQL Systems through Abstention and Confidence Thresholding",
+      "kind": "paper",
+      "year": 2024,
+      "date": "2024",
+      "date_label": "Publication year",
+      "summary": "Combines schema-conditioned answerability classification, SQLCoder generation, token-log-probability thresholding and execution-error filtering on EHRSQL 2024. The system separates unsupported questions from unreliable generated candidates, although both can lead to abstention. Thresholds are chosen using the test-score distribution, and reported utility depends on the error penalty; the method does not establish calibrated confidence or clinical deployment safety.",
+      "tags": [
+        "unanswerability",
+        "abstention",
+        "confidence",
+        "clinical",
+        "evaluation"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "ClinicalNLP 2024 shared-task system paper",
+      "status": "Public preparation, fine-tuning, inference, filtering and experiment scripts inspected at 4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b. Root MIT license verified. Prediction/score filenames are visible but their payloads were not downloaded. Benchmark data and base-model weights are external; no released fine-tuned checkpoint was verified. Source was inspected as text without execution or independent reproduction.",
+      "sources": [
+        "https://aclanthology.org/2024.clinicalnlp-1.66/",
+        "https://aclanthology.org/2024.clinicalnlp-1.66.pdf",
+        "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/README.md",
+        "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/finetuning/inference.py",
+        "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/post_processing/post_processing.py"
+      ],
+      "checked": "2026-11-25",
+      "added_on": "2026-11-25",
+      "url": "https://aclanthology.org/2024.clinicalnlp-1.66/",
+      "code_links": [
+        "https://github.com/jr-john/ehrsql-2024"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#ltrc-iiith-ehrsql-2024",
+      "original": {
+        "id": "ltrc-iiith-ehrsql-2024",
+        "title": "LTRC-IIITH at EHRSQL 2024: Enhancing Reliability of Text-to-SQL Systems through Abstention and Confidence Thresholding",
+        "year": 2024,
+        "publication_status": "ClinicalNLP 2024 shared-task system paper",
+        "primary_url": "https://aclanthology.org/2024.clinicalnlp-1.66/",
+        "code_url": "https://github.com/jr-john/ehrsql-2024",
+        "dataset_url": null,
+        "category": "answerability",
+        "scope": "core",
+        "topics": [
+          "unanswerability",
+          "abstention",
+          "confidence",
+          "clinical",
+          "evaluation"
+        ],
+        "summary": "Combines schema-conditioned answerability classification, SQLCoder generation, token-log-probability thresholding and execution-error filtering on EHRSQL 2024. The system separates unsupported questions from unreliable generated candidates, although both can lead to abstention. Thresholds are chosen using the test-score distribution, and reported utility depends on the error penalty; the method does not establish calibrated confidence or clinical deployment safety.",
+        "evidence": [
+          "https://aclanthology.org/2024.clinicalnlp-1.66/",
+          "https://aclanthology.org/2024.clinicalnlp-1.66.pdf",
+          "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/README.md",
+          "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/finetuning/inference.py",
+          "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/post_processing/post_processing.py"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/ltrc-iiith-ehrsql-2024.md",
+        "added_on": "2026-11-25",
+        "checked_on": "2026-11-25",
+        "artifact_status": "Public preparation, fine-tuning, inference, filtering and experiment scripts inspected at 4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b. Root MIT license verified. Prediction/score filenames are visible but their payloads were not downloaded. Benchmark data and base-model weights are external; no released fine-tuned checkpoint was verified. Source was inspected as text without execution or independent reproduction."
+      },
+      "work_id": "ltrc-iiith-ehrsql-2024"
+    },
+    {
+      "id": "mind-the-trap",
+      "name": "Mind the Trap As LLMs Guess the Data Model: Grain-Aware Guards Against Fan-out in Text-to-SQL and Its Benchmarks",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Audits aggregate fan-out on actual database instances and supplies measure-grain, repetition and dependency evidence to SQL agents. BIRD-FanOut and synthetic GrainTraps expose over-counting that execution against flawed gold can miss. Grain-aware evidence reduces selected fan-out errors, including on held-out questions, but does not establish general accuracy or intent correctness. Labels are LLM-produced, main runs receive reference-query tables, and repetition flags can also mark intended counting.",
+      "tags": [
+        "benchmark-quality",
+        "evaluation",
+        "verification",
+        "data-semantics",
+        "constraints",
+        "underspecification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "Paper-linked misqal repository inspected at 422891572d0d548f8d515444a701d8c18d7352a4: complete tree, README, root Apache-2.0 license, benchmark documentation and targeted audit/evidence source. BIRD-FanOut subset/review files and GrainTraps question/generator paths are present; underlying BIRD databases are external. README declares BIRD-derived subsets and column roles CC BY-SA 4.0. Payload counts, generated databases and results were not independently validated; no project code executed.",
+      "sources": [
+        "https://arxiv.org/abs/2611.29009",
+        "https://arxiv.org/pdf/2611.29009v1",
+        "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/README.md",
+        "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/src/misqal/fanout/audit.py",
+        "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/LICENSE"
+      ],
+      "checked": "2026-11-25",
+      "added_on": "2026-11-25",
+      "url": "https://arxiv.org/abs/2611.29009",
+      "code_links": [
+        "https://github.com/ahmed-mahran/misqal"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#mind-the-trap",
+      "original": {
+        "id": "mind-the-trap",
+        "title": "Mind the Trap As LLMs Guess the Data Model: Grain-Aware Guards Against Fan-out in Text-to-SQL and Its Benchmarks",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.29009",
+        "code_url": "https://github.com/ahmed-mahran/misqal",
+        "dataset_url": "https://github.com/ahmed-mahran/misqal/tree/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks",
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "benchmark-quality",
+          "evaluation",
+          "verification",
+          "data-semantics",
+          "constraints",
+          "underspecification"
+        ],
+        "summary": "Audits aggregate fan-out on actual database instances and supplies measure-grain, repetition and dependency evidence to SQL agents. BIRD-FanOut and synthetic GrainTraps expose over-counting that execution against flawed gold can miss. Grain-aware evidence reduces selected fan-out errors, including on held-out questions, but does not establish general accuracy or intent correctness. Labels are LLM-produced, main runs receive reference-query tables, and repetition flags can also mark intended counting.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.29009",
+          "https://arxiv.org/pdf/2611.29009v1",
+          "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/README.md",
+          "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/src/misqal/fanout/audit.py",
+          "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/LICENSE"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/mind-the-trap.md",
+        "added_on": "2026-11-25",
+        "checked_on": "2026-11-25",
+        "artifact_status": "Paper-linked misqal repository inspected at 422891572d0d548f8d515444a701d8c18d7352a4: complete tree, README, root Apache-2.0 license, benchmark documentation and targeted audit/evidence source. BIRD-FanOut subset/review files and GrainTraps question/generator paths are present; underlying BIRD databases are external. README declares BIRD-derived subsets and column roles CC BY-SA 4.0. Payload counts, generated databases and results were not independently validated; no project code executed."
+      },
+      "work_id": "mind-the-trap"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -16063,18 +16438,249 @@
         "checked_on": "2026-11-24"
       },
       "work_id": "context-bank"
+    },
+    {
+      "id": "ltrc-iiith-ehrsql-2024-system",
+      "name": "LTRC-IIITH EHRSQL 2024 system",
+      "kind": "system",
+      "year": 2024,
+      "date": "2024",
+      "date_label": "Latest linked paper year",
+      "summary": "Public EHRSQL shared-task implementation combining answerability classification, SQLCoder generation, confidence thresholding and execution-error filtering.",
+      "tags": [
+        "abstention",
+        "clinical",
+        "confidence",
+        "evaluation",
+        "unanswerability"
+      ],
+      "categories": [
+        "answerability"
+      ],
+      "evidence": "resource",
+      "status": "Public source and complete file inventory inspected at 4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b. Includes preparation, QLoRA training, inference, post-processing and experiment scripts, with prediction/score file names visible. Prediction contents were not downloaded. EHRSQL/MIMIC inputs and SQLCoder base weights must be obtained separately; a released fine-tuned checkpoint was not verified. No installation, code execution or result reproduction performed.",
+      "sources": [
+        "https://aclanthology.org/2024.clinicalnlp-1.66.pdf",
+        "https://github.com/jr-john/ehrsql-2024",
+        "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/README.md",
+        "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/LICENSE",
+        "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/finetuning/inference.py",
+        "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/post_processing/post_processing.py",
+        "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/post_processing/utils.py",
+        "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/scripts/experiment_5.sh"
+      ],
+      "checked": "2026-11-25",
+      "added_on": null,
+      "url": "https://github.com/jr-john/ehrsql-2024",
+      "code_links": [
+        "https://github.com/jr-john/ehrsql-2024"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#ltrc-iiith-ehrsql-2024-system",
+      "original": {
+        "id": "ltrc-iiith-ehrsql-2024-system",
+        "name": "LTRC-IIITH EHRSQL 2024 system",
+        "kind": "system",
+        "paper_ids": [
+          "ltrc-iiith-ehrsql-2024"
+        ],
+        "url": "https://github.com/jr-john/ehrsql-2024",
+        "description": "Public EHRSQL shared-task implementation combining answerability classification, SQLCoder generation, confidence thresholding and execution-error filtering.",
+        "protocol": "Uses balanced classifier examples and a multitask variant, then combines classifier decisions with summed generated-token log probabilities and SQL execution errors. The released batch workflow generates and executes candidates before applying final abstention rules; empty result rows alone are not a rejection condition. Threshold choice uses the test-score distribution and is not calibrated semantic confidence.",
+        "availability": "Public source and complete file inventory inspected at 4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b. Includes preparation, QLoRA training, inference, post-processing and experiment scripts, with prediction/score file names visible. Prediction contents were not downloaded. EHRSQL/MIMIC inputs and SQLCoder base weights must be obtained separately; a released fine-tuned checkpoint was not verified. No installation, code execution or result reproduction performed.",
+        "license_note": "MIT license verified in the root LICENSE, copyright 2024 Jerrin John Thomas. Benchmark data, base-model weights and dependencies retain their own terms; no dataset or model license is inferred from the software license.",
+        "evidence": [
+          "https://aclanthology.org/2024.clinicalnlp-1.66.pdf",
+          "https://github.com/jr-john/ehrsql-2024",
+          "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/README.md",
+          "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/LICENSE",
+          "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/finetuning/inference.py",
+          "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/post_processing/post_processing.py",
+          "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/post_processing/utils.py",
+          "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/scripts/experiment_5.sh"
+        ],
+        "checked_on": "2026-11-25"
+      },
+      "work_id": "ltrc-iiith-ehrsql-2024"
+    },
+    {
+      "id": "misqal-tool",
+      "name": "misqal fan-out audit and grain-aware evidence",
+      "kind": "tool",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Instance-based SQL fan-out auditing and table dependency/grain evidence for Text-to-SQL experiments.",
+      "tags": [
+        "benchmark-quality",
+        "constraints",
+        "data-semantics",
+        "evaluation",
+        "underspecification",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "Public audit, cardinality, agent harness, evidence, benchmark generator and test source listed at 422891572d0d548f8d515444a701d8c18d7352a4. README and relevant source inspected as text only. BIRD data and model endpoints are separate dependencies; no runtime, tests or generated databases validated.",
+      "sources": [
+        "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/README.md",
+        "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/LICENSE",
+        "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/src/misqal/fanout/audit.py",
+        "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/src/misqal/harness/evidence_v2.py",
+        "https://arxiv.org/pdf/2611.29009v1"
+      ],
+      "checked": "2026-11-25",
+      "added_on": null,
+      "url": "https://github.com/ahmed-mahran/misqal",
+      "code_links": [
+        "https://github.com/ahmed-mahran/misqal"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#misqal-tool",
+      "original": {
+        "id": "misqal-tool",
+        "name": "misqal fan-out audit and grain-aware evidence",
+        "kind": "tool",
+        "paper_ids": [
+          "mind-the-trap"
+        ],
+        "url": "https://github.com/ahmed-mahran/misqal",
+        "description": "Instance-based SQL fan-out auditing and table dependency/grain evidence for Text-to-SQL experiments.",
+        "protocol": "Parses SQLite query scopes and probes repeated base-table rows under their joins/filters; static exposure and realized repetition are separate. Grain-aware evidence supplies measure grain, repetition and NULL-aware facts. Flags do not establish whether repetition is intended or prove semantic equivalence.",
+        "availability": "Public audit, cardinality, agent harness, evidence, benchmark generator and test source listed at 422891572d0d548f8d515444a701d8c18d7352a4. README and relevant source inspected as text only. BIRD data and model endpoints are separate dependencies; no runtime, tests or generated databases validated.",
+        "license_note": "Root source license explicitly Apache-2.0. BIRD-derived benchmark subsets and column roles are separately declared CC BY-SA 4.0; external data, models and dependencies retain their own terms.",
+        "evidence": [
+          "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/README.md",
+          "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/LICENSE",
+          "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/src/misqal/fanout/audit.py",
+          "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/src/misqal/harness/evidence_v2.py",
+          "https://arxiv.org/pdf/2611.29009v1"
+        ],
+        "checked_on": "2026-11-25"
+      },
+      "work_id": "mind-the-trap"
+    },
+    {
+      "id": "bird-fanout-data",
+      "name": "BIRD-FanOut",
+      "kind": "benchmark",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "BIRD-derived fan-out audit subset with LLM intent labels, reviewed/corrected SQL and intended-repetition controls; documentation reports 486 questions: 102 dev and 384 train.",
+      "tags": [
+        "benchmark-quality",
+        "constraints",
+        "data-semantics",
+        "evaluation",
+        "underspecification",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "Official repository lists subset.jsonl, adjudication.json and gold_review.jsonl for train and cleaned-dev variants. Benchmark READMEs were inspected; annotation payloads were not downloaded or independently counted. Original BIRD questions/databases and access terms remain upstream dependencies.",
+      "sources": [
+        "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/README.md",
+        "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/bird-fanout-20251106/README.md",
+        "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/bird-fanout-train/README.md",
+        "https://arxiv.org/pdf/2611.29009v1"
+      ],
+      "checked": "2026-11-25",
+      "added_on": null,
+      "url": "https://github.com/ahmed-mahran/misqal/tree/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/datasets/README.md#bird-fanout-data",
+      "original": {
+        "id": "bird-fanout-data",
+        "name": "BIRD-FanOut",
+        "kind": "dataset",
+        "paper_ids": [
+          "mind-the-trap"
+        ],
+        "url": "https://github.com/ahmed-mahran/misqal/tree/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks",
+        "description": "BIRD-derived fan-out audit subset with LLM intent labels, reviewed/corrected SQL and intended-repetition controls; documentation reports 486 questions: 102 dev and 384 train.",
+        "protocol": "Distorted versus intended repetition is labeled by LLM judges with agent checks, not human annotation. Evaluation measures corrected-gold execution accuracy and exact, judged or audited fan-out errors; unresolved/disputed or unresolvable items are filtered. The main model comparison uses reference-query tables.",
+        "availability": "Official repository lists subset.jsonl, adjudication.json and gold_review.jsonl for train and cleaned-dev variants. Benchmark READMEs were inspected; annotation payloads were not downloaded or independently counted. Original BIRD questions/databases and access terms remain upstream dependencies.",
+        "license_note": "Pinned root and train READMEs explicitly release BIRD-derived subsets and column roles under CC BY-SA 4.0. This does not relicense external model dependencies or replace upstream BIRD database terms.",
+        "evidence": [
+          "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/README.md",
+          "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/bird-fanout-20251106/README.md",
+          "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/bird-fanout-train/README.md",
+          "https://arxiv.org/pdf/2611.29009v1"
+        ],
+        "checked_on": "2026-11-25"
+      },
+      "work_id": "mind-the-trap"
+    },
+    {
+      "id": "graintraps-data",
+      "name": "GrainTraps",
+      "kind": "benchmark",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Synthetic diagnostic suite of 59 questions over three SQLite databases: 29 explicit trap questions, 27 vague twins and 3 controls, spanning six grain/fan-out traps.",
+      "tags": [
+        "benchmark-quality",
+        "constraints",
+        "data-semantics",
+        "evaluation",
+        "underspecification",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "Official questions.json and deterministic database-generator source are listed. README inspected; question payloads were not downloaded and generator/tests were not executed. A ready-made database download was not required by the documented protocol, but database generation was not independently verified.",
+      "sources": [
+        "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/README.md",
+        "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/LICENSE",
+        "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/graintraps/README.md",
+        "https://github.com/ahmed-mahran/misqal/tree/422891572d0d548f8d515444a701d8c18d7352a4/src/misqal/traps",
+        "https://arxiv.org/pdf/2611.29009v1"
+      ],
+      "checked": "2026-11-25",
+      "added_on": null,
+      "url": "https://github.com/ahmed-mahran/misqal/tree/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/graintraps",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/datasets/README.md#graintraps-data",
+      "original": {
+        "id": "graintraps-data",
+        "name": "GrainTraps",
+        "kind": "dataset",
+        "paper_ids": [
+          "mind-the-trap"
+        ],
+        "url": "https://github.com/ahmed-mahran/misqal/tree/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/graintraps",
+        "description": "Synthetic diagnostic suite of 59 questions over three SQLite databases: 29 explicit trap questions, 27 vague twins and 3 controls, spanning six grain/fan-out traps.",
+        "protocol": "Claude-generated tasks retain fixed gold and trap SQL, with an alternative accepted reading for one question. Vague twins omit intended-grain wording; scoring compares result multisets and detects exact/audited trap answers. The suite was used to design the evidence and screened for strong-model solvability, with no held-out split.",
+        "availability": "Official questions.json and deterministic database-generator source are listed. README inspected; question payloads were not downloaded and generator/tests were not executed. A ready-made database download was not required by the documented protocol, but database generation was not independently verified.",
+        "license_note": "Repository source is Apache-2.0. No separate GrainTraps dataset license was verified in its README; the explicit CC BY-SA declaration is for BIRD-derived materials, not automatically for this synthetic suite.",
+        "evidence": [
+          "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/README.md",
+          "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/LICENSE",
+          "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/graintraps/README.md",
+          "https://github.com/ahmed-mahran/misqal/tree/422891572d0d548f8d515444a701d8c18d7352a4/src/misqal/traps",
+          "https://arxiv.org/pdf/2611.29009v1"
+        ],
+        "checked_on": "2026-11-25"
+      },
+      "work_id": "mind-the-trap"
     }
   ],
   "themes": [
     {
-      "id": "ambiguity",
-      "label": "Ambiguity",
-      "count": 48
-    },
-    {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 47
+      "count": 51
+    },
+    {
+      "id": "ambiguity",
+      "label": "Ambiguity",
+      "count": 49
     },
     {
       "id": "clarification",
@@ -16084,17 +16690,17 @@
     {
       "id": "verification",
       "label": "Verification",
-      "count": 35
+      "count": 37
     },
     {
       "id": "unanswerability",
       "label": "Unanswerability",
-      "count": 25
+      "count": 26
     },
     {
       "id": "abstention",
       "label": "Abstention",
-      "count": 22
+      "count": 24
     },
     {
       "id": "uncertainty",
@@ -16102,14 +16708,14 @@
       "count": 21
     },
     {
-      "id": "context",
-      "label": "Context",
+      "id": "clinical",
+      "label": "Clinical",
       "count": 13
     },
     {
-      "id": "clinical",
-      "label": "Clinical",
-      "count": 12
+      "id": "context",
+      "label": "Context",
+      "count": 13
     },
     {
       "id": "human-in-the-loop",
@@ -16124,6 +16730,11 @@
     {
       "id": "schema-linking",
       "label": "Schema linking",
+      "count": 10
+    },
+    {
+      "id": "benchmark-quality",
+      "label": "Benchmark quality",
       "count": 9
     },
     {
@@ -16132,14 +16743,19 @@
       "count": 9
     },
     {
-      "id": "benchmark-quality",
-      "label": "Benchmark quality",
-      "count": 8
-    },
-    {
       "id": "error-correction",
       "label": "Error correction",
       "count": 8
+    },
+    {
+      "id": "interpretation-coverage",
+      "label": "Interpretation coverage",
+      "count": 8
+    },
+    {
+      "id": "calibration",
+      "label": "Calibration",
+      "count": 7
     },
     {
       "id": "error-detection",
@@ -16147,8 +16763,8 @@
       "count": 7
     },
     {
-      "id": "interpretation-coverage",
-      "label": "Interpretation coverage",
+      "id": "underspecification",
+      "label": "Underspecification",
       "count": 7
     },
     {
@@ -16162,14 +16778,14 @@
       "count": 6
     },
     {
-      "id": "calibration",
-      "label": "Calibration",
+      "id": "confidence",
+      "label": "Confidence",
       "count": 6
     },
     {
-      "id": "underspecification",
-      "label": "Underspecification",
-      "count": 6
+      "id": "constraints",
+      "label": "Constraints",
+      "count": 5
     },
     {
       "id": "conversation",
@@ -16187,18 +16803,13 @@
       "count": 4
     },
     {
-      "id": "confidence",
-      "label": "Confidence",
-      "count": 4
-    },
-    {
-      "id": "constraints",
-      "label": "Constraints",
-      "count": 4
-    },
-    {
       "id": "natural-language-feedback",
       "label": "Natural language feedback",
+      "count": 4
+    },
+    {
+      "id": "selective-prediction",
+      "label": "Selective prediction",
       "count": 4
     },
     {
@@ -16257,14 +16868,19 @@
       "count": 3
     },
     {
-      "id": "selective-prediction",
-      "label": "Selective prediction",
-      "count": 3
-    },
-    {
       "id": "visual-interface",
       "label": "Visual interface",
       "count": 3
+    },
+    {
+      "id": "data-semantics",
+      "label": "Data semantics",
+      "count": 2
+    },
+    {
+      "id": "decoding",
+      "label": "Decoding",
+      "count": 2
     },
     {
       "id": "dynamic-evaluation",
@@ -16349,16 +16965,6 @@
     {
       "id": "data-generation",
       "label": "Data generation",
-      "count": 1
-    },
-    {
-      "id": "data-semantics",
-      "label": "Data semantics",
-      "count": 1
-    },
-    {
-      "id": "decoding",
-      "label": "Decoding",
       "count": 1
     },
     {
@@ -18484,6 +19090,112 @@
         }
       ],
       "checked_on": "2026-11-24"
+    },
+    {
+      "resource_id": "bird-fanout-data",
+      "label": "BIRD-FanOut",
+      "relevance": "adjacent",
+      "ambiguity": {
+        "status": "not_targeted",
+        "detail": "Labels distorted versus intended repetition and retains questions judged resolvable from the data model. Contested/unresolvable cases are filtered; no ambiguity-detection or interpretation-coverage task is scored."
+      },
+      "unanswerability": {
+        "status": "not_targeted",
+        "detail": "No intrinsic-unanswerability or refusal target; selection seeks executable questions with a measurable fan-out signal."
+      },
+      "clarification": {
+        "mode": "not_targeted",
+        "detail": "Systems submit SQL without requesting user clarification."
+      },
+      "interaction": {
+        "mode": "static",
+        "detail": "Fixed questions and data; agents may run SQL probes, but receive no user feedback or simulated clarification dialogue."
+      },
+      "domain": "Real BIRD SQLite databases; cleaned-dev and train subsets. Counts and labels are documented by authors, not independently payload-validated.",
+      "evaluation": "Corrected-gold execution accuracy and fan-out errors via exact trap matches, LLM labels or query audit. Main experiments expose reference-query tables; intended-repetition controls test over-deduplication.",
+      "data_access": "public_artifacts",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/pdf/2611.29009v1",
+          "locator": "Sections 4–6.7, pp.4–11; Table 1",
+          "supports": [
+            "ambiguity",
+            "unanswerability",
+            "clarification",
+            "interaction",
+            "domain",
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/bird-fanout-train/README.md",
+          "locator": "Contents, gold review, use and license sections",
+          "supports": [
+            "data_access",
+            "domain",
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/bird-fanout-20251106/README.md",
+          "locator": "Contents and gold review sections",
+          "supports": [
+            "data_access",
+            "ambiguity",
+            "domain"
+          ]
+        }
+      ],
+      "checked_on": "2026-11-25"
+    },
+    {
+      "resource_id": "graintraps-data",
+      "label": "GrainTraps",
+      "relevance": "adjacent",
+      "ambiguity": {
+        "status": "yes",
+        "detail": "Contains 27 vague twins that omit the explicit counting/grain instruction. Gold conventions are fixed by construction and the claimed data-model reading, with one alternative accepted case; this is not exhaustive enumeration of valid user intents."
+      },
+      "unanswerability": {
+        "status": "not_targeted",
+        "detail": "Tasks are constructed and screened as answerable; no unsupported-request or refusal evaluation."
+      },
+      "clarification": {
+        "mode": "not_targeted",
+        "detail": "Vague wording is resolved through supplied data/evidence and SQL generation, not a user dialogue."
+      },
+      "interaction": {
+        "mode": "static",
+        "detail": "Fixed synthetic questions/databases with optional agent SQL exploration; no runtime user responses."
+      },
+      "domain": "Three generated SQLite databases: bookings, supply and shop. Six grain-error types, including non-fan-out grouping/ranking errors.",
+      "evaluation": "Multiset execution match to gold or listed alternate, exact trap match and realized fan-out audit; floats rounded to two decimals and row order ignored. Diagnostic, strong-model-screened suite used in evidence design, with no held-out split.",
+      "data_access": "public_artifacts",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/pdf/2611.29009v1",
+          "locator": "Sections 2.1 and 5.1–6.2, pp.2–3 and5–8; Appendix B, p.14",
+          "supports": [
+            "ambiguity",
+            "unanswerability",
+            "clarification",
+            "interaction",
+            "domain",
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/graintraps/README.md",
+          "locator": "Overview, Questions and Scoring sections",
+          "supports": [
+            "data_access",
+            "ambiguity",
+            "domain",
+            "evaluation"
+          ]
+        }
+      ],
+      "checked_on": "2026-11-25"
     }
   ]
 }

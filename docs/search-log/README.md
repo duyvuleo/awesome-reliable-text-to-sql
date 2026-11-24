@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-11-25: conformal abstention, schema diversity and grain-aware evaluation](2026-11-25.md)
+
 - [2026-11-24: intent/data clarification, context-bank consistency and rewrite verification](2026-11-24.md)
 
 - [2026-11-23: verified Query Carefully proceedings and bounded artifact rechecks](2026-11-23.md)

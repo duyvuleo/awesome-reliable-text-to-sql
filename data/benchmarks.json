@@ -1954,5 +1954,111 @@
       }
     ],
     "checked_on": "2026-11-24"
+  },
+  {
+    "resource_id": "bird-fanout-data",
+    "label": "BIRD-FanOut",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_targeted",
+      "detail": "Labels distorted versus intended repetition and retains questions judged resolvable from the data model. Contested/unresolvable cases are filtered; no ambiguity-detection or interpretation-coverage task is scored."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "No intrinsic-unanswerability or refusal target; selection seeks executable questions with a measurable fan-out signal."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Systems submit SQL without requesting user clarification."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Fixed questions and data; agents may run SQL probes, but receive no user feedback or simulated clarification dialogue."
+    },
+    "domain": "Real BIRD SQLite databases; cleaned-dev and train subsets. Counts and labels are documented by authors, not independently payload-validated.",
+    "evaluation": "Corrected-gold execution accuracy and fan-out errors via exact trap matches, LLM labels or query audit. Main experiments expose reference-query tables; intended-repetition controls test over-deduplication.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/pdf/2611.29009v1",
+        "locator": "Sections 4–6.7, pp.4–11; Table 1",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/bird-fanout-train/README.md",
+        "locator": "Contents, gold review, use and license sections",
+        "supports": [
+          "data_access",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/bird-fanout-20251106/README.md",
+        "locator": "Contents and gold review sections",
+        "supports": [
+          "data_access",
+          "ambiguity",
+          "domain"
+        ]
+      }
+    ],
+    "checked_on": "2026-11-25"
+  },
+  {
+    "resource_id": "graintraps-data",
+    "label": "GrainTraps",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "yes",
+      "detail": "Contains 27 vague twins that omit the explicit counting/grain instruction. Gold conventions are fixed by construction and the claimed data-model reading, with one alternative accepted case; this is not exhaustive enumeration of valid user intents."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "Tasks are constructed and screened as answerable; no unsupported-request or refusal evaluation."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "Vague wording is resolved through supplied data/evidence and SQL generation, not a user dialogue."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Fixed synthetic questions/databases with optional agent SQL exploration; no runtime user responses."
+    },
+    "domain": "Three generated SQLite databases: bookings, supply and shop. Six grain-error types, including non-fan-out grouping/ranking errors.",
+    "evaluation": "Multiset execution match to gold or listed alternate, exact trap match and realized fan-out audit; floats rounded to two decimals and row order ignored. Diagnostic, strong-model-screened suite used in evidence design, with no held-out split.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/pdf/2611.29009v1",
+        "locator": "Sections 2.1 and 5.1–6.2, pp.2–3 and5–8; Appendix B, p.14",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/graintraps/README.md",
+        "locator": "Overview, Questions and Scoring sections",
+        "supports": [
+          "data_access",
+          "ambiguity",
+          "domain",
+          "evaluation"
+        ]
+      }
+    ],
+    "checked_on": "2026-11-25"
   }
 ]

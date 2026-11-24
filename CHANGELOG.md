@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-25
+
+- Added complete readings of Know When to Abstain, Semantic-aware Decoding, Mind the Trap and LTRC-IIITH’s EHRSQL 2024 system. Totals are 132 papers, with 129 complete readings and three existing access gaps.
+- Added one clinical system, the misqal tool, and separate BIRD-FanOut and GrainTraps comparisons. Counts are 55 systems/tools and 39 benchmark entries; data-license, labeling and evaluation limits remain explicit.
+- Distinguished conditional risk bounds from semantic truth, candidate coverage from dialogue success, and repetition flags from intended counting. Held unresolved theoretical and broader-scope leads outside the catalog; no experiments were reproduced.
+
 ## 2026-11-24
 
 - Added complete readings of AskWise, Know Your Context Bank and QO-Verify, with conditional guarantees, simulated evaluation, context-label and rewrite-verification limits. Totals are 128 papers, with 125 complete readings and three existing access gaps.

@@ -937,6 +937,41 @@
     ]
   },
   {
+    "paper_id": "conformal-confidence-abstention",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-25",
+    "source_url": "https://arxiv.org/pdf/2611.31190v1",
+    "version": "arXiv:2611.31190v1, submitted 23 November 2026.",
+    "coverage": "All 32 PDF pages: Sections 1–6, limitations/ethics/reproducibility statements, references and Appendices A–H, including complete generator/critic prompts, feature definitions, proofs, metrics, tables and transfer/latency results. All six figures were visually inspected, including image-only density panels on pp.21–24; Tables 3–4 on p.8 were visually checked. No substantive appendix was omitted.",
+    "unread": [],
+    "problem": "Executable SQL may answer the wrong question, while gold-query correctness labels are unavailable at deployment.",
+    "method": "A generator supplies SQL, verbalized confidence and token probabilities; a separate critic evaluates its result and alignment. A Random Forest fuses 41 features. A correct-class conformal p-value controls marginal false abstention; a distinct Learn-then-Test threshold controls accepted-query error under i.i.d. assumptions.",
+    "evaluation": "Roughly 3,180 Spider examples are split by query and execution label into 60/20/20 training/calibration/test portions. Four generators, five critics, shared-generator baselines, ablations and ten resampled splits are studied. Spider-fitted estimators transfer unchanged to BIRD; NL2SQL-BUGs uses critic-only signals.",
+    "findings": "The main 15% risk budget accepts 52.4% of queries with 9.1% observed error averaged across ten splits. Its 10% budget certifies no split. The same Spider-certified 15% threshold yields 30.1% error on BIRD. Fusion improves reported ranking; logits add little over LLM-derived features in some ablations.",
+    "limitations": "Guarantees concern execution-match labels and require suitable calibration/deployment sampling; database-disjoint generalization is not established by the query-level split. Risk and false-abstention bounds apply to different rules, and coverage is not guaranteed. Critic errors remain common; a different model does not establish independent errors. Self-critique uses a separate generation pass. Logit-free experiments emulate withheld features rather than testing closed APIs. Code release remains unverified.",
+    "relevance": "Core evidence for conditional abstention guarantees, with explicit distinctions among marginal false abstention, accepted-query risk, semantic correctness and distribution shift.",
+    "claims": [
+      {
+        "claim": "The conformal confidence value guarantees correctness or precision of an accepted SQL query.",
+        "evidence": "Proposition 1 defines a correct-class conformal p-value and bounds false abstention marginally over calibration/test draws under exchangeability. Proposition 2 separately tests a prespecified threshold grid on the forest score with Bonferroni correction under i.i.d. sampling and disjoint fitting. The label is equality to gold SQL execution on the benchmark database.",
+        "locator": "Section 3.1/Eqs.1–8 pp.3–4; Appendix E proofs p.25; Appendix F/Table 9 pp.25–26",
+        "disposition": "Do not treat the p-value as a calibrated correctness probability or conflate its false-abstention guarantee with LTT selective-risk control. Neither is a semantic-equivalence or question-answerability guarantee."
+      },
+      {
+        "claim": "The risk guarantee ensures useful coverage and remains valid after cross-dataset transfer.",
+        "evidence": "Table3's main Gemma-critic configuration certifies all ten splits at epsilon 0.15, with 52.4% coverage and 9.1% mean observed risk; at epsilon 0.10 it certifies 0/10 and accepts nothing. BIRD transfer uses the Spider forest/calibration unchanged and observes 30.1% risk at the Spider-certified 15% budget. Both propositions explicitly exclude unsupported distribution shift.",
+        "locator": "Section 5.2/Table 3 pp.7–8; Section 5.6 p.9; Appendix G.8/Table 19 p.30",
+        "disposition": "Report risk with coverage, the certification frequency and distributional assumptions. Empirical success on resampled query splits does not certify new databases or shifted workloads."
+      },
+      {
+        "claim": "A separate critic alone explains the performance improvement or removes generator-error dependence.",
+        "evidence": "Table4 compares methods with the same Olmo generator and shows 89.5 AUARC for fusion versus 78.9 for the same two calls without fusion. Table2's self-critique uses a separate generation pass and obtains 0.913 AUARC versus 0.899 for the main Gemma critic. AppendixG.7 says the critic does not flag 124 of 144 main-run errors under its stated joint-verdict/alignment criterion.",
+        "locator": "Sections 5.2–5.4/Tables 2,4–6 pp.7–9; Appendix G.7 p.30",
+        "disposition": "Attribute the controlled comparison to the complete supervised fusion design. Do not claim causal superiority of critic separation, independent errors, or reliable critic judgments by themselves."
+      }
+    ]
+  },
+  {
     "paper_id": "consistency-hypothesis",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-09",
@@ -2002,6 +2037,101 @@
     ]
   },
   {
+    "paper_id": "ltrc-iiith-ehrsql-2024",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-25",
+    "source_url": "https://aclanthology.org/2024.clinicalnlp-1.66.pdf",
+    "version": "ClinicalNLP 2024 proceedings version, pp. 697–702, six PDF pages; DOI 10.18653/v1/2024.clinicalnlp-1.66.",
+    "coverage": "All six PDF pages: Sections 1–7, limitations, references, both complete prompt templates, Figures 1–2 and Table 1. Figures and table were visually checked on PDF pages 2–4. No appendices are present. Separately read the pinned official README, MIT license, data-preparation modules, fine-tuning and inference source, filtering helpers and experiment-5 script as text.",
+    "unread": [],
+    "problem": "Healthcare SQL systems must distinguish unsupported requests from answerable questions for which their generated query may still be unreliable.",
+    "method": "QLoRA adapts SQLCoder-7b-2 for generation and answerability classification. Classifier training balances unanswerable questions against sampled answerable questions; a multitask variant combines classification and generation examples. A summed token-log-probability threshold and execution-error filter provide additional abstention decisions.",
+    "evaluation": "The EHRSQL 2024 MIMIC-IV demo task has 5,124 training, 1,163 validation and 1,167 test questions. The paper reports incremental configurations and six confidence thresholds using penalty-dependent reliability scores. It explicitly chooses thresholds heuristically from the test-prediction score distribution.",
+    "findings": "The reported submission uses threshold −0.4 and ranks sixth, with RS(5) 55.27 and RS(10) 43.70. Different thresholds favor different penalties: −0.5 gives higher RS(5), while −0.2 gives RS(10) 43.87. Every reported RS(N) remains negative.",
+    "limitations": "Test-score adaptation is not independent validation-set calibration; no test-label training is established. Raw sequence likelihood is not calibrated correctness and can depend on output length. Cascaded modules can wrongly reject valid queries or accept incorrect ones. Evaluation uses one benchmark setting without prospective clinical outcomes, external-hospital transfer or separate ambiguity resolution.",
+    "relevance": "Core evidence for combining intrinsic answerability screening with candidate-level selective prediction. Successful SQL execution and high model likelihood do not establish that the request is answerable or the SQL semantically correct.",
+    "claims": [
+      {
+        "claim": "All abstentions identify intrinsically unanswerable questions.",
+        "evidence": "The classifier is trained on questions whose benchmark label is null and a balanced sample of answerable questions. Separately, generation can emit I do not know; execution errors and low sequence likelihood also yield null. These latter signals concern a particular model output and can occur for answerable questions.",
+        "locator": "Sections 4.2–4.4, pp. 699–700; pinned src/data_preparation/abstention_data_preparation.py lines 16–37 and 57–61; src/data_preparation/data_preparation.py lines 38–45; src/post_processing/post_processing.py lines 62–71",
+        "disposition": "Preserve the distinction between unsupported requests and unreliable candidate generation. A shared null output does not make their causes equivalent."
+      },
+      {
+        "claim": "Confidence thresholds are calibrated on an independent validation set or prove a correctness probability.",
+        "evidence": "Section 4.4.1 defines confidence as the sum of generated-token log probabilities and says that the threshold is chosen heuristically from the test-score distribution. Figure 2 excludes scores below −1 from its histogram. Source sums scores without length normalization and reads test questions for inference; training preparation reads train labels only.",
+        "locator": "Figure 2 and Section 4.4.1, pp. 699–700; pinned src/finetuning/inference.py lines 37–43 and 79–86; src/post_processing/post_processing.py lines 39–51",
+        "disposition": "Describe adaptation to unlabeled test predictions, not independently calibrated risk. The public evidence does not establish test-label training or label leakage. Sequence likelihood can be length-sensitive and is not a semantic-correctness guarantee."
+      },
+      {
+        "claim": "Threshold −0.4 is the best setting for every reported reliability criterion.",
+        "evidence": "Section 6 selects −0.4 and Table 1 bolds its RS(10) 43.70. The same table lists RS(10) 43.87 at −0.2 and the best RS(5), 55.78, at −0.5. RS(0) falls as stricter thresholds reject more outputs, and even the least negative RS(N) is −1641.55.",
+        "locator": "Table 1, p. 700; Section 6, p. 701",
+        "disposition": "Treat −0.4 as the reported submission setting, not a universal optimum. Retain the table/prose best-score discrepancy and penalty-dependent trade-off."
+      },
+      {
+        "claim": "Error filtering treats every empty SQL result as unanswerable.",
+        "evidence": "Section 4.4.2 describes filtering execution errors. In the inspected code, execution exceptions become error_pred, and only that sentinel triggers the error-filter branch. Empty result lists are serialized as results and are not rejected solely for emptiness. Classifier and score checks are additional branches.",
+        "locator": "Section 4.4.2, p. 700; pinned src/post_processing/utils.py lines 57–89; src/post_processing/post_processing.py lines 62–71",
+        "disposition": "Do not conflate execution failure, valid empty results and intrinsic unanswerability. This is a static source check, not a reproduced experiment."
+      },
+      {
+        "claim": "The released pipeline necessarily saves generation and execution by rejecting questions first.",
+        "evidence": "Figure 1 depicts abstention before generation. The experiment-5 script invokes separate batch inference for classification and generation. Post-processing executes the generated SQL collection before loading classifier predictions and applying the final rejection rules.",
+        "locator": "Figure 1, p. 698; pinned scripts/experiment_5.sh lines 14–24; src/post_processing/post_processing.py lines 26–37 and 54–71",
+        "disposition": "The figure expresses logical decision stages; the released batch workflow does not establish early-gating compute savings. No runtime cost was measured here, and the exact published-run implementation is not independently established."
+      },
+      {
+        "claim": "The results demonstrate safe use across clinical institutions or eliminate unreliable answers.",
+        "evidence": "The study evaluates the MIMIC-IV demo-derived shared task and reports penalty-dependent scores. Section 6.1 acknowledges cascading errors, false acceptance and false rejection. No prospective clinician study, hospital-transfer evaluation or clinical patient-outcome assessment is reported.",
+        "locator": "Section 3, p. 698; Sections 5.2, 6.1 and 7, p. 701",
+        "disposition": "Limit the evidence to benchmark reliability under the described setup; neither a passing execution nor the reported leaderboard rank establishes clinical deployment safety."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Official paper metadata",
+        "url": "https://aclanthology.org/2024.clinicalnlp-1.66/"
+      },
+      {
+        "label": "Public implementation snapshot",
+        "url": "https://github.com/jr-john/ehrsql-2024/tree/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b"
+      },
+      {
+        "label": "Release instructions",
+        "url": "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/README.md"
+      },
+      {
+        "label": "MIT source license",
+        "url": "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/LICENSE"
+      },
+      {
+        "label": "Inference and confidence calculation",
+        "url": "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/finetuning/inference.py"
+      },
+      {
+        "label": "Rejection logic",
+        "url": "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/post_processing/post_processing.py"
+      },
+      {
+        "label": "Execution and result handling",
+        "url": "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/post_processing/utils.py"
+      },
+      {
+        "label": "Classifier training-data preparation",
+        "url": "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/data_preparation/abstention_data_preparation.py"
+      },
+      {
+        "label": "Generator training-data preparation",
+        "url": "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/data_preparation/data_preparation.py"
+      },
+      {
+        "label": "Submission experiment workflow",
+        "url": "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/scripts/experiment_5.sh"
+      }
+    ]
+  },
+  {
     "paper_id": "luthorsql",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-17",
@@ -2057,6 +2187,61 @@
       {
         "label": "Evaluation-set provenance and terms",
         "url": "https://huggingface.co/datasets/IAMIbrahim/luthorsql-fresh-unseen/blob/691ae35675eca8fc456fc0681315ba3b61b4c020/README.md"
+      }
+    ]
+  },
+  {
+    "paper_id": "mind-the-trap",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-25",
+    "source_url": "https://arxiv.org/pdf/2611.29009v1",
+    "version": "arXiv:2611.29009v1, 21 November 2026",
+    "coverage": "All 17 PDF pages: Sections 1–8, Proposition 2.1, references, Appendices A–E, Figures 1–14 and Tables 1–12. All figures visually inspected on rendered pp.1,3,5,7,8,9,10,11,15; associated tables and captions read. The arXiv comment says nine tables, but this PDF includes Tables 1–12.",
+    "unread": [],
+    "problem": "An aggregate can silently count repeated entities, and benchmark gold can encode the same mistake. Deciding whether repetition is wrong also requires the intended counting grain.",
+    "method": "Uses sqlglot scopes and instance-level SQL probes to expose repeated rows, then LLM review to distinguish distorted from intended gold. Agent evidence adds measure grain, identifier repetition, NULL-aware dependencies and required-key scoping to ordinary dependency profiles.",
+    "evaluation": "Audits BIRD and constructs 486 reviewed BIRD-FanOut questions plus 59 synthetic GrainTraps questions. Eight models compare seven evidence arms. Main runs expose reference-query tables; 183 distorted BIRD-train questions are held out from evidence design, while all GrainTraps questions are in-sample.",
+    "findings": "Grain-aware evidence reduces measured fan-out errors beyond statistics on the selected BIRD cases, including under two judge-free metrics. General accuracy gains are smaller and unestablished on held-out cases. Prompting models to check data increases checking without demonstrating fewer grain errors.",
+    "limitations": "No human labeled or checked the benchmark data. Shared LLM judges, post-run gold review and metric selection, strong-model screening, outcome-selected design cases, different run days and bundled evidence additions constrain inference. The audit measures repetition rather than intent, and may flag correct intended counting.",
+    "relevance": "Provides adjacent data-grounded verification and benchmark-quality tools for underspecified aggregation semantics. It neither proves full SQL correctness nor evaluates clarification, refusal or intrinsic database unanswerability.",
+    "claims": [
+      {
+        "claim": "The audit establishes that 4.2% of BIRD gold is objectively wrong.",
+        "evidence": "The reported 4.2% is 64 LLM-labeled distorted questions among 1,534 June 2024 dev questions, distinct from the 82 definite flags. The train 6.2% figure counts flags rather than adjudicated distorted questions. The paper states that no person labeled or checked any data.",
+        "locator": "Section 4/Figures4–6, pp.4–5; Section7 limitations, p.12",
+        "disposition": "Report an audit-and-LLM-label estimate for that BIRD release, not a human-adjudicated error rate for every BIRD version or benchmark."
+      },
+      {
+        "claim": "Grain-aware evidence improves general Text-to-SQL accuracy by the headline error reduction.",
+        "evidence": "The 18.4% to 13.1–13.6% figures concern exact-plus-judged fan-out errors on 229 selected distorted train questions. Against statistics, held-out fan-out decreases 2.7–2.9 points; judge-free metrics support the direction. Held-out accuracy gains are not significant, and the 183-question holdout is the complement of an outcome-selected 46-question design set.",
+        "locator": "Sections 5.2–6.3/Table 2/Figure 10, pp.7–10; Appendix E/Tables 10–11, p.17",
+        "disposition": "Supports reduction of a targeted error mode under the tested setup. Do not equate it with overall accuracy, random-split generalization or independent human-label validation."
+      },
+      {
+        "claim": "A definite fan-out flag proves semantic error regardless of intent.",
+        "evidence": "Section 4 uses that strong wording, but Proposition 2.1 assumes the requested measure grain. Section 6.7 explicitly says the audit cannot judge intent and flags 53% of correct answers on intended-repetition questions. It also flags AVG conservatively when repetitions are uniform.",
+        "locator": "Proposition 2.1/Section 2.2, pp.2–3; Section 4, p.4; Section 6.7, p.11",
+        "disposition": "Treat flag names as operational repetition diagnostics, not sound certificates of question–SQL mismatch. Whether repeated rows should count remains a semantic decision."
+      },
+      {
+        "claim": "Independent BIRD revision verifies the audit’s complete precision and recall.",
+        "evidence": "Answer changes occur in 36/82 definite-flag questions versus 217/1,397 unflagged questions; 55 weaker flags are set aside. The 32/36 detected fan-out fixes use LLM judgments of revision meaning, and missed-fix search only examines changes adding DISTINCT.",
+        "locator": "Section 4/Figure 6, p.5",
+        "disposition": "Provides corroborating enrichment in an independently revised release, not exhaustive detection performance or proof that every changed answer was a fan-out correction."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Pinned author artifact and release documentation",
+        "url": "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/README.md"
+      },
+      {
+        "label": "Static audit source; inspected without execution",
+        "url": "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/src/misqal/fanout/audit.py"
+      },
+      {
+        "label": "Static grain-aware evidence source; targeted inspection",
+        "url": "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/src/misqal/harness/evidence_v2.py"
       }
     ]
   },
@@ -3580,6 +3765,47 @@
         "evidence": "Table 6 is empirical; the Bonferroni certificate fires only at risk target 0.40 with 16% coverage.",
         "locator": "Section 4.5/Table 6, PDF page 7",
         "disposition": "Separate empirical operating points from the conservative certificate."
+      }
+    ]
+  },
+  {
+    "paper_id": "semantic-aware-decoding",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-25",
+    "source_url": "https://arxiv.org/pdf/2611.30873v1",
+    "version": "arXiv:2611.30873v1, 23 November 2026; 8 pages.",
+    "coverage": "All 8 pages: Sections 1–6, Algorithm 1, equation and bound argument, Tables 1–3, Figures 1–5 and all references. All five figures and three result tables were visually inspected on PDF pages 2, 3, 6 and 7. This version has no appendices or separately linked supplement.",
+    "unread": [],
+    "problem": "Ordinary decoding can spend its candidate budget on variants of one schema mapping instead of covering alternative interpretations of an ambiguous request.",
+    "method": "Tracks schema-element generation with a token prefix tree, masks invalid continuations, normalizes pairwise schema embedding similarities, and boosts alternatives by a fraction of the top-logit gap. SchemaBeam adds beam search, formatting-token masking and AST-based syntactic deduplication.",
+    "evaluation": "Reports EitherInTop5 and BothInTop5 on 2,948 AmbiQT column/join/table cases and 373 AMBROSIA vagueness cases. A combined third interpretation is removed from some AMBROSIA references. Three base models are tested; sampling averages three runs. Relative latency is measured on two RTX A6000 GPUs.",
+    "findings": "BothInTop5 improves over vanilla beam in all reported model/category cells, but EitherInTop5 does not always improve. SchemaBeam is competitive with prompting and fine-tuning baselines at reported 1.1-times beam latency; some competing methods retain higher coverage on particular categories.",
+    "limitations": "The benchmark subset and altered AMBROSIA references limit comparability with full-benchmark results. Schema similarity is a heuristic, and excluded ON/COUNT positions and structural errors remain outside the intervention. Logit access and valid token tracking are prerequisites. Some baseline backbones differ; no separate calibration split for the strength parameter, uncertainty intervals, user study or unanswerability test is reported. Public implementation and detailed reproducibility inputs remain unverified.",
+    "relevance": "Direct schema-ambiguity candidate generation supporting later disambiguation, with reference coverage kept separate from intended-answer selection and dialogue success.",
+    "claims": [
+      {
+        "claim": "SLA preserves the original model output and proves semantic validity of its alternatives.",
+        "evidence": "Algorithm 1 masks tokens outside the current prefix-tree children before defining the top allowed token. Section 4.3 bounds each alternative boost below the top-versus-runner-up gap for 0 < alpha < 1. This protects that local allowed-token argmax, while sequence ranking can still change. Similarity does not establish ambiguity; ON and COUNT-column positions are excluded.",
+        "locator": "Sections 4.2–4.4, PDF pp. 3–5; Algorithm 1 p 4",
+        "disposition": "Interpret the guarantee locally after masking, not as unchanged complete-query output or a semantic-correctness proof. AST deduplication is syntactic, and decoding requires access to token logits."
+      },
+      {
+        "claim": "Top-five gains measure complete interpretation recovery on the original full benchmarks.",
+        "evidence": "Section 5.1 restricts AmbiQT to three schema categories and AMBROSIA to 373 vagueness examples, removing combined third references to obtain two targets. BothInTopK asks whether both remaining references appear, rather than judging every generated candidate or selecting the user’s intended one.",
+        "locator": "Section 5.1, PDF p. 5; Tables 1–2, pp 6–7",
+        "disposition": "Describe coverage under the modified two-reference protocol. No complete semantic-support guarantee, precision assessment or live clarification success follows."
+      },
+      {
+        "claim": "SchemaBeam universally improves correctness and dominates every compared method.",
+        "evidence": "Table 1 Qwen-27B Table EitherInTop 5 falls from 77.63 to 75.37 despite higher Both coverage. In Table 2, Table Both coverage 54.48 is below Prompt 58.36 and ODIN 59.99; Vague Both 19.22 is below DFPL 19.64. ODIN uses Claude 3 Haiku and fine-tuned baselines use their released models. Figure 5 shows a case where diversity pushes a needed COUNT(*) query down the ranking.",
+        "locator": "Sections 5.2–5.5, PDF pp. 5–7; Tables 1–2 and Figure 5",
+        "disposition": "Retain the coverage benefit and its counterexamples. Cross-method results are not all matched-backbone causal comparisons, and candidate coverage is not whole-query accuracy."
+      },
+      {
+        "claim": "The reported ten-percent overhead establishes deployment-wide efficiency with no additional setup cost.",
+        "evidence": "Schema embeddings, all-pairs similarities and prefix trees are precomputed once per database. Table 2 reports 1.1-times beam-search latency in the specified two-GPU setting; it does not separately report amortization of schema preparation or an end-to-end user-interaction workload.",
+        "locator": "Sections 4.2–4.3, pp 3–4; Section 5.1 p 5; Table 2 p 7",
+        "disposition": "Use the measured relative decoding latency with its setup and hardware boundary. No universal latency bound, arbitrary API compatibility or production cost saving is established."
       }
     ]
   },

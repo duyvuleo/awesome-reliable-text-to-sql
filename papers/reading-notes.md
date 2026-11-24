@@ -6,7 +6,7 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **125 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **129 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
@@ -43,6 +43,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [FALCON: A Model and Dataset Agnostic Framework for Synthetic Data Generation for NL2SQL Pairs](notes/falcon-synthesis.md) | Full paper read |
 | 2026 | [FlinkEval: A Synthetic Corpus for Evaluating Natural Language Interfaces to Streaming SQL](notes/flinkeval.md) | Full paper read |
 | 2026 | [From Textual Columns to Query Plans: A Unified Relational-Semantic Execution Framework for Hybrid Query Processing](notes/omnitqa.md) | Full paper read |
+| 2026 | [Know When to Abstain: Conformal Confidence Estimation for Text-to-SQL](notes/conformal-confidence-abstention.md) | Full paper read |
 | 2026 | [Know Your Context Bank: Repairing Inconsistency and Measuring Generalization in Context-Aware Text-to-SQL](notes/context-bank.md) | Full paper read |
 | 2026 | [KODE: Mining Implicit Domain Knowledge from Historical Experience for Text-to-SQL](notes/kode.md) | Full paper read |
 | 2026 | [LASSO: An LLM-Agent Synthesized System for SQL Validation](notes/lasso.md) | Full paper read |
@@ -50,6 +51,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [Leveraging Query Optimizers to Verify the Soundness of LLM-based Query Rewrites for Real-World Workloads, and More!](notes/qo-verify.md) | Full paper read |
 | 2026 | [Living Context Graphs: Continual Semantic Learning for Enterprise Data Reasoning](notes/living-context-graphs.md) | Full paper read |
 | 2026 | [LuthorSQL: A One-Pass Text-to-SQL Model as System 1 for a Slower LLM Agent](notes/luthorsql.md) | Full paper read |
+| 2026 | [Mind the Trap As LLMs Guess the Data Model: Grain-Aware Guards Against Fan-out in Text-to-SQL and Its Benchmarks](notes/mind-the-trap.md) | Full paper read |
 | 2026 | [MTSQL-R1: Towards Long-Horizon Multi-Turn Text-to-SQL via Agentic Training](notes/mtsql-r1.md) | Full paper read |
 | 2026 | [Never the Number: Structural Abstention for AI Systems Whose Answers Are Consumed as Fact](notes/structural-abstention.md) | Full paper read |
 | 2026 | [Node-Level Uncertainty Estimation in LLM-Generated SQL](notes/node-level-uncertainty.md) | Full paper read |
@@ -73,6 +75,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [Same SQL, Different Decision: Aggregate Risk Hides Cross-Lingual Instability in Text-to-SQL Verification](notes/same-sql-different-decision.md) | Full paper read |
 | 2026 | [SCARE: A Benchmark for SQL Correction and Question Answerability Classification for Reliable EHR Question Answering](notes/scare.md) | Full paper read |
 | 2026 | [Schema-Free Text-to-SQL: Learning Enterprise Database Structure from Query Logs](notes/schema-free-query-logs.md) | Full paper read |
+| 2026 | [Semantic-aware Decoding for Diverse Text-to-SQL under Schema Ambiguity](notes/semantic-aware-decoding.md) | Full paper read |
 | 2026 | [SOMA-SQL: Resolving Multi-Source Ambiguity in NL-to-SQL via Synthetic Log and Execution Probing](notes/soma-sql.md) | Full paper read |
 | 2026 | [SpotIt+: Verification-based Text-to-SQL Evaluation with Database Constraints](notes/spotit-plus.md) | Full paper read |
 | 2026 | [SpotIt: Evaluating Text-to-SQL Evaluation with Formal Verification](notes/spotit.md) | Full paper read |
@@ -116,6 +119,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2024 | [AIRI NLP Team at EHRSQL 2024 Shared Task: T5 and Logistic Regression to the Rescue](notes/airi-ehrsql-2024.md) | Full paper read |
 | 2024 | [AMBROSIA: A Benchmark for Parsing Ambiguous Questions into Database Queries](notes/ambrosia.md) | Full paper read |
 | 2024 | [LG AI Research &amp; KAIST at EHRSQL 2024: Self-Training Large Language Models with Pseudo-Labeled Unanswerable Questions for a Reliable Text-to-SQL System on EHRs](notes/pluq.md) | Full paper read |
+| 2024 | [LTRC-IIITH at EHRSQL 2024: Enhancing Reliability of Text-to-SQL Systems through Abstention and Confidence Thresholding](notes/ltrc-iiith-ehrsql-2024.md) | Full paper read |
 | 2024 | [MultiSQL: A Schema-Integrated Context-Dependent Text2SQL Dataset with Diverse SQL Operations](notes/multisql.md) | Full paper read |
 | 2024 | [NL2SQL is a solved problem... Not!](notes/nl2sql-not-solved.md) | Full paper read |
 | 2024 | [Overview of the EHRSQL 2024 Shared Task on Reliable Text-to-SQL Modeling on Electronic Health Records](notes/ehrsql-2024.md) | Full paper read |

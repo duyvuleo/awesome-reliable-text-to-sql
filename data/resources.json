@@ -1735,5 +1735,91 @@
       "https://arxiv.org/pdf/2611.26775v1"
     ],
     "checked_on": "2026-11-24"
+  },
+  {
+    "id": "ltrc-iiith-ehrsql-2024-system",
+    "name": "LTRC-IIITH EHRSQL 2024 system",
+    "kind": "system",
+    "paper_ids": [
+      "ltrc-iiith-ehrsql-2024"
+    ],
+    "url": "https://github.com/jr-john/ehrsql-2024",
+    "description": "Public EHRSQL shared-task implementation combining answerability classification, SQLCoder generation, confidence thresholding and execution-error filtering.",
+    "protocol": "Uses balanced classifier examples and a multitask variant, then combines classifier decisions with summed generated-token log probabilities and SQL execution errors. The released batch workflow generates and executes candidates before applying final abstention rules; empty result rows alone are not a rejection condition. Threshold choice uses the test-score distribution and is not calibrated semantic confidence.",
+    "availability": "Public source and complete file inventory inspected at 4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b. Includes preparation, QLoRA training, inference, post-processing and experiment scripts, with prediction/score file names visible. Prediction contents were not downloaded. EHRSQL/MIMIC inputs and SQLCoder base weights must be obtained separately; a released fine-tuned checkpoint was not verified. No installation, code execution or result reproduction performed.",
+    "license_note": "MIT license verified in the root LICENSE, copyright 2024 Jerrin John Thomas. Benchmark data, base-model weights and dependencies retain their own terms; no dataset or model license is inferred from the software license.",
+    "evidence": [
+      "https://aclanthology.org/2024.clinicalnlp-1.66.pdf",
+      "https://github.com/jr-john/ehrsql-2024",
+      "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/README.md",
+      "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/LICENSE",
+      "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/finetuning/inference.py",
+      "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/post_processing/post_processing.py",
+      "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/src/post_processing/utils.py",
+      "https://github.com/jr-john/ehrsql-2024/blob/4935c2d0f1c2abc4e05d57ad91c2ab2e3f0cbd4b/scripts/experiment_5.sh"
+    ],
+    "checked_on": "2026-11-25"
+  },
+  {
+    "id": "misqal-tool",
+    "name": "misqal fan-out audit and grain-aware evidence",
+    "kind": "tool",
+    "paper_ids": [
+      "mind-the-trap"
+    ],
+    "url": "https://github.com/ahmed-mahran/misqal",
+    "description": "Instance-based SQL fan-out auditing and table dependency/grain evidence for Text-to-SQL experiments.",
+    "protocol": "Parses SQLite query scopes and probes repeated base-table rows under their joins/filters; static exposure and realized repetition are separate. Grain-aware evidence supplies measure grain, repetition and NULL-aware facts. Flags do not establish whether repetition is intended or prove semantic equivalence.",
+    "availability": "Public audit, cardinality, agent harness, evidence, benchmark generator and test source listed at 422891572d0d548f8d515444a701d8c18d7352a4. README and relevant source inspected as text only. BIRD data and model endpoints are separate dependencies; no runtime, tests or generated databases validated.",
+    "license_note": "Root source license explicitly Apache-2.0. BIRD-derived benchmark subsets and column roles are separately declared CC BY-SA 4.0; external data, models and dependencies retain their own terms.",
+    "evidence": [
+      "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/README.md",
+      "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/LICENSE",
+      "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/src/misqal/fanout/audit.py",
+      "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/src/misqal/harness/evidence_v2.py",
+      "https://arxiv.org/pdf/2611.29009v1"
+    ],
+    "checked_on": "2026-11-25"
+  },
+  {
+    "id": "bird-fanout-data",
+    "name": "BIRD-FanOut",
+    "kind": "dataset",
+    "paper_ids": [
+      "mind-the-trap"
+    ],
+    "url": "https://github.com/ahmed-mahran/misqal/tree/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks",
+    "description": "BIRD-derived fan-out audit subset with LLM intent labels, reviewed/corrected SQL and intended-repetition controls; documentation reports 486 questions: 102 dev and 384 train.",
+    "protocol": "Distorted versus intended repetition is labeled by LLM judges with agent checks, not human annotation. Evaluation measures corrected-gold execution accuracy and exact, judged or audited fan-out errors; unresolved/disputed or unresolvable items are filtered. The main model comparison uses reference-query tables.",
+    "availability": "Official repository lists subset.jsonl, adjudication.json and gold_review.jsonl for train and cleaned-dev variants. Benchmark READMEs were inspected; annotation payloads were not downloaded or independently counted. Original BIRD questions/databases and access terms remain upstream dependencies.",
+    "license_note": "Pinned root and train READMEs explicitly release BIRD-derived subsets and column roles under CC BY-SA 4.0. This does not relicense external model dependencies or replace upstream BIRD database terms.",
+    "evidence": [
+      "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/README.md",
+      "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/bird-fanout-20251106/README.md",
+      "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/bird-fanout-train/README.md",
+      "https://arxiv.org/pdf/2611.29009v1"
+    ],
+    "checked_on": "2026-11-25"
+  },
+  {
+    "id": "graintraps-data",
+    "name": "GrainTraps",
+    "kind": "dataset",
+    "paper_ids": [
+      "mind-the-trap"
+    ],
+    "url": "https://github.com/ahmed-mahran/misqal/tree/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/graintraps",
+    "description": "Synthetic diagnostic suite of 59 questions over three SQLite databases: 29 explicit trap questions, 27 vague twins and 3 controls, spanning six grain/fan-out traps.",
+    "protocol": "Claude-generated tasks retain fixed gold and trap SQL, with an alternative accepted reading for one question. Vague twins omit intended-grain wording; scoring compares result multisets and detects exact/audited trap answers. The suite was used to design the evidence and screened for strong-model solvability, with no held-out split.",
+    "availability": "Official questions.json and deterministic database-generator source are listed. README inspected; question payloads were not downloaded and generator/tests were not executed. A ready-made database download was not required by the documented protocol, but database generation was not independently verified.",
+    "license_note": "Repository source is Apache-2.0. No separate GrainTraps dataset license was verified in its README; the explicit CC BY-SA declaration is for BIRD-derived materials, not automatically for this synthetic suite.",
+    "evidence": [
+      "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/README.md",
+      "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/LICENSE",
+      "https://github.com/ahmed-mahran/misqal/blob/422891572d0d548f8d515444a701d8c18d7352a4/benchmarks/graintraps/README.md",
+      "https://github.com/ahmed-mahran/misqal/tree/422891572d0d548f8d515444a701d8c18d7352a4/src/misqal/traps",
+      "https://arxiv.org/pdf/2611.29009v1"
+    ],
+    "checked_on": "2026-11-25"
   }
 ]
