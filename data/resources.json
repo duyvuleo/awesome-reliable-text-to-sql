@@ -1821,5 +1821,44 @@
       "https://arxiv.org/pdf/2611.29009v1"
     ],
     "checked_on": "2026-11-25"
+  },
+  {
+    "id": "locust-data",
+    "name": "LOCuST",
+    "kind": "dataset",
+    "paper_ids": [
+      "locust"
+    ],
+    "url": "https://github.com/lagewel001/LOCuST/tree/827adfc792ea19ea2a87e9964d417211b6723be9/data/qa_pairs",
+    "description": "English and Dutch official-statistics questions with catalog tables and a metadata graph for grounding measures, dimensions and units.",
+    "protocol": "Ranks tables, generates SQL with the reference tables supplied, or answers with retrieved tables. The paper reports 2,559 questions and 2,241 tables. The v0.4 README lists 2,567 and 2,244. The catalog has not reconciled the difference at payload level.",
+    "availability": "The repository lists English and Dutch train/test files and published baseline outputs. Its README links separate table and graph archives. The archives were not inspected.",
+    "license_note": "The pinned README describes Statistics Netherlands source data as licence-free. No separate software license was located in this revision.",
+    "evidence": [
+      "https://arxiv.org/pdf/2611.32646v1",
+      "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/README.md",
+      "https://github.com/lagewel001/LOCuST/tree/827adfc792ea19ea2a87e9964d417211b6723be9/data/qa_pairs"
+    ],
+    "checked_on": "2026-11-26"
+  },
+  {
+    "id": "locust-evaluator",
+    "name": "LOCuST query evaluator",
+    "kind": "tool",
+    "paper_ids": [
+      "locust"
+    ],
+    "url": "https://github.com/lagewel001/LOCuST/tree/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation",
+    "description": "DuckDB-oriented evaluation code with execution-based metrics and a scorer that compares the measure and dimension codes selected by two queries.",
+    "protocol": "The selection scorer parses SQL and consults the metadata graph. It tracks extra and missing components and pools counts for observation F1, with zero credit when no measure matches. Aggregations can still be wrong even when component sets match.",
+    "availability": "The pinned evaluation directory contains the query-generation entry point, metric implementations and author-reported results. Source was inspected without running the evaluator.",
+    "license_note": "No software license was located in the pinned file tree. The README’s statement about source statistics does not establish a software license.",
+    "evidence": [
+      "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation/metrics/selection_metrics.py",
+      "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation/evaluate_query_generation.py",
+      "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/README.md",
+      "https://arxiv.org/pdf/2611.32646v1"
+    ],
+    "checked_on": "2026-11-26"
   }
 ]

@@ -2060,5 +2060,59 @@
       }
     ],
     "checked_on": "2026-11-25"
+  },
+  {
+    "resource_id": "locust-data",
+    "label": "LOCuST",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_targeted",
+      "detail": "The paper analyzes alternative selections of result columns and ambiguity between similar catalog tables. Test items do not carry a set of acceptable intents or an ambiguity-detection label."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "Section VI explicitly places unsupported questions, false premises and incompatible-unit aggregations outside the test set."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "The evaluation expects retrieved tables or SQL. It does not solicit a user clarification."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Fixed English and Dutch question splits are evaluated with the reference or retrieved tables."
+    },
+    "domain": "Statistics Netherlands tables, with labels, units and code hierarchies in an accompanying graph. Six question domains are held out.",
+    "evaluation": "Table retrieval, execution accuracy, numeric F1 and concept selection. Matching the reference’s measures and dimension codes alone does not check join or aggregation correctness.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/pdf/2611.32646v1",
+        "locator": "Sections III–VI and Tables V–VI",
+        "supports": [
+          "domain",
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/README.md",
+        "locator": "Overview, Dataset downloads and FAQ",
+        "supports": [
+          "data_access",
+          "domain"
+        ]
+      },
+      {
+        "url": "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation/metrics/selection_metrics.py",
+        "locator": "get_selection_metrics and extract_sql_components",
+        "supports": [
+          "evaluation"
+        ]
+      }
+    ],
+    "checked_on": "2026-11-26"
   }
 ]

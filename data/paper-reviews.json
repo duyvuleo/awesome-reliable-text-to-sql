@@ -2037,6 +2037,51 @@
     ]
   },
   {
+    "paper_id": "locust",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-26",
+    "source_url": "https://arxiv.org/pdf/2611.32646v1",
+    "version": "arXiv:2611.32646v1, 24 November 2026, 13 pages.",
+    "coverage": "Read Sections I–VII, acknowledgements and references, Tables I–X and all four figures. Checked the original PDF figures for graph structure, annotation workflow and results. There is no appendix in this version.",
+    "unread": [],
+    "problem": "An official-statistics question can identify its target numbers without specifying every column the answer should display. An exact comparison may punish a reasonable projection, while a measure-only check may miss an incorrect calculation.",
+    "method": "LOCuST pairs English and Dutch questions with Statistics Netherlands tables and a graph connecting codes to concepts and units. Four Statistics Netherlands reviewers helped validate SQL-first examples. Retrieval, generation with supplied tables and end-to-end QA are separate tasks. The observation score pools overlap over measure and dimension-code sets and gives zero when no measure matches.",
+    "evaluation": "The paper reports 2,559 questions and 2,241 tables across 22 domains. Questions in six domains are held out, with 308 English and 299 Dutch test items. Four generators are evaluated with supplied tables and with retrieved tables. Strict and lenient execution, numeric F1 and graph-grounded selection metrics capture different failure modes.",
+    "findings": "For generation with supplied tables, the authors report that 17–53% of questions per run receive perfect observation and numeric F1 but zero lenient execution accuracy. They illustrate how adding or omitting region, time and sector context changes the returned table. Conversely, only 76% of executable predictions with perfect observation F1 also attain perfect numeric F1.",
+    "limitations": "A predicted set of codes can match despite a wrong range predicate, aggregation or join. The tested questions admit answers by construction, with unsupported requests and conflicting units discussed as future work. The paper’s counts differ from the repository README. The percentages describe model runs in this benchmark and do not count independently adjudicated valid interpretations.",
+    "relevance": "Provides an adjacent benchmark and diagnostic scorer for the gap between a requested statistic and its displayed output. It has no scored clarification or abstention action.",
+    "claims": [
+      {
+        "claim": "Does zero lenient execution accuracy always mean a wrong statistic?",
+        "evidence": "One example returns the requested electricity quantity while the reference also projects descriptive fields. With the tables supplied, observation and numeric F1 can both be perfect while the full-cell comparison fails.",
+        "locator": "Sections III-D and V-A4, pp. 7–10",
+        "disposition": "Some execution discrepancies are consistent with underspecified presentation. The two F1 scores alone cannot certify correctness for each prediction."
+      },
+      {
+        "claim": "Does a perfect observation score establish the calculation is right?",
+        "evidence": "The score compares selected concepts and filters. Section V-B reports that 76% of executable predictions with perfect observation F1 have perfect numeric F1. A two-table task can earn partial credit from just one table.",
+        "locator": "Sections III-D2, V-A5 and V-B1, Tables V–VI",
+        "disposition": "Use the score to identify which concepts the model selected. Check arithmetic and cross-table operations independently."
+      },
+      {
+        "claim": "Can LOCuST compare refusal or clarification policies?",
+        "evidence": "The authors explicitly exclude incompatible-unit aggregations and other unanswerable cases from the test set. Their three tasks use recorded question–SQL pairs and do not elicit replies from a user.",
+        "locator": "Sections III and VI",
+        "disposition": "The benchmark can diagnose groundings and output conventions. It supplies no evaluation of appropriate refusal or successful dialogue."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Pinned artifact and version-specific counts",
+        "url": "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/README.md"
+      },
+      {
+        "label": "Published selection scorer",
+        "url": "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation/metrics/selection_metrics.py"
+      }
+    ]
+  },
+  {
     "paper_id": "ltrc-iiith-ehrsql-2024",
     "status": "full-text-reviewed",
     "reviewed_on": "2026-11-25",
@@ -4488,6 +4533,43 @@
       {
         "label": "Repository license",
         "url": "https://github.com/magic-YuanTian/SQLucid/blob/52f3692328e4c86aba4e7ba07d157fb6a313bfea/LICENSE"
+      }
+    ]
+  },
+  {
+    "paper_id": "sqlution",
+    "status": "partial",
+    "reviewed_on": "2026-11-26",
+    "source_url": "https://arxiv.org/pdf/2611.28516v1",
+    "version": "arXiv:2611.28516v1, 21 November 2026, 14 pages.",
+    "coverage": "Read the entire posted article, Sections 1–11, Algorithm 1, theorems, worked examples, tables and figure captions. Visually checked Tables 3–4 and Figure 4 on PDF pages 10–11. The separate proof supplement is an outstanding reading gap.",
+    "unread": [
+      "Reference [6], the external mathematical supplement for Sections 4–6, returned HTTP 403. The theorem statements were examined in the article. Their proofs were not checked."
+    ],
+    "problem": "Executing two plausible SQL programs on the current data can hide differences that would appear on another database satisfying the same constraints.",
+    "method": "The verifier translates SQL into functions that count result-tuple multiplicities. It expands sums over a bounded set of distinct symbolic input tuples and asks Z3 for a database that separates the queries. Deterministic ordering adds a check for a pair of rows in different relative orders. Integrity constraints restrict the search.",
+    "evaluation": "The Spider workload pairs DAIL-SQL predictions with references. The authors set aside 37 of 1,034 pairs because of ambiguous SQL ordering and label the remaining 997 using verifiers and manual inspection when necessary. Two further workloads use 127 mutated Spark pairs and Cubes tasks with 100 queries each. Baselines include Polygon and VeriEQL.",
+    "findings": "At bound four SQLution found 269 of the 271 known non-equivalent Spider pairs. The authors found the remaining two at bound ten. On mutually supported non-equivalent Spider cases Table 4 gives median verification times of 8.0 ms for SQLution and 47.4 ms for Polygon. These times measure how long it takes to distinguish queries, not the queries’ execution speed.",
+    "limitations": "The guarantee assumes supported SQL, satisfiable integrity constraints for the witness and a solver that can decide the formula. An exhausted search within one bound cannot settle global equivalence. Window functions, recursive CTEs and nondeterministic tie ordering are outside the described support. The separate proofs and executable release were not verified.",
+    "relevance": "A counterexample can distinguish two candidate interpretations that happen to agree on current data. Deciding which interpretation answers the question requires separate evidence. The paper evaluates the query-pair check, without evaluating clarification or abstention.",
+    "claims": [
+      {
+        "claim": "What does a successful or unsuccessful search establish?",
+        "evidence": "Theorem 6.3 assumes a distinguishing database with at most the given number of distinct rows per table, supported SQL and a solver that resolves the formula. Duplicate multiplicity may exceed the bound. Theorem 6.2 allows a pair to escape detection at a particular bound.",
+        "locator": "Sections 5.1 and 6, Algorithm 1 and Theorems 6.1–6.3, pp. 6–9",
+        "disposition": "A returned legal witness refutes equivalence under the modeled semantics. Failure to find one at a chosen bound or within a timeout cannot certify unrestricted equivalence."
+      },
+      {
+        "claim": "Which ambiguous cases are covered by the Spider result?",
+        "evidence": "The LIMIT/OFFSET construction assumes a determinate sort order. Of 1,034 input pairs, the authors remove 37 for ordering ambiguity and retain 726 equivalent and 271 non-equivalent pairs. Table 3 gives 269 witnesses at bound four. Section 8.2 locates the last two at ten.",
+        "locator": "Sections 4.1, 8.1–8.2 and 10, Table 3, pp. 5, 10 and 12",
+        "disposition": "The reported coverage is for the retained query pairs. It does not measure detection of ambiguous natural-language questions or recovery of a user’s tie-breaking preference."
+      },
+      {
+        "claim": "What does the timing advantage measure?",
+        "evidence": "Table 4 and Figure 4 compare supported, non-equivalent cases. Figure 4 conditions on both systems finding a counterexample. Table 5 further restricts formula-size comparisons by the smallest successful bound.",
+        "locator": "Sections 8.3 and 10, Tables 4–5 and Figure 4, pp. 11–12",
+        "disposition": "Verification latency on this subset is distinct from end-to-end NL2SQL latency, SQL runtime or universal verifier coverage."
       }
     ]
   },

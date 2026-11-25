@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-25",
-  "updated": "2026-11-25",
+  "checked": "2026-11-26",
+  "updated": "2026-11-26",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 132,
+    "paper": 134,
     "system": 28,
-    "tool": 27,
-    "benchmark": 39
+    "tool": 28,
+    "benchmark": 40
   },
   "categories": {
     "ambiguity": "Ambiguity and multiple interpretations",
@@ -38,6 +38,36 @@
         "ambiguity"
       ],
       "kinds": [
+        "paper",
+        "tool"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "locust",
+      "name": "A Text-to-SQL Benchmark for Official Statistics",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "LOCuST separates finding the right statistical tables from writing SQL over them. Its observation F1 compares selected measures and dimension codes. Some queries return the expected numbers but fail execution scoring because they omit context columns. Conversely, matching the expected codes can conceal a wrong aggregation or join. All test questions are intended to be answerable.",
+      "entry_ids": [
+        "locust",
+        "locust-data",
+        "locust-evaluator"
+      ],
+      "themes": [
+        "benchmark-quality",
+        "database-retrieval",
+        "evaluation",
+        "multilingual"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "benchmark",
         "paper",
         "tool"
       ],
@@ -316,6 +346,31 @@
         "benchmark",
         "paper",
         "system"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "sqlution",
+      "name": "Bound to be Complete: Efficient Verification for SQL Equivalence via U-Expressions",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "SQLution searches for a database on which two candidate queries differ. Its bound limits distinct tuples per table while preserving duplicate multiplicities. Among 271 retained, non-equivalent Spider pairs it finds 269 counterexamples at bound four and the other two at ten. Queries with nondeterministic ordering were excluded. Agreement within a bound leaves larger databases and the user’s intended meaning unresolved.",
+      "entry_ids": [
+        "sqlution"
+      ],
+      "themes": [
+        "counterexample-generation",
+        "formal-verification",
+        "sql-equivalence"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "paper"
       ],
       "years": [
         2026
@@ -11788,6 +11843,124 @@
       "work_id": "mind-the-trap"
     },
     {
+      "id": "sqlution",
+      "name": "Bound to be Complete: Efficient Verification for SQL Equivalence via U-Expressions",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "SQLution searches for a database on which two candidate queries differ. Its bound limits distinct tuples per table while preserving duplicate multiplicities. Among 271 retained, non-equivalent Spider pairs it finds 269 counterexamples at bound four and the other two at ten. Queries with nondeterministic ordering were excluded. Agreement within a bound leaves larger databases and the user’s intended meaning unresolved.",
+      "tags": [
+        "sql-equivalence",
+        "counterexample-generation",
+        "formal-verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "The paper describes a verifier built with SQLSolver components and Z3. Its separately cited proofs were inaccessible on the check date. No separately verified public implementation, new dataset release or reproduced result is claimed.",
+      "sources": [
+        "https://arxiv.org/abs/2611.28516",
+        "https://arxiv.org/pdf/2611.28516v1"
+      ],
+      "checked": "2026-11-26",
+      "added_on": "2026-11-26",
+      "url": "https://arxiv.org/abs/2611.28516",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#sqlution",
+      "original": {
+        "id": "sqlution",
+        "title": "Bound to be Complete: Efficient Verification for SQL Equivalence via U-Expressions",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.28516",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "sql-equivalence",
+          "counterexample-generation",
+          "formal-verification"
+        ],
+        "summary": "SQLution searches for a database on which two candidate queries differ. Its bound limits distinct tuples per table while preserving duplicate multiplicities. Among 271 retained, non-equivalent Spider pairs it finds 269 counterexamples at bound four and the other two at ten. Queries with nondeterministic ordering were excluded. Agreement within a bound leaves larger databases and the user’s intended meaning unresolved.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.28516",
+          "https://arxiv.org/pdf/2611.28516v1"
+        ],
+        "source_depth": "targeted-full-text",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sqlution.md",
+        "added_on": "2026-11-26",
+        "checked_on": "2026-11-26",
+        "artifact_status": "The paper describes a verifier built with SQLSolver components and Z3. Its separately cited proofs were inaccessible on the check date. No separately verified public implementation, new dataset release or reproduced result is claimed."
+      },
+      "work_id": "sqlution"
+    },
+    {
+      "id": "locust",
+      "name": "A Text-to-SQL Benchmark for Official Statistics",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "LOCuST separates finding the right statistical tables from writing SQL over them. Its observation F1 compares selected measures and dimension codes. Some queries return the expected numbers but fail execution scoring because they omit context columns. Conversely, matching the expected codes can conceal a wrong aggregation or join. All test questions are intended to be answerable.",
+      "tags": [
+        "evaluation",
+        "benchmark-quality",
+        "multilingual",
+        "database-retrieval"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "Public evaluation source, split files and author results are visible at the pinned repository revision. The README links external tables and metadata graphs. Its v0.4 inventory differs from the paper’s counts. The catalog records the benchmark and its evaluator separately. No archive, model or evaluator was run.",
+      "sources": [
+        "https://arxiv.org/abs/2611.32646",
+        "https://arxiv.org/pdf/2611.32646v1",
+        "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/README.md",
+        "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation/metrics/selection_metrics.py"
+      ],
+      "checked": "2026-11-26",
+      "added_on": "2026-11-26",
+      "url": "https://arxiv.org/abs/2611.32646",
+      "code_links": [
+        "https://github.com/lagewel001/LOCuST"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#locust",
+      "original": {
+        "id": "locust",
+        "title": "A Text-to-SQL Benchmark for Official Statistics",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.32646",
+        "code_url": "https://github.com/lagewel001/LOCuST",
+        "dataset_url": "https://github.com/lagewel001/LOCuST/tree/827adfc792ea19ea2a87e9964d417211b6723be9/data/qa_pairs",
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "evaluation",
+          "benchmark-quality",
+          "multilingual",
+          "database-retrieval"
+        ],
+        "summary": "LOCuST separates finding the right statistical tables from writing SQL over them. Its observation F1 compares selected measures and dimension codes. Some queries return the expected numbers but fail execution scoring because they omit context columns. Conversely, matching the expected codes can conceal a wrong aggregation or join. All test questions are intended to be answerable.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.32646",
+          "https://arxiv.org/pdf/2611.32646v1",
+          "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/README.md",
+          "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation/metrics/selection_metrics.py"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/locust.md",
+        "added_on": "2026-11-26",
+        "checked_on": "2026-11-26",
+        "artifact_status": "Public evaluation source, split files and author results are visible at the pinned repository revision. The README links external tables and metadata graphs. Its v0.4 inventory differs from the paper’s counts. The catalog records the benchmark and its evaluator separately. No archive, model or evaluator was run."
+      },
+      "work_id": "locust"
+    },
+    {
       "id": "clarity-pipeline",
       "name": "CLARITY generation pipeline",
       "kind": "system",
@@ -16669,13 +16842,117 @@
         "checked_on": "2026-11-25"
       },
       "work_id": "mind-the-trap"
+    },
+    {
+      "id": "locust-data",
+      "name": "LOCuST",
+      "kind": "benchmark",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "English and Dutch official-statistics questions with catalog tables and a metadata graph for grounding measures, dimensions and units.",
+      "tags": [
+        "benchmark-quality",
+        "database-retrieval",
+        "evaluation",
+        "multilingual"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "The repository lists English and Dutch train/test files and published baseline outputs. Its README links separate table and graph archives. The archives were not inspected.",
+      "sources": [
+        "https://arxiv.org/pdf/2611.32646v1",
+        "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/README.md",
+        "https://github.com/lagewel001/LOCuST/tree/827adfc792ea19ea2a87e9964d417211b6723be9/data/qa_pairs"
+      ],
+      "checked": "2026-11-26",
+      "added_on": null,
+      "url": "https://github.com/lagewel001/LOCuST/tree/827adfc792ea19ea2a87e9964d417211b6723be9/data/qa_pairs",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/datasets/README.md#locust-data",
+      "original": {
+        "id": "locust-data",
+        "name": "LOCuST",
+        "kind": "dataset",
+        "paper_ids": [
+          "locust"
+        ],
+        "url": "https://github.com/lagewel001/LOCuST/tree/827adfc792ea19ea2a87e9964d417211b6723be9/data/qa_pairs",
+        "description": "English and Dutch official-statistics questions with catalog tables and a metadata graph for grounding measures, dimensions and units.",
+        "protocol": "Ranks tables, generates SQL with the reference tables supplied, or answers with retrieved tables. The paper reports 2,559 questions and 2,241 tables. The v0.4 README lists 2,567 and 2,244. The catalog has not reconciled the difference at payload level.",
+        "availability": "The repository lists English and Dutch train/test files and published baseline outputs. Its README links separate table and graph archives. The archives were not inspected.",
+        "license_note": "The pinned README describes Statistics Netherlands source data as licence-free. No separate software license was located in this revision.",
+        "evidence": [
+          "https://arxiv.org/pdf/2611.32646v1",
+          "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/README.md",
+          "https://github.com/lagewel001/LOCuST/tree/827adfc792ea19ea2a87e9964d417211b6723be9/data/qa_pairs"
+        ],
+        "checked_on": "2026-11-26"
+      },
+      "work_id": "locust"
+    },
+    {
+      "id": "locust-evaluator",
+      "name": "LOCuST query evaluator",
+      "kind": "tool",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "DuckDB-oriented evaluation code with execution-based metrics and a scorer that compares the measure and dimension codes selected by two queries.",
+      "tags": [
+        "benchmark-quality",
+        "database-retrieval",
+        "evaluation",
+        "multilingual"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "The pinned evaluation directory contains the query-generation entry point, metric implementations and author-reported results. Source was inspected without running the evaluator.",
+      "sources": [
+        "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation/metrics/selection_metrics.py",
+        "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation/evaluate_query_generation.py",
+        "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/README.md",
+        "https://arxiv.org/pdf/2611.32646v1"
+      ],
+      "checked": "2026-11-26",
+      "added_on": null,
+      "url": "https://github.com/lagewel001/LOCuST/tree/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation",
+      "code_links": [
+        "https://github.com/lagewel001/LOCuST/tree/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#locust-evaluator",
+      "original": {
+        "id": "locust-evaluator",
+        "name": "LOCuST query evaluator",
+        "kind": "tool",
+        "paper_ids": [
+          "locust"
+        ],
+        "url": "https://github.com/lagewel001/LOCuST/tree/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation",
+        "description": "DuckDB-oriented evaluation code with execution-based metrics and a scorer that compares the measure and dimension codes selected by two queries.",
+        "protocol": "The selection scorer parses SQL and consults the metadata graph. It tracks extra and missing components and pools counts for observation F1, with zero credit when no measure matches. Aggregations can still be wrong even when component sets match.",
+        "availability": "The pinned evaluation directory contains the query-generation entry point, metric implementations and author-reported results. Source was inspected without running the evaluator.",
+        "license_note": "No software license was located in the pinned file tree. The README’s statement about source statistics does not establish a software license.",
+        "evidence": [
+          "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation/metrics/selection_metrics.py",
+          "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation/evaluate_query_generation.py",
+          "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/README.md",
+          "https://arxiv.org/pdf/2611.32646v1"
+        ],
+        "checked_on": "2026-11-26"
+      },
+      "work_id": "locust"
     }
   ],
   "themes": [
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 51
+      "count": 52
     },
     {
       "id": "ambiguity",
@@ -16723,6 +17000,11 @@
       "count": 11
     },
     {
+      "id": "benchmark-quality",
+      "label": "Benchmark quality",
+      "count": 10
+    },
+    {
       "id": "interactive-system",
       "label": "Interactive system",
       "count": 10
@@ -16733,14 +17015,9 @@
       "count": 10
     },
     {
-      "id": "benchmark-quality",
-      "label": "Benchmark quality",
-      "count": 9
-    },
-    {
       "id": "sql-equivalence",
       "label": "SQL equivalence",
-      "count": 9
+      "count": 10
     },
     {
       "id": "error-correction",
@@ -16803,6 +17080,11 @@
       "count": 4
     },
     {
+      "id": "database-retrieval",
+      "label": "Database retrieval",
+      "count": 4
+    },
+    {
       "id": "natural-language-feedback",
       "label": "Natural language feedback",
       "count": 4
@@ -16813,11 +17095,6 @@
       "count": 4
     },
     {
-      "id": "database-retrieval",
-      "label": "Database retrieval",
-      "count": 3
-    },
-    {
       "id": "database-state",
       "label": "Database state",
       "count": 3
@@ -16825,6 +17102,11 @@
     {
       "id": "detection",
       "label": "Detection",
+      "count": 3
+    },
+    {
+      "id": "formal-verification",
+      "label": "Formal verification",
       "count": 3
     },
     {
@@ -16873,6 +17155,11 @@
       "count": 3
     },
     {
+      "id": "counterexample-generation",
+      "label": "Counterexample generation",
+      "count": 2
+    },
+    {
       "id": "data-semantics",
       "label": "Data semantics",
       "count": 2
@@ -16888,11 +17175,6 @@
       "count": 2
     },
     {
-      "id": "formal-verification",
-      "label": "Formal verification",
-      "count": 2
-    },
-    {
       "id": "interactive-agents",
       "label": "Interactive agents",
       "count": 2
@@ -16900,6 +17182,11 @@
     {
       "id": "missing-knowledge",
       "label": "Missing knowledge",
+      "count": 2
+    },
+    {
+      "id": "multilingual",
+      "label": "Multilingual",
       "count": 2
     },
     {
@@ -16953,11 +17240,6 @@
       "count": 1
     },
     {
-      "id": "counterexample-generation",
-      "label": "Counterexample generation",
-      "count": 1
-    },
-    {
       "id": "cross-database",
       "label": "Cross database",
       "count": 1
@@ -17005,11 +17287,6 @@
     {
       "id": "intent-evolution",
       "label": "Intent evolution",
-      "count": 1
-    },
-    {
-      "id": "multilingual",
-      "label": "Multilingual",
       "count": 1
     },
     {
@@ -19196,6 +19473,60 @@
         }
       ],
       "checked_on": "2026-11-25"
+    },
+    {
+      "resource_id": "locust-data",
+      "label": "LOCuST",
+      "relevance": "adjacent",
+      "ambiguity": {
+        "status": "not_targeted",
+        "detail": "The paper analyzes alternative selections of result columns and ambiguity between similar catalog tables. Test items do not carry a set of acceptable intents or an ambiguity-detection label."
+      },
+      "unanswerability": {
+        "status": "not_targeted",
+        "detail": "Section VI explicitly places unsupported questions, false premises and incompatible-unit aggregations outside the test set."
+      },
+      "clarification": {
+        "mode": "not_targeted",
+        "detail": "The evaluation expects retrieved tables or SQL. It does not solicit a user clarification."
+      },
+      "interaction": {
+        "mode": "static",
+        "detail": "Fixed English and Dutch question splits are evaluated with the reference or retrieved tables."
+      },
+      "domain": "Statistics Netherlands tables, with labels, units and code hierarchies in an accompanying graph. Six question domains are held out.",
+      "evaluation": "Table retrieval, execution accuracy, numeric F1 and concept selection. Matching the reference’s measures and dimension codes alone does not check join or aggregation correctness.",
+      "data_access": "public_artifacts",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/pdf/2611.32646v1",
+          "locator": "Sections III–VI and Tables V–VI",
+          "supports": [
+            "domain",
+            "ambiguity",
+            "unanswerability",
+            "clarification",
+            "interaction",
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/README.md",
+          "locator": "Overview, Dataset downloads and FAQ",
+          "supports": [
+            "data_access",
+            "domain"
+          ]
+        },
+        {
+          "url": "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation/metrics/selection_metrics.py",
+          "locator": "get_selection_metrics and extract_sql_components",
+          "supports": [
+            "evaluation"
+          ]
+        }
+      ],
+      "checked_on": "2026-11-26"
     }
   ]
 }

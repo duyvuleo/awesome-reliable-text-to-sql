@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-26
+
+- Added SQLution and LOCuST, bringing the catalog to 134 papers. The notes explain the limits of bounded SQL equivalence and partial credit for selecting the requested statistics. LOCuST has a complete reading. SQLution’s separate proofs remain unavailable.
+- Added the LOCuST benchmark and its query evaluator, bringing the totals to 40 benchmark entries and 56 systems/tools. The paper and release README give different inventory counts.
+
 ## 2026-11-25
 
 - Added complete readings of Know When to Abstain, Semantic-aware Decoding, Mind the Trap and LTRC-IIITH’s EHRSQL 2024 system. Totals are 132 papers, with 129 complete readings and three existing access gaps.

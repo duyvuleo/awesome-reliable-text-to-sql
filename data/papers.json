@@ -3769,5 +3769,60 @@
     "added_on": "2026-11-25",
     "checked_on": "2026-11-25",
     "artifact_status": "Paper-linked misqal repository inspected at 422891572d0d548f8d515444a701d8c18d7352a4: complete tree, README, root Apache-2.0 license, benchmark documentation and targeted audit/evidence source. BIRD-FanOut subset/review files and GrainTraps question/generator paths are present; underlying BIRD databases are external. README declares BIRD-derived subsets and column roles CC BY-SA 4.0. Payload counts, generated databases and results were not independently validated; no project code executed."
+  },
+  {
+    "id": "sqlution",
+    "title": "Bound to be Complete: Efficient Verification for SQL Equivalence via U-Expressions",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2611.28516",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "sql-equivalence",
+      "counterexample-generation",
+      "formal-verification"
+    ],
+    "summary": "SQLution searches for a database on which two candidate queries differ. Its bound limits distinct tuples per table while preserving duplicate multiplicities. Among 271 retained, non-equivalent Spider pairs it finds 269 counterexamples at bound four and the other two at ten. Queries with nondeterministic ordering were excluded. Agreement within a bound leaves larger databases and the user’s intended meaning unresolved.",
+    "evidence": [
+      "https://arxiv.org/abs/2611.28516",
+      "https://arxiv.org/pdf/2611.28516v1"
+    ],
+    "source_depth": "targeted-full-text",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sqlution.md",
+    "added_on": "2026-11-26",
+    "checked_on": "2026-11-26",
+    "artifact_status": "The paper describes a verifier built with SQLSolver components and Z3. Its separately cited proofs were inaccessible on the check date. No separately verified public implementation, new dataset release or reproduced result is claimed."
+  },
+  {
+    "id": "locust",
+    "title": "A Text-to-SQL Benchmark for Official Statistics",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2611.32646",
+    "code_url": "https://github.com/lagewel001/LOCuST",
+    "dataset_url": "https://github.com/lagewel001/LOCuST/tree/827adfc792ea19ea2a87e9964d417211b6723be9/data/qa_pairs",
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "evaluation",
+      "benchmark-quality",
+      "multilingual",
+      "database-retrieval"
+    ],
+    "summary": "LOCuST separates finding the right statistical tables from writing SQL over them. Its observation F1 compares selected measures and dimension codes. Some queries return the expected numbers but fail execution scoring because they omit context columns. Conversely, matching the expected codes can conceal a wrong aggregation or join. All test questions are intended to be answerable.",
+    "evidence": [
+      "https://arxiv.org/abs/2611.32646",
+      "https://arxiv.org/pdf/2611.32646v1",
+      "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/README.md",
+      "https://github.com/lagewel001/LOCuST/blob/827adfc792ea19ea2a87e9964d417211b6723be9/evaluation/metrics/selection_metrics.py"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/locust.md",
+    "added_on": "2026-11-26",
+    "checked_on": "2026-11-26",
+    "artifact_status": "Public evaluation source, split files and author results are visible at the pinned repository revision. The README links external tables and metadata graphs. Its v0.4 inventory differs from the paper’s counts. The catalog records the benchmark and its evaluator separately. No archive, model or evaluator was run."
   }
 ]

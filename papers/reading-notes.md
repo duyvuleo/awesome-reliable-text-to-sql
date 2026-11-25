@@ -6,13 +6,14 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **129 full-paper readings**, **0 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **130 full-paper readings**, **1 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
 | Year | Paper | Reading coverage |
 | --- | --- | --- |
 | 2026 | [A Model of Diverse Sampling from Language Models](notes/pooldpp.md) | Full paper read |
+| 2026 | [A Text-to-SQL Benchmark for Official Statistics](notes/locust.md) | Full paper read |
 | 2026 | [ABISS: Evaluating Text-to-SQL Systems Through Agent Interaction](notes/abiss.md) | Full paper read |
 | 2026 | [AmbiSQL: Interactive Ambiguity Detection and Resolution for Text-to-SQL](notes/ambisql.md) | Full paper read |
 | 2026 | [An OMOP-Based Open-Source Text-to-SQL Benchmark Dataset](notes/text-to-omop.md) | Full paper read |
@@ -23,6 +24,7 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [Auditing and Repairing LLM-as-Judge Failures in a Production Text-to-SQL Pipeline](notes/synca-audit.md) | Full paper read |
 | 2026 | [Beyond Correctness: Resolving Underspecification in Agentic Text-to-SQL](notes/planpool.md) | Full paper read |
 | 2026 | [BIRD-INTERACT: Re-imagining Text-to-SQL Evaluation for Large Language Models via Lens of Dynamic Interactions](notes/bird-interact.md) | Full paper read |
+| 2026 | [Bound to be Complete: Efficient Verification for SQL Equivalence via U-Expressions](notes/sqlution.md) | Partial reading |
 | 2026 | [Boundary-Aware NL2SQL: Integrating Reliability through Hybrid Reward and Data Synthesis](notes/bar-sql.md) | Full paper read |
 | 2026 | [Bounded Semantic Planning and Deterministic Compilation for Reliable Enterprise Text-to-SQL](notes/semantic-path-compilation.md) | Full paper read |
 | 2026 | [Bridge: Database-Grounded Interactive Disambiguation for Text-to-SQL](notes/bridge-disambiguation.md) | Full paper read |
