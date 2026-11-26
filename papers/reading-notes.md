@@ -6,7 +6,7 @@
 
 Source-located reading notes and explicit full-text access gaps. Completed notes cover the paper body, methods, results and available appendices. These readings are not independent reproductions or guarantees that a paper's claims are correct.
 
-Coverage: **130 full-paper readings**, **1 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
+Coverage: **132 full-paper readings**, **1 partial readings**, **3 unavailable full texts**, and **0 papers awaiting this audit**.
 
 Each note identifies the exact version, material read, remaining access gaps and source locations. Missing access is not evidence that a scientific claim is false.
 
@@ -78,7 +78,9 @@ Each note identifies the exact version, material read, remaining access gaps and
 | 2026 | [SCARE: A Benchmark for SQL Correction and Question Answerability Classification for Reliable EHR Question Answering](notes/scare.md) | Full paper read |
 | 2026 | [Schema-Free Text-to-SQL: Learning Enterprise Database Structure from Query Logs](notes/schema-free-query-logs.md) | Full paper read |
 | 2026 | [Semantic-aware Decoding for Diverse Text-to-SQL under Schema Ambiguity](notes/semantic-aware-decoding.md) | Full paper read |
+| 2026 | [Single-Database Rewards Are Hackable: Counterfactual Execution for Trustworthy Text-to-SQL RL](notes/counterfactual-sql-rewards.md) | Full paper read |
 | 2026 | [SOMA-SQL: Resolving Multi-Source Ambiguity in NL-to-SQL via Synthetic Log and Execution Probing](notes/soma-sql.md) | Full paper read |
+| 2026 | [Sports Agent: A Self-Evolving System for Conversational Data Analytics](notes/sports-agent.md) | Full paper read |
 | 2026 | [SpotIt+: Verification-based Text-to-SQL Evaluation with Database Constraints](notes/spotit-plus.md) | Full paper read |
 | 2026 | [SpotIt: Evaluating Text-to-SQL Evaluation with Formal Verification](notes/spotit.md) | Full paper read |
 | 2026 | [SQLoom: Set-Contrastive Learning of Syntactic, Semantic, and Logical Dependencies for Text-to-SQL](notes/sqloom.md) | Full paper read |

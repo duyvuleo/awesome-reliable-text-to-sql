@@ -281,7 +281,7 @@
     "reviewed_on": "2026-11-09",
     "source_url": "https://www.vldb.org/pvldb/vol19/p931-jin.pdf",
     "version": "PVLDB 19(5), 2026; paper-linked supplementary_material.pdf",
-    "coverage": "All 14 proceedings pages, Sections 1-10, Tables 1-7 and figures/captions; all 4 supplementary pages A.1-A.4 including model substitutions and correction settings.",
+    "coverage": "All 14 proceedings pages, Sections 1-10, Tables 1-7 and figures/captions; all 4 supplementary pages A.1-A.4 including model substitutions and correction settings. On 27 November 2026 the CIDR proceedings paper’s agent evaluation was checked against the PVLDB evaluation to distinguish two related reports.",
     "unread": [],
     "problem": "Annotation errors and underspecified questions can distort both SQL correctness labels and rankings used to compare agents.",
     "method": "SAR-Agent probes databases and drafts diagnoses; two authors independently check flagged cases, with consensus adjudication and additional pattern-driven review. SAPAR combines diagnoses with human correction of questions, knowledge, SQL, schema and sometimes database rows.",
@@ -301,12 +301,22 @@
         "evidence": "Supplement Table 8 substitutes GPT-4o for several original model backends and uses chosen decoding/module settings.",
         "locator": "Supplement A.2/Table 8",
         "disposition": "Reevaluated implementations under disclosed configurations, not exact leaderboard-run reproduction."
+      },
+      {
+        "claim": "Can the CIDR and PVLDB ranking changes be combined as independent evidence?",
+        "evidence": "The same four authors report five evaluated agents in CIDR and sixteen in PVLDB. Each evaluation describes a 100-question BIRD Dev sample with 62 simple, 28 moderate and ten challenging questions. The papers cite different dates for selecting leaderboard agents.",
+        "locator": "CIDR agent evaluation, PDF pp. 3–4; PVLDB Section 5 and Table 4, PDF pp. 7–9",
+        "disposition": "Keep the agent counts and ranking changes attached to their respective reports. Matching sample descriptions do not establish independent replication or confirm that every item and run is identical."
       }
     ],
     "additional_sources": [
       {
         "label": "Scientific supplement",
         "url": "https://raw.githubusercontent.com/uiuc-kang-lab/text_to_sql_benchmarks/main/materials/supplementary_material.pdf"
+      },
+      {
+        "label": "Related CIDR 2026 report with a five-agent evaluation",
+        "url": "https://www.vldb.org/cidrdb/papers/2026/p5-jin.pdf"
       }
     ]
   },
@@ -1067,6 +1077,51 @@
         "evidence": "Table 6 gives template LCR 41% versus pointer-generator 35%, although BLEU is 9.3 versus 15.1.",
         "locator": "Section 6/Table 6, printed page 1970",
         "disposition": "The reported comparison supports separating surface similarity from logical correctness."
+      }
+    ]
+  },
+  {
+    "paper_id": "counterfactual-sql-rewards",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-27",
+    "source_url": "https://arxiv.org/pdf/2611.34363v1",
+    "version": "arXiv:2611.34363v1, 25 November 2026, 12 pages.",
+    "coverage": "Read Sections 1–5, references and Appendices A–E, including both figures and Tables 1–8. Checked the original PDF renderings of Figures 1 and 2. Artifact inspection covered public documentation and file inventories.",
+    "unread": [],
+    "problem": "Different SQL programs can produce the same rows on a particular database. An execution-based grader that credits both can reward an incorrect calculation.",
+    "method": "The agent can inspect the original SQLite database. The grader runs its final SQL and the reference on additional hidden instances. One reward requires agreement everywhere. The main training reward requires agreement on the original and then pays in proportion to the hidden-instance matches. Generated references are cross-checked against a separate pandas calculation.",
+    "evaluation": "The synthetic audit has 1,302 items from a retail schema. It scores fixed correct queries and deliberately flawed alternatives. The training comparison holds initialization and settings constant across reward arms for a 3.35B model and three seeds. Evaluation uses 331 items from seven held-out templates and a separate Spider transfer test.",
+    "findings": "With the same multiset comparator, the fraction of buggy variants paid in full falls from 29.5% on the original database to 16.8% with blind copy selection. Neither rejects any of the 2,847 designated correct queries. Across training seeds, verified in-domain sample accuracy is 8.4% with the multi-instance reward and 11.7% with single-instance training. The small average Spider gain changes sign across seeds.",
+    "limitations": "All generated items use one retail schema and pass construction filters for deterministic, non-degenerate reference outputs. An incorrect reference is outside the study. Counterfactual tests still miss errors. The Spider transfer test was exploratory, and inference across three training seeds is imprecise.",
+    "relevance": "Useful when assessing alternative SQL that agrees with a reference by coincidence. It evaluates reference agreement under changed data. It does not determine whether a user meant the reference calculation, or evaluate a policy for asking or abstaining.",
+    "claims": [
+      {
+        "claim": "Which comparison isolates the benefit of testing more databases?",
+        "evidence": "Table 1 keeps the row comparator fixed and changes the databases graded. Among 1,814 buggy candidates, full payment falls from 29.5% to 16.8% with blind copy selection. The much lower 1.5% uses copies chosen against known errors.",
+        "locator": "Section 2, Table 1 and Appendix A",
+        "disposition": "Use the blind result for the audit comparison. Selection informed by known mistakes gives an optimistic estimate for unseen errors."
+      },
+      {
+        "claim": "Did a stricter audit produce a better trained agent?",
+        "evidence": "The strict reward headlines the audit. The main training arm instead gates on the original result and averages hidden-copy matches. The reward signals differ on about 5–7% of training rollouts. At seed level the reported interval for the in-domain difference spans −13.7 to +7.3 percentage points, and for Spider it spans −3.2 to +6.4.",
+        "locator": "Sections 2–4, Figure 2, Appendix D Table 8",
+        "disposition": "The audit benefit and the learning result answer different questions. The sign reversal across seeds limits claims about transfer or training harm."
+      },
+      {
+        "claim": "Does passing every test identify the right interpretation?",
+        "evidence": "The held-out suite exposed 54 of 103 buggy variants that passed on the original instance. The paper also notes ties and ambiguous references when interpreting Spider suite failures.",
+        "locator": "Section 5, Appendix A and Appendix D Table 7",
+        "disposition": "A passing candidate has survived a finite reference-based check. A failing query on Spider can warrant inspection of the reference itself."
+      }
+    ],
+    "additional_sources": [
+      {
+        "label": "Pinned code and release documentation",
+        "url": "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/blob/d38373a4a7140bcca9890066c491e9205d9944f0/README.md"
+      },
+      {
+        "label": "Pinned dataset card and licensing details",
+        "url": "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/blob/8bf2b42a1578534a2dbd630b5bb12479bc0f12df/README.md"
       }
     ]
   },
@@ -4213,6 +4268,47 @@
         "evidence": "Footnote 7 estimates it from 427 initial successes plus 511 explanation-supported errors times correction accuracy.",
         "locator": "Section 6; footnote 7",
         "disposition": "Preserve its offline, derived nature."
+      }
+    ]
+  },
+  {
+    "paper_id": "sports-agent",
+    "status": "full-text-reviewed",
+    "reviewed_on": "2026-11-27",
+    "source_url": "https://arxiv.org/pdf/2611.33700v1",
+    "version": "arXiv:2611.33700v1, 25 November 2026, 48 pages.",
+    "coverage": "Read the 48-page paper through Sections 1–9 and Appendices A–B, including Algorithm 1, 17 figures, 11 tables and the two worked policy/skill changes. The public evaluation protocols in Appendix A were checked against Table 3.",
+    "unread": [],
+    "problem": "A conversational analytics agent may fill in facts the available sources do not establish, or return a correct statistic for only part of the period or population a user requested.",
+    "method": "The feedback engine assesses answers and traces, identifies failures and proposes scoped changes to prompts or skills for replay and evaluation. Model training uses generated questions, filtered trajectories, supervised fine-tuning and a subsequent RL stage. The paper distinguishes verifiable SQL stages from open analytical tasks scored by judges.",
+    "evaluation": "The paper reports sports-domain evaluations and separate runs of LiveSQLBench and BIRD-Interact. In the public BIRD-Interact experiments, an agent spends a limited interaction budget, queries the database, and may clarify with a simulated user. The two subtasks determine the normalized reward. Each public benchmark task was run once.",
+    "findings": "A prompt edit combining mandatory factual retrieval, evidence grounding and disclosure of missing information raised the held-out composite score from 65.31 to 71.10. In a separate experiment, the post-RL model scored 54.0% on BIRD-Interact Lite and 41.0% on Full under the authors’ simulator configuration.",
+    "limitations": "The prompt edit changes multiple behaviors at once. The composite score cannot attribute the gain to expressing uncertainty. BIRD-Interact rewards task completion and partial progress, without separately scoring question quality or identifying intrinsically unanswerable requests. The product evaluation uses a model judge for factual correctness and response length as a proxy for richness.",
+    "relevance": "Documents two responses to an incomplete answer: seek additional data when the request can be resolved, or report the supported portion and identify the missing evidence. The study gives examples and aggregate scores rather than a separate test of when to choose each response.",
+    "claims": [
+      {
+        "claim": "What evidence supports the partial-answer policy?",
+        "evidence": "In Case A, a factual claim went beyond the retrieved evidence. The revised prompt required retrieval and support for factual claims, and instructed the agent to disclose information gaps. The historical comparison reports the held-out mean for the whole edit.",
+        "locator": "Section 4.5.1 and Figure 9",
+        "disposition": "The score change belongs to the bundle. It does not estimate a change in refusal precision or the accuracy of the gap disclosures themselves."
+      },
+      {
+        "claim": "Are 54.0% and 41.0% rates of successful clarification?",
+        "evidence": "Table 3 reports normalized reward for the post-RL model on BIRD-Interact Lite and Full. Appendix A gives full credit for passing both subtasks and 0.7 for the first alone. The system interacts with Qwen3.8-Flash as the user simulator, with one run per task.",
+        "locator": "Section 3.4.1, Table 3; Appendix A, General Agentic SQL",
+        "disposition": "These are end-to-end rewards under simulated interaction. The experiment does not measure outcomes with human users or give a separate score for resolving ambiguity."
+      },
+      {
+        "claim": "Is the product’s overall quality gain independently verified factual accuracy?",
+        "evidence": "The 500-question comparison uses an LLM judge for factual correctness and average response length for richness. The baseline and evolved systems differ in both their model and their surrounding tools and instructions.",
+        "locator": "Section 6.2 and Figure 13",
+        "disposition": "Interpret these as author-reported product-level measurements under the stated metrics; they do not identify the contribution of the uncertainty policy."
+      },
+      {
+        "claim": "Can a better-grounded answer still omit part of the requested statistic?",
+        "evidence": "In a separate skill revision, the original trajectory retrieved regular-season data alone for an overall career-statistics question. The revised query included playoff data and reported both categories. This comparison started with the evidence-grounding prompt already in place.",
+        "locator": "Section 4.5.2 and Figure 9, pp. 21–24",
+        "disposition": "The replay illustrates a coverage problem that the global grounding instruction did not fix. The two case studies used different held-out comparisons; their gains cannot be added."
       }
     ]
   },

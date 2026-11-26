@@ -1860,5 +1860,44 @@
       "https://arxiv.org/pdf/2611.32646v1"
     ],
     "checked_on": "2026-11-26"
+  },
+  {
+    "id": "counterfactual-sql-grader",
+    "name": "Counterfactual SQL reward evaluator",
+    "kind": "tool",
+    "paper_ids": [
+      "counterfactual-sql-rewards"
+    ],
+    "url": "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/tree/d38373a4a7140bcca9890066c491e9205d9944f0/sqlcf",
+    "description": "Evaluation code for comparing candidate and reference SQL on an original database and hidden variants that retain the task’s business rules.",
+    "protocol": "Provides single-instance and multi-instance reward comparisons for fixed candidates and training. The paper distinguishes all-instance agreement from a graded reward conditional on the original result.",
+    "availability": "Generator, comparator, rewards, tests and evaluation sources are visible. Some training and transfer experiments require a gated base model or additional external artifacts. Runtime and results were not independently checked.",
+    "license_note": "The repository identifies the source code as Apache-2.0. The data, derived trajectories and model artifacts have separate terms.",
+    "evidence": [
+      "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/blob/d38373a4a7140bcca9890066c491e9205d9944f0/README.md",
+      "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/tree/d38373a4a7140bcca9890066c491e9205d9944f0/sqlcf",
+      "https://arxiv.org/pdf/2611.34363v1"
+    ],
+    "checked_on": "2026-11-27"
+  },
+  {
+    "id": "counterfactual-sql-data",
+    "name": "Counterfactual SQL Rewards data",
+    "kind": "dataset",
+    "paper_ids": [
+      "counterfactual-sql-rewards"
+    ],
+    "url": "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/tree/8bf2b42a1578534a2dbd630b5bb12479bc0f12df",
+    "description": "Synthetic retail SQLite questions, reference queries and modified databases for auditing execution-based rewards, with separate training and held-out template splits.",
+    "protocol": "Paper-reported split sizes are 1,302 audit, 907 training and 331 test items. The policy can probe the original database. Hidden copies are used for grading. The synthetic test compares results across the original and four copies generated without targeting a known bug family.",
+    "availability": "The public release lists item manifests, build reports and database archives for the three splits, plus generated trajectories and multi-seed logs. The archives were not downloaded or independently counted.",
+    "license_note": "The data card identifies CC BY-NC 4.0 for the generated material and CC BY-SA 4.0 for Spider-derived trajectories. Spider’s databases are separate upstream artifacts.",
+    "evidence": [
+      "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/blob/8bf2b42a1578534a2dbd630b5bb12479bc0f12df/README.md",
+      "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/tree/8bf2b42a1578534a2dbd630b5bb12479bc0f12df",
+      "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/blob/d38373a4a7140bcca9890066c491e9205d9944f0/README.md",
+      "https://arxiv.org/pdf/2611.34363v1"
+    ],
+    "checked_on": "2026-11-27"
   }
 ]

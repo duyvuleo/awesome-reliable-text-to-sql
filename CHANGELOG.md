@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-27
+
+- Added readings of Counterfactual SQL Rewards and Sports Agent. The first distinguishes catching incorrect SQL from improving a trained policy. The second documents partial answers when retrieved evidence is incomplete. The catalog now covers 136 papers.
+- Added the counterfactual-reward evaluator and synthetic SQLite benchmark. The collection now has 57 systems/tools and 41 benchmark entries.
+- Updated the annotation-error note to distinguish the five-agent CIDR evaluation from the sixteen-agent PVLDB evaluation by the same authors.
+
 ## 2026-11-26
 
 - Added SQLution and LOCuST, bringing the catalog to 134 papers. The notes explain the limits of bounded SQL equivalence and partial credit for selecting the requested statistics. LOCuST has a complete reading. SQLution’s separate proofs remain unavailable.

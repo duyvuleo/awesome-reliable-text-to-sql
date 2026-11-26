@@ -8,9 +8,9 @@
 
 [Original source](https://www.vldb.org/pvldb/vol19/p931-jin.pdf) · PVLDB 19(5), 2026; paper-linked supplementary_material.pdf
 
-**Reading coverage:** All 14 proceedings pages, Sections 1-10, Tables 1-7 and figures/captions; all 4 supplementary pages A.1-A.4 including model substitutions and correction settings.
+**Reading coverage:** All 14 proceedings pages, Sections 1-10, Tables 1-7 and figures/captions; all 4 supplementary pages A.1-A.4 including model substitutions and correction settings. On 27 November 2026 the CIDR proceedings paper’s agent evaluation was checked against the PVLDB evaluation to distinguish two related reports.
 
-**Additional inspected sources:** [Scientific supplement](https://raw.githubusercontent.com/uiuc-kang-lab/text_to_sql_benchmarks/main/materials/supplementary_material.pdf)
+**Additional inspected sources:** [Scientific supplement](https://raw.githubusercontent.com/uiuc-kang-lab/text_to_sql_benchmarks/main/materials/supplementary_material.pdf) · [Related CIDR 2026 report with a five-agent evaluation](https://www.vldb.org/cidrdb/papers/2026/p5-jin.pdf)
 
 ## Research question
 
@@ -44,5 +44,6 @@ These are interpretations checked against the source, not verbatim quotations at
 | --- | --- | --- | --- |
 | Benchmark error rates exceed 50%. | The examined populations are 498 unique Mini-Dev cases using full Dev databases and 121 Spider2-Snow cases with publicly available gold; Spider gold snapshot predates October 2025 corrections. | Sections 2.1/4.1-4.3; footnote 2 | Supported for explicitly dated inspected subsets, not all current versions. |
 | All 16 leaderboard agents were reevaluated. | Supplement Table 8 substitutes GPT-4o for several original model backends and uses chosen decoding/module settings. | Supplement A.2/Table 8 | Reevaluated implementations under disclosed configurations, not exact leaderboard-run reproduction. |
+| Can the CIDR and PVLDB ranking changes be combined as independent evidence? | The same four authors report five evaluated agents in CIDR and sixteen in PVLDB. Each evaluation describes a 100-question BIRD Dev sample with 62 simple, 28 moderate and ten challenging questions. The papers cite different dates for selecting leaderboard agents. | CIDR agent evaluation, PDF pp. 3–4; PVLDB Section 5 and Table 4, PDF pp. 7–9 | Keep the agent counts and ranking changes attached to their respective reports. Matching sample descriptions do not establish independent replication or confirm that every item and run is identical. |
 
 Reading and source inspection do not establish independent reproduction. Artifact availability is recorded separately in the catalog.

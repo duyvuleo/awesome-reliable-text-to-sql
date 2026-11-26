@@ -1,5 +1,7 @@
 # Search records
 
+- [2026-11-27: counterfactual SQL rewards, partial answers and annotation audits](2026-11-27.md)
+
 - [2026-11-26: bounded SQL counterexamples and output conventions in official statistics](2026-11-26.md)
 
 - [2026-11-25: conformal abstention, schema diversity and grain-aware evaluation](2026-11-25.md)

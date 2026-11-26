@@ -2114,5 +2114,52 @@
       }
     ],
     "checked_on": "2026-11-26"
+  },
+  {
+    "resource_id": "counterfactual-sql-data",
+    "label": "Counterfactual SQL Rewards",
+    "relevance": "adjacent",
+    "ambiguity": {
+      "status": "not_targeted",
+      "detail": "One intended calculation is supplied per synthetic item. The audit distinguishes query behaviors across data instances, without labeling multiple defensible readings of a request."
+    },
+    "unanswerability": {
+      "status": "not_targeted",
+      "detail": "Construction requires a deterministic, non-degenerate reference answer. Unsupported requests are outside the scoring protocol."
+    },
+    "clarification": {
+      "mode": "not_targeted",
+      "detail": "The agent can query the original database. The task supplies no user replies or clarification scores."
+    },
+    "interaction": {
+      "mode": "static",
+      "detail": "Each evaluation item has fixed databases and a question. The policy may explore the original database across tool calls before submitting SQL; there is no user simulator."
+    },
+    "domain": "English questions over one eight-table synthetic SQLite retail schema. The separate Spider transfer experiment uses upstream databases.",
+    "evaluation": "Full reward on correct and flawed candidates, agreement on held-out instances after training, and a separate Spider test-suite score. These evaluate finite reference agreement.",
+    "data_access": "public_artifacts",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/pdf/2611.34363v1",
+        "locator": "Sections 2–5 and Appendices A, C and D",
+        "supports": [
+          "ambiguity",
+          "unanswerability",
+          "clarification",
+          "interaction",
+          "domain",
+          "evaluation"
+        ]
+      },
+      {
+        "url": "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/blob/8bf2b42a1578534a2dbd630b5bb12479bc0f12df/README.md",
+        "locator": "Dataset composition, split inventory and licenses",
+        "supports": [
+          "domain",
+          "data_access"
+        ]
+      }
+    ],
+    "checked_on": "2026-11-27"
   }
 ]

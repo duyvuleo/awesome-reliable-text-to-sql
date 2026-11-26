@@ -1845,12 +1845,13 @@
       "https://arxiv.org/abs/2601.08778",
       "https://vldb.org/2026/program.html",
       "https://github.com/uiuc-kang-lab/text_to_sql_benchmarks",
-      "https://raw.githubusercontent.com/uiuc-kang-lab/text_to_sql_benchmarks/main/materials/supplementary_material.pdf"
+      "https://raw.githubusercontent.com/uiuc-kang-lab/text_to_sql_benchmarks/main/materials/supplementary_material.pdf",
+      "https://www.vldb.org/cidrdb/papers/2026/p5-jin.pdf"
     ],
     "category": "verification",
     "source_depth": "full-text-reviewed",
     "artifact_status": "Official repository exposes code and data-access instructions; dependencies, downloads and reported results were not independently reproduced.",
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-27",
     "added_on": "2026-10-24",
     "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/annotation-errors.md"
   },
@@ -3824,5 +3825,61 @@
     "added_on": "2026-11-26",
     "checked_on": "2026-11-26",
     "artifact_status": "Public evaluation source, split files and author results are visible at the pinned repository revision. The README links external tables and metadata graphs. Its v0.4 inventory differs from the paper’s counts. The catalog records the benchmark and its evaluator separately. No archive, model or evaluator was run."
+  },
+  {
+    "id": "counterfactual-sql-rewards",
+    "title": "Single-Database Rewards Are Hackable: Counterfactual Execution for Trustworthy Text-to-SQL RL",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2611.34363",
+    "code_url": "https://github.com/RishiiGamer2201/counterfactual-sql-rewards",
+    "dataset_url": "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data",
+    "category": "verification",
+    "scope": "adjacent",
+    "topics": [
+      "evaluation",
+      "verification",
+      "database-state",
+      "reinforcement-learning"
+    ],
+    "summary": "Checks a candidate against the same reference SQL on several hidden database instances. On a synthetic retail audit this catches more accidental matches than checking one instance. Using a related reward during training did not improve in-domain accuracy on average across three seeds. A reference can still encode the wrong intent, and finite tests can miss query differences.",
+    "evidence": [
+      "https://arxiv.org/abs/2611.34363",
+      "https://arxiv.org/pdf/2611.34363v1",
+      "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/blob/d38373a4a7140bcca9890066c491e9205d9944f0/README.md",
+      "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/blob/8bf2b42a1578534a2dbd630b5bb12479bc0f12df/README.md"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/counterfactual-sql-rewards.md",
+    "added_on": "2026-11-27",
+    "checked_on": "2026-11-27",
+    "artifact_status": "The public repository lists generator, comparator, reward and evaluation source. The dataset release lists split manifests, database archives and training logs. The three policy adapters are listed separately. Training requires access to the gated base model. Source and release metadata were inspected; no experiments were reproduced."
+  },
+  {
+    "id": "sports-agent",
+    "title": "Sports Agent: A Self-Evolving System for Conversational Data Analytics",
+    "year": 2026,
+    "publication_status": "arXiv preprint",
+    "primary_url": "https://arxiv.org/abs/2611.33700",
+    "code_url": null,
+    "dataset_url": null,
+    "category": "interaction",
+    "scope": "adjacent",
+    "topics": [
+      "interactive-agents",
+      "evaluation",
+      "uncertainty",
+      "reinforcement-learning"
+    ],
+    "summary": "A sports analytics agent revises its model and instructions using feedback on tool traces. One prompt revision asks it to retrieve evidence, answer the supported part of a question and disclose gaps. The authors evaluate the combined edit and also report BIRD-Interact task rewards. Neither result isolates clarification quality or accuracy in recognizing unanswerable requests.",
+    "evidence": [
+      "https://arxiv.org/abs/2611.33700",
+      "https://arxiv.org/pdf/2611.33700v1"
+    ],
+    "source_depth": "full-text-reviewed",
+    "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sports-agent.md",
+    "added_on": "2026-11-27",
+    "checked_on": "2026-11-27",
+    "artifact_status": "Public paper and appendices describe the system. The BIRD-Interact and LiveSQLBench evaluation harnesses belong to upstream projects. A release of the authors’ own evolved agent or sports evaluation data was not independently verified."
   }
 ]

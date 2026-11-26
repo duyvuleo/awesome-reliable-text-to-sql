@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "checked": "2026-11-26",
-  "updated": "2026-11-26",
+  "checked": "2026-11-27",
+  "updated": "2026-11-27",
   "repository": "https://github.com/duyvuleo/awesome-reliable-text-to-sql",
   "counts": {
-    "paper": 134,
+    "paper": 136,
     "system": 28,
-    "tool": 28,
-    "benchmark": 40
+    "tool": 29,
+    "benchmark": 41
   },
   "categories": {
     "ambiguity": "Ambiguity and multiple interpretations",
@@ -1845,6 +1845,36 @@
       ]
     },
     {
+      "id": "counterfactual-sql-rewards",
+      "name": "Single-Database Rewards Are Hackable: Counterfactual Execution for Trustworthy Text-to-SQL RL",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "Checks a candidate against the same reference SQL on several hidden database instances. On a synthetic retail audit this catches more accidental matches than checking one instance. Using a related reward during training did not improve in-domain accuracy on average across three seeds. A reference can still encode the wrong intent, and finite tests can miss query differences.",
+      "entry_ids": [
+        "counterfactual-sql-rewards",
+        "counterfactual-sql-grader",
+        "counterfactual-sql-data"
+      ],
+      "themes": [
+        "database-state",
+        "evaluation",
+        "reinforcement-learning",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "kinds": [
+        "benchmark",
+        "paper",
+        "tool"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
       "id": "soma-sql",
       "name": "SOMA-SQL: Resolving Multi-Source Ambiguity in NL-to-SQL via Synthetic Log and Execution Probing",
       "date": "2026",
@@ -1858,6 +1888,32 @@
         "ambiguity",
         "execution-probing",
         "interactive-system"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "kinds": [
+        "paper"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    {
+      "id": "sports-agent",
+      "name": "Sports Agent: A Self-Evolving System for Conversational Data Analytics",
+      "date": "2026",
+      "year": 2026,
+      "kind": "paper",
+      "summary": "A sports analytics agent revises its model and instructions using feedback on tool traces. One prompt revision asks it to retrieve evidence, answer the supported part of a question and disclose gaps. The authors evaluate the combined edit and also report BIRD-Interact task rewards. Neither result isolates clarification quality or accuracy in recognizing unanswerable requests.",
+      "entry_ids": [
+        "sports-agent"
+      ],
+      "themes": [
+        "evaluation",
+        "interactive-agents",
+        "reinforcement-learning",
+        "uncertainty"
       ],
       "categories": [
         "interaction"
@@ -7710,9 +7766,10 @@
         "https://arxiv.org/abs/2601.08778",
         "https://vldb.org/2026/program.html",
         "https://github.com/uiuc-kang-lab/text_to_sql_benchmarks",
-        "https://raw.githubusercontent.com/uiuc-kang-lab/text_to_sql_benchmarks/main/materials/supplementary_material.pdf"
+        "https://raw.githubusercontent.com/uiuc-kang-lab/text_to_sql_benchmarks/main/materials/supplementary_material.pdf",
+        "https://www.vldb.org/cidrdb/papers/2026/p5-jin.pdf"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-11-27",
       "added_on": "2026-10-24",
       "url": "https://www.vldb.org/pvldb/vol19/p931-jin.pdf",
       "code_links": [
@@ -7739,12 +7796,13 @@
           "https://arxiv.org/abs/2601.08778",
           "https://vldb.org/2026/program.html",
           "https://github.com/uiuc-kang-lab/text_to_sql_benchmarks",
-          "https://raw.githubusercontent.com/uiuc-kang-lab/text_to_sql_benchmarks/main/materials/supplementary_material.pdf"
+          "https://raw.githubusercontent.com/uiuc-kang-lab/text_to_sql_benchmarks/main/materials/supplementary_material.pdf",
+          "https://www.vldb.org/cidrdb/papers/2026/p5-jin.pdf"
         ],
         "category": "verification",
         "source_depth": "full-text-reviewed",
         "artifact_status": "Official repository exposes code and data-access instructions; dependencies, downloads and reported results were not independently reproduced.",
-        "checked_on": "2026-11-09",
+        "checked_on": "2026-11-27",
         "added_on": "2026-10-24",
         "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/annotation-errors.md"
       },
@@ -11959,6 +12017,126 @@
         "artifact_status": "Public evaluation source, split files and author results are visible at the pinned repository revision. The README links external tables and metadata graphs. Its v0.4 inventory differs from the paper’s counts. The catalog records the benchmark and its evaluator separately. No archive, model or evaluator was run."
       },
       "work_id": "locust"
+    },
+    {
+      "id": "counterfactual-sql-rewards",
+      "name": "Single-Database Rewards Are Hackable: Counterfactual Execution for Trustworthy Text-to-SQL RL",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "Checks a candidate against the same reference SQL on several hidden database instances. On a synthetic retail audit this catches more accidental matches than checking one instance. Using a related reward during training did not improve in-domain accuracy on average across three seeds. A reference can still encode the wrong intent, and finite tests can miss query differences.",
+      "tags": [
+        "evaluation",
+        "verification",
+        "database-state",
+        "reinforcement-learning"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "The public repository lists generator, comparator, reward and evaluation source. The dataset release lists split manifests, database archives and training logs. The three policy adapters are listed separately. Training requires access to the gated base model. Source and release metadata were inspected; no experiments were reproduced.",
+      "sources": [
+        "https://arxiv.org/abs/2611.34363",
+        "https://arxiv.org/pdf/2611.34363v1",
+        "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/blob/d38373a4a7140bcca9890066c491e9205d9944f0/README.md",
+        "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/blob/8bf2b42a1578534a2dbd630b5bb12479bc0f12df/README.md"
+      ],
+      "checked": "2026-11-27",
+      "added_on": "2026-11-27",
+      "url": "https://arxiv.org/abs/2611.34363",
+      "code_links": [
+        "https://github.com/RishiiGamer2201/counterfactual-sql-rewards"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#counterfactual-sql-rewards",
+      "original": {
+        "id": "counterfactual-sql-rewards",
+        "title": "Single-Database Rewards Are Hackable: Counterfactual Execution for Trustworthy Text-to-SQL RL",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.34363",
+        "code_url": "https://github.com/RishiiGamer2201/counterfactual-sql-rewards",
+        "dataset_url": "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data",
+        "category": "verification",
+        "scope": "adjacent",
+        "topics": [
+          "evaluation",
+          "verification",
+          "database-state",
+          "reinforcement-learning"
+        ],
+        "summary": "Checks a candidate against the same reference SQL on several hidden database instances. On a synthetic retail audit this catches more accidental matches than checking one instance. Using a related reward during training did not improve in-domain accuracy on average across three seeds. A reference can still encode the wrong intent, and finite tests can miss query differences.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.34363",
+          "https://arxiv.org/pdf/2611.34363v1",
+          "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/blob/d38373a4a7140bcca9890066c491e9205d9944f0/README.md",
+          "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/blob/8bf2b42a1578534a2dbd630b5bb12479bc0f12df/README.md"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/counterfactual-sql-rewards.md",
+        "added_on": "2026-11-27",
+        "checked_on": "2026-11-27",
+        "artifact_status": "The public repository lists generator, comparator, reward and evaluation source. The dataset release lists split manifests, database archives and training logs. The three policy adapters are listed separately. Training requires access to the gated base model. Source and release metadata were inspected; no experiments were reproduced."
+      },
+      "work_id": "counterfactual-sql-rewards"
+    },
+    {
+      "id": "sports-agent",
+      "name": "Sports Agent: A Self-Evolving System for Conversational Data Analytics",
+      "kind": "paper",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Publication year",
+      "summary": "A sports analytics agent revises its model and instructions using feedback on tool traces. One prompt revision asks it to retrieve evidence, answer the supported part of a question and disclose gaps. The authors evaluate the combined edit and also report BIRD-Interact task rewards. Neither result isolates clarification quality or accuracy in recognizing unanswerable requests.",
+      "tags": [
+        "interactive-agents",
+        "evaluation",
+        "uncertainty",
+        "reinforcement-learning"
+      ],
+      "categories": [
+        "interaction"
+      ],
+      "evidence": "arXiv preprint",
+      "status": "Public paper and appendices describe the system. The BIRD-Interact and LiveSQLBench evaluation harnesses belong to upstream projects. A release of the authors’ own evolved agent or sports evaluation data was not independently verified.",
+      "sources": [
+        "https://arxiv.org/abs/2611.33700",
+        "https://arxiv.org/pdf/2611.33700v1"
+      ],
+      "checked": "2026-11-27",
+      "added_on": "2026-11-27",
+      "url": "https://arxiv.org/abs/2611.33700",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/README.md#sports-agent",
+      "original": {
+        "id": "sports-agent",
+        "title": "Sports Agent: A Self-Evolving System for Conversational Data Analytics",
+        "year": 2026,
+        "publication_status": "arXiv preprint",
+        "primary_url": "https://arxiv.org/abs/2611.33700",
+        "code_url": null,
+        "dataset_url": null,
+        "category": "interaction",
+        "scope": "adjacent",
+        "topics": [
+          "interactive-agents",
+          "evaluation",
+          "uncertainty",
+          "reinforcement-learning"
+        ],
+        "summary": "A sports analytics agent revises its model and instructions using feedback on tool traces. One prompt revision asks it to retrieve evidence, answer the supported part of a question and disclose gaps. The authors evaluate the combined edit and also report BIRD-Interact task rewards. Neither result isolates clarification quality or accuracy in recognizing unanswerable requests.",
+        "evidence": [
+          "https://arxiv.org/abs/2611.33700",
+          "https://arxiv.org/pdf/2611.33700v1"
+        ],
+        "source_depth": "full-text-reviewed",
+        "reading_notes_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/papers/notes/sports-agent.md",
+        "added_on": "2026-11-27",
+        "checked_on": "2026-11-27",
+        "artifact_status": "Public paper and appendices describe the system. The BIRD-Interact and LiveSQLBench evaluation harnesses belong to upstream projects. A release of the authors’ own evolved agent or sports evaluation data was not independently verified."
+      },
+      "work_id": "sports-agent"
     },
     {
       "id": "clarity-pipeline",
@@ -16946,13 +17124,117 @@
         "checked_on": "2026-11-26"
       },
       "work_id": "locust"
+    },
+    {
+      "id": "counterfactual-sql-grader",
+      "name": "Counterfactual SQL reward evaluator",
+      "kind": "tool",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Evaluation code for comparing candidate and reference SQL on an original database and hidden variants that retain the task’s business rules.",
+      "tags": [
+        "database-state",
+        "evaluation",
+        "reinforcement-learning",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "Generator, comparator, rewards, tests and evaluation sources are visible. Some training and transfer experiments require a gated base model or additional external artifacts. Runtime and results were not independently checked.",
+      "sources": [
+        "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/blob/d38373a4a7140bcca9890066c491e9205d9944f0/README.md",
+        "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/tree/d38373a4a7140bcca9890066c491e9205d9944f0/sqlcf",
+        "https://arxiv.org/pdf/2611.34363v1"
+      ],
+      "checked": "2026-11-27",
+      "added_on": null,
+      "url": "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/tree/d38373a4a7140bcca9890066c491e9205d9944f0/sqlcf",
+      "code_links": [
+        "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/tree/d38373a4a7140bcca9890066c491e9205d9944f0/sqlcf"
+      ],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/systems/README.md#counterfactual-sql-grader",
+      "original": {
+        "id": "counterfactual-sql-grader",
+        "name": "Counterfactual SQL reward evaluator",
+        "kind": "tool",
+        "paper_ids": [
+          "counterfactual-sql-rewards"
+        ],
+        "url": "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/tree/d38373a4a7140bcca9890066c491e9205d9944f0/sqlcf",
+        "description": "Evaluation code for comparing candidate and reference SQL on an original database and hidden variants that retain the task’s business rules.",
+        "protocol": "Provides single-instance and multi-instance reward comparisons for fixed candidates and training. The paper distinguishes all-instance agreement from a graded reward conditional on the original result.",
+        "availability": "Generator, comparator, rewards, tests and evaluation sources are visible. Some training and transfer experiments require a gated base model or additional external artifacts. Runtime and results were not independently checked.",
+        "license_note": "The repository identifies the source code as Apache-2.0. The data, derived trajectories and model artifacts have separate terms.",
+        "evidence": [
+          "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/blob/d38373a4a7140bcca9890066c491e9205d9944f0/README.md",
+          "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/tree/d38373a4a7140bcca9890066c491e9205d9944f0/sqlcf",
+          "https://arxiv.org/pdf/2611.34363v1"
+        ],
+        "checked_on": "2026-11-27"
+      },
+      "work_id": "counterfactual-sql-rewards"
+    },
+    {
+      "id": "counterfactual-sql-data",
+      "name": "Counterfactual SQL Rewards data",
+      "kind": "benchmark",
+      "year": 2026,
+      "date": "2026",
+      "date_label": "Latest linked paper year",
+      "summary": "Synthetic retail SQLite questions, reference queries and modified databases for auditing execution-based rewards, with separate training and held-out template splits.",
+      "tags": [
+        "database-state",
+        "evaluation",
+        "reinforcement-learning",
+        "verification"
+      ],
+      "categories": [
+        "verification"
+      ],
+      "evidence": "resource",
+      "status": "The public release lists item manifests, build reports and database archives for the three splits, plus generated trajectories and multi-seed logs. The archives were not downloaded or independently counted.",
+      "sources": [
+        "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/blob/8bf2b42a1578534a2dbd630b5bb12479bc0f12df/README.md",
+        "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/tree/8bf2b42a1578534a2dbd630b5bb12479bc0f12df",
+        "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/blob/d38373a4a7140bcca9890066c491e9205d9944f0/README.md",
+        "https://arxiv.org/pdf/2611.34363v1"
+      ],
+      "checked": "2026-11-27",
+      "added_on": null,
+      "url": "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/tree/8bf2b42a1578534a2dbd630b5bb12479bc0f12df",
+      "code_links": [],
+      "catalog_url": "https://github.com/duyvuleo/awesome-reliable-text-to-sql/blob/main/datasets/README.md#counterfactual-sql-data",
+      "original": {
+        "id": "counterfactual-sql-data",
+        "name": "Counterfactual SQL Rewards data",
+        "kind": "dataset",
+        "paper_ids": [
+          "counterfactual-sql-rewards"
+        ],
+        "url": "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/tree/8bf2b42a1578534a2dbd630b5bb12479bc0f12df",
+        "description": "Synthetic retail SQLite questions, reference queries and modified databases for auditing execution-based rewards, with separate training and held-out template splits.",
+        "protocol": "Paper-reported split sizes are 1,302 audit, 907 training and 331 test items. The policy can probe the original database. Hidden copies are used for grading. The synthetic test compares results across the original and four copies generated without targeting a known bug family.",
+        "availability": "The public release lists item manifests, build reports and database archives for the three splits, plus generated trajectories and multi-seed logs. The archives were not downloaded or independently counted.",
+        "license_note": "The data card identifies CC BY-NC 4.0 for the generated material and CC BY-SA 4.0 for Spider-derived trajectories. Spider’s databases are separate upstream artifacts.",
+        "evidence": [
+          "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/blob/8bf2b42a1578534a2dbd630b5bb12479bc0f12df/README.md",
+          "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/tree/8bf2b42a1578534a2dbd630b5bb12479bc0f12df",
+          "https://github.com/RishiiGamer2201/counterfactual-sql-rewards/blob/d38373a4a7140bcca9890066c491e9205d9944f0/README.md",
+          "https://arxiv.org/pdf/2611.34363v1"
+        ],
+        "checked_on": "2026-11-27"
+      },
+      "work_id": "counterfactual-sql-rewards"
     }
   ],
   "themes": [
     {
       "id": "evaluation",
       "label": "Evaluation",
-      "count": 52
+      "count": 54
     },
     {
       "id": "ambiguity",
@@ -16967,7 +17249,7 @@
     {
       "id": "verification",
       "label": "Verification",
-      "count": 37
+      "count": 38
     },
     {
       "id": "unanswerability",
@@ -16982,7 +17264,7 @@
     {
       "id": "uncertainty",
       "label": "Uncertainty",
-      "count": 21
+      "count": 22
     },
     {
       "id": "clinical",
@@ -17075,6 +17357,11 @@
       "count": 5
     },
     {
+      "id": "reinforcement-learning",
+      "label": "Reinforcement learning",
+      "count": 5
+    },
+    {
       "id": "business-semantics",
       "label": "Business semantics",
       "count": 4
@@ -17082,6 +17369,11 @@
     {
       "id": "database-retrieval",
       "label": "Database retrieval",
+      "count": 4
+    },
+    {
+      "id": "database-state",
+      "label": "Database state",
       "count": 4
     },
     {
@@ -17093,11 +17385,6 @@
       "id": "selective-prediction",
       "label": "Selective prediction",
       "count": 4
-    },
-    {
-      "id": "database-state",
-      "label": "Database state",
-      "count": 3
     },
     {
       "id": "detection",
@@ -17112,6 +17399,11 @@
     {
       "id": "interaction",
       "label": "Interaction",
+      "count": 3
+    },
+    {
+      "id": "interactive-agents",
+      "label": "Interactive agents",
       "count": 3
     },
     {
@@ -17137,11 +17429,6 @@
     {
       "id": "query-rewriting",
       "label": "Query rewriting",
-      "count": 3
-    },
-    {
-      "id": "reinforcement-learning",
-      "label": "Reinforcement learning",
       "count": 3
     },
     {
@@ -17172,11 +17459,6 @@
     {
       "id": "dynamic-evaluation",
       "label": "Dynamic evaluation",
-      "count": 2
-    },
-    {
-      "id": "interactive-agents",
-      "label": "Interactive agents",
       "count": 2
     },
     {
@@ -19527,6 +19809,53 @@
         }
       ],
       "checked_on": "2026-11-26"
+    },
+    {
+      "resource_id": "counterfactual-sql-data",
+      "label": "Counterfactual SQL Rewards",
+      "relevance": "adjacent",
+      "ambiguity": {
+        "status": "not_targeted",
+        "detail": "One intended calculation is supplied per synthetic item. The audit distinguishes query behaviors across data instances, without labeling multiple defensible readings of a request."
+      },
+      "unanswerability": {
+        "status": "not_targeted",
+        "detail": "Construction requires a deterministic, non-degenerate reference answer. Unsupported requests are outside the scoring protocol."
+      },
+      "clarification": {
+        "mode": "not_targeted",
+        "detail": "The agent can query the original database. The task supplies no user replies or clarification scores."
+      },
+      "interaction": {
+        "mode": "static",
+        "detail": "Each evaluation item has fixed databases and a question. The policy may explore the original database across tool calls before submitting SQL; there is no user simulator."
+      },
+      "domain": "English questions over one eight-table synthetic SQLite retail schema. The separate Spider transfer experiment uses upstream databases.",
+      "evaluation": "Full reward on correct and flawed candidates, agreement on held-out instances after training, and a separate Spider test-suite score. These evaluate finite reference agreement.",
+      "data_access": "public_artifacts",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/pdf/2611.34363v1",
+          "locator": "Sections 2–5 and Appendices A, C and D",
+          "supports": [
+            "ambiguity",
+            "unanswerability",
+            "clarification",
+            "interaction",
+            "domain",
+            "evaluation"
+          ]
+        },
+        {
+          "url": "https://huggingface.co/datasets/counterfactual-sql/counterfactual-sql-data/blob/8bf2b42a1578534a2dbd630b5bb12479bc0f12df/README.md",
+          "locator": "Dataset composition, split inventory and licenses",
+          "supports": [
+            "domain",
+            "data_access"
+          ]
+        }
+      ],
+      "checked_on": "2026-11-27"
     }
   ]
 }
